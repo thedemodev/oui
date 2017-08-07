@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Revert `jest` version `20.0.4` back to `18.0.0` for testing broken app builds.
 
 ## 26.2.1 - 2017-08-01
 - [Patch] Update React component highlighting (#761)
