@@ -8,7 +8,6 @@ import SassComponentExample from 'docs/components/sass/ComponentExample';
 import { browserHistory } from 'react-router';
 import { css } from 'glamor';
 import s from 'docs/styles/';
-import ouiIcons from 'oui-icons';
 
 import TabNav from '../../src/components/TabNav';
 
@@ -159,7 +158,6 @@ class Component extends React.Component {
 
             { lang === 'sass' && sassData && sassData.example &&
               <div>
-                <div dangerouslySetInnerHTML={{ __html: ouiIcons }} className="display--none"></div>
                 { sassData.example.map((example, i) => (
                   <SassComponentExample key={ i } component={ example } />
                 )) }

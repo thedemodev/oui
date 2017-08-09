@@ -13,21 +13,28 @@ describe('components/Input', () => {
     expect(component.is('[type="text"]')).toBe(true);
   });
 
-  it('should render error class when hasError prop is true', () => {
+  it('should render error class when displayError prop is true', () => {
     const component = shallow(
-      <Input type="text" hasError={ true } />
+      <Input type="text" displayError={ true } />
     );
 
     expect(component.hasClass('oui-form-bad-news')).toBe(true);
   });
 
-  it('should render error class on label when hasError prop is true', () => {
+  it('should render proper text align class when prop is set', () => {
     const component = shallow(
-      <Input type="text" label="Hello" hasError={ true } />
+      <Input type="text" textAlign="right" />
     );
 
-    expect(component.find('.oui-form-bad-news .oui-label').length).toBe(1);
-    // expect(component.hasClass('oui-form-bad-news')).toBe(true);
+    expect(component.find('input').hasClass('text--right')).toBe(true);
+  });
+
+  it('should render proper text align class when prop is set', () => {
+    const component = shallow(
+      <Input type="text" textAlign="left" />
+    );
+
+    expect(component.find('input').hasClass('text--left')).toBe(true);
   });
 
   it('should render a "number" input when type="number" is passed', () => {

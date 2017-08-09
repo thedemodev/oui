@@ -19,7 +19,7 @@ class Input extends React.Component {
 
   renderInput({
     isFilter,
-    hasError,
+    displayError,
     type,
     value,
     defaultValue,
@@ -35,11 +35,19 @@ class Input extends React.Component {
     min,
     max,
     testSection,
-    focus }) {
+    focus,
+    textAlign }) {
+
+    let hasAlignStyle = false;
+    if (textAlign) {
+      hasAlignStyle = true;
+    }
+
     let classes = classNames(
       'oui-text-input',
       {'oui-text-input--search': isFilter},
-      {'oui-form-bad-news': hasError}
+      {'oui-form-bad-news': displayError},
+      {[`text--${textAlign}`]: hasAlignStyle}
     );
 
     return (
@@ -74,7 +82,7 @@ class Input extends React.Component {
       return (
         <div
           data-oui-component={ true }
-          className={ classNames({'oui-form-bad-news': this.props.hasError}) }>
+          className={ classNames({'oui-form-bad-news': this.props.displayError}) }>
           <Label testSection={ this.props.testSection && this.props.testSection + '-label' }>
             <div className="oui-label">
               { this.props.label }
@@ -94,7 +102,7 @@ Input.propTypes = {
   /** The default value of the input used on initial render */
   defaultValue: PropTypes.string,
     /** Includes search icon if true */
-  hasError: PropTypes.bool,
+  displayError: PropTypes.bool,
   /** Prevents input from being modified and appears disabled */
   isDisabled: PropTypes.bool,
   /** Includes error if true */
@@ -140,6 +148,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+  /** Align text inside input. Default is left. */
+  textAlign: PropTypes.oneOf(['left', 'right']),
   /** Supported input types */
   type: PropTypes.oneOf([
     'text',

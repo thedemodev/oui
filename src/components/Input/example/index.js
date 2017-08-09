@@ -88,6 +88,11 @@ export default [
   },
   {
     examples: [
+      <Input type="number" textAlign="right" min={ 10 } max={ 50 } />,
+    ],
+  },
+  {
+    examples: [
       <Input type="date" />,
     ],
   },

@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add Input prop to control textAlign left/right. (#764)
 
 ## 26.2.3 - 2017-08-09
 - [Patch] Revert recent Input component div wrapping changes that were breaking tests. (#767)
