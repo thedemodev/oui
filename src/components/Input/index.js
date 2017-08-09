@@ -11,64 +11,81 @@ import PropTypes from 'prop-types';
  */
 
 class Input extends React.Component {
-
   blur() {
     if (this._input) {
       this._input.blur();
     }
   }
 
-  renderInput(opts) {
-    let noteLabel = null;
-    if (opts.note) {
-      noteLabel = <div className="oui-form-note">{ opts.note }</div>;
-    }
-
-    let wrapperClasses = classNames({
-      'oui-form-bad-news': opts.displayError,
-      'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
-    });
-
-    let classes = classNames({
-      'oui-text-input': true,
-      'oui-text-input--search': opts.isFilter,
-    });
+  renderInput({
+    isFilter,
+    hasError,
+    type,
+    value,
+    defaultValue,
+    placeholder,
+    isRequired,
+    isReadOnly,
+    isDisabled,
+    onInput,
+    onChange,
+    onBlur,
+    onKeyDown,
+    onFocus,
+    min,
+    max,
+    testSection,
+    focus }) {
+    let classes = classNames(
+      'oui-text-input',
+      {'oui-text-input--search': isFilter},
+      {'oui-form-bad-news': hasError}
+    );
 
     return (
       /* eslint-disable react/jsx-no-bind */
-      <div data-oui-component={ true } className={ wrapperClasses }>
-        <Label
-          displayError={ opts.displayError }
-          isRequired={ opts.isRequired }
-          isOptional={ opts.isOptional }>
-          { opts.label }
-        </Label>
-        <input
-          className={ classes }
-          ref={ (c) => { this._input = c; } }
-          type={ opts.type }
-          value={ opts.value }
-          defaultValue={ opts.defaultValue }
-          placeholder={ opts.placeholder }
-          required={ opts.isRequired }
-          readOnly={ opts.isReadOnly }
-          disabled={ opts.isDisabled }
-          onInput={ opts.onInput }
-          onChange={ opts.onChange }
-          onBlur={ opts.onBlur }
-          onKeyDown={ opts.onKeyDown }
-          onFocus={ opts.onFocus }
-          min={ opts.min }
-          max={ opts.max }
-          data-test-section={ opts.testSection }
-        />
-        { noteLabel }
-      </div>
+      <input
+        data-oui-component={ true }
+        className={ classes }
+        ref={ (c) => { this._input = c; } }
+        type={ type }
+        value={ value }
+        defaultValue={ defaultValue }
+        placeholder={ placeholder }
+        required={ isRequired }
+        readOnly={ isReadOnly }
+        disabled={ isDisabled }
+        onInput={ onInput }
+        onChange={ onChange }
+        onBlur={ onBlur }
+        onKeyDown={ onKeyDown }
+        onFocus={ onFocus }
+        min={ min }
+        max={ max }
+        data-test-section={ testSection }
+        autoFocus={ focus }
+      />
       /* eslint-enable */
     );
   }
 
   render() {
+    if (this.props.label) {
+      return (
+        <div
+          data-oui-component={ true }
+          className={ classNames({'oui-form-bad-news': this.props.hasError}) }>
+          <Label testSection={ this.props.testSection && this.props.testSection + '-label' }>
+            <div className="oui-label">
+              { this.props.label }
+              { this.props.isOptional && <span className="oui-label__optional">(Optional)</span> }
+            </div>
+            { this.renderInput(this.props) }
+          </Label>
+        </div>
+      );
+    }
+
     return this.renderInput(this.props);
   }
 }
@@ -76,8 +93,8 @@ class Input extends React.Component {
 Input.propTypes = {
   /** The default value of the input used on initial render */
   defaultValue: PropTypes.string,
-  /** Toggle error state styles  */
-  displayError: PropTypes.bool,
+    /** Includes search icon if true */
+  hasError: PropTypes.bool,
   /** Prevents input from being modified and appears disabled */
   isDisabled: PropTypes.bool,
   /** Includes error if true */
@@ -106,8 +123,6 @@ Input.propTypes = {
    * Min value for the `input`. Should be used only when `type` is `number`.
    */
   min: PropTypes.number,
-  /** Append note near form input. */
-  note: PropTypes.string,
   /**
    * Function that fires when the input loses focus. It fires regardless of
    * whether the value has changed.

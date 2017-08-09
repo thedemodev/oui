@@ -20,11 +20,6 @@ export default [
   },
   {
     examples: [
-      <Label displayError={ true }>I'm a Label with an error</Label>,
-    ],
-  },
-  {
-    examples: [
       <Label>
         <div>When I have nodes,</div>
         <div>I'm unstyled</div>

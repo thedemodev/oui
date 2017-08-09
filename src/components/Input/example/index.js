@@ -7,27 +7,7 @@ export default [
     examples: [
       <Input
         type="text"
-        label="Label"
-        note="This is a note"
         placeholder="This is a placeholder"
-        isRequired={ true }
-      />,
-    ],
-  },
-  {
-    examples: [
-      <Input type="text" label="Hello" displayError={ true } />,
-    ],
-  },
-  {
-    examples: [
-      <Input
-        type="text"
-        label="Label with error state"
-        note="This is a note with error state"
-        displayError={ true }
-        placeholder="This is a placeholder with error state"
-        isRequired={ true }
       />,
     ],
   },
@@ -35,15 +15,8 @@ export default [
     examples: [
       <Input
         type="text"
-        placeholder="This is a placeholder with an error"
-      />,
-    ],
-  },
-  {
-    examples: [
-      <Input
-        type="text"
-        displayError={ true }
+        label="Test"
+        hasError={ true }
         placeholder="This is a placeholder"
       />,
     ],

@@ -1,6 +1,6 @@
 import React from 'react';
 import Label from '../index';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, render } from 'enzyme';
 
 describe('components/Label', () => {
   it('should render label with text content', () => {
@@ -9,26 +9,18 @@ describe('components/Label', () => {
   });
 
   it('should render nothing when label is empty', () => {
-    const component = mount(<Label></Label>);
+    const component = shallow(<Label></Label>);
     expect(!component);
   });
 
   it('should render label with correct classes content', () => {
-    const component = mount(<Label>Foo</Label>);
-    expect(component.find('.oui-label').length).toBe(1);
+    const component = shallow(<Label>Foo</Label>);
+    expect(component.hasClass('oui-label')).toBe(true);
   });
 
   it('should render label as a `label` element', () => {
     const component = shallow(<Label>Foo</Label>);
     expect(component.type()).toBe('label');
-  });
-
-  it('should render error class when displayError prop is true', () => {
-    const component = mount(
-      <Label displayError={ true }>Hello Error</Label>
-    );
-
-    expect(component.hasClass('oui-form-bad-news')).toBe(true);
   });
 
   describe('with DOM nodes as children', () => {
