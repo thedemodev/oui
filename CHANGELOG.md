@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 26.3.0 - 2017-08-11
 - [Feature] Add focus styles to buttons. (#771)
 - [Feature] Add Input prop to control textAlign left/right. (#764)
 
