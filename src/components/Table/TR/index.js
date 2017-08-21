@@ -1,29 +1,35 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-const TR = (props) => {
+const TR = ({
+  isActive,
+  noBorder,
+  testSection,
+  children,
+}) => {
   let classes = classNames({
-    'oui-table-row--active': props.isActive,
-    'no-border': props.noBorder,
+    'oui-table-row--active': isActive,
+    'no-border': noBorder,
   });
   return (
     <tr
       className={ classes }
-      data-test-section={ props.testSection }>
-      { props.children }
+      data-test-section={ testSection }>
+      { children }
     </tr>
   );
 };
 
 TR.propTypes = {
   /** Expects a `Table.TD` or `Table.TH` component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /** If true, add active class */
-  isActive: React.PropTypes.bool,
+  isActive: PropTypes.bool,
   /** If true, add class to remove border */
-  noBorder: React.PropTypes.bool,
+  noBorder: PropTypes.bool,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 TR.displayName = 'Table.TR';

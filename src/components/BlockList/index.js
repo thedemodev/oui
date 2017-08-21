@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import classNames from 'classnames';
+
 import Category from './Category';
 import Item from './Item';
-
-import classNames from 'classnames';
 
 /**
  * Building blocks to display a list of items that perform actions.
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const BlockList = (props) => {
+const BlockList = ({
+  hasBorder = true,
+  testSection,
+  maxHeight,
+  children,
+}) => {
   const classes = classNames({
     'background--white': true,
     'overflow-x--auto': true,
-    'border--all': props.hasBorder,
+    'border--all': hasBorder,
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
@@ -23,10 +28,10 @@ const BlockList = (props) => {
     <div
       data-oui-component={ true }
       className={ classes }
-      data-test-section={ props.testSection }
-      style={{ maxHeight: props.maxHeight }}>
+      data-test-section={ testSection }
+      style={{ maxHeight: maxHeight }}>
       <ul style={{ display: 'inline-block', minWidth: '100%' }}>
-        { props.children }
+        { children }
       </ul>
     </div>
   );
@@ -47,10 +52,6 @@ BlockList.propTypes = {
   ]),
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
-};
-
-BlockList.defaultProps = {
-  hasBorder: true,
 };
 
 BlockList.Category = Category;

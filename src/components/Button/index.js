@@ -6,13 +6,25 @@ import classNames from 'classnames';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const Button = (props) => {
+
+const Button = ({
+  ariaLabel,
+  isSubmit = false,
+  children,
+  isActive,
+  isDisabled,
+  onClick,
+  size,
+  style,
+  testSection,
+  width = 'default',
+}) => {
   const buttonClassNames = classNames({
     'oui-button': true,
-    [`oui-button--${props.style}`]: props.style,
-    [`oui-button--${props.size}`]: props.size,
-    [`oui-button--${props.width}`]: props.width,
-    ['is-active']: props.isActive,
+    [`oui-button--${style}`]: style,
+    [`oui-button--${size}`]: size,
+    [`oui-button--${width}`]: width,
+    ['is-active']: isActive,
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
@@ -20,12 +32,12 @@ const Button = (props) => {
     <button
       data-oui-component={ true }
       className={ buttonClassNames }
-      disabled={ props.isDisabled ? 'disabled' : false }
-      type={ props.isSubmit ? 'submit' : 'button' }
-      onClick={ props.onClick }
-      data-test-section={ props.testSection }
-      aria-label={ props.ariaLabel }>
-      { props.children }
+      disabled={ isDisabled ? 'disabled' : false }
+      type={ isSubmit ? 'submit' : 'button' }
+      onClick={ onClick }
+      data-test-section={ testSection }
+      aria-label={ ariaLabel }>
+      { children }
     </button>
   );
 };
@@ -70,11 +82,6 @@ Button.propTypes = {
     'default',
     'full',
   ]),
-};
-
-Button.defaultProps = {
-  isSubmit: false,
-  width: 'default',
 };
 
 Button.displayName = 'Button';

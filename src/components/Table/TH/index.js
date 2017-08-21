@@ -1,40 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TH = (props) => {
+const TH = ({
+  children,
+  isCollapsed,
+  isNumerical,
+  testSection,
+  width,
+}) => {
   let classes = classNames({
-    'oui-numerical': props.isNumerical,
-    'oui-cell-collapse': props.isCollapsed,
+    'oui-numerical': isNumerical,
+    'oui-cell-collapse': isCollapsed,
   });
 
   const styles = {
-    width: props.width,
+    width: width,
   };
 
   return (
     <th
       className={ classes }
-      data-test-section={ props.testSection }
+      data-test-section={ testSection }
       style={ styles }>
-      { props.children }
+      { children }
     </th>
   );
 };
 
 TH.propTypes = {
   /** Content within the `Table.TH` component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /**
     Tell the cell to take up the least amount of width possible. This only
     works well if the table layout is `auto`, not `fixed`.
   */
-  isCollapsed: React.PropTypes.bool,
+  isCollapsed: PropTypes.bool,
   /** Right-align the cell if the contents are numerical */
-  isNumerical: React.PropTypes.bool,
+  isNumerical: PropTypes.bool,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
   /** A number with a unit that becomes the width of the `Table` cell */
-  width: React.PropTypes.string,
+  width: PropTypes.string,
 };
 
 TH.defaultProps = {

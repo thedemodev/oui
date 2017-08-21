@@ -9,9 +9,14 @@ import Tab from './Tab';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const TabNav = (props) => {
-  const tabStyleClasses = props.style ? props.style.map((style) => {
-    return 'oui-tabs--' + style;
+const TabNav = ({
+  activeTab,
+  children,
+  style,
+  testSection,
+}) => {
+  const tabStyleClasses = style ? style.map((styleName) => {
+    return `oui-tabs--${styleName}`;
   }) : '';
 
   const classes = classNames(
@@ -22,16 +27,16 @@ const TabNav = (props) => {
 
   // Determine if the child is an active tab.
   // From http://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
-  const childrenWithProps = React.Children.map(props.children, (child) => {
+  const childrenWithProps = React.Children.map(children, (child) => {
     return React.cloneElement(child, {
-      isActive: props.activeTab === child.props.tabId,
+      isActive: activeTab === child.props.tabId,
     });
   });
 
   return (
     <div
       data-oui-component={ true }
-      data-test-section={ props.testSection }
+      data-test-section={ testSection }
       className={ classes }>
       <ul
         className="oui-tabs-nav"

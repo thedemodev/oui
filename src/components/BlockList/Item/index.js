@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Item extends React.Component {
   constructor(props) {
@@ -66,17 +67,17 @@ class Item extends React.Component {
 
 Item.propTypes = {
   /** String or JSX that appears within the component */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /** URL to navigate to when clicking on the item */
-  href: React.PropTypes.string,
+  href: PropTypes.string,
   /** Target that the link, if provided, should open in */
-  hrefTarget: React.PropTypes.oneOf(['_self', '_blank']),
+  hrefTarget: PropTypes.oneOf(['_self', '_blank']),
   /** Sets the `title` attribute on an `href` */
-  hrefTitle: React.PropTypes.string,
+  hrefTitle: PropTypes.string,
   /** Function that is run when clicking on the item */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 Item.displayName = 'BlockList.Item';

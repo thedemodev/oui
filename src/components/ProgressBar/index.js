@@ -12,17 +12,15 @@ import Label from '../Label';
  * @returns {ReactElement}
  */
 
-const ProgressBar = (props) => {
-  const {
-    displayError = false,
-    leftLabel,
-    max = 100,
-    min = 0,
-    progress,
-    rightLabel,
-    topLabel,
-  } = props;
-
+const ProgressBar = ({
+  displayError = false,
+  leftLabel,
+  max = 100,
+  min = 0,
+  progress,
+  rightLabel,
+  topLabel,
+}) => {
   const ouiProgress = classnames(
     'oui-progress',
     { 'oui-progress--bad-news': displayError }

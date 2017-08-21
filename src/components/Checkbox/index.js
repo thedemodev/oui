@@ -9,34 +9,41 @@ import Label from '../Label';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const Checkbox = (props) => {
+const Checkbox = ({
+  checked,
+  defaultChecked,
+  isDisabled,
+  label,
+  onChange,
+  testSection,
+}) => {
   const labelClassNames = classNames({
     'flush--bottom': true,
     'push--left': true,
     'weight--normal': true,
     'cursor--pointer': true,
-    'oui-label--disabled': props.isDisabled,
+    'oui-label--disabled': isDisabled,
   });
   const classes = classNames({
     'flex--none': true,
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
   return (
-    <Label testSection={ props.testSection && props.testSection + '-label' }>
+    <Label testSection={ testSection && testSection + '-label' }>
       <div className="flex">
         <input
           data-oui-component={ true }
           type="checkbox"
-          defaultChecked={ props.defaultChecked }
-          checked={ props.checked }
+          defaultChecked={ defaultChecked }
+          checked={ checked }
           className={ classes }
-          disabled={ props.isDisabled }
-          onChange={ props.onChange }
-          data-test-section={ props.testSection }
+          disabled={ isDisabled }
+          onChange={ onChange }
+          data-test-section={ testSection }
           style={{ 'marginTop': '0.35em' }}
         />
         <div className={ labelClassNames }>
-          { props.label }
+          { label }
         </div>
       </div>
     </Label>

@@ -35,13 +35,19 @@ class Code extends React.Component {
 
   renderCode() {
     let dangerouslySetInnerHTML = null;
+    const {
+      isHighlighted,
+      language,
+      type,
+      testSection,
+    } = this.props;
     let code = this.props.children;
 
-    if (this.props.isHighlighted) {
+    if (isHighlighted) {
       // Code that uses syntax highlighting needs to have
       // `dangerouslySetInnerHTML` set so that the HTML returned is displayed.
       dangerouslySetInnerHTML = {
-        __html: this.props.language ? Highlight.highlight(this.props.language, code).value :
+        __html: language ? Highlight.highlight(language, code).value :
                                       Highlight.highlightAuto(code).value,
       };
       code = null;
@@ -51,8 +57,8 @@ class Code extends React.Component {
       /* eslint-disable react/no-danger */
       <code
         data-oui-component={ true }
-        className={ this.props.type === 'inline' ? 'oui-code' : '' }
-        data-test-section={ this.props.type === 'inline' && this.props.testSection }
+        className={ type === 'inline' ? 'oui-code' : '' }
+        data-test-section={ type === 'inline' && testSection }
         dangerouslySetInnerHTML={ dangerouslySetInnerHTML }>
         { code }
       </code>
@@ -61,27 +67,33 @@ class Code extends React.Component {
   }
 
   render() {
+    const {
+      children,
+      type,
+      hasCopyButton,
+      testSection,
+    } = this.props;
     let classes = classNames({
       'oui-pre': true,
       'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     });
 
-    if (!this.props.children) {
+    if (!children) {
       return null;
     }
 
-    if (this.props.type === 'inline') {
+    if (type === 'inline') {
       return this.renderCode();
     }
 
     return (
       <div data-oui-component={ true } className="position--relative">
-        { this.props.hasCopyButton &&
-          <CopyButton code={ this.props.children } testSection={ this.props.testSection } />
+        { hasCopyButton &&
+          <CopyButton code={ children } testSection={ testSection } />
         }
         <pre
           className={ classes }
-          data-test-section={ this.props.testSection }>
+          data-test-section={ testSection }>
           { this.renderCode() }
         </pre>
       </div>

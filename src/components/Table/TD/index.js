@@ -1,44 +1,48 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-const TD = (props) => {
+const TD = ({
+  children,
+  colSpan,
+  isNumerical = false,
+  testSection,
+  verticalAlign,
+  width,
+}) => {
   let classes = classNames({
-    'oui-numerical': props.isNumerical,
-    [`vertical-align--${ props.verticalAlign }`]: props.verticalAlign,
+    'oui-numerical': isNumerical,
+    [`vertical-align--${ verticalAlign }`]: verticalAlign,
   });
 
   const styles = {
-    width: props.width,
+    width: width,
   };
 
   return (
     <td
       className={ classes }
-      data-test-section={ props.testSection }
+      data-test-section={ testSection }
       style={ styles }
-      colSpan={ props.colSpan }>
-      { props.children }
+      colSpan={ colSpan }>
+      { children }
     </td>
   );
 };
 
 TD.propTypes = {
   /** Content within the `Table.TD` component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /** Number of columns that the cell should span */
-  colSpan: React.PropTypes.number,
+  colSpan: PropTypes.number,
   /** Right-align the cell if the contents are numerical */
-  isNumerical: React.PropTypes.bool,
+  isNumerical: PropTypes.bool,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
   /** Apply a class that vertically aligns the cells within the children */
-  verticalAlign: React.PropTypes.oneOf(['middle']),
+  verticalAlign: PropTypes.oneOf(['middle']),
   /** A number with a unit that becomes the width of the `Table` cell */
-  width: React.PropTypes.string,
-};
-
-TD.defaultProps = {
-  isNumerical: false,
+  width: PropTypes.string,
 };
 
 TD.displayName = 'Table.TD';

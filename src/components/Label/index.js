@@ -6,17 +6,22 @@ import PropTypes from 'prop-types';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const Label = (props) => {
+const Label = ({
+  isOptional,
+  isRequired,
+  children,
+  testSection,
+}) => {
   let classes = null;
   let fieldLabel = null;
 
-  if (props.isRequired) {
+  if (isRequired) {
     fieldLabel = <span className="oui-label--required"></span>;
-  } else if (props.isOptional) {
+  } else if (isOptional) {
     fieldLabel = <span className="oui-label__optional">(Optional)</span>;
   }
 
-  if (typeof props.children === 'string') {
+  if (typeof children === 'string') {
     classes = 'oui-label';
   }
 
@@ -24,8 +29,8 @@ const Label = (props) => {
     <label
       data-oui-component={ true }
       className={ classes }
-      data-test-section={ props.testSection }>
-      { props.children }
+      data-test-section={ testSection }>
+      { children }
       { fieldLabel }
     </label>
   );

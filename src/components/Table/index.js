@@ -13,26 +13,33 @@ import TD from './TD';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-let Table = (props) => {
+let Table = ({
+  children,
+  density,
+  shouldAddHover,
+  style,
+  tableLayoutAlgorithm,
+  testSection,
+}) => {
   let classes = classNames({
     'oui-table': true,
-    [`oui-table--${props.style}`]: props.style,
-    [`oui-table--${props.density}`]: props.density,
-    'oui-table--hover': props.shouldAddHover,
+    [`oui-table--${style}`]: style,
+    [`oui-table--${density}`]: density,
+    'oui-table--hover': shouldAddHover,
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
-  const style = {
-    tableLayout: props.tableLayoutAlgorithm,
+  const styles = {
+    tableLayout: tableLayoutAlgorithm,
   };
 
   return (
     <table
       data-oui-component={ true }
       className={ classes }
-      style={ style }
-      data-test-section={ props.testSection }>
-      { props.children }
+      style={ styles }
+      data-test-section={ testSection }>
+      { children }
     </table>
   );
 };

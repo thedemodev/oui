@@ -15,6 +15,20 @@ class Textarea extends React.Component {
   }
 
   render() {
+    const {
+      defaultValue,
+      isReadOnly,
+      isRequired,
+      isDisabled,
+      onBlur,
+      onChange,
+      onFocus,
+      onInput,
+      onKeyDown,
+      placeholder,
+      testSection,
+      value,
+    } = this.props;
     const classes = classNames({
       'oui-textarea': true,
       'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
@@ -26,18 +40,18 @@ class Textarea extends React.Component {
         data-oui-component={ true }
         className={ classes }
         ref={ (c) => { this._textarea = c; } }
-        value={ this.props.value }
-        defaultValue={ this.props.defaultValue }
-        placeholder={ this.props.placeholder }
-        required={ this.props.isRequired }
-        readOnly={ this.props.isReadOnly }
-        disabled={ this.props.isDisabled }
-        onInput={ this.props.onInput }
-        onChange={ this.props.onChange }
-        onBlur={ this.props.onBlur }
-        onKeyDown={ this.props.onKeyDown }
-        onFocus={ this.props.onFocus }
-        data-test-section={ this.props.testSection }
+        value={ value }
+        defaultValue={ defaultValue }
+        placeholder={ placeholder }
+        required={ isRequired }
+        readOnly={ isReadOnly }
+        disabled={ isDisabled }
+        onInput={ onInput }
+        onChange={ onChange }
+        onBlur={ onBlur }
+        onKeyDown={ onKeyDown }
+        onFocus={ onFocus }
+        data-test-section={ testSection }
       />
       /* eslint-enable react/jsx-no-bind */
     );

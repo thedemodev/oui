@@ -57,15 +57,20 @@ const ButtonRowSide = (side, buttons, testSection) => {
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const ButtonRow = (props) => {
+const ButtonRow = ({
+  centerGroup,
+  leftGroup,
+  rightGroup,
+  testSection,
+}) => {
   return (
     <div
       data-oui-component={ true }
       className='oui-button-row flex'
-      data-test-section={ props.testSection }>
-      { props.leftGroup ? ButtonRowSide('left', props.leftGroup, props.testSection) : null }
-      { props.centerGroup ? ButtonRowSide('center', props.centerGroup, props.testSection) : null }
-      { props.rightGroup ? ButtonRowSide('right', props.rightGroup, props.testSection) : null }
+      data-test-section={ testSection }>
+      { leftGroup ? ButtonRowSide('left', leftGroup, testSection) : null }
+      { centerGroup ? ButtonRowSide('center', centerGroup, testSection) : null }
+      { rightGroup ? ButtonRowSide('right', rightGroup, testSection) : null }
     </div>
   );
 };

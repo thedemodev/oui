@@ -175,10 +175,16 @@ class OverlayWrapper extends React.Component {
   }
 
   render() {
+    const {
+      behavior,
+      children,
+      overlay,
+      testSection,
+    } = this.props;
     let eventHandlerProps;
-    let child = React.Children.only(this.props.children);
+    let child = React.Children.only(children);
 
-    switch (this.props.behavior) {
+    switch (behavior) {
       case 'click':
         eventHandlerProps = {
           onClick: (event) => this.onChildClick.call(null, event, child),
@@ -197,7 +203,7 @@ class OverlayWrapper extends React.Component {
       /* eslint-disable react/jsx-no-bind */
       <div
         data-oui-component={ true }
-        data-test-section={ this.props.testSection }
+        data-test-section={ testSection }
         style={{ display: 'inline-block' }}>
         <div
           style={{ display: 'inline-block' }}
@@ -208,7 +214,7 @@ class OverlayWrapper extends React.Component {
         <div
           ref={ (ref) => { this._overlayEl = ref; } }
           style={ this.state.isOverlayOpen ? { display: 'block' } : { display: 'none' } }>
-          { this.props.overlay }
+          { overlay }
         </div>
       </div>
       /* eslint-enable */

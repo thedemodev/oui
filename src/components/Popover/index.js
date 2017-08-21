@@ -10,7 +10,11 @@ import PropTypes from 'prop-types';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const Popover = (props) => {
+const Popover = ({
+  children,
+  testSection,
+  title,
+}) => {
   let classes = classNames({
     'oui-pop--over': true,
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
@@ -21,12 +25,12 @@ const Popover = (props) => {
       data-oui-component={ true }
       className={ classes }
       style={{ display: 'block', opacity: 1, position: 'initial' }}
-      data-test-section={ props.testSection }>
+      data-test-section={ testSection }>
       <div className="oui-pop--over__content">
-        { props.title && (
-          <div className="oui-pop--over__title">{ props.title }</div>
+        { title && (
+          <div className="oui-pop--over__title">{ title }</div>
         ) }
-        { props.children }
+        { children }
       </div>
     </div>
   );

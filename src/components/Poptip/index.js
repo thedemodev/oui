@@ -8,17 +8,25 @@ import Poptip from './Poptip';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const PoptipWrapper = (props) => (
+const PoptipWrapper = ({
+  children,
+  content,
+  horizontalAttachment,
+  horizontalTargetAttachment,
+  verticalAttachment,
+  verticalTargetAttachment,
+  testSection,
+}) => (
   <OverlayWrapper
     behavior="hover"
-    overlay={ <Poptip testSection={ props.testSection }>
-      { props.content }
+    overlay={ <Poptip testSection={ testSection }>
+      { content }
     </Poptip> }
-    horizontalAttachment={ props.horizontalAttachment }
-    horizontalTargetAttachment={ props.horizontalTargetAttachment }
-    verticalAttachment={ props.verticalAttachment }
-    verticalTargetAttachment={ props.verticalTargetAttachment }>
-    { props.children }
+    horizontalAttachment={ horizontalAttachment }
+    horizontalTargetAttachment={ horizontalTargetAttachment }
+    verticalAttachment={ verticalAttachment }
+    verticalTargetAttachment={ verticalTargetAttachment }>
+    { children }
   </OverlayWrapper>
 );
 

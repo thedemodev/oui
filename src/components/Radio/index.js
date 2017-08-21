@@ -9,13 +9,21 @@ import Label from '../Label';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const Radio = (props) => {
+const Radio = ({
+  isDisabled,
+  testSection,
+  name,
+  defaultChecked,
+  checked,
+  onChange,
+  label,
+}) => {
   const labelClassNames = classNames({
     'flush--bottom': true,
     'push--left': true,
     'weight--normal': true,
     'cursor--pointer': true,
-    'oui-label--disabled': props.isDisabled,
+    'oui-label--disabled': isDisabled,
   });
 
   const classes = classNames({
@@ -24,22 +32,22 @@ const Radio = (props) => {
   });
 
   return (
-    <Label testSection={ props.testSection && props.testSection + '-label' }>
+    <Label testSection={ testSection && testSection + '-label' }>
       <div className="flex">
         <input
           data-oui-component={ true }
           type="radio"
-          name={ props.name }
-          defaultChecked={ props.defaultChecked }
-          checked={ props.checked }
+          name={ name }
+          defaultChecked={ defaultChecked }
+          checked={ checked }
           className={ classes }
-          disabled={ props.isDisabled }
-          onChange={ props.onChange }
-          data-test-section={ props.testSection }
+          disabled={ isDisabled }
+          onChange={ onChange }
+          data-test-section={ testSection }
           style={{ 'marginTop': '0.3em' }}
         />
         <div className={ labelClassNames }>
-          { props.label }
+          { label }
         </div>
       </div>
     </Label>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
 
 /**
@@ -7,10 +8,13 @@ import classNames from 'classnames';
  * @returns {ReactElement}
  */
 
-const ArrowsInline = (props) => {
+const ArrowsInline = ({
+  direction,
+  testSection,
+}) => {
   let classes = classNames({
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
-    [`oui-arrow-inline--${props.direction}`]: props.direction,
+    [`oui-arrow-inline--${direction}`]: direction,
   });
 
   return (
@@ -18,7 +22,7 @@ const ArrowsInline = (props) => {
       data-oui-component={ true }
       className={ classes }
       aria-hidden="true"
-      data-test-section={ props.testSection }>
+      data-test-section={ testSection }>
     </span>
   );
 };

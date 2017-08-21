@@ -1,18 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const THead = (props) => {
+const THead = ({
+  children,
+  testSection,
+}) => {
   return (
-    <thead data-test-section={ props.testSection }>
-      { props.children }
+    <thead data-test-section={ testSection }>
+      { children }
     </thead>
   );
 };
 
 THead.propTypes = {
   /** Should be a `Table.TR` component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 THead.displayName = 'Table.THead';

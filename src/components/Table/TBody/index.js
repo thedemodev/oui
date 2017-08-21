@@ -1,18 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const TBody = (props) => {
+const TBody = ({
+  children,
+  testSection,
+}) => {
   return (
-    <tbody data-test-section={ props.testSection }>
-      { props.children }
+    <tbody data-test-section={ testSection }>
+      { children }
     </tbody>
   );
 };
 
 TBody.propTypes = {
   /** Should be a `Table.TR` component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 TBody.displayName = 'Table.TBody';

@@ -78,15 +78,22 @@ class Input extends React.Component {
   }
 
   render() {
-    if (this.props.label) {
+    const {
+      label,
+      displayError,
+      testSection,
+      isOptional,
+    } = this.props;
+
+    if (label) {
       return (
         <div
           data-oui-component={ true }
-          className={ classNames({'oui-form-bad-news': this.props.displayError}) }>
-          <Label testSection={ this.props.testSection && this.props.testSection + '-label' }>
+          className={ classNames({'oui-form-bad-news': displayError}) }>
+          <Label testSection={ testSection && testSection + '-label' }>
             <div className="oui-label">
-              { this.props.label }
-              { this.props.isOptional && <span className="oui-label__optional">(Optional)</span> }
+              { label }
+              { isOptional && <span className="oui-label__optional">(Optional)</span> }
             </div>
             { this.renderInput(this.props) }
           </Label>
