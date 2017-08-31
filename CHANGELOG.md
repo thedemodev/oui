@@ -6,6 +6,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 26.4.0 - 2017-08-31
+- [Feature] Add Storybook to OUI docs. (#759)
+- [Feature] Add react-oui-icons to OUI.
+- [Feature] Add two new components, Spinner & ProgressDots.
+
 ## 26.3.0 - 2017-08-11
 - [Feature] Add focus styles to buttons. (#771)
 - [Feature] Add Input prop to control textAlign left/right. (#764)
