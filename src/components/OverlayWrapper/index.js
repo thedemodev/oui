@@ -261,7 +261,7 @@ OverlayWrapper.defaultProps = {
 };
 
 OverlayWrapper.childContextTypes = {
-  hideOverlay: React.PropTypes.func,
+  hideOverlay: PropTypes.func,
 };
 
 export default OverlayWrapper;

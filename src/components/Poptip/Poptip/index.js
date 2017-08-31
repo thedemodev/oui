@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
@@ -25,9 +26,9 @@ const Poptip = (props) => {
 
 Poptip.propTypes = {
   /** Content that appears within the popover body */
-  children: React.PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 export default Poptip;

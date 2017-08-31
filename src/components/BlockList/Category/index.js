@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Category = (props) => (
   <li
@@ -21,11 +22,11 @@ const Category = (props) => (
 
 Category.propTypes = {
   /** Items that appears within the category */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /** Node or component that appears above the `children` */
-  header: React.PropTypes.node,
+  header: PropTypes.node,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 Category.displayName = 'BlockList.Category';

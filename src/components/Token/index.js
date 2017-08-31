@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EllipsisIcon from '../Icon/EllipsisIcon';
+// import EllipsisIcon from '../Icon/EllipsisIcon';
+import Icon from 'react-oui-icons';
 import DismissButton from './DismissButton';
 import classNames from 'classnames';
 
@@ -44,7 +45,7 @@ const Token = ({
         }
         { isDraggable &&
           <div className="oui-icon oui-token__move">
-            <EllipsisIcon size={ 16 } />
+            <Icon name="ellipsis" fill="#c7c7c7" />
           </div>
         }
       </div>

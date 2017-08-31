@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { default as Clipboard } from 'clipboard';
 
 import Button from '../../Button';
-import ClipboardIcon from '../../Icon/ClipboardIcon';
+import Icon from 'react-oui-icons';
 
 /**
  * @param {Object} props - Properties passed to component
@@ -44,7 +45,7 @@ class CopyButton extends React.Component {
           style="plain"
           ariaLabel="Copy code snippet"
           testSection={ buttonTestSection }>
-          <ClipboardIcon size={ 16 } />
+          <Icon name='clipboard' />
         </Button>
       </div>
       /* eslint-enable */
@@ -54,9 +55,9 @@ class CopyButton extends React.Component {
 
 CopyButton.propTypes = {
   /** The code that will be copied */
-  code: React.PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 export default CopyButton;

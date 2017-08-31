@@ -13,3 +13,4 @@ docs/data
 docs/lite/sass.json
 docs/react/data.json
 .idea
+storybook-static

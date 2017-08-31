@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Button from '../Button';
+import Icon from 'react-oui-icons';
 import classNames from 'classnames';
 import { getAssistiveTextFromColorClass } from '../../utils/accessibility';
-
-import Button from '../Button';
-import CloseIcon from '../Icon/CloseIcon';
 
 const renderDismissButton = (testSection) => {
   return (
@@ -14,8 +12,8 @@ const renderDismissButton = (testSection) => {
         style="plain"
         size="small"
         ariaLabel="Close alert"
-        testSection={ `${testSection}-dismiss` }>
-        <CloseIcon size={ 16 } />
+        testSection={ testSection + '-dismiss' }>
+        <Icon name='close' size='small' />
       </Button>
     </div>
   );
@@ -34,10 +32,10 @@ const Attention = ({
   testSection,
   type,
 }) => {
-  let colorClassName = type ? `oui-attention--${type}` : null;
-  let alignmentClassName = (alignment === 'center') ? 'oui-text--center' : null;
+  let colorClassName = type ? 'oui-attention--' + type : '';
+  let alignmentClassName = (alignment === 'center') ? 'oui-text--center' : '';
   let attentionAriaLabel = type ? getAssistiveTextFromColorClass(type) : null;
-  let alignClass = (`oui-attention ${colorClassName} ${alignmentClassName}`).trim();
+  let alignClass = ('oui-attention ' + colorClassName + ' ' + alignmentClassName).trim();
   let classes = classNames({
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     [`${alignClass}`]: true,

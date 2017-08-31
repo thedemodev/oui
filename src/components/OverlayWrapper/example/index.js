@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
+import PropTypes from 'prop-types';
 import OverlayWrapper from '../index';
 
 import Button from '../../Button/';
@@ -10,7 +11,7 @@ const ClosePopoverButton = (props, context) => {
 };
 
 ClosePopoverButton.contextTypes = {
-  hideOverlay: React.PropTypes.func.isRequired,
+  hideOverlay: PropTypes.func.isRequired,
 };
 
 export default [

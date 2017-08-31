@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import OverlayWrapper from '../index';
 import { shallow, mount } from 'enzyme';
 
@@ -22,7 +23,7 @@ const FakeOverlay = (props, context) => {
 };
 
 FakeOverlay.contextTypes = {
-  hideOverlay: React.PropTypes.func.isRequired,
+  hideOverlay: PropTypes.func.isRequired,
 };
 
 describe('components/OverlayWrapper', () => {

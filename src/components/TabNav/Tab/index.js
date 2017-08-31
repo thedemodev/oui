@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
@@ -26,17 +27,17 @@ const Tab = (props) => {
 
 Tab.propTypes = {
   /** Text or element that appears within the component */
-  children: React.PropTypes.node,
+  children: PropTypes.node,
   /** Should the `TabNav.Tab` visually appear to be active */
-  isActive: React.PropTypes.bool,
+  isActive: PropTypes.bool,
   /** Boolean for whether the tab should be given the disabled class */
-  isDisabled: React.PropTypes.bool,
+  isDisabled: PropTypes.bool,
   /** Function to perform when tab is clicked */
-  onClick: React.PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   /** String to identify tab, used in conjunction with activeTab */
-  tabId: React.PropTypes.string.isRequired,
+  tabId: PropTypes.string.isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 Tab.displayName = 'TabNav.Tab';

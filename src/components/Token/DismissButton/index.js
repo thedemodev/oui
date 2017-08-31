@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../Button';
-import CloseIcon from '../../Icon/CloseIcon';
+// import CloseIcon from '../../Icon/CloseIcon';
+import Icon from 'react-oui-icons';
 
 /**
  * @param {Object} props - Properties passed to component
@@ -15,16 +17,20 @@ const DismissButton = (props) => (
       onClick={ props.onClick }
       style="unstyled"
       testSection={ props.testSection && `${props.testSection}-dismiss` }>
-      <CloseIcon size={ 12 } />
+      <Icon
+        size="small"
+        name="close"
+        fill="white"
+      />
     </Button>
   </div>
 );
 
 DismissButton.propTypes = {
   /** Function to call that dismisses the token */
-  onClick: React.PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 DismissButton.displayName = 'DismissButton';
