@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Exclude docs from NPM publish. (#777)
 
 ## 26.4.0 - 2017-08-31
 - [Feature] Add Storybook to OUI docs. (#759)
