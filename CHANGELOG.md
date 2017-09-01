@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 26.4.2 - 2017-09-01
+- [Patch] Update react-oui-icons. (#779)
+
 ## 26.4.1 - 2017-08-31
 - [Patch] Exclude docs from NPM publish. (#777)
 
