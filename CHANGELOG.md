@@ -5,8 +5,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-
-## 26.4.2 - 2017-09-01
 - [Patch] Update react-oui-icons. (#779)
 
 ## 26.4.1 - 2017-08-31
