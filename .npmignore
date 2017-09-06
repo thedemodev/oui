@@ -8,6 +8,8 @@ coverage
 npm-debug.log
 .DS_Store
 docs
+dist/docs
+dist/js/components/**/*.story.js
+dist/js/components/**/example
 .storybook
 storybook-static
-src/**/*.story.js

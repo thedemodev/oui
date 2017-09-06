@@ -3305,7 +3305,7 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
-file-loader@0.11.2, file-loader@^0.11.1:
+file-loader@^0.11.1:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.2.tgz#4ff1df28af38719a6098093b88c82c71d1794a34"
   dependencies:
@@ -6878,11 +6878,10 @@ react-onclickoutside@^5.9.0:
   dependencies:
     create-react-class "^15.5.x"
 
-react-oui-icons@^0.5.7:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-0.5.7.tgz#672ca511abc3a01b1eef50136b6c04a11345c351"
+react-oui-icons@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-0.5.8.tgz#59bb10b13c0138b0c0cbfe17157f235bc3e2d4d3"
   dependencies:
-    file-loader "0.11.2"
     fs-extra "3.0.1"
     object-assign "4.1.1"
     postcss-flexbugs-fixes "3.0.0"
