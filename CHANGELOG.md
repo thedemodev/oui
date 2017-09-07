@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 26.4.5 - 2017-09-7
+- [Patch] More changes around Optimizely repo and Glamor/icons dependencies.
+
 ## 26.4.4 - 2017-09-06
 - [Patch] Exclude more items from NPM publish related to Glamor build issues in the Optimizely repo.
 
