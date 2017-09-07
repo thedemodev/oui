@@ -1,5 +1,6 @@
 import React from 'react';
 import Token from '../index';
+import Icon from 'react-oui-icons';
 import { shallow } from 'enzyme';
 
 describe('components/Token', () => {
@@ -79,12 +80,12 @@ describe('components/Token', () => {
 
   it('should show ellipsis icon if the token is draggable', () => {
     const component = shallow(<Token name="goose" isDraggable={ true } />);
-    expect(component.find('Icon').length).toBe(1);
+    expect(component.find(Icon).length).toBe(1);
   });
 
   it('should not show ellipsis icon if the token is not draggable', () => {
     const component = shallow(<Token name="goose" isDraggable={ false } />);
-    expect(component.find('Icon').length).toBe(0);
+    expect(component.find(Icon).length).toBe(0);
   });
 
   it('should have a properly set test section', () => {
