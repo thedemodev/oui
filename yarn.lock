@@ -6869,9 +6869,9 @@ react-onclickoutside@^5.9.0:
   dependencies:
     create-react-class "^15.5.x"
 
-react-oui-icons@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-0.6.0.tgz#87aa08f3ff83cc539524b5df6e6efef6f41e4790"
+react-oui-icons@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-0.6.1.tgz#840d3d07f379bf23ee3458c3722d0bcd874c3e60"
   dependencies:
     fs-extra "3.0.1"
     object-assign "4.1.1"

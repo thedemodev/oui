@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 26.4.5 - 2017-09-08
+- [Patch] Update react-oui-icons. (#779)
+
 ## 26.4.5 - 2017-09-7
 - [Patch] More changes around Optimizely repo and Glamor/icons dependencies.
 
