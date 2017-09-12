@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 26.4.7 - 2017-09-12
 - [Patch] Add test for Spinner and ProgressDots components.
 - [Patch] Update OUI version on storybook preview panel.
 
