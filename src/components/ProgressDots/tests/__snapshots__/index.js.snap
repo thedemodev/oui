@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ProgressDots should render correctly with testSection prop 1`] = `
+<ul
+  className="lego-progress-dots"
+  testSection="testing-foo"
+>
+  <li />
+  <li />
+  <li />
+</ul>
+`;
+
+exports[`components/ProgressDots should render correctly without props 1`] = `
+<ul
+  className="lego-progress-dots"
+>
+  <li />
+  <li />
+  <li />
+</ul>
+`;

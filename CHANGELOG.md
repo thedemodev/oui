@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add test for Spinner and ProgressDots components.
+- [Patch] Update OUI version on storybook preview panel.
 
 ## 26.4.6 - 2017-09-09
 - [Patch] Update react-oui-icons with new data-oui-component attribute.
