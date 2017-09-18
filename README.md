@@ -107,9 +107,9 @@ import Button from 'optimizely-oui';
 | Help | :white_large_square:    | Input | :white_check_mark:    | InputIcon | :white_large_square:   |  
 | Label | :white_check_mark:    | Media | :white_large_square:    | Nav | :white_large_square:    |   
 | OverlayWrapper | :white_check_mark:    | Pagination | :white_large_square:   | Popover | :white_check_mark:    |   
-| Poptip | :white_check_mark:    | ProgressBar | :white_large_square:    | ProgressDots | :white_large_square:     |   
-| Radio | :white_check_mark:    | Search | :white_large_square:     | Select | :white_large_square:     |   
-| Spinner | :white_large_square:     | Stats | :white_large_square:     | Steps | :white_large_square:     |   
+| Poptip | :white_check_mark:    | ProgressBar | :white_check_mark:    | ProgressDots | :white_check_mark:     |   
+| Radio | :white_check_mark:    | Search | :white_large_square:     | Select | :white_check_mark:     |   
+| Spinner | :white_check_mark:     | Stats | :white_large_square:     | Steps | :white_large_square:     |   
 | Table | :white_check_mark:    | Tabel/TBody | :white_check_mark:    | Tabel/TD | :white_check_mark:    |   
 | Tabel/THead | :white_check_mark:    | Tabel/TR | :white_check_mark:    | TabNav | :white_check_mark:    |   
 | TabNav/Tab | :white_check_mark:    | Textarea | :white_check_mark:    | Token | :white_check_mark:    |   
