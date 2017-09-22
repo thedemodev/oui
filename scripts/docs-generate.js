@@ -14,7 +14,7 @@ const categories = ['components', 'overrides'];
 
 // Grab all of the components
 const componentFolders = glob.sync(`src/@(${categories.join('|')})/**/`, {
-  ignore: ['src/components/', 'src/overrides/', '**/tests/', '**/example/', '**/Icon/*', '**/Icon/'],
+  ignore: ['src/components/', 'src/overrides/', '**/tests/*', '**/tests/', '**/example/', '**/Icon/*', '**/Icon/'],
 });
 
 const files = {};
