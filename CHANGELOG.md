@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add Link React component (needed for EmptyDashboard component). (#799)
 
 ## 26.5.1 - 2017-09-22
 - [Patch] Ignore tests for snapshots in docs.

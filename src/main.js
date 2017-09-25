@@ -8,6 +8,7 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Code } from './components/Code';
 export { default as Input } from './components/Input';
 export { default as Label } from './components/Label';
+export { default as Link } from './components/Link';
 export { default as OverlayWrapper } from './components/OverlayWrapper';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as Popover } from './components/Popover';
