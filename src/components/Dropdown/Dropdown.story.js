@@ -29,7 +29,6 @@ stories.addWithInfo('default', () => {
       classname='chilito'
       icon='chevron'
       isDisabled={ boolean('isDisabled', false) }
-      isOpen={ boolean('isOpen', false) }
       fullWidth={ boolean('fullWidth', false) }
       handleClick={ action('dropdown clicked') }
       style={ select('style', {
@@ -58,7 +57,6 @@ stories.addWithInfo('with BlockList elements', () => {
   return (
     <Dropdown
       isDisabled={ boolean('isDisabled', false) }
-      isOpen={ boolean('isOpen', false) }
       fullWidth={ boolean('fullWidth', false) }
       handleClick={ action('dropdown clicked') }
       style={ select('style', {

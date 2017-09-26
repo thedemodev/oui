@@ -17,4 +17,5 @@ export { default as Radio } from './components/Radio';
 export { default as Table } from './components/Table';
 export { default as TabNav } from './components/TabNav';
 export { default as Textarea } from './components/Textarea';
+export { default as TextField } from './components/TextField';
 export { default as Token } from './components/Token';

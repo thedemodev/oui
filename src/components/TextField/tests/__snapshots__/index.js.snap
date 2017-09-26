@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/TextField should render a simple input with type text 1`] = `
+<div
+  className={null}
+>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    type="text"
+  />
+</div>
+`;
+
+exports[`components/TextField should render error style 1`] = `
+<div
+  className="oui-form-bad-news"
+>
+  <Label
+    displayError={true}
+  >
+    Simple label
+  </Label>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    type="text"
+  />
+  <div
+    className="oui-form-note"
+  >
+    simple note
+  </div>
+</div>
+`;
+
+exports[`components/TextField should render max and min limits 1`] = `
+<div
+  className={null}
+>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    max={100}
+    min={0}
+    type="number"
+  />
+</div>
+`;
+
+exports[`components/TextField should render search icon 1`] = `
+<div
+  className={null}
+>
+  <input
+    className="oui-text-input oui-text-input--search"
+    disabled={false}
+    type="text"
+  />
+</div>
+`;
+
+exports[`components/TextField should render with a placeholder 1`] = `
+<div
+  className={null}
+>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    placeholder="Simple placeholder"
+    type="text"
+  />
+</div>
+`;
+
+exports[`components/TextField should render with a simple label 1`] = `
+<div
+  className={null}
+>
+  <Label
+    displayError={false}
+  >
+    simple label
+  </Label>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    type="text"
+  />
+</div>
+`;
+
+exports[`components/TextField should render with a simple label and a note 1`] = `
+<div
+  className={null}
+>
+  <Label
+    displayError={false}
+  >
+    Simple label
+  </Label>
+  <input
+    className="oui-text-input"
+    disabled={false}
+    type="text"
+  />
+  <div
+    className="oui-form-note"
+  >
+    simple note
+  </div>
+</div>
+`;

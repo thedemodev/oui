@@ -3,13 +3,31 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Dropdown extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.toggle = this.toggle.bind(this);
+    this.toggleOnBlur = this.toggleOnBlur.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
+  toggleOnBlur() {
+    if (this.state.isOpen === false) { return; }
+    this.setState({isOpen: !this.state.isOpen});
+  }
+
   render() {
     const {
       children,
-      handleClick,
       icon = 'chevron',
       isDisabled = false,
-      isOpen = false,
       fullWidth,
       style,
       text,
@@ -39,14 +57,15 @@ class Dropdown extends React.Component {
         <button
           className={ buttonClass }
           disabled={ isDisabled }
-          onClick={ handleClick }
+          onClick={ this.toggle }
+          onBlur={ this.toggleOnBlur }
           style={{ marginBottom: 2 }}>
           <div className='flex'>
             <div className='flex--1 truncate'>{ text }</div>
             <div className='text--right'><span className={ iconClass }></span></div>
           </div>
         </button>
-        { isOpen && !isDisabled && children }
+        { this.state.isOpen && !isDisabled && children }
       </div>
     );
   }
@@ -62,7 +81,6 @@ Dropdown.propTypes = {
     'triangle',
   ]),
   isDisabled: PropTypes.bool,
-  isOpen: PropTypes.bool,
   style: PropTypes.string,
   text: PropTypes.string,
   width: PropTypes.oneOfType([
