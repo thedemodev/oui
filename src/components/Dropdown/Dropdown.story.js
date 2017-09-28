@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 
 import Dropdown from './index.js';
 import BlockList from '../BlockList';
+import Icon from 'react-oui-icons';
 
 const data = [
   {title: 'Manual', description: 'Dolcelatte cheeseburger swiss paneer cow gouda edam cheese slices'},
@@ -26,8 +27,6 @@ stories
 stories.addWithInfo('default', () => {
   return (
     <Dropdown
-      classname='chilito'
-      icon='chevron'
       isDisabled={ boolean('isDisabled', false) }
       fullWidth={ boolean('fullWidth', false) }
       handleClick={ action('dropdown clicked') }
@@ -38,7 +37,7 @@ stories.addWithInfo('default', () => {
         'danger-outline': 'danger-outline',
         outline: 'outline',
         underline: 'underline'}, '') }
-      text={ text('text', 'Dropdown') }
+      buttonContent={ text('text', 'Dropdown') }
       width={ number('width', 300) }>
       <ul className="lego-dropdown width--200" style={{display: 'block'}}>
         <li className="lego-dropdown__item">
@@ -66,7 +65,7 @@ stories.addWithInfo('with BlockList elements', () => {
         'danger-outline': 'danger-outline',
         outline: 'outline',
         underline: 'underline'}, '') }
-      text='Dropdown'
+      buttonContent='Dropdown'
       width={ number('width', 300) }>
       <BlockList>
         {
@@ -87,5 +86,111 @@ stories.addWithInfo('with BlockList elements', () => {
         }
       </BlockList>
     </Dropdown>
+  );
+});
+
+
+stories.addWithInfo('three dots', () => {
+  return (
+    <Dropdown
+      icon={ false }
+      isDisabled={ boolean('isDisabled', false) }
+      fullWidth={ boolean('fullWidth', false) }
+      handleClick={ action('dropdown clicked') }
+      buttonContent={ <Icon name='ellipsis' /> }
+      width={ number('width', 100) }>
+      <BlockList>
+        <BlockList.Category >
+          <BlockList.Item onClick={ action('click on complex item') }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <a href='#'>un link </a>
+              </div>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category >
+          <BlockList.Item onClick={ action('click on complex item') }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <a href='#'>otro link</a>
+              </div>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category >
+          <BlockList.Item onClick={ action('click on complex item') }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <a href='#'>un más</a>
+              </div>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category >
+          <BlockList.Item onClick={ action('click on complex item') }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <a href='#'>el último</a>
+              </div>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+      </BlockList>
+    </Dropdown>
+  );
+});
+
+
+stories.addWithInfo('text behind', () => {
+  return (
+    <div>
+      <Dropdown
+        isDisabled={ boolean('isDisabled', false) }
+        fullWidth={ boolean('fullWidth', false) }
+        handleClick={ action('dropdown clicked') }
+        buttonContent='Dropdown'
+        width={ number('width', 100) }>
+        <BlockList>
+          <BlockList.Category >
+            <BlockList.Item onClick={ action('click on complex item') }>
+              <div className="flex flex-align--center">
+                <div className="flex--1">
+                  <a href='#'>un link </a>
+                </div>
+              </div>
+            </BlockList.Item>
+          </BlockList.Category>
+          <BlockList.Category >
+            <BlockList.Item onClick={ action('click on complex item') }>
+              <div className="flex flex-align--center">
+                <div className="flex--1">
+                  <a href='#'>otro link</a>
+                </div>
+              </div>
+            </BlockList.Item>
+          </BlockList.Category>
+          <BlockList.Category >
+            <BlockList.Item onClick={ action('click on complex item') }>
+              <div className="flex flex-align--center">
+                <div className="flex--1">
+                  <a href='#'>un más</a>
+                </div>
+              </div>
+            </BlockList.Item>
+          </BlockList.Category>
+          <BlockList.Category >
+            <BlockList.Item onClick={ action('click on complex item') }>
+              <div className="flex flex-align--center">
+                <div className="flex--1">
+                  <a href='#'>el último</a>
+                </div>
+              </div>
+            </BlockList.Item>
+          </BlockList.Category>
+        </BlockList>
+      </Dropdown>
+      <h1>This text should be behind the open dropdown</h1>
+    </div>
   );
 });
