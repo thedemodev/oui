@@ -9,18 +9,12 @@ class Dropdown extends React.Component {
       isOpen: false,
     };
     this.toggle = this.toggle.bind(this);
-    this.toggleOnBlur = this.toggleOnBlur.bind(this);
   }
 
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
     });
-  }
-
-  toggleOnBlur() {
-    if (this.state.isOpen === false) { return; }
-    this.setState({isOpen: !this.state.isOpen});
   }
 
   render() {
@@ -59,7 +53,6 @@ class Dropdown extends React.Component {
           className={ buttonClass }
           disabled={ isDisabled }
           onClick={ this.toggle }
-          onBlur={ this.toggleOnBlur }
           style={{ marginBottom: 2 }}>
           <div className='flex'>
             <div className='flex--1 truncate'>{ buttonContent }</div>
@@ -84,6 +77,7 @@ Dropdown.propTypes = {
   handleClick: PropTypes.func,
   icon: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  onBlur: PropTypes.function,
   style: PropTypes.string,
   testSection: PropTypes.string,
   width: PropTypes.oneOfType([

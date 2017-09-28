@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Dropdown from './index.js';
@@ -24,40 +24,11 @@ stories
     </div>
   ));
 
-stories.addWithInfo('default', () => {
-  return (
-    <Dropdown
-      isDisabled={ boolean('isDisabled', false) }
-      fullWidth={ boolean('fullWidth', false) }
-      handleClick={ action('dropdown clicked') }
-      style={ select('style', {
-        default: 'default',
-        highlight: 'highlight',
-        danger: 'danger',
-        'danger-outline': 'danger-outline',
-        outline: 'outline',
-        underline: 'underline'}, '') }
-      buttonContent={ text('text', 'Dropdown') }
-      width={ number('width', 300) }>
-      <ul className="lego-dropdown width--200" style={{display: 'block'}}>
-        <li className="lego-dropdown__item">
-          <a onClick={ action('clicked on link 1') } className="lego-dropdown__block-link">Manage Collaborators</a>
-          <a onClick={ action('clicked on link 2') } className="lego-dropdown__block-link">Manage This Thing</a>
-        </li>
-        <li className="lego-dropdown__item">
-          <a onClick={ action('clicked on link 3') } className="lego-dropdown__block-link">Experiment Change History</a>
-        </li>
-      </ul>
-    </Dropdown>
-  );
-});
-
 stories.addWithInfo('with BlockList elements', () => {
   return (
     <Dropdown
       isDisabled={ boolean('isDisabled', false) }
       fullWidth={ boolean('fullWidth', false) }
-      handleClick={ action('dropdown clicked') }
       style={ select('style', {
         default: 'default',
         highlight: 'highlight',
@@ -96,12 +67,11 @@ stories.addWithInfo('three dots', () => {
       icon={ false }
       isDisabled={ boolean('isDisabled', false) }
       fullWidth={ boolean('fullWidth', false) }
-      handleClick={ action('dropdown clicked') }
       buttonContent={ <Icon name='ellipsis' /> }
       width={ number('width', 100) }>
       <BlockList>
         <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item') }>
+          <BlockList.Item onClick={ action('click on complex item 2') }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <a href='#'>un link </a>
@@ -110,7 +80,7 @@ stories.addWithInfo('three dots', () => {
           </BlockList.Item>
         </BlockList.Category>
         <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item') }>
+          <BlockList.Item onClick={ action('click on complex item 3') }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <a href='#'>otro link</a>
@@ -119,7 +89,7 @@ stories.addWithInfo('three dots', () => {
           </BlockList.Item>
         </BlockList.Category>
         <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item') }>
+          <BlockList.Item onClick={ action('click on complex item 4') }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <a href='#'>un más</a>
@@ -128,7 +98,7 @@ stories.addWithInfo('three dots', () => {
           </BlockList.Item>
         </BlockList.Category>
         <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item') }>
+          <BlockList.Item onClick={ action('click on complex item 5') }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <a href='#'>el último</a>
@@ -148,7 +118,7 @@ stories.addWithInfo('text behind', () => {
       <Dropdown
         isDisabled={ boolean('isDisabled', false) }
         fullWidth={ boolean('fullWidth', false) }
-        handleClick={ action('dropdown clicked') }
+
         buttonContent='Dropdown'
         width={ number('width', 100) }>
         <BlockList>
