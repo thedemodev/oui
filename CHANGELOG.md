@@ -5,7 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 26.7.0 - 2017-09-28
 - [Feature] Deploy React Storybook static version with docs. (#808)
+- [Patch] Remove onBlur from Dropdown component until we sort out a better way to handle that. (#809)
+- [Feature] Add Dropdown component example. (#797)
 
 ## 26.6.0 - 2017-09-26
 - [Feature] Add new TextField component. (#798)
