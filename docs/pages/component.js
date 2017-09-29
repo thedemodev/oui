@@ -2,6 +2,7 @@ import React from 'react';
 import components from 'docs/data/index.json';
 import { supportedLanguages, toTitleCase } from 'docs/utils/';
 import SideNavContainer from 'docs/containers/SideNavContainer';
+import Badge from 'src/components/Badge';
 import PropsTable from 'docs/components/react/PropsTable';
 import ReactComponentExample from 'docs/components/react/ComponentExample';
 import SassComponentExample from 'docs/components/sass/ComponentExample';
@@ -106,6 +107,7 @@ class Component extends React.Component {
     let languages = [];
 
     this.componentDisplayName = (yamlData && yamlData.name) || componentFullName;
+    this.componentStorybookLink = 'http://optimizely.github.io/oui/storybook/index.html?selectedKind=' + this.componentDisplayName;
     this.categoryDisplayName = toTitleCase(categoryName);
 
     const componentDescription = yamlData && yamlData.description;
@@ -139,6 +141,16 @@ class Component extends React.Component {
                 })
               }
             </TabNav>
+            { lang === 'react' &&
+              <a
+                className="oui-button oui-button--outline push-double--left push-double--top float--right"
+                href={ this.componentStorybookLink }
+                target="_blank"
+                rel="noopener noreferrer">
+                <Badge color="draft">New</Badge>Storybook
+              </a>
+            }
+
             <h2 className="push-double--top">{ this.componentDisplayName }</h2>
             <p>{ componentDescription }</p>
 
