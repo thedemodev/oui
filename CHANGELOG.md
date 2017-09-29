@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 26.7.2 - 2017-09-29
 - [Patch] Link to GHpages Storybook (#811)
 - [Patch] Remove onBlur Dropdown prop temporarily. (#809)
 
