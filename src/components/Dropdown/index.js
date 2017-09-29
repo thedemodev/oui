@@ -77,7 +77,6 @@ Dropdown.propTypes = {
   handleClick: PropTypes.func,
   icon: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  onBlur: PropTypes.function,
   style: PropTypes.string,
   testSection: PropTypes.string,
   width: PropTypes.oneOfType([
