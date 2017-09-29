@@ -69,7 +69,7 @@
     "start": "bundle install && bundle update && npm install && npm run icons:update && npm run babel && npm run docs:build",
     "jest": "jest --config .jest.config.json",
     "jest:watch": "jest --config .jest.config.json --watch",
-    "eslint": "eslint --ext .jsx --ext .js . --ignore-path .gitignore --max-warnings 0",
+    "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
     "scss-lint": "bundle exec scss-lint src/",
     "babel": "babel src/ --out-dir dist/js --ignore \"tests/*.js, src/js\"",
     "icons:update": "npm update oui-icons && node ./scripts/sync-oui-icons/index.js",
@@ -88,7 +88,7 @@
     "docs:watch": "npm-run-all docs:build:mkdir --parallel docs:build:json docs:build:html --parallel docs:watch:js",
     "docs:watch:js": "webpack-dev-server --open --progress --inline",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c .storybook -o ./docs/storybook"
   },
   "repository": {
     "type": "git",
