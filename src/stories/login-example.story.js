@@ -8,6 +8,7 @@ import Checkbox from '../components/Checkbox';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Spinner from '../components/Spinner';
+import TextField from '../components/TextField';
 
 const Or = styled.div`
   color: #a6a6a6 !important;
@@ -49,28 +50,28 @@ stories
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <Input
               label='Email'
               type='text'
               displayError={ boolean('displayError [email]', false) }
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <Input
               label='Password'
               type='password'
               displayError={ boolean('displayError [pass]', false) }
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <a href="#">Need help loggin in?</a>
           </li>
           <li className="lego-form-fields__item">
             <Checkbox label='Keep me logged in' />
           </li>
         </ol>
-        <div style={{ border: 'none' }} className="lego-form__footer text--center">
+        <div style={{ border: 'none' }} className="lego-form__footer text--center push-triple--top">
           <div className="position--relative height--50 flex flex--column flex-align--center">
             <Button
               className="lego-button lego-button--highlight lego-button--full push--bottom"
@@ -98,26 +99,28 @@ stories
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
-          <li className="lego-form-fields__item">
-            <Input
+          <li className="lego-form-fields__item push--bottom">
+            <TextField
               label='Email'
               type='text'
+              value='wrong@email.com'
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <Input
               label='Password'
               type='password'
+              value='12345678'
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <a href="#">Need help loggin in?</a>
           </li>
           <li className="lego-form-fields__item">
             <Checkbox label='Keep me logged in' />
           </li>
         </ol>
-        <div style={{ border: 'none' }} className="lego-form__footer text--center">
+        <div style={{ border: 'none' }} className="lego-form__footer text--center push-triple--top">
           <div className="position--relative height--50 flex flex--column flex-align--center">
             <Spinner
               size={ select('size', { small: 'small', tiny: 'tiny' }, 'small') }
@@ -142,29 +145,30 @@ stories
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
-          <li className="lego-form-fields__item">
-            <Input
+          <li className="lego-form-fields__item push--bottom">
+            <TextField
               label='Email'
               type='text'
               defaultValue="wrong@email.com"
-              note="this is not a valid account email"
+              note="This is an invalid account address"
               displayError={ true }
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <Input
               label='Password'
               type='password'
+              value='12345678'
             />
           </li>
-          <li className="lego-form-fields__item">
+          <li className="lego-form-fields__item push--bottom">
             <a href="#">Need help loggin in?</a>
           </li>
           <li className="lego-form-fields__item">
             <Checkbox label='Keep me logged in' />
           </li>
         </ol>
-        <div style={{ border: 'none' }} className="lego-form__footer text--center">
+        <div style={{ border: 'none' }} className="lego-form__footer text--center push-triple--top">
           <div className="position--relative height--50 flex flex--column flex-align--center">
             <Button
               className="lego-button lego-button--highlight lego-button--full push--bottom"

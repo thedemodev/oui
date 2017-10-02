@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add icons to React Storybook.
 - [Patch] Update Dropdown React example code in docs.
 
 ## 26.7.2 - 2017-09-29
