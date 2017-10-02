@@ -5,7 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Patch] Fixup TextField React example and storybook knob for isRequired.
+
+## 27.0.0 - 2017-10-02
+- [Release] Eliminating automatic update of react react-dom and react-addons-test-utils dependencies (breaking changes) (#819)
+- [Patch] Fix-up TextField React example and storybook knob for isRequired.
 - [Patch] Add icons to React Storybook.
 - [Patch] Update Dropdown React example code in docs.
 
@@ -82,7 +85,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] Add flex-grow--none and update flex-shrink--none helpers. (#744)
 
 ## 26.1.1 - 2017-07-27
-- [Feature] Add `yarn.lock` file to OUI to keep a more reliable dependency managament than `npm`.
+- [Feature] Add `yarn.lock` file to OUI to keep a more reliable dependency management than `npm`.
 - [Patch] Upgrade `jest` framework from version `18.0.0` to `20.0.4`.
 
 ## 26.1.0 - 2017-07-25
