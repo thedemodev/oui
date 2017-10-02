@@ -53,7 +53,7 @@ class Dropdown extends React.Component {
           className={ buttonClass }
           disabled={ isDisabled }
           onClick={ this.toggle }
-          style={{ marginBottom: 2 }}>
+          onBlur={ this.toggleOnBlur }>
           <div className='flex'>
             <div className='flex--1 truncate'>{ buttonContent }</div>
             <div className='text--right'><span className={ iconClass }></span></div>

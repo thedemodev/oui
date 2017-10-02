@@ -91,7 +91,8 @@
 ///   </div>
 ////
 
-.#{$namespace}dropdown-group {
+.#{$namespace}dropdown-group,
+.oui-dropdown-group {
   font-size: map-fetch($font, size, base);
   display: inline-block;
   position: relative;
@@ -105,7 +106,8 @@
 }
 
 %#{$namespace}dropdown,
-.#{$namespace}dropdown {
+.#{$namespace}dropdown,
+.oui-dropdown {
   $box-shadow-offset: 2px;
   @extend %#{$namespace}block-list-group;
   background: map-fetch($color, background, white);
