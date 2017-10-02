@@ -24,6 +24,7 @@ stories
         isFilter={ boolean('isFilter', false) }
         isDropdown={ boolean('isDropdown', true) }
         isOptional={ boolean('isOptional', false) }
+        isRequired={ boolean('isRequired', false) }
         label={ text('Label', '') }
         max={ number('max', 50) }
         min={ number('min', 10) }
@@ -32,7 +33,6 @@ stories
         onBlur={ action('on blur') }
         onKeyDown={ action('on key press') }
         placeholder={ text('placeholder', 'just a placeholder') }
-        required={ boolean('required', false) }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
   }).add('TextField', () => {
