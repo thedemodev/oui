@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Link from './index.js';
 
@@ -15,7 +16,7 @@ stories
     </div>
   ));
 stories
-  .addWithInfo('default', () => {
+  .add('default', withInfo()(() => {
     return (
       <ul>
         <li>
@@ -35,7 +36,7 @@ stories
         </li>
       </ul>
     );
-  })
+  }))
   .add('all links', () => {
     return (
       <ul>

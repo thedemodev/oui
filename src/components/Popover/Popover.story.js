@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Popover from './index.js';
 import OverlayWrapper from '../OverlayWrapper';
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .addWithInfo('default', () => <div>
+  .add('default', withInfo()(() => <div>
     <div className="position--relative height--100 text--center">
       <Popover title="Lorem ipsum dolor sit amet">
         <p>
@@ -25,8 +26,8 @@ stories
         </p>
       </Popover>
     </div>
-  </div>)
-  .addWithInfo('popover in action', () => <div className="position--relative height--100 text--center">
+  </div>))
+  .add('popover in action', withInfo()(() => <div className="position--relative height--100 text--center">
     <OverlayWrapper
       behavior="click"
       horizontalAttachment="center"
@@ -35,5 +36,5 @@ stories
       verticalAttachment="top">
       <Button width="default"> Open Popover </Button>
     </OverlayWrapper>
-  </div>);
+  </div>));
 

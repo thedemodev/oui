@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import components from 'docs/data/index.json';
 import { toTitleCase, getLanguagesFromComponent } from 'docs/utils/';
 import CategorySection from 'docs/components/CategorySection/';
@@ -50,9 +51,9 @@ const Category = (props) => {
 };
 
 Category.propTypes = {
-  children: React.PropTypes.element,
-  routes: React.PropTypes.arrayOf(React.PropTypes.shape({
-    path: React.PropTypes.string.isRequired,
+  children: PropTypes.element,
+  routes: PropTypes.arrayOf(PropTypes.shape({
+    path: PropTypes.string.isRequired,
   })).isRequired,
 };
 

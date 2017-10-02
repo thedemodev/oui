@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from './index.js';
 import BlockList from '../BlockList';
@@ -24,7 +25,7 @@ stories
     </div>
   ));
 
-stories.addWithInfo('with BlockList elements', () => {
+stories.add('with BlockList elements', withInfo()(() => {
   return (
     <Dropdown
       isDisabled={ boolean('isDisabled', false) }
@@ -58,10 +59,10 @@ stories.addWithInfo('with BlockList elements', () => {
       </BlockList>
     </Dropdown>
   );
-});
+}));
 
 
-stories.addWithInfo('three dots', () => {
+stories.add('three dots', withInfo()(() => {
   return (
     <Dropdown
       icon={ false }
@@ -109,10 +110,10 @@ stories.addWithInfo('three dots', () => {
       </BlockList>
     </Dropdown>
   );
-});
+}));
 
 
-stories.addWithInfo('text behind', () => {
+stories.add('text behind', withInfo()(() => {
   return (
     <div>
       <Dropdown
@@ -163,4 +164,4 @@ stories.addWithInfo('text behind', () => {
       <h1>This text should be behind the open dropdown</h1>
     </div>
   );
-});
+}));

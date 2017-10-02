@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Table from './index.js';
 import Button from '../Button';
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .addWithInfo('default', () => <div>
+  .add('default', withInfo()(() => <div>
     <Table density="loose" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -48,8 +49,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>)
-  .addWithInfo('loose & rule style', () => <div>
+  </div>))
+  .add('loose & rule style', withInfo()(() => <div>
     <Table density="loose" style="rule" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -81,8 +82,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>)
-  .addWithInfo('tight & no bottom border', () => <div>
+  </div>))
+  .add('tight & no bottom border', withInfo()(() => <div>
     <Table density="tight" style="rule-no-bottom-border" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -114,8 +115,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>)
-  .addWithInfo('dome', () => <div>
+  </div>))
+  .add('dome', withInfo()(() => <div>
     <Table density="tight" style="wall" tableLayoutAlgorithm="auto">
       <Table.THead>
         <Table.TR>
@@ -155,5 +156,5 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>);
+  </div>));
 

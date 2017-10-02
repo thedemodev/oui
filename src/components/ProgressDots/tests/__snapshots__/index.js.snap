@@ -3,7 +3,7 @@
 exports[`components/ProgressDots should render correctly with testSection prop 1`] = `
 <ul
   className="lego-progress-dots"
-  testSection="testing-foo"
+  data-test-section="testing-foo"
 >
   <li />
   <li />

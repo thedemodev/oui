@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Textarea from './index.js';
 
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .addWithInfo('textarea with knobs', () => <div>
+  .add('textarea with knobs', withInfo()(() => <div>
     <Textarea
       isDisabled={ boolean('isDisabled', false) }
       defaultValue='Delete this default value and see the placeholder'
@@ -27,5 +28,5 @@ stories
       onInput={ action('Textarea: onInput') }
       onKeyDown={ action('Textarea: onKeyDown') }
     />
-  </div>);
+  </div>));
 

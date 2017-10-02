@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import TabNav from './index.js';
 
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .addWithInfo('basic tabs', () => <div>
+  .add('basic tabs', withInfo()(() => <div>
     <TabNav activeTab="first">
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -28,8 +29,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>)
-  .addWithInfo('closed tabs', () => <div>
+  </div>))
+  .add('closed tabs', withInfo()(() => <div>
     <TabNav activeTab="second" style={ ['small'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -41,8 +42,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>)
-  .addWithInfo('centered tabs', () => <div>
+  </div>))
+  .add('centered tabs', withInfo()(() => <div>
     <TabNav activeTab="first" style={ ['small', 'center'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -54,8 +55,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>)
-  .addWithInfo('plain tabs', () => <div>
+  </div>))
+  .add('plain tabs', withInfo()(() => <div>
     <TabNav activeTab="first" style={ ['small', 'sub'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -67,5 +68,5 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>);
+  </div>));
 

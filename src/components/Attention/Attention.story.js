@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Attention from '../Attention';
 
@@ -22,7 +23,7 @@ stories
   ));
 
 stories
-  .addWithInfo('attentions states', () => {
+  .add('attentions states', withInfo()(() => {
     return (
       <Attention
         alignment={ select('alignment', { center: 'center', left: 'left' }, 'center') }
@@ -32,4 +33,4 @@ stories
         {text('content', 'Hello! This is a short attention bar.')}
       </Attention>
     );
-  });
+  }));

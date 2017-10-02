@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Code from '../../../src/components/Code';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
@@ -16,8 +17,8 @@ const ComponentRowItem = (props) => {
 };
 
 ComponentRowItem.propTypes = {
-  children: React.PropTypes.element,
-  isInline: React.PropTypes.bool,
+  children: PropTypes.element,
+  isInline: PropTypes.bool,
 };
 
 const ComponentExample = (props) => {
@@ -65,7 +66,7 @@ const ComponentExample = (props) => {
 };
 
 ComponentExample.propTypes = {
-  backgroundColor: React.PropTypes.oneOf([
+  backgroundColor: PropTypes.oneOf([
     'faint',
     'light',
     'muted',
@@ -79,8 +80,8 @@ ComponentExample.propTypes = {
     'live',
     'draft',
   ]),
-  components: React.PropTypes.array,
-  isPadded: React.PropTypes.bool,
+  components: PropTypes.array,
+  isPadded: PropTypes.bool,
 };
 
 export default ComponentExample;

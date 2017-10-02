@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Checkbox from '../Checkbox';
 
@@ -15,7 +16,7 @@ stories
   ));
 
 stories
-  .add('Checkboxs states', () => {
+  .add('Checkboxs states', withInfo()(() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -23,4 +24,4 @@ stories
         isDisabled={ boolean('isDisabled', false) }
       />
     );
-  });
+  }));

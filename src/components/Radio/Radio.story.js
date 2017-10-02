@@ -4,9 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import ProgressDots from './index.js';
+import Radio from './index.js';
 
-const stories = storiesOf('ProgressDots', module);
+const stories = storiesOf('Radio', module);
 stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
@@ -16,5 +16,18 @@ stories
   ));
 
 stories.add('default', withInfo()(() => {
-  return <ProgressDots testSection="test-progress-dots" />;
+  return (
+    <Radio
+      data-test-section="test-radio"
+      name='this is a radio'
+      label='this is a radio'
+    />);
 }));
+
+// isDisabled,
+// testSection,
+// name,
+// defaultChecked,
+// checked,
+// onChange,
+// label,

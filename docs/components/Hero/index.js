@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'glamor';
 
 const styles = {
@@ -46,8 +47,8 @@ const Hero = (props) => {
 };
 
 Hero.propTypes = {
-  description: React.PropTypes.string,
-  title: React.PropTypes.string.isRequired,
+  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default Hero;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 const LinkActive = (props) => {
@@ -14,9 +15,9 @@ const LinkActive = (props) => {
 };
 
 LinkActive.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  currentRoute: React.PropTypes.string.isRequired,
-  to: React.PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  currentRoute: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 export default LinkActive;

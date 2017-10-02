@@ -32,7 +32,7 @@ const Radio = ({
   });
 
   return (
-    <Label testSection={ testSection && testSection + '-label' }>
+    <Label data-test-section={ testSection && testSection + '-label' }>
       <div className="flex">
         <input
           data-oui-component={ true }

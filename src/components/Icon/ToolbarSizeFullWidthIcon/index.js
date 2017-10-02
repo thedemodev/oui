@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint-disable max-len */
 const ToolbarSizeFullWidthIcon24 = require('!babel?presets[]=react!svg-jsx-loader!oui-icons/src/24/toolbar-size-full-width-24.svg');
@@ -32,9 +33,9 @@ const ToolbarSizeFullWidthIcon = (props) => {
 
 ToolbarSizeFullWidthIcon.propTypes = {
   /** Size of the icon */
-  size: React.PropTypes.oneOf([12, 16, 24]).isRequired,
+  size: PropTypes.oneOf([12, 16, 24]).isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 export default ToolbarSizeFullWidthIcon;

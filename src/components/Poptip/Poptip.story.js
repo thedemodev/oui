@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Poptip from './index.js';
 import Button from '../Button';
@@ -18,7 +19,7 @@ stories
   ));
 
 stories
-  .addWithInfo('basic poptip', () => <div className="position--relative height--100">
+  .add('basic poptip', withInfo()(() => <div className="position--relative height--100">
     <Poptip
       className="text--center"
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!">
@@ -26,8 +27,8 @@ stories
         Basic Poptip
       </Button>
     </Poptip>
-  </div>)
-  .addWithInfo('poptip to the right', () => <div className="position--relative height--100">
+  </div>))
+  .add('poptip to the right', withInfo()(() => <div className="position--relative height--100">
     <Poptip
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       horizontalAttachment="left"
@@ -38,8 +39,8 @@ stories
         <a>Poptip on the right</a>
       </Button>
     </Poptip>
-  </div>)
-  .addWithInfo('poptip with advanced positioning', () => <div className="position--relative height--100">
+  </div>))
+  .add('poptip with advanced positioning', withInfo()(() => <div className="position--relative height--100">
     <Poptip
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       horizontalAttachment="left"
@@ -50,4 +51,4 @@ stories
         Poptip With Advanced Positioning
       </Button>
     </Poptip>
-  </div>);
+  </div>));

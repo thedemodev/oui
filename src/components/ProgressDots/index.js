@@ -7,11 +7,9 @@ import PropTypes from 'prop-types';
  * @returns {ReactElement}
  */
 
-const ProgressDots = ({
-    testSection,
-}) => {
+const ProgressDots = ({ testSection }) => {
   return (
-    <ul testSection={ testSection } className="lego-progress-dots">
+    <ul data-test-section={ testSection } className="lego-progress-dots">
       <li></li>
       <li></li>
       <li></li>

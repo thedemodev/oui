@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import components from 'docs/data/index.json';
 import SideNav from 'docs/components/SideNav/';
@@ -31,8 +32,8 @@ const SideNavContainer = ({ categoryName, currentRoute }) => {
 };
 
 SideNavContainer.propTypes = {
-  categoryName: React.PropTypes.string.isRequired,
-  currentRoute: React.PropTypes.string,
+  categoryName: PropTypes.string.isRequired,
+  currentRoute: PropTypes.string,
 };
 
 export default SideNavContainer;

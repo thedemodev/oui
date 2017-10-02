@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Token from './index.js';
 
@@ -15,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', () => <div>
+  .add('default', withInfo()(() => <div>
     <Token
       name="Duck"
       style="secondary"
@@ -31,7 +32,7 @@ stories
       style="primary"
       testSection="goose"
     />
-  </div>)
+  </div>))
   .add('draggable', () => {
     return (
       <Token

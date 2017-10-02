@@ -9,7 +9,7 @@ exports[`components/Spinner should render correctly 1`] = `
 exports[`components/Spinner should render correctly including testSection prop 1`] = `
 <div
   className="lego-spinner"
-  testSection="testing-foo"
+  data-test-section="testing-foo"
 />
 `;
 

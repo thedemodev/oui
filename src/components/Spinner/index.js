@@ -20,12 +20,12 @@ const Spinner = ({
   );
   if (hasOverlay) {
     return (
-      <div testSection={ testSection } className="lego-overlay">
+      <div data-test-section={ testSection } className="lego-overlay">
         <div className={ classes }></div>
       </div>
     );
   }
-  return <div testSection={ testSection } className={ classes }></div>;
+  return <div data-test-section={ testSection } className={ classes }></div>;
 };
 
 Spinner.propTypes = {

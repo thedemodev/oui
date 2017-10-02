@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import TextField from './index.js';
 
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .addWithInfo('TextField with knobs', () => {
+  .add('TextField with knobs', withInfo()(() => {
     return (
       <TextField
         defaultValue={ text('defaultValue', 'some default value') }
@@ -35,7 +36,7 @@ stories
         placeholder={ text('placeholder', 'just a placeholder') }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
-  }).add('TextField', () => {
+  })).add('TextField', () => {
     return (
       <TextField
         label="Field label"

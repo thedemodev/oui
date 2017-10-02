@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint-disable max-len */
 const PauseIcon16 = require('!babel?presets[]=react!svg-jsx-loader!oui-icons/src/16/pause-16.svg');
@@ -37,9 +38,9 @@ const PauseIcon = (props) => {
 
 PauseIcon.propTypes = {
   /** Size of the icon */
-  size: React.PropTypes.oneOf([12, 16, 24]).isRequired,
+  size: PropTypes.oneOf([12, 16, 24]).isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 export default PauseIcon;

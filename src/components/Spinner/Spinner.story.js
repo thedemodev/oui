@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Spinner from './index.js';
 
@@ -14,9 +15,9 @@ stories
     </div>
   ));
 
-stories.addWithInfo('default', () => {
-  return <Spinner testSection="test-spinner" />;
-});
+stories.add('default', withInfo()(() => {
+  return <Spinner data-test-section="test-spinner" />;
+}));
 
 stories.add('smaller sizes', () => {
   return <Spinner size={ select('size', { small: 'small', tiny: 'tiny' }, 'small') } />;

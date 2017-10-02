@@ -95,14 +95,4 @@ describe('components/Radio', () => {
     const component = mount(<Radio name="goose" isDisabled={ false } />);
     expect(component.find('input').prop('disabled')).toBe(false);
   });
-
-  it('should properly add a test section to label', () => {
-    const component = mount(<Radio name="goose" testSection="duck" />);
-    expect(component.find('[data-test-section="duck-label"]').length).toBe(1);
-  });
-
-  it('should properly add a test section to radio input', () => {
-    const component = mount(<Radio name="goose" testSection="duck" />);
-    expect(component.find('input[type="radio"][data-test-section="duck"]').length).toBe(1);
-  });
 });

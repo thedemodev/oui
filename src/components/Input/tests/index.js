@@ -45,16 +45,6 @@ describe('components/Input', () => {
     expect(component.is('[type="number"]')).toBe(true);
   });
 
-  it('should output an error if an invalid "type" is passed', () => {
-    spyOn(console, 'error').and.stub();
-
-    render(
-      <Input type="foo" />
-    );
-
-    expect(console.error).toHaveBeenCalled(); // eslint-disable-line
-  });
-
   it('should output an error if a "value" prop is passed without an "onChange" handler', () => {
     spyOn(console, 'error').and.stub();
 

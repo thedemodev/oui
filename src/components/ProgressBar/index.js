@@ -66,11 +66,20 @@ ProgressBar.propTypes = {
   /** left label */
   leftLabel: PropTypes.string,
   /** max */
-  max: PropTypes.string,
+  max: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   /** min */
-  min: PropTypes.string,
+  min: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   /** string data for progress */
-  progress: PropTypes.string,
+  progress: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   /** right label */
   rightLabel: PropTypes.string,
   /** top label*/

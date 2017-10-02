@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Code from '../../../src/components/Code';
 import classNames from 'classnames';
 import { css } from 'glamor';
@@ -40,7 +41,7 @@ const ComponentExample = (props) => {
 };
 
 ComponentExample.propTypes = {
-  component: React.PropTypes.object,
+  component: PropTypes.object,
 };
 
 export default ComponentExample;

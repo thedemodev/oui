@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Code from '../Code';
 
@@ -33,7 +34,7 @@ stories
   ));
 
 stories
-  .addWithInfo('default', () => {
+  .add('default', withInfo()(() => {
     return (
       <Code
         hasCopyButton={ boolean('hasCopyButton', true) }
@@ -42,4 +43,4 @@ stories
         { text('code', 'var foo = `bar`; \nvar bat = `baz`;') }
       </Code>
     );
-  });
+  }));

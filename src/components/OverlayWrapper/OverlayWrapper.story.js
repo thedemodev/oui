@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import OverlayWrapper from '../OverlayWrapper';
 import Popover from '../Popover';
@@ -31,7 +32,7 @@ stories
   ));
 
 stories
-  .addWithInfo('default popover', () => {
+  .add('default popover', withInfo()(() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -46,8 +47,8 @@ stories
         </Button>
       </OverlayWrapper>
     );
-  })
-  .addWithInfo('pinned popover', () => {
+  }))
+  .add('pinned popover', withInfo()(() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -66,4 +67,4 @@ stories
         </Button>
       </OverlayWrapper>
     );
-  });
+  }));

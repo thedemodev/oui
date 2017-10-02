@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint-disable max-len */
 const RedoIcon16 = require('!babel?presets[]=react!svg-jsx-loader!oui-icons/src/16/redo-16.svg');
@@ -37,9 +38,9 @@ const RedoIcon = (props) => {
 
 RedoIcon.propTypes = {
   /** Size of the icon */
-  size: React.PropTypes.oneOf([12, 16, 24]).isRequired,
+  size: PropTypes.oneOf([12, 16, 24]).isRequired,
   /** Hook for automated JavaScript tests */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 export default RedoIcon;

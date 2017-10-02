@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'glamor';
 
 const margin = '1em';
@@ -41,7 +42,7 @@ const ResponsiveMatrix = (props) => (
 );
 
 ResponsiveMatrix.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default ResponsiveMatrix;

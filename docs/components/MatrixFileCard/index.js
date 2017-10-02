@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { Link } from 'react-router';
 
@@ -31,9 +32,9 @@ const MatrixFileCard = (props) => (
 );
 
 MatrixFileCard.propTypes = {
-  children: React.PropTypes.string.isRequired,
-  languages: React.PropTypes.array,
-  link: React.PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  languages: PropTypes.array,
+  link: PropTypes.string.isRequired,
 };
 
 export default MatrixFileCard;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { css } from 'glamor';
 
@@ -21,9 +22,9 @@ const CategorySection = (props) => (
 );
 
 CategorySection.propTypes = {
-  categoryName: React.PropTypes.string.isRequired,
-  categorySlug: React.PropTypes.string.isRequired,
-  children: React.PropTypes.node,
+  categoryName: PropTypes.string.isRequired,
+  categorySlug: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };
 
 export default CategorySection;

@@ -821,7 +821,7 @@ describe('components/OverlayWrapper', () => {
             <FakeButton />
           </OverlayWrapper>
         );
-      }).toThrowError(/React\.Children\.only/);
+      }).toThrow();
     });
   });
 });

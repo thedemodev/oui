@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import ButtonRow from '../ButtonRow';
 import Button from './index.js';
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .addWithInfo('all buttons', () => {
+  .add('all buttons', withInfo()(() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -30,7 +31,7 @@ stories
           <Button key="7" isActive={ boolean('isActive', false) } style="toggle" width="default">Toggle</Button>,
         ] }
       />);
-  })
+  }))
   .add('all disabled', () => {
     return (
       <ButtonRow
@@ -45,7 +46,7 @@ stories
         ] }
       />);
   })
-  .addWithInfo('default', () => <Button width={ select('width', ['default', 'full'], 'default') }>default</Button>)
+  .add('default', withInfo()(() => <Button width={ select('width', ['default', 'full'], 'default') }>default</Button>))
   .add('underline button', () => {
     return (
       <Button style="underline" width="default">

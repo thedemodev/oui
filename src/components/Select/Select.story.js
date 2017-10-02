@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Select from './index.js';
 
@@ -14,12 +15,11 @@ stories
     </div>
   ));
 
-stories.addWithInfo('default', () => {
+stories.add('default', withInfo()(() => {
   return (
     <Select isDisabled={ boolean('isDisabled', false) } name='zoo' id='zoo' >
       <option value="one">This is option one</option>
       <option value="two">And this is option two</option>
     </Select>
   );
-});
-
+}));
