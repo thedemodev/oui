@@ -68,21 +68,31 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  /** Button text, can be a string or element. */
   buttonContent: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
+  /** Dropdown contents, typically using the <Blocklist> component. */
   children: PropTypes.node.isRequired,
+  /** Button width is either full or inline-block. */
   fullWidth: PropTypes.bool,
+  /** Unused... */
   handleClick: PropTypes.func,
+  /** Show a dropdown arrow, true/false. */
   icon: PropTypes.bool,
+  /** Disable button. */
   isDisabled: PropTypes.bool,
+  /** Button style, e.g. highlight, danger, outline. */
   style: PropTypes.string,
+  /** For automated testing only. */
   testSection: PropTypes.string,
+  /** Dropdown menu width, in pixels. */
   width: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
+  /** Override default dropdown menu z-index. */
   zIndex: PropTypes.number,
 };
 

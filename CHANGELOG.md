@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add Dropdown and Link documentation for props. (#821)
 
 ## 27.0.0 - 2017-10-02
 - [Release] Eliminating automatic update of react react-dom and react-addons-test-utils dependencies (breaking changes) (#819)

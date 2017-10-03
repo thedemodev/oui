@@ -37,15 +37,15 @@ const Link = ({
 };
 
 Link.propTypes = {
-  /** Text within the button */
+  /** Text/node that is linked */
   children: PropTypes.node.isRequired,
-  /** Describes buttons that have an icon but no text */
+  /** Href for the anchor element */
   href: PropTypes.string,
-  /** Prevent users from interacting with the button */
+  /** Disable link and interactivity */
   isDisabled: PropTypes.bool,
-  /** Make the button act as a submit button */
+  /** Click handler function */
   onClick: PropTypes.func,
-  /** Various height and width options */
+  /** Link style options */
   style: PropTypes.oneOf([
     'default',
     'dark',
