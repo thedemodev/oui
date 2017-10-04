@@ -8,6 +8,7 @@ exports[`components/Dropdown should highlight button class when style equals hig
   <button
     className="oui-button oui-button--highlight"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
   >
     <div
@@ -28,6 +29,9 @@ exports[`components/Dropdown should highlight button class when style equals hig
     </div>
   </button>
   <div
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     style={
       Object {
         "position": "absolute",
@@ -47,6 +51,7 @@ exports[`components/Dropdown should not render children when isDisabled is true 
   <button
     className="oui-button"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
   >
     <div
@@ -67,6 +72,9 @@ exports[`components/Dropdown should not render children when isDisabled is true 
     </div>
   </button>
   <div
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     style={
       Object {
         "position": "absolute",
@@ -86,6 +94,7 @@ exports[`components/Dropdown should not use .oui-arrow-inline--down when icon is
   <button
     className="oui-button"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
   >
     <div
@@ -106,6 +115,9 @@ exports[`components/Dropdown should not use .oui-arrow-inline--down when icon is
     </div>
   </button>
   <div
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     style={
       Object {
         "position": "absolute",
@@ -125,6 +137,7 @@ exports[`components/Dropdown should render children when isOpen is true 1`] = `
   <button
     className="oui-button"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
   >
     <div
@@ -145,6 +158,9 @@ exports[`components/Dropdown should render children when isOpen is true 1`] = `
     </div>
   </button>
   <div
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     style={
       Object {
         "position": "absolute",
@@ -164,6 +180,7 @@ exports[`components/Dropdown should use oui-button--full class when fullWidth is
   <button
     className="oui-button oui-button--full soft--left text--left"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
   >
     <div
@@ -184,6 +201,9 @@ exports[`components/Dropdown should use oui-button--full class when fullWidth is
     </div>
   </button>
   <div
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     style={
       Object {
         "position": "absolute",

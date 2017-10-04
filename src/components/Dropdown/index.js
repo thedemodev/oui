@@ -7,13 +7,38 @@ class Dropdown extends React.Component {
     super(props);
     this.state = {
       isOpen: false,
+      overChildren: false,
     };
-    this.toggle = this.toggle.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleOnBlur = this.handleOnBlur.bind(this);
+    this.handleMouseOverChildren = this.handleMouseOverChildren.bind(this);
+    this.handleMouseLeavingChildren = this.handleMouseLeavingChildren.bind(this);
   }
 
-  toggle() {
+  handleMouseOverChildren() {
+    this.setState({
+      overChildren: true,
+    });
+  }
+
+  handleMouseLeavingChildren() {
+    this.setState({
+      overChildren: false,
+    });
+  }
+
+  handleOnBlur() {
+    if (!this.state.overChildren) {
+      this.setState({
+        isOpen: false,
+      });
+    }
+  }
+
+  handleToggle(event) {
     this.setState({
       isOpen: !this.state.isOpen,
+      overChildren: false,
     });
   }
 
@@ -52,14 +77,18 @@ class Dropdown extends React.Component {
         <button
           className={ buttonClass }
           disabled={ isDisabled }
-          onClick={ this.toggle }
-          onBlur={ this.toggleOnBlur }>
+          onClick={ this.handleToggle }
+          onBlur={ this.handleOnBlur }>
           <div className='flex'>
             <div className='flex--1 truncate'>{ buttonContent }</div>
             <div className='text--right'><span className={ iconClass }></span></div>
           </div>
         </button>
-        <div style={{zIndex: zIndex, position: 'absolute', width: width}}>
+        <div
+          style={{zIndex: zIndex, position: 'absolute', width: width}}
+          onMouseOver={ this.handleMouseOverChildren }
+          onMouseLeave={ this.handleMouseLeavingChildren }
+          onClick={ this.handleToggle } >
           { this.state.isOpen && !isDisabled && children }
         </div>
       </div>
