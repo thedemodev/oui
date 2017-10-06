@@ -7,6 +7,7 @@ export { default as ButtonRow } from './components/ButtonRow';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Code } from './components/Code';
 export { default as Dropdown } from './components/Dropdown';
+export { default as EmptyDashboard } from './components/EmptyDashboard';
 export { default as Input } from './components/Input';
 export { default as Label } from './components/Label';
 export { default as Link } from './components/Link';

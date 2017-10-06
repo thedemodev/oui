@@ -151,3 +151,12 @@
     background: map-fetch($color, background, brand-light);
   }
 }
+
+.svg--non-scaling-stroke {
+  &-path,
+  &-circle,
+  &-rect,
+  &-line {
+    vector-effect: non-scaling-stroke;
+  }
+}
