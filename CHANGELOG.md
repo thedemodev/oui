@@ -5,7 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+## 27.1.0 - 2017-10-06
 - [Feature] Add EmptyDashboard component. (#801)
+- [Patch] Add more Storybook items to .npmignore.
 
 ## 27.0.1 - 2017-10-04
 - [Patch] Add close dropdown behavior. (#824)
