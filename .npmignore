@@ -1,15 +1,21 @@
 # Updating this? Consider updating `.gitignore` as well.
 
-node_modules
-s3
 coverage
-.bundle
-.sass-cache
+node_modules
+storybook-static
+s3
 npm-debug.log
-.DS_Store
+
 docs
 dist/docs
 dist/js/components/**/*.story.js
 dist/js/components/**/example
+dist/js/stories
+src/components/**/*.story.js
+src/components/**/example
+src/stories
+
+.bundle
+.DS_Store
+.sass-cache
 .storybook
-storybook-static
