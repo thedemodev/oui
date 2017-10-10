@@ -1,15 +1,18 @@
 # Updating this? Consider updating `.npmignore` as well.
+npm-debug.log
 
 dist
 tmp
 node_modules
 s3
 coverage
+
 .bundle
 .sass-cache
-npm-debug.log
 .DS_Store
+.idea
+
 docs/data
 docs/lite/sass.json
 docs/react/data.json
-.idea
+docs/storybook/static/*
