@@ -11,7 +11,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg'
       />,
     ],
   },
@@ -23,7 +23,7 @@ export default [
         headline='Get started with Optimizely X Extensions'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/extensions-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg'
       />,
     ],
   },
@@ -35,7 +35,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/custom-project-experiments-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/custom-project-experiments-empty-state.svg'
       />,
     ],
   },
@@ -47,7 +47,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/empty-rollouts.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/empty-rollouts.svg'
       />,
     ],
   },
@@ -59,7 +59,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/empty-feature-flags.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/empty-feature-flags.svg'
       />,
     ],
   },
@@ -71,7 +71,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/audience-list-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/audience-list-empty-state.svg'
       />,
     ],
   },
@@ -83,7 +83,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/attribute-dashboard-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/attribute-dashboard-empty-state.svg'
       />,
     ],
   },
@@ -95,7 +95,7 @@ export default [
         headline='Get started with Optimizely X'
         description='This is a test description about some feature you should use.'
         button={ (<Button style="highlight">Highlight</Button>) }
-        imagePath='https://app.optimizely.com/static/img/p13n/page-list-empty-state.svg'
+        imagePath='https://app.optimizely.com/static/img/x/empty-states/page-list-empty-state.svg'
       />,
     ],
   },
