@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 27.1.2 - 2017-10-12
 - [Patch] Update empty state SVGs to point to new stroked versions in /static/x/empty-states/...
 
 ## 27.1.1 - 2017-10-10
