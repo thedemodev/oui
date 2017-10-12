@@ -6,11 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 27.1.2 - 2017-10-12
+## 27.1.1 - 2017-10-12
 - [Patch] Update empty state SVGs to point to new stroked versions in /static/x/empty-states/...
-
-## 27.1.1 - 2017-10-10
-- [Feature] Ignore bundle from static dir on docs/stoybook.
+- [Patch] Ignore bundle from static dir on docs/stoybook.
 
 ## 27.1.0 - 2017-10-06
 - [Feature] Add EmptyDashboard component. (#801)
