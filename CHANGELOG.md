@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 28.0.0 - 2017-10-13
+- [Release] Update to React 16 and Enzyme 3. (#830)
+
 ## 27.1.1 - 2017-10-12
 - [Patch] Update empty state SVGs to point to new stroked versions in /static/x/empty-states/...
 - [Patch] Ignore bundle from static dir on docs/stoybook.
