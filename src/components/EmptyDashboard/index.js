@@ -1,4 +1,5 @@
-const React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const EmptyDashboard = ({
   button,
@@ -7,7 +8,7 @@ const EmptyDashboard = ({
   description,
   descriptionMaxWidth,
   testSection,
-} = this.props) => {
+}) => {
   return (
     <div
       className='flex overflow-y--scroll flex--1'
@@ -65,20 +66,20 @@ const EmptyDashboard = ({
 
 EmptyDashboard.propTypes = {
   /** A button, link, or other element that is actionable */
-  button: React.PropTypes.node,
+  button: PropTypes.node,
   /** A string or `div` containing longer text that describes the empty state */
-  description: React.PropTypes.element,
+  description: PropTypes.element,
   /** Max width of description. Accepts any valid CSS width value. */
-  descriptionMaxWidth: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  descriptionMaxWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
   /** Short text about the empty state */
-  headline: React.PropTypes.string.isRequired,
+  headline: PropTypes.string.isRequired,
   /** Path to an image representing the empty state */
-  imagePath: React.PropTypes.string,
+  imagePath: PropTypes.string,
   /** Identifier used to create data-test-section attributes for testing */
-  testSection: React.PropTypes.string,
+  testSection: PropTypes.string,
 };
 
 EmptyDashboard.getDefaultProps = {

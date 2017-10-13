@@ -56,8 +56,8 @@ const ProgressBar = ({
         </div>
       }
     </div>
-      /* eslint-enable */
-    );
+  /* eslint-enable */
+  );
 };
 
 ProgressBar.propTypes = {

@@ -65,10 +65,10 @@ describe('components/Button', () => {
 
   it('should be of type `submit` when `isSubmit` is true', () => {
     const component = shallow(
-      <Button isSubmit={ false }>Hello!</Button>
+      <Button isSubmit={ true }>Hello!</Button>
     );
 
-    expect(component.is('[type="button"]')).toBe(true);
+    expect(component.is('[type="submit"]')).toBe(true);
   });
 
   it('should have a properly set size class if `size` is provided', () => {

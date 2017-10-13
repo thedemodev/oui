@@ -1,77 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/EmptyDashboard should render 1`] = `
-<div
-  className="flex overflow-y--scroll flex--1"
-  data-test-section="layers-empty-state"
-  style={
-    Object {
-      "margin": "auto",
-      "width": "750px",
-    }
+<EmptyDashboard
+  button={
+    <Button
+      style="highlight"
+    >
+      Highlight Button
+    </Button>
   }
+  description={
+    <div>
+      This is a test description about 
+      <Link
+        href="http://google.com"
+      >
+        X Feature
+      </Link>
+       with a Google.
+    </div>
+  }
+  headline="Get started with Optimizely X"
+  imagePath="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
 >
   <div
-    className="anchor--middle height--1-1 flex flex--column"
+    className="flex overflow-y--scroll flex--1"
+    data-test-section="layers-empty-state"
+    style={
+      Object {
+        "margin": "auto",
+        "width": "750px",
+      }
+    }
   >
     <div
-      className="text--center soft-quad"
-      data-ui-component={true}
+      className="anchor--middle height--1-1 flex flex--column"
     >
       <div
-        className="muted push-double--bottom"
-        style={
-          Object {
-            "margin": "auto",
-            "width": "550px",
-          }
-        }
+        className="text--center soft-quad"
+        data-ui-component={true}
       >
-        <object
-          alt=""
-          className="svg--non-scaling-stroke display--inline"
-          data="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+        <div
+          className="muted push-double--bottom"
           style={
             Object {
-              "maxHeight": "290px",
-              "maxWidth": "450px",
+              "margin": "auto",
+              "width": "550px",
             }
           }
-        />
-      </div>
-      <h1
-        className="alpha push--bottom"
-      >
-        Get started with Optimizely X
-      </h1>
-      <div
-        className="muted push--bottom anchor--middle"
-        style={
-          Object {
-            "maxWidth": undefined,
-          }
-        }
-      >
-        <div>
-          This is a test description about 
-          <Link
-            href="http://google.com"
-          >
-            X Feature
-          </Link>
-           with a Google.
-        </div>
-      </div>
-      <div
-        className="push-double--top"
-      >
-        <Button
-          style="highlight"
         >
-          Highlight Button
-        </Button>
+          <object
+            alt=""
+            className="svg--non-scaling-stroke display--inline"
+            data="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+            style={
+              Object {
+                "maxHeight": "290px",
+                "maxWidth": "450px",
+              }
+            }
+          />
+        </div>
+        <h1
+          className="alpha push--bottom"
+        >
+          Get started with Optimizely X
+        </h1>
+        <div
+          className="muted push--bottom anchor--middle"
+          style={
+            Object {
+              "maxWidth": undefined,
+            }
+          }
+        >
+          <div>
+            This is a test description about 
+            <Link
+              href="http://google.com"
+            >
+              <a
+                className="link"
+                data-ui-component={true}
+                disabled={false}
+                href="http://google.com"
+              >
+                X Feature
+              </a>
+            </Link>
+             with a Google.
+          </div>
+        </div>
+        <div
+          className="push-double--top"
+        >
+          <Button
+            style="highlight"
+          >
+            <button
+              className="oui-button oui-button--highlight oui-button--default"
+              data-oui-component={true}
+              disabled={false}
+              type="button"
+            >
+              Highlight Button
+            </button>
+          </Button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</EmptyDashboard>
 `;

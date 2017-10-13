@@ -12,12 +12,6 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
 
-  blur() {
-    if (this._input) {
-      this._input.blur();
-    }
-  }
-
   renderInput({
     note,
     defaultValue,
@@ -105,12 +99,7 @@ Input.propTypes = {
    *  @param {Object} props Object of props
    *  @returns {Error} Error or null
    */
-  isOptional: function verifyIsOptionalProp(props) {
-    if (props.isOptional && !props.label) {
-      return new Error('Must include a value for the label prop to use the isOptional prop');
-    }
-    return null;
-  },
+  isOptional: PropTypes.bool,
   /** Prevents input from being modified but doesn't appear disabled */
   isReadOnly: PropTypes.bool,
   /** Prevents input from being submitted without value */

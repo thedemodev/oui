@@ -11,7 +11,7 @@ import Label from '../Label';
  */
 const Radio = ({
   isDisabled,
-  testSection,
+  testSection = null,
   name,
   defaultChecked,
   checked,
@@ -32,7 +32,7 @@ const Radio = ({
   });
 
   return (
-    <Label data-test-section={ testSection && testSection + '-label' }>
+    <Label data-test-section={ `${testSection}-label` }>
       <div className="flex">
         <input
           data-oui-component={ true }

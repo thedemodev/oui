@@ -40,7 +40,7 @@ describe('components/Table/TD', () => {
 
   it('should add width inline style to table cells when provided', () => {
     const component = render(<TD width="50%"></TD>);
-    expect(component.children().attr('style')).toContain('width:50%;');
+    expect(component.attr('style')).toContain('width:50%');
   });
 
   it('should not add width inline style to table cells by default', () => {
@@ -54,6 +54,6 @@ describe('components/Table/TD', () => {
 
   it('should add colspan to table cells when provided', () => {
     const component = render(<TD colSpan={ 3 }></TD>);
-    expect(component.children().attr('colspan')).toBe('3');
+    expect(component.attr('colspan')).toBe('3');
   });
 });

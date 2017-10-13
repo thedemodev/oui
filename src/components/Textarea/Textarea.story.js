@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .add('textarea with knobs', withInfo()(() => <div>
+  .add('textarea with knobs', withInfo()(() => (<div>
     <Textarea
       isDisabled={ boolean('isDisabled', false) }
       defaultValue='Delete this default value and see the placeholder'
@@ -28,5 +28,5 @@ stories
       onInput={ action('Textarea: onInput') }
       onKeyDown={ action('Textarea: onKeyDown') }
     />
-  </div>));
+  </div>)));
 

@@ -1,36 +1,37 @@
 import React from 'react';
 import Radio from '../index';
 import { shallow, mount } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/Radio', () => {
   it('should render an input of type radio', () => {
-    const component = mount(<Radio name="goose" />);
-    expect(component.find('input[type="radio"]').length).toBe(1);
+    const component = shallow(<Radio name="goose" />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render input with name when provided', () => {
-    const component = mount(<Radio name="goose" />);
-    expect(component.find('input[type="radio"]').get(0).name).toBe('goose');
+    const component = shallow(<Radio name="goose" />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render a checked radio input when `defaultChecked` is true', () => {
-    const component = mount(<Radio name="goose" defaultChecked={ true } />);
-    expect(component.find('input[type="radio"]').get(0).checked).toBe(true);
+    const component = shallow(<Radio name="goose" defaultChecked={ true } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked radio input when `defaultChecked` is false', () => {
-    const component = mount(<Radio name="goose" defaultChecked={ false } />);
-    expect(component.find('input[type="radio"]').get(0).checked).toBe(false);
+    const component = shallow(<Radio name="goose" defaultChecked={ false } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render a checked radio input when `checked` is true', () => {
-    const component = mount(<Radio name="goose" checked={ true } onChange={ function() {} } />);
-    expect(component.find('input[type="radio"]').get(0).checked).toBe(true);
+    const component = shallow(<Radio name="goose" checked={ true } onChange={ function() {} } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked radio input when `checked` is false', () => {
-    const component = mount(<Radio name="goose" checked={ false } onChange={ function() {} } />);
-    expect(component.find('input[type="radio"]').get(0).checked).toBe(false);
+    const component = shallow(<Radio name="goose" checked={ false } onChange={ function() {} } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should throw an error if a radio input is rendered without an `onChange` function', () => {
@@ -54,45 +55,39 @@ describe('components/Radio', () => {
   });
 
   it('should be wrapped in a label', () => {
-    const component = mount(<Radio name="goose" />);
-
-    const label = component.find('label');
-    const radio = label.find('input[type="radio"]');
-
-    expect(label.length).toBe(1);
-    expect(radio.length).toBe(1);
+    const component = shallow(<Radio name="goose" />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('label should render text', () => {
-    const component = mount(<Radio name="goose" label="foo" />);
-
-    const label = component.find('label');
-    expect(label.text()).toBe('foo');
+    const component = shallow(<Radio name="goose" label="foo" />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should add disabled class to label text when disabled', () => {
-    const component = mount(<Radio name="goose" isDisabled={ true } />);
-
-    const label = component.find('.oui-label--disabled');
-    expect(label.length).toBe(1);
+    const component = shallow(<Radio name="goose" isDisabled={ true } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should not add disabled class to label text when not disabled', () => {
-    const component = mount(<Radio name="goose" isDisabled={ false } />);
-
-    const label = component.find('.oui-label--disabled');
-    expect(label.length).toBe(0);
+    const component = shallow(<Radio name="goose" isDisabled={ false } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should add disabled attribute to radio input when disabled', () => {
-    const component = mount(<Radio name="goose" isDisabled={ true } />);
-
-    const input = component.find('input[disabled]');
-    expect(input.length).toBe(1);
+    const component = shallow(<Radio name="goose" isDisabled={ true } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should not add disabled attribute to radio input when not disabled', () => {
-    const component = mount(<Radio name="goose" isDisabled={ false } />);
-    expect(component.find('input').prop('disabled')).toBe(false);
+    const component = shallow(<Radio name="goose" isDisabled={ false } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
+  });
+
+  it('should ====OJO====', () => {
+    const radioChange = jest.fn();
+    const radio = mount(<Radio onChange={ radioChange } name="goose" />);
+    radio.find('input').simulate('change');
+    expect(radioChange).toHaveBeenCalled();
   });
 });

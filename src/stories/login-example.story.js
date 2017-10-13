@@ -46,7 +46,7 @@ stories
   ));
 
 stories
-  .add('default state', () => <div style={ styles.container }>
+  .add('default state', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
@@ -78,7 +78,7 @@ stories
               style='highlight'
               width='full'>
               Log In
-              </Button>
+            </Button>
           </div>
           <a className="display--block" href="#" style={ styles.center }>Log in using SSO</a>
         </div>
@@ -93,9 +93,9 @@ stories
         </Button>
       </div>
     </div>
-  </div>);
+  </div>));
 stories
-  .add('loading', () => <div style={ styles.container }>
+  .add('loading', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
@@ -139,9 +139,9 @@ stories
         </Button>
       </div>
     </div>
-  </div>);
+  </div>));
 stories
-  .add('error', () => <div style={ styles.container }>
+  .add('error', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
@@ -190,7 +190,7 @@ stories
         </Button>
       </div>
     </div>
-  </div>);
+  </div>));
 
 const styles = {
   container: {

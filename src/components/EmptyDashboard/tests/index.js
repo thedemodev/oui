@@ -2,12 +2,12 @@ import React from 'react';
 import Button from '../../Button/';
 import EmptyDashboard from '../index.js';
 import Link from '../../Link/';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/EmptyDashboard', () => {
   it('should render', () => {
-    const output = shallow(
+    const output = mount(
       <EmptyDashboard
         headline='Get started with Optimizely X'
         description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">Highlight Button</Button>) }

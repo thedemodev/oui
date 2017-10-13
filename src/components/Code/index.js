@@ -48,7 +48,7 @@ class Code extends React.Component {
       // `dangerouslySetInnerHTML` set so that the HTML returned is displayed.
       dangerouslySetInnerHTML = {
         __html: language ? Highlight.highlight(language, code).value :
-                                      Highlight.highlightAuto(code).value,
+          Highlight.highlightAuto(code).value,
       };
       code = null;
     }

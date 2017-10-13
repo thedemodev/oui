@@ -20,9 +20,9 @@ describe('components/Poptip/Poptip', () => {
     const component = render(
       <Poptip>Heyo!</Poptip>
     );
-    expect(component.children().attr('style')).toContain('display:inline-block');
-    expect(component.children().attr('style')).toContain('opacity:1');
-    expect(component.children().attr('style')).toContain('position:initial');
+    expect(component.attr('style')).toContain('display:inline-block');
+    expect(component.attr('style')).toContain('opacity:1');
+    expect(component.attr('style')).toContain('position:initial');
   });
 
   it('should have a properly set test section', () => {

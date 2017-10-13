@@ -29,6 +29,7 @@ exports[`components/Dropdown should highlight button class when style equals hig
     </div>
   </button>
   <div
+    className="oui-dropdown-children"
     onClick={[Function]}
     onMouseLeave={[Function]}
     onMouseOver={[Function]}
@@ -72,6 +73,7 @@ exports[`components/Dropdown should not render children when isDisabled is true 
     </div>
   </button>
   <div
+    className="oui-dropdown-children"
     onClick={[Function]}
     onMouseLeave={[Function]}
     onMouseOver={[Function]}
@@ -115,6 +117,7 @@ exports[`components/Dropdown should not use .oui-arrow-inline--down when icon is
     </div>
   </button>
   <div
+    className="oui-dropdown-children"
     onClick={[Function]}
     onMouseLeave={[Function]}
     onMouseOver={[Function]}
@@ -158,6 +161,7 @@ exports[`components/Dropdown should render children when isOpen is true 1`] = `
     </div>
   </button>
   <div
+    className="oui-dropdown-children"
     onClick={[Function]}
     onMouseLeave={[Function]}
     onMouseOver={[Function]}
@@ -201,6 +205,7 @@ exports[`components/Dropdown should use oui-button--full class when fullWidth is
     </div>
   </button>
   <div
+    className="oui-dropdown-children"
     onClick={[Function]}
     onMouseLeave={[Function]}
     onMouseOver={[Function]}

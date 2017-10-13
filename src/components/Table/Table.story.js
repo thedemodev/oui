@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => <div>
+  .add('default', withInfo()(() => (<div>
     <Table density="loose" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -49,8 +49,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>))
-  .add('loose & rule style', withInfo()(() => <div>
+  </div>)))
+  .add('loose & rule style', withInfo()(() => (<div>
     <Table density="loose" style="rule" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -82,8 +82,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>))
-  .add('tight & no bottom border', withInfo()(() => <div>
+  </div>)))
+  .add('tight & no bottom border', withInfo()(() => (<div>
     <Table density="tight" style="rule-no-bottom-border" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -115,8 +115,8 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>))
-  .add('dome', withInfo()(() => <div>
+  </div>)))
+  .add('dome', withInfo()(() => (<div>
     <Table density="tight" style="wall" tableLayoutAlgorithm="auto">
       <Table.THead>
         <Table.TR>
@@ -156,5 +156,5 @@ stories
         </Table.TR>
       </Table.TBody>
     </Table>
-  </div>));
+  </div>)));
 

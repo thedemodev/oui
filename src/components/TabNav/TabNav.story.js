@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .add('basic tabs', withInfo()(() => <div>
+  .add('basic tabs', withInfo()(() => (<div>
     <TabNav activeTab="first">
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -29,8 +29,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>))
-  .add('closed tabs', withInfo()(() => <div>
+  </div>)))
+  .add('closed tabs', withInfo()(() => (<div>
     <TabNav activeTab="second" style={ ['small'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -42,8 +42,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>))
-  .add('centered tabs', withInfo()(() => <div>
+  </div>)))
+  .add('centered tabs', withInfo()(() => (<div>
     <TabNav activeTab="first" style={ ['small', 'center'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -55,8 +55,8 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>))
-  .add('plain tabs', withInfo()(() => <div>
+  </div>)))
+  .add('plain tabs', withInfo()(() => (<div>
     <TabNav activeTab="first" style={ ['small', 'sub'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -68,5 +68,5 @@ stories
         Tab #3
       </TabNav.Tab>
     </TabNav>
-  </div>));
+  </div>)));
 

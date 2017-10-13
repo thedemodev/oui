@@ -30,14 +30,14 @@ describe('components/Table', () => {
   describe('with `tableLayoutAlgorithm` prop supplied', () => {
     it('should render with provided `tableLayoutAlgorithm` prop value as inline style', () => {
       const component = render(<Table tableLayoutAlgorithm='auto'></Table>);
-      expect(component.children().attr('style')).toContain('table-layout:auto');
+      expect(component.attr('style')).toContain('table-layout:auto');
     });
   });
 
   describe('with no `tableLayoutAlgorithm` prop supplied', () => {
     it('should render with default `tableLayoutAlgorithm` prop value as inline style', () => {
       const component = render(<Table></Table>);
-      expect(component.children().attr('style')).toContain('table-layout:fixed');
+      expect(component.attr('style')).toContain('table-layout:fixed');
     });
   });
 

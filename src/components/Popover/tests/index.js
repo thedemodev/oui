@@ -28,9 +28,9 @@ describe('components/Popover', () => {
     const component = render(
       <Popover>Heyo!</Popover>
     );
-    expect(component.children().attr('style')).toContain('display:block');
-    expect(component.children().attr('style')).toContain('opacity:1');
-    expect(component.children().attr('style')).toContain('position:initial');
+    expect(component.attr('style')).toContain('display:block');
+    expect(component.attr('style')).toContain('opacity:1');
+    expect(component.attr('style')).toContain('position:initial');
   });
 
   it('should have a properly set test section', () => {

@@ -40,7 +40,7 @@ describe('components/Table/TH', () => {
 
   it('should add width inline style to table cells when provided', () => {
     const component = render(<TH width="50%"></TH>);
-    expect(component.children().attr('style')).toContain('width:50%;');
+    expect(component.attr('style')).toContain('width:50%');
   });
 
   it('should not add width inline style to table cells by default', () => {

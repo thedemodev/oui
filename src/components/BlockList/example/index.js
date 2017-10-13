@@ -38,7 +38,7 @@ export default [
                 </a>
               </div>
             </div>
-        ) }>
+          ) }>
           <BlockList.Item onClick={ function() {} }>
             Home
           </BlockList.Item>
@@ -133,13 +133,13 @@ export default [
         overlay={ <BlockList>
           <BlockList.Item onClick={ function() {} }>
               Archive
-            </BlockList.Item>
+          </BlockList.Item>
           <BlockList.Item onClick={ function() {} }>
               Pause
-            </BlockList.Item>
+          </BlockList.Item>
           <BlockList.Item onClick={ function() {} }>
               View Results
-            </BlockList.Item>
+          </BlockList.Item>
         </BlockList> }
         horizontalAttachment="left"
         horizontalTargetAttachment="left"

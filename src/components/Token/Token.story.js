@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => <div>
+  .add('default', withInfo()(() => (<div>
     <Token
       name="Duck"
       style="secondary"
@@ -32,7 +32,7 @@ stories
       style="primary"
       testSection="goose"
     />
-  </div>))
+  </div>)))
   .add('draggable', () => {
     return (
       <Token

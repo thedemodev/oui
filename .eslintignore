@@ -7,9 +7,11 @@ coverage
 .sass-cache
 npm-debug.log
 .DS_Store
-docs/data
-docs/lite/sass.json
-docs/react/data.json
 .idea
-docs/storybook/*
-docs/storybook/static/*
+
+docs
+dist/docs
+dist/js/components/**/*.story.js
+dist/js/components/**/example
+.storybook
+storybook-static

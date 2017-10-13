@@ -23,7 +23,7 @@ export default [
             <p>
                 Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae
                 nihil libero et, hic!
-              </p>
+            </p>
           </Popover> }>
           <Button>Open Popover</Button>
         </OverlayWrapper>
@@ -38,7 +38,7 @@ export default [
             <p>
                 Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae
                 nihil libero et, hic!
-              </p>
+            </p>
             <ClosePopoverButton />
           </Popover> }
           horizontalAttachment="left"
@@ -59,7 +59,7 @@ export default [
             <p>
                 The close button works because `OverlayWrapper` exposes a
                 `hideOverlay` method using `context` in React.
-              </p>
+            </p>
             <p>See the source for `OverlayWrapper` to learn more.</p>
             <ClosePopoverButton />
           </Popover> }>
@@ -76,7 +76,7 @@ export default [
             <p>
                 Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae
                 nihil libero et, hic!
-              </p>
+            </p>
           </Popover> }
           horizontalAttachment="left"
           horizontalTargetAttachment="left"
@@ -95,7 +95,7 @@ export default [
             <p>
                 Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae
                 nihil libero et, hic!
-              </p>
+            </p>
           </Popover> }
           shouldHideOnClick={ false }>
           <Button>Don't Close On Click Outside Popover</Button>

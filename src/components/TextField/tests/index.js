@@ -1,6 +1,6 @@
 import React from 'react';
 import TextField from '../index';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/TextField', () => {
@@ -75,6 +75,58 @@ describe('components/TextField', () => {
       />
     );
     expect(shallowToJson(output)).toMatchSnapshot();
+  });
+
+  it('should call onChange fn() prop when a change happen on input', () => {
+    const blurEvent = jest.fn();
+    const textField = mount(
+      <TextField
+        type='text'
+        onBlur={ blurEvent }
+      />
+    );
+    const input = textField.find('.oui-text-input');
+    input.simulate('blur');
+    expect(blurEvent).toHaveBeenCalled();
+  });
+
+  it('should call onBlur fn() prop when clicking out of input', () => {
+    const changeEvent = jest.fn();
+    const textField = mount(
+      <TextField
+        onChange={ changeEvent }
+        type='text'
+      />
+    );
+    const input = textField.find('.oui-text-input');
+    input.simulate('change');
+    expect(changeEvent).toHaveBeenCalled();
+  });
+
+  it('should call onKeyDown fn() prop when pressing keys on input', () => {
+    const keydownEvent = jest.fn();
+    const textField = mount(
+      <TextField
+        onKeyDown={ keydownEvent }
+        type='text'
+      />
+    );
+    const input = textField.find('.oui-text-input');
+    input.simulate('keyDown');
+    expect(keydownEvent).toHaveBeenCalled();
+  });
+
+  it('should call onFocus fn() prop when clicking on input', () => {
+    const focusEvent = jest.fn();
+    const textField = mount(
+      <TextField
+        onFocus={ focusEvent }
+        type='text'
+      />
+    );
+    const input = textField.find('.oui-text-input');
+    input.simulate('focus');
+    expect(focusEvent).toHaveBeenCalled();
   });
 
 });

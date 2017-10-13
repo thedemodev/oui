@@ -71,7 +71,6 @@ class Dropdown extends React.Component {
     return (
       <div
         data-ui-component={ true }
-        ref='dropdown'
         className='oui-dropdown-group'
         data-test-section={ testSection }>
         <button
@@ -85,6 +84,7 @@ class Dropdown extends React.Component {
           </div>
         </button>
         <div
+          className='oui-dropdown-children'
           style={{zIndex: zIndex, position: 'absolute', width: width}}
           onMouseOver={ this.handleMouseOverChildren }
           onMouseLeave={ this.handleMouseLeavingChildren }

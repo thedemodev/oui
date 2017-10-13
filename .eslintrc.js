@@ -230,7 +230,6 @@ module.exports = {
     "react/jsx-pascal-case": ["warn", {
       "ignore": ["TD", "TR", "TH"],
     }],
-    "react/jsx-space-before-closing": ["warn", "always"],
     "valid-jsdoc": ["warn", {
       "prefer": {
         "return": "returns",

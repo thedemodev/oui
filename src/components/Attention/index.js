@@ -12,7 +12,7 @@ const renderDismissButton = (testSection) => {
         style="plain"
         size="small"
         ariaLabel="Close alert"
-        testSection={ testSection + '-dismiss' }>
+        testSection={ `${testSection}-dismiss` }>
         <Icon name='close' size='small' />
       </Button>
     </div>
@@ -25,21 +25,23 @@ const renderDismissButton = (testSection) => {
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
+
 const Attention = ({
-  alignment,
+  alignment = 'left',
   children,
   isDismissible,
   testSection,
-  type,
+  type = 'brand',
 }) => {
-  let colorClassName = type ? 'oui-attention--' + type : '';
-  let alignmentClassName = (alignment === 'center') ? 'oui-text--center' : '';
-  let attentionAriaLabel = type ? getAssistiveTextFromColorClass(type) : null;
-  let alignClass = ('oui-attention ' + colorClassName + ' ' + alignmentClassName).trim();
-  let classes = classNames({
+  const colorClassName = `oui-attention--${type}`;
+  const alignmentClassName = `oui-text--${alignment}`;
+  const attentionAriaLabel = getAssistiveTextFromColorClass(type);
+  const alignClass = `oui-attention ${colorClassName} ${alignmentClassName}`.trim();
+  const classes = classNames({
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     [`${alignClass}`]: true,
   });
+  const dismissBtn = isDismissible ? renderDismissButton(testSection) : null;
 
   return (
     <div
@@ -48,8 +50,8 @@ const Attention = ({
       data-test-section={ testSection }
       aria-label={ attentionAriaLabel }
       role="alert">
-      { isDismissible ? renderDismissButton(testSection) : null }
       { children }
+      { dismissBtn }
     </div>
   );
 };

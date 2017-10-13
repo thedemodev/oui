@@ -199,21 +199,25 @@ class OverlayWrapper extends React.Component {
       default:
     }
 
+    const block = { display: 'inline-block' };
+    const overlayState = this.state.isOverlayOpen ? { display: 'block' } : { display: 'none' };
+
     return (
       /* eslint-disable react/jsx-no-bind */
       <div
         data-oui-component={ true }
         data-test-section={ testSection }
-        style={{ display: 'inline-block' }}>
+        style={ block }>
         <div
-          style={{ display: 'inline-block' }}
+          className='click-area'
+          style={ block }
           ref={ (ref) => { this._activatorEl = ref; } }
           { ...eventHandlerProps }>
           { child }
         </div>
         <div
           ref={ (ref) => { this._overlayEl = ref; } }
-          style={ this.state.isOverlayOpen ? { display: 'block' } : { display: 'none' } }>
+          style={ overlayState }>
           { overlay }
         </div>
       </div>

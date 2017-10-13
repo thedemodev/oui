@@ -12,7 +12,7 @@ const Button = ({
   isSubmit = false,
   children,
   isActive,
-  isDisabled,
+  isDisabled = false,
   onClick,
   size,
   style,
@@ -28,12 +28,14 @@ const Button = ({
     'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
+  const type = isSubmit ? 'submit' : 'button';
+
   return (
     <button
       data-oui-component={ true }
       className={ buttonClassNames }
-      disabled={ isDisabled ? 'disabled' : false }
-      type={ isSubmit ? 'submit' : 'button' }
+      disabled={ isDisabled }
+      type={ type }
       onClick={ onClick }
       data-test-section={ testSection }
       aria-label={ ariaLabel }>

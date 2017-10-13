@@ -16,9 +16,9 @@ stories
   ));
 
 stories
-  .add('default label', withInfo()(() => <div>
+  .add('default label', withInfo()(() => (<div>
     <Label
       isRequired={ boolean('isRequired', false) }
       isOptional={ boolean('isOptional', false) }>I'm a Label</Label>
-  </div>));
+  </div>)));
 

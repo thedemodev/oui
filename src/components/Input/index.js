@@ -108,7 +108,7 @@ class Input extends React.Component {
 Input.propTypes = {
   /** The default value of the input used on initial render */
   defaultValue: PropTypes.string,
-    /** Includes search icon if true */
+  /** Includes search icon if true */
   displayError: PropTypes.bool,
   /** Prevents input from being modified and appears disabled */
   isDisabled: PropTypes.bool,

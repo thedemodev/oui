@@ -6,7 +6,7 @@ export default [
   {
     examples: [
       <Code type="block">
-{ `var foo = 'bar';
+        { `var foo = 'bar';
 var bat = 'baz';` }
       </Code>,
     ],
@@ -14,7 +14,7 @@ var bat = 'baz';` }
   {
     examples: [
       <Code type="block" isHighlighted={ true } language="javascript">
-{ `var highlightedFoo = 'bar';
+        { `var highlightedFoo = 'bar';
 var highlightedBat = 'baz';` }
       </Code>,
     ],
@@ -22,7 +22,7 @@ var highlightedBat = 'baz';` }
   {
     examples: [
       <Code type="block" hasCopyButton={ true } testSection="code">
-{ `var copyableFoo = 'bar';
+        { `var copyableFoo = 'bar';
 var copyableBat = 'baz';` }
       </Code>,
     ],

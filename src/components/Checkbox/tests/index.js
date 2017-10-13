@@ -1,6 +1,7 @@
 import React from 'react';
 import Checkbox from '../index';
 import { shallow, mount } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/Checkbox', () => {
   it('should render an input of type checkbox', () => {
@@ -9,23 +10,23 @@ describe('components/Checkbox', () => {
   });
 
   it('should render a checked checkbox when `defaultChecked` is true', () => {
-    const component = mount(<Checkbox defaultChecked={ true } />);
-    expect(component.find('input[type="checkbox"]').get(0).checked).toBe(true);
+    const component = shallow(<Checkbox defaultChecked={ true } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked checkbox when `defaultChecked` is false', () => {
-    const component = mount(<Checkbox defaultChecked={ false } />);
-    expect(component.find('input[type="checkbox"]').get(0).checked).toBe(false);
+    const component = shallow(<Checkbox defaultChecked={ false } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render a checked checkbox when `checked` is true', () => {
-    const component = mount(<Checkbox checked={ true } onChange={ function() {} } />);
-    expect(component.find('input[type="checkbox"]').get(0).checked).toBe(true);
+    const component = shallow(<Checkbox checked={ true } onChange={ function() {} } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked checkbox when `checked` is false', () => {
-    const component = mount(<Checkbox checked={ false } onChange={ function() {} } />);
-    expect(component.find('input[type="checkbox"]').get(0).checked).toBe(false);
+    const component = shallow(<Checkbox checked={ false } onChange={ function() {} } />);
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should throw an error if a checkbox is rendered without an onChange function', () => {

@@ -19,7 +19,7 @@ stories
   ));
 
 stories
-  .add('basic poptip', withInfo()(() => <div className="position--relative height--100">
+  .add('basic poptip', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
       className="text--center"
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!">
@@ -27,8 +27,8 @@ stories
         Basic Poptip
       </Button>
     </Poptip>
-  </div>))
-  .add('poptip to the right', withInfo()(() => <div className="position--relative height--100">
+  </div>)))
+  .add('poptip to the right', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       horizontalAttachment="left"
@@ -39,8 +39,8 @@ stories
         <a>Poptip on the right</a>
       </Button>
     </Poptip>
-  </div>))
-  .add('poptip with advanced positioning', withInfo()(() => <div className="position--relative height--100">
+  </div>)))
+  .add('poptip with advanced positioning', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       horizontalAttachment="left"
@@ -51,4 +51,4 @@ stories
         Poptip With Advanced Positioning
       </Button>
     </Poptip>
-  </div>));
+  </div>)));

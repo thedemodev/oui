@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import ButtonRow from '../ButtonRow';
@@ -18,6 +18,34 @@ stories
   ));
 
 stories
+  .add('customize me!', () => {
+    return (
+      <Button
+        style={ select('style', {
+          'highlight': 'highlight',
+          'danger': 'danger',
+          'danger-outline': 'danger-outline',
+          'outline': 'outline',
+          'outline-reverse': 'outline-reverse',
+          'plain': 'plain',
+          'toggle': 'toggle',
+          'underline': 'underline',
+          'unstyled': 'unstyled',
+        }, 'highlight') }
+        isDisabled={ boolean('isDisabled', false) }
+        isActive={ boolean('isActive', false) }
+        width={ select('width', {
+          'default': 'default',
+          'full': 'full'}, 'default') }
+        size={ select('size', {
+          'tiny': 'tiny',
+          'small': 'small',
+          'large': 'large',
+          'narrow': 'narrow',
+          'tight': 'tight'}, 'narrow') }>
+        { text('customize me!', 'customize me!') }
+      </Button>);
+  })
   .add('all buttons', withInfo()(() => {
     return (
       <ButtonRow
@@ -46,7 +74,6 @@ stories
         ] }
       />);
   })
-  .add('default', withInfo()(() => <Button width={ select('width', ['default', 'full'], 'default') }>default</Button>))
   .add('underline button', () => {
     return (
       <Button style="underline" width="default">
