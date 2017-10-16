@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Fix fullWidth prop bug. 
 
 ## 28.0.0 - 2017-10-13
 - [Release] Update to React 16 and Enzyme 3. (#830)
