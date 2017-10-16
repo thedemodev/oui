@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Upgrade react-oui-icons to v1.0.0.
 - [Patch] Fix fullWidth prop bug. 
 
 ## 28.0.0 - 2017-10-13
