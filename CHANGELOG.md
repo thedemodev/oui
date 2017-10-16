@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add dist/docs folder so we have import access to https://unpkg.com/optimizely-oui@28.0.1/docs/styles/index.js via CodePen.
 
 ## 28.0.1 - 2017-10-16
 - [Patch] Upgrade react-oui-icons to v1.0.0. (#833)

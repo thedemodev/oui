@@ -7,7 +7,6 @@ s3
 npm-debug.log
 
 docs
-dist/docs
 dist/js/components/**/*.story.js
 dist/js/components/**/example
 dist/js/stories
