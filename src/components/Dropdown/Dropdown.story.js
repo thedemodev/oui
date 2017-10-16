@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
@@ -38,7 +38,7 @@ stories.add('with BlockList elements', withInfo()(() => {
         outline: 'outline',
         underline: 'underline'}, '') }
       buttonContent='Dropdown'
-      width={ number('width', 300) }>
+      width={ text('width', '300') }>
       <BlockList>
         {
           data.map((item, index) => {

@@ -55,6 +55,11 @@ class Dropdown extends React.Component {
       zIndex = 999,
     } = this.props;
 
+    const groupClass = classNames(
+      'oui-dropdown-group',
+      { ['width--1-1']: fullWidth }
+    );
+
     const buttonClass = classNames(
       'oui-button',
       { [`oui-button--${style}`]: style },
@@ -71,7 +76,7 @@ class Dropdown extends React.Component {
     return (
       <div
         data-ui-component={ true }
-        className='oui-dropdown-group'
+        className={ groupClass }
         data-test-section={ testSection }>
         <button
           className={ buttonClass }

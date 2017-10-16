@@ -178,7 +178,7 @@ exports[`components/Dropdown should render children when isOpen is true 1`] = `
 
 exports[`components/Dropdown should use oui-button--full class when fullWidth is true 1`] = `
 <div
-  className="oui-dropdown-group"
+  className="oui-dropdown-group width--1-1"
   data-ui-component={true}
 >
   <button
