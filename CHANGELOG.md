@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+## 28.0.3 - 2017-10-18
+- [Patch] Adds Card element to support SPA project
 
 ## 28.0.2 - 2017-10-16
 - [Patch] Add dist/docs folder so we have import access to https://unpkg.com/optimizely-oui@28.0.1/docs/styles/index.js via CodePen.

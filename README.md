@@ -102,8 +102,9 @@ import Button from 'optimizely-oui';
 | Accordion     | :white_large_square: | Array     | :white_large_square:     | ArrowInline | :white_check_mark:    |     
 | Attention | :white_check_mark:    | Badge | :white_check_mark:    | BlockList | :white_check_mark:    |         
 | BlockList/Category | :white_check_mark:    | BlockList/Item | :white_check_mark:    | Button | :white_check_mark:    |     
-| ButtonRow | :white_check_mark:    | CheckBox | :white_check_mark:    | Code | :white_check_mark:    |     
-| Dialog | :white_large_square:   | Disclose | :white_large_square:     | Dropdown | :white_check_mark:   |     
+| ButtonRow | :white_check_mark:    | Card | :white_check_mark:    | CheckBox | :white_check_mark:    |
+| Code | :white_check_mark:    |          |          |          |          |
+| Dialog | :white_large_square:   | Disclose | :white_large_square:     | Dropdown | :white_check_mark:   |
 | Help | :white_large_square:    | Input | :white_check_mark:    | InputIcon | :white_large_square:   |  
 | Label | :white_check_mark:    | Media | :white_large_square:    | Nav | :white_large_square:    |   
 | OverlayWrapper | :white_check_mark:    | Pagination | :white_large_square:   | Popover | :white_check_mark:    |   
@@ -113,7 +114,7 @@ import Button from 'optimizely-oui';
 | Table | :white_check_mark:    | Tabel/TBody | :white_check_mark:    | Tabel/TD | :white_check_mark:    |   
 | Tabel/THead | :white_check_mark:    | Tabel/TR | :white_check_mark:    | TabNav | :white_check_mark:    |   
 | TabNav/Tab | :white_check_mark:    | Textarea | :white_check_mark:    | Token | :white_check_mark:    |
-| TextField | :white_check_mark:     |          |                       |       |                       | 
+| TextField | :white_check_mark:     |          |          |          |          |
 
 ***
 
