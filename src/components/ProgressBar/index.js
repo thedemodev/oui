@@ -31,7 +31,7 @@ const ProgressBar = ({
   let available = Math.round(100 - allocated);
 
   return (
-    <div>
+    <div data-oui-component={ true }>
       { topLabel &&
         <Label>{ topLabel }</Label>
       }

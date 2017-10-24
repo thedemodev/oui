@@ -11,7 +11,8 @@
 ///     <option value="two">And this is option two</option>
 ///   </select>
 ////
-.#{$namespace}select {
+.#{$namespace}select,
+.oui-select {
   appearance: none;
   transition: border-color map-fetch($transition-duration, base);
   border: 1px solid map-fetch($border, color, base);

@@ -54,7 +54,9 @@ class Input extends React.Component {
 
     return (
       /* eslint-disable react/jsx-no-bind */
-      <div className={ wrapperClasses ? 'oui-form-bad-news' : null }>
+      <div
+        data-oui-component={ true }
+        className={ wrapperClasses ? 'oui-form-bad-news' : null }>
         { labelElement }
         <input
           className={ classes }

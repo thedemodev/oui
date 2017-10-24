@@ -11,6 +11,7 @@ const EmptyDashboard = ({
 }) => {
   return (
     <div
+      data-oui-component={ true }
       className='flex overflow-y--scroll flex--1'
       data-test-section='layers-empty-state'
       style={{ width: '750px', margin: 'auto' }}>

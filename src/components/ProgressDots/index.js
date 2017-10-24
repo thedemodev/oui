@@ -9,7 +9,10 @@ import PropTypes from 'prop-types';
 
 const ProgressDots = ({ testSection }) => {
   return (
-    <ul data-test-section={ testSection } className="lego-progress-dots">
+    <ul
+      data-oui-component={ true }
+      data-test-section={ testSection }
+      className="lego-progress-dots">
       <li></li>
       <li></li>
       <li></li>

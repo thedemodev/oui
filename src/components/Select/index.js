@@ -15,7 +15,12 @@ const Select = ({
 }) => {
 
   return (
-    <select disabled={ isDisabled } name={ name } id={ id } className="lego-select">
+    <select
+      data-oui-component={ true }
+      disabled={ isDisabled }
+      name={ name }
+      id={ id }
+      className="oui-select">
       { children }
     </select>
   );

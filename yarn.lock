@@ -6806,9 +6806,9 @@ react-onclickoutside@^6.5.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.6.0.tgz#8526d0675fad26558e9f0a400c983b813c99ef3c"
 
-react-oui-icons@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-1.0.0.tgz#b162d9f4e5f9a21cc6cc6798a86810a2867ca3e9"
+react-oui-icons@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-1.0.2.tgz#85d58d8e6af5aa785ca1d41e69ebc6815d6f9df6"
   dependencies:
     fs-extra "3.0.1"
     object-assign "4.1.1"

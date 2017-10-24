@@ -16,6 +16,7 @@ exports[`components/Spinner should render correctly including testSection prop 1
 exports[`components/Spinner should render correctly with overlay 1`] = `
 <div
   className="lego-overlay"
+  data-oui-component={true}
 >
   <div
     className="lego-spinner"
@@ -26,6 +27,7 @@ exports[`components/Spinner should render correctly with overlay 1`] = `
 exports[`components/Spinner should render correctly with size & overlay props 1`] = `
 <div
   className="lego-overlay"
+  data-oui-component={true}
 >
   <div
     className="lego-spinner lego-spinner--tiny"

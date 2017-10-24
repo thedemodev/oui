@@ -25,6 +25,7 @@ exports[`components/EmptyDashboard should render 1`] = `
 >
   <div
     className="flex overflow-y--scroll flex--1"
+    data-oui-component={true}
     data-test-section="layers-empty-state"
     style={
       Object {

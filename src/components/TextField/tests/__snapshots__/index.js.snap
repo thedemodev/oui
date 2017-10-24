@@ -3,6 +3,7 @@
 exports[`components/TextField should render a simple input with type text 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <input
     className="oui-text-input"
@@ -15,6 +16,7 @@ exports[`components/TextField should render a simple input with type text 1`] = 
 exports[`components/TextField should render error style 1`] = `
 <div
   className="oui-form-bad-news"
+  data-oui-component={true}
 >
   <Label
     displayError={true}
@@ -37,6 +39,7 @@ exports[`components/TextField should render error style 1`] = `
 exports[`components/TextField should render max and min limits 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <input
     className="oui-text-input"
@@ -51,6 +54,7 @@ exports[`components/TextField should render max and min limits 1`] = `
 exports[`components/TextField should render search icon 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <input
     className="oui-text-input oui-text-input--search"
@@ -63,6 +67,7 @@ exports[`components/TextField should render search icon 1`] = `
 exports[`components/TextField should render with a placeholder 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <input
     className="oui-text-input"
@@ -76,6 +81,7 @@ exports[`components/TextField should render with a placeholder 1`] = `
 exports[`components/TextField should render with a simple label 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <Label
     displayError={false}
@@ -93,6 +99,7 @@ exports[`components/TextField should render with a simple label 1`] = `
 exports[`components/TextField should render with a simple label and a note 1`] = `
 <div
   className={null}
+  data-oui-component={true}
 >
   <Label
     displayError={false}

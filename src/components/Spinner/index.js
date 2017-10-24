@@ -20,7 +20,10 @@ const Spinner = ({
   );
   if (hasOverlay) {
     return (
-      <div data-test-section={ testSection } className="lego-overlay">
+      <div
+        data-oui-component={ true }
+        data-test-section={ testSection }
+        className="lego-overlay">
         <div className={ classes }></div>
       </div>
     );
