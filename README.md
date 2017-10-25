@@ -104,7 +104,7 @@ import Button from 'optimizely-oui';
 | BlockList/Category | :white_check_mark:    | BlockList/Item | :white_check_mark:    | Button | :white_check_mark:    |     
 | ButtonRow | :white_check_mark:    | Card | :white_check_mark:    | CheckBox | :white_check_mark:    |
 | Code | :white_check_mark:    |          |          |          |          |
-| Dialog | :white_large_square:   | Disclose | :white_large_square:     | Dropdown | :white_check_mark:   |
+| Dialog | :white_large_square:   | Disclose | :white_check_mark:     | Dropdown | :white_check_mark:   |
 | Help | :white_large_square:    | Input | :white_check_mark:    | InputIcon | :white_large_square:   |  
 | Label | :white_check_mark:    | Media | :white_large_square:    | Nav | :white_large_square:    |   
 | OverlayWrapper | :white_check_mark:    | Pagination | :white_large_square:   | Popover | :white_check_mark:    |   
