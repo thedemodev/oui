@@ -17,7 +17,8 @@
 ///   </div>
 ////
 
-.#{$namespace}disclose {
+.#{$namespace}disclose, 
+.oui-disclose {
   @extend %kill-last-child-margin;
 
   &__link {
@@ -41,7 +42,8 @@
   }
 
   &--right {
-    .#{$namespace}disclose__symbol {
+    .#{$namespace}disclose__symbol,
+    .oui-disclose__symbol {
       float: right;
       transform: rotate(180deg);
     }
@@ -59,11 +61,16 @@
 
   &.is-active {
 
-    .#{$namespace}disclose__content {
+    .#{$namespace}disclose__content,
+    .oui-disclose__content {
       display: block;
+      *:last-child {
+        padding-bottom: 20px;
+      }
     }
 
-    .#{$namespace}disclose__symbol {
+    .#{$namespace}disclose__symbol,
+    .oui-disclose__symbol {
       transform: rotate(90deg);
     }
 
