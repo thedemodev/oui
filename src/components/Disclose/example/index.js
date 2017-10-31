@@ -5,7 +5,7 @@ import Disclose from '../index';
 export default [
   {
     examples: [
-      <Disclose>
+      <Disclose title='Some Title'>
         <h3>Some Title</h3>
         <p>Lorem ipsum dolor sit amet, consectetur
          adipisicing elit. Commodi id voluptas vitae eius

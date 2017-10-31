@@ -20,18 +20,25 @@ class Disclose extends Component {
   }
 
   render() {
-    const { children, style } = this.props;
+    const {
+      children,
+      headerStyle,
+      childrenStyle,
+      title,
+    } = this.props;
     const contentClass = classNames(
       'oui-disclose__content',
       {
-        ['soft border--sides border--bottom']: style === 'all',
-        ['border--bottom']: style === 'divider',
+        ['border--sides border--bottom']: childrenStyle === 'border',
+        ['border--bottom']: childrenStyle === 'divider' && this.state.isOpen,
+
       }
     );
     const linkClass = classNames(
       'oui-disclose__link link--dark soft-half flush',
       {
-        ['border--all background--faint display--block']: style === 'all' || style === 'header',
+        ['background--faint display--block']: headerStyle === 'header',
+        ['border--all background--faint display--block']: headerStyle === 'header-bordered',
       }
     );
     const arrow = this.state.isOpen ? 'oui-disclose is-active' : 'oui-disclose';
@@ -39,8 +46,8 @@ class Disclose extends Component {
       <div className={ arrow } style={{marginTop: '-1px'}}>
         <a onClick={ this.handleToggle } className={ linkClass }>
           <div className='oui-disclose__arrow'>
-            <span className="oui-disclose__symbol"></span>
-            Title of Disclosure
+            <span className="oui-disclose__symbol push-half--right"></span>
+            { title }
           </div>
         </a>
         <div className={ contentClass }>
@@ -53,7 +60,10 @@ class Disclose extends Component {
 
 Disclose.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.string,
+  childrenStyle: PropTypes.string,
+  headerStyle: PropTypes.string,
+  noBorder: PropTypes.bool,
+  title: PropTypes.string.isRequired,
 };
 
 export default Disclose;

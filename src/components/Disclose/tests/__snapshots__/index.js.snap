@@ -28,9 +28,8 @@ ShallowWrapper {
             className="oui-disclose__arrow"
           >
             <span
-              className="oui-disclose__symbol"
+              className="oui-disclose__symbol push-half--right"
             />
-            Title of Disclosure
           </div>
         </a>,
         <div
@@ -53,9 +52,8 @@ ShallowWrapper {
             className="oui-disclose__arrow"
           >
             <span
-              className="oui-disclose__symbol"
+              className="oui-disclose__symbol push-half--right"
             />
-            Title of Disclosure
           </div>,
           "className": "oui-disclose__link link--dark soft-half flush",
           "onClick": [Function],
@@ -68,9 +66,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <span
-                className="oui-disclose__symbol"
+                className="oui-disclose__symbol push-half--right"
               />,
-              "Title of Disclosure",
+              undefined,
             ],
             "className": "oui-disclose__arrow",
           },
@@ -81,13 +79,13 @@ ShallowWrapper {
               "key": null,
               "nodeType": "host",
               "props": Object {
-                "className": "oui-disclose__symbol",
+                "className": "oui-disclose__symbol push-half--right",
               },
               "ref": null,
               "rendered": null,
               "type": "span",
             },
-            "Title of Disclosure",
+            undefined,
           ],
           "type": "div",
         },
@@ -123,9 +121,8 @@ ShallowWrapper {
               className="oui-disclose__arrow"
             >
               <span
-                className="oui-disclose__symbol"
+                className="oui-disclose__symbol push-half--right"
               />
-              Title of Disclosure
             </div>
           </a>,
           <div
@@ -148,9 +145,8 @@ ShallowWrapper {
               className="oui-disclose__arrow"
             >
               <span
-                className="oui-disclose__symbol"
+                className="oui-disclose__symbol push-half--right"
               />
-              Title of Disclosure
             </div>,
             "className": "oui-disclose__link link--dark soft-half flush",
             "onClick": [Function],
@@ -163,9 +159,9 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <span
-                  className="oui-disclose__symbol"
+                  className="oui-disclose__symbol push-half--right"
                 />,
-                "Title of Disclosure",
+                undefined,
               ],
               "className": "oui-disclose__arrow",
             },
@@ -176,13 +172,13 @@ ShallowWrapper {
                 "key": null,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "oui-disclose__symbol",
+                  "className": "oui-disclose__symbol push-half--right",
                 },
                 "ref": null,
                 "rendered": null,
                 "type": "span",
               },
-              "Title of Disclosure",
+              undefined,
             ],
             "type": "div",
           },

@@ -17,7 +17,7 @@ stories
 
 stories.add('default', withInfo()(() => {
   return (
-    <Disclose>
+    <Disclose title='default title'>
       <h3>Some Title</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
       expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
@@ -29,17 +29,42 @@ stories.add('default', withInfo()(() => {
 stories.add('multiple stacked', withInfo()(() => {
   return (
     <div>
-      <Disclose style='all'>
-        <h3>Some Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-        expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-        accusantium corporis, beatae maxime quasi. Tempora.</p>
+      <Disclose headerStyle='header-bordered' title='Some Title' childrenStyle='border'>
+        <div className='soft--left'>
+          <h3>Some Title</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+          accusantium corporis, beatae maxime quasi. Tempora.</p>
+        </div>
       </Disclose>
-      <Disclose style='all'>
-        <h3>Some Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-        expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-        accusantium corporis, beatae maxime quasi. Tempora.</p>
+      <Disclose headerStyle='header-bordered' title='Some Title'>
+        <div className='soft--left'>
+          <h3>Some Title</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+          accusantium corporis, beatae maxime quasi. Tempora.</p>
+        </div>
+      </Disclose>
+    </div>
+  );
+}));
+
+stories.add('header style', withInfo()(() => {
+  return (
+    <div>
+      <Disclose headerStyle='header' title='Browsers'>
+        <div className='soft--left'><a>Safari</a></div>
+        <div className='soft--left'><a>Chrome</a></div>
+        <div className='soft--left'><a>Opera</a></div>
+        <div className='soft--left'><a>IE</a></div>
+      </Disclose>
+      <Disclose headerStyle='header' title='Some Title' childrenStyle='border'>
+        <div className='soft--left'>
+          <h3>Some Title</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+          accusantium corporis, beatae maxime quasi. Tempora.</p>
+        </div>
       </Disclose>
     </div>
   );
@@ -48,13 +73,13 @@ stories.add('multiple stacked', withInfo()(() => {
 stories.add('with divider', withInfo()(() => {
   return (
     <div>
-      <Disclose style='divider'>
+      <Disclose childrenStyle='divider' title='Some Title'>
         <h3>Some Title</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
         expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
         accusantium corporis, beatae maxime quasi. Tempora.</p>
       </Disclose>
-      <Disclose style='divider'>
+      <Disclose childrenStyle='divider' title='Some Title'>
         <h3>Some Title</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
         expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
