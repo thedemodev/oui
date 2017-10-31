@@ -5,13 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 28.1.0 - 2017-10-31
 - [Patch] Add shadow prop to Card component.
 - [Patch] Update example for Select.
 - [Patch] Update new components to include `oui-component` attribute for React highlighting extension.
 - [Patch] Bump react-oui-icons to `1.0.2`.
-
-## 28.0.3 - 2017-10-18
-- [Patch] Adds Card element to support SPA project
+- [Feature] Adds Card element to support SPA project
 
 ## 28.0.2 - 2017-10-16
 - [Patch] Add dist/docs folder so we have import access to https://unpkg.com/optimizely-oui@28.0.1/docs/styles/index.js via CodePen.
