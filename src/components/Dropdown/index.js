@@ -79,6 +79,7 @@ class Dropdown extends React.Component {
         className={ groupClass }
         data-test-section={ testSection }>
         <button
+          type='button'
           className={ buttonClass }
           disabled={ isDisabled }
           onClick={ this.handleToggle }
