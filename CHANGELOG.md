@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 28.1.1 - 2017-11-01
 - [Patch] Add default type to button on Dropdown component #846
 
 ## 28.1.0 - 2017-10-31
