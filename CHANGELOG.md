@@ -5,19 +5,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Patch] - Hotfix for deploy, will update release notes shortly.
-- [Patch] - Add readme markdown file to every component #855
+- [Feature] Bump `oui-icons` to include MTV checkmark (#847)
+- [Patch] - Add readme markdown file to every component (#855)
 
 ## 28.1.3 - 2017-11-30
 - [Patch] - Fix Make it so that only last-child's in the .oui-disclose_content have a padding-bottom of 20px and NOT .#{FRAMEWORK}-disclose_content
 - [Patch] - Fix eslint errors where props are using functions
 
-
 ## 28.1.2 - 2017-11-30
 - this release was skipped
 
 ## 28.1.1 - 2017-11-01
-- [Patch] Add default type to button on Dropdown component #846
+- [Patch] Add default type to button on Dropdown component (#846)
 
 ## 28.1.0 - 2017-10-31
 - [Patch] Add shadow prop to Card component.
