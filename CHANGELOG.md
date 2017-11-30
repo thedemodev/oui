@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] - Hotfix for deploy, will update release notes shortly.
 
 ## 28.1.2 - 2017-11-30
 - [Patch] - Fix Make it so that only last-child's in the .oui-disclose_content have a padding-bottom of 20px and NOT .#{FRAMEWORK}-disclose_content
