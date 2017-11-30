@@ -4,9 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## Unreleased
+## 28.1.5 - 2017-11-30
 - [Feature] Bump `oui-icons` to include MTV checkmark (#847)
 - [Patch] - Add readme markdown file to every component (#855)
+
+## 28.1.4 - 2017-11-30
+- this release was skipped (used to test)
 
 ## 28.1.3 - 2017-11-30
 - [Patch] - Fix Make it so that only last-child's in the .oui-disclose_content have a padding-bottom of 20px and NOT .#{FRAMEWORK}-disclose_content
