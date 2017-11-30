@@ -64,6 +64,9 @@
     .#{$namespace}disclose__content,
     .oui-disclose__content {
       display: block;
+    }
+
+    .oui-disclose__content {
       *:last-child {
         padding-bottom: 20px;
       }
