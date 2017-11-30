@@ -2,6 +2,8 @@
 import React from 'react';
 import TabNav from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     isPadded: true,
@@ -9,23 +11,17 @@ export default [
       <TabNav activeTab={ 'first' }>
         <TabNav.Tab
           tabId='first'
-          onClick={ function() {
-            alert('clicked first');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #1
         </TabNav.Tab>
         <TabNav.Tab
           tabId='second'
-          onClick={ function() {
-            alert('clicked second');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #2
         </TabNav.Tab>
         <TabNav.Tab
           tabId='third'
-          onClick={ function() {
-            alert('clicked third');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #3
         </TabNav.Tab>
       </TabNav>,
@@ -37,23 +33,17 @@ export default [
       <TabNav activeTab={ 'second' } style={ ['small'] }>
         <TabNav.Tab
           tabId='first'
-          onClick={ function() {
-            alert('clicked first');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #1
         </TabNav.Tab>
         <TabNav.Tab
           tabId='second'
-          onClick={ function() {
-            alert('clicked second');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #2
         </TabNav.Tab>
         <TabNav.Tab
           tabId='third'
-          onClick={ function() {
-            alert('clicked third');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #3
         </TabNav.Tab>
       </TabNav>,
@@ -65,23 +55,17 @@ export default [
       <TabNav activeTab={ 'first' } style={ ['small', 'center'] }>
         <TabNav.Tab
           tabId='first'
-          onClick={ function() {
-            alert('clicked first');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #1
         </TabNav.Tab>
         <TabNav.Tab
           tabId='second'
-          onClick={ function() {
-            alert('clicked second');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #2
         </TabNav.Tab>
         <TabNav.Tab
           tabId='third'
-          onClick={ function() {
-            alert('clicked third');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #3
         </TabNav.Tab>
       </TabNav>,
@@ -93,23 +77,17 @@ export default [
       <TabNav activeTab={ 'first' } style={ ['small', 'sub'] }>
         <TabNav.Tab
           tabId='first'
-          onClick={ function() {
-            alert('clicked first');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #1
         </TabNav.Tab>
         <TabNav.Tab
           tabId='second'
-          onClick={ function() {
-            alert('clicked second');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #2
         </TabNav.Tab>
         <TabNav.Tab
           tabId='third'
-          onClick={ function() {
-            alert('clicked third');  //eslint-disable-line
-          } }>
+          onClick={ mockFunction }>
           Tab #3
         </TabNav.Tab>
       </TabNav>,

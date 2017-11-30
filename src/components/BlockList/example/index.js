@@ -5,18 +5,20 @@ import OverlayWrapper from '../../OverlayWrapper/index';
 import Button from '../../Button';
 import EllipsisIcon from '../../Icon/EllipsisIcon';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
       <BlockList>
         <BlockList.Category header="Recent Pages">
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Home
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Shopping Cart
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Order Confirmation
           </BlockList.Item>
         </BlockList.Category>
@@ -39,13 +41,13 @@ export default [
               </div>
             </div>
           ) }>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Home
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Shopping Cart
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Order Confirmation
           </BlockList.Item>
         </BlockList.Category>
@@ -57,9 +59,7 @@ export default [
       <BlockList>
         <BlockList.Category>
           <BlockList.Item
-            onClick={ function() {
-              console.log('`onClick` Example'); // eslint-disable-line no-console
-            } }>
+            onClick={ mockFunction }>
             onClick Example
           </BlockList.Item>
         </BlockList.Category>
@@ -71,7 +71,7 @@ export default [
           </BlockList.Item>
         </BlockList.Category>
         <BlockList.Category>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <div>Complex Item</div>
@@ -97,14 +97,14 @@ export default [
     examples: [
       <BlockList>
         <BlockList.Category>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Archive
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Pause
           </BlockList.Item>
         </BlockList.Category>
-        <BlockList.Item onClick={ function() {} }>
+        <BlockList.Item onClick={ mockFunction }>
           View Results
         </BlockList.Item>
       </BlockList>,
@@ -114,14 +114,14 @@ export default [
     examples: [
       <BlockList hasBorder={ false }>
         <BlockList.Category>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Archive
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Pause
           </BlockList.Item>
         </BlockList.Category>
-        <BlockList.Item onClick={ function() {} }>
+        <BlockList.Item onClick={ mockFunction }>
           View Results
         </BlockList.Item>
       </BlockList>,
@@ -131,13 +131,13 @@ export default [
     examples: [
       <OverlayWrapper
         overlay={ <BlockList>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
               Archive
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
               Pause
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
               View Results
           </BlockList.Item>
         </BlockList> }
@@ -155,7 +155,7 @@ export default [
     examples: [
       <BlockList>
         <BlockList.Category header="Recent Pages">
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Pellentesque lectus nulla, placerat at semper in, bibendum in
             lorem. Aenean rhoncus ac lectus et rutrum. Sed et arcu sit amet leo
@@ -164,7 +164,7 @@ export default [
             iaculis est vitae, ullamcorper neque. Proin efficitur porttitor
             nunc quis suscipit. Maecenas odio elit, varius et aliquam ac.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             https://wwww.example.com/path1/path2/path3/path4/path5/superlongvaluethatdoesntfitintheblocklistwhenitgetsveryveryveryveryveryveryveryveryverylong
           </BlockList.Item>
         </BlockList.Category>
@@ -175,43 +175,43 @@ export default [
     examples: [
       <BlockList maxHeight={ '150px' }>
         <BlockList.Category header="BlockList with Scroll">
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
-          <BlockList.Item onClick={ function() {} }>
+          <BlockList.Item onClick={ mockFunction }>
             Lorem ipsum dolor sit amet.
           </BlockList.Item>
         </BlockList.Category>

@@ -3,6 +3,7 @@ import TabNav from '../index';
 import { shallow, mount } from 'enzyme';
 
 describe('components/TabNav', () => {
+  const mockFunction = jest.fn();
   it('should render with correct classes', () => {
     const component = shallow(
       <TabNav activeTab='foo'>
@@ -25,8 +26,8 @@ describe('components/TabNav', () => {
   it('should add the active class to the tab with the same active id assigned to activeTab', () => {
     const component = mount(
       <TabNav activeTab='first'>
-        <TabNav.Tab tabId='first' onClick={ function() {} }>Foo</TabNav.Tab>
-        <TabNav.Tab tabId='second' onClick={ function() {} }>Bar</TabNav.Tab>
+        <TabNav.Tab tabId='first' onClick={ mockFunction }>Foo</TabNav.Tab>
+        <TabNav.Tab tabId='second' onClick={ mockFunction }>Bar</TabNav.Tab>
       </TabNav>
     );
 

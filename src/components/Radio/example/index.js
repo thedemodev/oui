@@ -2,6 +2,8 @@
 import React from 'react';
 import Radio from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
@@ -9,9 +11,7 @@ export default [
         defaultChecked={ false }
         label="onChange Example"
         name="example-1"
-        onChange={ function(event) {
-          console.log('onChange', event.target.checked); // eslint-disable-line no-console
-        } }
+        onChange={ mockFunction }
       />,
     ],
   },

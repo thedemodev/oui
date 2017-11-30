@@ -4,6 +4,8 @@ import { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/Radio', () => {
+  const mockFunction = jest.fn();
+
   it('should render an input of type radio', () => {
     const component = shallow(<Radio name="goose" />);
     expect(shallowToJson(component)).toMatchSnapshot();
@@ -25,12 +27,12 @@ describe('components/Radio', () => {
   });
 
   it('should render a checked radio input when `checked` is true', () => {
-    const component = shallow(<Radio name="goose" checked={ true } onChange={ function() {} } />);
+    const component = shallow(<Radio name="goose" checked={ true } onChange={ mockFunction } />);
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked radio input when `checked` is false', () => {
-    const component = shallow(<Radio name="goose" checked={ false } onChange={ function() {} } />);
+    const component = shallow(<Radio name="goose" checked={ false } onChange={ mockFunction } />);
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 

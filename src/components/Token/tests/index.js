@@ -4,11 +4,12 @@ import Icon from 'react-oui-icons';
 import { shallow } from 'enzyme';
 
 describe('components/Token', () => {
+  const mockFunction = jest.fn();
   it('should render `DismissButton` when `isDismissible` is true and `onDismiss is provided`', () => {
     const component = shallow(
       <Token
         isDismissible={ true }
-        onDismiss={ function() {} }
+        onDismiss={ mockFunction }
         name="Goose"
       />
     );
@@ -30,7 +31,7 @@ describe('components/Token', () => {
       <Token
         name="Goose"
         isDismissible={ false }
-        onDismiss={ function() {} }
+        onDismiss={ mockFunction }
       />
     );
     expect(component.find('DismissButton').length).toBe(0);

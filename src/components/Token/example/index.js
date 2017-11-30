@@ -2,6 +2,8 @@
 import React from 'react';
 import Token from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
@@ -18,9 +20,7 @@ export default [
         style="primary"
         testSection="goose"
         isDismissible={ true }
-        onDismiss={ function() {
-	          alert('Hello!'); // eslint-disable-line
-        } }
+        onDismiss={ mockFunction }
       />,
     ],
   },
@@ -33,9 +33,7 @@ export default [
         isDraggable={ true }
         style="primary"
         order={ 1 }
-        onDismiss={ function() {
-	          alert('Hello!'); // eslint-disable-line
-        } }
+        onDismiss={ mockFunction }
       />,
     ],
   },

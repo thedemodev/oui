@@ -2,15 +2,15 @@
 import React from 'react';
 import Checkbox from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
       <Checkbox
         defaultChecked={ false }
         label="onChange Example"
-        onChange={ function(event) {
-          console.log('onChange', event.target.checked); // eslint-disable-line no-console
-        } }
+        onChange={ mockFunction }
       />,
     ],
   },

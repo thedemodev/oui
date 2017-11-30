@@ -3,10 +3,12 @@ import Tab from '../index';
 import { shallow } from 'enzyme';
 
 describe('components/TabNav/Tab', () => {
+  const mockFunction = jest.fn();
+
   it('should render with correct classes', () => {
     const component = shallow(
       <Tab
-        onClick={ function() {} }
+        onClick={ mockFunction }
         tabId="foo">
       </Tab>
     );
@@ -15,7 +17,7 @@ describe('components/TabNav/Tab', () => {
 
   it('should call function passed to onClick after tab is clicked', () => {
     const obj = {
-      func: function() {},
+      func: mockFunction,
     };
     spyOn(obj, 'func').and.stub();
 
@@ -35,7 +37,7 @@ describe('components/TabNav/Tab', () => {
       const component = shallow(
         <Tab
           isDisabled={ true }
-          onClick={ function() {} }
+          onClick={ mockFunction }
           tabId="foo">
         </Tab>
       );
@@ -47,7 +49,7 @@ describe('components/TabNav/Tab', () => {
     const component = shallow(
       <Tab
         testSection="goose"
-        onClick={ function() {} }
+        onClick={ mockFunction }
         tabId="foo">
       </Tab>
     );

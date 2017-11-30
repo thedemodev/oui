@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
 describe('components/Checkbox', () => {
+  const mockFunction = jest.fn();
   it('should render an input of type checkbox', () => {
     const component = mount(<Checkbox />);
     expect(component.find('input[type="checkbox"]').length).toBe(1);
@@ -20,12 +21,12 @@ describe('components/Checkbox', () => {
   });
 
   it('should render a checked checkbox when `checked` is true', () => {
-    const component = shallow(<Checkbox checked={ true } onChange={ function() {} } />);
+    const component = shallow(<Checkbox checked={ true } onChange={ mockFunction } />);
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
   it('should render an unchecked checkbox when `checked` is false', () => {
-    const component = shallow(<Checkbox checked={ false } onChange={ function() {} } />);
+    const component = shallow(<Checkbox checked={ false } onChange={ mockFunction } />);
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 

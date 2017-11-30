@@ -6,6 +6,7 @@ describe('components/Card', () => {
   const title = 'Hello world card';
   const body = '<span>Basic content inside this card</span>';
   const test = 'foo';
+  const mockFunction = jest.fn();
 
   it('should render the title passed in', () => {
     const component = shallow(
@@ -39,7 +40,7 @@ describe('components/Card', () => {
 
   it('should render dismiss button when prop is provided', () => {
     const component = mount(
-      <Card title={ title } testSection={ test } onClose={ function() { return true; } }>
+      <Card title={ title } testSection={ test } onClose={ mockFunction }>
         { body }
       </Card>
     );

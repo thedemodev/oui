@@ -2,6 +2,8 @@
 import React from 'react';
 import Input from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
@@ -35,9 +37,7 @@ export default [
       <Input
         type="text"
         defaultValue="onChange Example"
-        onChange={ function(event) {
-          console.log('onChange', event.target.value); // eslint-disable-line no-console
-        } }
+        onChange={ mockFunction }
       />,
     ],
   },
@@ -46,9 +46,7 @@ export default [
       <Input
         type="text"
         defaultValue="onBlur Example"
-        onBlur={ function(event) {
-          console.log('onBlur', event.target.value); // eslint-disable-line no-console
-        } }
+        onBlur={ mockFunction }
       />,
     ],
   },
@@ -57,9 +55,7 @@ export default [
       <Input
         type="text"
         defaultValue="onKeyDown Example"
-        onKeyDown={ function(event) {
-          console.log('onKeyDown', event.target.value); // eslint-disable-line no-console
-        } }
+        onKeyDown={ mockFunction }
       />,
     ],
   },

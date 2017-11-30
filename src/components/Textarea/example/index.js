@@ -2,6 +2,8 @@
 import React from 'react';
 import Textarea from '../index';
 
+const mockFunction = () => {};
+
 export default [
   {
     examples: [
@@ -23,11 +25,11 @@ export default [
       /* eslint-disable no-console */
       <Textarea
         defaultValue="This textarea has many event listeners."
-        onBlur={ function() { console.log('Textarea: onBlur'); } }
-        onChange={ function() { console.log('Textarea: onChange'); } }
-        onFocus={ function() { console.log('Textarea: onFocus'); } }
-        onInput={ function() { console.log('Textarea: onInput'); } }
-        onKeyDown={ function() { console.log('Textarea: onKeyDown'); } }
+        onBlur={ mockFunction }
+        onChange={ mockFunction }
+        onFocus={ mockFunction }
+        onInput={ mockFunction }
+        onKeyDown={ mockFunction }
       />,
     /* eslint-enable no-console */
     ],
