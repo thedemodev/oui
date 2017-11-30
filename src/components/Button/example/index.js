@@ -97,7 +97,7 @@ export default [
     examples: [
       <Button
         onClick={ mockFunction }>
-        Button with Function
+        Button with a Function
       </Button>,
     ],
   },
