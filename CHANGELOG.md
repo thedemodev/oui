@@ -4,10 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-# Unreleased
+## 28.1.8 - 2017-12-01
 - [Patch] - Remove old oui-icons from React bundle (#859)
 
-## 28.1.5 - 2017-12-01
+## 28.1.7 - 2017-12-01
 - [Patch] - npm cleaning
 
 ## 28.1.5 - 2017-11-30
