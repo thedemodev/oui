@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
+## 28.1.5 - 2017-12-01
+- [Patch] - npm cleaning
+
 ## 28.1.5 - 2017-11-30
 - [Feature] Bump `oui-icons` to include MTV checkmark (#847)
 - [Patch] - Add readme markdown file to every component (#855)
