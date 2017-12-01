@@ -59,7 +59,8 @@ Run `npm run` for an entire list.
   * `[Patch]` changes: `npm version patch`
   * `[Feature]` changes: `npm version minor`
   * `[Release]` changes: `npm version major`
-7. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new). It should [look like this](https://www.dropbox.com/s/1nln5ttbxfbacuv/Screenshot%202015-09-02%2011.31.21.png). Tips:
+7. **note**: you don't have to run `npm publish`, when you do step-6 our *travis* building process will do the publishing in npm.
+8. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new). It should [look like this](https://www.dropbox.com/s/1nln5ttbxfbacuv/Screenshot%202015-09-02%2011.31.21.png). Tips:
   1. Select the new tag version
   2. Leave the “Release title” blank
   3. Paste the “Unreleased” contributions from the `CHANGELOG.md` in the release notes.

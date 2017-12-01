@@ -2,7 +2,7 @@
 import React from 'react';
 import ArrowsInline from '../../ArrowsInline';
 import Button from '../index';
-import ClipboardIcon from '../../Icon/ClipboardIcon';
+import Icon from 'react-oui-icons';
 
 const mockFunction = () => {};
 
@@ -69,7 +69,7 @@ export default [
     isPadded: true,
     examples: [
       <Button>
-        <ClipboardIcon size={ 16 } />
+        <Icon name='clipboard' />
       </Button>,
     ],
   },
