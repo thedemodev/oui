@@ -82,9 +82,6 @@ const styles = {
   container: {
     width: '100%',
     border: '1px solid #f6f6f6',
-    display: 'grid',
-    gridTemplateColumns: '100%',
-    gridTemplateRows: 'repeat(auto-fill, 50px)',
   },
 };
 
@@ -144,48 +141,50 @@ const DiscloseRowOld = data.map((item, index) => {
         <div>{item.size} KB </div>
       </Table.TD>
     </Table.TR>
-    <div style={{ background: '#f6f6f6', padding: '10px 50px'}}>
-      <Table density="loose" style="rule">
-        <Table.TBody>
-          <Table.TR>
-            <Table.TD>
-              Revision Key
-            </Table.TD>
-            <Table.TD>
-              { item.revisionKey }
-            </Table.TD>
-          </Table.TR>
+    <Table.TR>
+      <div style={{ background: '#f6f6f6', width: '100%'}}>
+        <Table density="loose" style="rule">
+          <Table.TBody>
+            <Table.TR>
+              <Table.TD>
+                Revision Key
+              </Table.TD>
+              <Table.TD>
+                { item.revisionKey }
+              </Table.TD>
+            </Table.TR>
 
-          <Table.TR>
-            <Table.TD>
-              Created At
-            </Table.TD>
-            <Table.TD>
-              { item.date }
-            </Table.TD>
-          </Table.TR>
+            <Table.TR>
+              <Table.TD>
+                Created At
+              </Table.TD>
+              <Table.TD>
+                { item.date }
+              </Table.TD>
+            </Table.TR>
 
-          <Table.TR>
-            <Table.TD>
-              url
-            </Table.TD>
-            <Table.TD>
-              { item.url }
-            </Table.TD>
-          </Table.TR>
+            <Table.TR>
+              <Table.TD>
+                url
+              </Table.TD>
+              <Table.TD>
+                { item.url }
+              </Table.TD>
+            </Table.TR>
 
-          <Table.TR>
-            <Table.TD>
-              File Size
-            </Table.TD>
-            <Table.TD>
-              { item.size } KB
-            </Table.TD>
-          </Table.TR>
+            <Table.TR>
+              <Table.TD>
+                File Size
+              </Table.TD>
+              <Table.TD>
+                { item.size } KB
+              </Table.TD>
+            </Table.TR>
 
-        </Table.TBody>
-      </Table>
-    </div>
+          </Table.TBody>
+        </Table>
+      </div>
+    </Table.TR>
   </CollapseTable>);
 });
 
@@ -210,28 +209,30 @@ stories
   </div>)))
   .add('with table tags', withInfo()(() => (<div style={ styles.container }>
     <Table density="loose" style="rule">
-      <Table.TR>
-        <Table.TH>  
-        </Table.TH>
-        <Table.TH>
-          Revision
-        </Table.TH>
-        <Table.TH>
-          Type
-        </Table.TH>
-        <Table.TH>
-          Live
-        </Table.TH>
-        <Table.TH>
-          Status
-        </Table.TH>
-        <Table.TH>
-          Created At
-        </Table.TH>
-        <Table.TH>
-          File Size
-        </Table.TH>
-      </Table.TR>
-      { DiscloseRowOld }
+      <Table.TBody>
+        <Table.TR>
+          <Table.TH>  
+          </Table.TH>
+          <Table.TH>
+            Revision
+          </Table.TH>
+          <Table.TH>
+            Type
+          </Table.TH>
+          <Table.TH>
+            Live
+          </Table.TH>
+          <Table.TH>
+            Status
+          </Table.TH>
+          <Table.TH>
+            Created At
+          </Table.TH>
+          <Table.TH>
+            File Size
+          </Table.TH>
+        </Table.TR>
+        { DiscloseRowOld }
+      </Table.TBody>
     </Table>
   </div>)));

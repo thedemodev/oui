@@ -7,6 +7,7 @@ const TR = ({
   noBorder,
   testSection,
   children,
+  handleClick,
 }) => {
   let classes = classNames({
     'oui-table-row--active': isActive,
@@ -15,7 +16,8 @@ const TR = ({
   return (
     <tr
       className={ classes }
-      data-test-section={ testSection }>
+      data-test-section={ testSection }
+      onClick={ handleClick }>
       { children }
     </tr>
   );

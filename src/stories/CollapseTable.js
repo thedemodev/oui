@@ -28,13 +28,9 @@ class CollapseTable extends Component {
     const elements = children[0].props.children.map((item, index) => {
       return <Table.TD key={ index }> {item} </Table.TD>;
     });
-    const content = this.state.isOpen ?
-      <Table.TR>
-        { children[1] }
-      </Table.TR> :
-      null;
+    const content = this.state.isOpen ? children[1] : null;
     return [
-      <Table.TR onClick={ this.handleToggle }>
+      <Table.TR handleClick={ this.handleToggle }>
           { elements }
       </Table.TR>,
       content
