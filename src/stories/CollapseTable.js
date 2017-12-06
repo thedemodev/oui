@@ -23,7 +23,6 @@ class CollapseTable extends Component {
   render() {
     const {
       children,
-      columns,
     } = this.props;
     const elements = children[0].props.children.map((item, index) => {
       return <Table.TD key={ index }> {item} </Table.TD>;
@@ -31,16 +30,15 @@ class CollapseTable extends Component {
     const content = this.state.isOpen ? children[1] : null;
     return [
       <Table.TR handleClick={ this.handleToggle }>
-          { elements }
+        { elements }
       </Table.TR>,
-      content
+      content,
     ];
   }
 }
 
 CollapseTable.propTypes = {
   children: PropTypes.node.isRequired,
-  columns: PropTypes.string,
   headings: PropTypes.array,
 };
 

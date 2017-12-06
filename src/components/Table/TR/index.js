@@ -26,6 +26,8 @@ const TR = ({
 TR.propTypes = {
   /** Expects a `Table.TD` or `Table.TH` component */
   children: PropTypes.node,
+  /** function prop to handle onClick */
+  handleClick: PropTypes.func,
   /** If true, add active class */
   isActive: PropTypes.bool,
   /** If true, add class to remove border */

@@ -98,12 +98,13 @@ const DiscloseRow = data.map((item, index) => {
       <div>{item.created}</div>
       <div>{item.size} KB </div>
     </div>
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      background: '#f6f6f6',
-      padding: '0px 100px'
-    }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        background: '#f6f6f6',
+        padding: '0px 100px',
+      }}>
       <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>Revision Key</div>
       <div style={{ padding: '15px 0 15px 0', borderBottom: '1px solid lightgrey'}}>{ item.revisionKey }</div>
       <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>Created At</div>
@@ -111,13 +112,13 @@ const DiscloseRow = data.map((item, index) => {
       <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>url</div>
       <div style={{ padding: '15px 0 15px 0', borderBottom: '1px solid lightgrey'}}><a href="#">{ item.url }</a></div>
       <div style={{ padding: '15px 0 15px 0', color: 'silver'}}>File Size</div>
-      <div style={{ padding: '15px 0 15px 0', }}>{ item.size } KB</div>
+      <div style={{ padding: '15px 0 15px 0' }}>{ item.size } KB</div>
     </div>
   </Collapse>);
 });
 
 const DiscloseRowOld = data.map((item, index) => {
-  return (<CollapseTable>
+  return (<CollapseTable key={ index }>
     <Table.TR>
       <Table.TD>
         <Icon name='arrow-right' size='small' />
@@ -211,7 +212,7 @@ stories
     <Table density="loose" style="rule">
       <Table.TBody>
         <Table.TR>
-          <Table.TH>  
+          <Table.TH>
           </Table.TH>
           <Table.TH>
             Revision
