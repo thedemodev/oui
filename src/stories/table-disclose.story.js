@@ -9,6 +9,7 @@ import Table from '../components/Table';
 import Icon from 'react-oui-icons';
 
 import Collapse from './Collapse';
+import CollapseTable from './CollapseTable';
 
 const data = [
   {
@@ -92,7 +93,7 @@ const DiscloseRow = data.map((item, index) => {
     key={ index }
     columns='10% 10% 20% 15% 15% 15% 15%'>
     <div>
-      <Icon name='arrow-right' />
+      <Icon name='arrow-right' size='small' />
       <div>{item.revision}</div>
       <div>{item.type}</div>
       <Icon name='checkmark-running' />
@@ -100,6 +101,49 @@ const DiscloseRow = data.map((item, index) => {
       <div>{item.created}</div>
       <div>{item.size} KB </div>
     </div>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      background: '#f6f6f6',
+      padding: '0px 100px'
+    }}>
+      <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>Revision Key</div>
+      <div style={{ padding: '15px 0 15px 0', borderBottom: '1px solid lightgrey'}}>{ item.revisionKey }</div>
+      <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>Created At</div>
+      <div style={{ padding: '15px 0 15px 0', borderBottom: '1px solid lightgrey'}}>{ item.date }</div>
+      <div style={{ padding: '15px 0 15px 0', color: 'silver', borderBottom: '1px solid lightgrey'}}>url</div>
+      <div style={{ padding: '15px 0 15px 0', borderBottom: '1px solid lightgrey'}}><a href="#">{ item.url }</a></div>
+      <div style={{ padding: '15px 0 15px 0', color: 'silver'}}>File Size</div>
+      <div style={{ padding: '15px 0 15px 0', }}>{ item.size } KB</div>
+    </div>
+  </Collapse>);
+});
+
+const DiscloseRowOld = data.map((item, index) => {
+  return (<CollapseTable>
+    <Table.TR>
+      <Table.TD>
+        <Icon name='arrow-right' size='small' />
+      </Table.TD>
+      <Table.TD>
+        <div>{item.revision}</div>
+      </Table.TD>
+      <Table.TD>
+        <div>{item.type}</div>
+      </Table.TD>
+      <Table.TD>
+        <Icon name='checkmark-running' />
+      </Table.TD>
+      <Table.TD>
+        <Badge color="live">{item.status}</Badge>
+      </Table.TD>
+      <Table.TD>
+        <div>{item.created}</div>
+      </Table.TD>
+      <Table.TD>
+        <div>{item.size} KB </div>
+      </Table.TD>
+    </Table.TR>
     <div style={{ background: '#f6f6f6', padding: '10px 50px'}}>
       <Table density="loose" style="rule">
         <Table.TBody>
@@ -142,11 +186,11 @@ const DiscloseRow = data.map((item, index) => {
         </Table.TBody>
       </Table>
     </div>
-  </Collapse>);
+  </CollapseTable>);
 });
 
 stories
-  .add('experiment', withInfo()(() => (<div style={ styles.container }>
+  .add('with css grid', withInfo()(() => (<div style={ styles.container }>
     <div
       style={{
         display: 'grid',
@@ -163,4 +207,31 @@ stories
       <div>File Size</div>
     </div>
     { DiscloseRow }
+  </div>)))
+  .add('with table tags', withInfo()(() => (<div style={ styles.container }>
+    <Table density="loose" style="rule">
+      <Table.TR>
+        <Table.TH>  
+        </Table.TH>
+        <Table.TH>
+          Revision
+        </Table.TH>
+        <Table.TH>
+          Type
+        </Table.TH>
+        <Table.TH>
+          Live
+        </Table.TH>
+        <Table.TH>
+          Status
+        </Table.TH>
+        <Table.TH>
+          Created At
+        </Table.TH>
+        <Table.TH>
+          File Size
+        </Table.TH>
+      </Table.TR>
+      { DiscloseRowOld }
+    </Table>
   </div>)));
