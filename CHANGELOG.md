@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
+## Unreleased
+- [Feature] - Allow Attention React Oui Component To Accept Other React Oui Components As Children (#737)
+
 ## 28.1.8 - 2017-12-01
 - [Patch] - Remove old oui-icons from React bundle (#859)
 

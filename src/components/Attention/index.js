@@ -60,7 +60,7 @@ Attention.propTypes = {
   /** How the text is aligned */
   alignment: PropTypes.oneOf(['left', 'center']),
   /** Text that appears within the component */
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   /** Button allowing users to dismiss the component */
   isDismissible: PropTypes.bool,
   /** Hook for automated JavaScript tests */
