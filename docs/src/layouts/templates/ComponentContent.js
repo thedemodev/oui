@@ -14,9 +14,9 @@ class ComponentContent extends React.Component {
     console.log(this.props.data);
 
     return <div>  
-      <ReadmeComponent markdownData={ readme }/>
-      <Examples examplesData={ examples } />
-      <PropsGrid componentProps={ react.props } />
+      { readme && <ReadmeComponent markdownData={ readme }/> }
+      { examples && <Examples examplesData={ examples } /> }
+      { react && <PropsGrid componentProps={ react.props } /> }
     </div>;
   }
 }

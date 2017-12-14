@@ -18,10 +18,9 @@ const componentFolders = glob.sync(`../src/components/**/`, {
     '../src/components/**/Icon/'],
 });
 
-// console.log(componentFolders)
-
 const compArray = componentFolders.map( filePath => {
   const reactComponentPath = `${filePath}index.js`;
+  const sassPath = `${filePath}index.scss`;
   const examplePath = `${filePath}example/index.js`;
   const readmePath = `${filePath}/README.md`;
   const fileName = filePath.split('/')[5];
@@ -31,7 +30,8 @@ const compArray = componentFolders.map( filePath => {
   const paths = {
     react: fs.existsSync(reactComponentPath) ? reactComponentPath : null,
     reactExample: fs.existsSync(examplePath) ? examplePath : null,
-    readme: fs.existsSync(readmePath) ? readmePath : null
+    readme: fs.existsSync(readmePath) ? readmePath : null, 
+    sass: fs.existsSync(sassPath) ? sassPath : null,
   };
   
   let imports = '';
@@ -57,9 +57,14 @@ const compArray = componentFolders.map( filePath => {
     imports = `${imports} const readme = null;`;
   }
 
-  const template = ComponentTemplate(componentName, imports);
+  if (fs.existsSync(sassPath)) { 
+    const importString = `import sassExamples from '../../../../data/components/${componentName}/sass.json';`;
+    imports = `${imports} ${importString}`;
+  } else {
+    imports = `${imports} const sassExamples = null;`;
+  }
 
-  console.log(template)
+  const template = ComponentTemplate(componentName, imports);
 
   //Write a file from the componentTemplate with info about the React Component
   writeFile(`./src/pages/components/${componentName}.js`, template, (err) => {
