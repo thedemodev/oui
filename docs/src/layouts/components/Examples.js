@@ -26,7 +26,7 @@ const Examples = ({
     return (
       <ExampleBlock key={ `block-${index}` }>
         <Element key={ `element-${index}` }>
-          { example.examples}
+          { example.examples.map( (item, index) => <div key={`item-${index}`}>{ item }</div>)}
         </Element>
         <Code key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
           { `${example.examples.map( item => reactElementToJSXString(item))}` } 
