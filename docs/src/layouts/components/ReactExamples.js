@@ -19,7 +19,7 @@ const Element = styled.div`
   border-right: 1px solid #ccc;
 `;
 
-const Examples = ({
+const ReactExamples = ({
   examplesData
 }) => {
   const exampleElements = examplesData.map((example, index) => {
@@ -41,4 +41,4 @@ const Examples = ({
   )
 }
 
-export default Examples
+export default ReactExamples

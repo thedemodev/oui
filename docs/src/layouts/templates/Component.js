@@ -11,7 +11,8 @@ exports.ComponentTemplate = function(
   let dataObject = {
     react: data ? data : null, 
     examples: examples ? examples : null,
-    readme: readme ? readme : null
+    readme: readme ? readme : null,
+    sass: sassExamples ? sassExamples.example : null,
   }
   
   class ${name}Component extends React.Component {
