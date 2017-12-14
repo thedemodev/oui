@@ -25,11 +25,14 @@ class Navbar extends React.Component {
     return (
       <Navlist>
         <Navlink> 
-          <Link to='/components/Button'>components</Link> 
+          <Link to='/design'>design</Link> 
         </Navlink>
         <Navlink> 
-          <Link to='/components'>resources</Link> 
+          <Link to='/components'>components</Link> 
         </Navlink>
+        <Navlink> 
+        <Link to='/resources'>resources</Link> 
+      </Navlink>
       </Navlist>
     )
   }
