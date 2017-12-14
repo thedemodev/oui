@@ -25,11 +25,11 @@ const Examples = ({
   const exampleElements = examplesData.map((example, index) => {
     return (
       <ExampleBlock key={ `block-${index}` }>
-        <Element>
+        <Element key={ `element-${index}` }>
           { example.examples}
         </Element>
-        <Code display='block' language='jsx' hasCopyButton >
-          { example.examples.map( item => reactElementToJSXString(item)) } 
+        <Code key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+          { `${example.examples.map( item => reactElementToJSXString(item))}` } 
         </Code>
       </ExampleBlock>
     )

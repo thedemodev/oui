@@ -2,7 +2,7 @@
 import React from 'react';
 import Card from '../index';
 
-const someMethod = () => { return true; };
+const someMethod = () => {};
 export default [
   {
     examples: [
@@ -20,14 +20,14 @@ export default [
   },
   {
     examples: [
-      <Card>
+      <Card title="Title">
         Blank card
       </Card>,
     ],
   },
   {
     examples: [
-      <Card shadow={ true }>
+      <Card title="Title" shadow={ true }>
         Shadow
       </Card>,
     ],

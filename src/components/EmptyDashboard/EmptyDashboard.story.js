@@ -21,7 +21,8 @@ stories
     return (
       <EmptyDashboard
         headline={ text('headline', 'Get started with Optimizely X') }
-        description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
+        description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } 
+        button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
         imagePath={ select('imagePath', {
           'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg': 'Campaigns',
           'https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg': 'Extensions',
@@ -40,7 +41,8 @@ stories
       <div>
         <EmptyDashboard
           headline={ text('headline', 'Get started with Optimizely X') }
-          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } 
+          button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
           imagePath={ select('imagePath', {
             'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg': 'Campaigns',
             'https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg': 'Extensions',
@@ -54,7 +56,8 @@ stories
         />
         <EmptyDashboard
           headline={ text('headline', 'Get started with Optimizely X') }
-          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } 
+          button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
           imagePath={ select('imagePath', {
             'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg': 'Campaigns',
             'https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg': 'Extensions',
@@ -68,7 +71,8 @@ stories
         />
         <EmptyDashboard
           headline={ text('headline', 'Get started with Optimizely X') }
-          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } 
+          button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
           imagePath={ select('imagePath', {
             'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg': 'Campaigns',
             'https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg': 'Extensions',
@@ -82,7 +86,8 @@ stories
         />
         <EmptyDashboard
           headline={ text('headline', 'Get started with Optimizely X') }
-          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } 
+          button={ (<Button style="highlight">{ text('buttonText', 'Highlight') }</Button>) }
           imagePath={ select('imagePath', {
             'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg': 'Campaigns',
             'https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg': 'Extensions',

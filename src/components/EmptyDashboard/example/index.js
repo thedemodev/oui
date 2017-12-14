@@ -9,7 +9,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg'
       />,
@@ -21,7 +21,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X Extensions'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/extensions-empty-state.svg'
       />,
@@ -33,7 +33,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/custom-project-experiments-empty-state.svg'
       />,
@@ -45,7 +45,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/empty-rollouts.svg'
       />,
@@ -57,7 +57,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/empty-feature-flags.svg'
       />,
@@ -69,7 +69,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/audience-list-empty-state.svg'
       />,
@@ -81,7 +81,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/attribute-dashboard-empty-state.svg'
       />,
@@ -93,7 +93,7 @@ export default [
     examples: [
       <EmptyDashboard
         headline='Get started with Optimizely X'
-        description='This is a test description about some feature you should use.'
+        description={ <div>This is a test description about with a Google.</div> }
         button={ (<Button style="highlight">Highlight</Button>) }
         imagePath='https://app.optimizely.com/static/img/x/empty-states/page-list-empty-state.svg'
       />,
