@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components'
 
-import Code from '../../src/components/Code'
+import Code from '../../../../src/components/Code'
 
 const Container = styled.div`
   padding: 20px 100px;

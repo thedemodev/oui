@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { markdown } from 'markdown';
 
 const Container = styled.div`
   padding: 20px 100px;
@@ -46,8 +47,9 @@ const Container = styled.div`
 const ReadmeComponent = ({
   markdownData
 }) => {
-  return (
-    <Container dangerouslySetInnerHTML={{ __html: markdownData }} />
+  return (<div>
+    <Container dangerouslySetInnerHTML={{ __html: markdown.toHTML( markdownData ) }} />
+    </div>
   )
 }
 

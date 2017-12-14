@@ -7,6 +7,7 @@
     "gatsby": "^1.9.127",
     "gatsby-link": "^1.6.30",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "markdown": "^0.5.0",
     "showdown": "^1.8.5"
   },
   "keywords": [

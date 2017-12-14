@@ -1,10 +1,23 @@
 import React from 'react';
-
+import ReadmeComponent from '../../layouts/components/ReadmeComponent';
+import Examples from '../../layouts/components/Examples';
+import PropsGrid from '../../layouts/components/PropsGrid'
 
 class ComponentContent extends React.Component {
   render() {
-    console.log(this.props.data)
-    return <div> hola a todos </div>;
+    const {
+      react,
+      examples,
+      readme
+    } = this.props.data;
+
+    console.log(this.props.data);
+
+    return <div>  
+      <ReadmeComponent markdownData={ readme }/>
+      <Examples examplesData={ examples } />
+      <PropsGrid componentProps={ react.props } />
+    </div>;
   }
 }
 
