@@ -4,10 +4,6 @@ import styled from 'styled-components'
 
 import Code from '../../../../src/components/Code'
 
-const Container = styled.div`
-  padding: 20px 100px;
-`;
-
 const ExampleBlock = styled.div`
   margin-bottom: 50px;
 `;
@@ -35,9 +31,9 @@ const SassExamples = ({
     )
   })
   return (
-    <Container>
+    <div>
       { exampleElements }
-    </Container>
+    </div>
   )
 }
 

@@ -5,7 +5,6 @@ import marked from 'marked'
 import styled from 'styled-components'
 
 const Grid = styled.div`
-  margin: 20px 100px;
   background: gainsboro;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;

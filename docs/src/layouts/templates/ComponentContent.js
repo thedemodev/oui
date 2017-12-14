@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components'
+
 import ReadmeComponent from '../../layouts/components/ReadmeComponent';
 import ReactExamples from '../../layouts/components/ReactExamples';
 import SassExamples from '../../layouts/components/SassExamples';
 import PropsGrid from '../../layouts/components/PropsGrid';
-
 import TabNav from '../../../../src/components/TabNav'
+
+const Container = styled.div`
+  padding: 20px 100px;
+`;
 
 class ComponentContent extends React.Component {
   state = {
@@ -25,7 +30,9 @@ class ComponentContent extends React.Component {
 
     if( react && sass ) {
       const languages = ['react', 'sass']
-      return <div>
+      return (
+        <Container>
+          { readme && <ReadmeComponent markdownData={ readme }/> }
           <TabNav activeTab={ this.state.currentTab} style={ ['small', 'sub'] }>
             { languages.map((language) => {
                 return (
@@ -40,7 +47,6 @@ class ComponentContent extends React.Component {
               })
             }
           </TabNav>
-          { readme && <ReadmeComponent markdownData={ readme }/> }
           { this.state.currentTab === 'sass' && 
             <SassExamples examplesData={ sass } /> 
           }
@@ -50,15 +56,16 @@ class ComponentContent extends React.Component {
               <PropsGrid componentProps={ react.props } /> 
             ]
           }
-      </div>
+        </Container>
+      )
     }
 
-    return <div>  
+    return <Container>  
       { readme && <ReadmeComponent markdownData={ readme }/> }
       { examples && <ReactExamples examplesData={ examples } /> }
       { sass && <SassExamples examplesData={ sass } /> }
       { react && <PropsGrid componentProps={ react.props } /> }
-    </div>;
+    </Container>;
   }
 }
 

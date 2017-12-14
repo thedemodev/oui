@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { markdown } from 'markdown';
 
 const Container = styled.div`
-  padding: 20px 100px;
   h1 {
     font-size: 38px;
     line-height: 1.1;
