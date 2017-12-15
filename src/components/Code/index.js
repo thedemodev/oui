@@ -72,9 +72,11 @@ class Code extends React.Component {
       type,
       hasCopyButton,
       testSection,
+      className,
+      ouiStyle = true,
     } = this.props;
-    let classes = classNames({
-      'oui-pre': true,
+    let classes = classNames(className, {
+      'oui-pre': ouiStyle,
       'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     });
 

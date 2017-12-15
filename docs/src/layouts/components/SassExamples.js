@@ -9,11 +9,17 @@ const ExampleBlock = styled.div`
 `;
 
 const Element = styled.div`
-  padding: 20px 50px;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+background: #F6F8FA;
+padding: 20px 50px;
+margin-bottom: 10px;
+border-radius: 7px;
 `;
+
+const StyledCode = styled(Code)`
+background: #F6F8FA;
+border-radius: 7px;
+padding: 15px 25px;
+`
 
 const SassExamples = ({
   examplesData
@@ -24,9 +30,9 @@ const SassExamples = ({
         <Element key={ `element-${index}` }>
           { <div key={`item-${index}`} dangerouslySetInnerHTML={{ __html: example.code }} /> }
         </Element>
-        <Code key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+        <StyledCode ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
           { `${reactElementToJSXString(example.code)}` } 
-        </Code>
+        </StyledCode>
       </ExampleBlock>
     )
   })

@@ -41,12 +41,13 @@ class ComponentContent extends React.Component {
                     ref={ language }
                     onClick={ this.handelTabClick }
                     tabId={ language }>
-                    { language }
+                    <h2>{ language }</h2>
                   </TabNav.Tab>
                 );
               })
             }
           </TabNav>
+          <br/>
           { this.state.currentTab === 'sass' && 
             <SassExamples examplesData={ sass } /> 
           }
