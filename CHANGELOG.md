@@ -5,7 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] - Add padding prop to Popover component to allow for hard/flush component padding and margins (#862)
+
+## 28.2.1 - 2017-12-15
+- [Patch] - Fix for lint errors on Card component mock function.
+- [Patch] - Add padding prop to Popover component to allow for hard/flush component padding and margins (#862)
 
 ## 28.2.0 - 2017-12-15
 - [Feature] - Add TR props for backgroundColor (#865) and borderStyle (#866)
