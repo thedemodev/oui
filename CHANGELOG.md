@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] - Add TR props for backgroundColor (#865) and borderStyle (#866)
 - [Feature] - Add .scrollbars--visible helper to show overflow container scroll bars (#863)
 - [Feature] - Allow Attention React Oui Component To Accept Other React Oui Components As Children (#737)
 
