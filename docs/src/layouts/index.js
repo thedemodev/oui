@@ -23,7 +23,7 @@ const Container = styled.div`
     "sidebar content";
   font-family: 'Open Sans', sans-serif;
   margin: 0 auto;
-  width: 85%;
+  width: 100%;
   height: 100vh;
 `;
 
