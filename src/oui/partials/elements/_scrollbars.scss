@@ -10,15 +10,13 @@
 .scrollbars--visible {
   overflow-y: scroll;
 }
-.scrollbars--visible::-webkit-scrollbar,
-.scrollbars--visible::scrollbar {
+.scrollbars--visible::-webkit-scrollbar {
   -webkit-appearance: none;
           appearance: none;
   width: 7px;
   background-color: rgba(0, 0, 0, .04);
 }
-.scrollbars--visible::-webkit-scrollbar-thumb,
-.scrollbars--visible::scrollbar-thumb {
+.scrollbars--visible::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: rgba(0, 0, 0, .3);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
