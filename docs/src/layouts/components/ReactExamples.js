@@ -15,12 +15,6 @@ const Element = styled.div`
   border-radius: 7px;
 `;
 
-const StyledCode = styled(CodeBlock)`
-  background: #F6F8FA;
-  border-radius: 7px;
-  padding: 15px 25px;
-`
-
 const ReactExamples = ({
   examplesData
 }) => {
@@ -28,11 +22,18 @@ const ReactExamples = ({
     return (
       <ExampleBlock key={ `block-${index}` }>
         <Element key={ `element-${index}` }>
-          { example.examples.map( (item, index) => <span key={`item-${index}`}>{ item }</span>)}
+          { example.examples.map( (item, index) => { 
+            return <span 
+              key={`item-${index}`} 
+              style={ {marginRight: 5 } }>
+                { item }
+              </span>
+            })
+          }
         </Element>
-        <StyledCode ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+        <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
           { `${example.examples.map( item => reactElementToJSXString(item))}` } 
-        </StyledCode>
+        </CodeBlock>
       </ExampleBlock>
     )
   })

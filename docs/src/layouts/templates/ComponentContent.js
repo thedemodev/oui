@@ -12,8 +12,11 @@ const Container = styled.div`
 `;
 
 class ComponentContent extends React.Component {
-  state = {
-    currentTab: 'react'
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: 'react'
+    }
   }
 
   handelTabClick = (event) => {
@@ -38,7 +41,6 @@ class ComponentContent extends React.Component {
                 return (
                   <TabNav.Tab
                     key={ language }
-                    ref={ language }
                     onClick={ this.handelTabClick }
                     tabId={ language }>
                     <h2>{ language }</h2>

@@ -1,26 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { xonokai, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/styles/prism';
 
 import CopyButton from '../../../../src/components/Code/CopyButton';
-import Highlight from 'highlight.js/lib/highlight.js';
-
-Highlight.registerLanguage('cs', require('highlight.js/lib/languages/cs'));
-Highlight.registerLanguage('css', require('highlight.js/lib/languages/css'));
-Highlight.registerLanguage('diff', require('highlight.js/lib/languages/diff'));
-Highlight.registerLanguage('html', require('highlight.js/lib/languages/xml'));
-Highlight.registerLanguage('java', require('highlight.js/lib/languages/java'));
-Highlight.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
-Highlight.registerLanguage('js', require('highlight.js/lib/languages/javascript'));
-Highlight.registerLanguage('jsx', require('highlight.js/lib/languages/javascript'));
-Highlight.registerLanguage('markdown', require('highlight.js/lib/languages/markdown'));
-Highlight.registerLanguage('md', require('highlight.js/lib/languages/markdown'));
-Highlight.registerLanguage('objectivec', require('highlight.js/lib/languages/objectivec'));
-Highlight.registerLanguage('php', require('highlight.js/lib/languages/php'));
-Highlight.registerLanguage('python', require('highlight.js/lib/languages/python'));
-Highlight.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'));
-Highlight.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-Highlight.registerLanguage('swift', require('highlight.js/lib/languages/swift'));
 
 /**
  * Display code either inline or in its own block.
@@ -34,34 +18,23 @@ class Code extends React.Component {
   }
 
   renderCode() {
-    let dangerouslySetInnerHTML = null;
     const {
-      isHighlighted,
       language,
       type,
       testSection,
+      children,
+      codeStyle = 'dark'
     } = this.props;
-    let code = this.props.children;
 
-    if (isHighlighted) {
-      // Code that uses syntax highlighting needs to have
-      // `dangerouslySetInnerHTML` set so that the HTML returned is displayed.
-      dangerouslySetInnerHTML = {
-        __html: language ? Highlight.highlight(language, code).value :
-          Highlight.highlightAuto(code).value,
-      };
-      code = null;
-    }
+    const codeColor = codeStyle === 'dark' ? xonokai : base16AteliersulphurpoolLight;
 
     return (
       /* eslint-disable react/no-danger */
-      <code
-        data-oui-component={ true }
-        className={ type === 'inline' ? 'oui-code' : '' }
-        data-test-section={ type === 'inline' && testSection }
-        dangerouslySetInnerHTML={ dangerouslySetInnerHTML }>
-        { code }
-      </code>
+      <SyntaxHighlighter
+        language={ language }
+        style={ codeColor }>
+          { children }
+      </SyntaxHighlighter>
       /* eslint-enable react/no-danger */
     );
   }
