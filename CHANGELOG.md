@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] - Make steps in CONTRIBUTING.md more readable
 - [Patch] - Add documentation for half padding and margin override classes (#871)
 
 ## 28.2.2 - 2017-12-19
