@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 /**
- * Generates an `textfield input` element (optionally wrapped in a label) and accepts
+ * Generates an `textfield input` element and accepts
  * most of the common textfield input types.
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
