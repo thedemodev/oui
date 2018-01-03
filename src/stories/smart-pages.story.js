@@ -45,7 +45,7 @@ stories
   ));
 
 stories
-  .add('default state', () => (<div style={ styles.container }>
+  .add('default state', () => (<div>
     <div className='push-quad--ends'><h2 className='beta'>New Page</h2></div>
     <div className='push--bottom'><TextField label="Name" onChange={anonymFn} onBlur={anonymFn} onKeyDown={anonymFn} placeholder="Page name" type="text" /></div>
     <div className='push-quad--bottom'><TextField label="Editor url" onChange={anonymFn} onBlur={anonymFn} onKeyDown={anonymFn} placeholder="URL" type="text" /></div>
@@ -182,11 +182,3 @@ stories
       <span className='push-double--left'><Button style='highlight'>Create Page</Button></span>
     </div>
   </div>));
-
-  const styles = {
-    constainer: {
-      display: 'grid',
-      gridTemplateColumns: '20% 20% 20% 20% 20%',
-      gridTemplateRows: '20% 20% 20% 20% 20%'
-    } 
-  }
