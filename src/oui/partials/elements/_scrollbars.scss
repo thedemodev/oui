@@ -9,7 +9,7 @@
 ///   </div>
 ////
 .scrollbars--visible {
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 .scrollbars--visible::-webkit-scrollbar {
   -webkit-appearance: none;

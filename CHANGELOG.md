@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] - Make scrollbars--visible overflow rule !important to ensure scroll is always present. (#876)
 - [Patch] - Make steps in CONTRIBUTING.md more readable
 - [Patch] - Add documentation for half padding and margin override classes (#871)
 
