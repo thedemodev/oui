@@ -38,7 +38,7 @@ stories.add('with BlockList elements', withInfo()(() => {
         outline: 'outline',
         underline: 'underline'}, '') }
       buttonContent='Dropdown'
-      width={ text('width', '300') }>
+      width={ number('width', 300) }>
       <BlockList>
         {
           data.map((item, index) => {

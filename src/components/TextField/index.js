@@ -4,13 +4,13 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 /**
- * Generates an `input` element (optionally wrapped in a label) and accepts
- * most of the common input types.
+ * Generates an `textfield input` element (optionally wrapped in a label) and accepts
+ * most of the common textfield input types.
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
 
-class Input extends React.Component {
+class TextField extends React.Component {
 
   renderInput({
     note,
@@ -88,7 +88,7 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
+TextField.propTypes = {
   /** The default value of the input used on initial render */
   defaultValue: PropTypes.string,
   /** Toggle error state styles  */
@@ -150,4 +150,4 @@ Input.propTypes = {
   value: PropTypes.string,
 };
 
-export default Input;
+export default TextField;
