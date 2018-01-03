@@ -1,0 +1,250 @@
+{
+    "data": {
+        "allSitePage": {
+            "totalCount": 48,
+            "edges": [
+                {
+                    "node": {
+                        "path": "/changelog/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/404/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/oui/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/page-2/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/404.html"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/design/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/resources/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/ArrowsInline/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Accordion/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/BlockList/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Attention/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Badge/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Array/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Button/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/ButtonRow/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Card/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Checkbox/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Code/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Disclose/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Dialog/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Dropdown/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/EmptyDashboard/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Help/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Input/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/InputIcon/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Label/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Link/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Media/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Nav/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/OverlayWrapper/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Pagination/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Popover/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Poptip/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/ProgressBar/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/ProgressDots/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Radio/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Search/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Select/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Spinner/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Stats/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Steps/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/TabNav/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Table/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/TextField/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Textarea/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/Token/"
+                    }
+                },
+                {
+                    "node": {
+                        "path": "/components/"
+                    }
+                }
+            ]
+        }
+    },
+    "pathContext": {}
+}
