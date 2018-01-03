@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 28.2.3 - 2018-01-03
 - [Patch] - Fix padding for last-child in css for Disclose Component
 - [Patch] - Change CSS watch file for storybook config
 - [Patch] - Make scrollbars--visible overflow rule !important to ensure scroll is always present. (#876)
