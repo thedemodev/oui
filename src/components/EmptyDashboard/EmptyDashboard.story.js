@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .addWithInfo('Default empty', () => {
+  .add('Default empty', () => {
     return (
       <EmptyDashboard
         headline={ text('headline', 'Get started with Optimizely X') }
@@ -36,7 +36,7 @@ stories
       />
     );
   })
-  .addWithInfo('All images', () => {
+  .add('All images', () => {
     return (
       <div>
         <EmptyDashboard

@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from '../index';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
 const data = [
@@ -137,7 +137,7 @@ describe('components/Dropdown', () => {
   });
 
   it('should change state to `overChildren=true` when mouseover', () => {
-    const dropdown = mount(
+    const dropdown = shallow(
       <Dropdown buttonContent='Dropdown'>
         <ul></ul>
       </Dropdown>
@@ -147,7 +147,7 @@ describe('components/Dropdown', () => {
   });
 
   it('should change state to `overChildren=false` when mouseleave', () => {
-    const dropdown = mount(
+    const dropdown = shallow(
       <Dropdown buttonContent='Dropdown'>
         <ul></ul>
       </Dropdown>

@@ -66,10 +66,8 @@
       display: block;
     }
 
-    .oui-disclose__content {
-      *:last-child {
+    .oui-disclose__content > :last-child {
         padding-bottom: 20px;
-      }
     }
 
     .#{$namespace}disclose__symbol,

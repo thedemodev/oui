@@ -40,6 +40,7 @@ Run `npm run` for an entire list.
   * Release - Breaking changes to code or large visual design modifications. Renaming a class or redesigning the button styles, for example, would be a `Release`.
 
   GitHub issue number is the number of the GitHub issue, if applicable, preceded by a `#`. Ideally, each contribution should have a corresponding issue that provides more context.
+
 4. `git push` your changes to GitHub.
 5. Open a pull request comparing your feature `branch-name` against `devel`. Add at least one reviewer.
 

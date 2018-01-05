@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .addWithInfo('states of pb', () => {
+  .add('states of pb', () => {
     return (
       <ProgressBar
         max={ number('max', 100) }

@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Disclose from './index.js';
+import Checkbox from '../Checkbox';
 
 const stories = storiesOf('Disclose', module);
 stories
@@ -89,3 +90,30 @@ stories.add('with divider', withInfo()(() => {
   );
 }));
 
+stories.add('with ul', withInfo()(() => {
+  return (
+    <div>
+      <Disclose childrenStyle='divider' title='Some Title'>
+        <ul className="push-half oui-input-list">
+          <li>
+            <Checkbox
+              label="When triggered, deactivate if conditions are not met"
+              testSection="configure-view-smart-deactivation_enabled"
+            />
+          </li>
+          <li className="push-double--left">
+            <Checkbox
+              label="Undo changes when page activates"
+              testSection="configure-view-smart-undo_on_deactivation"
+            />
+            <div className="push-triple--left muted">
+              Undoing changes during page activation allows your single page app
+              to dynamically apply and remove changes. Learn more about when to
+              use this, and why this might be useful.
+            </div>
+          </li>
+        </ul>
+      </Disclose>
+    </div>
+  );
+}));

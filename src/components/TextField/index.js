@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  * @returns {ReactElement}
  */
 
-class Input extends React.Component {
+class TextField extends React.Component {
 
   renderInput({
     note,
@@ -88,7 +88,7 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
+TextField.propTypes = {
   /** The default value of the input used on initial render */
   defaultValue: PropTypes.string,
   /** Toggle error state styles  */
@@ -150,4 +150,4 @@ Input.propTypes = {
   value: PropTypes.string,
 };
 
-export default Input;
+export default TextField;

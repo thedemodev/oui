@@ -5,7 +5,31 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] - Allow Attention React Oui Component To Accept Other React Oui Components As Children (#737)
+
+## 28.4.0 - 2018-01-05
+- [Feature] - Add popper.js to Dropdown component. (#880)
+
+## 28.3.0 - 2018-01-04
+- This release was skipped.
+
+## 28.2.3 - 2018-01-03
+- [Patch] - Fix padding for last-child in css for Disclose Component
+- [Patch] - Change CSS watch file for storybook config
+- [Patch] - Make scrollbars--visible overflow rule !important to ensure scroll is always present. (#876)
+- [Patch] - Make steps in CONTRIBUTING.md more readable
+- [Patch] - Add documentation for half padding and margin override classes (#871)
+
+## 28.2.2 - 2017-12-19
+- [Patch] - Fix CSS syntax error for scrollbars--visible.
+
+## 28.2.1 - 2017-12-15
+- [Patch] - Fix for lint errors on Card component mock function.
+- [Patch] - Add padding prop to Popover component to allow for hard/flush component padding and margins (#862)
+
+## 28.2.0 - 2017-12-15
+- [Feature] - Add TR props for backgroundColor (#865) and borderStyle (#866)
+- [Feature] - Add .scrollbars--visible helper to show overflow container scroll bars (#863)
+- [Feature] - Allow Attention React OUI component to accept other React OUI components as children (#737)
 
 ## [28.1.8](http://design.optimizely.com/docs/oui/28.1.8/) - 2017-12-01
 - [Patch] - Remove old oui-icons from React bundle (#859)
