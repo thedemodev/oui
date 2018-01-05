@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] - Add max-height overrides. (#881)
 
 ## 28.4.0 - 2018-01-05
 - [Feature] - Add popper.js to Dropdown component. (#880)
