@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 28.3.0 - 2018-01-04
+- [Feature] - Add popper.js to Dropdown component. (#880)
+
 ## 28.2.3 - 2018-01-03
 - [Patch] - Fix padding for last-child in css for Disclose Component
 - [Patch] - Change CSS watch file for storybook config
