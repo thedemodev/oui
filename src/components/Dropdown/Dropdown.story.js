@@ -1,12 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from './index.js';
 import BlockList from '../BlockList';
+import TextField from '../TextField';
 import Icon from 'react-oui-icons';
 
 const data = [
@@ -38,7 +40,7 @@ stories.add('with BlockList elements', withInfo()(() => {
         outline: 'outline',
         underline: 'underline'}, '') }
       buttonContent='Dropdown'
-      width={ text('width', '300') }>
+      width={ number('width', 300) }>
       <BlockList>
         {
           data.map((item, index) => {
@@ -69,44 +71,24 @@ stories.add('three dots', withInfo()(() => {
       isDisabled={ boolean('isDisabled', false) }
       fullWidth={ boolean('fullWidth', false) }
       buttonContent={ <Icon name='ellipsis' /> }
-      width={ number('width', 100) }>
+      width={ number('width', 300) }>
       <BlockList>
-        <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item 2') }>
-            <div className="flex flex-align--center">
-              <div className="flex--1">
-                <a href='#'>un link </a>
-              </div>
-            </div>
-          </BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item 3') }>
-            <div className="flex flex-align--center">
-              <div className="flex--1">
-                <a href='#'>otro link</a>
-              </div>
-            </div>
-          </BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item 4') }>
-            <div className="flex flex-align--center">
-              <div className="flex--1">
-                <a href='#'>un más</a>
-              </div>
-            </div>
-          </BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category >
-          <BlockList.Item onClick={ action('click on complex item 5') }>
-            <div className="flex flex-align--center">
-              <div className="flex--1">
-                <a href='#'>el último</a>
-              </div>
-            </div>
-          </BlockList.Item>
-        </BlockList.Category>
+        {
+          data.map((item, index) => {
+            return (
+              <BlockList.Category header={ item.header } key={ index }>
+                <BlockList.Item onClick={ action('click on complex item') }>
+                  <div className="flex flex-align--center">
+                    <div className="flex--1">
+                      <div>{ item.title }</div>
+                      <div className="muted micro">{ item.description }</div>
+                    </div>
+                  </div>
+                </BlockList.Item>
+              </BlockList.Category>
+            );
+          })
+        }
       </BlockList>
     </Dropdown>
   );
@@ -115,53 +97,101 @@ stories.add('three dots', withInfo()(() => {
 
 stories.add('text behind', withInfo()(() => {
   return (
-    <div>
-      <Dropdown
-        isDisabled={ boolean('isDisabled', false) }
-        fullWidth={ boolean('fullWidth', false) }
-
-        buttonContent='Dropdown'
-        width={ number('width', 100) }>
-        <BlockList>
-          <BlockList.Category >
-            <BlockList.Item onClick={ action('click on complex item') }>
-              <div className="flex flex-align--center">
-                <div className="flex--1">
-                  <a href='#'>un link </a>
-                </div>
-              </div>
-            </BlockList.Item>
-          </BlockList.Category>
-          <BlockList.Category >
-            <BlockList.Item onClick={ action('click on complex item') }>
-              <div className="flex flex-align--center">
-                <div className="flex--1">
-                  <a href='#'>otro link</a>
-                </div>
-              </div>
-            </BlockList.Item>
-          </BlockList.Category>
-          <BlockList.Category >
-            <BlockList.Item onClick={ action('click on complex item') }>
-              <div className="flex flex-align--center">
-                <div className="flex--1">
-                  <a href='#'>un más</a>
-                </div>
-              </div>
-            </BlockList.Item>
-          </BlockList.Category>
-          <BlockList.Category >
-            <BlockList.Item onClick={ action('click on complex item') }>
-              <div className="flex flex-align--center">
-                <div className="flex--1">
-                  <a href='#'>el último</a>
-                </div>
-              </div>
-            </BlockList.Item>
-          </BlockList.Category>
-        </BlockList>
-      </Dropdown>
-      <h1>This text should be behind the open dropdown</h1>
-    </div>
+    <Container>
+      <SubContainer>
+        <ScrollContainer>
+          <Dropdown
+            isDisabled={ boolean('isDisabled', false) }
+            fullWidth={ boolean('fullWidth', false) }
+            buttonContent='Dropdown'
+            width={ number('width', 300) }>
+            <BlockList>
+              {
+                data.map((item, index) => {
+                  return (
+                    <BlockList.Category header={ item.header } key={ index }>
+                      <BlockList.Item onClick={ action('click on complex item') }>
+                        <div className="flex flex-align--center">
+                          <div className="flex--1">
+                            <div>{ item.title }</div>
+                            <div className="muted micro">{ item.description }</div>
+                          </div>
+                        </div>
+                      </BlockList.Item>
+                    </BlockList.Category>
+                  );
+                })
+              }
+            </BlockList>
+          </Dropdown>
+          <h1>This text should be behind the open dropdown</h1>
+        </ScrollContainer>
+      </SubContainer>
+    </Container>
   );
 }));
+
+
+stories.add('with icon', withInfo()(() => {
+  return (
+    <Container>
+      <SubContainer>
+        <ScrollContainer>
+          <div style={{ width: 200, float: 'left' }}>
+            <TextField
+              placeholder=".tags"
+              type="text"
+            />
+          </div>
+          <Dropdown
+            isDisabled={ boolean('isDisabled', false) }
+            fullWidth={ boolean('fullWidth', false) }
+            buttonContent={ <Icon name='hamburger' /> }
+            width={ number('width', 350) }>
+            <BlockList>
+              {
+                data.map((item, index) => {
+                  return (
+                    <BlockList.Category header={ item.header } key={ index }>
+                      <BlockList.Item onClick={ action('click on complex item') }>
+                        <div className="flex flex-align--center">
+                          <div className="flex--1">
+                            <div>{ item.title }</div>
+                            <div className="muted micro">{ item.description }</div>
+                          </div>
+                        </div>
+                      </BlockList.Item>
+                    </BlockList.Category>
+                  );
+                })
+              }
+            </BlockList>
+          </Dropdown>
+          <h1>This text should be behind the open dropdown</h1>
+        </ScrollContainer>
+      </SubContainer>
+    </Container>
+  );
+}));
+
+const Container = styled.div`
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  background: #f6f6f6;
+`;
+
+const SubContainer = styled.div`
+  width: 700px;
+  height: 400px;
+  background: lightgrey;
+  margin: 100px auto;
+  overflow: scroll;
+  padding: 20px;
+  padding-top: 300px;
+`;
+
+const ScrollContainer = styled.div`
+  width: 1000px;
+  height: 1000px;
+`;
