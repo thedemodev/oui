@@ -5,8 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 28.5.0 - 2018-01-10
 - [Patch] - Update Input Component so that when `isReadOnly` is true, don't show a blue outline on focus. (#883)
-- [Patch] - Update Table.TH Component to accept a `colSpan` prop. (#885)
+- [Feature] - Add `colSpan` prop to Table.TH Component. (#885)
 
 ## 28.4.0 - 2018-01-05
 - [Feature] - Add popper.js to Dropdown component. (#880)
