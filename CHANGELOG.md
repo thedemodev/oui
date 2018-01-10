@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] - Update Input Component so that when `isReadOnly` is true, don't show a blue outline on focus. (#883)
+- [Patch] - Update Table.TH Component to accept a `colSpan` prop. (#885)
 
 ## 28.4.0 - 2018-01-05
 - [Feature] - Add popper.js to Dropdown component. (#880)

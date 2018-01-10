@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 const TH = ({
   children,
+  colSpan,
   isCollapsed,
   isNumerical,
   testSection,
@@ -22,7 +23,8 @@ const TH = ({
     <th
       className={ classes }
       data-test-section={ testSection }
-      style={ styles }>
+      style={ styles }
+      colSpan={ colSpan }>
       { children }
     </th>
   );
@@ -31,6 +33,8 @@ const TH = ({
 TH.propTypes = {
   /** Content within the `Table.TH` component */
   children: PropTypes.node,
+  /** Number of columns that the cell should span */
+  colSpan: PropTypes.number,
   /**
     Tell the cell to take up the least amount of width possible. This only
     works well if the table layout is `auto`, not `fixed`.

@@ -184,4 +184,40 @@ export default [
       </Table>,
     ],
   },
+  {
+    isPadded: true,
+    examples: [
+      <Table density="loose">
+        <Table.THead>
+          <Table.TR>
+            <Table.TH colSpan={ 2 }>Experiment with colspan of 2</Table.TH>
+            <Table.TH>Conversion Rate</Table.TH>
+            <Table.TH>Status</Table.TH>
+          </Table.TR>
+        </Table.THead>
+        <Table.TBody>
+          <Table.TR>
+            <Table.TD colSpan={ 2 }>Header CTA</Table.TD>
+            <Table.TD width="20%">12%</Table.TD>
+            <Table.TD>Paused</Table.TD>
+          </Table.TR>
+          <Table.TR>
+            <Table.TD colSpan={ 2 }>Shorter Contact Form</Table.TD>
+            <Table.TD>4%</Table.TD>
+            <Table.TD>Draft</Table.TD>
+          </Table.TR>
+          <Table.TR>
+            <Table.TD colSpan={ 2 }>Larger search bar</Table.TD>
+            <Table.TD>6.7%</Table.TD>
+            <Table.TD>Paused</Table.TD>
+          </Table.TR>
+          <Table.TR>
+            <Table.TD colSpan={ 2 }>Center aligned headline</Table.TD>
+            <Table.TD>9.3%</Table.TD>
+            <Table.TD>Running</Table.TD>
+          </Table.TR>
+        </Table.TBody>
+      </Table>,
+    ],
+  },
 ];
