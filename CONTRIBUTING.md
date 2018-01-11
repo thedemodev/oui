@@ -2,6 +2,8 @@
 
 ## Install OUI
 
+Requires Node 6.4+
+
 1. `git clone https://github.com/optimizely/oui.git`
 1. If you do not have yarn, `brew install yarn`
 1. `yarn install`
