@@ -1,17 +1,11 @@
-exports.ComponentTemplate = function(
-  name,
-  imports,
-  sassData,
-  reactData
-) {
-  return `
+
   import React from 'react';
   import ComponentContent from '../../layouts/templates/ComponentContent';
 
-  ${imports}
+   const examples = null; const readme = null;
 
-  const sassData = ${sassData};
-  const reactData = ${reactData};
+  const sassData = null;
+  const reactData = null;
 
   let dataObject = {
     react: reactData, 
@@ -20,7 +14,7 @@ exports.ComponentTemplate = function(
     sass: sassData,
   }
   
-  class ${name}Component extends React.Component {
+  class PopperComponent extends React.Component {
   
     render() {
       return (
@@ -29,6 +23,4 @@ exports.ComponentTemplate = function(
     };
   }
   
-  export default ${name}Component
-`
-};
+  export default PopperComponent

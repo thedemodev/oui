@@ -1,8 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
-
-const IndexPage = () => (
+const IndexComponentsPage = () => (
   <div>
     <h1>Components Home</h1>
     <p>how to start</p>
@@ -10,4 +8,4 @@ const IndexPage = () => (
   </div>
 )
 
-export default IndexPage
+export default IndexComponentsPage

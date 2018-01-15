@@ -1,18 +1,19 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "oui-docs",
+  "description": "Optimizely Design Systems documentation files",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "design.systems@optimizely.com",
   "dependencies": {
-    "gatsby": "^1.9.127",
+    "gatsby": "^1.9.155",
     "gatsby-link": "^1.6.30",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "latest": "^0.2.0",
     "markdown": "^0.5.0",
     "react-syntax-highlighter": "^6.1.1",
     "showdown": "^1.8.5"
   },
   "keywords": [
-    "gatsby"
+    "design systems"
   ],
   "license": "MIT",
   "main": "n/a",

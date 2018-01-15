@@ -26,6 +26,8 @@ const compArray = componentFolders.map( filePath => {
   const fileName = filePath.split('/')[5];
   const categoryName = filePath.split('/')[4];
   const componentName = filePath.substring(0, filePath.length - 1).replace(`../src/components/`, '');
+  let sassData = {};
+  let reactData = {};
 
   const paths = {
     react: fs.existsSync(reactComponentPath) ? reactComponentPath : null,
@@ -36,13 +38,18 @@ const compArray = componentFolders.map( filePath => {
   
   let imports = '';
 
-  if (fs.existsSync(reactComponentPath)) { 
-    const importString = `import data from '../../../../data/components/${componentName}/react.json';`;
-    imports = `${imports} ${importString}`;
+  if (fs.existsSync(reactComponentPath)) {
+    reactData = JSON.stringify(require(`../../data/components/${componentName}/react.json`));
   } else {
-    imports = `${imports} const data = null;`;
+    reactData = null;
   }
-
+  
+  if (fs.existsSync(sassPath)) { 
+    sassData = JSON.stringify(require(`../../data/components/${componentName}/sass.json`));
+  } else {
+    sassData = null;
+  }
+  
   if (fs.existsSync(examplePath)) {
     const importString = `import examples from '../../../../src/components/${componentName}/example';`;
     imports = `${imports} ${importString}`;
@@ -57,14 +64,8 @@ const compArray = componentFolders.map( filePath => {
     imports = `${imports} const readme = null;`;
   }
 
-  if (fs.existsSync(sassPath)) { 
-    const importString = `import sassExamples from '../../../../data/components/${componentName}/sass.json';`;
-    imports = `${imports} ${importString}`;
-  } else {
-    imports = `${imports} const sassExamples = null;`;
-  }
 
-  const template = ComponentTemplate(componentName, imports);
+  const template = ComponentTemplate(componentName, imports, sassData, reactData);
 
   //Write a file from the componentTemplate with info about the React Component
   writeFile(`./src/pages/components/${componentName}.js`, template, (err) => {

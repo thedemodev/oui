@@ -17,9 +17,10 @@ class ComponentContent extends React.Component {
     this.state = {
       currentTab: 'react'
     }
+    this.handelTabClick = this.handelTabClick.bind(this);
   }
 
-  handelTabClick = (event) => {
+  handelTabClick(event) {
     this.setState({ currentTab: event.target.textContent });
   }
 
@@ -31,7 +32,7 @@ class ComponentContent extends React.Component {
       sass
     } = this.props.data;
 
-    if( react && sass ) {
+    if (react && sass) {
       const languages = ['react', 'sass']
       return (
         <Container>

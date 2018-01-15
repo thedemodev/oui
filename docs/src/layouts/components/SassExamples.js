@@ -16,9 +16,9 @@ border-radius: 7px;
 `;
 
 const SassExamples = ({
-  examplesData
+  examplesData,
 }) => {
-  const exampleElements = examplesData.map((example, index) => {
+  const exampleElements = examplesData.example.map((example, index) => {
     return (
       <ExampleBlock key={ `block-${index}` }>
         <Element key={ `element-${index}` }>
