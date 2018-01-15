@@ -4,7 +4,8 @@ import Helmet from 'react-helmet'
 import data from '../data/components-data.json'
 import SidebarSection from './components/SidebarSection'
 
-import '../styles/oui.js'
+// import '../../../dist/docs/oui/28.5.0/js/styles.js'
+import '../../../src/oui/oui.scss'
 import logo from '../images/logo.svg'
 
 import styled, { keyframes } from 'styled-components'

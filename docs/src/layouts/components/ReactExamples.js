@@ -1,6 +1,6 @@
 import React from 'react'
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components'
+import jsxToString from 'jsx-to-string'
 
 import CodeBlock from './CodeBlock'
 
@@ -32,7 +32,7 @@ const ReactExamples = ({
           }
         </Element>
         <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
-          { `${example.examples.map( item => reactElementToJSXString(item))}` } 
+          { example.examples.map( item => jsxToString(item) ) } 
         </CodeBlock>
       </ExampleBlock>
     )

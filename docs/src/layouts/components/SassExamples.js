@@ -1,5 +1,4 @@
 import React from 'react'
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components'
 
 import CodeBlock from './CodeBlock'
@@ -25,7 +24,7 @@ const SassExamples = ({
           { <div key={`item-${index}`} dangerouslySetInnerHTML={{ __html: example.code }} /> }
         </Element>
         <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
-          { `${reactElementToJSXString(example.code)}` } 
+          { example.code } 
         </CodeBlock>
       </ExampleBlock>
     )

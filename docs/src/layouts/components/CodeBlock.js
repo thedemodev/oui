@@ -50,7 +50,6 @@ class Code extends React.Component {
     } = this.props;
     let classes = classNames(className, {
       'oui-pre': ouiStyle,
-      'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     });
 
     if (!children) {
