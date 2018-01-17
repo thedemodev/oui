@@ -90,7 +90,7 @@
     "docs:watch": "npm-run-all docs:build:mkdir --parallel docs:build:json docs:build:html --parallel docs:watch:js",
     "docs:watch:js": "webpack-dev-server --open --progress --inline",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -c .storybook -o ./docs/storybook"
+    "build-storybook": "build-storybook -c .storybook -o ./storybook"
   },
   "repository": {
     "type": "git",
