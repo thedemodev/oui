@@ -55,11 +55,12 @@ class ComponentContent extends React.Component {
             <SassExamples examplesData={ sass } /> 
           }
           { this.state.currentTab === 'react' && 
-            [
-              <ReactExamples examplesData={ examples } />,
-              <PropsGrid componentProps={ react.props } /> 
-            ]
+              <span>
+                <ReactExamples examplesData={ examples } />
+                <PropsGrid componentProps={ react.props } /> 
+              </span>
           }
+        ]
         </Container>
       )
     }

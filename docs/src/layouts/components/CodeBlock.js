@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { xonokai, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/styles/prism';
 
-import CopyButton from '../../../../src/components/Code/CopyButton';
-
 /**
  * Display code either inline or in its own block.
  * @param {Object} props - Properties passed to component
@@ -62,9 +60,6 @@ class Code extends React.Component {
 
     return (
       <div data-oui-component={ true } className="position--relative">
-        { hasCopyButton &&
-          <CopyButton code={ children } testSection={ testSection } />
-        }
         <pre
           className={ classes }
           data-test-section={ testSection }>
@@ -77,7 +72,7 @@ class Code extends React.Component {
 
 Code.propTypes = {
   /** The code within the component */
-  children: PropTypes.string,
+  children: PropTypes.array,
   /** Adds a copy button to code examples */
   hasCopyButton: PropTypes.bool,
   /** Apply syntax highlighting to the code */

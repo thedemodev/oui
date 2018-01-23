@@ -50,13 +50,14 @@ const PropsGrid = ({
         );
       }
 
-      data.push(
+      data = [
+        ...data,
         [
           propDisplayName,
           propDisplayType,
           componentProps[prop].description,
         ]
-      );
+      ];
     });
   }
 

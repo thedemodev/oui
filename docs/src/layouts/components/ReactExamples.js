@@ -21,7 +21,7 @@ const ReactExamples = ({
   const exampleElements = examplesData.map((example, index) => {
     return (
       <ExampleBlock key={ `block-${index}` }>
-        <Element key={ `element-${index}` }>
+        <Element>
           { example.examples.map( (item, index) => { 
             return <span 
               key={`item-${index}`} 
@@ -31,16 +31,16 @@ const ReactExamples = ({
             })
           }
         </Element>
-        <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+        <CodeBlock ouiStyle={ false } type="block" language='jsx' hasCopyButton >
           { example.examples.map( item => jsxToString(item) ) } 
         </CodeBlock>
       </ExampleBlock>
     )
   })
   return (
-    <div>
+    <span>
       { exampleElements }
-    </div>
+    </span>
   )
 }
 
