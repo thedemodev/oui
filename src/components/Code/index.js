@@ -27,6 +27,7 @@ Highlight.registerLanguage('swift', require('highlight.js/lib/languages/swift'))
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
+
 class Code extends React.Component {
   constructor() {
     super();
@@ -106,6 +107,8 @@ class Code extends React.Component {
 Code.propTypes = {
   /** The code within the component */
   children: PropTypes.string,
+  /** className provide the possibility for extra classNames */
+  className: PropTypes.string,
   /** Adds a copy button to code examples */
   hasCopyButton: PropTypes.bool,
   /** Apply syntax highlighting to the code */
@@ -114,6 +117,8 @@ Code.propTypes = {
   language: PropTypes.oneOf(['cs', 'css', 'diff', 'html', 'java', 'javascript',
     'js', 'jsx', 'markdown', 'md', 'objectivec', 'php', 'python', 'ruby', 'scss',
     'swift']),
+  /** ouiStyle */
+  ouiStyle: PropTypes.bool,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
   /** How the code should be displayed */
