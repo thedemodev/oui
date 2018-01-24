@@ -21,7 +21,6 @@ const Navlink = styled.div`
 
 class Navbar extends React.Component {
   render() {
-    console.log(this.props.activeStyle)
     return (
       <Navlist>
         <Navlink> 
@@ -31,8 +30,8 @@ class Navbar extends React.Component {
           <Link to='/components'>components</Link> 
         </Navlink>
         <Navlink> 
-        <Link to='/resources'>resources</Link> 
-      </Navlink>
+          <Link to='/resources'>resources</Link> 
+        </Navlink>
       </Navlist>
     )
   }

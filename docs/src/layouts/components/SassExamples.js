@@ -17,23 +17,26 @@ border-radius: 7px;
 const SassExamples = ({
   examplesData,
 }) => {
-  const exampleElements = examplesData.example.map((example, index) => {
+  if(examplesData.example !== undefined) {
+    const exampleElements = examplesData.example.map((example, index) => {
+      return (
+        <ExampleBlock key={ `block-${index}` }>
+          <Element key={ `element-${index}` }>
+            { <div key={`item-${index}`} dangerouslySetInnerHTML={{ __html: example.code }} /> }
+          </Element>
+          <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+            { example.code } 
+          </CodeBlock>
+        </ExampleBlock>
+      )
+    })
     return (
-      <ExampleBlock key={ `block-${index}` }>
-        <Element key={ `element-${index}` }>
-          { <div key={`item-${index}`} dangerouslySetInnerHTML={{ __html: example.code }} /> }
-        </Element>
-        <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
-          { example.code } 
-        </CodeBlock>
-      </ExampleBlock>
+      <div>
+        { exampleElements }
+      </div>
     )
-  })
-  return (
-    <div>
-      { exampleElements }
-    </div>
-  )
+  }
+  return null;
 }
 
 export default SassExamples

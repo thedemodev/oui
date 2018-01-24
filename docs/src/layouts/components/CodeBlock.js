@@ -1,15 +1,13 @@
-import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import SyntaxHighlighter from 'react-syntax-highlighter/prism';
-import { xonokai, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/styles/prism';
+import React from 'react'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import PrismCode from './PrismCode'
 
-/**
- * Display code either inline or in its own block.
- * @param {Object} props - Properties passed to component
- * @returns {ReactElement}
- */
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/styles/hljs';
+
 class Code extends React.Component {
+
   constructor() {
     super();
     this.renderCode = this.renderCode.bind(this);
@@ -24,14 +22,10 @@ class Code extends React.Component {
       codeStyle = 'dark'
     } = this.props;
 
-    const codeColor = codeStyle === 'dark' ? xonokai : base16AteliersulphurpoolLight;
-
     return (
       /* eslint-disable react/no-danger */
-      <SyntaxHighlighter
-        language={ language }
-        style={ codeColor }>
-          { children }
+      <SyntaxHighlighter language={language} style={docco}>
+        { children }
       </SyntaxHighlighter>
       /* eslint-enable react/no-danger */
     );
@@ -46,9 +40,7 @@ class Code extends React.Component {
       className,
       ouiStyle = true,
     } = this.props;
-    let classes = classNames(className, {
-      'oui-pre': ouiStyle,
-    });
+
 
     if (!children) {
       return null;
@@ -61,7 +53,6 @@ class Code extends React.Component {
     return (
       <div data-oui-component={ true } className="position--relative">
         <pre
-          className={ classes }
           data-test-section={ testSection }>
           { this.renderCode() }
         </pre>
@@ -72,7 +63,10 @@ class Code extends React.Component {
 
 Code.propTypes = {
   /** The code within the component */
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
   /** Adds a copy button to code examples */
   hasCopyButton: PropTypes.bool,
   /** Apply syntax highlighting to the code */
