@@ -8,34 +8,6 @@
 /// - The parent div must have height, usually accomplished with a `flex: 1`;
 ///
 /// @example[html] HTML for an accordion
-///   <div class="flex height--300 border--all">
-///     <ul class="#{$namespace}accordion">
-///       <li class="#{$namespace}accordion__item is-active">
-///         <a class="#{$namespace}accordion__link" href="#">Item One</a>
-///         <div class="#{$namespace}accordion__content-wrap">
-///           <div class="#{$namespace}accordion__content">
-///             <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
-///           </div>
-///         </div>
-///       </li>
-///       <li class="#{$namespace}accordion__item">
-///         <a class="#{$namespace}accordion__link" href="#">Item Two</a>
-///         <div class="#{$namespace}accordion__content-wrap">
-///           <div class="#{$namespace}accordion__content">
-///             <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
-///           </div>
-///         </div>
-///       </li>
-///       <li class="#{$namespace}accordion__item">
-///         <a class="#{$namespace}accordion__link" href="#">Item Three</a>
-///         <div class="#{$namespace}accordion__content-wrap">
-///           <div class="#{$namespace}accordion__content">
-///             <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
-///           </div>
-///         </div>
-///       </li>
-///     </ul>
-///   </div>
 ////
 
 .accordion {

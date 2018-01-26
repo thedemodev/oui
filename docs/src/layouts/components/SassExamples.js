@@ -24,7 +24,7 @@ const SassExamples = ({
           <Element key={ `element-${index}` }>
             { <div key={`item-${index}`} dangerouslySetInnerHTML={{ __html: example.code }} /> }
           </Element>
-          <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='jsx' hasCopyButton >
+          <CodeBlock ouiStyle={ false } key={ `code-${index}` } type="block" language='html' hasCopyButton >
             { example.code } 
           </CodeBlock>
         </ExampleBlock>

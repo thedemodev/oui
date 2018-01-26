@@ -6,9 +6,25 @@ export default [
   {
     examples: [
       <ArrowsInline direction="up" testSection="arrow-test" />,
+    ],
+  },
+  {
+    examples: [
       <ArrowsInline direction="down" />,
+    ],
+  },
+  {
+    examples: [
       <ArrowsInline direction="left" />,
+    ],
+  },
+  {
+    examples: [
       <ArrowsInline direction="right" />,
     ],
   },
 ];
+
+
+
+

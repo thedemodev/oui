@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import PrismCode from './PrismCode'
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { dark } from 'react-syntax-highlighter/styles/prism';
 
 class Code extends React.Component {
 
@@ -19,12 +19,11 @@ class Code extends React.Component {
       type,
       testSection,
       children,
-      codeStyle = 'dark'
     } = this.props;
 
     return (
       /* eslint-disable react/no-danger */
-      <SyntaxHighlighter language={language} style={docco}>
+      <SyntaxHighlighter language={language} style={ dark }>
         { children }
       </SyntaxHighlighter>
       /* eslint-enable react/no-danger */
