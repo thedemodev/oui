@@ -5,6 +5,7 @@ import { Manager, Popper, Target } from 'react-popper';
 import { withToggle } from '../../utils/recompose-utils';
 
 const Dropdown = withToggle(({
+  arrowIcon,
   buttonContent,
   children,
   hide,
@@ -31,6 +32,16 @@ const Dropdown = withToggle(({
     { ['oui-button--full soft--left text--left']: fullWidth }
   );
 
+  const iconClass = classNames(
+    'push-half--left',
+    {
+      ['oui-arrow-inline--down']: arrowIcon === true || arrowIcon === 'down',
+      ['oui-arrow-inline--left']: arrowIcon === 'left',
+      ['oui-arrow-inline--right']: arrowIcon === 'right',
+      ['oui-arrow-inline--up']: arrowIcon === 'up',
+    }
+  );
+
   return (
     <Manager
       data-ui-component={ true }
@@ -45,6 +56,11 @@ const Dropdown = withToggle(({
           onBlur={ hide }>
           <div className='flex'>
             <div className='flex--1 truncate'>{ buttonContent }</div>
+            {
+              !!arrowIcon && arrowIcon !== 'none' && (
+                <div className='text--right'><span className={ iconClass }></span></div>
+              )
+            }
           </div>
         </button>
       </Target>
@@ -67,6 +83,18 @@ const Dropdown = withToggle(({
 });
 
 Dropdown.propTypes = {
+  /** Arrow icon direction:
+    * - Defaults to 'none', which hides the arrow
+    * - passing a prop value of false also hides the arrow
+    * - passing a prop value of true uses down arrow
+    */
+  arrowIcon: PropTypes.oneOf([
+    'down',
+    'left',
+    'none',
+    'right',
+    'up',
+  ]),
   /** Button text, can be a string or element. */
   buttonContent: PropTypes.oneOfType([
     PropTypes.string,
@@ -106,6 +134,10 @@ Dropdown.propTypes = {
   ]),
   /** Override default dropdown menu z-index. */
   zIndex: PropTypes.number,
+};
+
+Dropdown.defaultProps = {
+  arrowIcon: 'none',
 };
 
 export default Dropdown;

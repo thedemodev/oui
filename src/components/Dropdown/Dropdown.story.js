@@ -33,8 +33,8 @@ stories.add('text behind', withInfo()(() => {
       <SubContainer>
         <ScrollContainer>
           <Dropdown
+            arrowIcon={ true }
             isDisabled={ boolean('isDisabled', false) }
-            fullWidth={ boolean('fullWidth', false) }
             buttonContent='Dropdown'
             width={ number('width', 300) }>
             <BlockList>
