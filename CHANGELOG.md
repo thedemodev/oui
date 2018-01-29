@@ -4,7 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## 28.6.0
+## Unreleased
+
+## 28.6.1 - 2018-01-29
+- [Patch] Fix ProgressDots bug
+
+## 28.6.0 - 2018-01-25
 - [Feature] Add arrowIcon prop and node Dropdown component.  
 - [Feature] Add toggle/show/hide higher-order component; new utility library called recompose; convert components to stateless/dumb components.
 
