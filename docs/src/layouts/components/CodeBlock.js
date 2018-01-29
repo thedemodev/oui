@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import PrismCode from './PrismCode'
 
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
-import { dark } from 'react-syntax-highlighter/styles/prism';
+import { okaidia } from 'react-syntax-highlighter/styles/prism';
 
 class Code extends React.Component {
 
@@ -23,7 +23,7 @@ class Code extends React.Component {
 
     return (
       /* eslint-disable react/no-danger */
-      <SyntaxHighlighter language={language} style={ dark }>
+      <SyntaxHighlighter language={language} style={ okaidia }>
         { children }
       </SyntaxHighlighter>
       /* eslint-enable react/no-danger */
