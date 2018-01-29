@@ -2,7 +2,7 @@
 
 exports[`components/ProgressDots should render correctly with testSection prop 1`] = `
 <ul
-  className="lego-progress-dots"
+  className="oui-progress-dots"
   data-oui-component={true}
   data-test-section="testing-foo"
 >
@@ -14,7 +14,7 @@ exports[`components/ProgressDots should render correctly with testSection prop 1
 
 exports[`components/ProgressDots should render correctly without props 1`] = `
 <ul
-  className="lego-progress-dots"
+  className="oui-progress-dots"
   data-oui-component={true}
 >
   <li />
