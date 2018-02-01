@@ -91,6 +91,7 @@ const TemplateWrapper = ({ children }) => {
         <Sidebar bgColor='white'>
           <StyledLink to="/">Overview</StyledLink>
           <StyledLink to="/oui">OUI</StyledLink>
+          <StyledLink to="/design/typography">Types</StyledLink>
           <SidebarSection title="Components">
             { listItems }
           </SidebarSection>  
