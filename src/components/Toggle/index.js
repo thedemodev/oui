@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 const Toggle = ({ onClick }) => {
   return (
-    <label className="oui-switch" onClick={onClick}>
-      <input type="checkbox" />
-      <span className="slider round"></span>
-      <span className="slider-text"></span>
+    <label className="oui-switch" >
+      <input type="checkbox" onClick={ onClick }/>
+      <span className="oui-switch-slider"></span>
+      <span className="oui-switch--text"></span>
     </label>
   );
 };
