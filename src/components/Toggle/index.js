@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './index.scss';
-
-const Toggle = ({ checked = false }) => {
+const Toggle = ({ onClick }) => {
   return (
-    <label className="switch">
-      <input type="checkbox" checked={ checked }/>
+    <label className="oui-switch" onClick={onClick}>
+      <input type="checkbox" />
       <span className="slider round"></span>
       <span className="slider-text"></span>
     </label>
@@ -16,6 +14,8 @@ const Toggle = ({ checked = false }) => {
 Toggle.propTypes = {
   // checked true means the toggle is on off means off
   checked: PropTypes.bool,
+  // onClick function
+  onClick: PropTypes.func,
 };
 
 export default Toggle;
