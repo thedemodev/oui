@@ -20,11 +20,4 @@ describe('components/Toggle', () => {
     expect(component.length).toBe(1);
   });
 
-  // it('should render an `` with correct props', () => {
-    
-  // });
 });
-
-
-
-
