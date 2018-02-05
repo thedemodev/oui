@@ -1,52 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import OverlayWrapper from '../OverlayWrapper';
-import Poptip from './Poptip';
+
+import { Tooltip } from 'react-tippy';
+import 'react-tippy/dist/tippy.css';
 
 /**
  * Displays help text when hovering on an element.
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-const PoptipWrapper = ({
+
+const Poptip = ({
   children,
   content,
-  horizontalAttachment,
-  horizontalTargetAttachment,
-  verticalAttachment,
-  verticalTargetAttachment,
-  testSection,
+  disable,
+  position,
+  trigger,
+  theme,
 }) => (
-  <OverlayWrapper
-    behavior="hover"
-    overlay={ <Poptip testSection={ testSection }>
-      { content }
-    </Poptip> }
-    horizontalAttachment={ horizontalAttachment }
-    horizontalTargetAttachment={ horizontalTargetAttachment }
-    verticalAttachment={ verticalAttachment }
-    verticalTargetAttachment={ verticalTargetAttachment }>
-    { children }
-  </OverlayWrapper>
+  <Tooltip
+    arrow={ true }
+    disable={ disable }
+    html={ <div>{ content }</div> }
+    position={ position }
+    theme={ theme }
+    trigger={ trigger }>
+    <div>{ children }</div>
+  </Tooltip>
 );
 
-PoptipWrapper.displayName = 'Poptip';
+Poptip.displayName = 'Poptip';
 
-PoptipWrapper.propTypes = {
+Poptip.propTypes = {
   /** Content that, when hovered on, makes the Poptip appear */
   children: PropTypes.node.isRequired,
-  /** Text that appears within the poptip */
-  content: PropTypes.string.isRequired,
-  /** Side of the poptip that should attach to the `children` */
-  horizontalAttachment: PropTypes.oneOf(['left', 'center', 'right']),
-  /** Side of `children` that should attach to the poptip */
-  horizontalTargetAttachment: PropTypes.oneOf(['left', 'center', 'right']),
-  /** Hook for automated JavaScript tests */
-  testSection: PropTypes.string,
-  /** Vertical edge of the poptip that should touch the `children` */
-  verticalAttachment: PropTypes.oneOf(['top', 'middle', 'bottom']),
-  /** Vertical edge of the `children` that should touch the poptip */
-  verticalTargetAttachment: PropTypes.oneOf(['top', 'middle', 'bottom']),
+  /** content could be a node of a string */
+  content: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+  ]),
+  /** disable value | default => false */
+  disable: PropTypes.bool,
+  /** position value options | default => top */
+  position: PropTypes.oneOf([
+    'top',
+    'bottom',
+    'left',
+    'right',
+  ]),
+  /** background color | default => dark */
+  theme: PropTypes.string,
+  /** trigger value options | default => mouseenter focus */
+  trigger: PropTypes.oneOf([
+    'mouseenter',
+    'focus',
+    'click',
+    'manual',
+  ]),
 };
 
-export default PoptipWrapper;
+export default Poptip;
