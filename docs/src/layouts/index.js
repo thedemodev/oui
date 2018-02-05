@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import data from '../data/components-data.json'
+
 import SidebarSection from './components/SidebarSection'
 
-import '../../../dist/docs/oui/28.5.0/js/styles.js'
+import '../../../dist/docs/oui/28.5.1/js/styles.js'
 import '../../../src/oui/oui.scss'
 import logo from '../images/logo.svg'
+
+import { components } from '../data/components-names.json'
+import { designNames } from '../data/design-names.json'
 
 import styled, { keyframes } from 'styled-components'
 import Link from 'gatsby-link'
@@ -59,16 +62,8 @@ const Header = styled.div`
 
 const TemplateWrapper = ({ children }) => {
   const existingItems = [];
-  const listItems = Object.keys(data.components).map( (item, index) => {
-    const newItem = item.split('/')[0]
-    if(existingItems.indexOf(newItem) > -1 ) {
-      return;
-    } else {
-      existingItems.push(newItem)
-    }
-    
-    return <StyledLink key={item} to={`/components/${item}`}>{item}</StyledLink>
-  });
+  const componentsList = components.map( name => <StyledLink key={name} to={`/components/${name}`}>{name}</StyledLink>);
+  const designList = designNames.map( name => <StyledLink key={name} to={`/design/${name}`}>{name}</StyledLink>);
   return (
     <div>
       <Helmet
@@ -91,9 +86,13 @@ const TemplateWrapper = ({ children }) => {
         <Sidebar bgColor='white'>
           <StyledLink to="/">Overview</StyledLink>
           <StyledLink to="/oui">OUI</StyledLink>
-          <StyledLink to="/design/typography">Types</StyledLink>
+          
+          <SidebarSection title="Design">
+            { designList }
+          </SidebarSection>  
+
           <SidebarSection title="Components">
-            { listItems }
+            { componentsList }
           </SidebarSection>  
         </Sidebar>
         <Content>
