@@ -60,7 +60,6 @@ class ComponentContent extends React.Component {
                 <PropsGrid componentProps={ react.props } /> 
               </span>
           }
-        ]
         </Container>
       )
     }

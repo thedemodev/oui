@@ -8,19 +8,4 @@ export default [
       <ArrowsInline direction="up" testSection="arrow-test" />,
     ],
   },
-  {
-    examples: [
-      <ArrowsInline direction="down" />,
-    ],
-  },
-  {
-    examples: [
-      <ArrowsInline direction="left" />,
-    ],
-  },
-  {
-    examples: [
-      <ArrowsInline direction="right" />,
-    ],
-  },
 ];
