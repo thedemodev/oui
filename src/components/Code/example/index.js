@@ -29,7 +29,7 @@ var copyableBat = 'baz';` }
   },
   {
     examples: [
-      <Code type="inline">{`var foo;`}</Code>,
+      <Code type="inline">{ 'var foo;' }</Code>,
     ],
   },
 ];
