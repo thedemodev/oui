@@ -12,7 +12,7 @@ const ProgressDots = ({ testSection }) => {
     <ul
       data-oui-component={ true }
       data-test-section={ testSection }
-      className="lego-progress-dots">
+      className="oui-progress-dots">
       <li></li>
       <li></li>
       <li></li>

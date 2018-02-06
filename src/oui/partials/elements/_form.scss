@@ -302,6 +302,11 @@
   }
 }
 
+@mixin text-input--read-only {
+  &:focus {
+    border-color: map-fetch($color, ui, medium);
+  }
+}
 
 .#{$namespace}form__header {
   margin-bottom: spacer(2);

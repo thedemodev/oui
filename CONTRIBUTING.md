@@ -1,19 +1,25 @@
 # Contributing to OUI
 
-## Running OUI locally
+## Install OUI
 
-It's easy! Clone this repository and run `npm install`. This will install of the needed dependencies.
+Requires Node 6.4+
+
+1. `git clone https://github.com/optimizely/oui.git`
+1. If you do not have yarn, `brew install yarn`
+1. `yarn install`
+
+## Running OUI locally
 
 Here are a few commonly used commands:
 
-* `npm start` - compiles Sass, transpiles JavaScript, and builds the documentation
+* `yarn start` - compiles Sass, transpiles JavaScript, and builds the documentation
 * `yarn storybook` - compile and launch React Storybook locally
 * `yarn build-storybook` - build static version of Storybook for documentation
-* `npm test` - lints and tests the codebase
-* `npm run docs:watch` - runs the documentation environment locally
-* `npm run docs:build:json` - rebuilds the JSON that powers the documentation. This command is helpful in conjunction with `npm run docs:watch` when updating Sass or React examples.
+* `yarn test` - lints and tests the codebase
+* `yarn docs:watch` - runs the documentation environment locally
+* `yarn docs:build:json` - rebuilds the JSON that powers the documentation. This command is helpful in conjunction with `yarn docs:watch` when updating Sass or React examples.
 
-Run `npm run` for an entire list.
+Run `yarn list` for an entire list.
 
 ## Development process
 

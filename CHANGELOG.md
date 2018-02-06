@@ -6,6 +6,24 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 28.8.0 - 2018-02-02
+- [Patch] Fix ProgressDots bug
+- [Patch] Travis config changes to remove danoc from npm account
+- [Feature] Add arrowIcon prop and node Dropdown component.  
+- [Feature] Add toggle/show/hide higher-order component
+- [Feature] New utility library called recompose
+- [Feature] Convert components to stateless/dumb components
+
+## 28.6.0 - 2018-01-29
+- Accidental release
+
+## 28.5.1 - 2018-01-17
+- [Patch] Maintenance update for Storybook
+
+## 28.5.0 - 2018-01-10
+- [Patch] - Update Input Component so that when `isReadOnly` is true, don't show a blue outline on focus. (#883)
+- [Feature] - Add `colSpan` prop to Table.TH Component. (#885)
+
 ## 28.4.0 - 2018-01-05
 - [Feature] - Add popper.js to Dropdown component. (#880)
 

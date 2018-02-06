@@ -1,6 +1,5 @@
 language: node_js
 install:
-- bundle install
 - npm install
 script:
 - npm test
@@ -16,15 +15,15 @@ before_deploy:
 # Prepare for deploying React documentation with SSH
 # https://oncletom.io/2016/travis-ssh-deploy/
 - eval "$(ssh-agent -s)"
-- chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
-- ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
+# - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
+# - ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
 deploy:
 - provider: npm
   skip_cleanup: true
-  email:
-    secure: Y+A/HOGTYtASn+cHBFxslq52Ij8sdS5I+uvKiZF6466fwJytlGzdyR9e+4NGkul0UgJl3CUY5xKZ7LhyNBPxQUaG9DmlX8pkDiuHlcFlMbCtw+aTLhRS+pfpGbOlKZUWZcM5jZF+TvPIEqN/q5/p5kZnIqp9dmVijOSu7/t0zxA=
   api_key:
-    secure: bO19tV7KI0p1L+YoQsaKnfGqYOa+DkvUVq424j88ljYUE2FzH16vtRZgH1FZkWKJ5wZkd20WpPLDkrVe0jU4iQ0KhFGj0avO1iAvAsYPs61ZfZ7HM7pseR5seJ9AvXov7ojoFbUwuyVLDpMOp3QhOJStYoTomvfbkAWjWHiOliM=
+    secure: lHK9LAw3CJ+yEpdLLU6qgfWtjm9l8MoWQVsvx9z2uVSUtKguZMgT6oD8Y660h40TxtSnD4B/+2ST/50++k+tAN/2AFAoH5N5dpQdR7wzzF+hmuYkz/zRpL0MXuc+Nj3GpORaq4gSOMT3mH8BCAXFNI7jtBdvGF89N3Ag7u1zsMU=
+  email:
+    secure: cKTOKErgXo7WcyaqQFzBIGBpEz5X+MwtN/wHXNmLDU6BJ98IKfRcOS2oY8jG/JFoy+EQDdC8iwLfN7+z8gysMoVVbZYm/sKKLg2UXEBCe02p1mJlPDh/o/E+9ofNe1PMv/o1j4CY3YBfaVA+HB7WCGyKivu6tFgFOuoxbPdOleA=
   on:
     tags: true
     condition: "$(git describe --tags $(git rev-list --tags --max-count=1)) != *-*"
@@ -33,7 +32,7 @@ deploy:
   script: scripts/docs-deploy.sh
   on:
     tags: true
-before_install:
-- openssl aes-256-cbc -K $encrypted_310f735a6883_key -iv $encrypted_310f735a6883_iv -in deploy_rsa.enc -out deploy_rsa -d
+# before_install:
+# - openssl aes-256-cbc -K $encrypted_310f735a6883_key -iv $encrypted_310f735a6883_iv -in deploy_rsa.enc -out deploy_rsa -d
 after_install:
 - ssh-agent -k

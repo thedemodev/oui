@@ -45,6 +45,7 @@ class Input extends React.Component {
 
     let classes = classNames(
       'oui-text-input',
+      {'oui-text-input--read-only': isReadOnly},
       {'oui-text-input--search': isFilter},
       {'oui-form-bad-news': displayError},
       {[`text--${textAlign}`]: hasAlignStyle}

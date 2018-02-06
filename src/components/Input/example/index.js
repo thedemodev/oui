@@ -27,6 +27,16 @@ export default [
     examples: [
       <Input
         type="text"
+        defaultValue="isReadOnly Example"
+        label="Test"
+        isReadOnly={ true }
+      />,
+    ],
+  },
+  {
+    examples: [
+      <Input
+        type="text"
         placeholder="Browse by Name"
         isFilter={ true }
       />,
