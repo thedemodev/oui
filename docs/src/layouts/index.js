@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { version } from '../../../package.json'
 
 import SidebarSection from './components/SidebarSection'
 
-import '../../../dist/docs/oui/28.5.1/js/styles.js'
+require(`../../../dist/docs/oui/${ version }/js/styles.js`);
 import '../../../src/oui/oui.scss'
 import logo from '../images/logo.svg'
 
