@@ -1,16 +1,37 @@
 ////
 /// Accordion
-/// @description A vertical accordion with any number of panels.
-///
-/// There are two dependencies:
-///
-/// - The parent div must be `display:flex`;
-/// - The parent div must have height, usually accomplished with a `flex: 1`;
-///
-/// @example[html] HTML for an accordion
-////
+/// @example[html] Button colors
+/// <div class="flex height--300 border--all">
+///   <ul class="oui-accordion">
+///     <li class="oui-accordion__item is-active">
+///       <a class="oui-accordion__link" href="#">Item One</a>
+///       <div class="oui-accordion__content-wrap">
+///         <div class="oui-accordion__content">
+///           <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
+///         </div>
+///       </div>
+///     </li>
+///     <li class="oui-accordion__item">
+///       <a class="oui-accordion__link" href="#">Item Two</a>
+///       <div class="oui-accordion__content-wrap">
+///         <div class="oui-accordion__content">
+///           <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
+///         </div>
+///       </div>
+///     </li>
+///     <li class="oui-accordion__item">
+///       <a class="oui-accordion__link" href="#">Item Three</a>
+///       <div class="oui-accordion__content-wrap">
+///         <div class="oui-accordion__content">
+///           <p>Dimensions can be used to track extra data about visitors. You can use dimensions to filter your results or de  fine new audiences for targeting. Learn more.</p>
+///         </div>
+///       </div>
+///     </li>
+///   </ul>
+/// </div>
 
-.accordion {
+.#{$namespace}accordion,
+.oui-accordion {
   display: flex;
   flex-direction: column;
   width: 100%;

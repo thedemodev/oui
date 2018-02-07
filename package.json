@@ -64,9 +64,9 @@
     "scribesass-parser": "optimizely/scribesass-parser#9639a63cb8883c5341cd285af468c5949a06f66f",
     "style-loader": "^0.13.1",
     "svg-inline-loader": "^0.7.1",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-notifier": "^1.4.1"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-notifier": "^1.5.1"
   },
   "scripts": {
     "test": "npm run eslint && npm run jest && codecov",
@@ -79,12 +79,11 @@
     "postversion": "npm run postversion:publish && npm run postversion:update-devel",
     "postversion:publish": "git push --follow-tags",
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
-    "docs:build": "npm-run-all docs:build:mkdir docs:build:json --parallel docs:build:js",
-    "docs:build:mkdir": "mkdir -p dist/docs/oui/$(node -e \"console.log(require('./package.json').version);\")",
-    "docs:build:js": "webpack --progress",
-    "docs:build:json": "node ./scripts/docs-generate.js", 
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -c .storybook -o ./storybook"
+    "build-storybook": "build-storybook -c .storybook -o ./storybook",
+    "build": "./node_modules/.bin/webpack",
+    "build:prod": "./node_modules/.bin/webpack -p",
+    "watch": "./node_modules/.bin/webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -99,9 +98,7 @@
       "name": "Cheston Lee"
     },
     {
-      "name": "Daniel O'Connor",
-      "email": "daniel@danoc.me",
-      "url": "https://danoc.me/"
+      "name": "Daniel O'Connor"
     },
     {
       "name": "Kelly Walker"
@@ -113,8 +110,7 @@
       "name": "Dave Rau"
     },
     {
-      "name": "Iñaki Aranzadi",
-      "email": "inaki.aranzadi@optimizely.com"
+      "name": "Iñaki Aranzadi"
     },
     {
       "name": "Jack Schlotthauer"
