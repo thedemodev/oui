@@ -21,7 +21,7 @@ const config = {
   },
   devtool: 'source-map',
   output: {
-    path: __dirname + `/dist/docs/oui/${version}/js/`,
+    path: path.resolve(__dirname, `./dist/docs/oui/${version}/js/`),
     filename: '[name].js',
     chunkFilename: '[name]-[hash].js',
     libraryTarget: 'umd',
