@@ -3,7 +3,7 @@
   "version": "28.8.0",
   "description": "Optimizely's Component Library.",
   "private": false,
-  "main": "dist/js/main.js",
+  "main": "dist/docs/oui/28.8.0/js/optimizely-oui.js",
   "dependencies": {
     "clipboard": "^1.5.12",
     "highlight.js": "^9.5.0",

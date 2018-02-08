@@ -16,7 +16,7 @@ let plugins = [
 
 const config = {
   entry: {
-    react: __dirname + '/src/main.js',
+    'optimizely-oui': path.resolve(__dirname, './src/main.js'),
     styles: './src/oui/oui.scss',
   },
   devtool: 'source-map',
