@@ -5,7 +5,7 @@ import { version } from '../../../package.json'
 
 import SidebarSection from './components/SidebarSection'
 
-require(`../../../dist/docs/oui/${ version }/js/styles.js`);
+require(`../../../dist/docs/oui/${ version }/lib/styles.css`);
 import '../../../src/oui/oui.scss'
 import logo from '../images/logo.svg'
 

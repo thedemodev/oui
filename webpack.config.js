@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const path = require('path');
 const { version } = require('./package.json');
@@ -12,16 +13,17 @@ let plugins = [
     contentImage: path.join(__dirname, 'assets/louis.png'),
   }),
   new UglifyJsPlugin({ minimize: true }),
+  new ExtractTextPlugin('styles.css'),
 ];
 
 const config = {
   entry: {
     'optimizely-oui': path.resolve(__dirname, './src/main.js'),
-    styles: './src/oui/oui.scss',
+    styles: path.resolve(__dirname, './src/oui/oui.scss'),
   },
   devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, `./dist/docs/oui/${version}/js/`),
+    path: path.resolve(__dirname, `./dist/docs/oui/${version}/lib/`),
     filename: '[name].js',
     chunkFilename: '[name]-[hash].js',
     libraryTarget: 'umd',
@@ -40,7 +42,10 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'sass-loader'],
+        }),
       },
       {
         test: /\.svg$/,
