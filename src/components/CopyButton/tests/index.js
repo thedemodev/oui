@@ -1,5 +1,4 @@
 import React from 'react';
-import { default as Clipboard } from 'clipboard';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
@@ -13,5 +12,5 @@ describe('components/CopyButton', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
-})
+});
 
