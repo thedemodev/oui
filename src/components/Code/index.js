@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import CopyButton from './CopyButton';
+import CopyButton from '../CopyButton';
 import Highlight from 'highlight.js/lib/highlight.js';
 
 Highlight.registerLanguage('cs', require('highlight.js/lib/languages/cs'));
@@ -78,7 +78,6 @@ class Code extends React.Component {
     } = this.props;
     let classes = classNames(className, {
       'oui-pre': ouiStyle,
-      'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     });
 
     if (!children) {
@@ -92,7 +91,7 @@ class Code extends React.Component {
     return (
       <div data-oui-component={ true } className="position--relative">
         { hasCopyButton &&
-          <CopyButton code={ children } testSection={ testSection } />
+          <CopyButton text={ children } testSection={ testSection } />
         }
         <pre
           className={ classes }

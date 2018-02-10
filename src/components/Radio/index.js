@@ -28,7 +28,6 @@ const Radio = ({
 
   const classes = classNames({
     'flex--none': true,
-    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
   return (
