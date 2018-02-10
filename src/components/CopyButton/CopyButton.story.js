@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import CopyButton from '../CopyButton';
@@ -19,7 +19,7 @@ const code = `const CopyButton = ({ testSection, onClick, text }) => {
       </Button>
     </CopyToClipboard>
   );
-}`
+}`;
 
 const stories = storiesOf('CopyButton', module);
 stories
