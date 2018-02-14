@@ -21,33 +21,43 @@ stories
   ));
 
 stories
-  .add('basic poptip', withInfo()(() => (<div className="position--relative height--100">
+  .add('basic poptip', withInfo()(() => (
     <Poptip
-      className="text--center"
       trigger='mouseenter'
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!">
       <Button width="default">
-        Basic Poptip
+        Default Poptip
       </Button>
     </Poptip>
-  </div>)))
-  .add('poptip to the right', withInfo()(() => (<div className="position--relative height--100">
+  )))
+  .add('poptip to the right', withInfo()(() => (
+    <Poptip
+      trigger='mouseenter'
+      content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
+      position='right'>
+      <Button style="unstyled" width="default">
+        <a>Poptip on the right</a>
+      </Button>
+    </Poptip>
+  )))
+  .add('poptip light theme', withInfo()(() => (
     <Poptip
       trigger='click'
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       theme='light'>
       <Button style="unstyled" width="default">
-        <a>Poptip on the right</a>
+        <a>Click Poptip, light theme</a>
       </Button>
     </Poptip>
-  </div>)))
-  .add('poptip with advanced positioning', withInfo()(() => (<div className="position--relative height--100">
+  )))
+  .add('poptip light theme on the right', withInfo()(() => (
     <Poptip
-      content={ <div>hola a todos mis amigos</div> }
       trigger='click'
-      position={ select('position', {top: 'top', bottom: 'bottom', left: 'left', right: 'right'}, 'top') }>
-      <Button width="default">
-        Poptip With Advanced Positioning
+      content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
+      theme='light'
+      position='right'>
+      <Button style="unstyled" width="default">
+        <a>Click Poptip, light theme, on the right</a>
       </Button>
     </Poptip>
-  </div>)));
+  )));
