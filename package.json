@@ -70,14 +70,15 @@
     "webpack-notifier": "^1.4.1"
   },
   "scripts": {
-    "test": "npm run eslint && npm run jest && codecov && npm run icons:update && npm run docs:build",
-    "start": "bundle install && bundle update && npm install && npm run icons:update && npm run babel && npm run docs:build",
+    "test": "npm run eslint && npm run jest",
+    "codecov": "codecov",
+    "build": "npm run babel && npm run docs:build",
     "jest": "jest --config .jest.config.json",
     "jest:watch": "jest --config .jest.config.json --watch",
     "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
     "babel": "babel src/ --out-dir dist/js --ignore \"tests/*.js, src/js\"",
     "icons:update": "npm update oui-icons && node ./scripts/sync-oui-icons/index.js",
-    "preversion": "git checkout master && git pull --rebase=false && npm install",
+    "preversion": "git checkout master && git pull --rebase=false",
     "postversion": "npm run postversion:publish && npm run postversion:update-devel",
     "postversion:publish": "git push --follow-tags",
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
