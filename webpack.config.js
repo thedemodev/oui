@@ -58,6 +58,10 @@ module.exports = {
         loaders: ['style', 'css', 'postcss-loader', 'sass'],
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss-loader'],
+      },
+      {
         test: /\.svg$/,
         loader: 'svg-inline-loader',
       },
