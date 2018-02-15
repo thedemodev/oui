@@ -11,11 +11,15 @@ class SidebarSection extends Component {
     return (
       <div >
         <a onClick={ this.handleToggle }>
-          <div style={{ fontWeight: 'bolder', textTransform: 'uppercase'}}>
+          <div style={{
+            fontWeight: 'bolder',
+            textTransform: 'uppercase',
+            marginTop: '12px'
+          }}>
             { title }
           </div>
         </a>
-        <div style={{ paddingLeft: 10 }}>
+        <div>
           { children }
         </div>
       </div>
