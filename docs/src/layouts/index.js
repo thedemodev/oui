@@ -20,8 +20,8 @@ import Navbar from './components/Navbar'
 
 const Container = styled.div`
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+  grid-template-columns: 180px 1fr;
   grid-template-rows: 75px 1fr;
   grid-template-areas:
     "brand header"
@@ -51,7 +51,6 @@ const StyledLink = styled(Link)`
   color: black;
   display: block;
   text-decoration: none;
-  padding: 10px 0px;
   &:hover {
     color: dodgerblue;
   }
@@ -85,16 +84,19 @@ const TemplateWrapper = ({ children }) => {
           <Navbar />
         </Header>
         <Sidebar bgColor='white'>
+
           <StyledLink to="/">Overview</StyledLink>
+
           <StyledLink to="/oui">OUI</StyledLink>
-          
+
           <SidebarSection title="Design">
             { designList }
-          </SidebarSection>  
+          </SidebarSection>
 
           <SidebarSection title="Components">
             { componentsList }
-          </SidebarSection>  
+          </SidebarSection>
+
         </Sidebar>
         <Content>
           <ContentChildren>
