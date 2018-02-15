@@ -1,20 +1,19 @@
 language: node_js
-install:
-- npm install
-script:
-- npm test
+cache: yarn
+after_script:
+- npm run codecov
 sudo: false
 addons:
   ssh_known_hosts: design.optimizely.com
 before_deploy:
 # Start from scratch
 - rm -rfv dist
-- npm start
+- npm run build
 # Remove `devDependencies` from `package.json` before it goes to npm.
 - ./node_modules/.bin/json -I -f package.json -e 'this.devDependencies={}'
 # Prepare for deploying React documentation with SSH
 # https://oncletom.io/2016/travis-ssh-deploy/
-- eval "$(ssh-agent -s)"
+# - eval "$(ssh-agent -s)"
 # - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
 # - ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
 deploy:
@@ -26,7 +25,6 @@ deploy:
     secure: cKTOKErgXo7WcyaqQFzBIGBpEz5X+MwtN/wHXNmLDU6BJ98IKfRcOS2oY8jG/JFoy+EQDdC8iwLfN7+z8gysMoVVbZYm/sKKLg2UXEBCe02p1mJlPDh/o/E+9ofNe1PMv/o1j4CY3YBfaVA+HB7WCGyKivu6tFgFOuoxbPdOleA=
   on:
     tags: true
-    condition: "$(git describe --tags $(git rev-list --tags --max-count=1)) != *-*"
 - provider: script
   skip_cleanup: true
   script: scripts/docs-deploy.sh
