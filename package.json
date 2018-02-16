@@ -71,9 +71,10 @@
     "webpack-notifier": "^1.5.1"
   },
   "scripts": {
+    "start": "npm run babel -- --watch",
+    "build": "npm run babel && npm run docs:build",
     "test": "npm run eslint && npm run jest",
     "codecov": "codecov",
-    "build": "npm run babel && npm run docs:build",
     "jest": "jest --config .jest.config.json",
     "jest:watch": "jest --config .jest.config.json --watch",
     "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
@@ -84,7 +85,7 @@
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook -c .storybook -o ./storybook",
-    "build": "./node_modules/.bin/webpack",
+    "build:dev": "./node_modules/.bin/webpack",
     "build:prod": "./node_modules/.bin/webpack -p",
     "watch": "./node_modules/.bin/webpack --watch"
   },
