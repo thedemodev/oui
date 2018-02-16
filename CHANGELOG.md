@@ -4,7 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## 28.9.1 - 2018-02-15
+## Unreleased
+- [Fixed] Ensure recompose'd components (Disclose/Dropdown) can still be identified by their exported class name.
+
+## 29.0.0 - 2018-02-15
+- [Fixed] Ensure Travis deploys correctly
+- [Fixed] Ensure babel is run before deploy so /dist/js/** is included.
+
+## 28.9.1 - 2018-02-14
 - [Patch] Fix npm release bug
 
 ## 28.9.0 - 2018-02-13
