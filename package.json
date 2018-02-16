@@ -70,9 +70,10 @@
     "webpack-notifier": "^1.4.1"
   },
   "scripts": {
+    "start": "npm run babel -- --watch",
+    "build": "npm run babel && npm run docs:build",
     "test": "npm run eslint && npm run jest",
     "codecov": "codecov",
-    "build": "npm run babel && npm run docs:build",
     "jest": "jest --config .jest.config.json",
     "jest:watch": "jest --config .jest.config.json --watch",
     "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
