@@ -21,7 +21,8 @@ const TabNav = ({
 
   const classes = classNames(
     tabStyleClasses,
-    'oui-tabs'
+    'oui-tabs',
+    {'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true'}
   );
 
   // Determine if the child is an active tab.

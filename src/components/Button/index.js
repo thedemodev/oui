@@ -25,6 +25,7 @@ const Button = ({
     [`oui-button--${size}`]: size,
     [`oui-button--${width}`]: width,
     ['is-active']: isActive,
+    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
   const type = isSubmit ? 'submit' : 'button';

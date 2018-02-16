@@ -7,7 +7,6 @@ import Tether from 'tether';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-
 class OverlayWrapper extends React.Component {
   constructor(props) {
     super(props);

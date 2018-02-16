@@ -14,7 +14,7 @@ const categories = ['components', 'overrides'];
 
 // Grab all of the components
 const componentFolders = glob.sync(`src/@(${categories.join('|')})/**/`, {
-  ignore: ['src/components/', 'src/overrides/', '**/tests/*', '**/tests/', '**/example/'],
+  ignore: ['src/components/', 'src/overrides/', '**/tests/*', '**/tests/', '**/example/', '**/Icon/*', '**/Icon/'],
 });
 
 const files = {};
@@ -87,23 +87,23 @@ componentFolders.map(filePath => {
   if (reactComponentPaths && reactComponentPaths.component) {
     const reactComponentData = getReactComponentData(reactComponentPaths.component);
     files[categoryName][componentName].private = reactComponentData.private;
-    writeFile(`data/${categoryName}/${componentName}/react.json`, JSON.stringify(reactComponentData));
+    writeFile(`docs/data/${categoryName}/${componentName}/react.json`, JSON.stringify(reactComponentData));
   }
 
   // Write a file with the YAML component properties converted into JSON.
   if (files[categoryName][componentName].path.properties) {
     const yamlComponentData = getYAMLComponentData(files[categoryName][componentName].path.properties);
-    writeFile(`data/${categoryName}/${componentName}/properties.json`, JSON.stringify(yamlComponentData));
+    writeFile(`docs/data/${categoryName}/${componentName}/properties.json`, JSON.stringify(yamlComponentData));
   }
 
   // Write a file with the Sass component properties converted into JSON.
   if (files[categoryName][componentName].path.sass) {
     getSassComponentData(files[categoryName][componentName].path.sass, (sassComponentData) => {
-      writeFile(`data/${categoryName}/${componentName}/sass.json`, JSON.stringify(sassComponentData));
+      writeFile(`docs/data/${categoryName}/${componentName}/sass.json`, JSON.stringify(sassComponentData));
     });
   }
 });
 
-writeFile('data/index.json', JSON.stringify(files));
+writeFile('docs/data/index.json', JSON.stringify(files));
 // console.log(componentFolders);
 console.log(files); // eslint-disable-line no-console

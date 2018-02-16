@@ -3,6 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
+import { select } from '@storybook/addon-knobs';
+
 
 import Poptip from './index.js';
 import Button from '../Button';
@@ -19,43 +21,33 @@ stories
   ));
 
 stories
-  .add('basic poptip', withInfo()(() => (
+  .add('basic poptip', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
+      className="text--center"
       trigger='mouseenter'
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!">
       <Button width="default">
-        Default Poptip
+        Basic Poptip
       </Button>
     </Poptip>
-  )))
-  .add('poptip to the right', withInfo()(() => (
-    <Poptip
-      trigger='mouseenter'
-      content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
-      position='right'>
-      <Button style="unstyled" width="default">
-        <a>Poptip on the right</a>
-      </Button>
-    </Poptip>
-  )))
-  .add('poptip light theme', withInfo()(() => (
+  </div>)))
+  .add('poptip to the right', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
       trigger='click'
       content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
       theme='light'>
       <Button style="unstyled" width="default">
-        <a>Click Poptip, light theme</a>
+        <a>Poptip on the right</a>
       </Button>
     </Poptip>
-  )))
-  .add('poptip light theme on the right', withInfo()(() => (
+  </div>)))
+  .add('poptip with advanced positioning', withInfo()(() => (<div className="position--relative height--100">
     <Poptip
+      content={ <div>hola a todos mis amigos</div> }
       trigger='click'
-      content="Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!"
-      theme='light'
-      position='right'>
-      <Button style="unstyled" width="default">
-        <a>Click Poptip, light theme, on the right</a>
+      position={ select('position', {top: 'top', bottom: 'bottom', left: 'left', right: 'right'}, 'top') }>
+      <Button width="default">
+        Poptip With Advanced Positioning
       </Button>
     </Poptip>
-  )));
+  </div>)));

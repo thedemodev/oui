@@ -3,12 +3,11 @@
   "version": "29.0.0",
   "description": "Optimizely's Component Library.",
   "private": false,
-  "main": "dist/docs/oui/28.8.0/js/optimizely-oui.js",
+  "main": "dist/js/main.js",
   "dependencies": {
     "clipboard": "^1.5.12",
-    "extract-text-webpack-plugin": "^3.0.2",
     "highlight.js": "^9.5.0",
-    "react-copy-to-clipboard": "^5.0.1",
+    "oui-icons": "3.10.0",
     "react-oui-icons": "1.0.2",
     "react-popper": "^0.7.4",
     "react-tippy": "^1.2.2",
@@ -66,9 +65,9 @@
     "scribesass-parser": "optimizely/scribesass-parser#9639a63cb8883c5341cd285af468c5949a06f66f",
     "style-loader": "^0.13.1",
     "svg-inline-loader": "^0.7.1",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-notifier": "^1.5.1"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-notifier": "^1.4.1"
   },
   "scripts": {
     "start": "npm run babel -- --watch",
@@ -79,15 +78,23 @@
     "jest:watch": "jest --config .jest.config.json --watch",
     "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
     "babel": "babel src/ --out-dir dist/js --ignore \"tests/*.js, src/js\"",
-    "preversion": "git checkout master && git pull --rebase=false && npm install",
+    "icons:update": "npm update oui-icons && node ./scripts/sync-oui-icons/index.js",
+    "preversion": "git checkout master && git pull --rebase=false",
     "postversion": "npm run postversion:publish && npm run postversion:update-devel",
     "postversion:publish": "git push --follow-tags",
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
+    "docs:build": "npm-run-all docs:build:mkdir docs:build:json --parallel docs:build:js docs:build:html docs:build:htaccess",
+    "docs:build:mkdir": "mkdir -p dist/docs/oui/$(node -e \"console.log(require('./package.json').version);\")",
+    "docs:build:js": "webpack --progress",
+    "docs:build:json": "node ./scripts/docs-generate.js",
+    "docs:build:htaccess": "cp -v ./docs/.htaccess ./dist/docs/oui/$(node -e \"console.log(require('./package.json').version);\")/.htaccess",
+    "docs:build:html": "npm-run-all docs:build:html:move docs:build:html:update",
+    "docs:build:html:move": "cp -v ./docs/index.html ./dist/docs/oui/$(node -e \"console.log(require('./package.json').version);\")/index.html",
+    "docs:build:html:update": "oui_version=$(node -e \"console.log(require('./package.json').version);\") && sed -i.bak \"s/{{ oui_version }}/$oui_version/g\" dist/docs/oui/$(node -e \"console.log(require('./package.json').version);\")/index.html",
+    "docs:watch": "npm-run-all docs:build:mkdir --parallel docs:build:json docs:build:html --parallel docs:watch:js",
+    "docs:watch:js": "webpack-dev-server --open --progress --inline",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -c .storybook -o ./storybook",
-    "build:dev": "./node_modules/.bin/webpack",
-    "build:prod": "./node_modules/.bin/webpack -p",
-    "watch": "./node_modules/.bin/webpack --watch"
+    "build-storybook": "build-storybook -c .storybook -o ./storybook"
   },
   "repository": {
     "type": "git",
@@ -102,7 +109,9 @@
       "name": "Cheston Lee"
     },
     {
-      "name": "Daniel O'Connor"
+      "name": "Daniel O'Connor",
+      "email": "daniel@danoc.me",
+      "url": "https://danoc.me/"
     },
     {
       "name": "Kelly Walker"
@@ -114,7 +123,8 @@
       "name": "Dave Rau"
     },
     {
-      "name": "Iñaki Aranzadi"
+      "name": "Iñaki Aranzadi",
+      "email": "inaki.aranzadi@optimizely.com"
     },
     {
       "name": "Jack Schlotthauer"

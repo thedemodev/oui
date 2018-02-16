@@ -26,6 +26,7 @@ let Table = ({
     [`oui-table--${style}`]: style,
     [`oui-table--${density}`]: density,
     'oui-table--hover': shouldAddHover,
+    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
   const styles = {

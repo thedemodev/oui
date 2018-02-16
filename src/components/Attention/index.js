@@ -38,6 +38,7 @@ const Attention = ({
   const attentionAriaLabel = getAssistiveTextFromColorClass(type);
   const alignClass = `oui-attention ${colorClassName} ${alignmentClassName}`.trim();
   const classes = classNames({
+    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     [`${alignClass}`]: true,
   });
   const dismissBtn = isDismissible ? renderDismissButton(testSection) : null;

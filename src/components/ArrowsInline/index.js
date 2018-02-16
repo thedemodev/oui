@@ -13,6 +13,7 @@ const ArrowsInline = ({
   testSection,
 }) => {
   let classes = classNames({
+    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
     [`oui-arrow-inline--${direction}`]: direction,
   });
 

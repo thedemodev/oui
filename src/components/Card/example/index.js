@@ -21,7 +21,7 @@ export default [
   },
   {
     examples: [
-      <Card title="Title">
+      <Card title="Title" >
         Blank card
       </Card>,
     ],

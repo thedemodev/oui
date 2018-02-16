@@ -23,6 +23,7 @@ const Popover = ({
 }) => {
   const popOverClasses = classNames({
     'oui-pop--over': true,
+    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
   let popOverContentClasses = classNames({

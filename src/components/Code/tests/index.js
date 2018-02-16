@@ -113,4 +113,46 @@ describe('components/Code', () => {
 
     expect(component.find('[data-test-section="code-copy-button"]').length).toBe(0);
   });
+
+  describe('with copy functionality', () => {
+    const initialQueryCommandSupported = global.document.queryCommandSupported;
+
+    beforeEach(() => {
+      global.document.queryCommandSupported = () => true;
+    });
+
+    afterEach(() => {
+      global.document.queryCommandSupported = () => initialQueryCommandSupported;
+    });
+
+    it('should add a copy button to block code', () => {
+      let code = 'var foo;';
+
+      const component = mount(
+        <Code
+          type="block"
+          hasCopyButton={ true }
+          testSection="code">
+          { code }
+        </Code>
+      );
+
+      expect(component.find('[data-test-section="code-copy-button"]').length).toBe(1);
+    });
+
+    it('should not add a copy button to inline code', () => {
+      let code = 'var foo;';
+
+      const component = mount(
+        <Code
+          type="inline"
+          hasCopyButton={ true }
+          testSection="code">
+          { code }
+        </Code>
+      );
+
+      expect(component.find('[data-test-section="code-copy-button"]').length).toBe(0);
+    });
+  });
 });

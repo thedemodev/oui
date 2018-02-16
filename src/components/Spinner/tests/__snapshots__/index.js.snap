@@ -2,41 +2,41 @@
 
 exports[`components/Spinner should render correctly 1`] = `
 <div
-  className="oui-spinner"
+  className="lego-spinner"
 />
 `;
 
 exports[`components/Spinner should render correctly including testSection prop 1`] = `
 <div
-  className="oui-spinner"
+  className="lego-spinner"
   data-test-section="testing-foo"
 />
 `;
 
 exports[`components/Spinner should render correctly with overlay 1`] = `
 <div
-  className="oui-overlay"
+  className="lego-overlay"
   data-oui-component={true}
 >
   <div
-    className="oui-spinner"
+    className="lego-spinner"
   />
 </div>
 `;
 
 exports[`components/Spinner should render correctly with size & overlay props 1`] = `
 <div
-  className="oui-overlay"
+  className="lego-overlay"
   data-oui-component={true}
 >
   <div
-    className="oui-spinner oui-spinner--tiny"
+    className="lego-spinner lego-spinner--tiny"
   />
 </div>
 `;
 
 exports[`components/Spinner should render correctly with size property set to tiny 1`] = `
 <div
-  className="oui-spinner oui-spinner--tiny"
+  className="lego-spinner lego-spinner--tiny"
 />
 `;

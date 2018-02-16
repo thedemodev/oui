@@ -15,15 +15,15 @@ const Spinner = ({
   testSection,
 }) => {
   const classes = classNames(
-    'oui-spinner',
-    {[`oui-spinner--${size}`]: size}
+    'lego-spinner',
+    {[`lego-spinner--${size}`]: size}
   );
   if (hasOverlay) {
     return (
       <div
         data-oui-component={ true }
         data-test-section={ testSection }
-        className="oui-overlay">
+        className="lego-overlay">
         <div className={ classes }></div>
       </div>
     );

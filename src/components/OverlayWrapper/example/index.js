@@ -1,9 +1,18 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
+import PropTypes from 'prop-types';
 import OverlayWrapper from '../index';
 
 import Button from '../../Button/';
 import Popover from '../../Popover/';
+
+const ClosePopoverButton = (props, context) => {
+  return <Button onClick={ context.hideOverlay }>Close Popopver</Button>;
+};
+
+ClosePopoverButton.contextTypes = {
+  hideOverlay: PropTypes.func.isRequired,
+};
 
 export default [
   {
@@ -30,6 +39,7 @@ export default [
                 Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae
                 nihil libero et, hic!
             </p>
+            <ClosePopoverButton />
           </Popover> }
           horizontalAttachment="left"
           horizontalTargetAttachment="right"
@@ -51,6 +61,7 @@ export default [
                 `hideOverlay` method using `context` in React.
             </p>
             <p>See the source for `OverlayWrapper` to learn more.</p>
+            <ClosePopoverButton />
           </Popover> }>
           <Button>Popover With A Close Button</Button>
         </OverlayWrapper>
