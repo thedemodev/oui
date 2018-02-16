@@ -5,8 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 29.0.2 - 2018-02-16
 - [Fixed] Ensure recompose'd components (Disclose/Dropdown) can still be identified by their exported class name.
-- [Patch] Design system docs migration to oui
+
+## 29.0.1 - 2018-02-16
+- [NO-OP] Test deploy
 
 ## 29.0.0 - 2018-02-15
 - [Fixed] Ensure Travis deploys correctly
