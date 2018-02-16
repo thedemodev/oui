@@ -48,6 +48,10 @@ const config = {
         }),
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss-loader'],
+      },
+      {
         test: /\.svg$/,
         loader: 'svg-inline-loader',
       },

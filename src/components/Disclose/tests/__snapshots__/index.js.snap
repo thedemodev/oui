@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Disclose Component  renders correctly 1`] = `
-<withHandlers(Component)
+<withHandlers(Disclose)
   isOpen={false}
   title="Some title"
   toggle={[Function]}
@@ -11,5 +11,5 @@ exports[`Disclose Component  renders correctly 1`] = `
     disclose this
   </div>
    
-</withHandlers(Component)>
+</withHandlers(Disclose)>
 `;

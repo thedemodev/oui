@@ -2,9 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Manager, Popper, Target } from 'react-popper';
+import { toClass } from 'recompose';
 import { withToggle } from '../../utils/recompose-utils';
 
-const Dropdown = withToggle(({
+const Dropdown = ({
   arrowIcon,
   buttonContent,
   children,
@@ -13,7 +14,6 @@ const Dropdown = withToggle(({
   isOpen,
   fullWidth,
   placement = 'bottom-start',
-  show,
   style,
   testSection,
   width = 200,
@@ -80,7 +80,7 @@ const Dropdown = withToggle(({
       </Popper>
     </Manager>
   );
-});
+};
 
 Dropdown.propTypes = {
   /** Arrow icon direction:
@@ -106,8 +106,10 @@ Dropdown.propTypes = {
   fullWidth: PropTypes.bool,
   /** Unused... */
   handleClick: PropTypes.func,
+  hide: PropTypes.func,
   /** Disable button. */
   isDisabled: PropTypes.bool,
+  isOpen: PropTypes.bool,
   /** Popper placement property */
   placement: PropTypes.oneOf([
     'top',
@@ -127,6 +129,7 @@ Dropdown.propTypes = {
   style: PropTypes.string,
   /** For automated testing only. */
   testSection: PropTypes.string,
+  toggle: PropTypes.func,
   /** Dropdown menu width, in pixels. */
   width: PropTypes.oneOfType([
     PropTypes.string,
@@ -140,4 +143,4 @@ Dropdown.defaultProps = {
   arrowIcon: 'none',
 };
 
-export default Dropdown;
+export default withToggle(toClass(Dropdown));
