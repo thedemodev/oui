@@ -20,7 +20,7 @@ stories
     return (
       <Card
         title={ text('title', 'Card Title') }
-        onClose={ boolean('onClose', false) }
+        shadow={ boolean('onClose', false) }
         testSection="card">
         { text('body', 'Hello! This is a short card example.') }
       </Card>

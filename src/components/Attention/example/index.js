@@ -5,7 +5,11 @@ import Attention from '../index';
 export default [
   {
     examples: [
-      <Attention isDismissible={ true } alignment="center" type="warning" testSection="attention-foo">
+      <Attention
+        isDismissible={ true }
+        alignment="center"
+        type="warning"
+        testSection="attention-foo">
         Hello! This is a short attention bar.
       </Attention>,
     ],

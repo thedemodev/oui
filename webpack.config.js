@@ -1,49 +1,36 @@
+/* global __dirname, require, module*/
+
 const webpack = require('webpack');
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const path = require('path');
 const { version } = require('./package.json');
 
-const plugins = [
+let plugins = [
+  require('autoprefixer'),
   new WebpackNotifierPlugin({
     contentImage: path.join(__dirname, 'assets/louis.png'),
   }),
+  new UglifyJsPlugin({ minimize: true }),
+  new ExtractTextPlugin('styles.css'),
 ];
 
-// Run on Travis CI (or another integration suite) or when building for
-// production.
-if (process.env.CONTINUOUS_INTEGRATION || process.env.NODE_ENV === 'production') {
-  // Fail if there is an error on Travis CI
-  // http://dev.topheman.com/how-to-fail-webpack-build-on-error/
-  plugins.push(new webpack.NoErrorsPlugin());
-  // Set environment as "production" so that we ship a slimmer version of
-  // React in the OUI documentation.
-  plugins.push(new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify('production'),
-    },
-  }));
-  // Compress the JavaScript
-  plugins.push(new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    },
-    mangle: false,
-  }));
-}
-
-module.exports = {
+const config = {
   entry: {
-    docs: './docs/index.js',
-    styles: './src/oui/oui.scss',
+    'optimizely-oui': path.resolve(__dirname, './src/main.js'),
+    styles: path.resolve(__dirname, './src/oui/oui.scss'),
   },
+  devtool: 'source-map',
   output: {
+    path: path.resolve(__dirname, `./dist/docs/oui/${version}/lib/`),
     filename: '[name].js',
     chunkFilename: '[name]-[hash].js',
-    path: `${__dirname}/dist/docs/oui/${version}/js/`,
-    publicPath: `/docs/oui/${version}/js/`,
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.json$/,
         loader: 'json',
@@ -51,11 +38,14 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'postcss-loader', 'sass'],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'sass-loader'],
+        }),
       },
       {
         test: /\.css$/,
@@ -67,20 +57,11 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: `${__dirname}/dist/docs/oui/${version}/`,
-  },
-  devtool: 'source-map',
-  plugins: plugins,
   resolve: {
-    root: [
-      path.resolve('./'),
-    ],
+    modules: [path.resolve('./node_modules'), path.resolve('./src')],
+    extensions: ['.json', '.js'],
   },
-  postcss: () => {
-    return [
-      require('autoprefixer'),
-    ];
-  },
+  plugins: plugins,
 };
+
+module.exports = config;

@@ -5,7 +5,7 @@ import infoAddon from '@storybook/addon-info';
 
 const { version } = require('../package.json');
 
-require(`../dist/docs/oui/${version}/js/styles.js`);
+require(`../dist/docs/oui/${version}/lib/styles.js`);
 
 require(`../src/oui/oui.scss`);
 
