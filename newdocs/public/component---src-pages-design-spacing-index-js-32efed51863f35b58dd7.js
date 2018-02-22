@@ -1,2 +1,0 @@
-webpackJsonp([0xe05908026155],{278:function(e,t,u){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var l=u(1),a=n(l),o=function(){return a.default.createElement("div",null,"hola")};t.default=o,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-design-spacing-index-js-32efed51863f35b58dd7.js.map

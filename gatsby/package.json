@@ -27,7 +27,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "postbuild": "mv public ../newdocs",
+    "postbuild": "rm -rfv ../newdocs && mv public ../newdocs",
     "develop": "node scripts/sidebar-names-generation.js && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
