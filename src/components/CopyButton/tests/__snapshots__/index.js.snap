@@ -8,7 +8,7 @@ exports[`components/CopyButton should render children the icon button 1`] = `
     ariaLabel="Copy code snippet"
     style="plain"
   >
-    <v
+    <Icon
       name="clipboard"
     />
   </Button>

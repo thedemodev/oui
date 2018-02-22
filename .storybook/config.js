@@ -1,15 +1,12 @@
-import { configure, setAddon } from '@storybook/react';
 import * as storybook from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import infoAddon from '@storybook/addon-info';
 
-const { version } = require('../package.json');
-
-require(`../dist/docs/oui/${version}/lib/styles.js`);
+require(`../dist/styles.js`);
 
 require(`../src/oui/oui.scss`);
 
-setAddon(infoAddon);
+storybook.setAddon(infoAddon);
 
 setOptions({
   name: 'OUI Storybook',

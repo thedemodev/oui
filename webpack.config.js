@@ -17,7 +17,6 @@ let plugins = [
 
 const config = {
   entry: {
-    oui: path.resolve(__dirname, './src/main.js'),
     styles: path.resolve(__dirname, './src/oui/oui.scss'),
   },
   devtool: 'source-map',
