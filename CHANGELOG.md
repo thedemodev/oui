@@ -6,6 +6,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 29.1.0 - 2018-02-21
+- [Docs] Add new docs and update storybook
+- [Patch] Bump react-oui-icons library
+- [Patch] Export ES5 React Components as `package.main`, ES6 Components as `package.module`  
+
 ## 29.0.2 - 2018-02-16
 - [Fixed] Ensure recompose'd components (Disclose/Dropdown) can still be identified by their exported class name.
 
