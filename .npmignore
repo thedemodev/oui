@@ -7,10 +7,13 @@ s3
 npm-debug.log
 
 docs
-dist/js/components/**/*.story.js
-dist/js/stories
+gatsby
+newdocs
+scripts
+storybook
 src/components/**/*.story.js
 src/stories
+src/**/tests/**
 
 .bundle
 .DS_Store

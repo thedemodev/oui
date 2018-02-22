@@ -2,15 +2,13 @@ import React from 'react';
 import components from 'docs/data/index.json';
 import { supportedLanguages, toTitleCase } from 'docs/utils/';
 import SideNavContainer from 'docs/containers/SideNavContainer';
-import Badge from 'src/components/Badge';
 import PropsTable from 'docs/components/react/PropsTable';
 import ReactComponentExample from 'docs/components/react/ComponentExample';
 import SassComponentExample from 'docs/components/sass/ComponentExample';
-import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import { css } from 'glamor';
 import s from 'docs/styles/';
-
-import TabNav from '../../src/components/TabNav';
+import ouiIcons from 'oui-icons';
 
 const routeProps = ({ routes, params }) => {
   let language = params.language;
@@ -58,13 +56,6 @@ const getData = (categoryName, componentName) => {
 };
 
 class Component extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentTab: 'sass',
-    };
-    this.handelTabClick = this.handelTabClick.bind(this);
-  }
   componentDidMount() {
     document.title = `${this.componentDisplayName} | ${this.categoryDisplayName} | OUI`;
   }
@@ -77,23 +68,12 @@ class Component extends React.Component {
     document.title = 'OUI Documentation';
   }
 
-  handelTabClick(evt) {
-    const {
-      categoryName,
-      componentName,
-      subComponentName,
-    } = routeProps(this.props);
-
-    const componentFullName = `${componentName}${subComponentName ? '/' + subComponentName : ''}`;
-    browserHistory.push({pathname: `/${categoryName}/${componentFullName}/${evt.target.textContent}`});
-    this.setState({currentTab: evt.target.textContent});
-  }
-
   render() {
     const {
       categoryName,
       componentName,
       subComponentName,
+      language,
     } = routeProps(this.props);
 
     const componentFullName = `${componentName}${subComponentName ? '/' + subComponentName : ''}`;
@@ -107,15 +87,14 @@ class Component extends React.Component {
     let languages = [];
 
     this.componentDisplayName = (yamlData && yamlData.name) || componentFullName;
-    this.componentStorybookLink = 'http://optimizely.github.io/oui/storybook/index.html?selectedKind=' + this.componentDisplayName;
     this.categoryDisplayName = toTitleCase(categoryName);
 
     const componentDescription = yamlData && yamlData.description;
-    const componentPaths = components[categoryName][this.componentDisplayName].path;
+    const componentPaths = components[categoryName][componentName].path;
 
-    componentPaths['sass'] && languages.push('sass');
     componentPaths['react'] && languages.push('react');
-    const lang = this.state.currentTab;
+    componentPaths['sass'] && languages.push('sass');
+
     return (
       <div { ...css(s.container) } style={{minWidth: 800}}>
         <div className="flex push-quad--bottom">
@@ -127,34 +106,23 @@ class Component extends React.Component {
           </div>
 
           <div { ...css(s.componentContent) }>
-            <TabNav activeTab={ this.state.currentTab } style={ ['small', 'sub'] }>
-              { languages.length >= 1 &&
-                languages.map((language) => {
-                  return (
-                    <TabNav.Tab
-                      key={ language }
-                      onClick={ this.handelTabClick }
-                      tabId={ language }>
-                      { language }
-                    </TabNav.Tab>
-                  );
-                })
-              }
-            </TabNav>
-            { lang === 'react' &&
-              <a
-                className="oui-button oui-button--outline push-double--left push-double--top float--right"
-                href={ this.componentStorybookLink }
-                target="_blank"
-                rel="noopener noreferrer">
-                <Badge color="draft">New</Badge>Storybook
-              </a>
-            }
-
-            <h2 className="push-double--top">{ this.componentDisplayName }</h2>
+            <h2>{ this.componentDisplayName }</h2>
             <p>{ componentDescription }</p>
-
-            { lang === 'react' &&
+            { !language &&
+              <div>
+                <h3>Languages</h3>
+                <ul className="list list--bullet">
+                  { languages.map(lang => (
+                    <li key={ lang }>
+                      <Link to={ `/${categoryName}/${componentFullName}/${lang}` }>
+                        { supportedLanguages[lang] }
+                      </Link>
+                    </li>
+                  )) }
+                </ul>
+              </div>
+            }
+            { language === 'react' &&
               <div>
                 { reactData.examples && reactData.examples.map((example, i) => (
                   <ReactComponentExample
@@ -167,9 +135,9 @@ class Component extends React.Component {
                 <PropsTable componentProps={ reactData.props } />
               </div>
             }
-
-            { lang === 'sass' && sassData && sassData.example &&
+            { language === 'sass' && sassData && sassData.example &&
               <div>
+                <div dangerouslySetInnerHTML={{ __html: ouiIcons }}></div>
                 { sassData.example.map((example, i) => (
                   <SassComponentExample key={ i } component={ example } />
                 )) }

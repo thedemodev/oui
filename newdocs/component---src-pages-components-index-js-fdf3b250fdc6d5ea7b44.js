@@ -1,0 +1,2 @@
+webpackJsonp([89306987359362],{276:function(e,t,l){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=l(1),a=n(u),o=function(){return a.default.createElement("div",null,a.default.createElement("h1",null,"Components Home"),a.default.createElement("p",null,"how to start"))};t.default=o,e.exports=t.default}});
+//# sourceMappingURL=component---src-pages-components-index-js-fdf3b250fdc6d5ea7b44.js.map

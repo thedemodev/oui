@@ -9,6 +9,19 @@ module.exports = {
         include: path.resolve(__dirname, '../')
       }, 
       { test: /\.css$/, loader: "style-loader!css-loader" },
+      {
+        test: /\.jsx?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+            plugins: [
+              "transform-decorators-legacy",
+              "transform-decorators"
+            ]
+          }
+        }
+      },
     ]
   }
-}
+};

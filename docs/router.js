@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Router, Route, browserHistory } from 'react-router';
 import { useBasename } from 'history';
 import ReactGA from 'react-ga';
@@ -31,7 +30,7 @@ const Routes = (props) => (
       <Route path="components" component={ Category }>
         <Route path=":component(/:subcomponent)(/:language)" component={ Component }></Route>
       </Route>
-      <Route path="overrides" component={ Category }>
+      <Route path="utilities" component={ Category }>
         <Route path=":component(/:subcomponent)(/:language)" component={ Component }></Route>
       </Route>
     </Route>
@@ -39,7 +38,7 @@ const Routes = (props) => (
 );
 
 Routes.propTypes = {
-  shell: PropTypes.func,
+  shell: React.PropTypes.func,
 };
 
 export default Routes;

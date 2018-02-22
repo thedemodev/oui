@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import components from 'docs/data/index.json';
 import SideNav from 'docs/components/SideNav/';
 import { toTitleCase } from 'docs/utils/';
@@ -14,7 +12,7 @@ const SideNavContainer = ({ categoryName, currentRoute }) => {
     if (!component.private) {
       sideNavItems.push({
         name: component.name,
-        href: `/${categoryName}/${component.name}/sass`,
+        href: `/${categoryName}/${component.name}/`,
       });
     }
   });
@@ -32,8 +30,8 @@ const SideNavContainer = ({ categoryName, currentRoute }) => {
 };
 
 SideNavContainer.propTypes = {
-  categoryName: PropTypes.string.isRequired,
-  currentRoute: PropTypes.string,
+  categoryName: React.PropTypes.string.isRequired,
+  currentRoute: React.PropTypes.string,
 };
 
 export default SideNavContainer;
