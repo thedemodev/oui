@@ -12,6 +12,7 @@ import Icon from 'react-oui-icons';
  * @param {Function} onClose - method to fire when X is clicked
  * @param {Node} children - element for body
  * @param {String} testSection - string for testing
+ * @param {String} shadow - boolean
  * @returns {ReactElement}
  */
 const Card = ({
@@ -26,10 +27,10 @@ const Card = ({
       <Icon name='close'/>
     </Button>
   );
-  const shadowClassName = 'oui-shadow--light';
+
   const classes = classNames({
     'push--bottom border--all': true,
-    [`${shadowClassName}`]: shadow,
+    'oui-shadow--light': shadow,
   });
 
   return (
@@ -41,7 +42,7 @@ const Card = ({
           <h4 className="flex--1" data-test-section={ `${testSection}-title` }>
             { title }
           </h4>
-          <div className="">
+          <div>
             { onClose && closer }
           </div>
         </div>

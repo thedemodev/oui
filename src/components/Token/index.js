@@ -23,7 +23,6 @@ const Token = ({
   const classes = classNames({
     'oui-token-wrap': true,
     'flex': true,
-    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable,

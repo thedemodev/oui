@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { Link } from 'react-router';
+import Badge from '../../../src/components/Badge';
 
 const styles = {
   header: css({
@@ -27,14 +27,26 @@ const MatrixFileCard = (props) => (
           { props.children }
         </h3>
       </Link>
+      <div { ...styles.badges }>
+        { props.languages && props.languages.map(language => (
+          <Link
+            to={ `${props.link}/${language.toLowerCase()}` }
+            key={ language }
+            title={ `View ${language} documentation for “${props.children}”` }>
+            <Badge color="plain">
+              { language }
+            </Badge>
+          </Link>
+        )) }
+      </div>
     </div>
   </div>
 );
 
 MatrixFileCard.propTypes = {
-  children: PropTypes.string.isRequired,
-  languages: PropTypes.array,
-  link: PropTypes.string.isRequired,
+  children: React.PropTypes.string.isRequired,
+  languages: React.PropTypes.array,
+  link: React.PropTypes.string.isRequired,
 };
 
 export default MatrixFileCard;

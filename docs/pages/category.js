@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import components from 'docs/data/index.json';
 import { toTitleCase, getLanguagesFromComponent } from 'docs/utils/';
 import CategorySection from 'docs/components/CategorySection/';
@@ -33,7 +32,7 @@ const Category = (props) => {
                       return (
                         <MatrixFileCard
                           key={ component.name }
-                          link={ `/${categoryName}/${component.name}/sass` }
+                          link={ `/${categoryName}/${component.name}` }
                           languages={ getLanguagesFromComponent(component) }>
                           { component.name }
                         </MatrixFileCard>
@@ -51,9 +50,9 @@ const Category = (props) => {
 };
 
 Category.propTypes = {
-  children: PropTypes.element,
-  routes: PropTypes.arrayOf(PropTypes.shape({
-    path: PropTypes.string.isRequired,
+  children: React.PropTypes.element,
+  routes: React.PropTypes.arrayOf(React.PropTypes.shape({
+    path: React.PropTypes.string.isRequired,
   })).isRequired,
 };
 

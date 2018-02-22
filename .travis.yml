@@ -8,7 +8,6 @@ addons:
 before_deploy:
 - rm -rfv dist
 - npm run build
-- "./node_modules/.bin/json -I -f package.json -e 'this.devDependencies={}'"
 deploy:
 - provider: npm
   skip_cleanup: true

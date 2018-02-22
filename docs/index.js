@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import files from 'docs/data/index.json';
 import { Link } from 'react-router';
@@ -71,7 +70,7 @@ const App = (props) => (
 );
 
 App.propTypes = {
-  children: PropTypes.element,
+  children: React.PropTypes.element,
 };
 
 render(<Routes shell={ App } />, document.getElementById('container'));

@@ -21,7 +21,6 @@ const BlockList = ({
     'background--white': true,
     'overflow-x--auto': true,
     'border--all': hasBorder,
-    'highlight-react--oui': localStorage.getItem('show_ouireact') === 'true',
   });
 
   return (

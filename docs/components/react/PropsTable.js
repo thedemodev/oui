@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Table from '../../../src/components/Table';
 import marked from 'marked';
 
@@ -75,7 +74,7 @@ const PropsTable = (props) => {
 };
 
 PropsTable.propTypes = {
-  componentProps: PropTypes.object,
+  componentProps: React.PropTypes.object,
 };
 
 export default PropsTable;

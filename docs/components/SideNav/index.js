@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import LinkActive from '../LinkActive';
 
@@ -36,14 +35,14 @@ const SideNav = (props) => (
 );
 
 SideNav.propTypes = {
-  category: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
+  category: React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    href: React.PropTypes.string.isRequired,
   }).isRequired,
-  currentRoute: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
+  currentRoute: React.PropTypes.string.isRequired,
+  items: React.PropTypes.arrayOf(React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    href: React.PropTypes.string.isRequired,
   })).isRequired,
 };
 
