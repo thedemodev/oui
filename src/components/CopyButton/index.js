@@ -13,15 +13,16 @@ import Icon from 'react-oui-icons';
 
 const CopyButton = ({
   testSection,
-  text,
+  textToCopy,
 }) => {
+
   return (
     <CopyToClipboard
-      text={ text }>
+      text={ textToCopy }>
       <Button
         style="plain"
         ariaLabel="Copy code snippet"
-        testSection={ testSection }>
+        testSection={ testSection ? `${testSection}-copy-button` : null }>
         <Icon name='clipboard' />
       </Button>
     </CopyToClipboard>
@@ -32,7 +33,7 @@ CopyButton.propTypes = {
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
   /** The text or code that will be copied */
-  text: PropTypes.string.isRequired,
+  textToCopy: PropTypes.string.isRequired,
 };
 
 export default CopyButton;

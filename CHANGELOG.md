@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 29.3.2 - 2018-02-22
+- [Fix] Fix Code and CopyButton components  
+- [Fix] Fix Accordion CSS to be backward compatible  
+
 ## 29.1.0 - 2018-02-21
 - [Docs] Add new docs and update storybook
 - [Patch] Bump react-oui-icons library
