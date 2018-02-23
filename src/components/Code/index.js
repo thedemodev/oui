@@ -91,7 +91,7 @@ class Code extends React.Component {
     return (
       <div data-oui-component={ true } className="position--relative">
         { hasCopyButton &&
-          <div style={ {position: 'absolute', top: '5px', right: '5px' } }>
+          <div style={{position: 'absolute', top: '5px', right: '5px' }}>
             <CopyButton textToCopy={ children } testSection={ testSection } />
           </div>
         }
