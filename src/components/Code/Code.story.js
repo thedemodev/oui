@@ -38,6 +38,7 @@ stories
     return (
       <Code
         hasCopyButton={ boolean('hasCopyButton', true) }
+        testSection='my-code-box'
         type={ select('type', {inline: 'inline', block: 'block'}, 'block') }
         language={ select('language', langOptions, 'js') }>
         { text('code', 'var foo = `bar`; \nvar bat = `baz`;') }
