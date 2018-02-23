@@ -7,7 +7,7 @@ import CopyButton from '../index';
 describe('components/CopyButton', () => {
   it('should render children the icon button', () => {
     const component = shallow(
-      <CopyButton text={ 'let bingo = "BINGO"' } />
+      <CopyButton textToCopy={ 'let bingo = "BINGO"' } testSection="fake-test-section"/>
     );
     expect(shallowToJson(component)).toMatchSnapshot();
   });
