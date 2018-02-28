@@ -63,6 +63,38 @@ stories.add('text behind', withInfo()(() => {
 }));
 
 
+stories.add('simple list', withInfo()(() => {
+  return (
+    <Container>
+      <SubContainer>
+        <ScrollContainer>
+          <Dropdown
+            isDisabled={ boolean('isDisabled', false) }
+            buttonContent='Dropdown'
+            width={ number('width', 300) }>
+            <ul
+              className="oui-dropdown"
+              style={{display: 'block'}}>
+              {[
+                <li
+                  className="oui-dropdown__item">
+                  <a
+                    onClick={ action('click on a item') }
+                    className="oui-dropdown__block-link">
+                    some cool item
+                  </a>
+                </li>
+              ]}
+            </ul>
+          </Dropdown>
+          <h1>This text should be behind the open dropdown</h1>
+        </ScrollContainer>
+      </SubContainer>
+    </Container>
+  );
+}));
+
+
 stories.add('with icon', withInfo()(() => {
   return (
     <Container>
