@@ -10,6 +10,7 @@
     "highlight.js": "^9.5.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-oui-icons": "^2.0.0",
+    "react-popper": "^0.8.2",
     "react-tippy": "^1.2.2",
     "recompose": "^0.26.0",
     "styled-components": "^2.1.2",

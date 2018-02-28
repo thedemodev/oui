@@ -6585,7 +6585,7 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-popper.js@^1.11.1:
+popper.js@^1.11.1, popper.js@^1.12.9:
   version "1.12.9"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
 
@@ -7259,6 +7259,13 @@ react-onclickoutside@^6.5.0:
 react-oui-icons@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-2.0.2.tgz#ca4cf58d64c5b73082271ca4b9e2a28ac92d4dd6"
+
+react-popper@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.8.2.tgz#092095ff13933211d3856d9f325511ec3a42f12c"
+  dependencies:
+    popper.js "^1.12.9"
+    prop-types "^15.6.0"
 
 react-reconciler@^0.7.0:
   version "0.7.0"
