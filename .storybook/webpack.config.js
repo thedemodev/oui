@@ -16,9 +16,9 @@ module.exports = {
           options: {
             presets: ['env'],
             plugins: [
-              "transform-decorators-legacy",
-              "transform-decorators",
               "transform-class-properties",
+              "transform-decorators",
+              "transform-decorators-legacy",
               "transform-object-rest-spread"
             ]
           }

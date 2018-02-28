@@ -15,5 +15,14 @@
   "testRegex": "(/tests/.*|\\.(test|spec))\\.(js|json|node)$",
   "moduleDirectories": ["node_modules", "src"],
   "setupTestFrameworkScriptFile": "<rootDir>/src/utils/localstorage-mock.js",
-  "setupFiles": ["<rootDir>/src/setupTests.js"]
+  "setupFiles": ["<rootDir>/src/setupTests.js"],
+  "rootDir": ".",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "es6"
+  ],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  }
 }
