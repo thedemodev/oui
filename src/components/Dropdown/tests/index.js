@@ -48,6 +48,33 @@ describe('components/Dropdown', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
+  it('should call the child onClick handler when clicked', () => {
+    const onClickMock = jest.fn();
+    const component = shallow(
+      <Dropdown
+        icon={ true }
+        buttonContent='Dropdown'
+        idDisabled={ true }>
+        <ul>
+          { data.map((item, index) => {
+            return (
+              <li
+                key={ index }
+                onClick={ onClickMock }
+                data-test-section={ `dropdown-item-${index}` }>
+                { item.title }
+              </li>
+            );
+          })
+          }
+        </ul>
+      </Dropdown>
+    );
+
+    component.find('[data-test-section="dropdown-item-1"]').simulate('click');
+    expect(onClickMock.mock.calls.length).toBe(1);
+  });
+
   it('should not use .oui-arrow-inline--down when icon isEqual to triangle', () => {
     const component = shallow(
       <Dropdown

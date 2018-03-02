@@ -175,7 +175,7 @@ exports[`components/Radio should render a checked radio input when \`checked\` i
       data-oui-component={true}
       data-test-section={null}
       name="goose"
-      onChange={[Function]}
+      onChange={[MockFunction]}
       style={
         Object {
           "marginTop": "0.3em",
@@ -256,7 +256,7 @@ exports[`components/Radio should render an unchecked radio input when \`checked\
       data-oui-component={true}
       data-test-section={null}
       name="goose"
-      onChange={[Function]}
+      onChange={[MockFunction]}
       style={
         Object {
           "marginTop": "0.3em",

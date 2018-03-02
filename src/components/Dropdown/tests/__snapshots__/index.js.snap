@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/Dropdown should highlight button class when style equals highlight 1`] = `
-<withHandlers(Dropdown)
+<withHandlers(withState(Dropdown))
   buttonContent="Dropdown"
   icon={true}
   isOpen={false}
@@ -25,11 +25,11 @@ exports[`components/Dropdown should highlight button class when style equals hig
       Faster Results
     </li>
   </ul>
-</withHandlers(Dropdown)>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should not render children when isDisabled is true 1`] = `
-<withHandlers(Dropdown)
+<withHandlers(withState(Dropdown))
   buttonContent="Dropdown"
   icon={true}
   idDisabled={true}
@@ -53,11 +53,11 @@ exports[`components/Dropdown should not render children when isDisabled is true 
       Faster Results
     </li>
   </ul>
-</withHandlers(Dropdown)>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should not use .oui-arrow-inline--down when icon isEqual to triangle 1`] = `
-<withHandlers(Dropdown)
+<withHandlers(withState(Dropdown))
   buttonContent="Dropdown"
   icon={true}
   isOpen={false}
@@ -80,11 +80,11 @@ exports[`components/Dropdown should not use .oui-arrow-inline--down when icon is
       Faster Results
     </li>
   </ul>
-</withHandlers(Dropdown)>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should render children when isOpen is true 1`] = `
-<withHandlers(Dropdown)
+<withHandlers(withState(Dropdown))
   buttonContent="Dropdown"
   icon={true}
   isOpen={false}
@@ -107,11 +107,11 @@ exports[`components/Dropdown should render children when isOpen is true 1`] = `
       Faster Results
     </li>
   </ul>
-</withHandlers(Dropdown)>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should use oui-button--full class when fullWidth is true 1`] = `
-<withHandlers(Dropdown)
+<withHandlers(withState(Dropdown))
   buttonContent="Dropdown"
   fullWidth={true}
   icon={true}
@@ -135,5 +135,5 @@ exports[`components/Dropdown should use oui-button--full class when fullWidth is
       Faster Results
     </li>
   </ul>
-</withHandlers(Dropdown)>
+</withHandlers(withState(Dropdown))>
 `;
