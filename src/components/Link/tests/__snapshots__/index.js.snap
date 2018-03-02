@@ -16,7 +16,7 @@ exports[`components/Link should render onclick 1`] = `
   className="link"
   data-ui-component={true}
   disabled={false}
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   Test Link
 </a>

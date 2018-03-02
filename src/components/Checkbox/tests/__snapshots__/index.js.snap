@@ -9,7 +9,7 @@ exports[`components/Checkbox should render a checked checkbox when \`checked\` i
       checked={true}
       className="flex--none"
       data-oui-component={true}
-      onChange={[Function]}
+      onChange={[MockFunction]}
       style={
         Object {
           "marginTop": "0.35em",
@@ -56,7 +56,7 @@ exports[`components/Checkbox should render an unchecked checkbox when \`checked\
       checked={false}
       className="flex--none"
       data-oui-component={true}
-      onChange={[Function]}
+      onChange={[MockFunction]}
       style={
         Object {
           "marginTop": "0.35em",

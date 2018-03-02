@@ -6,6 +6,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 29.4.0 - 2018-03-02
+- [Fix] Fix children onClick handlers in Dropdown component
+- [Fix] Correctly import tippy.css into oui.scss main
+- [Path] Update babel to support decorators
+
 ## 29.3.2 - 2018-02-22
 - [Fix] Fix Code and CopyButton components  
 - [Fix] Fix Accordion CSS to be backward compatible  
