@@ -104,6 +104,21 @@
   }
 }
 
+.oui-tabs--left-pad {
+  .#{$namespace}tabs-nav,
+  .oui-tabs-nav {
+    padding-left: 25px;
+  }
+}
+
+.oui-tabs--plain {
+  .#{$namespace}tabs-nav__item,
+  .oui-tabs-nav__item {
+    background-color: transparent;
+    border: 0;
+  }
+}
+
 .#{$namespace}tabs--small,
 .oui-tabs--small {
 
@@ -143,6 +158,23 @@
       height: 2px;
       background: map-fetch($color, background, brand);
       bottom: -1px;
+    }
+
+    &.tab-disabled {
+      @extend %link--disabled;
+      cursor: default;
+    }
+  }
+}
+
+.oui-tabs--header {
+  .#{$namespace}tabs-nav__item,
+  .oui-tabs-nav__item {
+
+    &.is-active::after {
+      height: 3px;
+      background: map-fetch($color, background, brand);
+      bottom: -3px;
     }
 
     &.tab-disabled {

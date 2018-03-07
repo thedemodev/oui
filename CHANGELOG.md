@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Added
+- [Feature] Added `left-pad`, `header`, and `plain` styling to `TabNav`
+
+### Fixed
+- [Patch] Handle null children in TabNav for conditional rendering
 
 ## 29.4.0 - 2018-03-02
 - [Fix] Fix children onClick handlers in Dropdown component
