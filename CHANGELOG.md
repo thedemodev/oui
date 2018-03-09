@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 29.4.1 - 2018-03-09
 ### Added
 - [Feature] Added `left-pad`, `header`, and `plain` styling to `TabNav`
 
