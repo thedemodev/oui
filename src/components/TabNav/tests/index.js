@@ -23,6 +23,20 @@ describe('components/TabNav', () => {
     expect(component.containsMatchingElement(<foo></foo>)).toBe(true);
   });
 
+  it('should render even with conditionally rendered children', () => {
+    const shouldRender = false;
+    const component = shallow(
+      <TabNav activeTab='foo'>
+        <foo></foo>
+        { shouldRender &&
+          <bar></bar>
+        }
+      </TabNav>
+    );
+    expect(component.containsMatchingElement(<foo></foo>)).toBe(true);
+    expect(component.containsMatchingElement(<bar></bar>)).toBe(false);
+  });
+
   it('should add the active class to the tab with the same active id assigned to activeTab', () => {
     const component = mount(
       <TabNav activeTab='first'>
