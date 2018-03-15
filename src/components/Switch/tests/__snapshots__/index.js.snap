@@ -1,17 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/Toggle should render an \`Toggle\` with correct props 1`] = `
-<label
-  className="oui-switch"
+<div
+  data-oui-component={true}
 >
   <input
+    class="oui-switch"
+    id="switch1"
     type="checkbox"
   />
-  <span
-    className="oui-switch-slider"
+  <label
+    data-off-label="Off"
+    data-on-label="On"
+    for="switch1"
   />
-  <span
-    className="oui-switch--text"
-  />
-</label>
+</div>
 `;

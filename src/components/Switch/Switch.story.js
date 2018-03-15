@@ -5,9 +5,9 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import Toggle from './index.js';
+import Switch from './index.js';
 
-const stories = storiesOf('Toggle', module);
+const stories = storiesOf('Switch', module);
 stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
@@ -17,7 +17,9 @@ stories
   ));
 
 stories.add('default', withInfo()(() => {
-  return <Toggle onClick={ action('clicked on toggle') }/>;
+  return <Switch onClick={ action('clicked the switch') }/>;
 }));
 
-
+stories.add('off', withInfo()(() => {
+  return <Switch checked={ false } onClick={ action('clicked the switch') }/>;
+}));
