@@ -5,14 +5,14 @@ exports[`components/Toggle should render an \`Toggle\` with correct props 1`] = 
   data-oui-component={true}
 >
   <input
-    class="oui-switch"
+    className="oui-switch"
     id="switch1"
     type="checkbox"
   />
   <label
     data-off-label="Off"
     data-on-label="On"
-    for="switch1"
+    htmlFor="switch1"
   />
 </div>
 `;
