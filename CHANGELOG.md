@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 30.0.1 - 2018-03-16
+### Fixed
+- [Patch] Export Switch component from main.js
+
 ## 30.0.0 - 2018-03-15
 - [Feature] Renaming Toggle to Switch component and adding final CSS that includes focus state (#930)
 
