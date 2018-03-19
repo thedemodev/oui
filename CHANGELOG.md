@@ -11,7 +11,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Export Switch component from main.js
 
 ## 30.0.0 - 2018-03-15
-- [Feature] Renaming Toggle to Switch component and adding final CSS that includes focus state (#930)
+- [Feature] Breaking change: Rename `Toggle` to `Switch` component and add final CSS with focus state (#930)
 
 ## 29.4.1 - 2018-03-09
 ### Added
