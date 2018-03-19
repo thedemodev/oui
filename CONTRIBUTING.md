@@ -66,8 +66,8 @@ Run `yarn list` for an entire list.
   * `[Patch]` changes: `npm version patch`
   * `[Feature]` changes: `npm version minor`
   * `[Release]` changes: `npm version major`
-7. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new). It should [look like this](https://www.dropbox.com/s/1nln5ttbxfbacuv/Screenshot%202015-09-02%2011.31.21.png). Tips:
-  1. Select the new tag version
-  2. Leave “Release title” blank
-  3. Paste in “Unreleased” contributions from the `CHANGELOG.md` release notes
+7. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new). It should [look like this](https://www.dropbox.com/s/1nln5ttbxfbacuv/Screenshot%202015-09-02%2011.31.21.png):
+  * Select the new tag version
+  * Leave “Release title” blank
+  * Paste in “Unreleased” contributions from the `CHANGELOG.md` release notes
 8. **Note for Optimizely developers:** Please manually bump OUI in the Optimizely app's `package.json` and ensure nothing broke locally before releasing.
