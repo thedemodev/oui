@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Patch] Fix Switch component position bug by adding relative wrapper
 
 ## 30.0.1 - 2018-03-16
 ### Fixed
@@ -23,7 +25,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## 29.4.0 - 2018-03-02
 - [Fix] Fix children onClick handlers in Dropdown component
 - [Fix] Correctly import tippy.css into oui.scss main
-- [Path] Update babel to support decorators
+- [Patch] Update babel to support decorators
 
 ## 29.3.2 - 2018-02-22
 - [Fix] Fix Code and CopyButton components  

@@ -7,7 +7,7 @@ const Switch = ({
   checked,
 }) => {
   return (
-    <div data-oui-component={ true }>
+    <div className='position--relative' data-oui-component={ true }>
       <input type="checkbox" id={ elementId } className="oui-switch" checked={ checked } onClick={ onClick }/>
       <label htmlFor={ elementId } data-on-label="On" data-off-label="Off"></label>
     </div>

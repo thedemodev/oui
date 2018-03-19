@@ -2,6 +2,7 @@
 
 exports[`components/Toggle should render an \`Toggle\` with correct props 1`] = `
 <div
+  className="position--relative"
   data-oui-component={true}
 >
   <input
