@@ -5,10 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Patch] Properly rename folder and component name Rangeslider to RangeSlider.
 
 ## 31.0.0 - 2018-04-05
 ### Changed
 - [Release] (Breaking change) Updated good-news color to X style.
+- [Feature] Add RangeSlider CSS and React component.
 
 ### Added
 - [Feature] Added `left-pad`, `header`, and `plain` styling to `TabNav`

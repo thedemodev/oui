@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Rangeslider = (props) => {
+const RangeSlider = (props) => {
   const { value, onChange } = props;
   return (
     <div className="oui-rangeslider" data-test-section={ props.testSection }>
@@ -44,7 +44,7 @@ const Rangeslider = (props) => {
   );
 };
 
-Rangeslider.propTypes = {
+RangeSlider.propTypes = {
   /** onChange function */
   onChange: PropTypes.func,
   /** Hook for automated JavaScript tests */
@@ -53,4 +53,4 @@ Rangeslider.propTypes = {
   value: PropTypes.number,
 };
 
-export default Rangeslider;
+export default RangeSlider;

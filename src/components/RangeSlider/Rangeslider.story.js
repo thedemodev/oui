@@ -4,9 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import Rangeslider from './index.js';
+import RangeSlider from './index.js';
 
-const stories = storiesOf('Rangeslider', module);
+const stories = storiesOf('RangeSlider', module);
 stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
@@ -19,7 +19,7 @@ stories.add('default', withInfo()(() => {
   return (
     <div>
       <input type="text" className="oui-text-input push-double--bottom" />
-      <Rangeslider
+      <RangeSlider
         value={ number('value', 50) }
       />
       <input type="text" className="oui-text-input" />
