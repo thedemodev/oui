@@ -38,7 +38,8 @@
 ///   </div>
 ////
 
-.#{$namespace}dialog {
+.#{$namespace}dialog,
+.oui-dialog {
   position: relative;
   box-shadow: 0 0 map-fetch($shadow, big);
   width: map-fetch($dialog, width, base);
