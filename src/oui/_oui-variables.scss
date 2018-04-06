@@ -29,13 +29,13 @@ $root-color: (
   grey-25                    : tint($base-black, 75%),
   grey-12                    : tint($base-black, 88%),
   grey-06                    : tint($base-black, 94%),
-  grey-03                    : tint($base-black, 97%),
+  grey-03                    : tint($base-black, 97%), // #F6F6F7
   brand                      : #0081BA,
   brand-light                : #9ACCE2,
   brand-dark                 : #004766,
   warning                    : #FFD40C,
   bad-news                   : #C60C0C,
-  good-news                  : #97C70A,
+  good-news                  : #14A54A,
   draft                      : #F4B852, // Brand Oakland
   live                       : #77C96F, // Brand Haight+1
   admin                      : #FCB423 // Admin from v1
@@ -187,7 +187,7 @@ $button: (
 
   type: (
     base: (
-      background             : #F6F6F7,
+      background             : map-fetch($root-color, grey-03),
       border                 : #CDD0D8,
       color                  : map-fetch($color, text, base),
       hover:(
@@ -309,7 +309,7 @@ $token: (
 /// Badge
 
 $badge: (
-  background-color           : #B4B7B9,
+  background-color           : map-fetch($root-color, grey-85),
   size                       : 14px,
   min-width                  : 16px,
   font-size                  : 10px,

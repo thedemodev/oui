@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Changed
+- [Release] (Breaking change) Updated good-news color to X style.
+
+### Added
+- [Feature] Added `left-pad`, `header`, and `plain` styling to `TabNav`
 
 ## 30.0.3 - 2018-03-21
 ### Fixed
