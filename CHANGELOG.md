@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Patch] Move jest-cli to dev-dependencies to clean up downstream effects in Optimizely repo.
 
 ## 31.0.1 - 2018-04-06
 ### Fixed
