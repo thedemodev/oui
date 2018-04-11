@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Changed
+- [Feature] Rename and nest Tippy css as sass.
+
 ### Fixed
 - [Patch] Move jest-cli to dev-dependencies to clean up downstream effects in Optimizely repo.
 
