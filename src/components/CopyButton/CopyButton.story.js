@@ -33,6 +33,6 @@ stories
 stories
   .add('default', withInfo()(() => {
     return (
-      <CopyButton text={ code } />
+      <CopyButton textToCopy={ code } />
     );
   }));

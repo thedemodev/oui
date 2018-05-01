@@ -62,9 +62,9 @@
     "postcss-loader": "^0.13.0",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "react-addons-test-utils": "15.6.2",
     "react-docgen": "^2.8.2",
+    "react-dom": "^16.0.0",
     "react-element-to-jsx-string": "^5.0.0",
     "react-ga": "^2.1.2",
     "react-router": "^3.0.1",
@@ -73,6 +73,7 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^4.0.2",
     "scribesass-parser": "optimizely/scribesass-parser#9639a63cb8883c5341cd285af468c5949a06f66f",
+    "storybook-chrome-screenshot": "^1.1.0-alpha.1",
     "style-loader": "^0.13.1",
     "svg-inline-loader": "^0.7.1",
     "webpack": "^3.10.0",
@@ -100,7 +101,8 @@
     "build-storybook": "build-storybook -c .storybook -o ./storybook",
     "build-styles": "./node_modules/.bin/webpack",
     "build-docs": "cd ./gatsby && npm run build",
-    "watch": "./node_modules/.bin/webpack --watch"
+    "watch": "./node_modules/.bin/webpack --watch",
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook -o ./screenshots --debug"
   },
   "repository": {
     "type": "git",

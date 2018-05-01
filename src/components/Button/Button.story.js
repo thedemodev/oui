@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
+import { initScreenshot, withScreenshot } from "storybook-chrome-screenshot/lib"
 
 import ButtonRow from '../ButtonRow';
 import Button from './index.js';
