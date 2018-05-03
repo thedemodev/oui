@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tether from 'tether';
+import { waitForSelector } from '../../utils/poll';
 
 /**
  * Intelligently position elements on a page.
@@ -40,10 +41,16 @@ class OverlayWrapper extends React.Component {
       options.targetAttachment = `${this.props.verticalTargetAttachment} ${this.props.horizontalTargetAttachment}`;
     }
 
-    this._tether = this.createTether(options);
-    // Disable Tether after creation for performance improvements. This is okay
-    // since it is hidden by default.
-    this.disableTether();
+    // Because Tether will err if createTether is called when the body element
+    // is not available, we need to wait for the body. The waitForSelector util
+    // uses a recursive timeout and can be used because we know the body
+    // is certain to be available eventually.
+    waitForSelector('body').then(() => {
+      this._tether = this.createTether(options);
+      // Disable Tether after creation for performance improvements.
+      // This is okay since it is hidden by default.
+      this.disableTether();
+    });
   }
 
   enableTether() {
@@ -237,7 +244,7 @@ OverlayWrapper.propTypes = {
   /** Side of `children` that should attach to the `overlay` */
   horizontalTargetAttachment: PropTypes.oneOf(['left', 'center', 'right']),
   /** Attach `overlay` to an edge of the screen if it is going to move off */
-  isConstrainedToScreen: PropTypes.bool.isRequired,
+  isConstrainedToScreen: PropTypes.bool,
   /**
    * Function that runs when the `overlay` is hidden. Return `false` to prevent
    * the `overlay` from closing.

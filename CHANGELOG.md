@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Patch] Add new waitForSelector util to OverlayWrapper and wait for body before creating Tether.
 
 ## 31.0.3 - 2018-04-16
 ### Fixed
