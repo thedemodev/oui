@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 31.0.6 - 2018-05-04
+### Fixed
+- [Patch] Update OverlayWrapper to only interact with Tether once it's been created.
+
 ## 31.0.5 - 2018-05-03
 ### Fixed
 - [Patch] Add new waitForSelector util to OverlayWrapper and wait for body before creating Tether.

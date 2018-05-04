@@ -54,6 +54,11 @@ class OverlayWrapper extends React.Component {
   }
 
   enableTether() {
+    // If tether hasn't been created, return early
+    if (!this._tether) {
+      return;
+    }
+
     this.setState({ 'isOverlayOpen': true });
     this._tether.enable();
 
@@ -81,6 +86,11 @@ class OverlayWrapper extends React.Component {
   }
 
   disableTether() {
+    // If tether hasn't been created, return early
+    if (!this._tether) {
+      return;
+    }
+
     let shouldHide = true;
     if (typeof this.props.onHide === 'function') {
       shouldHide = this.props.onHide();
@@ -129,6 +139,10 @@ class OverlayWrapper extends React.Component {
 
   componentWillUnmount() {
     this.removeBodyEventListner();
+    // If tether hasn't been created, return early
+    if (!this._tether) {
+      return;
+    }
     this._tether.destroy();
     if (this._tether.element && this._tether.element.remove) {
       this._tether.element.remove();
