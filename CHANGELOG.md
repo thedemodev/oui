@@ -8,7 +8,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## 31.0.6 - 2018-05-04
 ### Fixed
-- [Patch] Update OverlayWrapper to only interact with Tether once it's been created.
+- [Patch] Update OverlayWrapper to only interact with Tether once it has been created.
 
 ## 31.0.5 - 2018-05-03
 ### Fixed
