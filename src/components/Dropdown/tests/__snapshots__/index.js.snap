@@ -28,6 +28,15 @@ exports[`components/Dropdown should highlight button class when style equals hig
 </withHandlers(withState(Dropdown))>
 `;
 
+exports[`components/Dropdown should include oui-form-bad-news class when display error is true 1`] = `
+<withHandlers(withState(Dropdown))
+  buttonContent="Dropdown"
+  displayError={true}
+  isOpen={false}
+  toggle={[Function]}
+/>
+`;
+
 exports[`components/Dropdown should not render children when isDisabled is true 1`] = `
 <withHandlers(withState(Dropdown))
   buttonContent="Dropdown"

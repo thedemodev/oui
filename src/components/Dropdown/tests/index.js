@@ -130,5 +130,15 @@ describe('components/Dropdown', () => {
     );
     expect(shallowToJson(component)).toMatchSnapshot();
   });
-});
 
+  it('should include oui-form-bad-news class when display error is true', () => {
+    const component = shallow(
+      <Dropdown
+        buttonContent='Dropdown'
+        displayError={ true }>
+      </Dropdown>
+    );
+    expect(shallowToJson(component)).toMatchSnapshot();
+  });
+
+});

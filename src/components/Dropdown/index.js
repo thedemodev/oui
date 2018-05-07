@@ -29,6 +29,7 @@ class Dropdown extends React.Component {
       children,
       isDisabled = false,
       isOpen,
+      displayError = false,
       fullWidth,
       placement = 'bottom-start',
       style,
@@ -39,7 +40,8 @@ class Dropdown extends React.Component {
 
     const groupClass = classNames(
       'oui-dropdown-group',
-      {['width--1-1']: fullWidth}
+      {['width--1-1']: fullWidth},
+      {['oui-form-bad-news']: displayError}
     );
 
     const buttonClass = classNames(
@@ -121,6 +123,8 @@ Dropdown.propTypes = {
   ]),
   /** Dropdown contents, typically using the <Blocklist> component. */
   children: PropTypes.node.isRequired,
+  /** Show error state. */
+  displayError: PropTypes.bool,
   /** Button width is either full or inline-block. */
   fullWidth: PropTypes.bool,
   /** Unused... */
