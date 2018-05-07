@@ -35,7 +35,7 @@ const RangeSlider = (props) => {
             min="0"
             max="100"
             step="1"
-            defaultValue={ value }
+            value={ value }
             onChange={ onChange }
           />
         </div>

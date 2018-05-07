@@ -103,14 +103,14 @@ stories
             <TextField
               label='Email'
               type='text'
-              value='wrong@email.com'
+              defaultValue='wrong@email.com'
             />
           </li>
           <li className="lego-form-fields__item push--bottom">
             <Input
               label='Password'
               type='password'
-              value='12345678'
+              defaultValue='12345678'
             />
           </li>
           <li className="lego-form-fields__item push--bottom">
@@ -158,7 +158,7 @@ stories
             <Input
               label='Password'
               type='password'
-              value='12345678'
+              defaultValue='12345678'
             />
           </li>
           <li className="lego-form-fields__item push--bottom">

@@ -19,9 +19,7 @@ stories.add('default', withInfo()(() => {
   return (
     <div>
       <input type="text" className="oui-text-input push-double--bottom" />
-      <RangeSlider
-        defaultValue={ number('defaultValue', 50) }
-      />
+      <RangeSlider />
       <input type="text" className="oui-text-input" />
     </div>
   );
