@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 31.1.0 - 2018-05-07
 ### Fixed
 - [Minor] Add displayError prop to Dropdown for error state (#947)
 
