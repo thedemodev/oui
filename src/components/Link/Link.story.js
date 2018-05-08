@@ -37,6 +37,27 @@ stories
       </ul>
     );
   }))
+  .add('new window', withInfo()(() => {
+    return (
+      <ul>
+        <li>
+          <Link
+            href={ text('href', 'http://google.com') }
+            newWindow={ boolean('newWindow', true) }
+            style={ select('style',
+              {
+                default: 'default',
+                dark: 'dark',
+                muted: 'muted',
+                'bad-news': 'bad-news',
+                reverse: 'reverse',
+              }, 'default') }>
+            { text('children', 'Link') }
+          </Link>
+        </li>
+      </ul>
+    );
+  }))
   .add('all links', () => {
     return (
       <ul>

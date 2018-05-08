@@ -17,6 +17,17 @@ describe('components/Link', () => {
     expect(shallowToJson(output)).toMatchSnapshot();
   });
 
+  it('should render target blank attribute', () => {
+    const output = shallow(
+      <Link
+        href='http://google.com'
+        newWindow={ true }>
+        Test Link
+      </Link>
+    );
+    expect(shallowToJson(output)).toMatchSnapshot();
+  });
+
   it('should render style classes', () => {
     const output = shallow(
       <Link

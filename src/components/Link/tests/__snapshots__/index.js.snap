@@ -31,3 +31,16 @@ exports[`components/Link should render style classes 1`] = `
   Test Link
 </a>
 `;
+
+exports[`components/Link should render target blank attribute 1`] = `
+<a
+  className="link"
+  data-ui-component={true}
+  disabled={false}
+  href="http://google.com"
+  rel="noopener"
+  target="_blank"
+>
+  Test Link
+</a>
+`;

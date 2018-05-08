@@ -5,10 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Feature] Add newWindow prop to Link component (#948)
 
 ## 31.1.0 - 2018-05-07
 ### Fixed
-- [Minor] Add displayError prop to Dropdown for error state (#947)
+- [Feature] Add displayError prop to Dropdown for error state (#947)
 
 ## 31.0.6 - 2018-05-04
 ### Fixed
