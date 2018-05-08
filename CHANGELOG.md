@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 ### Fixed
+- [Patch] React icons bump to 2.1.0
 - [Feature] Add newWindow prop to Link component (#948)
 
 ## 31.1.0 - 2018-05-07
