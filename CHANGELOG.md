@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 31.2.0 - 2018-05-08
 ### Fixed
 - [Patch] React icons bump to 2.1.0
 - [Feature] Add newWindow prop to Link component (#948)
