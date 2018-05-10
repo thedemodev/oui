@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 ### Added
 - [Feature] Expose isAnimated prop to disable animation in Poptip
+- [Patch] Fix security nit from GitHub (hoek 4.2.1, Gatsby dev dependency)
 
 ### Fixed
 - [Patch] Delay Poptip rending until the body is ready
