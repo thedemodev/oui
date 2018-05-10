@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 31.3.0 - 2018-05-10
 ### Added
 - [Feature] Expose isAnimated prop to disable animation in Poptip
 - [Patch] Fix security nit from GitHub (hoek 4.2.1, Gatsby dev dependency)
