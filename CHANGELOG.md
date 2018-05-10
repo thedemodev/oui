@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Added
+- [Feature] Expose isAnimated prop to disable animation in Poptip
+
+### Fixed
+- [Patch] Delay Poptip rending until the body is ready
+- [Patch] Fix a bug with the disabled prop, which allows for the Poptip to be conditionally disabled
 
 ## 31.2.0 - 2018-05-08
 ### Fixed
