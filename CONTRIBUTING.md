@@ -57,6 +57,7 @@ Run `yarn list` for an entire list.
 
 ## Releasing a new version of OUI
 
+0. Commit changes, push, create PR, get approval, squash & merge...
 1. Run `git checkout devel && git pull && git checkout master && git pull` to get the latest version of each branch.
 2. Use `git merge devel` to merge `devel` into `master`.
 3. Open `CHANGELOG.md` and determine the new version number. Version numbers follow the format `x.y.z` where each letter corresponds to: `Release.Feature.Patch`. You should increase the number of the highest severity change in the version. If there is a `Release` change, `23.1.9` would become `24.0.0`. But if there are only `Patch` changes, then `23.1.9` becomes `23.1.10`.
