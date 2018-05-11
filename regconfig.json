@@ -1,0 +1,24 @@
+{
+  "core": {
+    "workingDir": ".reg",
+    "actualDir": "vizreg_image_source",
+    "threshold": 0,
+    "addIgnore": true,
+    "thresholdRate": 0,
+    "ximgdiff": {
+      "invocationType": "client"
+    }
+  },
+  "plugins": {
+    "reg-keygen-git-hash-plugin": {},
+    "reg-notify-github-plugin": {
+      "clientId": "MzI0Mbc0NbHUzy/N1Dc0s7A0N9HPLyjJzM2sSs2pBAA="
+    },
+    "reg-notify-slack-plugin": {
+      "webhookUrl": "https://hooks.slack.com/services/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"
+    },
+    "reg-publish-s3-plugin": {
+      "bucketName": "optimizely-oui-vizregtesting"
+    }
+  }
+}

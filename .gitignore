@@ -19,3 +19,4 @@ gatsby/react/data.json
 gatsby/storybook/static/*
 gatsby/node_modules
 gatsby/public
+.reg

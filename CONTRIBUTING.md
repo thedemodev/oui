@@ -18,6 +18,7 @@ Here are a few commonly used commands:
 * `yarn test` - lints and tests the codebase
 * `yarn docs:watch` - runs the documentation environment locally
 * `yarn docs:build:json` - rebuilds the JSON that powers the documentation. This command is helpful in conjunction with `yarn docs:watch` when updating Sass or React examples.
+* `yarn viz` - visual regression testing all stories in the Storybook against the previous OUI release.
 
 Run `yarn list` for an entire list.
 

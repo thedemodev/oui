@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Visual regression testing, to catch UI bugs before they become JIRA tickets.
 
 ## 31.0.3 - 2018-04-16
 ### Fixed

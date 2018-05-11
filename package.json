@@ -69,6 +69,10 @@
     "react-ga": "^2.1.2",
     "react-router": "^3.0.1",
     "react-test-renderer": "^16.0.0",
+    "reg-keygen-git-hash-plugin": "^0.7.1",
+    "reg-notify-github-plugin": "^0.7.2",
+    "reg-notify-slack-plugin": "^0.7.1",
+    "reg-publish-s3-plugin": "^0.7.2",
     "regenerator-runtime": "^0.11.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "^4.0.2",
@@ -102,7 +106,8 @@
     "build-styles": "./node_modules/.bin/webpack",
     "build-docs": "cd ./gatsby && npm run build",
     "watch": "./node_modules/.bin/webpack --watch",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook -o ./screenshots --debug"
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook -o ./vizreg_image_source --debug",
+    "viz": "yarn screenshot && reg-suit run"
   },
   "repository": {
     "type": "git",
