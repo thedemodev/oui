@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Feature] Visual regression testing, to catch UI bugs before they become JIRA tickets.
+- [Feature] Bump react-oui-icons to 2.1.0 (fill/currentColor fixed; allow ellipse shapes in json output)
 
 ## 31.0.3 - 2018-04-16
 ### Fixed

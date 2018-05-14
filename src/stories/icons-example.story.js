@@ -47,7 +47,7 @@ stories.add('all icons', () => {
           style={ styles.icon }
           description={ icon.title }
           name={ icon.title.split(' ').join('-') }
-          fill={ text('color', 'black') }
+          fill={ select('fill', {black: 'black', hotpink: 'hotpink', rebeccapurple: 'rebeccapurple'}, 'black') }
           size={ select('size', {small: 'small', medium: 'medium', large: 'large'}, 'medium') }
         />
       </Box>
@@ -62,12 +62,23 @@ stories.add('all icons', () => {
   );
 });
 
-stories.add('icon docs', withInfo('react <Icon /> component')(() => {
+stories.add('text with icon', () => {
   return (
-    <Icon name='bell' size='large' />
+    <h2 style={{ color: 'hotpink' }}>Hotpink Test
+      <span className="push-half--left"><Icon name="help" /></span>
+    </h2>
   );
-}
-));
+});
+
+stories.add('icon docs', () => {
+  return (
+    <Icon
+      name={ select('name', {bell: 'bell', exclaimation: 'exclaimation', help: 'help'}, 'help') }
+      size={ select('size', {small: 'small', medium: 'medium', large: 'large'}, 'large') }
+      fill={ select('fill', {black: 'black', hotpink: 'hotpink', rebeccapurple: 'rebeccapurple'}, 'hotpink') }
+    />
+  );
+});
 
 stories.add('animated icon', () => {
   return (
