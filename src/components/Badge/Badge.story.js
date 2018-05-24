@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Badge from './index.js';
 
@@ -23,10 +22,10 @@ stories
     <Badge color="primary">Primary</Badge>
     <Badge color="plain">Plain</Badge>
   </div>))
-  .add('with text', withInfo()(() => (<div className="flex flex-align--center">
+  .add('with text', () => (<div className="flex flex-align--center">
     <Badge color="draft">1</Badge>{ text('text', 'Unpublished Change') }
   </div>)
-  ))
+  )
   .add('with numbers', () => (<div>
     <Badge color="draft">{ number('draft number', 9) }</Badge>
     <Badge color="live">{ number('light number', 9) }</Badge>

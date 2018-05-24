@@ -64,9 +64,11 @@ stories.add('all icons', () => {
 
 stories.add('text with icon', () => {
   return (
-    <h2 style={{ color: 'hotpink' }}>Hotpink Test
-      <span className="push-half--left"><Icon name="help" /></span>
-    </h2>
+    <div>
+      <h2 style={{ color: 'hotpink' }}>Hotpink Test
+        <span className="push-half--left"><Icon name="help" /></span>
+      </h2>
+    </div>
   );
 });
 
