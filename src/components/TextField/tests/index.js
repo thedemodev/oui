@@ -129,4 +129,14 @@ describe('components/TextField', () => {
     expect(focusEvent).toHaveBeenCalled();
   });
 
+  it('should render HTML type=number for when prop.type is percent', () => {
+    const output = shallow(
+      <TextField
+        type='percent'
+      />
+    );
+    expect(shallowToJson(output)).toMatchSnapshot();
+  });
+
+
 });

@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Added
+- [Feature] New `type=percent` prop for <TextField> component that adds `%` and handles vertical centering automatically.
+- [Patch] Fix `<TextField type=number>` to align text right.
+
 ### Changed
 - [Patch] Remove Gatsby to simplify documentation and migrate to Storybook for everything.
 

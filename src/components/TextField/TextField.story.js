@@ -33,7 +33,7 @@ stories
         onBlur={ action('on blur') }
         onKeyDown={ action('on key press') }
         placeholder={ text('placeholder', 'just a placeholder') }
-        type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
+        type={ select('type', ['text', 'password', 'number', 'date', 'percent'], 'text') }
       />);
   })).add('TextField', () => {
     return (
@@ -43,12 +43,19 @@ stories
         placeholder="Just a placeholder"
         type="text"
       />);
+  }).add('Percent', () => {
+    return (
+      <TextField
+        placeholder="100"
+        defaultValue={ text('defaultValue', '0') }
+        type="percent"
+      />);
   }).add('Error state', () => {
     return (
       <TextField
         label="Field label"
         displayError={ true }
-        note="A short description or note about this field."
+        note="Form error note."
         placeholder="Just a placeholder"
         type="text"
       />);
