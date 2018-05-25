@@ -10,8 +10,6 @@ npm-debug.log
 .idea
 
 docs
-gatsby
-newdocs
 dist/docs
 dist/js/components/**/*.story.js
 .storybook

@@ -7,8 +7,6 @@ s3
 npm-debug.log
 
 docs
-gatsby
-newdocs
 scripts
 storybook
 src/components/**/*.story.js

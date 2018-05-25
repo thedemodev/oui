@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Changed
+- [Patch] Remove Gatsby to simplify documentation and migrate to Storybook for everything.
 
 ## 31.3.0 - 2018-05-10
 ### Added

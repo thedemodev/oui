@@ -11,11 +11,3 @@ coverage
 .sass-cache
 .DS_Store
 .idea
-
-gatsby/.cache
-gatsby/data
-gatsby/lite/sass.json
-gatsby/react/data.json
-gatsby/storybook/static/*
-gatsby/node_modules
-gatsby/public
