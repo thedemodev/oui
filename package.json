@@ -106,7 +106,7 @@
     "build-styles": "./node_modules/.bin/webpack",
     "build-docs": "cd ./gatsby && npm run build",
     "watch": "./node_modules/.bin/webpack --watch",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook -o ./vizreg_image_source --debug",
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybookScreenshots -o ./screenshots --debug",
     "viz": "yarn screenshot && reg-suit run"
   },
   "repository": {
