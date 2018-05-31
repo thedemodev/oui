@@ -18,6 +18,20 @@ stories
   ));
 
 stories
+  .add('button', () => {
+    return (
+      <div>
+        <span className="push--right">
+          <Button style="outline">
+            Outline Button
+          </Button>
+        </span>
+        <Button style="highlight">
+          Highlight Button
+        </Button>
+      </div>
+    );
+  })
   .add('customize me!', () => {
     return (
       <Button

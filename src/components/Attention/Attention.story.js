@@ -23,6 +23,16 @@ stories
   ));
 
 stories
+  .add('attention', () => {
+    return (
+      <Attention
+        alignment='center'
+        isDismissible={ true }
+        type='warning'>
+        Hello! This is a short attention bar.
+      </Attention>
+    );
+  })
   .add('attentions states', withInfo()(() => {
     return (
       <Attention

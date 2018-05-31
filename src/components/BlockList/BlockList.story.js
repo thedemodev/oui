@@ -19,6 +19,27 @@ stories
   ));
 
 stories
+  .add('blocklist', () => (<div>
+    <BlockList hasBorder={ true } >
+      <BlockList.Category header="Recent Pages">
+        <BlockList.Item onClick={ action('click on complex item') }>
+          <div className="flex flex-align--center">
+            <div className="flex--1">
+              <div>Complex Item</div>
+              <div className="muted micro">This is the item description.</div>
+            </div>
+            <Button size="small" style="outline" width="default">Inner Button</Button>
+          </div>
+        </BlockList.Item>
+        <BlockList.Item onClick={ action('click blocklist item shopping cart') }>
+          Shopping Cart
+        </BlockList.Item>
+        <BlockList.Item onClick={ action('click blocklist item order confirmation') }>
+          Order Confirmation
+        </BlockList.Item>
+      </BlockList.Category>
+    </BlockList>
+  </div>))
   .add('blocklist with border', withInfo()(() => (<div>
     <BlockList hasBorder={ true } >
       <BlockList.Category header="Recent Pages">
@@ -140,4 +161,3 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)));
-

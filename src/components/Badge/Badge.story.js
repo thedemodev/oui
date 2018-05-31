@@ -15,6 +15,9 @@ stories
   ));
 
 stories
+  .add('badge', () => (<div>
+    <Badge color="live">Badge Live</Badge>
+  </div>))
   .add('all badges', () => (<div>
     <Badge color="default">Default</Badge>
     <Badge color="draft">Draft</Badge>
