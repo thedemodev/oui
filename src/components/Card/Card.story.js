@@ -16,6 +16,16 @@ stories
   ));
 
 stories
+  .add('card', () => {
+    return (
+      <Card
+        title='Card Title'
+        shadow={ false }
+        testSection="card">
+        Hello! This is a short card example.
+      </Card>
+    );
+  })
   .add('card states', withInfo()(() => {
     return (
       <Card
