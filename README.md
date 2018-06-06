@@ -22,9 +22,9 @@ This document contains four parts:
 
 ## Documentation
 
-[http://design.optimizely.com/docs/oui/](http://design.optimizely.com/docs/oui/)
-
-This “living” style guide is built in React and is automatically updated with each new OUI release.
+[Storybook](http://optimizely.github.io/oui/storybook/)
+[Custom documentation](http://design.optimizely.com/docs/oui/)
+[Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/)
 
 ***
 
