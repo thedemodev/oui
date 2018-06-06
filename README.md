@@ -22,9 +22,9 @@ This document contains four parts:
 
 ## Documentation
 
-[Storybook](http://optimizely.github.io/oui/storybook/)
-[Custom documentation](http://design.optimizely.com/docs/oui/)
-[Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/)
+- [Storybook](http://optimizely.github.io/oui/storybook/)
+- [Custom documentation](http://design.optimizely.com/docs/oui/)
+- [Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/)
 
 ***
 
