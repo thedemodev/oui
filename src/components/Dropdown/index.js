@@ -5,8 +5,17 @@ import { Manager, Popper, Target } from 'react-popper';
 import { withState } from 'recompose';
 import { withToggle } from '../../utils/recompose-utils';
 
+import DropdownContents from './DropdownContents';
+import DropdownListItem from './DropdownListItem';
+import DropdownBlockLink from './DropdownBlockLink';
+import DropdownBlockLinkText from './DropdownBlockLinkText';
+import DropdownBlockLinkSecondaryText from './DropdownBlockLinkSecondaryText';
+
+@withToggle
 @withState('overChildren', 'setOverChildren', false)
 class Dropdown extends React.Component {
+  static displayName = 'Dropdown';
+
   handleOnBlur = () => {
     if (!this.props.overChildren) {
       this.props.hide();
@@ -24,6 +33,7 @@ class Dropdown extends React.Component {
 
   render() {
     const {
+      activator,
       arrowIcon,
       buttonContent,
       children,
@@ -41,7 +51,8 @@ class Dropdown extends React.Component {
     const groupClass = classNames(
       'oui-dropdown-group',
       {['width--1-1']: fullWidth},
-      {['oui-form-bad-news']: displayError}
+      {['oui-form-bad-news']: displayError},
+      {['is-active']: isOpen},
     );
 
     const buttonClass = classNames(
@@ -66,21 +77,32 @@ class Dropdown extends React.Component {
         className={ groupClass }
         data-test-section={ testSection }>
         <Target>
-          <button
-            type='button'
-            className={ buttonClass }
-            disabled={ isDisabled }
-            onClick={ this.handleToggle }
-            onBlur={ this.handleOnBlur }>
-            <div className='flex'>
-              <div className='flex--1 truncate'>{ buttonContent }</div>
-              {
-                !!arrowIcon && arrowIcon !== 'none' && (
-                  <div className='text--right'><span className={ iconClass }/></div>
-                )
-              }
-            </div>
-          </button>
+          {
+            buttonContent && (
+              <button
+                type='button'
+                className={ buttonClass }
+                disabled={ isDisabled }
+                onClick={ this.handleToggle }
+                onBlur={ this.handleOnBlur }>
+                <div className='flex'>
+                  <div className='flex--1 truncate'>{ buttonContent }</div>
+                  {
+                    !!arrowIcon && arrowIcon !== 'none' && (
+                      <div className='text--right'><span className={ iconClass }/></div>
+                    )
+                  }
+                </div>
+              </button>
+            )
+          }
+          {
+            activator && React.cloneElement(activator, {
+              // trigger the dropdown if the child element is clicked on
+              onClick: this.handleToggle,
+              onBlur: this.handleOnBlur,
+            })
+          }
         </Target>
         <Popper
           placement={ placement }
@@ -104,6 +126,10 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  /** React element that when clicked activates the dropdown
+   * Either this prop OR buttonContent should be used, not both
+   */
+  activator: PropTypes.node,
   /** Arrow icon direction:
     * - Defaults to 'none', which hides the arrow
     * - passing a prop value of false also hides the arrow
@@ -116,7 +142,9 @@ Dropdown.propTypes = {
     'right',
     'up',
   ]),
-  /** Button text, can be a string or element. */
+  /** Button text, can be a string or element.
+   * Either this prop OR activator should be used, not both
+   */
   buttonContent: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -171,4 +199,10 @@ Dropdown.defaultProps = {
   arrowIcon: 'none',
 };
 
-export default withToggle(Dropdown);
+Dropdown.Contents = DropdownContents;
+Dropdown.ListItem = DropdownListItem;
+Dropdown.BlockLink = DropdownBlockLink;
+Dropdown.BlockLinkText = DropdownBlockLinkText;
+Dropdown.BlockLinkSecondaryText = DropdownBlockLinkSecondaryText;
+
+export default Dropdown;

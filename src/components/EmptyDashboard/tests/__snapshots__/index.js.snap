@@ -4,6 +4,8 @@ exports[`components/EmptyDashboard should render 1`] = `
 <EmptyDashboard
   button={
     <Button
+      onBlur={[Function]}
+      onClick={[Function]}
       style="highlight"
     >
       Highlight Button
@@ -96,12 +98,16 @@ exports[`components/EmptyDashboard should render 1`] = `
           className="push-double--top"
         >
           <Button
+            onBlur={[Function]}
+            onClick={[Function]}
             style="highlight"
           >
             <button
               className="oui-button oui-button--highlight oui-button--default"
               data-oui-component={true}
               disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
               type="button"
             >
               Highlight Button

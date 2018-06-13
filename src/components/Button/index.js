@@ -13,6 +13,7 @@ const Button = ({
   children,
   isActive,
   isDisabled = false,
+  onBlur,
   onClick,
   size,
   style,
@@ -35,6 +36,7 @@ const Button = ({
       className={ buttonClassNames }
       disabled={ isDisabled }
       type={ type }
+      onBlur={ onBlur }
       onClick={ onClick }
       data-test-section={ testSection }
       aria-label={ ariaLabel }>
@@ -54,6 +56,8 @@ Button.propTypes = {
   isDisabled: PropTypes.bool,
   /** Make the button act as a submit button */
   isSubmit: PropTypes.bool,
+  /** Function that fires when the button loses focus */
+  onBlur: PropTypes.func,
   /** Function that fires when the button is clicked on */
   onClick: PropTypes.func,
   /** Various height and width options */
@@ -83,6 +87,11 @@ Button.propTypes = {
     'default',
     'full',
   ]),
+};
+
+Button.defaultProps = {
+  onBlur: () => {},
+  onClick: () => {},
 };
 
 Button.displayName = 'Button';

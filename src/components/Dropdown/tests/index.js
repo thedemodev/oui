@@ -141,4 +141,13 @@ describe('components/Dropdown', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
+  it('should render an activator node when passed as a prop', () => {
+    const component = shallow(
+      <Dropdown
+        activator={ <button>Click me</button> }
+        displayError={ true }>
+      </Dropdown>
+    );
+    expect(shallowToJson(component)).toMatchSnapshot();
+  });
 });

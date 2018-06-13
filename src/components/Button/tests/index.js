@@ -14,16 +14,27 @@ describe('components/Button', () => {
   });
 
   it('should call function that is passed in as `onClick` after click', () => {
-    const obj = { func: () => {} };
-    spyOn(obj, 'func').and.stub();
+    const onClickSpy = jest.fn();
 
     const component = shallow(
-      <Button onClick={ obj.func }>Hello!</Button>
+      <Button onClick={ onClickSpy }>Hello!</Button>
     );
 
     component.simulate('click');
 
-    expect(obj.func).toHaveBeenCalled();
+    expect(onClickSpy).toHaveBeenCalled();
+  });
+
+  it('should call function that is passed in as `onBlur` after losing focus', () => {
+    const onBlurSpy = jest.fn();
+
+    const component = shallow(
+      <Button onBlur={ onBlurSpy }>Hello!</Button>
+    );
+
+    component.simulate('blur');
+
+    expect(onBlurSpy).toHaveBeenCalled();
   });
 
   it('should add an `aria-label` when provided', () => {

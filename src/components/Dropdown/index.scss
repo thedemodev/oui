@@ -99,7 +99,8 @@
   vertical-align: top;
 
   &.is-active {
-    .#{$namespace}dropdown {
+    .#{$namespace}dropdown,
+    .oui-dropdown {
       display: block;
     }
   }

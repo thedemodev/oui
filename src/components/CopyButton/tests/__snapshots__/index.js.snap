@@ -6,6 +6,8 @@ exports[`components/CopyButton should render children the icon button 1`] = `
 >
   <Button
     ariaLabel="Copy code snippet"
+    onBlur={[Function]}
+    onClick={[Function]}
     style="plain"
     testSection="fake-test-section-copy-button"
   >

@@ -7,6 +7,7 @@ import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from './index.js';
+import Button from '../Button';
 import BlockList from '../BlockList';
 import Icon from 'react-oui-icons';
 
@@ -148,6 +149,40 @@ stories.add('Z-index', withInfo()(() => {
           </Dropdown>
           <h1>This text should be behind the open dropdown</h1>
         </ScrollContainer>
+      </SubContainer>
+    </Container>
+  );
+}));
+
+stories.add('List', withInfo()(() => {
+  return (
+    <Container className="background--faint">
+      <SubContainer>
+        <Dropdown
+          isDisabled={ boolean('isDisabled', false) }
+          activator={
+            <Button>Click to activate</Button>
+          }
+          placement={ 'top-start' }
+          width={ number('width', 300) }>
+          <Dropdown.Contents
+            minWidth={ 300 }
+            direction={ 'up' }>
+            <Dropdown.ListItem>
+              <Dropdown.BlockLink onClick={ action('click dropdown block link') }>
+                <Dropdown.BlockLinkText text={ 'This is a label' } />
+                <Dropdown.BlockLinkSecondaryText secondaryText={ 'This is a smaller description' } />
+              </Dropdown.BlockLink>
+            </Dropdown.ListItem>
+            <Dropdown.ListItem>
+              <Dropdown.BlockLink onClick={ action('click dropdown block link 2') }>
+                <Dropdown.BlockLinkText text={ 'This is a second label' } />
+                <Dropdown.BlockLinkSecondaryText secondaryText={ 'This is a second smaller description' } />
+              </Dropdown.BlockLink>
+            </Dropdown.ListItem>
+          </Dropdown.Contents>
+        </Dropdown>
+        <h1>This text should be behind the open dropdown</h1>
       </SubContainer>
     </Container>
   );
