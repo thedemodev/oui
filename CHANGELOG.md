@@ -12,6 +12,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] DropdownContents, DropdownListItem, DropdownBlockLink, DropdownBlockLinkText, DropdownBlockLinkSecondaryText components added to Dropdown 
 - [Feature] Add onBlur prop to Button
 
+### Fixed
+- [Patch] Reorder plugins in babelrc according to recommendations by plugin owners
+
 ## 31.4.0 - 2018-05-25
 ### Added
 - [Feature] New `type=percent` prop for <TextField> component that adds `%` and handles vertical centering automatically.
