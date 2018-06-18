@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Changed
+- [Patch] Add index.js back from OUI version `7.0.0` for `design-dot` OUI upgrade to latest version. (#962)
+
 ### Added
 - [Feature] DropdownContents, DropdownListItem, DropdownBlockLink, DropdownBlockLinkText, DropdownBlockLinkSecondaryText components added to Dropdown 
 - [Feature] Add onBlur prop to Button
