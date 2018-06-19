@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 31.5.0 - 2018-06-19
 ### Changed
 - [Patch] Update reset CSS to hide number-input-spinners. (#964)
 - [Patch] Add index.js back from OUI version `7.0.0` for `design-dot` OUI upgrade to latest version. (#962)
