@@ -25,7 +25,13 @@ export default function DropdownContents(props) {
       className={ classes }
       style={ styleProps }
       { ...(props.testSection ? { 'data-test-section': props.testSection } : {}) }>
-      { props.children }
+      {
+        React.Children.map(props.children, (child) => {
+          return child && React.cloneElement(child, {
+            handleToggle: props.handleToggle,
+          });
+        })
+      }
     </ul>
   );
 }
@@ -37,6 +43,11 @@ DropdownContents.propTypes = {
   children: PropTypes.node.isRequired,
   /** Direction of contents */
   direction: PropTypes.oneOf(['left', 'right', 'up']),
+  /**
+   * Function passed to children to determine
+   * if dropdown should be hidden
+   */
+  handleToggle: PropTypes.func,
   /** Whether to wrap contents or not */
   isNoWrap: PropTypes.bool,
   /** Minimum width of contents */
@@ -51,6 +62,7 @@ DropdownContents.propTypes = {
 DropdownContents.defaultProps = {
   canScroll: false,
   direction: 'left',
+  handleToggle: () => {},
   isNoWrap: false,
   testSection: '',
 };

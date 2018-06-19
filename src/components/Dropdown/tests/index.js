@@ -136,6 +136,14 @@ describe('components/Dropdown', () => {
       <Dropdown
         buttonContent='Dropdown'
         displayError={ true }>
+        <ul>
+          { data.map((item, index) => {
+            return (
+              <li key={ index }>{ item.title }</li>
+            );
+          })
+          }
+        </ul>
       </Dropdown>
     );
     expect(shallowToJson(component)).toMatchSnapshot();
@@ -146,6 +154,14 @@ describe('components/Dropdown', () => {
       <Dropdown
         activator={ <button>Click me</button> }
         displayError={ true }>
+        <ul>
+          { data.map((item, index) => {
+            return (
+              <li key={ index }>{ item.title }</li>
+            );
+          })
+          }
+        </ul>
       </Dropdown>
     );
     expect(shallowToJson(component)).toMatchSnapshot();

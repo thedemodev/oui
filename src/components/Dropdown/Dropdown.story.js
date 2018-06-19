@@ -8,7 +8,6 @@ import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from './index.js';
 import Button from '../Button';
-import BlockList from '../BlockList';
 import Icon from 'react-oui-icons';
 
 const data = [
@@ -34,24 +33,20 @@ stories.add('Default', withInfo()(() => {
         buttonContent='Default Dropdown'
         width={ number('width', 300) }
         arrowIcon={ true }>
-        <BlockList>
+        <Dropdown.Contents>
           {
             data.map((item, index) => {
               return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
+                <Dropdown.ListItem key={ index }>
+                  <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                    <Dropdown.BlockLinkText text={ item.title } />
+                    <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                  </Dropdown.BlockLink>
+                </Dropdown.ListItem>
               );
             })
           }
-        </BlockList>
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
@@ -65,24 +60,20 @@ stories.add('Error', withInfo()(() => {
         width={ number('width', 300) }
         displayError={ true }
         arrowIcon={ true }>
-        <BlockList>
+        <Dropdown.Contents>
           {
             data.map((item, index) => {
               return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
+                <Dropdown.ListItem key={ index }>
+                  <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                    <Dropdown.BlockLinkText text={ item.title } />
+                    <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                  </Dropdown.BlockLink>
+                </Dropdown.ListItem>
               );
             })
           }
-        </BlockList>
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
@@ -96,24 +87,20 @@ stories.add('Icon', withInfo()(() => {
         fullWidth={ boolean('fullWidth', false) }
         buttonContent={ <div>Hamburgers <span className="push-half--left"><Icon name='hamburger' /></span></div> }
         width={ number('width', 350) }>
-        <BlockList>
+        <Dropdown.Contents>
           {
             data.map((item, index) => {
               return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
+                <Dropdown.ListItem key={ index }>
+                  <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                    <Dropdown.BlockLinkText text={ item.title } />
+                    <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                  </Dropdown.BlockLink>
+                </Dropdown.ListItem>
               );
             })
           }
-        </BlockList>
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
@@ -128,24 +115,22 @@ stories.add('Z-index', withInfo()(() => {
             isDisabled={ boolean('isDisabled', false) }
             buttonContent='Dropdown'
             width={ number('width', 300) }>
-            <BlockList>
+            <Dropdown.Contents
+              minWidth={ 300 }
+              direction={ 'up' }>
               {
                 data.map((item, index) => {
                   return (
-                    <BlockList.Category header={ item.header } key={ index }>
-                      <BlockList.Item onClick={ action('click on complex item') }>
-                        <div className="flex flex-align--center">
-                          <div className="flex--1">
-                            <div>{ item.title }</div>
-                            <div className="muted micro">{ item.description }</div>
-                          </div>
-                        </div>
-                      </BlockList.Item>
-                    </BlockList.Category>
+                    <Dropdown.ListItem key={ index }>
+                      <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                        <Dropdown.BlockLinkText text={ item.title } />
+                        <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                      </Dropdown.BlockLink>
+                    </Dropdown.ListItem>
                   );
                 })
               }
-            </BlockList>
+            </Dropdown.Contents>
           </Dropdown>
           <h1>This text should be behind the open dropdown</h1>
         </ScrollContainer>

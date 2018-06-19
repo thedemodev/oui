@@ -36,7 +36,25 @@ exports[`components/Dropdown should include oui-form-bad-news class when display
   displayError={true}
   isOpen={false}
   toggle={[Function]}
-/>
+>
+  <ul>
+    <li
+      key="0"
+    >
+      Manual
+    </li>
+    <li
+      key="1"
+    >
+      Maximize Conventions
+    </li>
+    <li
+      key="2"
+    >
+      Faster Results
+    </li>
+  </ul>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should not render children when isDisabled is true 1`] = `
@@ -107,7 +125,25 @@ exports[`components/Dropdown should render an activator node when passed as a pr
   displayError={true}
   isOpen={false}
   toggle={[Function]}
-/>
+>
+  <ul>
+    <li
+      key="0"
+    >
+      Manual
+    </li>
+    <li
+      key="1"
+    >
+      Maximize Conventions
+    </li>
+    <li
+      key="2"
+    >
+      Faster Results
+    </li>
+  </ul>
+</withHandlers(withState(Dropdown))>
 `;
 
 exports[`components/Dropdown should render children when isOpen is true 1`] = `
