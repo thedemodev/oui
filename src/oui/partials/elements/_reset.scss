@@ -258,3 +258,11 @@ input[type="submit"] {
 :-ms-input-placeholder {
   color: map-fetch($color, text, muted);
 }
+
+// Keep number inputs consistent for alignment/proximity to `%` symbol
+// https://css-tricks.com/snippets/css/turn-off-number-input-spinners/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

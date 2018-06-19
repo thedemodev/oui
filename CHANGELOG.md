@@ -6,10 +6,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 ### Changed
+- [Patch] Update reset CSS to hide number-input-spinners. (#964)
 - [Patch] Add index.js back from OUI version `7.0.0` for `design-dot` OUI upgrade to latest version. (#962)
 
 ### Added
-- [Feature] DropdownContents, DropdownListItem, DropdownBlockLink, DropdownBlockLinkText, DropdownBlockLinkSecondaryText components added to Dropdown 
+- [Feature] DropdownContents, DropdownListItem, DropdownBlockLink, DropdownBlockLinkText, DropdownBlockLinkSecondaryText components added to Dropdown
 - [Feature] Add onBlur prop to Button
 
 ### Fixed
