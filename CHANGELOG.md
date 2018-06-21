@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Added
+- [Feature] Add color transition on link hover. (DESIGN-65)
 
 ## 31.5.0 - 2018-06-19
 ### Changed

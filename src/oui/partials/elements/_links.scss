@@ -12,6 +12,7 @@ a,
 %link,
 .link {
   color: map-fetch($color, link, base);
+  transition: color map-fetch($transition-duration, base);
   cursor: pointer;
 
   &:visited,

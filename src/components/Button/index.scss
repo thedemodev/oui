@@ -36,6 +36,7 @@
   border-radius: map-fetch($button, size, base, border-radius);
   height: map-fetch($button, size, base, height);
   padding: map-fetch($button, size, base, padding);
+  transition: color map-fetch($transition-duration, base), background-color map-fetch($transition-duration, base), box-shadow map-fetch($transition-duration, base), border-color map-fetch($transition-duration, base);
 
   // Unique styles for the base, button start here.
   background-color: map-fetch($button, type, base, background);
