@@ -48,6 +48,8 @@ const TextField = ({
   let inputType = type;
   if (type === 'percent') {
     inputType = 'number';
+    min = 0;
+    max = 100;
   }
 
   return (
