@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 ### Added
+- [Feature] SelectDropdown component
 - [Feature] Add color transition on link hover. (DESIGN-65)
 
 ## 31.5.0 - 2018-06-19
