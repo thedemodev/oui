@@ -79,7 +79,7 @@ class Input extends React.Component {
   }
 
   renderNote({note, testSection}) {
-    return (<div className='oui-form-note' data-test-section={ testSection && testSection + '-note' }>{note}</div>)
+    return (<div className='oui-form-note' data-test-section={ testSection && testSection + '-note' }>{note}</div>);
   }
 
   render() {
@@ -88,7 +88,7 @@ class Input extends React.Component {
       displayError,
       testSection,
       isOptional,
-      note
+      note,
     } = this.props;
 
     if (label) {
@@ -114,10 +114,10 @@ class Input extends React.Component {
           { this.renderInput(this.props) }
           { this.renderNote(this.props) }
         </div>
-      )
+      );
     }
 
-    return this.renderInput(this.props)
+    return this.renderInput(this.props);
 
   }
 }
