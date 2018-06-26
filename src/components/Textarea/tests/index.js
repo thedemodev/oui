@@ -106,4 +106,48 @@ describe('components/Textarea', () => {
 
     expect(component.is('[data-test-section="foo"]')).toBe(true);
   });
+
+  it('should render a label if label is passed', () => {
+    const component = mount(
+      <Textarea testSection="foo" label="Input Label" />
+    );
+
+    expect(component.find('[data-test-section="foo-label"]').length).toBe(1);
+  });
+
+  it('should render a label with optional text if label and isOptional is passed', () => {
+    const component = mount(
+      <Textarea testSection="foo" label="Input Label" isOptional={ true } />
+    );
+
+    expect(component.text()).toBe('Input Label(Optional)');
+  });
+
+  it('should throw an error if isOptional is passed without a label', () => {
+    spyOn(console, 'error').and.stub();
+
+    shallow(
+      <Textarea testSection="foo" isOptional={ true } />
+    );
+
+    expect(console.error.calls.all()[0].args[0]).toContain('Must include a value for the label prop to use the isOptional prop'); // eslint-disable-line
+  });
+
+
+  it('should not render a label by default', () => {
+    const component = mount(
+      <Textarea testSection="foo" />
+    );
+
+    expect(component.find('[data-test-section="foo-label"]').length).toBe(0);
+  });
+
+  it('should render a note if passed', () => {
+    const component = mount(
+      <Textarea testSection="foo" note="A short description" />
+    );
+
+    expect(component.find('[data-test-section="foo-note"]').length).toBe(1);
+    expect(component.find('[data-test-section="foo-note"]').text()).toBe('A short description');
+  });
 });

@@ -209,4 +209,13 @@ describe('components/Input', () => {
 
     expect(component.find('[data-test-section="foo-label"]').length).toBe(0);
   });
+
+  it('should render a note if passed', () => {
+    const component = mount(
+      <Input type="text" testSection="foo" note="A short description" />
+    );
+
+    expect(component.find('[data-test-section="foo-note"]').length).toBe(1);
+    expect(component.find('[data-test-section="foo-note"]').text()).toBe('A short description');
+  });
 });
