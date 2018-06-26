@@ -109,12 +109,10 @@ class Input extends React.Component {
     }
 
     if (note) {
-      return (
-        <div>
-          { this.renderInput(this.props) }
-          { this.renderNote(this.props) }
-        </div>
-      );
+      return [
+        this.renderInput(this.props),
+        this.renderNote(this.props),
+      ];
     }
 
     return this.renderInput(this.props);
@@ -189,6 +187,10 @@ Input.propTypes = {
   ]).isRequired,
   /** Text within the input */
   value: PropTypes.string,
+};
+
+Input.defaultProps = {
+  note: null,
 };
 
 export default Input;

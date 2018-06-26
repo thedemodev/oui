@@ -89,12 +89,10 @@ class Textarea extends React.Component {
     }
 
     if (note) {
-      return (
-        <div>
-          { this.renderTextarea(this.props) }
-          { this.renderNote(this.props) }
-        </div>
-      );
+      return [
+        this.renderTextarea(this.props),
+        this.renderNote(this.props),
+      ];
     }
 
     return this.renderTextarea(this.props);
@@ -148,6 +146,13 @@ Textarea.propTypes = {
   testSection: PropTypes.string,
   /** Text within the textarea */
   value: PropTypes.string,
+};
+
+Textarea.defaultProps = {
+  displayError: false,
+  label: null,
+  note: null,
+  isOptional: false,
 };
 
 export default Textarea;
