@@ -180,7 +180,7 @@ class SelectOption extends React.Component {
      */
     description: PropTypes.string,
     /** Toggle dropdown open/closed */
-    handleToggle: PropTypes.func.isRequired,
+    handleToggle: PropTypes.func,
     /**
      * Whether or not item has been selected or not.
      */
@@ -229,6 +229,7 @@ class SelectOption extends React.Component {
 
 SelectOption.defaultProps = {
   description: '',
+  handleToggle: () => {},
 };
 
 export default SelectDropdown;
