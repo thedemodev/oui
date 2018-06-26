@@ -78,12 +78,17 @@ class Input extends React.Component {
     );
   }
 
+  renderNote({note, testSection}) {
+    return (<div className='oui-form-note' data-test-section={ testSection && testSection + '-note' }>{note}</div>)
+  }
+
   render() {
     const {
       label,
       displayError,
       testSection,
       isOptional,
+      note
     } = this.props;
 
     if (label) {
@@ -98,11 +103,22 @@ class Input extends React.Component {
             </div>
             { this.renderInput(this.props) }
           </Label>
+          { note && this.renderNote(this.props)}
         </div>
       );
     }
 
-    return this.renderInput(this.props);
+    if (note) {
+      return (
+        <div>
+          { this.renderInput(this.props) }
+          { this.renderNote(this.props) }
+        </div>
+      )
+    }
+
+    return this.renderInput(this.props)
+
   }
 }
 
@@ -139,6 +155,8 @@ Input.propTypes = {
    * Min value for the `input`. Should be used only when `type` is `number`.
    */
   min: PropTypes.number,
+  /** Form note for the input */
+  note: PropTypes.string,
   /**
    * Function that fires when the input loses focus. It fires regardless of
    * whether the value has changed.
