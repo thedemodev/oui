@@ -1,1 +1,5 @@
-. @optimizely/frontend @optimizely/ui-engineers
+# OUI CODEOWNERS file
+
+# Frontend engineers and OUI engineers can review changes.
+* @optimizely/frontend @optimizely/ui-engineers
+
