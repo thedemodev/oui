@@ -5,9 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-### Added
-- [Feature] Added note to Input 
-- [Feature] Added note and Label to Textarea
+
+## 31.6.1 - 2018-06-26
+### Changed
+- [Patch] Export SelectDropdown
+- [Patch] Rename .jest.config.json to jest.config.js
+- [Patch] Update Dependencies According to NPM Audit
 
 ## 31.6.0 - 2018-06-21
 ### Added
