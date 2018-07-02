@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 31.6.2 - 2018-06-29
+### Fixed
+- [Patch] Fix `<Link newWindow>` to add a `rel='noreferrer'` 
+
 ## 31.6.1 - 2018-06-26
 ### Changed
 - [Patch] Export SelectDropdown

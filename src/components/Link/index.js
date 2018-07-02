@@ -31,7 +31,7 @@ const Link = ({
       data-test-section={ testSection }
       data-track-id={ testSection }
       onClick={ onClick }
-      { ...(newWindow ? { target: '_blank', rel: 'noopener' } : {}) }
+      { ...(newWindow ? { target: '_blank', rel: 'noopener noreferrer' } : {}) }
       disabled={ isDisabled }>
       { children }
     </a>

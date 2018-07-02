@@ -38,7 +38,7 @@ exports[`components/Link should render target blank attribute 1`] = `
   data-ui-component={true}
   disabled={false}
   href="http://google.com"
-  rel="noopener"
+  rel="noopener noreferrer"
   target="_blank"
 >
   Test Link
