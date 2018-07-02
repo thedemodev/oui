@@ -19,7 +19,9 @@ stories
   .add('default', withInfo()(() => (<div>
     <h3>
       I am an H3 with a tooltip next to it!
-      <Tooltip title="Help" description="This is some help text to explain the thing next to whose question mark icon you are hovering over." />
+      <Tooltip title="Help"
+               description="This is some help text to explain the thing next to whose
+                            question mark icon you are hovering over." />
     </h3>
   </div>)))
   .add('nondefault', withInfo()(() => (<div>
@@ -27,7 +29,8 @@ stories
       I am an H3 with a tooltip next to it <br />but with a differently positioned anchor arrow!
       <Tooltip
         title="Help"
-        description="This is some help text to explain the thing next to whose question mark icon you are hovering over."
+        description="This is some help text to explain the thing next to whose question
+                     mark icon you are hovering over."
         horizontalAttachment={ 'center' }
         verticalAttachment={ 'top' }
       />
