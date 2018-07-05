@@ -7,6 +7,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 
 ## 31.6.2 - 2018-07-05
+### Added
+- [Feature] Added note to Input 
+- [Feature] Added note and Label to Textarea
+
 ### Fixed
 - [Patch] Fix `<Link newWindow>` to add a `rel='noreferrer'`
 
