@@ -6,13 +6,13 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 31.6.3 - 2018-07-06
-#### Added 
+## 31.7.0 - 2018-07-09
+#### Added
 - [Feature] Added HelpPopover component (#984)
 
 ## 31.6.2 - 2018-07-05
 ### Added
-- [Feature] Added note to Input 
+- [Feature] Added note to Input
 - [Feature] Added note and Label to Textarea
 
 ### Fixed
