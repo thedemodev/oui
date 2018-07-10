@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 31.7.1 - 2018-07-09
+### Fixed
+- [Patch] Export HelpPopover component from main.js
+
 ## 31.7.0 - 2018-07-09
 #### Added
 - [Feature] Added HelpPopover component (#984)
