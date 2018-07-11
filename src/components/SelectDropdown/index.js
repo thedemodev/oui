@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { isFilterTermInItem } from '../../utils/filter';
 
 import Button from '../Button';
-import Input from '../Input';
 import Dropdown from '../Dropdown';
 
 
@@ -18,18 +16,9 @@ class SelectDropdown extends React.Component {
      */
     dropdownDirection: PropTypes.oneOf(['right', 'left']),
     /**
-     * Placeholder text for the filter input.
-     */
-    inputPlaceholder: PropTypes.string,
-    /**
      * The select is greyed out if it is disabled.
      */
     isDisabled: PropTypes.bool,
-    /**
-     * Boolean that determines whether or
-     * not the selector has the filter feature.
-     */
-    isFilterable: PropTypes.bool,
     /**
      * Dropdown items that can be selected from the select dropdown.
      */
@@ -86,49 +75,18 @@ class SelectDropdown extends React.Component {
   static defaultProps = {
     buttonStyle: 'outline',
     inputPlaceholder: '',
-    isFilterable: false,
     dropdownDirection: 'right',
     width: '100%',
     trackId: '',
     testSection: '',
   };
 
-  state = {
-    searchTerm: '',
-  };
-
-  search = (event) => {
-    this.setState({
-      searchTerm: event.target.value,
-    });
-  };
-
-  filterTermValue = (value) => {
-    return isFilterTermInItem(this.state.searchTerm, value);
-  };
-
   renderContents = () => {
-    const { items, value, minDropdownWidth, dropdownDirection, isFilterable, inputPlaceholder } = this.props;
-    const itemsToDisplay = items.filter(item => {
-      return this.filterTermValue(item.label);
-    });
+    const { items, value, minDropdownWidth, dropdownDirection } = this.props;
 
     return (
       <Dropdown.Contents minWidth={ minDropdownWidth } direction={ dropdownDirection }>
-        { isFilterable && (
-          <Dropdown.ListItem hideOnClick={ false }>
-            <form className="soft-half--ends oui-search">
-              <Input
-                type="text"
-                isFilter={ true }
-                value={ this.state.searchTerm }
-                placeholder={ inputPlaceholder }
-                onChange={ this.search }
-              />
-            </form>
-          </Dropdown.ListItem>
-        )}
-        { itemsToDisplay.map((entry, index) => (
+        { items.map((entry, index) => (
           <SelectOption
             key={ index }
             onChange={ this.props.onChange }

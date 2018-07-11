@@ -53,20 +53,6 @@ stories.add('default', withInfo()(() => {
   );
 }));
 
-stories.add('filter', withInfo()(() => {
-  return (
-    <Container>
-      <SelectDropdown
-        items={ items }
-        value={ 'dog' }
-        onChange={ action('SelectDropdown value changed') }
-        isFilterable={ true }
-        width={ '400px ' }
-      />
-    </Container>
-  );
-}));
-
 const Container = styled.div`
   display: flex;
   flex: 1;

@@ -116,12 +116,9 @@ class Dropdown extends React.Component {
             boxShadow: '0 2px 3px rgba(0,0,0,.1)',
           }}
           onMouseOver={ this.onMouseOver }
-          onMouseLeave={ this.onMouseLeave }>
-          { isOpen && !isDisabled && React.Children.map(children, (child) => {
-            return child && React.cloneElement(child, {
-              handleToggle: this.handleToggle,
-            });
-          }) }
+          onMouseLeave={ this.onMouseLeave }
+          onClick={ this.handleToggle }>
+          { isOpen && !isDisabled && children }
         </Popper>
       </Manager>
     );

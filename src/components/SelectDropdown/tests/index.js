@@ -25,7 +25,7 @@ describe('components/SelectDropdown', function() {
 
   describe('without a filter', function() {
     beforeEach(function() {
-      component = mount(<SelectDropdown isFilterable={ false } items={ items } value={ 'value 2' } onChange={ onChange } />);
+      component = mount(<SelectDropdown items={ items } value={ 'value 2' } onChange={ onChange } />);
     });
 
     it('should render all items in dropdown', function() {
@@ -53,35 +53,6 @@ describe('components/SelectDropdown', function() {
       item1.simulate('click');
       expect(onChange).toHaveBeenCalled();
       expect(onChange).toHaveBeenCalledWith('value 1');
-    });
-
-    it('should not add an input if isFilterable is false', function() {
-      const activator = component.find('Button');
-      activator.simulate('click');
-      const input = component.find('Input');
-      expect(input).toHaveLength(0);
-    });
-  });
-
-  describe('with a filter', function() {
-    beforeEach(function() {
-      component = mount(<SelectDropdown isFilterable={ true } items={ items } value={ 'value 2' } onChange={ onChange } />);
-    });
-    it('should filter items in dropdown', function() {
-      const activator = component.find('Button');
-      activator.simulate('click');
-      const input = component.find('Input');
-      input.simulate('change', {target: {value: '1'}});
-
-      const listItems = component.find('SelectOption');
-      expect(listItems).toHaveLength(1);
-
-      const item1 = listItems.at(0);
-      expect(item1.text()).toContain('label 1');
-      expect(item1.text()).toContain('description 1');
-
-      input.simulate('change', {target: {value: 'INVALID_VALUE'}});
-      expect(component.find('SelectOption')).toHaveLength(0);
     });
   });
 });
