@@ -65,7 +65,7 @@ export function AccordionSection({
       <a className="accordion__link" onClick={ _onClickHandler }>{title}</a>
 
       <div className="accordion__content-wrap accordion__content-wrap__react">
-        <div className="accordion__content flex--dead-center flex--column">
+        <div className="accordion__content flex--column height--1-1">
           {children}
         </div>
       </div>
