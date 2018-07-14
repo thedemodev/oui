@@ -1,3 +1,4 @@
+export { default as Accordion } from './components/Accordion';
 export { default as ArrowsInline } from './components/ArrowsInline';
 export { default as Attention } from './components/Attention';
 export { default as Badge } from './components/Badge';
