@@ -30,5 +30,23 @@ stories
                 <Table.TH>Type</Table.TH>
             </Table.TR>
         </Table.THead>
+        <Table.TBody>
+          <DiscloseTable.Row 
+            rowContents={
+              <Table.TR>
+                <Table.TD>Experiment 2</Table.TD>
+                <Table.TD>May 5, 2018</Table.TD>
+                <Table.TD>June 1, 2018</Table.TD>
+                <Table.TD>538</Table.TD>
+                <Table.TD>Running</Table.TD>
+                <Table.TD>Optimizely App - Web long name...</Table.TD>
+                <Table.TD></Table.TD>
+              </Table.TR>
+            }>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+            expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+            accusantium corporis, beatae maxime quasi. Tempora.</p>
+          </DiscloseTable.Row>
+        </Table.TBody>
     </DiscloseTable>
   </div>)))
