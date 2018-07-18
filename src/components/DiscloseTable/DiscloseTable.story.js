@@ -35,6 +35,22 @@ stories
       <DiscloseTable.Row rowContents={
           <Table.TR>
             <Table.TD width="1%">&gt;</Table.TD>
+            <Table.TD width="35%">Experiment 1</Table.TD>
+            <Table.TD width="7%">May 5, 2018</Table.TD>
+            <Table.TD width="7%">June 1, 2018</Table.TD>
+            <Table.TD width="7%">358</Table.TD>
+            <Table.TD width="7%">Running</Table.TD>
+            <Table.TD>Optimizely App - Web long name...</Table.TD>
+            <Table.TD width="5%"></Table.TD>
+          </Table.TR>
+        }>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+        expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+        accusantium corporis, beatae maxime quasi. Tempora.</p>
+      </DiscloseTable.Row>
+      <DiscloseTable.Row rowContents={
+          <Table.TR>
+            <Table.TD width="1%">&gt;</Table.TD>
             <Table.TD width="35%">Experiment 2</Table.TD>
             <Table.TD width="7%">May 5, 2018</Table.TD>
             <Table.TD width="7%">June 1, 2018</Table.TD>

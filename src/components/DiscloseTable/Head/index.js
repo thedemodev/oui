@@ -5,7 +5,6 @@ const DiscloseHead = ({
     headerStyle,
     headerContents
 }) => {
-    console.log(headerContents);
     return(
         <Table tableLayoutAlgorithm="auto">
             <Table.THead>

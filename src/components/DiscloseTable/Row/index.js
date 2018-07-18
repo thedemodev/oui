@@ -28,12 +28,16 @@ const DiscloseRow = ({
         }
       );
     const arrow = isOpen ? 'oui-disclose is-active' : 'oui-disclose';
+    const borderStyle = isOpen ?  'ends' : '';
+    const backgroundColor = isOpen ? 'faint' : '';
     return(
       <div className={ arrow } style={{marginTop: '-1px'}}>
       <a onClick={ toggle } className={ linkClass }>
-        <Table tableLayoutAlgorithm="auto">
+        <Table tableLayoutAlgorithm="auto" shouldAddHover={ true }>
           <Table.TBody>
-          { rowContents }
+            <Table.TR  borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
+            { rowContents }
+            </Table.TR>
           </Table.TBody>
         </Table>
       </a>
