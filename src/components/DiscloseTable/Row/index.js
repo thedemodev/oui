@@ -4,9 +4,8 @@ import classNames from 'classnames';
 import { toClass } from 'recompose';
 import { withToggle } from '../../../utils/recompose-utils';
 import Table from '../../Table';
-import TBody from '../../Table/TBody';
 
-const Row = ({
+const DiscloseRow = ({
     isOpen,
     children,
     headerStyle,
@@ -30,25 +29,19 @@ const Row = ({
       );
     const arrow = isOpen ? 'oui-disclose is-active' : 'oui-disclose';
     return(
-        <a onClick={ toggle } className={ linkClass }>
-        {[ rowContents ]}
-        </a>
+      <div className={ arrow } style={{marginTop: '-1px'}}>
+      <a onClick={ toggle } className={ linkClass }>
+        <Table tableLayoutAlgorithm="auto">
+          <Table.TBody>
+          { rowContents }
+          </Table.TBody>
+        </Table>
+      </a>
+      <div className={ contentClass }>
+        { isOpen && children }
+      </div>
+      </div>
     );
-    // return(
-    //     <div className={ arrow } style={{marginTop: '-1px'}}>
-    //     <a onClick={ toggle } className={ linkClass }>
-    //         <div className='oui-disclose__arrow'>
-    //         <span className="oui-disclose__symbol push-half--right"></span>
-    //             <Table><Table.TBody>
-    //             { rowContents }
-    //             </Table.TBody></Table>
-    //         </div>
-    //     </a>
-    //     <div className={ contentClass }>
-    //         { isOpen && children }
-    //     </div>
-    //     </div>
-    // );
   }
 
-  export default withToggle(toClass(Row));
+  export default withToggle(toClass(DiscloseRow));
