@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Changed
+- [Patch] Update tabs small with custom type styles per Ron
 
 ## 31.8.0 - 2018-07-13
 ### Added

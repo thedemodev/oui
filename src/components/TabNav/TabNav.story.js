@@ -82,6 +82,19 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
+  .add('Sub tabs', withInfo()(() => (
+    <TabNav activeTab="first" style={ ['sub'] }>
+      <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
+        Tab #1
+      </TabNav.Tab>
+      <TabNav.Tab onClick={ action('second tab clicked') } tabId="second">
+        Tab #2
+      </TabNav.Tab>
+      <TabNav.Tab onClick={ action('third tab clicked') } tabId="third">
+        Tab #3
+      </TabNav.Tab>
+    </TabNav>
+  )))
   .add('Header tabs', withInfo()(() => (
     <TabNav activeTab="first" style={ ['header'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
