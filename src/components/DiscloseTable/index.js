@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import DiscloseRow from './Row';
 import DiscloseHead from './Head';
+import Table from '../Table';
 
 let DiscloseTable = ({
     children,
@@ -13,9 +14,9 @@ let DiscloseTable = ({
     testSection,
   }) => {
     return (
-        <div>
+        <Table>
             { children }
-        </div>
+        </Table>
     );
   };
 

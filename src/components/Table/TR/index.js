@@ -9,17 +9,21 @@ const TR = ({
   backgroundColor,
   testSection,
   children,
+  onClick,
+  className,
 }) => {
   let classes = classNames({
     'oui-table-row--active': isActive,
     'no-border': noBorder,
     [`border--${borderStyle}`]: borderStyle,
     [`background--${backgroundColor}`]: backgroundColor,
+    [className]: !!className
   });
   return (
     <tr
       className={ classes }
-      data-test-section={ testSection }>
+      data-test-section={ testSection }
+      { ...(onClick ? { 'onClick': onClick } : {}) }>
       { children }
     </tr>
   );

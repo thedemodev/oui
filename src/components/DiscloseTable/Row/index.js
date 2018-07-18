@@ -14,37 +14,34 @@ const DiscloseRow = ({
     toggle,
   }) => {
     const contentClass = classNames(
-        'oui-disclose__content',
         {
-          ['border--sides border--bottom']: childrenStyle === 'border',
-          ['border--bottom']: childrenStyle === 'divider' && isOpen,
+          ['border--sides border--bottom']: isOpen,
         }
       );
     const linkClass = classNames(
-        'oui-disclose__link link--dark soft-half flush',
+        'oui-disclose link--dark soft-half flush',
         {
-          ['background--faint display--block']: headerStyle === 'header',
-          ['border--all background--faint display--block']: headerStyle === 'header-bordered',
-        }
+          'is-active border--top border--sides': isOpen
+        },
       );
-    const arrow = isOpen ? 'oui-disclose is-active' : 'oui-disclose';
     const borderStyle = isOpen ?  'ends' : '';
     const backgroundColor = isOpen ? 'faint' : '';
     return(
-      <div className={ arrow } style={{marginTop: '-1px'}}>
-      <a onClick={ toggle } className={ linkClass }>
-        <Table tableLayoutAlgorithm="auto" shouldAddHover={ true }>
-          <Table.TBody>
-            <Table.TR  borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
-            { rowContents }
-            </Table.TR>
-          </Table.TBody>
-        </Table>
-      </a>
-      <div className={ contentClass }>
-        { isOpen && children }
-      </div>
-      </div>
+      <React.Fragment>
+        <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
+          <Table.TD className='oui-disclose__arrow'>
+            <span className="oui-disclose__symbol push-half--right"></span>
+          </Table.TD>
+          { rowContents }
+        </Table.TR>
+        <Table.TR className={contentClass}>
+          <Table.TD colSpan={ rowContents.length + 1 }>
+            <div>
+              { isOpen && children }
+            </div>
+          </Table.TD>
+        </Table.TR>
+      </React.Fragment>
     );
   }
 
