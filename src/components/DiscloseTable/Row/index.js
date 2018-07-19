@@ -24,11 +24,11 @@ const DiscloseRow = ({
           'is-active border--top border--sides': isOpen
         },
       );
-    const borderStyle = isOpen ?  'ends' : '';
-    const backgroundColor = isOpen ? 'faint' : '';
+    const borderStyle = isOpen ?  'ends' : 'none';
+    const backgroundColor = isOpen ? 'faint' : null;
     return(
       <React.Fragment>
-        <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
+        <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor } shouldAddHover={ true }>
           <Table.TD className='oui-disclose__arrow'>
             <span className="oui-disclose__symbol push-half--right"></span>
           </Table.TD>
@@ -36,7 +36,7 @@ const DiscloseRow = ({
         </Table.TR>
         <Table.TR className={contentClass}>
           <Table.TD colSpan={ rowContents.length + 1 }>
-            <div>
+            <div className={ 'row-content' }>
               { isOpen && children }
             </div>
           </Table.TD>

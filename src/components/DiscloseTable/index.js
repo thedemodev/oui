@@ -7,16 +7,14 @@ import Table from '../Table';
 
 let DiscloseTable = ({
     children,
-    density,
-    shouldAddHover,
-    style,
-    tableLayoutAlgorithm,
     testSection,
   }) => {
     return (
-        <Table>
-            { children }
-        </Table>
+        <div className={ 'oui-disclose-table' }>
+            <Table tableLayoutAlgorithm={ 'auto' }>
+                { children }
+            </Table>
+        </div>
     );
   };
 
