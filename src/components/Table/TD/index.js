@@ -9,10 +9,12 @@ const TD = ({
   testSection,
   verticalAlign,
   width,
+  className,
 }) => {
   let classes = classNames({
     'oui-numerical': isNumerical,
     [`vertical-align--${ verticalAlign }`]: verticalAlign,
+    [className]: !!className
   });
 
   const styles = {
