@@ -10,7 +10,7 @@ let DiscloseTable = ({
 }) => {
 	return (
 		<div className={'oui-disclose-table'} data-test-section={ testSection }>
-			<Table tableLayoutAlgorithm={'auto'} style={'rule'}>
+			<Table tableLayoutAlgorithm={'auto'} style={'rule'} shouldAddHover={true}>
 				{children}
 			</Table>
 		</div>

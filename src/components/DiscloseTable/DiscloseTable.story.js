@@ -42,32 +42,32 @@ stories
           <Table.TD isNumerical={true}>A/B</Table.TD>,
         ]
         }>
-          <div className={'variation-table'}>
-            <Table>
-              <Table.THead>
-                <Table.TR>
-                  <Table.TH>Variations</Table.TH>
-                  <Table.TH>Recorded Results</Table.TH>
-                </Table.TR>
-              </Table.THead>
-              <Table.TBody>
-                <Table.TR>
-                  <Table.TD><span>A</span>Variation name short</Table.TD>
-                  <Table.TD>Not Analyzed</Table.TD>
-                </Table.TR>
-                <Table.TR>
-                  <Table.TD><span>B</span>Variation name long contains a lot of characters as you can see here as well.</Table.TD>
-                  <Table.TD>Win</Table.TD>
-                </Table.TR>
-                <Table.TR>
-                  <Table.TD><span>C</span>Variation name short</Table.TD>
-                  <Table.TD>Baseline</Table.TD>
-                </Table.TR>
-              </Table.TBody>
-            </Table>
-          </div>
-          <div className={'idea-table'}>
+          <div className="flex soft-double--sides">
             <div>
+              <Table>
+                <Table.THead>
+                  <Table.TR>
+                    <Table.TH>Variations</Table.TH>
+                    <Table.TH>Recorded Results</Table.TH>
+                  </Table.TR>
+                </Table.THead>
+                <Table.TBody>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">A</span>Variation name short</Table.TD>
+                    <Table.TD>Not Analyzed</Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">B</span>Variation name long contains a lot of characters as you can see here as well.</Table.TD>
+                    <Table.TD>Win</Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">C</span>Variation name short</Table.TD>
+                    <Table.TD>Baseline</Table.TD>
+                  </Table.TR>
+                </Table.TBody>
+              </Table>
+            </div>
+            <div className="soft-double--right">
               <Table>
                 <Table.THead>
                   <Table.TR>
@@ -80,8 +80,6 @@ stories
                   </Table.TR>
                 </Table.TBody>
               </Table>
-            </div>
-            <div>
               <Table>
                 <Table.THead>
                   <Table.TR>
