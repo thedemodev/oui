@@ -16,7 +16,7 @@ stories
     </div>
   ));
 
-  stories
+stories
   .add('default', withInfo()(() => (<div>
     <DiscloseTable>
       <Table.THead>
@@ -32,17 +32,17 @@ stories
         </Table.TR>
       </Table.THead>
       <Table.TBody>
-        <DiscloseTable.Row rowContents={ [
-              <Table.TD>Experiment 1</Table.TD>,
-              <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
-              <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
-              <Table.TD isNumerical={true}>358</Table.TD>,
-              <Table.TD>Running</Table.TD>,
-              <Table.TD>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</Table.TD>,
-              <Table.TD isNumerical={true}>A/B</Table.TD>,
-            ]
-          }>
-          <div className={ 'variation-table' }>
+        <DiscloseTable.Row rowContents={[
+          <Table.TD>Experiment 1</Table.TD>,
+          <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>358</Table.TD>,
+          <Table.TD>Running</Table.TD>,
+          <Table.TD>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</Table.TD>,
+          <Table.TD isNumerical={true}>A/B</Table.TD>,
+        ]
+        }>
+          <div className={'variation-table'}>
             <Table>
               <Table.THead>
                 <Table.TR>
@@ -66,7 +66,7 @@ stories
               </Table.TBody>
             </Table>
           </div>
-          <div className={ 'idea-table' }>
+          <div className={'idea-table'}>
             <div>
               <Table>
                 <Table.THead>
@@ -99,16 +99,16 @@ stories
             </div>
           </div>
         </DiscloseTable.Row>
-        <DiscloseTable.Row rowContents={ [
-              <Table.TD>Experiment 1 has a very long name as you can see as well</Table.TD>,
-              <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
-              <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
-              <Table.TD isNumerical={true}>358</Table.TD>,
-              <Table.TD>Running</Table.TD>,
-              <Table.TD>Optimizely App - Web long name...</Table.TD>,
-              <Table.TD isNumerical={true}>A/B</Table.TD>,
-            ]
-          }>
+        <DiscloseTable.Row rowContents={[
+          <Table.TD>Experiment 2 has a very long name as you can see as well here that its a really long name</Table.TD>,
+          <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>358</Table.TD>,
+          <Table.TD>Paused</Table.TD>,
+          <Table.TD>Optimizely App - Web long name...</Table.TD>,
+          <Table.TD isNumerical={true}>A/B</Table.TD>,
+        ]
+        }>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
           expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
           accusantium corporis, beatae maxime quasi. Tempora.</p>
