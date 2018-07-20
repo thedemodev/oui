@@ -17,28 +17,25 @@ stories
 stories.add('all icons', () => {
   const iconsElements = icons.map((icon, index) => {
     const Box = styled.div`
-    border: 1px dashed #ccc;
-    border-radius: 8px;
+    border: 1px solid #eee;
     box-sizing: border-box;
     display: flex;
-    height: 100px;
+    width: 20%;
+    height: 150px;
     justify-content: center;
-    margin: 5px;
-    padding: 20px 10px
+    margin: 0;
+    padding: 40px 20px
     text-align: center;
-    width: 100px;
+    position: relative;
     &:after {
-      color: white;
+      text-align: center;
+      color: #333;
       transition: all 0.4s ease;
       content: '${icon.title}';
       font-family: Helvetica;
-      font-size: 0.5rem;
-      max-width: 90px;
+      font-size: 10px;
       position: absolute;
-      margin-top: 70px;
-    }
-    &:hover:after {
-      color: #666;
+      bottom: 30px;
     }
   `;
     return (
@@ -78,7 +75,6 @@ stories.add('animated icon', () => {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 `;
 
 const styles = {
