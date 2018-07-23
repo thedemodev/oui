@@ -5,23 +5,23 @@ import DiscloseRow from './Row';
 import Table from '../Table';
 
 let DiscloseTable = ({
-	children,
-	testSection,
+  children,
+  testSection,
 }) => {
-	return (
-		<div className={'oui-disclose-table'} data-test-section={ testSection }>
-			<Table tableLayoutAlgorithm={'auto'} style={'rule'}>
-				{children}
-			</Table>
-		</div>
-	);
+  return (
+    <div className={ 'oui-disclose-table' } data-test-section={ testSection }>
+      <Table tableLayoutAlgorithm={ 'auto' } style={ 'rule' }>
+        {children}
+      </Table>
+    </div>
+  );
 };
 
 DiscloseTable.propTypes = {
-	/** Should be a `Table.THead` or `Table.TBody` */
-	children: PropTypes.node.isRequired,
-	/** Hook for automated JavaScript tests */
-	testSection: PropTypes.string,
+  /** Should be a `Table.THead` or `Table.TBody` */
+  children: PropTypes.node.isRequired,
+  /** Hook for automated JavaScript tests */
+  testSection: PropTypes.string,
 };
 
 DiscloseTable.Row = DiscloseRow;

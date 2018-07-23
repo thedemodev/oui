@@ -5,30 +5,33 @@ import Table from '../../Table';
 export default [
   {
     examples: [
-    <DiscloseTable>
+      <DiscloseTable>
         <Table.THead>
           <Table.TR>
-            <Table.TH isCollapsed={true}></Table.TH>
+            <Table.TH isCollapsed={ true }></Table.TH>
             <Table.TH>Experiment Name</Table.TH>
-            <Table.TH isNumerical={true}>Start Date</Table.TH>
-            <Table.TH isNumerical={true}>End Date</Table.TH>
-            <Table.TH isNumerical={true}>Visitors</Table.TH>
+            <Table.TH isNumerical={ true }>Start Date</Table.TH>
+            <Table.TH isNumerical={ true }>End Date</Table.TH>
+            <Table.TH isNumerical={ true }>Visitors</Table.TH>
             <Table.TH>Status</Table.TH>
             <Table.TH>Project</Table.TH>
-            <Table.TH isNumerical={true}>Type</Table.TH>
+            <Table.TH isNumerical={ true }>Type</Table.TH>
           </Table.TR>
         </Table.THead>
         <Table.TBody>
-          <DiscloseTable.Row rowContents={[
-            <Table.TD>Experiment 1</Table.TD>,
-            <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
-            <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
-            <Table.TD isNumerical={true}>358</Table.TD>,
-            <Table.TD>Running</Table.TD>,
-            <Table.TD>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</Table.TD>,
-            <Table.TD isNumerical={true}>A/B</Table.TD>,
-          ]}>
-            <div className={'variation-table'}>
+          <DiscloseTable.Row
+            rowContents={ [
+              <Table.TD>Experiment 1</Table.TD>,
+              <Table.TD isNumerical={ true }>May 5, 2018</Table.TD>,
+              <Table.TD isNumerical={ true }>June 1, 2018</Table.TD>,
+              <Table.TD isNumerical={ true }>358</Table.TD>,
+              <Table.TD>Running</Table.TD>,
+              <Table.TD>
+                Optimizely App - Web long name contains a long list of characters which is totally unexpetected
+              </Table.TD>,
+              <Table.TD isNumerical={ true }>A/B</Table.TD>,
+            ] }>
+            <div className={ 'variation-table' }>
               <Table>
                 <Table.THead>
                   <Table.TR>
@@ -42,7 +45,10 @@ export default [
                     <Table.TD>Not Analyzed</Table.TD>
                   </Table.TR>
                   <Table.TR>
-                    <Table.TD><span>B</span>Variation name long contains a lot of characters as you can see here as well.</Table.TD>
+                    <Table.TD>
+                      <span>B</span>
+                      Variation name long contains a lot of characters as you can see here as well.
+                    </Table.TD>
                     <Table.TD>Win</Table.TD>
                   </Table.TR>
                   <Table.TR>
@@ -52,7 +58,7 @@ export default [
                 </Table.TBody>
               </Table>
             </div>
-            <div className={'idea-table'}>
+            <div className={ 'idea-table' }>
               <div>
                 <Table>
                   <Table.THead>
@@ -76,9 +82,11 @@ export default [
                   </Table.THead>
                   <Table.TBody>
                     <Table.TR>
-                      <Table.TD><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-                                    expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-                                    accusantium corporis, beatae maxime quasi. Tempora.</p></Table.TD>
+                      <Table.TD>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+                            expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+                            accusantium corporis, beatae maxime quasi. Tempora.</p>
+                      </Table.TD>
                     </Table.TR>
                   </Table.TBody>
                 </Table>
@@ -86,7 +94,7 @@ export default [
             </div>
           </DiscloseTable.Row>
         </Table.TBody>
-      </DiscloseTable>
+      </DiscloseTable>,
     ],
   },
 ];
