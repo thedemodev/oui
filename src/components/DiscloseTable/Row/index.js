@@ -19,37 +19,38 @@ const DiscloseRow = ({
     }
   );
   const linkClass = classNames(
-    'oui-disclose link--dark soft-half flush',
+    'oui-disclose link--dark soft-half--ends soft--sides',
     {
       ['is-active border--top border--sides']: isOpen,
-      ['hover-style']: !isOpen,
     },
   );
   const borderStyle = isOpen ? 'ends' : 'none';
   const backgroundColor = isOpen ? 'faint' : null;
   return (
     <React.Fragment>
-      <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
-        <Table.TD className='oui-disclose__arrow'>
+      <Table.TR onClick={toggle} className={linkClass} borderStyle={borderStyle} backgroundColor={backgroundColor}>
+        <Table.TD className='oui-disclose__arrow soft--left'>
           <span className="oui-disclose__symbol push-half--right"></span>
         </Table.TD>
         {rowContents}
       </Table.TR>
-      <Table.TR className={ contentClass }>
-        <Table.TD colSpan={ rowContents.length + 1 }>
-          <div className={ 'row-content' }>
-            {isOpen && children}
-          </div>
-        </Table.TD>
-      </Table.TR>
+      {
+        isOpen && (
+          <Table.TR className={contentClass}>
+            <Table.TD colSpan={rowContents.length + 1}>
+              {children}
+            </Table.TD>
+          </Table.TR>
+        )
+      }
     </React.Fragment>
   );
-};
+}
 
 DiscloseRow.propTypes = {
+  isOpen: PropTypes.bool,
   /** Can be any valid HTML node */
   children: PropTypes.node,
-  isOpen: PropTypes.bool,
   rowContents: PropTypes.array,
   toggle: PropTypes.func,
 };

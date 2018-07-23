@@ -21,59 +21,53 @@ stories
     <DiscloseTable>
       <Table.THead>
         <Table.TR>
-          <Table.TH isCollapsed={ true }></Table.TH>
+          <Table.TH isCollapsed={true}></Table.TH>
           <Table.TH>Experiment Name</Table.TH>
-          <Table.TH isNumerical={ true }>Start Date</Table.TH>
-          <Table.TH isNumerical={ true }>End Date</Table.TH>
-          <Table.TH isNumerical={ true }>Visitors</Table.TH>
+          <Table.TH isNumerical={true}>Start Date</Table.TH>
+          <Table.TH isNumerical={true}>End Date</Table.TH>
+          <Table.TH isNumerical={true}>Visitors</Table.TH>
           <Table.TH>Status</Table.TH>
           <Table.TH>Project</Table.TH>
-          <Table.TH isNumerical={ true }>Type</Table.TH>
+          <Table.TH isNumerical={true}>Type</Table.TH>
         </Table.TR>
       </Table.THead>
       <Table.TBody>
-        <DiscloseTable.Row
-          rowContents={ [
-            <Table.TD key={ 'exp_name' }>Experiment 1</Table.TD>,
-            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
-            <Table.TD key={ 'exp_status' }>Running</Table.TD>,
-            <Table.TD key={ 'exp_project' }>
-              <div>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</div>
-            </Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
-          ]
-          }>
-          <div className={ 'variation-table' }>
-            <Table>
-              <Table.THead>
-                <Table.TR>
-                  <Table.TH>Variations</Table.TH>
-                  <Table.TH>Recorded Results</Table.TH>
-                </Table.TR>
-              </Table.THead>
-              <Table.TBody>
-                <Table.TR>
-                  <Table.TD><span>A</span>Variation name short</Table.TD>
-                  <Table.TD>Not Analyzed</Table.TD>
-                </Table.TR>
-                <Table.TR>
-                  <Table.TD>
-                    <span>B</span>
-                    Variation name long contains a lot of characters as you can see here as well.
-                  </Table.TD>
-                  <Table.TD>Win</Table.TD>
-                </Table.TR>
-                <Table.TR>
-                  <Table.TD><span>C</span>Variation name short</Table.TD>
-                  <Table.TD>Baseline</Table.TD>
-                </Table.TR>
-              </Table.TBody>
-            </Table>
-          </div>
-          <div className={ 'idea-table' }>
+        <DiscloseTable.Row rowContents={[
+          <Table.TD>Experiment 1</Table.TD>,
+          <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>358</Table.TD>,
+          <Table.TD>Running</Table.TD>,
+          <Table.TD>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</Table.TD>,
+          <Table.TD isNumerical={true}>A/B</Table.TD>,
+        ]
+        }>
+          <div className="flex soft-double--sides">
             <div>
+              <Table>
+                <Table.THead>
+                  <Table.TR>
+                    <Table.TH>Variations</Table.TH>
+                    <Table.TH>Recorded Results</Table.TH>
+                  </Table.TR>
+                </Table.THead>
+                <Table.TBody>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">A</span>Variation name short</Table.TD>
+                    <Table.TD>Not Analyzed</Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">B</span>Variation name long contains a lot of characters as you can see here as well.</Table.TD>
+                    <Table.TD>Win</Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD><span className="soft--right muted">C</span>Variation name short</Table.TD>
+                    <Table.TD>Baseline</Table.TD>
+                  </Table.TR>
+                </Table.TBody>
+              </Table>
+            </div>
+            <div className="soft-double--right">
               <Table>
                 <Table.THead>
                   <Table.TR>
@@ -86,8 +80,6 @@ stories
                   </Table.TR>
                 </Table.TBody>
               </Table>
-            </div>
-            <div>
               <Table>
                 <Table.THead>
                   <Table.TR>
@@ -105,23 +97,20 @@ stories
             </div>
           </div>
         </DiscloseTable.Row>
-        <DiscloseTable.Row
-          rowContents={ [
-            <Table.TD key={ 'exp_name' }>
-              Experiment 2 has a very long name as you can see as well here that its a really long name
-            </Table.TD>,
-            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
-            <Table.TD key={ 'exp_status' }>Paused</Table.TD>,
-            <Table.TD key={ 'exp_project' }>Optimizely App - Web long name...</Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
-          ]
-          }>
+        <DiscloseTable.Row rowContents={[
+          <Table.TD>Experiment 2 has a very long name as you can see as well here that its a really long name</Table.TD>,
+          <Table.TD isNumerical={true}>May 5, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>June 1, 2018</Table.TD>,
+          <Table.TD isNumerical={true}>358</Table.TD>,
+          <Table.TD>Paused</Table.TD>,
+          <Table.TD>Optimizely App - Web long name...</Table.TD>,
+          <Table.TD isNumerical={true}>A/B</Table.TD>,
+        ]
+        }>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
           expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
           accusantium corporis, beatae maxime quasi. Tempora.</p>
         </DiscloseTable.Row>
       </Table.TBody>
     </DiscloseTable>
-  </div>)));
+  </div>)))
