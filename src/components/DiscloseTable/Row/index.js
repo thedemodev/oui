@@ -15,7 +15,6 @@ const DiscloseRow = ({
   const contentClass = classNames(
     {
       ['border--sides border--bottom']: isOpen,
-      ['is-hidden']: !isOpen,
     }
   );
   const linkClass = classNames(
@@ -28,7 +27,7 @@ const DiscloseRow = ({
   const backgroundColor = isOpen ? 'faint' : null;
   return (
     <React.Fragment>
-      <Table.TR onClick={toggle} className={linkClass} borderStyle={borderStyle} backgroundColor={backgroundColor}>
+      <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
         <Table.TD className='oui-disclose__arrow soft--left'>
           <span className="oui-disclose__symbol push-half--right"></span>
         </Table.TD>
@@ -36,8 +35,8 @@ const DiscloseRow = ({
       </Table.TR>
       {
         isOpen && (
-          <Table.TR className={contentClass}>
-            <Table.TD colSpan={rowContents.length + 1}>
+          <Table.TR className={ contentClass }>
+            <Table.TD colSpan={ rowContents.length + 1 }>
               {children}
             </Table.TD>
           </Table.TR>
@@ -45,12 +44,12 @@ const DiscloseRow = ({
       }
     </React.Fragment>
   );
-}
+};
 
 DiscloseRow.propTypes = {
-  isOpen: PropTypes.bool,
   /** Can be any valid HTML node */
   children: PropTypes.node,
+  isOpen: PropTypes.bool,
   rowContents: PropTypes.array,
   toggle: PropTypes.func,
 };
