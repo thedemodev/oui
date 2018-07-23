@@ -34,15 +34,15 @@ stories
       <Table.TBody>
         <DiscloseTable.Row
           rowContents={ [
-            <Table.TD>Experiment 1</Table.TD>,
-            <Table.TD isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD isNumerical={ true }>358</Table.TD>,
-            <Table.TD>Running</Table.TD>,
-            <Table.TD>
+            <Table.TD key={ 'exp_name' }>Experiment 1</Table.TD>,
+            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
+            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
+            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
+            <Table.TD key={ 'exp_status' }>Running</Table.TD>,
+            <Table.TD key={ 'exp_project' }>
               <div>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</div>
             </Table.TD>,
-            <Table.TD isNumerical={ true }>A/B</Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
           ]
           }>
           <div className={ 'variation-table' }>
@@ -59,7 +59,10 @@ stories
                   <Table.TD>Not Analyzed</Table.TD>
                 </Table.TR>
                 <Table.TR>
-                  <Table.TD><span>B</span>Variation name long contains a lot of characters as you can see here as well.</Table.TD>
+                  <Table.TD>
+                    <span>B</span>
+                    Variation name long contains a lot of characters as you can see here as well.
+                  </Table.TD>
                   <Table.TD>Win</Table.TD>
                 </Table.TR>
                 <Table.TR>
@@ -104,13 +107,15 @@ stories
         </DiscloseTable.Row>
         <DiscloseTable.Row
           rowContents={ [
-            <Table.TD>Experiment 2 has a very long name as you can see as well here that its a really long name</Table.TD>,
-            <Table.TD isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD isNumerical={ true }>358</Table.TD>,
-            <Table.TD>Paused</Table.TD>,
-            <Table.TD>Optimizely App - Web long name...</Table.TD>,
-            <Table.TD isNumerical={ true }>A/B</Table.TD>,
+            <Table.TD key={ 'exp_name' }>
+              Experiment 2 has a very long name as you can see as well here that its a really long name
+            </Table.TD>,
+            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
+            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
+            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
+            <Table.TD key={ 'exp_status' }>Paused</Table.TD>,
+            <Table.TD key={ 'exp_project' }>Optimizely App - Web long name...</Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
           ]
           }>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius

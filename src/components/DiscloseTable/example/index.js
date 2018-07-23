@@ -5,7 +5,7 @@ import Table from '../../Table';
 export default [
   {
     examples: [
-      <DiscloseTable>
+      <DiscloseTable key={ 'example_1' }>
         <Table.THead>
           <Table.TR>
             <Table.TH isCollapsed={ true }></Table.TH>
@@ -21,16 +21,17 @@ export default [
         <Table.TBody>
           <DiscloseTable.Row
             rowContents={ [
-              <Table.TD>Experiment 1</Table.TD>,
-              <Table.TD isNumerical={ true }>May 5, 2018</Table.TD>,
-              <Table.TD isNumerical={ true }>June 1, 2018</Table.TD>,
-              <Table.TD isNumerical={ true }>358</Table.TD>,
-              <Table.TD>Running</Table.TD>,
-              <Table.TD>
-                Optimizely App - Web long name contains a long list of characters which is totally unexpetected
+              <Table.TD key={ 'exp_name' }>Experiment 1</Table.TD>,
+              <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
+              <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
+              <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
+              <Table.TD key={ 'exp_status' }>Running</Table.TD>,
+              <Table.TD key={ 'exp_project' }>
+                <div>Optimizely App - Web long name contains a long list of characters which is totally unexpetected</div>
               </Table.TD>,
-              <Table.TD isNumerical={ true }>A/B</Table.TD>,
-            ] }>
+              <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
+            ]
+            }>
             <div className={ 'variation-table' }>
               <Table>
                 <Table.THead>
@@ -47,7 +48,7 @@ export default [
                   <Table.TR>
                     <Table.TD>
                       <span>B</span>
-                      Variation name long contains a lot of characters as you can see here as well.
+                    Variation name long contains a lot of characters as you can see here as well.
                     </Table.TD>
                     <Table.TD>Win</Table.TD>
                   </Table.TR>
@@ -82,16 +83,31 @@ export default [
                   </Table.THead>
                   <Table.TBody>
                     <Table.TR>
-                      <Table.TD>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-                            expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-                            accusantium corporis, beatae maxime quasi. Tempora.</p>
-                      </Table.TD>
+                      <Table.TD><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+                                  expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+                                  accusantium corporis, beatae maxime quasi. Tempora.</p></Table.TD>
                     </Table.TR>
                   </Table.TBody>
                 </Table>
               </div>
             </div>
+          </DiscloseTable.Row>
+          <DiscloseTable.Row
+            rowContents={ [
+              <Table.TD key={ 'exp_name' }>
+              Experiment 2 has a very long name as you can see as well here that its a really long name
+              </Table.TD>,
+              <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
+              <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
+              <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
+              <Table.TD key={ 'exp_status' }>Paused</Table.TD>,
+              <Table.TD key={ 'exp_project' }>Optimizely App - Web long name...</Table.TD>,
+              <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
+            ]
+            }>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
+          accusantium corporis, beatae maxime quasi. Tempora.</p>
           </DiscloseTable.Row>
         </Table.TBody>
       </DiscloseTable>,
