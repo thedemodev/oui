@@ -14,4 +14,10 @@ describe('components/DiscloseTable/DiscloseRow', () => {
     component.find('tr').simulate('click');
     expect(component.find('tr').length).toBe(2);
   });
+
+  it('should render children', () => {
+    const component = mount(<DiscloseRow rowContents={ [ ] }><p></p></DiscloseRow>);
+    component.find('tr').simulate('click');
+    expect(component.find('tr').containsMatchingElement(<p></p>)).toBe(true);
+  });
 });
