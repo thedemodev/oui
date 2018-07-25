@@ -39,9 +39,10 @@ Then you can run and develop locally:
 Don't forget these before you create a release:
 
 1. Re-build Storybook documentation: `yarn build-storybook`
-1. Export your component in main.js: `export { default as TheName } from './components/TheName';`
-1. Include details in `Changelog.md` of your changes and the related GitHub issue
-
+2. Export your component in main.js: `export { default as TheName } from './components/TheName';`
+3. Include details in `Changelog.md` of your changes and the related GitHub issue
+4. `git push` your changes to GitHub.
+5. Open a pull request comparing your feature `branch-name` against `devel`.
 
 ## :ship: Release a New Version
 
