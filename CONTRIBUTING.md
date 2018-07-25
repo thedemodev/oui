@@ -30,9 +30,24 @@ Then you can run and develop locally:
 
     > **Note:** please do not create a new version number header, this is done only during release.
 
-4. `git push` your changes to GitHub
-5. [Open a pull request](https://github.com/optimizely/oui/compare) of your branch, add at least one reviewer
+  4. Verify your OUI changes work as expected in the Optimizely repo.
+
+      Use npm link: `cd ~/optimizely && npm link ~/optimizely-oui`
+
+      Or the long-hand version:
+
+      ```
+      cd ~/projects/optimizely-oui    # go into package directory
+      npm link                        # creates global link
+      cd ~/projects/optly             # go into some other package directory
+      npm link optimizely-oui         # installs your local package
+      ```
+
+5. `git push` your changes to GitHub
+6. [Open a pull request](https://github.com/optimizely/oui/compare) of your branch, add at least one reviewer
     > **Making a breaking change?** Please [update the Optimizely app](https://github.com/optimizely/oui/issues/360) and bump the `package.json` OUI version to prevent unreleased changes from blocking future releases.
+
+
 
 ## :warning: Pre-Release
 

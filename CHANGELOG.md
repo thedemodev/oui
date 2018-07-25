@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Update CHANGELOG.md with `npm link` instructions for testing in the Optimizely.git repo
 
 ## 31.8.1 - 2018-07-18
 ### Changed
