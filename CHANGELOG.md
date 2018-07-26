@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 31.8.2 - 2018-07-26
 ### Added
 - [Feature] Add isDisable prop to BlockList.Item component
 
