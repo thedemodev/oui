@@ -5,6 +5,21 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Added
+- [Feature] Add isDisable prop to BlockList.Item component
+
+## 31.8.1 - 2018-07-18
+### Changed
+- [Patch] Update tabs small with custom type styles per Ron
+- [Patch] Rotate Travis CI/NPM publish key
+
+## 31.8.0 - 2018-07-13
+### Added
+- [Feature] Add <Accordion> React component from existing OUI HTML/CSS
+- [Feature] Add <TabNav style=dashboard> style ported from X (#989)
+
+### Fixed
+- [Patch] Updated CONTRIBUTING.md file with better instructions on installing, developing in and releasing new versions of OUI
 
 ## 31.7.2 - 2018-07-11
 ### Fixed
