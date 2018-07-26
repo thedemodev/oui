@@ -6,7 +6,7 @@ import { shallow, mount } from 'enzyme';
 describe('components/DiscloseTable/DiscloseRow', () => {
 
   it('should render rowContents prop correctly', () => {
-    const component = mount(<DiscloseRow rowContents={ [ <Table.TD></Table.TD> ] }></DiscloseRow>);
+    const component = mount(<DiscloseRow rowContents={ [ <Table.TD key={ 'foo' }></Table.TD> ] }></DiscloseRow>);
     expect(component.find(Table.TR).containsMatchingElement(<Table.TD></Table.TD>)).toBe(true);
   });
 
@@ -17,7 +17,7 @@ describe('components/DiscloseTable/DiscloseRow', () => {
   });
 
   it('should render children', () => {
-    const rowComponents = [ <Table.TD>Experiment Name</Table.TD> ];
+    const rowComponents = [ <Table.TD key={ 'foo' }>Experiment Name</Table.TD> ];
     const component = mount(<DiscloseRow rowContents={ rowComponents }><p></p></DiscloseRow>);
 
     component.find(Table.TR).simulate('click');
