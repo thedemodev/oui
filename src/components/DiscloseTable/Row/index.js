@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { toClass } from 'recompose';
 import { withToggle } from '../../../utils/recompose-utils';
-import Table from '../../Table';
 
 const DiscloseRow = ({
   isOpen,
@@ -12,34 +11,27 @@ const DiscloseRow = ({
   rowContents,
   toggle,
 }) => {
-  const contentClass = classNames(
-    {
-      ['border--sides border--bottom']: isOpen,
-    }
-  );
   const linkClass = classNames(
-    'oui-disclose link--dark soft-half--ends soft--sides',
+    'oui-disclose-table--row__toggle',
     {
-      ['is-active border--top border--sides']: isOpen,
+      ['is-active']: isOpen,
     },
   );
-  const borderStyle = isOpen ? 'ends' : 'none';
-  const backgroundColor = isOpen ? 'faint' : null;
   return (
     <React.Fragment>
-      <Table.TR onClick={ toggle } className={ linkClass } borderStyle={ borderStyle } backgroundColor={ backgroundColor }>
-        <Table.TD className='oui-disclose__arrow soft--left'>
+      <tr onClick={ toggle } className={ linkClass }>
+        <td className='soft--left'>
           <span className="oui-disclose__symbol push-half--right"></span>
-        </Table.TD>
+        </td>
         {rowContents}
-      </Table.TR>
+      </tr>
       {
         isOpen && (
-          <Table.TR className={ contentClass }>
-            <Table.TD colSpan={ rowContents.length + 1 }>
+          <tr className="oui-disclose-table--row__content">
+            <td colSpan={ rowContents.length + 1 }>
               {children}
-            </Table.TD>
-          </Table.TR>
+            </td>
+          </tr>
         )
       }
     </React.Fragment>

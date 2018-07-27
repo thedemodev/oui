@@ -28,7 +28,7 @@ stories
           <Table.TH isNumerical={ true }>Visitors</Table.TH>
           <Table.TH>Status</Table.TH>
           <Table.TH>Project</Table.TH>
-          <Table.TH isNumerical={ true }>Type</Table.TH>
+          <Table.TH isNumerical={ true }><div className="push-half--right">Type</div></Table.TH>
         </Table.TR>
       </Table.THead>
       <Table.TBody>
@@ -42,7 +42,7 @@ stories
             <Table.TD key={ 'exp_project' }>
               Optimizely App - Web long name contains a long list of characters which is totally unexpetected
             </Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true }><div className="push-half--right">A/B</div></Table.TD>,
           ]
           }>
           <div className="flex soft-double--sides">
@@ -115,10 +115,10 @@ stories
             <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
             <Table.TD key={ 'exp_status' }>Paused</Table.TD>,
             <Table.TD key={ 'exp_project' }>Optimizely App - Web long name...</Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }>A/B</Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true }><div className="push-half--right">A/B</div></Table.TD>,
           ]
           }>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
+          <p className="soft--sides">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
           expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
           accusantium corporis, beatae maxime quasi. Tempora.</p>
         </DiscloseTable.Row>
