@@ -6,11 +6,12 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 31.8.2 - 2018-07-26
+## 31.9.2 - 2018-07-27
 ### Added
-- [Feature] Add isDisable prop to BlockList.Item component
+- [Feature] Added isDisabled prop to BlockList.Item component
+- [Feature] Updated RangeSlider to support isDisabled
 
-## 31.8.1 - 2018-07-18
+## 31.9.1 - 2018-07-18
 ### Changed
 - [Patch] Update tabs small with custom type styles per Ron
 - [Patch] Rotate Travis CI/NPM publish key
