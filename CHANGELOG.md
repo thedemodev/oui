@@ -6,7 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 31.9.2 - 2018-07-27
+## 31.10.0 - 2018-07-27
 ### Added
 - [Feature] Added isDisabled prop to BlockList.Item component
 - [Feature] Updated RangeSlider to support isDisabled
