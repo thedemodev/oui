@@ -23,7 +23,7 @@ class Item extends React.Component {
     if (this.props.isDisabled) {
       item = (
         <div
-          className={ `${commonClasses} pointer-events--none background--faint` }>
+          className={ `${commonClasses} pointer-events--none background--faint muted` }>
           { this.props.children }
         </div>
       );
