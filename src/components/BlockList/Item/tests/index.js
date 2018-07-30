@@ -12,13 +12,13 @@ describe('components/BlockList/Item', () => {
 
       it('should render children and render item in a `div` if `isDisabled` is true', function() {
         component = shallow(<Item isDisabled={ disabled }>{ text }</Item>);
-        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint').text()).toBe(text);
-        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint').is('div')).toBe(true);
+        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint .muted').text()).toBe(text);
+        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint .muted').is('div')).toBe(true);
       });
 
       it('should NOT render childen and render item in a `div` if `isDisabled` is false', function() {
         component = shallow(<Item isDisabled={ notDisabled }>{ text }</Item>);
-        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint').exists()).toBeFalsy();
+        expect(component.find('.oui-block-list__item .pointer-events--none .background--faint .muted').exists()).toBeFalsy();
       });
     });
 

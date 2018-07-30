@@ -5,10 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-### Added
-- [Feature] Add isDisable prop to BlockList.Item component
 
-## 31.8.1 - 2018-07-18
+## 31.10.0 - 2018-07-27
+### Added
+- [Feature] Added isDisabled prop to BlockList.Item component
+- [Feature] Updated RangeSlider to support isDisabled
+
+## 31.9.1 - 2018-07-18
 ### Changed
 - [Patch] Update tabs small with custom type styles per Ron
 - [Patch] Rotate Travis CI/NPM publish key
