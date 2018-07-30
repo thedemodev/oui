@@ -40,10 +40,10 @@ const DiscloseRow = ({
 
 DiscloseRow.propTypes = {
   /** Can be any valid HTML node */
-  children: PropTypes.node,
-  isOpen: PropTypes.bool,
-  rowContents: PropTypes.array,
-  toggle: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  rowContents: PropTypes.array.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 export default withToggle(toClass(DiscloseRow));
