@@ -91,7 +91,7 @@
     "babel": "babel src/ --out-dir dist/js --ignore \"tests/*.js, src/js\"",
     "codecov": "codecov",
     "jest": "jest --config jest.config.js --no-cache",
-    "jest:watch": "jest --config .jest.config.json --watch",
+    "jest:watch": "jest --config jest.config.js --watch",
     "eslint": "eslint --ext .jsx --ext .js . --max-warnings 0",
     "preversion": "git checkout master && git pull --rebase=false",
     "postversion": "npm run postversion:publish && npm run postversion:update-devel",
