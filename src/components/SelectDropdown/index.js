@@ -24,7 +24,7 @@ class SelectDropdown extends React.Component {
      */
     items: PropTypes.arrayOf(PropTypes.shape({
       description: PropTypes.string,
-      label: PropTypes.string.isRequired,
+      label: PropTypes.node.isRequired,
       value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -147,7 +147,7 @@ class SelectOption extends React.Component {
     /**
      * Label of select item.
      */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node.isRequired,
     /**
      * Function that is called when user selects another item.
      */
