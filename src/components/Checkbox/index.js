@@ -56,8 +56,11 @@ Checkbox.propTypes = {
   defaultChecked: PropTypes.bool,
   /** Prevents checkbox from being modified and appears disabled */
   isDisabled: PropTypes.bool,
-  /** Text that describes the checkbox */
-  label: PropTypes.string,
+  /** Label that describes the checkbox */
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
   /** Function that fires when the checkbox is clicked */
   onChange: PropTypes.func,
   /** Hook for automated JavaScript tests */
