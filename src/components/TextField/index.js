@@ -1,3 +1,8 @@
+/**
+ * DEPERCATION NOTICE: TextField is no longer being maintained,
+ * use Input component instead.
+ */
+
 import React from 'react';
 import Label from '../Label';
 import classnames from 'classnames';

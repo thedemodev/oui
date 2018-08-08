@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 31.11.2 - 2018-08-07
+- [Feature] Added EditableInput component
+
 ## 31.11.1 - 2018-08-06
 ### Changed
 - [Patch] Allow Node types for SelectDropdown label prop

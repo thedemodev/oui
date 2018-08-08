@@ -8,6 +8,7 @@
   "dependencies": {
     "clipboard": "^1.5.12",
     "highlight.js": "^9.5.0",
+    "lodash.noop": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.1",
     "react-oui-icons": "^2.1.0",
     "react-popper": "^0.8.2",
