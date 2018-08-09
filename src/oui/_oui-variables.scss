@@ -114,14 +114,14 @@ $font: (
 
   size: (
     base                     : 14px,
+    milli                    : 13px,
     micro                    : 11px,
-    milli                    : 12px,
-    alpha                    : 28px, // h1
-    beta                     : 24px, // h2
+    alpha                    : 30px, // h1
+    beta                     : 26px, // h2
     gamma                    : 20px, // h3
-    delta                    : 16px, // h4
-    epsilon                  : 14px, // h5
-    zeta                     : 12px, // h6
+    delta                    : 18px, // h4
+    epsilon                  : 16px, // h5
+    zeta                     : 14px, // h6
     kilo                     : 40px, // Extra large fonts.
     mega                     : 50px,
     giga                     : 65px
@@ -134,7 +134,8 @@ $font: (
   ),
 
   family: (
-    base                     : unquote('Proxima, Helvetica, Verdana, sans-serif'),
+    base                     : unquote('Graphik, Helvetica, Verdana, sans-serif'),
+    number                   : unquote('Lato, Helvetica, Verdana, sans-serif'),
     monospace                : unquote('Consolas, "Liberation Mono", Menlo, Courier, monospace'),
   ),
 
