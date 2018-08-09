@@ -37,8 +37,9 @@ $root-color: (
   bad-news                   : #C60C0C,
   good-news                  : #14A54A,
   draft                      : #F4B852, // Brand Oakland
-  live                       : #77C96F, // Brand Haight+1
-  admin                      : #FCB423 // Admin from v1
+  live                       : #97C709, // Brand Haight+1
+  admin                      : #FCB423, // Admin from v1
+  highlight                  : #0074B4
 );
 
 /// Base Colors
@@ -62,7 +63,8 @@ $color: (
     good-news                : map-fetch($root-color, good-news),
     draft                    : map-fetch($root-color, draft),
     live                     : map-fetch($root-color, live),
-    admin                    : map-fetch($root-color, admin)
+    admin                    : map-fetch($root-color, admin),
+    highlight                : map-fetch($root-color, highlight)
   ),
 
   link: (
@@ -94,7 +96,7 @@ $color: (
     white                    : $base-white,
     faint                    : map-fetch($root-color, grey-12),
     light                    : map-fetch($root-color, grey-25),
-    muted                    : map-fetch($root-color, grey-35),
+    muted                    : #888, //map-fetch($root-color, grey-35)
     medium                   : map-fetch($root-color, grey-50),
     charcoal                 : map-fetch($root-color, grey-78),
     dark                     : map-fetch($root-color, grey-85),
@@ -102,7 +104,7 @@ $color: (
     brand-dark               : map-fetch($root-color, brand-dark),
     warning                  : map-fetch($root-color, warning),
     bad-news                 : map-fetch($root-color, bad-news),
-    good-news                : map-fetch($root-color, good-news)
+    good-news                : #21a350 //map-fetch($root-color, good-news)
   )
 
 );
@@ -211,7 +213,7 @@ $button: (
         border               : #0176A9,
       ),
       active:(
-        background           : #0074B4,
+        background           : map-fetch($root-color, highlight),
         border               : #005584,
         box-shadow           : inset 0 1px 3px 0 rgba(0, 0, 0, 0.5),
       )
@@ -221,8 +223,8 @@ $button: (
       border                 : #8D96A8,
       color                  : #64738A,
       hover:(
-        border               : #0074B4,
-        color                : #0074B4,
+        border               : map-fetch($root-color, highlight),
+        color                : map-fetch($root-color, highlight),
       ),
       active:(
         border               : #00415D,
