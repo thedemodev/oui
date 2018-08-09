@@ -71,6 +71,16 @@
   color: map-fetch($color, text, charcoal) !important;
 }
 
+%color--draft,
+.color--draft {
+  color: map-fetch($color, ui, draft) !important;
+}
+
+%color--live,
+.color--live {
+  color: map-fetch($color, ui, good-news) !important;
+}
+
 
 /// Font Weights
 /// @example[html]
