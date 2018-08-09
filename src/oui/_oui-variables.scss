@@ -20,6 +20,84 @@ $namespace                   : '' !default;
 $base-black                  : #000;
 $base-white                  : #FFF;
 
+// CSS3 Variables
+
+:root {
+  /* brand */
+   --light-blue-75: #4069FF;
+   --light-blue-25: #BFCDFF;
+   --light-blue-6: #F3F6FF;
+   --dark-blue-75: #46456A;
+
+  /* indicators */
+   --yellow: #FFCE00;
+   --red: #E93D28;
+   --green: #00A878;
+   --purple: #7500FF;
+   --cyan: #36D4FF;
+
+  /* greys */
+   --dark-blue-100: #080738;
+   --dark-blue-50: #83839B;
+   --dark-blue-25: #C1C1CD;
+   --grey-50: #E8E8E8;
+   --grey-25: #F9F9F9;
+   --paper: #FBFCFF;
+
+  /* data-visualization */
+   --data-1: #33B8AC;
+   --data-2: #EC6CB8;
+   --data-3: #497B9A;
+   --data-4: #FE8E36;
+   --data-5: #06B2D7;
+   --data-6: #E79559;
+   --data-7: #827390;
+   --data-8: #FFC857;
+
+   /* ui */
+   --wide-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.17);
+   --border-radius: 8px;
+   --highlight: var(--light-blue-6);
+
+}
+
+
+$brand-color: (
+
+  /* brand */
+  light-blue-100            : #0037FF,
+  light-blue-75             : #4069FF,
+  light-blue-25             : #BFCDFF,
+  light-blue-6              : #F3F6FF,
+  dark-blue-75              : #46456A,
+
+  /* indicators */
+  yellow                    : #FFCE00,
+  red                       : #E93D28,
+  green                     : #00A878,
+  purple                    : #7500FF,
+  cyan                      : #36D4FF,
+
+  /* greys */
+  dark-blue-100             : #080738,
+  dark-blue-50              : #83839B,
+  dark-blue-25              : #C1C1CD,
+  grey-50                   : #E8E8E8,
+  grey-25                   : #F9F9F9,
+  paper                     : #FBFCFF,
+
+  /* data-visualization */
+  data-1                    : #33B8AC,
+  data-2                    : #EC6CB8,
+  data-3                    : #497B9A,
+  data-4                    : #FE8E36,
+  data-5                    : #06B2D7,
+  data-6                    : #E79559,
+  data-7                    : #827390,
+  data-8                    : #FFC857
+
+);
+
 $root-color: (
   grey-85                    : tint($base-black, 15%),
   grey-78                    : tint($base-black, 22%),
@@ -29,16 +107,16 @@ $root-color: (
   grey-25                    : tint($base-black, 75%),
   grey-12                    : tint($base-black, 88%),
   grey-06                    : tint($base-black, 94%),
-  grey-03                    : tint($base-black, 97%), // #F6F6F7
-  brand                      : #0081BA,
+  grey-03                    : tint($base-black, 97%),
+  brand                      : map-fetch($brand-color, light-blue-75),
   brand-light                : #9ACCE2,
-  brand-dark                 : #004766,
+  brand-dark                 : map-fetch($brand-color, dark-blue-75),
   warning                    : #FFD40C,
   bad-news                   : #C60C0C,
   good-news                  : #14A54A,
-  draft                      : #F4B852, // Brand Oakland
-  live                       : #97C709, // Brand Haight+1
-  admin                      : #FCB423, // Admin from v1
+  draft                      : #F4B852,
+  live                       : #97C709,
+  admin                      : #FCB423,
   highlight                  : #0074B4
 );
 

@@ -10,14 +10,14 @@ h1,
 h2,
 .beta {
   font-size: map-fetch($font, size, beta);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
 }
 
 h3,
 .gamma {
   font-size: map-fetch($font, size, gamma);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
 }
 
@@ -29,13 +29,13 @@ h4,
 h5,
 .epsilon {
   font-size: map-fetch($font, size, epsilon);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h6,
 .zeta {
   font-size: map-fetch($font, size, zeta);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 // ## Heading Margin Defaults
