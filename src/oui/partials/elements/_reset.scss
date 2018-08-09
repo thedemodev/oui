@@ -19,7 +19,9 @@
 // General resets.
 
 body {
+  @include font-smoothing;
   margin: 0;
+  color: map-fetch($color, text, base);
 }
 
 h1,
