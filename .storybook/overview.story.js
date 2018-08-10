@@ -6,6 +6,7 @@ import Attention from '../src/components/Attention';
 import Badge from '../src/components/Badge';
 import Button from '../src/components/Button';
 import Card from '../src/components/Card';
+import EmptyDashboard from '../src/components/EmptyDashboard';
 import Input from '../src/components/Input';
 import Link from '../src/components/Link';
 import ProgressBar from '../src/components/ProgressBar';
@@ -182,6 +183,14 @@ stories
             </Table.TR>
           </Table.TBody>
         </Table>
+      </div>
+
+      <div className="push--ends">
+        <EmptyDashboard
+          headline='Get started with Optimizely X'
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">Highlight</Button>) }
+          imagePath='https://app.optimizely.com/static/img/x/empty-states/integrations-empty.svg'
+        />
       </div>
 
       <div className="push--ends">
