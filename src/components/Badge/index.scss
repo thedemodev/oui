@@ -23,13 +23,14 @@
   margin-right: spacer(0.5);
   border-radius: map-fetch($badge, size);
   font-size: map-fetch($badge, font-size);
-  padding: 2px spacer(0.5);
+  padding: 2px 6px;
   font-weight: map-fetch($badge, font-weight);
   letter-spacing: map-fetch($badge, letter-spacing);
   text-transform: uppercase;
 }
 
-.#{$namespace}badge {
+.#{$namespace}badge,
+.oui-badge {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -43,9 +44,6 @@
   }
 }
 
-.oui-badge {
-  @include badge;
-}
 
 .#{$namespace}badge > li.badge__draft,
 .oui-badge--draft {

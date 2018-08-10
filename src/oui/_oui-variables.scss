@@ -288,8 +288,8 @@ $button: (
       border                 : tint(map-fetch($brand-color, light-blue-75), 10%),
       text-shadow            : 0 0 1px rgba(0, 0 , 0, 0.2),
       hover:(
-        background           : #0081BA,
-        border               : #0176A9,
+        background           : map-fetch($brand-color, light-blue-100),
+        border               : tint(map-fetch($brand-color, light-blue-100), 10%),
       ),
       active:(
         background           : map-fetch($root-color, highlight),
@@ -372,8 +372,8 @@ $button: (
 
 $token: (
   background-color: (
-    primary                  : #009DE0,
-    secondary                : #869FAB
+    primary                  : map-fetch($brand-color, light-blue-75),
+    secondary                : map-fetch($brand-color, dark-blue-50)
   ),
   token__number: (
     min-width                : 10px
@@ -391,7 +391,7 @@ $token: (
 /// Badge
 
 $badge: (
-  background-color           : #B4B7B9,
+  background-color           : map-fetch($brand-color, dark-blue-50),
   size                       : 17px,
   min-width                  : 16px,
   font-size                  : 10px,
