@@ -44,6 +44,10 @@
   }
 }
 
+.oui-badge {
+  white-space: nowrap;
+  @include badge;
+}
 
 .#{$namespace}badge > li.badge__draft,
 .oui-badge--draft {
