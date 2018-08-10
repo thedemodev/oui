@@ -29,8 +29,7 @@
   text-transform: uppercase;
 }
 
-.#{$namespace}badge,
-.oui-badge {
+.#{$namespace}badge {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -45,7 +44,7 @@
 }
 
 .oui-badge {
-  white-space: nowrap;
+  display: inline-block;
   @include badge;
 }
 
