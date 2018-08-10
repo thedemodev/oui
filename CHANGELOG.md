@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Vertically align arrow in DiscloseTable.Row
 
 ## 31.11.2 - 2018-08-07
 - [Feature] Added EditableInput component
