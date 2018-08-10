@@ -67,6 +67,7 @@ $brand-color: (
   /* brand */
   light-blue-100            : #0037FF,
   light-blue-75             : #4069FF,
+  light-blue-50             : #809BFF,
   light-blue-25             : #BFCDFF,
   light-blue-6              : #F3F6FF,
   dark-blue-75              : #46456A,
@@ -109,15 +110,15 @@ $root-color: (
   grey-06                    : tint($base-black, 94%),
   grey-03                    : tint($base-black, 97%),
   brand                      : map-fetch($brand-color, light-blue-75),
-  brand-light                : #9ACCE2,
+  brand-light                : map-fetch($brand-color, light-blue-25),
   brand-dark                 : map-fetch($brand-color, dark-blue-75),
-  warning                    : #FFD40C,
-  bad-news                   : #C60C0C,
-  good-news                  : #14A54A,
-  draft                      : #F4B852,
-  live                       : #97C709,
-  admin                      : #FCB423,
-  highlight                  : #0074B4
+  warning                    : map-fetch($brand-color, yellow),
+  bad-news                   : map-fetch($brand-color, red),
+  good-news                  : map-fetch($brand-color, green),
+  draft                      : map-fetch($brand-color, yellow),
+  live                       : map-fetch($brand-color, green),
+  admin                      : map-fetch($brand-color, cyan),
+  highlight                  : map-fetch($brand-color, light-blue-6)
 );
 
 /// Base Colors
@@ -163,10 +164,10 @@ $color: (
     black                    : $base-black,
     brand                    : map-fetch($root-color, brand),
     brand-dark               : map-fetch($root-color, brand-dark),
-    brand-light              : #F2F7FC,
-    warning                  : #FCF8E3,
-    bad-news                 : #F9E3E4,
-    good-news                : #E9F6C3
+    brand-light              : tint(map-fetch($root-color, brand), 80%),
+    warning                  : tint(map-fetch($root-color, warning), 80%),
+    bad-news                 : tint(map-fetch($root-color, bad-news), 80%),
+    good-news                : tint(map-fetch($root-color, good-news), 80%)
   ),
 
   text: (
@@ -182,7 +183,7 @@ $color: (
     brand-dark               : map-fetch($root-color, brand-dark),
     warning                  : map-fetch($root-color, warning),
     bad-news                 : map-fetch($root-color, bad-news),
-    good-news                : #21a350 //map-fetch($root-color, good-news)
+    good-news                : shade(map-fetch($root-color, good-news), 20%)
   )
 
 );
@@ -194,15 +195,15 @@ $font: (
 
   size: (
     base                     : 14px,
-    milli                    : 13px,
-    micro                    : 11px,
     alpha                    : 30px, // h1
     beta                     : 26px, // h2
     gamma                    : 20px, // h3
     delta                    : 18px, // h4
     epsilon                  : 16px, // h5
     zeta                     : 14px, // h6
-    kilo                     : 40px, // Extra large fonts.
+    milli                    : 13px,
+    micro                    : 11px,
+    kilo                     : 40px, // Extra large for marketing
     mega                     : 50px,
     giga                     : 65px
   ),
@@ -238,7 +239,7 @@ $button: (
       font-size              : 13px,
       padding                : 0 15px,
       font-weight            : 400,
-      border-radius          : 2px
+      border-radius          : 8px
     ),
     large: (
       height                 : 42px,
@@ -283,8 +284,8 @@ $button: (
       )
     ),
     highlight: (
-      background             : #0F75B2,
-      border                 : #0E699F,
+      background             : map-fetch($brand-color, light-blue-75),
+      border                 : tint(map-fetch($brand-color, light-blue-75), 10%),
       text-shadow            : 0 0 1px rgba(0, 0 , 0, 0.2),
       hover:(
         background           : #0081BA,
@@ -391,10 +392,10 @@ $token: (
 
 $badge: (
   background-color           : #B4B7B9,
-  size                       : 14px,
+  size                       : 17px,
   min-width                  : 16px,
   font-size                  : 10px,
-  font-weight                : 700,
+  font-weight                : 500,
   letter-spacing             : 0.5px
 );
 
