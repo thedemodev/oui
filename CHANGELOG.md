@@ -9,6 +9,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## 31.11.2 - 2018-08-07
 - [Feature] Added EditableInput component
+- [Patch] Update SCSS to add selectors for `.oui-label` where `.#{$namespace}label` is used. (#1016)
+
 
 ## 31.11.1 - 2018-08-06
 ### Changed
