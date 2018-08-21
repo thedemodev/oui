@@ -14,7 +14,9 @@ $hosted-fonts:(
     600: semibold,
     700: bold,
   ),
-  url: 'http://design-rebrand-fonts.s3-website-us-west-2.amazonaws.com/'
+  // url: 'https://dhm5hy2vn8l0l.cloudfront.net/webfonts/'
+  // url: 'http://design-rebrand-fonts.s3-website-us-west-2.amazonaws.com/'
+  url: 'https://optimizely.github.io/rebrand2018/dist/fonts/'
 );
 
 @if variable-exists(include-fonts) {
