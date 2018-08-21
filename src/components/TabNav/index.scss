@@ -78,7 +78,7 @@
     background-color: transparent;
     padding: spacer(0.5) spacer(1);
     // font-size: map-fetch($font, size, milli);
-    font-size: 11.5px; // [TODO] @dave.rau Adding these overrides for Ron
+    font-size: 11.5px; // TODO: @dave.rau Adding these overrides for Ron
     letter-spacing: -0.3px;
     &.is-active {
       &::after { // Creates the white bar under the active tab.
