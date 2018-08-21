@@ -500,8 +500,8 @@ $border: (
     base                     : map-fetch($color, ui, base)
   ),
   radius: (
-    base                     : 2px,
-    big                      : 4px,
+    base                     : 5px,
+    big                      : 8px,
     full                     : 50%
   )
 );
