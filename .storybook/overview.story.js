@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import ArrowsInline from '../src/components/ArrowsInline';
 import Attention from '../src/components/Attention';
 import Badge from '../src/components/Badge';
+import BlockList from '../src/components/BlockList';
 import Button from '../src/components/Button';
 import Card from '../src/components/Card';
 import EmptyDashboard from '../src/components/EmptyDashboard';
@@ -63,12 +64,12 @@ stories
 
 
       <div class="push--ends">
-         <h1>H1 Experiences</h1>
-         <h2>H2 Experiences</h2>
-         <h3>H3 Experiences</h3>
-         <h4>H4 Experiences</h4>
-         <h5>H5 Experiences</h5>
-         <h6>H6 Experiences</h6>
+         <h1>H1 Experiments</h1>
+         <h2>H2 Experiments</h2>
+         <h3>H3 Experiments</h3>
+         <h4>H4 Experiments</h4>
+         <h5>H5 Experiments</h5>
+         <h6>H6 Experiments</h6>
       </div>
 
       <div className="push--ends">
@@ -78,6 +79,29 @@ stories
         <Badge color="primary">Primary</Badge>
         <Badge color="plain">Plain</Badge>
       </div>
+
+      <BlockList hasBorder={ true }>
+        <BlockList.Category>
+          <BlockList.Item onClick={ true }>No click</BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item href="https://www.optimizely.com/" hrefTarget="_blank">Open optimizely.com</BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item onClick={ true }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <div>Complex Item</div>
+                <div className="muted micro">This is the item description.</div>
+              </div>
+              <Button size="small" style="outline" width="default">Inner Button</Button>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item>Plain Text Example</BlockList.Item>
+        </BlockList.Category>
+      </BlockList>
 
       <div className="push--ends">
         <Token

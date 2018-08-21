@@ -14,7 +14,7 @@
     border: 1px solid map-fetch($border, color, base);
     border-right: 0;
     border-bottom: 0;
-    color: map-fetch($color, text, medium);
+    color: map-fetch($brand-color, dark-blue-75);
     font-weight: 400;
     background-color: map-fetch($color, background, faint);
     cursor: pointer;
@@ -28,9 +28,8 @@
       border-right: 1px solid map-fetch($border, color, base);
     }
 
-    &:hover,
-    &.is-active {
-      color: map-fetch($color, text, brand);
+    &:hover {
+      color: map-fetch($brand-color, light-blue-75);
     }
 
     &.is-active {
@@ -40,12 +39,12 @@
       &::after { // Creates the white bar under the active tab.
         content: '';
         display: block;
-        height: 1px;
-        background: map-fetch($brand-color, light-blue-50);
+        height: 3px;
+        background: map-fetch($brand-color, light-blue-75);
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -1px;
+        bottom: -3px;
       }
     }
   }
