@@ -24,44 +24,91 @@ $base-white                  : #FFF;
 
 :root {
   /* brand */
-   --light-blue-75: #4069FF;
-   --light-blue-25: #BFCDFF;
-   --light-blue-6: #F3F6FF;
-   --dark-blue-75: #46456A;
+  --light-blue-75: #4069FF;
+  --light-blue-50: #809BFF;
+  --light-blue-25: #BFCDFF;
+  --light-blue-10: #EAEDFA;
+  --light-blue-6: #F3F6FF;
+  --dark-blue-75: #46456A;
 
   /* indicators */
-   --yellow: #FFCE00;
-   --red: #E93D28;
-   --green: #00A878;
-   --purple: #7500FF;
-   --cyan: #36D4FF;
+  --yellow: #FFCE00;
+  --red: #E93D28;
+  --green: #00A878;
+  --purple: #7500FF;
+  --cyan: #36D4FF;
 
   /* greys */
-   --dark-blue-100: #080738;
-   --dark-blue-50: #83839B;
-   --dark-blue-25: #C1C1CD;
-   --grey-50: #E8E8E8;
-   --grey-25: #F9F9F9;
-   --paper: #FBFCFF;
+  --dark-blue-100: #080738;
+  --dark-blue-50: #83839B;
+  --dark-blue-25: #C1C1CD;
+  --grey-50: #E8E8E8;
+  --grey-25: #F9F9F9;
+  --paper: #FDFDFD;
+  --white: #FFFFFF;
 
   /* data-visualization */
-   --data-1: #33B8AC;
-   --data-2: #EC6CB8;
-   --data-3: #497B9A;
-   --data-4: #FE8E36;
-   --data-5: #06B2D7;
-   --data-6: #E79559;
-   --data-7: #827390;
-   --data-8: #FFC857;
+  /* //data viz set 1 - scoring scale */
+  --dv1-0: #FBFCFF;
+  --dv1-1: #FF3300;
+  --dv1-2: #FF9300;
+  --dv1-3: #1D47B8;
+  --dv1-4: #008DDF;
+  --dv1-5: #01CE79;
+
+  /* //data viz set 2 - purple - sequential and stacked charts */
+  --dv2-1: #EFEDF5;
+  --dv2-2: #DADAEB;
+  --dv2-3: #BCBDDC;
+  --dv2-4: #9E9AC8;
+  --dv2-5: #807DBA;
+  --dv2-6: #01CE79;
+  --dv2-7: #54278F;
+  --dv2-8: #3F007D;
+
+  /* //data viz set 3 - green - sequential and stacked charts */
+  --dv3-1: #E5F5E0;
+  --dv3-2: #C7E9C0;
+  --dv3-3: #A1D99B;
+  --dv3-4: #74C476;
+  --dv3-5: #41AB5D;
+  --dv3-6: #238B45;
+  --dv3-7: #006D2C;
+  --dv3-8: #00441B;
+
+  /* //data viz set 4 - rainbow - equal weight lines, dots, bars */
+  --dv4-1: #BF4D4D;
+  --dv4-2: #BFA34D;
+  --dv4-3: #86BF4D;
+  --dv4-4: #4DBF69;
+  --dv4-5: #4DBFBF;
+  --dv4-6: #4D69BF;
+  --dv4-7: #864DBF;
+  --dv4-8: #BF4DA3;
+
+  /* //data viz set 5 - rich - equal weight lines, dots, bars */
+  --dv5-1: #000041;
+  --dv5-2: #0000CB;
+  --dv5-3: #0081FF;
+  --dv5-4: #02DA81;
+  --dv5-5: #7EF41E;
+  --dv5-6: #FDEE02;
+  --dv5-7: #FFAB00;
+  --dv5-8: #FF3300;
+
+  /* //data viz set 6 - focus */
+  --dv6-1: #969696;
+  --dv6-2: #FF3300;
+  --dv6-3: #02DA81;
 
    /* ui */
    --wide-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.17);
    --border-radius: 8px;
-   --highlight: var(--light-blue-6);
-
+   --highlight: var(--light-blue-6); //F3F6FF?
+   --ron-project-badge: #7b81d1;
 }
 
-
+// Duplicate CSS3 vars available in SASS
 $brand-color: (
 
   /* brand */
@@ -69,6 +116,7 @@ $brand-color: (
   light-blue-75             : #4069FF,
   light-blue-50             : #809BFF,
   light-blue-25             : #BFCDFF,
+  light-blue-10             : #EAEDFA,
   light-blue-6              : #F3F6FF,
   dark-blue-75              : #46456A,
 
@@ -85,17 +133,17 @@ $brand-color: (
   dark-blue-25              : #C1C1CD,
   grey-50                   : #E8E8E8,
   grey-25                   : #F9F9F9,
-  paper                     : #FBFCFF,
+  paper                     : #FDFDFD,
 
   /* data-visualization */
-  data-1                    : #33B8AC,
-  data-2                    : #EC6CB8,
-  data-3                    : #497B9A,
-  data-4                    : #FE8E36,
-  data-5                    : #06B2D7,
-  data-6                    : #E79559,
-  data-7                    : #827390,
-  data-8                    : #FFC857
+  data-rich-1                    : #000041,
+  data-rich-2                    : #0000CB,
+  data-rich-3                    : #0081FF,
+  data-rich-4                    : #02DA81,
+  data-rich-5                    : #7EF41E,
+  data-rich-6                    : #FDEE02,
+  data-rich-7                    : #FFAB00,
+  data-rich-8                    : #FF3300
 
 );
 
@@ -115,9 +163,9 @@ $root-color: (
   warning                    : map-fetch($brand-color, yellow),
   bad-news                   : map-fetch($brand-color, red),
   good-news                  : map-fetch($brand-color, green),
-  draft                      : map-fetch($brand-color, yellow),
-  live                       : map-fetch($brand-color, green),
-  admin                      : map-fetch($brand-color, cyan),
+  draft                      : map-fetch($brand-color, data-rich-7),
+  live                       : map-fetch($brand-color, data-rich-4),
+  admin                      : map-fetch($brand-color, purple),
   highlight                  : map-fetch($brand-color, light-blue-6)
 );
 
@@ -128,7 +176,7 @@ $color: (
 
   ui: (
     white                    : $base-white,
-    faint                    : map-fetch($root-color, grey-03),
+    faint                    : $base-white, //map-fetch($root-color, grey-03),
     light                    : map-fetch($root-color, grey-06),
     base                     : map-fetch($root-color, grey-12),
     medium                   : map-fetch($root-color, grey-40),
@@ -147,7 +195,8 @@ $color: (
   ),
 
   link: (
-    base                     : map-fetch($root-color, brand),
+    base                     : map-fetch($brand-color, light-blue-75),
+    hover                    : map-fetch($brand-color, light-blue-100),
     brand-light              : map-fetch($root-color, brand-light),
     bad-news                 : map-fetch($root-color, bad-news),
     white                    : $base-white
@@ -156,7 +205,7 @@ $color: (
   background: (
     base                     : $base-white,
     white                    : $base-white,
-    faint                    : map-fetch($root-color, grey-03),
+    faint                    : $base-white,
     light                    : map-fetch($root-color, grey-06),
     muted                    : map-fetch($root-color, grey-35),
     medium                   : map-fetch($root-color, grey-50),
@@ -171,11 +220,11 @@ $color: (
   ),
 
   text: (
-    base                     : map-fetch($root-color, grey-85),
+    base                     : map-fetch($brand-color, dark-blue-100),
     white                    : $base-white,
     faint                    : map-fetch($root-color, grey-12),
     light                    : map-fetch($root-color, grey-25),
-    muted                    : #888, //map-fetch($root-color, grey-35)
+    muted                    : map-fetch($brand-color, dark-blue-50),
     medium                   : map-fetch($root-color, grey-50),
     charcoal                 : map-fetch($root-color, grey-78),
     dark                     : map-fetch($root-color, grey-85),
@@ -247,7 +296,7 @@ $button: (
       font-size              : 15px,
       padding                : 0 20px,
       font-weight            : 400,
-      border-radius          : 2px
+      border-radius          : 8px
     ),
     small: (
       height                 : 27px,
@@ -255,7 +304,7 @@ $button: (
       font-size              : 11px,
       padding                : 0 7px,
       font-weight            : 400,
-      border-radius          : 2px
+      border-radius          : 5px
     ),
     tiny: (
       height                 : 19px,
@@ -263,7 +312,7 @@ $button: (
       font-size              : 11px,
       padding                : 0 8px,
       font-weight            : 500,
-      border-radius          : 2px
+      border-radius          : 5px
     ),
   ),
 
@@ -276,8 +325,8 @@ $button: (
         box-shadow           : 1px 1px 2px 0 rgba(0, 0, 0, 0.16),
       ),
       active:(
-        background           : #64738A,
-        border               : #3B5871,
+        background           : map-fetch($brand-color, dark-blue-75),
+        border               : map-fetch($brand-color, dark-blue-75),
         color                : #FFF,
         box-shadow           : inset 1px 0 3px 0 rgba(0, 0, 0, 0.5),
         text-shadow          : 0 1px 1px rgba(0, 0, 0, 0.5),
@@ -299,15 +348,15 @@ $button: (
     ),
     outline: (
       background             : transparent,
-      border                 : #8D96A8,
-      color                  : #64738A,
+      border                 : map-fetch($brand-color, light-blue-75),
+      color                  : map-fetch($brand-color, light-blue-75),
       hover:(
-        border               : map-fetch($root-color, highlight),
-        color                : map-fetch($root-color, highlight),
+        border               : map-fetch($brand-color, light-blue-100),
+        color                : map-fetch($brand-color, light-blue-100),
       ),
       active:(
-        border               : #00415D,
-        color                : #00415D,
+        border               : map-fetch($brand-color, dark-blue-100),
+        color                : map-fetch($brand-color, dark-blue-100),
       )
     ),
     outline-reverse: (
@@ -326,16 +375,16 @@ $button: (
       )
     ),
     danger: (
-      background             : #E8464E,
-      border                 : #AA161E,
+      background             : map-fetch($brand-color, red),
+      border                 : map-fetch($brand-color, red),
       text-shadow            : 0 1px 1px rgba(0, 0 , 0, 0.3),
       hover:(
-        background           : #F35E65,
-        border               : #AC192B,
+        background           : shade(map-fetch($brand-color, red), 20%),
+        border               : shade(map-fetch($brand-color, red), 20%),
       ),
       active:(
-        background           : #CB2D35,
-        border               : #8F192B,
+        background           : shade(map-fetch($brand-color, red), 30%),
+        border               : shade(map-fetch($brand-color, red), 30%),
       )
     ),
     danger-outline: (
@@ -351,12 +400,12 @@ $button: (
       )
     ),
     plain: (
-      color                  : #00415D,
+      color                  : map-fetch($brand-color, dark-blue-75),
       hover:(
-        color                : #8D96A8,
+        color                : map-fetch($brand-color, light-blue-75),
       ),
       active:(
-        color                : #00415D,
+        color                : map-fetch($brand-color, dark-blue-100),
       )
     ),
     disabled: (
@@ -372,8 +421,8 @@ $button: (
 
 $token: (
   background-color: (
-    primary                  : map-fetch($brand-color, light-blue-75),
-    secondary                : map-fetch($brand-color, dark-blue-50)
+    primary                  : map-fetch($brand-color, data-rich-3),
+    secondary                : map-fetch($brand-color, data-rich-1)
   ),
   token__number: (
     min-width                : 10px
@@ -382,7 +431,7 @@ $token: (
     width                    : 12px,
     height                   : 12px
   ),
-  border-radius              : 8px,
+  border-radius              : 5px,
   text-shadow                : 0 0 1px rgba(0, 0, 0, 0.2),
   padding                    : 4px
 );
@@ -391,11 +440,11 @@ $token: (
 /// Badge
 
 $badge: (
-  background-color           : map-fetch($brand-color, dark-blue-50),
+  background-color           : map-fetch($brand-color, data-rich-1),
   size                       : 17px,
   min-width                  : 16px,
   font-size                  : 10px,
-  font-weight                : 500,
+  font-weight                : 600,
   letter-spacing             : 0.5px
 );
 
