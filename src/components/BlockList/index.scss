@@ -39,25 +39,28 @@
   &__link {
     display: block;
     cursor: pointer;
-    padding: spacer(0.5) spacer(1);
-    margin-left: -(spacer(1));
-    margin-right: -(spacer(1));
+    padding: spacer(0.5) spacer(1.5);
+    margin-left: -(spacer(0.5));
+    margin-right: -(spacer(0.5));
+    // margin: spacer(0.5);
+    border-radius: var(--border-radius);
 
     &:hover {
-      background-color: map-fetch($color, background, brand-light);
+      color: var(--light-blue-75);
+      background-color: var(--light-blue-6);
     }
 
     &--active {
       background-color: map-fetch($color, background, faint);
     }
 
-    &:first-child {
-      margin-top: -(spacer(0.5));
-    }
-
-    &:last-child {
-      margin-bottom: -(spacer(0.5));
-    }
+    // &:first-child {
+    //   margin-top: -(spacer(0.5));
+    // }
+    //
+    // &:last-child {
+    //   margin-bottom: -(spacer(0.5));
+    // }
   }
 
   // Removes padding on left/right so items are not indented.

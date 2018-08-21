@@ -23,7 +23,7 @@
   margin-right: spacer(0.5);
   border-radius: map-fetch($badge, size);
   font-size: map-fetch($badge, font-size);
-  padding: 2px 6px;
+  padding: 2px spacer(1);
   font-weight: map-fetch($badge, font-weight);
   letter-spacing: map-fetch($badge, letter-spacing);
   text-transform: uppercase;
@@ -66,5 +66,7 @@
 .#{$namespace}badge > li.badge__plain,
 .oui-badge--plain {
   background: transparent;
-  color: map-fetch($color, ui, medium);
+  // color: map-fetch($color, ui, medium);
+  color: var(--dv5-1);
+  font-weight: 400;
 }
