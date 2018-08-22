@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Checkbox from '../Checkbox';
 
@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .add('Checkbox with label provided as string', withInfo()(() => {
+  .add('with string label', withInfo()(() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -24,7 +24,7 @@ stories
       />
     );
   }))
-  .add('Checkbox with html in label', withInfo()(() => {
+  .add('with html label', withInfo()(() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -35,6 +35,16 @@ stories
             <span>Description text</span>
           </div>
         }
+        isDisabled={ boolean('isDisabled', false) }
+      />
+    );
+  }))
+  .add('with labelWeight', withInfo()(() => {
+    return (
+      <Checkbox
+        defaultChecked={ true }
+        label={ text('label', 'checkbox component') }
+        labelWeight={ select('labelWeight', ['light', 'normal', 'bold'], 'bold') }
         isDisabled={ boolean('isDisabled', false) }
       />
     );

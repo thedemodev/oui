@@ -4,8 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## Unreleased
-- remove package-lock.json from repo since we officially use yarn and yarn.lock
+### Unreleased
+- [Patch] Remove package-lock.json from repo since we officially use yarn and yarn.lock
+- [Patch] Allow labelWeight prop to be set on Checkbox component
 
 ## 31.12.1 - 2018-08-17
 ### Changed
