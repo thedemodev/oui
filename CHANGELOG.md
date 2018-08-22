@@ -4,12 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## Unreleased
-- [Patch] Vertically align arrow in DiscloseTable.Row
-
-## 31.11.2 - 2018-08-07
+## 31.12.1 - 2018-08-17
+### Changed
 - [Feature] Added EditableInput component
 - [Patch] Update SCSS to add selectors for `.oui-label` where `.#{$namespace}label` is used. (#1016)
+- [Patch] Vertically align arrow in DiscloseTable.Row
+- [Patch] Allow isOpen prop to be set
 
 
 ## 31.11.1 - 2018-08-06
