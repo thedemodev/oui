@@ -388,15 +388,15 @@ $button: (
       )
     ),
     danger-outline: (
-      color                  : #AA161E,
-      border                 : #AA161E,
+      color                  : map-fetch($brand-color, red),
+      border                 : map-fetch($brand-color, red),
       hover:(
-        color                : #F35E65,
-        border               : #F35E65,
+        color                : shade(map-fetch($brand-color, red), 20%),
+        border               : shade(map-fetch($brand-color, red), 20%),
       ),
       active:(
-        border               : #8F192B,
-        color                : #8F192B,
+        border               : shade(map-fetch($brand-color, red), 30%),
+        color                : shade(map-fetch($brand-color, red), 30%),
       )
     ),
     plain: (
