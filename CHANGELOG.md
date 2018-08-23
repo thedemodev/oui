@@ -4,8 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-### Unreleased
+## Unreleased
+
+## 31.12.2 - 2018-08-23
+### Changed
 - [Patch] Allow labelWeight prop to be set on Radio component
+- [Patch] Allow custom min and max values for Textfield components of `percent` type
 
 ## 31.12.1 - 2018-08-22
 ### Changed
