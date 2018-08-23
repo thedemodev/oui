@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
+### Unreleased
+- [Patch] Allow labelWeight prop to be set on Radio component
+
 ## 31.12.1 - 2018-08-22
 ### Changed
 - [Patch] Remove package-lock.json from repo since we officially use yarn and yarn.lock
