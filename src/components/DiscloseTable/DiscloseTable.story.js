@@ -34,15 +34,17 @@ stories
       <Table.TBody>
         <DiscloseTable.Row
           rowContents={ [
-            <Table.TD key={ 'exp_name' }>Experiment 1</Table.TD>,
-            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
-            <Table.TD key={ 'exp_status' }>Running</Table.TD>,
-            <Table.TD key={ 'exp_project' }>
+            <Table.TD key={ 'exp_name' } verticalAlign="middle">Experiment 1</Table.TD>,
+            <Table.TD key={ 'exp_start_date' } isNumerical={ true } verticalAlign="middle">May 5, 2018</Table.TD>,
+            <Table.TD key={ 'exp_end_date' } isNumerical={ true } verticalAlign="middle">June 1, 2018</Table.TD>,
+            <Table.TD key={ 'exp_visiors' } isNumerical={ true } verticalAlign="middle">358</Table.TD>,
+            <Table.TD key={ 'exp_status' } verticalAlign="middle">Running</Table.TD>,
+            <Table.TD key={ 'exp_project' } verticalAlign="middle">
               Optimizely App - Web long name contains a long list of characters which is totally unexpetected
             </Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }><div className="push-half--right">A/B</div></Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true } verticalAlign="middle">
+              <div className="push-half--right">A/B</div>
+            </Table.TD>,
           ]
           }>
           <div className="flex soft-double--sides">
@@ -110,12 +112,14 @@ stories
             <Table.TD key={ 'exp_name' }>
               Experiment 2 has a very long name as you can see as well here that its a really long name
             </Table.TD>,
-            <Table.TD key={ 'exp_start_date' } isNumerical={ true }>May 5, 2018</Table.TD>,
-            <Table.TD key={ 'exp_end_date' } isNumerical={ true }>June 1, 2018</Table.TD>,
-            <Table.TD key={ 'exp_visiors' } isNumerical={ true }>358</Table.TD>,
-            <Table.TD key={ 'exp_status' }>Paused</Table.TD>,
-            <Table.TD key={ 'exp_project' }>Optimizely App - Web long name...</Table.TD>,
-            <Table.TD key={ 'exp_type' } isNumerical={ true }><div className="push-half--right">A/B</div></Table.TD>,
+            <Table.TD key={ 'exp_start_date' } isNumerical={ true } verticalAlign="middle">May 5, 2018</Table.TD>,
+            <Table.TD key={ 'exp_end_date' } isNumerical={ true } verticalAlign="middle">June 1, 2018</Table.TD>,
+            <Table.TD key={ 'exp_visiors' } isNumerical={ true } verticalAlign="middle">358</Table.TD>,
+            <Table.TD key={ 'exp_status' } verticalAlign="middle">Paused</Table.TD>,
+            <Table.TD key={ 'exp_project' } verticalAlign="middle">Optimizely App - Web long name...</Table.TD>,
+            <Table.TD key={ 'exp_type' } isNumerical={ true } verticalAlign="middle">
+              <div className="push-half--right">A/B</div>
+            </Table.TD>,
           ]
           }>
           <p className="soft--sides">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius

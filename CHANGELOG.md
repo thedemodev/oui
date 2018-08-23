@@ -4,10 +4,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## Unreleased
+## 31.12.1 - 2018-08-22
+### Changed
+- [Patch] Remove package-lock.json from repo since we officially use yarn and yarn.lock
+- [Patch] Allow labelWeight prop to be set on Checkbox component
 
-## 31.11.2 - 2018-08-07
+## 31.12.0 - 2018-08-22
+### Changed
 - [Feature] Added EditableInput component
+- [Patch] Update SCSS to add selectors for `.oui-label` where `.#{$namespace}label` is used. (#1016)
+- [Patch] Vertically align arrow in DiscloseTable.Row
+- [Patch] Allow isOpen prop to be set
+
 
 ## 31.11.1 - 2018-08-06
 ### Changed

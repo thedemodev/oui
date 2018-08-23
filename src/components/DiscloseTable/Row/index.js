@@ -20,7 +20,7 @@ const DiscloseRow = function({
   return (
     <React.Fragment>
       <tr onClick={ toggle } className={ linkClass }>
-        <td className='soft--left'>
+        <td className='soft--left vertical-align--middle'>
           <span className="oui-disclose__symbol push-half--right"></span>
         </td>
         {rowContents}
