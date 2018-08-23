@@ -19,19 +19,20 @@ export class Accordion extends React.Component {
   // inspired by React-Bootstrap Carousel
   render() {
     return (
-      <ul data-oui-component={ true }
-          className="accordion accordion__react"
-          data-test-section={ this.props.testSection }>
-          {React.Children.map(this.props.children, (child, index) => {
-            if (!isValidElement(child)) {
-              return null;
-            }
-            return cloneElement(child, {
-              key: index,
-              _onClickHandler: this.handleSelection.bind(this, index),
-              _isSelected: index === this.state.selected,
-            });
-          })}
+      <ul
+        data-oui-component={ true }
+        className="accordion accordion__react"
+        data-test-section={ this.props.testSection }>
+        {React.Children.map(this.props.children, (child, index) => {
+          if (!isValidElement(child)) {
+            return null;
+          }
+          return cloneElement(child, {
+            key: index,
+            _onClickHandler: this.handleSelection.bind(this, index),
+            _isSelected: index === this.state.selected,
+          });
+        })}
       </ul>
     );
   }
