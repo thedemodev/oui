@@ -11,7 +11,8 @@ addons:
 
 jobs:
   include:
-    - stage: test123
+    - stage: test
+      script: yarn test
       if: env(RUN_TESTS) = True
       before_deploy:
       - rm -rfv dist
