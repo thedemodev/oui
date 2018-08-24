@@ -21,10 +21,16 @@ jobs:
       script: echo "*************Test3 suite**********************"
     - stage: SUBSTRING_REGEX
       if: env(RUN_TESTS) =~ /.*True.*/
-      script: echo "*************Test3 suite**********************"
+      script: echo "*************Test4 suite**********************"
     - stage: EXACT_QUOTED_STRING
       if: env(RUN_TESTS) = "True"
-      script: echo "*************Test4 suite**********************"
+      script: echo "*************Test5 suite**********************"
+    - stage: LITERAL
+      if: env(RUN_TESTS) = "echo True"
+      script: echo "*************Test6 suite**********************"
+    - stage: TICK_LITERAL
+      if: env(RUN_TESTS) = "`echo True`"
+      script: echo "*************Test7 suite**********************"
 
 # ----- Skip this until docs deploy works again ------
 #- provider: script
