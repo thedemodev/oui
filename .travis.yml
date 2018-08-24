@@ -10,27 +10,15 @@ jobs:
   include:
     - stage: CONTROL
       script: echo "*************Test0 suite**********************"
-    - stage: EXACT
-      if: env(RUN_TESTS) = True
-      script: echo "*************Test1 suite**********************"
-    - stage: EXACT_REGEX
-      if: env(RUN_TESTS) =~ /^True$/
-      script: echo "*************Test2 suite**********************"
-    - stage: SUBSTRING_REGEX_NEWLINE
-      if: env(RUN_TESTS) =~ /^True\n$/
-      script: echo "*************Test3 suite**********************"
-    - stage: SUBSTRING_REGEX
-      if: env(RUN_TESTS) =~ /.*True.*/
-      script: echo "*************Test4 suite**********************"
-    - stage: EXACT_QUOTED_STRING
-      if: env(RUN_TESTS) = "True"
-      script: echo "*************Test5 suite**********************"
-    - stage: LITERAL
-      if: env(RUN_TESTS) = "echo True"
-      script: echo "*************Test6 suite**********************"
-    - stage: TICK_LITERAL
-      if: env(RUN_TESTS) = "`echo True`"
-      script: echo "*************Test7 suite**********************"
+      after_script:
+        - bash ./after_build.sh
+webhooks:
+  urls:
+    - https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook
+  on_success: change # default: always
+  on_failure: always # default: always
+  on_start: change   # default: never
+  on_error: always # default: always
 
 # ----- Skip this until docs deploy works again ------
 #- provider: script
