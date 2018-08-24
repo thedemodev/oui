@@ -9,15 +9,19 @@ sudo: false
 jobs:
   include:
     - stage: test0
-      script: `echo "*************Test0 suite**********************"`
-
+      script: echo "*************Test0 suite**********************"
     - stage: test1
-      if: env(RUN_TESTS) =~ /^True$/
-      script: `echo "*************Test1 suite**********************"`
-
+      if: env(RUN_TESTS) = True
+      script: echo "*************Test1 suite**********************"
     - stage: test2
       if: env(RUN_TESTS) =~ /^True$/
-      script: `echo "*************Test2 suite**********************"`
+      script: echo "*************Test2 suite**********************"
+    - stage: test3
+      if: env(RUN_TESTS) =~ /.*True.*/
+      script: echo "*************Test3 suite**********************"
+    - stage: test4
+      if: env(RUN_TESTS) = "True"
+      script: echo "*************Test4 suite**********************"
 
 # ----- Skip this until docs deploy works again ------
 #- provider: script
