@@ -7958,9 +7958,9 @@ react-onclickoutside@^6.5.0:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.1.tgz#6a5b5b8b4eae6b776259712c89c8a2b36b17be93"
 
-react-oui-icons@^2.1.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-2.1.1.tgz#243f8cdfdb8a3bf6117ffaae6ceb61269dd40d3e"
+react-oui-icons@^2.2.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-2.3.0.tgz#3c78c75852e740ee417ced197120c85882131786"
 
 react-popper@^0.8.2:
   version "0.8.2"
