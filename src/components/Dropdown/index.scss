@@ -163,7 +163,7 @@
 
   &__block-link {
     @extend %#{$namespace}block-list__link;
-    color: var(--dark-blue-100);
+
     &:hover {
       .#{$namespace}dropdown--descriptive__header,
       .oui-dropdown--descriptive__header,
