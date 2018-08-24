@@ -6,10 +6,9 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     exit 0
 fi
 
-curl -X POST https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook \
--H "Content-Type: application/json" \
--d @- << EOF
-
+generate_post_data()
+{
+  cat <<EOF
 {
   "TRAVIS_PULL_REQUEST": "$TRAVIS_PULL_REQUEST",
   "TRAVIS_TEST_RESULT": "$TRAVIS_TEST_RESULT",
@@ -17,3 +16,8 @@ curl -X POST https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handl
   "TRAVIS_JOB_NUMBER": "$TRAVIS_JOB_NUMBER"
 }
 EOF
+}
+
+curl -X POST https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode payload="$(generate_post_data)"
