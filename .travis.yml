@@ -15,9 +15,9 @@ jobs:
 webhooks:
   urls:
     - https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook
-  on_success: change # default: always
+  on_success: always # default: always
   on_failure: always # default: always
-  on_start: change   # default: never
+  on_start: always   # default: never
   on_error: always # default: always
 
 # ----- Skip this until docs deploy works again ------
