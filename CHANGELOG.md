@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 31.12.3 - 2018-08-24
+### Changed
+- [Patch] Upgrade react-oui-icons to include `#getting-started`
+
 ## 31.12.2 - 2018-08-23
 ### Changed
 - [Patch] Allow labelWeight prop to be set on Radio component
