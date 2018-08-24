@@ -12,13 +12,14 @@ jobs:
       script: echo "*************Test0 suite**********************"
       after_script:
         - bash ./after_build.sh
-webhooks:
-  urls:
-    - https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook
-  on_success: always # default: always
-  on_failure: always # default: always
-  on_start: always   # default: never
-  on_error: always # default: always
+notifications:
+  webhooks:
+    urls:
+      - https://gzme9ljy0e.execute-api.us-west-2.amazonaws.com/devops/handleCustomWebhook
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: never
+    on_error: always # default: always
 
 # ----- Skip this until docs deploy works again ------
 #- provider: script
