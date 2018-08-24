@@ -1,7 +1,10 @@
 language: node_js
 cache: yarn
+env:
+  global:
+    - RUN_PYTHON_TESTS=`echo True`
 after_script:
-- npm run codecov
+- echo $RUN_PYTHON_TESTS
 sudo: false
 addons:
   ssh_known_hosts: design.optimizely.com
