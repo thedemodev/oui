@@ -19,7 +19,7 @@ $hosted-fonts:(
   url: 'https://optimizely.github.io/rebrand2018/dist/fonts/'
 );
 
-
+// TODO(dave.rau) Update loop so this works as a mixin
 @font-face {
   font-family: 'Graphik';
   font-weight: 300;
