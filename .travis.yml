@@ -8,12 +8,16 @@ after_script:
 sudo: false
 jobs:
   include:
-    - stage: test1
-      script: yarn test
-    - stage: test
-      script: yarn test
-      if: env(RUN_TESTS) = True
+    - stage: test0
+      script: `echo "*************Test0 suite**********************"`
 
+    - stage: test1
+      if: env(RUN_TESTS) =~ /^True$/
+      script: `echo "*************Test1 suite**********************"`
+
+    - stage: test2
+      if: env(RUN_TESTS) =~ /^True$/
+      script: `echo "*************Test2 suite**********************"`
 
 # ----- Skip this until docs deploy works again ------
 #- provider: script
