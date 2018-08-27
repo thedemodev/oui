@@ -89,12 +89,12 @@
 }
 
 .oui-block-list__item {
-  padding: spacer(0.5) spacer(0.5);
+  padding: spacer(0.5) spacer(1.5);
 }
 
 .oui-block-list__link:hover,
 .oui-block-list__link:focus {
-  background-color: map-fetch($color, background, brand-light);
+  background-color: var(--light-blue-6);
   outline: none;
 }
 
@@ -113,6 +113,18 @@
 
 
 // TODO CSS FIX: update pattern
-.lego-dropdown__item .lego-dropdown__block-link {
+.#{$namespace}dropdown__item .#{$namespace}dropdown__block-link {
   margin: 0 !important;
+}
+
+.oui-dropdown-children .oui-dropdown__block-link {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.oui-dropdown-children .oui-block-list__category ul {
+  padding: spacer(0.5);
+}
+.oui-dropdown-children, .oui-dropdown-children .oui-block-list__link {
+  border-radius: var(--border-radius);
 }
