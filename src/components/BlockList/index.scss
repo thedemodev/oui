@@ -30,7 +30,7 @@
   margin-left: 0;
 
   > li {
-    padding: spacer(0.5) spacer(1);
+    padding: spacer(0.5);
     border-top: 1px solid map-fetch($color, ui, light);
   }
 
@@ -42,7 +42,6 @@
     padding: spacer(0.5) spacer(1.5);
     margin-left: -(spacer(0.5));
     margin-right: -(spacer(0.5));
-    // margin: spacer(0.5);
     border-radius: var(--border-radius);
 
     &:hover {
@@ -53,14 +52,6 @@
     &--active {
       background-color: map-fetch($color, background, faint);
     }
-
-    // &:first-child {
-    //   margin-top: -(spacer(0.5));
-    // }
-    //
-    // &:last-child {
-    //   margin-bottom: -(spacer(0.5));
-    // }
   }
 
   // Removes padding on left/right so items are not indented.
@@ -98,7 +89,7 @@
 }
 
 .oui-block-list__item {
-  padding: spacer(0.5) spacer(1);
+  padding: spacer(0.5) spacer(0.5);
 }
 
 .oui-block-list__link:hover,
@@ -110,10 +101,18 @@
 %#{$namespace}block-list-group,
 .#{$namespace}block-list-group {
   @extend %#{$namespace}block-list;
+  padding: 0;
+
   border: 1px solid map-fetch($border, color, base);
   border-radius: map-fetch($border, radius, base);
 
   > li:first-child {
     border: 0;
   }
+}
+
+
+// TODO CSS FIX: update pattern
+.lego-dropdown__item .lego-dropdown__block-link {
+  margin: 0 !important;
 }
