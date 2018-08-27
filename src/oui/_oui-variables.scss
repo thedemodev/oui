@@ -319,7 +319,7 @@ $button: (
   type: (
     base: (
       background             : map-fetch($root-color, grey-03),
-      border                 : #CDD0D8,
+      border                 : map-fetch($root-color, grey-25),
       color                  : map-fetch($color, text, base),
       hover:(
         box-shadow           : 1px 1px 2px 0 rgba(0, 0, 0, 0.16),
@@ -327,7 +327,7 @@ $button: (
       active:(
         background           : map-fetch($brand-color, dark-blue-75),
         border               : map-fetch($brand-color, dark-blue-75),
-        color                : #FFF,
+        color                : $base-white,
         box-shadow           : inset 1px 0 3px 0 rgba(0, 0, 0, 0.5),
         text-shadow          : 0 1px 1px rgba(0, 0, 0, 0.5),
       )
@@ -359,21 +359,21 @@ $button: (
         color                : map-fetch($brand-color, dark-blue-100),
       )
     ),
-    outline-reverse: (
-      background             : transparent,
-      border                 : #FFF,
-      color                  : #FFF,
-      hover:(
-        background           : transparent,
-        border               : #E0E1E5,
-        color                : #E5E5E9,
-      ),
-      active:(
-        background           : transparent,
-        border               : #FFF,
-        color                : #FFF,
-      )
-    ),
+    // outline-reverse: (
+    //   background             : transparent,
+    //   border                 : $base-white,
+    //   color                  : $base-white,
+    //   hover:(
+    //     background           : transparent,
+    //     border               : #E0E1E5,
+    //     color                : #E5E5E9,
+    //   ),
+    //   active:(
+    //     background           : transparent,
+    //     border               : $base-white,
+    //     color                : $base-white,
+    //   )
+    // ),
     danger: (
       background             : map-fetch($brand-color, red),
       border                 : map-fetch($brand-color, red),
