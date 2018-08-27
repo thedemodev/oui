@@ -23,7 +23,7 @@
   margin-right: spacer(0.5);
   border-radius: map-fetch($badge, size);
   font-size: map-fetch($badge, font-size);
-  padding: 2px spacer(1);
+  padding: 2px spacer(1) !important; // TODO(dave) HTML FIX: remove .soft-half--sides from .badge__draft
   font-weight: map-fetch($badge, font-weight);
   letter-spacing: map-fetch($badge, letter-spacing);
   text-transform: uppercase;
