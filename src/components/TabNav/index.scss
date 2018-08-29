@@ -20,7 +20,7 @@
     cursor: pointer;
 
     &.link--muted {
-      color: var(--dark-blue-75);
+      color: inherit;
     }
 
     &:first-child {
