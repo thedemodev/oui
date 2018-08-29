@@ -19,6 +19,10 @@
     background-color: map-fetch($color, background, faint);
     cursor: pointer;
 
+    &.link--muted {
+      color: var(--dark-blue-75);
+    }
+
     &:first-child {
       border-top-left-radius: map-fetch($border, radius, big);
     }
