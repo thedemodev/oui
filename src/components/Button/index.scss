@@ -215,6 +215,10 @@
     }
   }
 
+  &--underline {
+    border-radius: 0 !important;
+  }
+
   &--plain {
     &:focus {
       border-color: map-fetch($button, type, outline, hover, border);
