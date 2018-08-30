@@ -60,7 +60,7 @@
   }
   .range-display {
     height: 35px;
-    background-image: url('data:image/svg+xml;utf-8,<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="'+map-fetch($color, ui, good-news)+'" d="M0 256h256V0z"/></svg>');
+    background-image: url('data:image/svg+xml;utf-8,<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="'+map-fetch($rangeslider, background-color)+'" d="M0 256h256V0z"/></svg>');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: absolute;

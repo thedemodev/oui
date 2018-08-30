@@ -422,7 +422,7 @@ $button: (
 $token: (
   background-color: (
     primary                  : map-fetch($brand-color, data-rich-3),
-    secondary                : map-fetch($brand-color, data-rich-1)
+    secondary                : map-fetch($brand-color, dark-blue-50)
   ),
   token__number: (
     min-width                : 10px
@@ -434,6 +434,23 @@ $token: (
   border-radius              : 5px,
   text-shadow                : 0 0 1px rgba(0, 0, 0, 0.2),
   padding                    : 4px
+);
+
+
+/// Switch
+
+$switch: (
+  background-color: (
+    on                       : map-fetch($brand-color, light-blue-75),
+    off                      : map-fetch($brand-color, grey-50)
+  )
+);
+
+
+/// Rangeslider
+
+$rangeslider: (
+  background-color           : map-fetch($brand-color, light-blue-75)
 );
 
 
