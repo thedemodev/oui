@@ -67,6 +67,5 @@
 .oui-badge--plain {
   background: transparent;
   // color: map-fetch($color, ui, medium);
-  color: var(--dv5-1);
-  font-weight: 400;
+  color: map-fetch($badge, background-color);
 }

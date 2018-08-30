@@ -440,11 +440,11 @@ $token: (
 /// Badge
 
 $badge: (
-  background-color           : map-fetch($brand-color, data-rich-1),
+  background-color           : map-fetch($brand-color, dark-blue-50),
   size                       : 17px,
   min-width                  : 28px, // Graphik letter m width approx.
   font-size                  : 10px,
-  font-weight                : 500,
+  font-weight                : 600,
   letter-spacing             : 0.5px
 );
 
