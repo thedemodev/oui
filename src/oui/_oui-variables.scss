@@ -442,7 +442,7 @@ $token: (
 $badge: (
   background-color           : map-fetch($brand-color, data-rich-1),
   size                       : 17px,
-  min-width                  : 16px,
+  min-width                  : 28px, // Graphik letter m width approx.
   font-size                  : 10px,
   font-weight                : 500,
   letter-spacing             : 0.5px
