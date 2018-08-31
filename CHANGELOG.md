@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add displayError prop to SelectDropdown component
 - [Patch] Add mousedown handler to Button component
 
 ## 31.12.3 - 2018-08-24
