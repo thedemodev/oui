@@ -176,7 +176,7 @@
 
   &--up {
     bottom: 100%;
-    box-shadow: 0 (-$box-shadow-offset) map-fetch($shadow, light);
+    // box-shadow: 0 (-$box-shadow-offset) map-fetch($shadow, light);
     top: initial;
   }
 
