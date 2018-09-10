@@ -4,6 +4,20 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
+## Unreleased
+- [Patch] Add mousedown handler to Button component
+- [Patch] Add support for activatorLabel property in SelectDropdown item objects
+- [Patch] Add a new badge type for bad-news
+
+## 31.12.3 - 2018-08-24
+### Changed
+- [Patch] Upgrade react-oui-icons to include `#getting-started`
+
+## 31.12.2 - 2018-08-23
+### Changed
+- [Patch] Allow labelWeight prop to be set on Radio component
+- [Patch] Allow custom min and max values for Textfield components of `percent` type
+
 ## 31.12.1 - 2018-08-22
 ### Changed
 - [Patch] Remove package-lock.json from repo since we officially use yarn and yarn.lock
