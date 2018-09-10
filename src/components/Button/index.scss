@@ -77,6 +77,10 @@
       border-color: map-fetch($button, type, highlight, hover, border);
     }
 
+    &:focus {
+      border: 1px solid var(--light-blue-100);
+    }
+
     &:active {
       background: map-fetch($button, type, highlight, active, background);
       border-color: map-fetch($button, type, highlight, active, border);
@@ -102,6 +106,10 @@
 
     &:focus {
       border-color: map-fetch($button, type, outline, hover, border);
+    }
+
+    &:focus {
+      border: 1px solid var(--light-blue-100);
     }
 
     &:hover {
@@ -156,6 +164,10 @@
       border-color: map-fetch($button, type, danger, active, border);
     }
 
+    &:focus {
+      border: 1px solid shade(map-fetch($button, type, danger, background), 30%);
+    }
+
     &:visited,
     &:hover,
     &:active,
@@ -171,7 +183,7 @@
     box-shadow: none;
 
     &:focus {
-      border-color: map-fetch($button, type, danger-outline, hover, border);
+      border: 1px solid shade(map-fetch($button, type, danger, background), 30%);
     }
 
     &:hover {
@@ -213,6 +225,7 @@
       background-color: transparent;
       box-shadow: none;
     }
+
   }
 
   &--underline {
@@ -221,7 +234,7 @@
 
   &--plain {
     &:focus {
-      border-color: map-fetch($button, type, outline, hover, border);
+      border: 1px solid var(--light-blue-25);
     }
   }
 
