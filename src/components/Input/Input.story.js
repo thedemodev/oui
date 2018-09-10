@@ -23,6 +23,7 @@ stories
         defaultValue={ text('defaultValue', 'some default value') }
         displayError={ boolean('displayError', false) }
         isFilter={ boolean('isFilter', false) }
+        isDisabled={ boolean('isDisabled', true) }
         isDropdown={ boolean('isDropdown', true) }
         isOptional={ boolean('isOptional', false) }
         label={ text('Label', '') }
@@ -51,6 +52,16 @@ stories
         displayError={ true }
         note="A short description or note about this field."
         placeholder="Just a placeholder"
+        type="text"
+      />);
+  }).add('Disabled state', () => {
+    return (
+      <Input
+        label="Field label"
+        note="A short description or note about this field."
+        placeholder="Just a placeholder"
+        isDisabled={ true }
+        value="Testing this out with a value"
         type="text"
       />);
   });
