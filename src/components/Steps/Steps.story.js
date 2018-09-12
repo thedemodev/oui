@@ -41,7 +41,7 @@ stories.add('default', withInfo()(() => {
     <Container>
       <Steps
         items={ items }
-        currentStage={ 'bear' }
+        currentStep={ 'bear' }
         onClick={ action('Stage clicked') }
       />
     </Container>
@@ -51,7 +51,7 @@ stories.add('default', withInfo()(() => {
     <Container>
       <Steps
         items={ items }
-        currentStage={ 'bear' }
+        currentStep={ 'bear' }
         onClick={ action('Stage clicked') }
         userCanEdit={ false }
       />
