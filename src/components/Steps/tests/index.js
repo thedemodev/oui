@@ -32,11 +32,11 @@ describe('components/Steps', function() {
   describe('user can edit steps', function() {
     beforeEach(function() {
       component = mount(
-        <Steps 
-          items={ items } 
-          currentStep={ 'bear' } 
-          onClick={ onClick } 
-          testSection='foo' 
+        <Steps
+          items={ items }
+          currentStep={ 'bear' }
+          onClick={ onClick }
+          testSection='foo'
         />
       );
     });
@@ -66,7 +66,6 @@ describe('components/Steps', function() {
     it('should have active styling on currentStep step', function() {
       const steps = component.find('li');
       const currentStep = steps.at(2);
-      console.log(currentStep.html())
       expect(currentStep.hasClass('oui-steps__item--active')).toBe(true);
       expect(currentStep.hasClass('oui-steps__item--complete')).toBe(false);
     });
