@@ -5,6 +5,7 @@
 /// Font Support:
 /// - woff2: Chrome 26+, Opera 23+
 
+$font--hosted-url: 'https://dhm5hy2vn8l0l.cloudfront.net';
 
 $hosted-fonts:(
   weights:(
@@ -15,121 +16,121 @@ $hosted-fonts:(
     700: bold,
   ),
   // url: 'https://dhm5hy2vn8l0l.cloudfront.net/webfonts/'
-  // url: 'http://design-rebrand-fonts.s3-website-us-west-2.amazonaws.com/'
-  url: 'https://optimizely.github.io/rebrand2018/dist/fonts/'
 );
+
+// https://s3.amazonaws.com/optimizely-fonts/proxima/proximanova-blackit.woff
 
 // TODO(dave.rau) Update loop so this works as a mixin
 @font-face {
   font-family: 'Graphik';
   font-weight: 300;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-light.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-light.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 300;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-lightitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-lightitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 400;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-regular.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-regular.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 400;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-regularitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-regularitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 500;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-medium.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-medium.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 500;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-mediumitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-mediumitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 600;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-semibold.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-semibold.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 600;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-semibolditalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-semibolditalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 700;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-bold.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-bold.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Graphik';
   font-weight: 700;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/graphik-bolditalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/graphik/graphik-bolditalic.woff2') format('woff2'),
 }
 
 @font-face {
   font-family: 'Lato';
   font-weight: 300;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-light.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-light.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 300;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-lightitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-lightitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-regular.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-regular.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-regularitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-regularitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 500;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-medium.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-medium.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 500;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-mediumitalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-mediumitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 600;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-semibold.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-semibold.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 600;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-semibolditalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-semibolditalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 700;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-bold.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-bold.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 700;
   font-style: italic;
-  src: url('https://optimizely.github.io/rebrand2018/dist/fonts/lato-bolditalic.woff2') format('woff2'),
+  src: url($font--hosted-url+'/lato/lato-bolditalic.woff2') format('woff2'),
 }
 
 
