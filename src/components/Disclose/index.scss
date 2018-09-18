@@ -29,11 +29,9 @@
   }
 
   &__symbol {
-    // transition: transform map-fetch($transition-duration, base);
     width: spacer(1);
     display: inline-block;
-    // This makes clicking the arrow icon still open the disclose object.
-    pointer-events: none;
+    pointer-events: none; // Make clicking the arrow icon still open the disclose object.
     margin-right: spacer(0.5);
 
     &::before {

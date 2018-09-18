@@ -127,28 +127,6 @@
     }
   }
 
-  // &--outline-reverse {
-  //   background-color: map-fetch($button, type, outline-reverse, background);
-  //   border-color: map-fetch($button, type, outline-reverse, border);
-  //   color: map-fetch($button, type, outline-reverse, color);
-  //
-  //   &:visited {
-  //     color: map-fetch($button, type, outline-reverse, color);
-  //   }
-  //
-  //   &:hover {
-  //     background: map-fetch($button, type, outline-reverse, hover, background);
-  //     border-color: map-fetch($button, type, outline-reverse, hover, border);
-  //     color: map-fetch($button, type, outline-reverse, hover, color);
-  //   }
-  //
-  //   &:active {
-  //     background: map-fetch($button, type, outline-reverse, active, background);
-  //     border-color: map-fetch($button, type, outline-reverse, active, border);
-  //     color: map-fetch($button, type, re, active, color);
-  //   }
-  // }
-  //
   &--danger {
     background-color: map-fetch($button, type, danger, background);
     border-color: map-fetch($button, type, danger, border);
@@ -199,7 +177,6 @@
       color: map-fetch($button, type, danger-outline, active, color);
       box-shadow: none;
     }
-
   }
 
   &--plain,
@@ -225,7 +202,6 @@
       background-color: transparent;
       box-shadow: none;
     }
-
   }
 
   &--underline {
@@ -279,7 +255,6 @@
   }
 
   // Button Sizes
-  // Button size, variations.
 
   &--tiny {
     font-size: map-fetch($button, size, tiny, font-size);
