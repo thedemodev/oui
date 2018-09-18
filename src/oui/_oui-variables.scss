@@ -47,60 +47,6 @@ $base-white                  : #FFF;
   --grey-25                  : #F9F9F9;
   --white                    : #FFFFFF;
 
-  /* data-visualization */
-  /* //data viz set 1 - scoring scale */
-  --dv1-0                    : #FBFCFF;
-  --dv1-1                    : #FF3300;
-  --dv1-2                    : #FF9300;
-  --dv1-3                    : #1D47B8;
-  --dv1-4                    : #008DDF;
-  --dv1-5                    : #01CE79;
-
-  /* //data viz set 2 - purple - sequential and stacked charts */
-  --dv2-1                    : #EFEDF5;
-  --dv2-2                    : #DADAEB;
-  --dv2-3                    : #BCBDDC;
-  --dv2-4                    : #9E9AC8;
-  --dv2-5                    : #807DBA;
-  --dv2-6                    : #6A51A3;
-  --dv2-7                    : #54278F;
-  --dv2-8                    : #3F007D;
-
-  /* //data viz set 3 - green - sequential and stacked charts */
-  --dv3-1                    : #E5F5E0;
-  --dv3-2                    : #C7E9C0;
-  --dv3-3                    : #A1D99B;
-  --dv3-4                    : #74C476;
-  --dv3-5                    : #41AB5D;
-  --dv3-6                    : #238B45;
-  --dv3-7                    : #006D2C;
-  --dv3-8                    : #00441B;
-
-  /* //data viz set 4 - rainbow - equal weight lines, dots, bars */
-  --dv4-1                    : #BF4D4D;
-  --dv4-2                    : #BFA34D;
-  --dv4-3                    : #86BF4D;
-  --dv4-4                    : #4DBF69;
-  --dv4-5                    : #4DBFBF;
-  --dv4-6                    : #4D69BF;
-  --dv4-7                    : #864DBF;
-  --dv4-8                    : #BF4DA3;
-
-  /* //data viz set 5 - rich - equal weight lines, dots, bars */
-  --dv5-1                    : #000041;
-  --dv5-2                    : #0000CB;
-  --dv5-3                    : #0081FF;
-  --dv5-4                    : #02DA81;
-  --dv5-5                    : #7EF41E;
-  --dv5-6                    : #FDEE02;
-  --dv5-7                    : #FFAB00;
-  --dv5-8                    : #FF3300;
-
-  /* //data viz set 6 - focus */
-  --dv6-1                    : #969696;
-  --dv6-2                    : #FF3300;
-  --dv6-3                    : #02DA81;
-
    /* ui */
    --wide-shadow             : 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.17);
    --border-radius           : 8px;
@@ -138,11 +84,11 @@ $brand-color: (
   /* data-visualization */
   data-rich-1                : #000041,
   data-rich-2                : #0000CB,
-  data-rich-3                : #0081FF,
-  data-rich-4                : #02DA81,
+  data-rich-3                : #0081FF, // primary token
+  data-rich-4                : #02DA81, // live
   data-rich-5                : #7EF41E,
   data-rich-6                : #FDEE02,
-  data-rich-7                : #FFAB00,
+  data-rich-7                : #FFAB00, // draft
   data-rich-8                : #FF3300
 
 );
