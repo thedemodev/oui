@@ -16,7 +16,6 @@ $hosted-fonts:(
   url: 'https://dhm5hy2vn8l0l.cloudfront.net'
 );
 
-
 // TODO(dave.rau) Update loop so this works as a mixin
 @font-face {
   font-family: 'Graphik';
@@ -81,88 +80,11 @@ $hosted-fonts:(
 }
 @font-face {
   font-family: 'Lato';
-  font-weight: 300;
-  font-style: italic;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-lightitalic.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
   font-weight: 400;
   src: url(map-fetch($hosted-fonts, url)+'/lato/lato-regular.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
-  font-weight: 400;
-  font-style: italic;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-regularitalic.woff2') format('woff2'),
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 500;
   src: url(map-fetch($hosted-fonts, url)+'/lato/lato-medium.woff2') format('woff2'),
 }
-@font-face {
-  font-family: 'Lato';
-  font-weight: 500;
-  font-style: italic;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-mediumitalic.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
-  font-weight: 600;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-semibold.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
-  font-weight: 600;
-  font-style: italic;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-semibolditalic.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
-  font-weight: 700;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-bold.woff2') format('woff2'),
-}
-@font-face {
-  font-family: 'Lato';
-  font-weight: 700;
-  font-style: italic;
-  src: url(map-fetch($hosted-fonts, url)+'/lato/lato-bolditalic.woff2') format('woff2'),
-}
-
-
-// @if variable-exists(include-fonts) {
-//   @each $weight in map-fetch($include-fonts, weights) {
-//
-//     .rautest {
-//       color: red !important;
-//     }
-//
-//     @font-face {
-//       font-family: 'Graphik';
-//       font-weight: $weight;
-//       src: url('#{map-fetch($hosted-fonts, url)}graphik-#{map-fetch($hosted-fonts, weights, $weight)}.woff2') format('woff2'),
-//     }
-//     // Italic
-//     @font-face {
-//       font-family: 'Graphik';
-//       font-weight: $weight;
-//       font-style: italic;
-//       src: url('#{map-fetch($hosted-fonts, url)}graphik-#{map-fetch($hosted-fonts, weights, $weight)}it.woff2') format('woff2'),
-//     }
-//
-//     @font-face {
-//       font-family: 'Lato';
-//       font-weight: $weight;
-//       src: url('#{map-fetch($hosted-fonts, url)}lato-#{map-fetch($hosted-fonts, weights, $weight)}.woff2') format('woff2'),
-//     }
-//     // Italic
-//     @font-face {
-//       font-family: 'Lato';
-//       font-weight: $weight;
-//       font-style: italic;
-//       src: url('#{map-fetch($hosted-fonts, url)}lato-#{map-fetch($hosted-fonts, weights, $weight)}it.woff2') format('woff2'),
-//     }
-//
-//   }
-// }
