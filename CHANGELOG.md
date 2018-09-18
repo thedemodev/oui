@@ -7,6 +7,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 ### Changed
 - [Release] (Breaking changes) Optimizely rebrand with new logo, colors, fonts, spacing, etc.
+
+## 31.12.4 - 2018-09-10
+### Changed
 - [Patch] Add mousedown handler to Button component
 - [Patch] Add support for activatorLabel property in SelectDropdown item objects
 - [Patch] Add a new badge type for bad-news
