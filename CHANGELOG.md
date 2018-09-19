@@ -6,9 +6,13 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 40.0.1 - 2018-09-19
+## 40.1.0 - 2018-09-19
+- [Feature] Add Steps component
 - [Patch] Add displayError prop to SelectDropdown component
 - [Patch] Minor change to badge line-height to better work with Graphik.
+
+## 40.0.1 - 2018-09-19
+- Accidental release
 
 ## 40.0.0 - 2018-09-18
 - [Release] (Breaking changes) Optimizely rebrand with new logo, colors, spacing, rounded corners.
