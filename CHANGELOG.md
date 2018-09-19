@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Minor change to badge line-height to better work with Graphik.
 - [Feature] Add displayError prop to SelectDropdown component
 
 ##40.0.0 - 2018-09-18
