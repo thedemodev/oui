@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Minor change to badge line-height to better work with Graphik.
+- [Feature] Add displayError prop to SelectDropdown component
 
 ##40.0.0 - 2018-09-18
 - [Release] (Breaking changes) Optimizely rebrand with new logo, colors, spacing, rounded corners.
