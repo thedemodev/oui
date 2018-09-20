@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- Updated color palette to reflect latest design team changes
+- Added SASS loop to auto-generate CSS3 --var colors from $brand-color base color set
 
 ## 40.1.0 - 2018-09-19
 - [Feature] Add Steps component
