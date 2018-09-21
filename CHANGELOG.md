@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.2.0 - 2018-09-20
 - [Patch] Updated color palette to reflect latest design team changes
 - [Feature] Added SASS loop to auto-generate CSS3 --var colors from $brand-color base color set
 - [Patch] Minor change to background colors for DiscloseTable
