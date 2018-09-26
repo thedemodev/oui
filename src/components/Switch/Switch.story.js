@@ -29,5 +29,5 @@ stories.add('On', withInfo()(() => {
 }));
 
 stories.add('Disabled', withInfo()(() => {
-  return <Switch isDisabled={ true } onClick={ action("Can't click") }/>;
+  return <Switch isDisabled={ true } onClick={ action('Cannot click') }/>;
 }));
