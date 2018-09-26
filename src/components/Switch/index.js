@@ -17,7 +17,10 @@ const Switch = (props) => {
   });
 
   return (
-    <div className='position--relative' data-oui-component={ true } data-test-section={ testSection }>
+    <div
+      className='position--relative'
+      data-oui-component={ true }
+      data-test-section={ testSection }>
       <input
         type="checkbox"
         id={ elementId }
@@ -26,7 +29,10 @@ const Switch = (props) => {
         onClick={ onClick }
         disabled={ isDisabled }
       />
-      <label htmlFor={ elementId } data-on-label="On" data-off-label="Off"></label>
+      <label
+        htmlFor={ elementId }
+        data-on-label="On"
+        data-off-label="Off"></label>
     </div>
   );
 };
