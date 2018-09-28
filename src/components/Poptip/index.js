@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withState } from 'recompose';
 import { waitForSelector } from '../../utils/poll';
+import classNames from 'classnames';
 
 import { Tooltip } from 'react-tippy';
 
@@ -32,6 +33,8 @@ export default class Poptip extends React.Component {
     disable: PropTypes.bool,
     /** should the poptip content be animated | default => true */
     isAnimated: PropTypes.bool,
+    /** should the poptip be displayed inline */
+    isInline: PropTypes.bool,
     /** position value options | default => top */
     position: PropTypes.oneOf([
       'top',
@@ -58,6 +61,7 @@ export default class Poptip extends React.Component {
   static defaultProps = {
     disable: false,
     isAnimated: true,
+    isInline: false,
     position: 'top',
     theme: 'dark',
   };
@@ -68,10 +72,15 @@ export default class Poptip extends React.Component {
       content,
       disable,
       isAnimated,
+      isInline,
       position,
       trigger,
       theme,
     } = this.props;
+
+    const wrapperInline = classNames({
+      'display--inline': isInline,
+    });
 
     return (
       <Tooltip
@@ -82,7 +91,7 @@ export default class Poptip extends React.Component {
         position={ position }
         theme={ theme }
         trigger={ trigger }>
-        <div>{ children }</div>
+        <div className={ wrapperInline }>{ children }</div>
       </Tooltip>
     );
   };
@@ -92,4 +101,3 @@ export default class Poptip extends React.Component {
     return bodyDefined ? this.renderPoptip() : null;
   }
 }
-

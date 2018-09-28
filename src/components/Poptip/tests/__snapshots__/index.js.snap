@@ -6,6 +6,7 @@ exports[`components/Poptip renders correctly 1`] = `
   content="Really interesting info!"
   disable={false}
   isAnimated={true}
+  isInline={false}
   position="top"
   setBodyDefined={[Function]}
   theme="dark"
