@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.4.1 - 2018-10-01
 - [Patch] Refine Switch disabled styles
 
 ## 40.4.0 - 2018-09-28
