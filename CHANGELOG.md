@@ -5,10 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Refine Switch disabled styles
 
 ## 40.4.0 - 2018-09-28
 - [Feature] Add isInline prop to Poptip component
-- [Patch] Remove package-lock.json since yarn is our offical npm package tool
+- [Patch] Remove package-lock.json since yarn is our official npm package tool
 
 ## 40.3.0 - 2018-09-26
 - [Feature] Add isDisabled prop to Switch component
