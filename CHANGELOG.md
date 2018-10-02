@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Added delay and hideDelay prop for the poptip
 
 ## 40.4.1 - 2018-10-01
 - [Patch] Refine Switch disabled styles

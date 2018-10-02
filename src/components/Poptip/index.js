@@ -29,8 +29,14 @@ export default class Poptip extends React.Component {
       PropTypes.node,
       PropTypes.string,
     ]).isRequired,
+    /** how long it takes after a trigger event is fired for a tooltip to show |
+     * default => 0 */
+    delay: PropTypes.number,
     /** disable value | default => false */
     disable: PropTypes.bool,
+    /** how long it takes after a trigger event is fired for a tooltip to hide |
+     * default => 0 */
+    hideDelay: PropTypes.number,
     /** should the poptip content be animated | default => true */
     isAnimated: PropTypes.bool,
     /** should the poptip be displayed inline */
@@ -59,7 +65,9 @@ export default class Poptip extends React.Component {
 
   // trigger prop left out as Trigger default, 'mouseenter focus', will be used
   static defaultProps = {
+    delay: 0,
     disable: false,
+    hideDelay: 0,
     isAnimated: true,
     isInline: false,
     position: 'top',
@@ -70,7 +78,9 @@ export default class Poptip extends React.Component {
     const {
       children,
       content,
+      delay,
       disable,
+      hideDelay,
       isAnimated,
       isInline,
       position,
@@ -86,6 +96,7 @@ export default class Poptip extends React.Component {
       <Tooltip
         arrow={ true }
         disabled={ disable }
+        delay={ [delay, hideDelay] }
         { ...(!isAnimated ? { duration: 0 } : {}) }
         html={ <div className="force-break">{content}</div> }
         position={ position }
