@@ -12,7 +12,9 @@ stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div id="root-preview">
-      <div class="attention attention--bad-news oui-text--center push-double--bottom">TextField component is deprecated. Please use Input instead for the same features.</div>
+      <div className="attention attention--bad-news oui-text--center push-double--bottom">
+        TextField component is deprecated. Please use Input instead for the same features.
+      </div>
       {story()}
     </div>
   ));
