@@ -8,6 +8,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Font-weight 400 for tiny button
 - [Patch] Added auto-focus to the Textarea
 - [Patch] Added delay and hideDelay prop for the poptip
+- [Feature] Support Buttons that look like Links and Links that look like Buttons
 
 ## 40.4.1 - 2018-10-01
 - [Patch] Refine Switch disabled styles
