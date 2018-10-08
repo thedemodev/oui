@@ -39,6 +39,16 @@ class Input extends React.Component {
     focus,
     textAlign }) {
 
+    let inputType = type;
+    if (type === 'percent') {
+      inputType = 'number';
+      // min must be less than max, and both must be within 0 - 100.
+      // Otherwise, ignore and set to default
+      const oldMin = min;
+      min = (!min || min < 0 || min > 100 || min > max) ? 0 : min;
+      max = (!max || max < 0 || max > 100 || max < oldMin) ? 100 : max;
+    }
+
     let hasAlignStyle = false;
     if (textAlign) {
       hasAlignStyle = true;
@@ -58,7 +68,7 @@ class Input extends React.Component {
         data-oui-component={ true }
         className={ classes }
         ref={ (c) => { this._input = c; } }
-        type={ type }
+        type={ inputType }
         value={ value }
         defaultValue={ defaultValue }
         placeholder={ placeholder }
@@ -187,6 +197,7 @@ Input.propTypes = {
     'password',
     'date',
     'number',
+    'percent',
     'email',
     'url',
     'search',
