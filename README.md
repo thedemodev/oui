@@ -29,14 +29,6 @@ yarn install
 yarn storybook
 ```
 
-## Request a Component
-
-1. First, add your React component to Optimizely.git so you aren't blocked by OUI to release this feature.
-2. Get your component HTML/CSS reviewed by a UI Engineer for code quality (required). Or you can request we create the HTML.
-2. Submit a JIRA ticket to UI Engineering that including:
-  - Who designed this component? (We'll need to talk to them about documenting the use cases.)
-  - Are there at least two use cases in the app currently? (More than two use cases means it's a good candidate for an OUI component; please attach screen shots.)
-
 ## Contribute
 
 Read [how to contribute to OUI](CONTRIBUTING.md) for instructions on making pull requests.
