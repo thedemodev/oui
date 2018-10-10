@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.5.1 - 2018-10-10
 - [Patch] Font-weight 400 for tiny button
 - [Patch] Added auto-focus to the Textarea
 - [Patch] Added delay and hideDelay prop for the poptip
