@@ -28,11 +28,11 @@ yarn install
 yarn storybook
 ```
 
-## 💪Contribute
+## 💪 Contribute
 
 Read [how to contribute to OUI](CONTRIBUTING.md) for instructions on making pull requests.
 
-## ⚡️React
+## ⚡️ React
 
 To use an OUI component inside your React app:
 
@@ -43,6 +43,6 @@ import { Button } from 'optimizely-oui';
 return ( <Button size="tiny">Click Me</Button> );
 ```
 
-## 💅Sass
+## 💅 Sass
 
 To use OUI Sass variables and mixins in your project read [how to use OUI sass](readme-sass.md).
