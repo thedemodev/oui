@@ -1,87 +1,57 @@
+<p align="center">
+  <a href="http://optimizely.github.io/oui/storybook/">
+    <img width="200" src="https://raw.githubusercontent.com/optimizely/oui/devel/assets/louis.gif" title="Meet Louis, the official mascot of OUI">
+  </a>
+</p>
+
+<h1 align="center">OUI Component Library</h1>
+
+<div align="center">
+
+A custom CSS and React component framework that powers the Optimizely user interface.
+
 [![Build Status](https://travis-ci.org/optimizely/oui.svg?branch=devel)](https://travis-ci.org/optimizely/oui)
 [![codecov](https://codecov.io/gh/optimizely/oui/branch/devel/graph/badge.svg)](https://codecov.io/gh/optimizely/oui)
 [![Gitter](https://badges.gitter.im/optimizely/oui.svg)](https://gitter.im/optimizely/oui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Live Documentation](https://img.shields.io/badge/documentation-live-blue.svg)](http://design.optimizely.com/docs/oui/)
 
-# OUI Component Library
+</div>
 
-![Louis](https://raw.githubusercontent.com/optimizely/oui/devel/assets/louis.gif)
-
-_Meet Louis, the official mascot of OUI._
-
-## Documentation
+## 🔗 Links
 
 - [Storybook](http://optimizely.github.io/oui/storybook/)
-- [Internal documentation](http://design.optimizely.com/docs/oui/) (requires VPN access)
 - [Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/) (requires VPN access)
 
-***
-
-## Contribute to OUI
-
-Run `git clone https://github.com/optimizely/oui.git && yarn install`.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more information
-
-## Install OUI
-
-OUI is installed via npm; the `optimizely-oui` package contains Sass files and React components saved within your project's `node_modules/` folder.
+## 📦 Install
 
 ```bash
-npm install optimizely-oui --save
+git clone https://github.com/optimizely/oui.git
+yarn install
+yarn storybook
 ```
 
-#### Use OUI Sass
+## Request a Component
 
-OUI consists of two parts:
+1. First, add your React component to Optimizely.git so you aren't blocked by OUI to release this feature.
+2. Get your component HTML/CSS reviewed by a UI Engineer for code quality (required). Or you can request we create the HTML.
+2. Submit a JIRA ticket to UI Engineering that including:
+  - Who designed this component? (We'll need to talk to them about documenting the use cases.)
+  - Are there at least two use cases in the app currently? (More than two use cases means it's a good candidate for an OUI component; please attach screen shots.)
 
-1. **Core OUI Sass**
-    - Base styles used as the foundation for any site.
-    - This code lives in this OUI repository and is loaded before application specific Sass.
-2. **Project specific Sass (mobile website, developer site, etc…)**
-    - Project specific Sass built with OUI code such as variables or mixins.
-    - This code lives in the project repo, pulling OUI as a dependency.
+## Contribute
 
-For example, if you're building a mobile site, your main SCSS file `mobile.scss` would contain:
+Read [how to contribute to OUI](CONTRIBUTING.md) for instructions on making pull requests.
 
-```scss
-// # Mobile Website
-// Root file driving the Mobile Website CSS.
+## React
 
-// ## OUI and custom functions
-@import '../node_modules/optimizely-oui/src/oui/partials/sass/functions';
-@import 'mobile-website/functions';
+To use an OUI component inside your React app:
 
-// ## OUI and custom variables
-// The mobile website variables file can contain new variables or overwrite existing variables.
-@import '../node_modules/optimizely-oui/src/oui/oui-variables';
-@import 'mobile-website/mobile-variables';
-
-// ## OUI and custom partials
-// Partials are files that import other components
-@import '../node_modules/optimizely-oui/src/oui/oui-partials';
-@import 'mobile-website/mobile-partials';
-
-// ## Overrides (helper/utility classes)
-// Overrides use `!important` classes for overrides and should always be loaded last.
-@import '../node_modules/optimizely-oui/src/overrides/admin';
-@import '../node_modules/optimizely-oui/src/overrides/background';
-@import '../node_modules/optimizely-oui/src/overrides/borders';
-@import '../node_modules/optimizely-oui/src/overrides/layout';
-@import '../node_modules/optimizely-oui/src/overrides/margin';
-@import '../node_modules/optimizely-oui/src/overrides/padding';
-@import '../node_modules/optimizely-oui/src/overrides/type';
-@import '../node_modules/optimizely-oui/src/overrides/sizing';
+```jsx
+import React from 'react';
+import { Button } from 'optimizely-oui';
+...
+return ( <Button size="tiny">Click Me</Button> );
 ```
 
-#### Use OUI React
+## Sass
 
-OUI comes with React components that can be used instead of copying and pasting HTML from the documentation. You can view these components locally by running `npm run docs:watch` after cloning the repository and installing dependencies with `npm install`.
-
-These components can be used in a React codebase by requiring OUI:
-
-```js
-import Button from 'optimizely-oui';
-```
-
-[We provide React documentation](http://design.optimizely.com/docs/oui/) that includes information on our component props and default values.
+To use OUI Sass variables and mixins in your project read [how to use OUI sass](readme-sass.md).
