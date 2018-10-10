@@ -6,7 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 40.5.1 - 2018-10-10
+## 40.5.0 - 2018-10-10
 - [Patch] Font-weight 400 for tiny button
 - [Patch] Added auto-focus to the Textarea
 - [Patch] Added delay and hideDelay prop for the poptip
