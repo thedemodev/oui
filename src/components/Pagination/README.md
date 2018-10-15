@@ -1,3 +1,12 @@
-# Paginantion
+# Pagination
 
-- no React Implementation yet
+
+Example:
+
+```js
+<Pagination
+  currentPage={1}
+  onChange={ this.handlePageChange }
+  totalPages={100}
+/>
+```
