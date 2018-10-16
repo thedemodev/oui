@@ -12,7 +12,12 @@ const stories = storiesOf('Icons', module);
 
 // this add some decorators for making addons available
 stories
-  .addDecorator(withKnobs);
+  .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <div id="root-preview">
+      {story()}
+    </div>
+  ));
 
 stories.add('all icons', () => {
   const iconsElements = icons.map((icon, index) => {
@@ -55,6 +60,7 @@ stories.add('all icons', () => {
   });
   return (
     <div className="App">
+      <h1>All Icons (via react-oui-icons)</h1>
       <Container>
         { iconsElements }
       </Container>

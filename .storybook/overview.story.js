@@ -32,6 +32,8 @@ stories
   .add('Component Overview', () => {
     return (<div>
 
+      <h1>OUI Component Overview</h1>
+
       <TabNav activeTab="second" style={ ['dashboard'] }>
         <TabNav.Tab tabId="first">
           Tab #1

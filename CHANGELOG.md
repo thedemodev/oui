@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add border radius overview story
+- [Patch] Adjust global border-radius from 8 to 5
 - [Patch] Update Travis.yml to send alerts to #oui-alerts in Slack
 - [Patch] Add hover and focus error states to input
 - [Feature] Create Pagination component

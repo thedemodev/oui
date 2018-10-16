@@ -23,6 +23,7 @@ const req = require.context('../src/', true, /story\.js$/);
 
 function loadStories() {
   require('./overview.story.js');
+  require('./borderradius.story.js');
   req.keys().forEach(req)
 }
 
