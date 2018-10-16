@@ -229,4 +229,30 @@ describe('components/BlockList/Item', () => {
       });
     });
   });
+
+  describe('onMouseDown is provided', () => {
+    let component;
+    let onMouseDownSpy;
+    let testSection;
+    beforeEach(() => {
+      onMouseDownSpy = jest.fn();
+      testSection = 'oui-blocklist-item';
+      component = mount(
+        <Item
+          onMouseDown={ onMouseDownSpy }
+          testSection={ testSection }>test</Item>
+      );
+    });
+
+    afterEach(() => {
+      component.unmount();
+    });
+
+    it('should call onMouseDown when an Item is mousedowned', () => {
+      const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
+      divComponent.simulate('mousedown');
+      expect(onMouseDownSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+
 });

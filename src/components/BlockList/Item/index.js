@@ -56,7 +56,7 @@ class Item extends React.Component {
       );
     } else {
       item = (
-        <div className={ commonClasses }>
+        <div className={ commonClasses } onMouseDown={ this.props.onMouseDown }>
           { this.props.children }
         </div>
       );
@@ -85,6 +85,8 @@ Item.propTypes = {
   isDisabled: PropTypes.bool,
   /** Function that is run when clicking on the item */
   onClick: PropTypes.func,
+  /** Function that is run when mouse-down event is fired on the item */
+  onMouseDown: PropTypes.func,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
 };

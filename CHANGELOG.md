@@ -10,6 +10,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Update Travis.yml to send alerts to #oui-alerts in Slack
 - [Patch] Add hover and focus error states to input
 - [Feature] Create Pagination component
+- [Patch] Add mouse-down event handler to BlockList.Item
 
 ## 40.5.0 - 2018-10-10
 - [Patch] Font-weight 400 for tiny button
