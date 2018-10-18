@@ -31,4 +31,5 @@ export { default as RangeSlider } from './components/RangeSlider';
 export { default as TabNav } from './components/TabNav';
 export { default as Textarea } from './components/Textarea';
 export { default as TextField } from './components/TextField';
+export { default as Toolbar } from './components/Toolbar';
 export { default as Token } from './components/Token';
