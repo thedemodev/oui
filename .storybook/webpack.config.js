@@ -17,6 +17,7 @@ module.exports = {
             babelrc: false,
             presets: ['es2015', 'react'],
             plugins: [
+              "react-docgen",
               "transform-class-properties",
               "transform-decorators-legacy",
               "transform-object-rest-spread"

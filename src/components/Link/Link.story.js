@@ -92,7 +92,7 @@ stories
     );
   });
 
-storiesOf('Link/Fake', module)
+storiesOf('Link (Fake)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div id="root-preview">

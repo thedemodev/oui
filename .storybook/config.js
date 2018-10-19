@@ -1,12 +1,9 @@
 import * as storybook from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-import infoAddon from '@storybook/addon-info';
 
 require(`../dist/styles.js`);
 
 require(`../src/oui/oui.scss`);
-
-storybook.setAddon(infoAddon);
 
 setOptions({
   name: 'OUI Storybook',
@@ -28,3 +25,4 @@ function loadStories() {
 }
 
 storybook.configure(loadStories, module);
+

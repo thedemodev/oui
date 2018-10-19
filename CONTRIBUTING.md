@@ -7,14 +7,24 @@ OUI is an open source repo where anyone can contribute, and only Optimizely empl
 Requires [Node](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
 
 1. `git clone https://github.com/optimizely/oui.git && cd oui`
-1. `yarn install`
+2. `yarn install`
 
 Then you can run and develop locally:
 
-* `yarn storybook` - launch React Storybook locally
+* `yarn storybook` - launch React Storybook locally and watch assets
 * `yarn build-storybook` - build static Storybook for documentation
 * `yarn test` - test code for syntax errors
 
+### :bulb: Adopt Storybook Driven Development
+Storybook is the best way to learn about, play with, prototype, and build OUI components. Storybook runs locally and will watch for component and documentation updates. Visit http://storybooks-official.netlify.com/ for inspiration on all that is possible!
+
+Every component should contain prop definitions and a robust set of Storybook examples (stories). This will allow for quicker adoption and help Storybook to serve as the best hub for OUI technical documentation. **If you create or update a component, it shouldn't be considered finished until you've completed the following:**  
+
+1. Run Storybook and watch assets via `yarn storybook`
+2. Copy or reference the Story format of this [ExampleComponent](./data/components/ExampleComponent)
+3. Include accurate `propType` configurations and comments, as well as `defaultProps` if applicable (these details are pulled into the _show info_ section)
+4. Create a README.md for you component with usage and implementation information
+>Note: until Storybook Issues [#3458](https://github.com/storybooks/storybook/issues/3458) and [#4499](https://github.com/storybooks/storybook/issues/4499) are resolved, each component README should be added in your **_*.story.js** file. Additionally using double-spaces at the end of each line and a period + double-space for line breaks will help make the files more readable.
 
 ## :pencil: Develop
 

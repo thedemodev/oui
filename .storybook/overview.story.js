@@ -20,7 +20,7 @@ import TabNav from '../src/components/TabNav';
 import Table from '../src/components/Table';
 import Token from '../src/components/Token';
 
-const stories = storiesOf('Hello.', module);
+const stories = storiesOf('Overview/', module);
 stories
   .addDecorator(story => (
     <div id="root-preview">

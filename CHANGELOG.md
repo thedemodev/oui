@@ -16,6 +16,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Add hover and focus error states to input
 - [Feature] Create Pagination component
 - [Patch] Add mouse-down event handler to BlockList.Item
+- [Docs] Add `react-docgen` to Storybook so prop types and descriptions are displayed
+- [Docs] Add ExampleComponent to Storybook to serve as a reference for component creation or updates
+- [Docs] Create pattern for including README.md info in stories
 
 ## 40.5.0 - 2018-10-10
 - [Patch] Font-weight 400 for tiny button
