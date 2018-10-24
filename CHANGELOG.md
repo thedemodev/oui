@@ -5,9 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.9.0 - 2018-10-23
 - [Feature] Add Autocompolete component
 
-## 40.7.0 - 2018-10-19
+## 40.8.0 - 2018-10-19
 - [Feature] Add Toolbar component
 
 ## 40.6.0 - 2018-10-16
