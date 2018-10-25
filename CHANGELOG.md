@@ -8,6 +8,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Style selected dropdown item so it appears active, not disabled (#1055)
 - [Feature] Add Dialog component
 - [Patch] Add test section to BlockList.Item element
+- [Patch] Support Immutable Lists in Autocomplete component
+- [Patch] Add `autoFillInputValue` prop to Autocomplete component
 
 ## 40.9.0 - 2018-10-23
 - [Feature] Add Autocompolete component
