@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Style selected dropdown item so it appears active, not disabled (#1055)
 - [Feature] Add Dialog component
 
 ## 40.9.0 - 2018-10-23

@@ -132,7 +132,7 @@
     color: map-fetch($color, text, base);
     padding: spacer(.5) spacer(1);
 
-    & > div.muted,
+    & > div.isSelected,
     & > div.micro {
       padding: spacer(0.5) spacer(1.5);
     }
