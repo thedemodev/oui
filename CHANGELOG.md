@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Patch] Style selected dropdown item so it appears active, not disabled (#1055)
 - [Feature] Add Dialog component
+- [Patch] Add test section to BlockList.Item element
 
 ## 40.9.0 - 2018-10-23
 - [Feature] Add Autocompolete component

@@ -56,7 +56,9 @@ class Item extends React.Component {
       );
     } else {
       item = (
-        <div className={ commonClasses } onMouseDown={ this.props.onMouseDown }>
+        <div
+          className={ commonClasses } onMouseDown={ this.props.onMouseDown }
+          { ...this.props.testSection && { 'data-test-section': this.props.testSection + '-item' } }>
           { this.props.children }
         </div>
       );
