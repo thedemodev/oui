@@ -8,6 +8,7 @@ export { default as Button } from './components/Button';
 export { default as ButtonRow } from './components/ButtonRow';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Code } from './components/Code';
+export { default as Dialog } from './components/Dialog';
 export { default as Disclose } from './components/Disclose';
 export { default as DiscloseTable } from './components/DiscloseTable';
 export { default as Dropdown } from './components/Dropdown';
