@@ -8,6 +8,6 @@
 
 .#{$namespace}example-component, .oui-example-component {
   p {
-    background-color: yellow;
+    background-color: var(--highlight);
   }
 }
