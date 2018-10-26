@@ -19,11 +19,9 @@ stories
     </div>
   ));
 
-stories.add('all icons', () => {
+stories.add('All icons', () => {
   const iconsElements = icons.map((icon, index) => {
     const Box = styled.div`
-    border: 1px dashed #ccc;
-    border-radius: 8px;
     box-sizing: border-box;
     display: flex;
     height: 100px;
@@ -37,7 +35,7 @@ stories.add('all icons', () => {
       transition: all 0.4s ease;
       content: '${icon.title}';
       font-family: Helvetica;
-      font-size: 0.5rem;
+      font-size: 10px;
       max-width: 90px;
       position: absolute;
       margin-top: 70px;
@@ -68,18 +66,12 @@ stories.add('all icons', () => {
   );
 });
 
-stories.add('icon docs', withInfo('react <Icon /> component')(() => {
+stories.add('Icon with knobs', withInfo('react <Icon /> component')(() => {
   return (
     <Icon name='bell' size='large' />
   );
 }
 ));
-
-stories.add('animated icon', () => {
-  return (
-    <Icon className='rotating' name='settings' size='large' />
-  );
-});
 
 const Container = styled.div`
   display: flex;
