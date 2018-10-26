@@ -88,7 +88,7 @@ storiesOf('Overview/', module)
             name,
           }) => (
             <React.Fragment>
-              <h2>Example OUI Component, Story, and README</h2>
+              <h1>Example OUI Component, Story, and README</h1>
               <p>
                   This component uses the <a href="https://reactjs.org/docs/render-props.html" target="_blank" rel="noopener noreferrer">render props</a> pattern to allow for more extensibility while abstracting some common complexity. Check out the README in the "Show Info" section for more info!
               </p>
