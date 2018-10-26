@@ -24,6 +24,7 @@ import Suggestion from './Suggestion';
 class Autocomplete extends Component {
 
   static defaultProps = {
+    autoFillInputValue: false,
     ActionField: (props) => <span { ...props } />,
     InputField: Input,
     SuggestionField: Suggestion,
@@ -100,12 +101,14 @@ class Autocomplete extends Component {
    * @returns {Function} mousedown event handler
    */
   createSuggestionClickHandler = (suggestion) => () => {
-    const { filterBy, onSuggestionClick } = this.props;
-    this.setState({
-      inputValue: filterBy(suggestion),
-    }, () => {
-      onSuggestionClick(suggestion);
-    });
+    const { filterBy, onSuggestionClick, autoFillInputValue } = this.props;
+    if (autoFillInputValue) {
+      this.setState({
+        inputValue: filterBy(suggestion),
+      });
+    }
+
+    onSuggestionClick(suggestion);
   }
 
   render() {
@@ -132,7 +135,7 @@ class Autocomplete extends Component {
       leading: true,
       trailing: false,
     });
-
+    const numberOfSuggestions = suggestions.size ? suggestions.size : suggestions.length;
     return (
       <div data-oui-component={ true }>
         <InputField
@@ -145,7 +148,7 @@ class Autocomplete extends Component {
           value={ inputValue }
         />
         {
-          isFocused && suggestions.length > 0 && (
+          isFocused && numberOfSuggestions > 0 && (
             <BlockList maxHeight={ maxHeight }>
               <BlockList.Category testSection={ `${testSection}-suggestions` }>
                 {
@@ -183,10 +186,15 @@ class Autocomplete extends Component {
 Autocomplete.propTypes = {
   /** React component that renders an action field */
   ActionField: PropTypes.func,
-  /** React component that renders an input field */
+  /**
+    * If true, when suggestion is selected, input value is
+    * updated to suggestion value
+    */
   InputField: PropTypes.func,
-  /** React component that renders a suggestion field */
+  /** React component that renders an input field */
   SuggestionField: PropTypes.func,
+  /** React component that renders a suggestion field */
+  autoFillInputValue: PropTypes.bool,
   /** Sets the debounce time (ms) */
   debounce: PropTypes.number,
   /**

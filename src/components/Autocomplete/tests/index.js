@@ -87,7 +87,7 @@ describe('components/Autocomplete', () => {
       expect(onSuggestionClickSpy).toHaveBeenCalledWith('foo');
     });
 
-    it('should set the Input value to the suggestion when a suggestion is clicked', () => {
+    it('should not set the Input value to the suggestion when a suggestion is clicked', () => {
       const mockQuery = 'f';
       const inputComponent = component.find(`[data-test-section="${ testSection }-input"]`);
       inputComponent.simulate('focus');
@@ -100,7 +100,7 @@ describe('components/Autocomplete', () => {
       suggestionsComponent.at(0).childAt(0).simulate('mousedown');
       component.update();
       const inputValue = component.find(`[data-test-section="${ testSection }-input"]`).prop('value');
-      expect(inputValue).toEqual('foo');
+      expect(inputValue).toEqual('f');
     });
 
     it('should call action click-handler when action is clicked', () => {
@@ -142,6 +142,29 @@ describe('components/Autocomplete', () => {
       expect(suggestionsComponent.length).toEqual(mockSuggestions.length);
     });
 
+  });
+
+  describe('when autoFillInputValue is true', function() {
+    beforeEach(() => {
+      component.setProps({ autoFillInputValue: true });
+      component.update();
+    });
+
+    it('should set the Input value to the suggestion when a suggestion is clicked', () => {
+      const mockQuery = 'f';
+      const inputComponent = component.find(`[data-test-section="${ testSection }-input"]`);
+      inputComponent.simulate('focus');
+      inputComponent.simulate('change', {
+        target: {
+          value: mockQuery,
+        },
+      });
+      const suggestionsComponent = component.find(`[data-test-section="${ testSection }-block-item"]`);
+      suggestionsComponent.at(0).childAt(0).simulate('mousedown');
+      component.update();
+      const inputValue = component.find(`[data-test-section="${ testSection }-input"]`).prop('value');
+      expect(inputValue).toEqual('foo');
+    });
   });
 
 });

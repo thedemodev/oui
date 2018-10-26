@@ -1,0 +1,8 @@
+// Limit the width of forms and longer form content.
+.reading-column {
+  max-width: map-fetch($layout, reading, max-width);
+  min-width: map-fetch($layout, reading, min-width);
+  margin: spacer(4) auto;
+  padding-left: spacer(2);
+  padding-right: spacer(2);
+}

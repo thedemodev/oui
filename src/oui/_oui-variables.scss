@@ -479,6 +479,15 @@ $dialog: (
   )
 );
 
+/// Layout
+
+$layout: (
+  reading:(
+    max-width                 : 700px,
+    min-width                 : 700px
+  ),
+);
+
 /// Transitions
 
 $transition-duration: (

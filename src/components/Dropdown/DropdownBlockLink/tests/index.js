@@ -40,7 +40,7 @@ describe('components/Dropdown/DropdownBlockLink', () => {
 
   it('should render with link styling if prop passed as false', () => {
     const component = shallow(<DropdownBlockLink isLink={ false }></DropdownBlockLink>);
-    expect(component.prop('className')).toEqual('muted');
+    expect(component.prop('className')).toEqual('isSelected');
   });
 
   it('should call function that is passed in as `onClick` after click', () => {

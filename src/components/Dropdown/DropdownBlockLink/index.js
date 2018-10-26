@@ -39,7 +39,7 @@ export default class DropdownBlockLink extends React.Component {
       <div
         className={ classNames({
           'link': this.props.isLink,
-          'muted': !this.props.isLink,
+          'isSelected': !this.props.isLink,
           'oui-dropdown__block-link': this.props.isLink,
         }) }
         style={ styleProps }
