@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.10.0 - 2018-10-29
 - [Patch] Style selected dropdown item so it appears active, not disabled (#1055)
 - [Feature] Add Dialog component
 - [Patch] Add test section to BlockList.Item element
