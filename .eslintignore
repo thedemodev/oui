@@ -1,4 +1,5 @@
 dist
+module
 tmp
 node_modules
 s3

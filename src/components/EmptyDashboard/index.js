@@ -88,4 +88,4 @@ EmptyDashboard.getDefaultProps = {
   testSection: 'empty-hello',
 };
 
-module.exports = EmptyDashboard;
+export default EmptyDashboard;
