@@ -11,7 +11,9 @@ package-lock.json
 docs
 scripts
 storybook
-src
+src/components/**/*.story.js
+src/stories
+src/**/tests/**
 module/components/**/*.story.js
 module/stories
 module/**/tests/**
