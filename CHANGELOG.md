@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.11.1 - 2018-11-01
 - [Patch] Include src/ in package to enable external bundling
 
 ## 40.11.0 - 2018-10-30
