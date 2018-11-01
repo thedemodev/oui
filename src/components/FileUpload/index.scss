@@ -1,0 +1,6 @@
+.file-upload {
+  border-radius: map-fetch($border, radius, base);
+  &--active {
+    box-shadow: 0 0 map-fetch($shadow, big);
+  }
+}

@@ -16,6 +16,7 @@ export { default as DiscloseTable } from './components/DiscloseTable';
 export { default as Dropdown } from './components/Dropdown';
 export { default as EditableInput } from './components/EditableInput';
 export { default as EmptyDashboard } from './components/EmptyDashboard';
+export { default as FileUpload } from './components/FileUpload';
 export { default as HelpPopover } from './components/HelpPopover';
 export { default as Input } from './components/Input';
 export { default as Label } from './components/Label';
