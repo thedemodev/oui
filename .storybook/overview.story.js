@@ -9,6 +9,7 @@ import Button from '../src/components/Button';
 import Card from '../src/components/Card';
 import EmptyDashboard from '../src/components/EmptyDashboard';
 import Input from '../src/components/Input';
+import Label from '../src/components/Label';
 import Link from '../src/components/Link';
 import ProgressBar from '../src/components/ProgressBar';
 import ProgressDots from '../src/components/ProgressDots';
@@ -72,6 +73,10 @@ stories
          <h4>H4 Experiments</h4>
          <h5>H5 Experiments</h5>
          <h6>H6 Experiments</h6>
+         <Label>Form Label</Label>
+         <p class="flush">Paragraph</p>
+         <p class="flush milli">Paragraph.milli</p>
+         <p class="flush micro">Paragraph.micro</p>
       </div>
 
       <div class="oui--swatches push--ends">
