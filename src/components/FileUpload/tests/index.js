@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Dropzone from 'react-dropzone';
+import Icon from 'react-oui-icons';
 
 import FileUpload from '../index';
 
@@ -47,7 +48,7 @@ describe('components/FileUpload', () => {
 
   describe('preview rendering', () => {
     global.URL = {
-      createObjectURL: (x) => x,
+      createObjectURL: () => 'mock url',
     };
     let mockFile;
     let mockFileContent;
@@ -63,21 +64,15 @@ describe('components/FileUpload', () => {
     });
 
     it('should render preview info', () => {
-      const infoComponent = component.find(`${ testSection }-preview-info`);
+      const infoComponent = component.find(`[data-test-section="${ testSection }-preview-info"]`);
       const expectedText = 'Drag and drop a new file onto the file preview or click on the preview to select a new file.';
       expect(infoComponent.exists()).toBe(true);
       expect(infoComponent.text()).toEqual(expectedText);
     });
 
-    it('should render file name', () => {
-      const fileNameComponent = component.find(`${ testSection }-preview-file-name`);
-      expect(fileNameComponent.exists()).toBe(true);
-      expect(fileNameComponent.text()).toEqual(`File: ${ mockFileName }`);
-    });
-
     describe('image preview', () => {
       it('should render preview image', () => {
-        const imageComponent = component.find(`${ testSection }-preview-image`);
+        const imageComponent = component.find(`[data-test-section="${ testSection }-preview-image"]`);
         expect(imageComponent.exists()).toBe(true);
       });
     });
@@ -91,12 +86,13 @@ describe('components/FileUpload', () => {
       });
 
       it('should render Icon', () => {
-        const iconComponent = component.find(`${ testSection}-preview-icon`);
+        const previewComponent = component.find(`[data-test-section="${ testSection}-preview"]`);
+        const iconComponent = previewComponent.find(Icon);
         expect(iconComponent.exists()).toBe(true);
       });
 
       it('should render file size', () => {
-        const fileSizeComponent = component.find(`${ testSection }-preview-size`);
+        const fileSizeComponent = component.find(`[data-test-section="${ testSection }-preview-size"]`);
         expect(fileSizeComponent.exists()).toBe(true);
         expect(fileSizeComponent.text()).toEqual(`${ component.state('fileSize')} MB`);
       });

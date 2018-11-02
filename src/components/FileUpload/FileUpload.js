@@ -66,6 +66,7 @@ class FileUpload extends Component {
   renderPreview() {
     const { testSection } = this.props;
     const {
+      fileName,
       fileSize,
       iconType,
       preview,
@@ -76,8 +77,11 @@ class FileUpload extends Component {
     }
 
     return (
-      <div>
-        <Icon name={ iconType } size='medium' testSection={ `${ testSection }-preview-icon` } />
+      <div
+        className='flex flex-align--center flex--column flex-justified--center push-double--top push-double--bottom'
+        data-test-section={ `${ testSection }-preview` }>
+        <Icon name={ iconType } size='large' />
+        <div>{ fileName }</div>
         <div data-test-section={ `${ testSection }-preview-size` }>{ fileSize } MB</div>
       </div>
     );
@@ -91,17 +95,11 @@ class FileUpload extends Component {
     } = this.props;
 
     const {
-      fileName,
       preview,
     } = this.state;
 
     return (
       <div>
-        {
-          preview && (
-            <p data-test-section={ `${ testSection }-preview-file-name` }>File: { fileName }</p>
-          )
-        }
         <Dropzone
           className='file-upload border--all'
           activeClassName='file-upload--active'
