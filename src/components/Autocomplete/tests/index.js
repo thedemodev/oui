@@ -141,7 +141,12 @@ describe('components/Autocomplete', () => {
       // provided via props
       expect(suggestionsComponent.length).toEqual(mockSuggestions.length);
     });
+    it('should not call onInputChange when focusing', () => {
+      const inputComponent = component.find(`[data-test-section="${ testSection }-input"]`);
+      inputComponent.simulate('focus');
 
+      expect(onInputChangeSpy).toHaveBeenCalledTimes(0);
+    });
   });
 
   describe('when autoFillInputValue is true', function() {

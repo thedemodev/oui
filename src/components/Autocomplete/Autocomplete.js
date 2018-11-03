@@ -89,10 +89,6 @@ class Autocomplete extends Component {
    */
   createFocusHandler = (isFocused) => () => {
     this.setState({ isFocused });
-
-    if (isFocused) {
-      this.querySuggestions(this.state.inputValue);
-    }
   }
 
   /**
