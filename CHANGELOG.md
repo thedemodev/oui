@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.12.0 - 2018-11-06
 - [Feature] Add ListGroup component
 
 ## 40.11.2 - 2018-11-05
