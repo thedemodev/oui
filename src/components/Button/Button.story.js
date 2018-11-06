@@ -20,7 +20,7 @@ stories
   ));
 
 stories
-  .add('customize me!', () => {
+  .add('Button with knobs', withInfo()(() => {
     return (
       <Button
         style={ select('style', {
@@ -45,10 +45,10 @@ stories
           'large': 'large',
           'narrow': 'narrow',
           'tight': 'tight'}, 'narrow') }>
-        { text('customize me!', 'customize me!') }
+        { text('text', 'Customize me with knobs') }
       </Button>);
-  })
-  .add('all buttons', withInfo()(() => {
+  }))
+  .add('All buttons', withInfo()(() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -62,7 +62,7 @@ stories
         ] }
       />);
   }))
-  .add('all disabled', () => {
+  .add('Disabled', () => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -76,14 +76,14 @@ stories
         ] }
       />);
   })
-  .add('underline button', () => {
+  .add('Underline', () => {
     return (
       <Button style="underline" width="default">
         Underline Button
         <ArrowsInline direction="down" />
       </Button>);
   })
-  .add('sizes variations', () => {
+  .add('Size variations', () => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -95,17 +95,17 @@ stories
         ] }
       />);
   })
-  .add('Button without an onClick', () => {
+  .add('onClick', () => {
     return (
       <Button isLink={ true }>Faux Button</Button>
     );
   })
-  .add('Button without an onClick (disabled)', () => {
+  .add('onClick isDisabled', () => {
     return (
       <Button isLink={ true } isDisabled={ true }>Faux Button</Button>
     );
   })
-  .add('Button that looks like a Link', withInfo()(() => {
+  .add('Unstyled button looks like a Link', withInfo()(() => {
     return (
       <Button
         style='unstyled'
