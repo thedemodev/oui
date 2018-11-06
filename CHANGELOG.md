@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add ListGroup component
 
 ## 40.11.2 - 2018-11-05
 - [Patch] Remove onFocus update to input value in Autocomplete
@@ -24,7 +25,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Add `autoFillInputValue` prop to Autocomplete component
 
 ## 40.9.0 - 2018-10-23
-- [Feature] Add Autocompolete component
+- [Feature] Add Autocomplete component
 
 ## 40.8.0 - 2018-10-19
 - [Feature] Add Toolbar component

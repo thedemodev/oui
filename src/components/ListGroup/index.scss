@@ -1,0 +1,12 @@
+////
+/// ListGroup
+////
+
+.#{$namespace}listgroup,
+.oui-listgroup,
+.listgroup {
+
+  .listgroup__item:last-of-type {
+    border: 0 !important;
+  }
+}
