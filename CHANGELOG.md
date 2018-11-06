@@ -6,6 +6,19 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Fix CSS prefix for Select Dropdown
+- [Feature] Add ListGroup component
+
+## 40.11.2 - 2018-11-05
+- [Patch] Remove onFocus update to input value in Autocomplete
+- [Patch] Update debounce logic in Autocomplete
+
+## 40.11.1 - 2018-11-01
+- [Patch] Include src/ in package to enable external bundling
+
+## 40.11.0 - 2018-10-30
+- [Feature] Fix ES module build of OUI not transpiling JSX
+
+## 40.10.0 - 2018-10-29
 - [Patch] Style selected dropdown item so it appears active, not disabled (#1055)
 - [Feature] Add Dialog component
 - [Patch] Add test section to BlockList.Item element
@@ -13,7 +26,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Add `autoFillInputValue` prop to Autocomplete component
 
 ## 40.9.0 - 2018-10-23
-- [Feature] Add Autocompolete component
+- [Feature] Add Autocomplete component
 
 ## 40.8.0 - 2018-10-19
 - [Feature] Add Toolbar component

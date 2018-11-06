@@ -18,7 +18,7 @@ export default [
       <Input
         type="text"
         label="Test"
-        hasError={ true }
+        displayError={ true }
         placeholder="This is a placeholder"
       />,
     ],

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import debounceFn from 'lodash.debounce';
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 import { isFilterTermInItem } from '../../utils/filter';
 import Input from '../Input';
@@ -48,6 +48,9 @@ class Autocomplete extends Component {
       suggestions: props.suggestions,
       inputValue: props.value,
     };
+    if (!props.stateful) {
+      this.debouncedOnInputChange = AwesomeDebouncePromise(props.onInputChange, props.debounce);
+    }
   }
 
   /**
@@ -63,7 +66,7 @@ class Autocomplete extends Component {
       inputValue: query,
     }, () => {
       const queryCallback = () => onInputChange(query);
-      return stateful ? this.querySuggestions(query, queryCallback) : queryCallback();
+      return stateful ? this.querySuggestions(query, queryCallback) : this.debouncedOnInputChange(query);
     });
   }
 
@@ -89,10 +92,6 @@ class Autocomplete extends Component {
    */
   createFocusHandler = (isFocused) => () => {
     this.setState({ isFocused });
-
-    if (isFocused) {
-      this.querySuggestions(this.state.inputValue);
-    }
   }
 
   /**
@@ -121,7 +120,6 @@ class Autocomplete extends Component {
       ActionField,
       InputField,
       SuggestionField,
-      debounce,
       maxHeight,
       onActionClick,
       placeholder,
@@ -131,10 +129,6 @@ class Autocomplete extends Component {
 
     const { suggestions } = stateful ? this.state : this.props;
 
-    const debouncedOnChange = debounceFn(this.inputChange, debounce, {
-      leading: true,
-      trailing: false,
-    });
     const numberOfSuggestions = suggestions.size ? suggestions.size : suggestions.length;
     return (
       <div data-oui-component={ true }>
@@ -143,7 +137,7 @@ class Autocomplete extends Component {
           placeholder={ placeholder }
           onFocus={ this.createFocusHandler(true) }
           onBlur={ this.createFocusHandler(false) }
-          onChange={ debouncedOnChange }
+          onChange={ this.inputChange }
           testSection={ `${testSection}-input` }
           value={ inputValue }
         />
