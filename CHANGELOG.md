@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 40.12.2 - 2018-11-08
+- [Patch] Travis CI change for auto-publish css
+
 ## 40.12.1 - 2018-11-08
 - [Patch] Auto publish oui.css via Travis CI (test release)
 
