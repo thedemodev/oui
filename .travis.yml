@@ -26,6 +26,8 @@ deploy:
   local_dir: dist/
   skip_cleanup: true
   acl: public_read
+  on:
+    tags: true
 - provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
@@ -34,6 +36,8 @@ deploy:
   local_dir: dist/
   skip_cleanup: true
   acl: public_read
+  on:
+    tags: true
 notifications:
   slack:
     secure: FIA2Sujap77bqerxvU1PQrTbmdoJ4Lt3zisa+nO7jiQE/QqVfS+ZSHTYIqvi03Vj58YcTss+I6KUqntEEyVdECuXx4mkpdzLSET7FDkp5Uyixni/x4v+DaWHrXxkfdUS1AecQEXKRgHtKOkUBq32p25VLTHVA+ysR80N/f1XaVg=
