@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 40.12.1 - 2018-11-08
+- [Patch] Auto publish oui.css via Travis CI (test release)
+
 ## 40.12.0 - 2018-11-06
 - [Feature] Add ListGroup component
 
