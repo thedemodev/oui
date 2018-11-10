@@ -39,13 +39,14 @@ ListGroup.defaultProps = {
 export const ListGroupItem = ({
   children,
   testSection,
-  density='loose',
+  density = 'loose',
 }) => {
+
   let classes = classNames({
     'listgroup__item': true,
     'border--bottom': true,
-    'soft--bottom soft--top': density=='tight',
-    'soft-double--bottom soft-double--top': density=='loose',
+    'soft--bottom soft--top': density === 'tight',
+    'soft-double--bottom soft-double--top': density === 'loose',
   });
 
   return (

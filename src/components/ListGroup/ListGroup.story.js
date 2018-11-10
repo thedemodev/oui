@@ -38,14 +38,14 @@ stories
   ));
 
 stories
-  .add('ListGroup default', withInfo(infoAddonConfig)(() => {
+  .add('Default', withInfo(infoAddonConfig)(() => {
 
     const theTitle = text('The Main Title', 'Hello World!');
     const theSubtitle = text('The Subtitle', 'What if it runs really long and could break into several lines...');
     const demoArray = object('demoArray (example knob, not a prop)', [
       { name: 'ListGroup.Item Text 1', value: 'Value 1' },
       { name: 'ListGroup.Item Text 2', value: 'Value 2' },
-      { name: 'ListGroup.Item Text 3', value: 'Value 3' },
+      { name: 'ListGroup.Item Text 3', value: 'Value 3', density: 'tight' },
       { name: 'ListGroup.Item Text 4', value: 'Value 4' },
       { name: 'ListGroup.Item Text 5', value: 'Value 5' },
       { name: 'ListGroup.Item Text 6', value: 'Value 6' },
@@ -56,7 +56,7 @@ stories
         title={ theTitle }
         subtitle={ theSubtitle }>
         { demoArray.map(item => (
-          <ListGroup.Item key={ item.value }>
+          <ListGroup.Item key={ item.value } density={ item.density }>
             { item.name }<br/>
             <span className="muted">{ item.value }</span>
           </ListGroup.Item>
@@ -64,7 +64,7 @@ stories
       </ListGroup>
     );
   }))
-  .add('ListGroup spacing example', withInfo()(() => {
+  .add('ListGroup density tight', withInfo()(() => {
     return (
       <ListGroup
         title='ListGroup Title'
@@ -78,9 +78,10 @@ stories
         <ListGroup.Item>
           <Input placeholder="Plain Input inside <ListGroup>" />
         </ListGroup.Item>
-        <ListGroup.Item density={ select('Density (4th item)', {
-          'loose': 'loose',
-          'tight': 'tight'}, 'tight') }>
+        <ListGroup.Item
+          density={ select('Density (4th item)', {
+            'loose': 'loose',
+            'tight': 'tight'}, 'tight') }>
           <Input placeholder="Plain Input inside <ListGroup density=tight> (try the density knob!)" />
         </ListGroup.Item>
         <ListGroup.Item>
