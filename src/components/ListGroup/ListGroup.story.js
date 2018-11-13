@@ -41,11 +41,12 @@ stories
   .add('Default', withInfo(infoAddonConfig)(() => {
 
     const theTitle = text('The Main Title', 'Hello World!');
+    const itemDensity = select('item.density', { 'loose': 'loose', 'tight': 'tight' }, 'loose');
     const theSubtitle = text('The Subtitle', 'What if it runs really long and could break into several lines...');
     const demoArray = object('demoArray (example knob, not a prop)', [
       { name: 'ListGroup.Item Text 1', value: 'Value 1' },
       { name: 'ListGroup.Item Text 2', value: 'Value 2' },
-      { name: 'ListGroup.Item Text 3', value: 'Value 3', density: 'tight' },
+      { name: 'ListGroup.Item Text 3 (note: <ListGroup.item density=tight>)', value: 'Value 3', density: 'tight' },
       { name: 'ListGroup.Item Text 4', value: 'Value 4' },
       { name: 'ListGroup.Item Text 5', value: 'Value 5' },
       { name: 'ListGroup.Item Text 6', value: 'Value 6' },
@@ -56,7 +57,7 @@ stories
         title={ theTitle }
         subtitle={ theSubtitle }>
         { demoArray.map(item => (
-          <ListGroup.Item key={ item.value } density={ item.density }>
+          <ListGroup.Item key={ item.value } density={ item.density || itemDensity }>
             { item.name }<br/>
             <span className="muted">{ item.value }</span>
           </ListGroup.Item>
