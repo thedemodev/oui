@@ -6,7 +6,12 @@
 .oui-listgroup,
 .listgroup {
 
-  .listgroup__item:last-of-type {
+  .listgroup__item:first-child {
+    padding-top: 0 !important;
+  }
+  .listgroup__item:last-child {
     border: 0 !important;
   }
+
+
 }

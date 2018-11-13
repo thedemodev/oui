@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add density prop for ListGroup.Item
 
 ## 40.12.2 - 2018-11-08
 - [Patch] Travis CI change for auto-publish css

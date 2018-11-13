@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export const ListGroup = ({
   children,
@@ -38,16 +39,30 @@ ListGroup.defaultProps = {
 export const ListGroupItem = ({
   children,
   testSection,
+  density,
 }) => {
+
+  let classes = classNames({
+    'listgroup__item': true,
+    'border--bottom': true,
+    'soft--bottom soft--top': density === 'tight',
+    'soft-double--bottom soft-double--top': density === 'loose',
+  });
+
   return (
-    <div className="listgroup__item push--bottom border--bottom" data-test-section={ testSection }>
+    <div className={ classes } data-test-section={ testSection }>
       { children }
     </div>
   );
 };
 ListGroupItem.propTypes = {
   children: PropTypes.node.isRequired,
-  testSection: '',
+  density: PropTypes.oneOf(['tight', 'loose']),
+  testSection: PropTypes.string,
+};
+
+ListGroupItem.defaultProps = {
+  density: 'loose',
 };
 
 ListGroup.Item = ListGroupItem;
