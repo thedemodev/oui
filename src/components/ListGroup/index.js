@@ -39,7 +39,7 @@ ListGroup.defaultProps = {
 export const ListGroupItem = ({
   children,
   testSection,
-  density = 'loose',
+  density,
 }) => {
 
   let classes = classNames({
@@ -59,6 +59,10 @@ ListGroupItem.propTypes = {
   children: PropTypes.node.isRequired,
   density: PropTypes.oneOf(['tight', 'loose']),
   testSection: PropTypes.string,
+};
+
+ListGroupItem.defaultProps = {
+  density: 'loose',
 };
 
 ListGroup.Item = ListGroupItem;
