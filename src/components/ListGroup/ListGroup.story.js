@@ -46,7 +46,7 @@ stories
     const demoArray = object('demoArray (example knob, not a prop)', [
       { name: 'ListGroup.Item Text 1', value: 'Value 1' },
       { name: 'ListGroup.Item Text 2', value: 'Value 2' },
-      { name: 'ListGroup.Item Text 3 (note: <ListGroup.item density=tight>)', value: 'Value 3', density: 'tight' },
+      { name: 'ListGroup.Item Text 3 (density=tight)', value: 'Value 3', density: 'tight' },
       { name: 'ListGroup.Item Text 4', value: 'Value 4' },
       { name: 'ListGroup.Item Text 5', value: 'Value 5' },
       { name: 'ListGroup.Item Text 6', value: 'Value 6' },
