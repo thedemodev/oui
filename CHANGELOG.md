@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.12.3 - 2018-11-13
 - [Patch] Move CSS3 :root vars and .color-- helpers to new partial
 - [Patch] Add density prop for ListGroup.Item
 
