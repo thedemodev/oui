@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 40.13.1 - 2018-11-15
+- [Patch] Fix alignment & sizing of warning icon in DropdownBlockLinkSecondaryText (#1088)
+
 ## 40.13.0 - 2018-11-15
 - [Feature] Create FilterPicker and Story, a Render Component able to use a combination of existing OUI components (#1061)
 
