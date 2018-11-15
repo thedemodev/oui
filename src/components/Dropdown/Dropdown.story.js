@@ -188,6 +188,32 @@ stories.add('List', withInfo()(() => {
   );
 }));
 
+stories.add('Warnings', withInfo()(() => {
+  const longSecondaryText = 'exclaimation! '.repeat(10);
+  return (
+    <Container>
+      <Dropdown
+        buttonContent='Activate'
+        width={ number('width', 300) }>
+        <Dropdown.Contents minWidth={ 300 }>
+          <Dropdown.ListItem>
+            <Dropdown.BlockLink onClick={ action('click dropdown block link 2') } isLink={ false }>
+              <Dropdown.BlockLinkText text='This is a warning' />
+              <Dropdown.BlockLinkSecondaryText isWarning={ true } secondaryText='Warning: There is an exclaimation mark' />
+            </Dropdown.BlockLink>
+          </Dropdown.ListItem>
+          <Dropdown.ListItem>
+            <Dropdown.BlockLink onClick={ action('click dropdown block link 2') } isLink={ false }>
+              <Dropdown.BlockLinkText text='Another Warning' />
+              <Dropdown.BlockLinkSecondaryText isWarning={ true } secondaryText={ longSecondaryText } />
+            </Dropdown.BlockLink>
+          </Dropdown.ListItem>
+        </Dropdown.Contents>
+      </Dropdown>
+    </Container>
+  );
+}));
+
 const Container = styled.div`
   display: flex;
   flex: 1;
