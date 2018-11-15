@@ -5,7 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] Create FilterPicker and Story, a Render Component able to use a combination of existing OUI components
+
+## 40.13.0 - 2018-11-15
+- [Feature] Create FilterPicker and Story, a Render Component able to use a combination of existing OUI components (#1061)
 
 ## 40.12.3 - 2018-11-13
 - [Patch] Move CSS3 :root vars and .color-- helpers to new partial
