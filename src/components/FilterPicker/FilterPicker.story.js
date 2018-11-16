@@ -10,7 +10,6 @@ import Button from '../Button';
 import BlockList from '../BlockList';
 import HelpPopover from '../HelpPopover';
 import Input from '../Input';
-import Link from '../Link';
 import Token from '../Token';
 
 import FilterPicker from './index.js';
@@ -36,7 +35,8 @@ the implementer and keep this component lean.
 .  
 *-* Using \`react-immutable-proptypes\`, FilterPicker can be used with Immutable or POJO datasets  
 *-* By default, this component filters \`selectedEntityIds\` and items that don't match the \`filterQuery\` to create and return \`availableEntities\` via the render props function  
-*-* If a \`customFilterFn\` is used, it will be used in place of the \`filterQuery\` filter. If \`selectedEntityIds\` should be kept in, simply do not include that list as a component prop  
+*-* If a \`customFilterFn\` is used, it will be used in place of the \`filterQuery\` filter. If \`selectedEntityIds\` should be kept in, simply do not include that list as a component prop
+*-* If a search Input will be used with \`Blocklist\` and \`FilterList.ListItem\`, consider wrapping \`Blocklist\` inside a div with the \`oui-filter-picker-list\` class to remove the Input's bottom border (see story and story source for example)  
 *-* Find out more below  
 .  
 See more how this was implemented in [\`FilterPicker.story.js\`](https://github.com/optimizely/oui/blob/devel/src/components/FilterPicker/FilterPicker.story.js).    
@@ -88,8 +88,6 @@ storiesOf('FilterPicker', module)
 
     const selectedEntityIdsValue = object('selectedEntityIds', [ 123, 456 ]);
 
-    const dropdownSelection = 'ANY';
-
     // Use recompose withState and return below to make
     // a more comprehensive and interactive story
     return (
@@ -98,7 +96,7 @@ storiesOf('FilterPicker', module)
         selectedEntityIds={ selectedEntityIdsValue }
         keysToSearch={ keysToSearchValue }>
         { ({ availableEntities, filterQuery, handleFilterInput, selectedEntities }) => (
-          <div className="oui-filter-picker">
+          <React.Fragment>
             <h3 className="flex">
               Audiences
               <div className="push-half--left">
@@ -130,7 +128,7 @@ storiesOf('FilterPicker', module)
                 arrowIcon="down"
                 buttonContent={ dropdownOptions.find(option => option.id === 'ANY').renderTitle() }
                 style="outline"
-                value={ dropdownSelection }>
+                value={ 'ANY' }>
                 <BlockList>
                   { dropdownOptions.map((item) => {
                     return (
@@ -152,104 +150,75 @@ storiesOf('FilterPicker', module)
                 </BlockList>
               </Dropdown>
             </div>
-            { dropdownSelection !== AudienceConfig.CUSTOM && (
+            { !selectedEntities.length && (
+              <div className="flex--none push-double--ends">
+                <Token name="Everyone" />
+              </div>
+            ) }
+            { !!selectedEntities.length && (
               <React.Fragment>
-                { !selectedEntities.size && (
-                  <div className="flex--none push-double--ends">
-                    <Token name="Everyone" />
-                  </div>
-                ) }
-                { !!selectedEntities.size && (
-                  <React.Fragment>
-                    <div className="muted">To be in this experiment, a visitor must match</div>
-                    <div className="push-half--top push-double--bottom">
-                      { selectedEntities
-                        .map((item, index) => {
-                          const { id, name } = item;
-                          return (
-                            <React.Fragment key={ id }>
-                              <div className="flex flex-align--center">
-                                <Token name={ name } isDismissible={ true } onDismiss={ action(`Entity Remove: ${id}`) }/>
-                                <div className="flex flex--1 flex-justified--end">
-                                  <Button
-                                    size="tiny"
-                                    style="outline"
-                                    width="default"
-                                    onClick={ action(`Selected Entity View: ${id}`) }>
-                                    View
-                                  </Button>
-                                </div>
-                              </div>
-                              {
-                                selectedEntities.length !== (index + 1) && (
-                                  <div className="push-half--sides push-half--ends muted">
-                                    {
-                                      dropdownSelection === AudienceConfig.ANY && ('Or')
-                                    }
-                                    {
-                                      dropdownSelection === AudienceConfig.ALL && ('And must also match')
-                                    }
-                                  </div>
-                                )
-                              }
-                            </React.Fragment>
-                          );
-                        }) }
-                    </div>
-                  </React.Fragment>
-                ) }
-                <Input
-                  isFilter={ true }
-                  onInput={ handleFilterInput }
-                  placeholder="Browse for Audiences"
-                  type="search"
-                />
-                <BlockList hasBorder={ true }>
-                  <BlockList.Category>
-                    <FilterPicker.ListItem
-                      name={ 'Create New Audience' }
-                      onClick={ action('Create Entity') }
-                    />
-                  </BlockList.Category>
-                  <BlockList.Category header='Recently Created Audiences'>
-                    { availableEntities.map((item, index) => {
+                <div className="muted">To be in this experiment, a visitor must match</div>
+                <div className="push-half--top push-double--bottom">
+                  { selectedEntities
+                    .map((item, index) => {
+                      const { id, name } = item;
                       return (
-                        <FilterPicker.ListItem
-                          key={ item.id }
-                          id={ item.id }
-                          name={ item.name }
-                          description={ item.description }
-                          onClick={ action(`Entity Add: ${item.id}`) }
-                          buttonText={ 'View' }
-                          onButtonClick={ action(`Entity Picker View: ${item.id}`) }
-                        />
+                        <React.Fragment key={ id }>
+                          <div className="flex flex-align--center">
+                            <Token name={ name } isDismissible={ true } onDismiss={ action(`Entity Remove: ${id}`) }/>
+                            <div className="flex flex--1 flex-justified--end">
+                              <Button
+                                size="tiny"
+                                style="outline"
+                                width="default"
+                                onClick={ action(`Selected Entity View: ${id}`) }>
+                                View
+                              </Button>
+                            </div>
+                          </div>
+                          {
+                            selectedEntities.length !== (index + 1) && (
+                              <div className="push-half--sides push-half--ends muted">Or</div>
+                            )
+                          }
+                        </React.Fragment>
                       );
                     }) }
-                  </BlockList.Category>
-                </BlockList>
+                </div>
               </React.Fragment>
-            )}
-            {
-              dropdownSelection === AudienceConfig.CUSTOM && (
-                <React.Fragment>
-                  <pre className="oui-code width--1-1 height--200 soft push--ends">
-                    <div>{ '// CodeMirror component mock' }</div>
-                    <div>{ '// Audience code will go here' }</div>
-                    <div>{ '[ "and", { "audience_id": 512880002 }, { "audience_id": 589860001 } ]' }</div>
-                  </pre>
-                  <Input
-                    label="Evaluated Audiences"
-                    note={ <div>For help writing condition code, see our <Link href="http://developers.optimizely.com/rest/conditions/" newWindow={ true }>API documentation.</Link></div> }
-                    onInput={ handleFilterInput }
-                    placeholder="QA Group and Lifetime Revenue Over 5k"
-                    type="text"
-                    isReadOnly={ true }
-                    isDisabled={ true }
+            ) }
+            <div className="oui-filter-picker-list">
+              <Input
+                isFilter={ true }
+                onInput={ handleFilterInput }
+                placeholder="Browse for Audiences"
+                type="search"
+              />
+              <BlockList hasBorder={ true }>
+                <BlockList.Category>
+                  <FilterPicker.ListItem
+                    name={ 'Create New Audience' }
+                    onClick={ action('Create Entity') }
                   />
-                </React.Fragment>
-              )
-            }
-          </div>
+                </BlockList.Category>
+                <BlockList.Category header='Recently Created Audiences'>
+                  { availableEntities.map((item, index) => {
+                    return (
+                      <FilterPicker.ListItem
+                        key={ item.id }
+                        id={ item.id }
+                        name={ item.name }
+                        description={ item.description }
+                        onClick={ action(`Entity Add: ${item.id}`) }
+                        buttonText={ 'View' }
+                        onButtonClick={ action(`Entity Picker View: ${item.id}`) }
+                      />
+                    );
+                  }) }
+                </BlockList.Category>
+              </BlockList>
+            </div>
+          </React.Fragment>
         ) }
       </FilterPicker>
     );

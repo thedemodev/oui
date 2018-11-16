@@ -75,6 +75,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
   testSection="audiences-filter-picker"
 >
   <div
+    className="oui-filter-picker"
     data-test-section="audiences-filter-picker"
   >
     <div>
@@ -677,6 +678,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
   testSection="audiences-filter-picker"
 >
   <div
+    className="oui-filter-picker"
     data-test-section="audiences-filter-picker"
   >
     <div>
@@ -1254,6 +1256,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
   testSection="audiences-filter-picker"
 >
   <div
+    className="oui-filter-picker"
     data-test-section="audiences-filter-picker"
   >
     <div>
@@ -1832,6 +1835,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
   testSection="audiences-filter-picker"
 >
   <div
+    className="oui-filter-picker"
     data-test-section="audiences-filter-picker"
   >
     <div>

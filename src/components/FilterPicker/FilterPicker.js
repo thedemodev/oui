@@ -86,7 +86,10 @@ class FilterPicker extends Component {
      * - handleFilterInput {Function}:
      *    Function that can be used in an input, that sets the input value
      *    in component state as filterQuery. This can be used for filtering
-     *    in the default or custom filter function
+     *    in the default or custom filter function. If a search Input will
+     *    be used with Blocklist and FilterList.ListItem, consider wrapping
+     *    Blocklist inside a div with the oui-filter-picker-list class to
+     *    remove the Input's bottom border (see story/story source for example)
      * - selectedEntities {Array|Immutable.List}:
      *    Given the optionally provided selectedEntityIds, an array or
      *    Immutable.List of entities, based on ID, from allEntities
@@ -172,7 +175,9 @@ class FilterPicker extends Component {
     const selectedEntities = allEntities.filter(entity => selectedEntityIds.includes(getKeyFromPojoOrImmutableMap(entity, 'id')));
 
     return (
-      <div data-test-section={ testSection }>
+      <div
+        className="oui-filter-picker"
+        data-test-section={ testSection }>
         { children({
           handleFilterInput: this.handleFilterInput.bind(this),
           availableEntities,
