@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add ConfirmButton component
 
 ## 40.13.2 - 2018-11-16
 - [Patch] FilterPicker patches, all backwards compatible (#1090)
