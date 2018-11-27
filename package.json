@@ -1,6 +1,6 @@
 {
   "name": "optimizely-oui",
-  "version": "40.11.2",
+  "version": "40.13.2",
   "description": "Optimizely's Component Library.",
   "private": false,
   "main": "dist/js/main.js",
@@ -13,6 +13,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.noop": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.1",
+    "react-immutable-proptypes": "^2.1.0",
     "react-oui-icons": "^2.2.0",
     "react-popper": "^0.8.2",
     "react-tippy": "^1.2.2",

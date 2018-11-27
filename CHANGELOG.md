@@ -6,6 +6,27 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Fix CSS prefix for Select Dropdown
+
+## 40.13.2 - 2018-11-16
+- [Patch] FilterPicker patches, all backwards compatible (#1090)
+
+## 40.13.1 - 2018-11-15
+- [Patch] Fix alignment & sizing of warning icon in DropdownBlockLinkSecondaryText (#1088)
+
+## 40.13.0 - 2018-11-15
+- [Feature] Create FilterPicker and Story, a Render Component able to use a combination of existing OUI components (#1061)
+
+## 40.12.3 - 2018-11-13
+- [Patch] Move CSS3 :root vars and .color-- helpers to new partial
+- [Patch] Add density prop for ListGroup.Item
+
+## 40.12.2 - 2018-11-08
+- [Patch] Travis CI change for auto-publish css
+
+## 40.12.1 - 2018-11-08
+- [Patch] Auto publish oui.css via Travis CI (test release)
+
+## 40.12.0 - 2018-11-06
 - [Feature] Add ListGroup component
 
 ## 40.11.2 - 2018-11-05
