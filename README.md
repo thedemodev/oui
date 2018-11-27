@@ -8,7 +8,7 @@
 
 <div align="center">
 
-A custom CSS and React component framework that powers the Optimizely user interface.
+A custom CSS framework and React component library that powers the Optimizely user interface.
 
 [![Build Status](https://travis-ci.org/optimizely/oui.svg?branch=devel)](https://travis-ci.org/optimizely/oui)
 [![codecov](https://codecov.io/gh/optimizely/oui/branch/devel/graph/badge.svg)](https://codecov.io/gh/optimizely/oui)
@@ -19,6 +19,7 @@ A custom CSS and React component framework that powers the Optimizely user inter
 
 - [Storybook](http://optimizely.github.io/oui/storybook/)
 - [Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/) (requires VPN access)
+- [latest.css](http://design.optimizely.com/oui/latest/styles.css)
 
 ## 📦 Install
 
