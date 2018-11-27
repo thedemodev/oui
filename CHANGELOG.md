@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Storybook polish: knob improvements, consistent titles, 
 - [Patch] Fix CSS prefix for Select Dropdown
 
 ## 40.13.2 - 2018-11-16

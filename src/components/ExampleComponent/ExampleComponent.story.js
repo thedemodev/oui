@@ -109,7 +109,7 @@ storiesOf('Overview/', module)
                     </div>
                   ) }
                 </div>
-                </fieldset>
+              </fieldset>
               <h3>Using a Render Component to Transform Props</h3>
               <div className="micro">Use the Storybook Knobs feature to update these.</div>
               <div className="push--ends">

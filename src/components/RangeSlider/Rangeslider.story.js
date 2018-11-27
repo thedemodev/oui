@@ -22,22 +22,22 @@ stories.add('Default', withInfo()(() => {
     />
   );
 }))
-.add('Disabled', withInfo()(() => {
-  return (
-    <RangeSlider
-      isDisabled={ true }
-      value={ number('value', 50) }
-    />
-  );
-}))
-.add('Test focus state', withInfo()(() => {
-  return (
-    <div>
-      <input type="text" className="oui-text-input push-double--bottom" />
+  .add('Disabled', withInfo()(() => {
+    return (
       <RangeSlider
+        isDisabled={ true }
         value={ number('value', 50) }
       />
-      <input type="text" className="oui-text-input" />
-    </div>
-  );
-}));
+    );
+  }))
+  .add('Test focus state', withInfo()(() => {
+    return (
+      <div>
+        <input type="text" className="oui-text-input push-double--bottom" />
+        <RangeSlider
+          value={ number('value', 50) }
+        />
+        <input type="text" className="oui-text-input" />
+      </div>
+    );
+  }));
