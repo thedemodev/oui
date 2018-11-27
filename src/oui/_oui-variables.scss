@@ -17,7 +17,7 @@ $namespace                   : '' !default;
 
 $spacer-unit                 : 10px;
 
-/// Colors
+/// Core Colors
 /// @description Default color for objects' borders etc.
 
 /// Do not use these values directly in your Sass files. Use the more
@@ -25,14 +25,6 @@ $spacer-unit                 : 10px;
 
 $base-black                  : #000000;
 $base-white                  : #FFFFFF;
-
-:root {
-   --wide-shadow             : 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.17);
-   --border-radius           : 5px;
-   --highlight               : var(--light-blue-6);
-   --ron-project-badge       : #7b81d1;
-   --white                   : #FFFFFF;
-}
 
 $brand-color: (
 
@@ -65,33 +57,7 @@ $brand-color: (
 
 );
 
-
-
-// CSS3 Variables
-// Create CSS3 variables for each $brand-color
-// Use `color: var(--light-blue-100);`
-:root {
-  @each $name, $hex in map-fetch($brand-color) {
-    --#{$name}: #{$hex};
-  }
-}
-
-// Background colors
-// Use `.background--colorname`
-@each $name, $hex in map-fetch($brand-color) {
-  .background--#{$name} {
-    background-color: #{$hex};
-    color: white;
-  }
-}
-
-// Foreground colors
-// Use `.color--colorname`
-@each $name, $hex in map-fetch($brand-color) {
-  .color--#{$name} {
-    color: #{$hex};
-  }
-}
+/// Could be combined with brand-color in the future.
 
 $root-color: (
   grey-85                    : tint($base-black, 15%),

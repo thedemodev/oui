@@ -15,7 +15,22 @@ stories
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('Default', withInfo()(() => {
+  return (
+    <RangeSlider
+      value={ number('value', 50) }
+    />
+  );
+}))
+.add('Disabled', withInfo()(() => {
+  return (
+    <RangeSlider
+      isDisabled={ true }
+      value={ number('value', 50) }
+    />
+  );
+}))
+.add('Test focus state', withInfo()(() => {
   return (
     <div>
       <input type="text" className="oui-text-input push-double--bottom" />
@@ -25,16 +40,4 @@ stories.add('default', withInfo()(() => {
       <input type="text" className="oui-text-input" />
     </div>
   );
-}))
-  .add('disabled', withInfo()(() => {
-    return (
-      <div>
-        <input type="text" className="oui-text-input push-double--bottom" />
-        <RangeSlider
-          isDisabled={ true }
-          value={ number('value', 50) }
-        />
-        <input type="text" className="oui-text-input" />
-      </div>
-    );
-  }));
+}));

@@ -13,7 +13,7 @@
 ////
 .#{$namespace}select,
 .oui-select {
-  appearance: none;
+  -webkit-appearance: none;
   transition: border-color map-fetch($transition-duration, base);
   border: 1px solid map-fetch($border, color, base);
   height: map-fetch($button, size, base, height);

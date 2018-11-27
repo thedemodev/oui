@@ -96,6 +96,7 @@ stories
         <Badge color="draft">Draft</Badge>
         <Badge color="live">Live</Badge>
         <Badge color="primary">Primary</Badge>
+        <Badge color="bad-news">Bad news</Badge>
         <Badge color="plain">Plain</Badge>
       </div>
 

@@ -36,7 +36,7 @@ stories
         required={ boolean('required', false) }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
-  })).add('Input', () => {
+  })).add('Inputs', () => {
     return (
       <div>
         <fieldset>
@@ -65,6 +65,13 @@ stories
           <Input
             placeholder="Just a placeholder"
             type="text"
+          />
+        </fieldset>
+        <fieldset>
+          <Input
+            placeholder="Has an error"
+            type="text"
+            displayError={ true }
           />
         </fieldset>
       </div>);

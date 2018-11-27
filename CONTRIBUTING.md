@@ -42,16 +42,16 @@ Every component should contain prop definitions and a robust set of Storybook ex
 
 4. Verify your OUI changes work as expected in the Optimizely repo.
 
-    Use yarn link: `cd ~/optimizely && yarn link ~/optimizely-oui`
-
-    Or the long-hand version:
+    Use yarn link: 
 
     ```sh
     cd ~/projects/optimizely-oui    # go into package directory
-    yarn link                        # creates global link
+    yarn build                      # build your oui folder so that your latest changes are included in the linked module
+    yarn link                       # creates global link
     cd ~/projects/optly             # go into some other package directory
-    yarn link optimizely-oui         # installs your local package
+    yarn link optimizely-oui        # installs your local package instead of a versioned module pulled from npm
     ```
+    Each time you make code changes you will need to manually run `yarn build` again to ensure your linked module is updated with your latest OUI code changes.
 
 5. `git push` your changes to GitHub
 6. [Open a pull request](https://github.com/optimizely/oui/compare) of your branch, add at least one reviewer

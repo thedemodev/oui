@@ -7,9 +7,11 @@ export default function DropdownBlockLinkSecondaryText(props) {
   return (
     <div className="oui-dropdown--descriptive__content flex">
       { props.isWarning &&
-        <Icon name='exclamation' size='small' />
+        <div className="flex flex-align--center push--right">
+          <Icon name='exclamation' size='small'/>
+        </div>
       }
-      <div { ...(testSection ? { 'data-test-section': testSection } : {}) }>
+      <div className="flex flex-align--center" { ...(testSection ? { 'data-test-section': testSection } : {}) }>
         { props.secondaryText }
       </div>
     </div>
