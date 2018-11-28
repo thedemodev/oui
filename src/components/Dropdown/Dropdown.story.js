@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
@@ -31,7 +31,7 @@ stories.add('Default', withInfo()(() => {
   return (
     <Container>
       <Dropdown
-        buttonContent='Default Dropdown'
+        buttonContent={ text('buttonContent', 'Default Dropdown') }
         width={ number('width', 300) }
         arrowIcon={ true }>
         <BlockList>
@@ -61,7 +61,7 @@ stories.add('Error', withInfo()(() => {
   return (
     <Container>
       <Dropdown
-        buttonContent='Error State'
+        buttonContent={ text('buttonContent', 'Error State') }
         width={ number('width', 300) }
         displayError={ true }
         arrowIcon={ true }>
@@ -126,7 +126,7 @@ stories.add('Z-index', withInfo()(() => {
         <ScrollContainer>
           <Dropdown
             isDisabled={ boolean('isDisabled', false) }
-            buttonContent='Dropdown'
+            buttonContent={ text('buttonContent', 'Dropdown') }
             width={ number('width', 300) }>
             <BlockList>
               {
@@ -193,7 +193,7 @@ stories.add('Warnings', withInfo()(() => {
   return (
     <Container>
       <Dropdown
-        buttonContent='Activate'
+        buttonContent={ text('buttonContent', 'Activate') }
         width={ number('width', 300) }>
         <Dropdown.Contents minWidth={ 300 }>
           <Dropdown.ListItem>
