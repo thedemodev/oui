@@ -1,13 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { storiesOf } from '@storybook/react';
+
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
+import Icon from 'react-oui-icons';
 import Autocomplete from './index.js';
-import Link from '../Link';
+import Input from '../Input';
 
 const cityData = [
   { name: 'austin', population: '950,000' },
@@ -29,22 +30,18 @@ const cityData = [
   { name: 'jacksonville', population: '880,000' },
 ];
 
-const CustomSuggestion = (props) => (
-  <div>
-    <Link>{ props.suggestion.name }</Link>
-    <div>population: { props.suggestion.population }</div>
-  </div>
-);
-
-CustomSuggestion.propTypes = {
-  suggestion: PropTypes.object,
-};
-
-const CustomAction = (props) => (
-  <Link>+ add city</Link>
-);
-
 const filterByCityName = (suggestion) => suggestion.name.toLowerCase();
+
+const SearchInput = (props) => {
+  return (
+    <div className='flex flex-align--center'>
+      <div className='push-half--right'>
+        <Icon name='search' />
+      </div>
+      <Input { ...props } />
+    </div>
+  );
+};
 
 const stories = storiesOf('Autocomplete', module);
 stories
@@ -59,30 +56,13 @@ stories
   .add('default', withInfo()(() => {
     return (
       <Autocomplete
-        onSuggestionClick={ action('suggestion') }
-        suggestions={ cityData.map(city => city.name) }
-      />
-    );
-  }))
-  .add('custom suggestion field', withInfo()(() => {
-    return (
-      <Autocomplete
-        placeholder='Search cities'
+        InputField={ SearchInput }
+        debounce={ 300 }
         filterBy={ filterByCityName }
-        onSuggestionClick={ action('suggestion') }
+        focus={ true }
+        onChange={ action('suggestions changed') }
+        placeholder='Search by city...'
         suggestions={ cityData }
-        SuggestionField={ CustomSuggestion }
-      />
-    );
-  }))
-  .add('action field', withInfo()(() => {
-    return (
-      <Autocomplete
-        placeholder='Search cities'
-        onActionClick={ action('action') }
-        onSuggestionClick={ action('suggestion') }
-        suggestions={ cityData.map(city => city.name) }
-        ActionField={ CustomAction }
       />
     );
   }));

@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 import { isFilterTermInItem } from '../../utils/filter';
 import Input from '../Input';
-import BlockList from '../BlockList';
-import Suggestion from './Suggestion';
-
 
 /**
  * Autocomplete
@@ -14,209 +11,191 @@ import Suggestion from './Suggestion';
  *
  * Example:
  *  <Autocomplete
+ *    InputField={ SearchNameInput }
+ *    debounce={ 200 }
+ *    filterBy={ (suggestion) => suggestion.name }
  *    placeholder='typehead...'
- *    suggestions={['foo', 'bar']}
- *    onSuggestionClick={ this.handleSuggestionClick }
- *    ActionField={ CustomActionField }
+ *    onChange={ updateSuggestions }
+ *    suggestions={[{ name: 'foo' }, { name: 'bar' }]}
  *  />
  */
 
-class Autocomplete extends Component {
-
-  static defaultProps = {
-    autoFillInputValue: false,
-    ActionField: (props) => <span { ...props } />,
-    InputField: Input,
-    SuggestionField: Suggestion,
-    debounce: 200,
-    filterBy: (x) => x,
-    maxHeight: 200,
-    onActionClick: () => {},
-    onInputChange: () => {},
-    onSuggestionClick: () => {},
-    placeholder: '',
-    stateful: true,
-    suggestions: [],
-    testSection: '',
-    value: '',
-  };
-
+class Autocomplete extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      isFocused: false,
-      suggestions: props.suggestions,
-      inputValue: props.value,
+      query: '',
     };
-    if (!props.stateful) {
-      this.debouncedOnInputChange = AwesomeDebouncePromise(props.onInputChange, props.debounce);
-    }
-  }
 
-  /**
-   * If stateful query internal suggestions state,
-   * else call input change handler
-   * @param {String} event - on-change input event
-   * @returns {undefined}
-   */
-  inputChange = (event) => {
-    const { onInputChange, stateful } = this.props;
-    const query = event.target.value;
-    this.setState({
-      inputValue: query,
-    }, () => {
-      const queryCallback = () => onInputChange(query);
-      return stateful ? this.querySuggestions(query, queryCallback) : this.debouncedOnInputChange(query);
-    });
-  }
+    const { debounce } = props;
 
-  /**
-   * Updates suggestion state with new query results
-   * @param {String} query - suggestion query
-   * @param {Function} callback - function that is called have state is set
-   * @returns {undefined}
-   */
-  querySuggestions = (query, callback) => {
-    const { filterBy, suggestions } = this.props;
-    const nextSuggestions = suggestions.filter((suggestion) => isFilterTermInItem(query, filterBy(suggestion)));
-
-    this.setState({
-      suggestions: nextSuggestions,
-    }, callback);
-  }
-
-  /**
-   * Creates an event handler for setting the focus state
-   * @param {Boolean} isFocused - set the isFocus state to true or false
-   * @returns {Function} focus/blur event handler
-   */
-  createFocusHandler = (isFocused) => () => {
-    this.setState({ isFocused });
-  }
-
-  /**
-   * Creates an event handler that is called when a suggestion is clicked
-   * @param {*} suggestion - a single suggestion item
-   * @returns {Function} mousedown event handler
-   */
-  createSuggestionClickHandler = (suggestion) => () => {
-    const { filterBy, onSuggestionClick, autoFillInputValue } = this.props;
-    if (autoFillInputValue) {
-      this.setState({
-        inputValue: filterBy(suggestion),
+    /**
+     * Filters the suggestions by a query value
+     * @returns {Promise}
+     */
+    this.querySuggestions = AwesomeDebouncePromise(() => {
+      const { query } = this.state;
+      const { suggestions, filterBy, onChange } = this.props;
+      const nextSuggestions = suggestions.filter((suggestion) => isFilterTermInItem(query, filterBy(suggestion)));
+      return onChange({
+        query,
+        suggestions: nextSuggestions,
       });
-    }
+    }, debounce);
+  }
 
-    onSuggestionClick(suggestion);
+  /**
+   * Updates the query state than queries for new suggestions
+   * @param {Object} event - event object from on-change event
+   */
+  updateQuery = (event) => {
+    this.setState({
+      query: event.target.value,
+    }, this.querySuggestions);
   }
 
   render() {
     const {
-      isFocused,
-      inputValue,
-    } = this.state;
-
-    const {
-      ActionField,
-      InputField,
-      SuggestionField,
-      maxHeight,
-      onActionClick,
+      InputField = Input,
+      defaultValue,
+      displayError,
+      focus = false,
+      isDisabled,
+      isFilter,
+      isReadOnly,
+      isRequired,
+      max,
+      maxLength,
+      min,
+      onBlur,
+      onFocus,
+      onInput,
       placeholder,
-      stateful,
       testSection,
+      textAlign,
+      type = 'text',
     } = this.props;
 
-    const { suggestions } = stateful ? this.state : this.props;
+    const { query } = this.state;
 
-    const numberOfSuggestions = suggestions.size ? suggestions.size : suggestions.length;
     return (
-      <div data-oui-component={ true }>
-        <InputField
-          type='text'
-          placeholder={ placeholder }
-          onFocus={ this.createFocusHandler(true) }
-          onBlur={ this.createFocusHandler(false) }
-          onChange={ this.inputChange }
-          testSection={ `${testSection}-input` }
-          value={ inputValue }
-        />
-        {
-          isFocused && numberOfSuggestions > 0 && (
-            <BlockList maxHeight={ maxHeight }>
-              <BlockList.Category testSection={ `${testSection}-suggestions` }>
-                {
-                  onActionClick && (
-                    <BlockList.Item
-                      key='action-suggestion'
-                      onMouseDown={ onActionClick }
-                      testSection={ `${testSection}-action` }>
-                      <ActionField />
-                    </BlockList.Item>
-                  )
-                }
-                {
-                  suggestions.map((suggestion, i) => (
-                    <BlockList.Item
-                      key={ `suggestion-${i}` }
-                      onMouseDown={ this.createSuggestionClickHandler(suggestion) }
-                      testSection={ `${testSection}-block-item` }>
-                      <SuggestionField
-                        suggestion={ suggestion }
-                        testSection={ `${testSection}-suggestion` }
-                      />
-                    </BlockList.Item>
-                  ))
-                }
-              </BlockList.Category>
-            </BlockList>
-          )
-        }
-      </div>
+      <InputField
+        isFilter={ isFilter }
+        displayError={ displayError }
+        type={ type }
+        defaultValue={ defaultValue }
+        placeholder={ placeholder }
+        isRequired={ isRequired }
+        isReadOnly={ isReadOnly }
+        isDisabled={ isDisabled }
+        onInput={ onInput }
+        onChange={ this.updateQuery }
+        onBlur={ onBlur }
+        onFocus={ onFocus }
+        min={ min }
+        max={ max }
+        maxLength={ maxLength }
+        testSection={ testSection }
+        focus={ focus }
+        textAlign={ textAlign }
+        value={ query }
+      />
     );
   }
 }
 
 Autocomplete.propTypes = {
-  /** React component that renders an action field */
-  ActionField: PropTypes.func,
   /**
     * If true, when suggestion is selected, input value is
     * updated to suggestion value
     */
   InputField: PropTypes.func,
-  /** React component that renders an input field */
-  SuggestionField: PropTypes.func,
-  /** React component that renders a suggestion field */
-  autoFillInputValue: PropTypes.bool,
   /** Sets the debounce time (ms) */
   debounce: PropTypes.number,
+  /** The default value of the input used on initial render */
+  defaultValue: PropTypes.string,
+  /** Includes search icon if true */
+  displayError: PropTypes.bool,
   /**
    * Function that takes a single suggestion
    * and returns a value for a query to match
    */
   filterBy: PropTypes.func,
-  /** Sets the maximum height of the suggestions list */
-  maxHeight: PropTypes.number,
-  /** Function that is called when the action field is clicked */
-  onActionClick: PropTypes.func,
-  /** Function that is called when the input field changes its value */
-  onInputChange: PropTypes.func,
-  /** Function that is called when a suggestion is clicked */
-  onSuggestionClick: PropTypes.func,
-  /** Placeholder text of input field */
-  placeholder: PropTypes.string,
-  /** Determines if the list of suggestions should be managed internally  */
-  stateful: PropTypes.bool,
   /**
    * List of suggestions
    * TODO: make suggestions an instance of Immutable.List
    */
+
+  /** Determines if the input component should autofocus */
+  focus: PropTypes.bool,
+  /** Prevents input from being modified and appears disabled */
+  isDisabled: PropTypes.bool,
+  /** Includes error if true */
+  isFilter: PropTypes.bool,
+  /** Adds an optional label if there is a label provided
+   *  @param {Object} props Object of props
+   *  @returns {Error} Error or null
+   */
+  isOptional: function verifyIsOptionalProp(props) {
+    if (props.isOptional && !props.label) {
+      return new Error('Must include a value for the label prop to use the isOptional prop');
+    }
+    return null;
+  },
+  /** Prevents input from being modified but doesn't appear disabled */
+  isReadOnly: PropTypes.bool,
+  /** Prevents input from being submitted without value */
+  isRequired: PropTypes.bool,
+  /** Text that describes the input */
+  label: PropTypes.string,
+  /**
+   * Max value for the `input`. Should be used only when `type` is `number`.
+   */
+  max: PropTypes.number,
+  /**
+   * Max length of the input value. Should be used only when type is 'text',
+   * 'email', 'search', 'password', 'tel', or 'url'.
+   */
+  maxLength: PropTypes.number,
+  /**
+   * Min value for the `input`. Should be used only when `type` is `number`.
+   */
+  min: PropTypes.number,
+  /** Form note for the input */
+  note: PropTypes.string,
+  /**
+   * Function that fires when the input loses focus. It fires regardless of
+   * whether the value has changed.
+  */
+  onBlur: PropTypes.func,
+  /** Function that fires when the input loses focus after the value changes */
+  onChange: PropTypes.func,
+  /** Function that fires when the input gains focus */
+  onFocus: PropTypes.func,
+  /** Function that fires on keypress */
+  onInput: PropTypes.func,
+  /** Function that fires when a key is pressed down */
+  onKeyDown: PropTypes.func,
+  /** Input placeholder text */
+  placeholder: PropTypes.string,
+  /** List of suggestions to filter by */
   suggestions: PropTypes.array,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
-  /** Default Input value */
-  value: PropTypes.string,
+  /** Align text inside input. Default is left. */
+  textAlign: PropTypes.oneOf(['left', 'right']),
+  /** Supported input types */
+  type: PropTypes.oneOf([
+    'text',
+    'password',
+    'date',
+    'number',
+    'email',
+    'url',
+    'search',
+    'tel',
+  ]).isRequired,
 };
 
 export default Autocomplete;
