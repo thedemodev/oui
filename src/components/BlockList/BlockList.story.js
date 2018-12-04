@@ -7,6 +7,7 @@ import { withInfo } from '@storybook/addon-info';
 
 import BlockList from './index.js';
 import Button from '../Button';
+import Token from '../Token';
 import OverlayWrapper from '../OverlayWrapper';
 
 const stories = storiesOf('BlockList', module);
@@ -137,6 +138,25 @@ stories
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
+      </BlockList.Category>
+    </BlockList>
+  </div>)))
+  .add('blocklist with no side padding on items', withInfo()(() => (<div>
+    <BlockList hasBorder={ false }>
+      <BlockList.Category>
+        <BlockList.Item onClick={ action('clicked ') } hardSides={ true }>
+          <Token name="Global shoppers"></Token>
+        </BlockList.Item>
+      </BlockList.Category>
+      <BlockList.Category>
+        <BlockList.Item onClick={ action('clicked ') } hardSides={ true }>
+          <Token name="Cold weather"></Token>
+        </BlockList.Item>
+      </BlockList.Category>
+      <BlockList.Category>
+        <BlockList.Item onClick={ action('clicked ') } hardSides={ true }>
+          <Token name="Puppies"></Token>
+        </BlockList.Item>
       </BlockList.Category>
     </BlockList>
   </div>)));

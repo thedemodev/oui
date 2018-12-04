@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class Item extends React.Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class Item extends React.Component {
 
   render() {
     let item;
-    const commonClasses = 'oui-block-list__item';
+    const commonClasses = classNames({
+      'oui-block-list__item': true,
+      'hard--sides': this.props.hardSides,
+    });
 
     if (this.props.isDisabled) {
       item = (
@@ -78,10 +82,12 @@ Item.propTypes = {
   /** String or JSX that appears within the component */
   children: PropTypes.node.isRequired,
   /** URL to navigate to when clicking on the item */
-  href: PropTypes.string,
+  hardSides: PropTypes.bool,
   /** Target that the link, if provided, should open in */
-  hrefTarget: PropTypes.oneOf(['_self', '_blank']),
+  href: PropTypes.string,
   /** Sets the `title` attribute on an `href` */
+  hrefTarget: PropTypes.oneOf(['_self', '_blank']),
+  /** Removes inner padding if true */
   hrefTitle: PropTypes.string,
   /** Disable the item */
   isDisabled: PropTypes.bool,

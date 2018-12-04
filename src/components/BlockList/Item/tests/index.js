@@ -20,6 +20,12 @@ describe('components/BlockList/Item', () => {
         component = shallow(<Item isDisabled={ notDisabled }>{ text }</Item>);
         expect(component.find('.oui-block-list__item .pointer-events--none .background--faint .muted').exists()).toBeFalsy();
       });
+
+      it('should render without sidepadding if `hardSides` is true', function() {
+        component = shallow(<Item hardSides={ true }>{ text }</Item>);
+        expect(component);
+
+      });
     });
 
     describe('`onClick` is provided', () => {
@@ -252,6 +258,28 @@ describe('components/BlockList/Item', () => {
       const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
       divComponent.simulate('mousedown');
       expect(onMouseDownSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('hardSides is true', function() {
+    let component;
+    let testSection;
+    beforeEach(() => {
+      testSection = 'oui-blocklist-item';
+      component = mount(
+        <Item
+          hardSides={ true }
+          testSection={ testSection }>test</Item>
+      );
+    });
+
+    afterEach(() => {
+      component.unmount();
+    });
+
+    it('should remove padding on the sides of the item', () => {
+      const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
+      expect(divComponent.hasClass('hard--sides')).toBe(true);
     });
   });
 
