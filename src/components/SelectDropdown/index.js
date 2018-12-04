@@ -14,7 +14,7 @@ class SelectDropdown extends React.Component {
     /**
      * Show error by default.
      */
-    displayError: false,
+    displayError: PropTypes.bool,
     /**
      * Dropdown direction.
      */
@@ -27,7 +27,7 @@ class SelectDropdown extends React.Component {
      * Dropdown items that can be selected from the select dropdown.
      */
     items: PropTypes.arrayOf(PropTypes.shape({
-      activatorLabel: PropTypes.string,
+      activatorLabel: PropTypes.node,
       description: PropTypes.string,
       label: PropTypes.node.isRequired,
       value: PropTypes.oneOfType([
@@ -80,6 +80,7 @@ class SelectDropdown extends React.Component {
   static defaultProps = {
     buttonStyle: 'outline',
     inputPlaceholder: '',
+    displayError: false,
     dropdownDirection: 'right',
     width: '100%',
     trackId: '',

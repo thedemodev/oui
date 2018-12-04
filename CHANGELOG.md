@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [patch] Remove unused npm-run-all package that was pulling in the malicious version of `flatmap-stream` 🙀
+- [patch] Update SelectDropdown props to reduce errors in production apps. Fully backwards compatible and no visible changes
 
 ## 40.13.2 - 2018-11-16
 - [Patch] FilterPicker patches, all backwards compatible (#1090)
