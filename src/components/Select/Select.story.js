@@ -15,11 +15,19 @@ stories
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('With Knobs', withInfo()(() => {
   return (
     <Select isDisabled={ boolean('isDisabled', false) } name='zoo' id='zoo' >
       <option value="one">This is option one</option>
       <option value="two">And this is option two</option>
     </Select>
   );
-}));
+}))
+  .add('Disabled', withInfo()(() => {
+    return (
+      <Select isDisabled={ boolean('isDisabled', true) } name='zoo' id='zoo' >
+        <option value="one">This is option one</option>
+        <option value="two">And this is option two</option>
+      </Select>
+    );
+  }));
