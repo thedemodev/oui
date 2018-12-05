@@ -21,7 +21,7 @@ class Item extends React.Component {
     let item;
     const commonClasses = classNames({
       'oui-block-list__item': true,
-      'hard--sides': this.props.hardSides,
+      'hard--sides': this.props.gutters === 'tight',
     });
 
     if (this.props.isDisabled) {
@@ -81,13 +81,13 @@ class Item extends React.Component {
 Item.propTypes = {
   /** String or JSX that appears within the component */
   children: PropTypes.node.isRequired,
+  /** Determines level of padding of item */
+  gutters: PropTypes.oneOf(['loose', 'tight']),
   /** URL to navigate to when clicking on the item */
-  hardSides: PropTypes.bool,
-  /** Target that the link, if provided, should open in */
   href: PropTypes.string,
-  /** Sets the `title` attribute on an `href` */
+  /** Target that the link, if provided, should open in */
   hrefTarget: PropTypes.oneOf(['_self', '_blank']),
-  /** Removes inner padding if true */
+  /** Sets the `title` attribute on an `href` */
   hrefTitle: PropTypes.string,
   /** Disable the item */
   isDisabled: PropTypes.bool,
@@ -97,6 +97,10 @@ Item.propTypes = {
   onMouseDown: PropTypes.func,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+};
+
+Item.defaultProps = {
+  gutters: 'loose',
 };
 
 Item.displayName = 'BlockList.Item';

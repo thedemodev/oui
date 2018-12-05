@@ -261,14 +261,14 @@ describe('components/BlockList/Item', () => {
     });
   });
 
-  describe('hardSides is true', function() {
+  describe('gutters', function() {
     let component;
     let testSection;
     beforeEach(() => {
       testSection = 'oui-blocklist-item';
       component = mount(
         <Item
-          hardSides={ true }
+          gutters='tight'
           testSection={ testSection }>test</Item>
       );
     });
@@ -277,7 +277,31 @@ describe('components/BlockList/Item', () => {
       component.unmount();
     });
 
-    it('should remove padding on the sides of the item', () => {
+    it('should not remove padding on sides of the item when gutters is not defined', () => {
+      component = mount(
+        <Item
+          testSection={ testSection }>test</Item>
+      );
+      const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
+      expect(divComponent.hasClass('hard--sides')).toBe(false);
+    });
+
+    it('should not remove padding on sides of the item when gutters is "loose"', () => {
+      component = mount(
+        <Item
+          gutters='loose'
+          testSection={ testSection }>test</Item>
+      );
+      const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
+      expect(divComponent.hasClass('hard--sides')).toBe(false);
+    });
+
+    it('should remove padding on the sides of the item when gutters is "tight"', () => {
+      component = mount(
+        <Item
+          gutters='tight'
+          testSection={ testSection }>test</Item>
+      );
       const divComponent = component.find(`[data-test-section="${testSection}"]`).childAt(0);
       expect(divComponent.hasClass('hard--sides')).toBe(true);
     });
