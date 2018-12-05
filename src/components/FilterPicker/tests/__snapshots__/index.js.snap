@@ -173,6 +173,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                   testSection="filter-picker-create-item"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-create-item"
                   >
@@ -276,6 +277,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                   testSection="filter-picker-list-item-789"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-789"
                   >
@@ -385,6 +387,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                   testSection="filter-picker-list-item-135"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-135"
                   >
@@ -494,6 +497,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                   testSection="filter-picker-list-item-246"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-246"
                   >
@@ -776,6 +780,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                   testSection="filter-picker-create-item"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-create-item"
                   >
@@ -879,6 +884,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                   testSection="filter-picker-list-item-789"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-789"
                   >
@@ -988,6 +994,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                   testSection="filter-picker-list-item-135"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-135"
                   >
@@ -1097,6 +1104,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                   testSection="filter-picker-list-item-246"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-246"
                   >
@@ -1354,6 +1362,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                   testSection=""
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection=""
                   >
@@ -1457,6 +1466,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                   testSection="filter-picker-list-item-789"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-789"
                   >
@@ -1566,6 +1576,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                   testSection="filter-picker-list-item-135"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-135"
                   >
@@ -1675,6 +1686,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                   testSection="filter-picker-list-item-246"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-246"
                   >
@@ -1933,6 +1945,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                   testSection=""
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection=""
                   >
@@ -2036,6 +2049,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                   testSection="filter-picker-list-item-789"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-789"
                   >
@@ -2145,6 +2159,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                   testSection="filter-picker-list-item-135"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-135"
                   >
@@ -2254,6 +2269,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                   testSection="filter-picker-list-item-246"
                 >
                   <BlockList.Item
+                    gutters="loose"
                     onClick={[Function]}
                     testSection="filter-picker-list-item-246"
                   >

@@ -2,11 +2,12 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import BlockList from './index.js';
 import Button from '../Button';
+import Token from '../Token';
 import OverlayWrapper from '../OverlayWrapper';
 
 const stories = storiesOf('BlockList', module);
@@ -19,6 +20,45 @@ stories
   ));
 
 stories
+  .add('blocklist with knobs', withInfo()(() => {
+    const guttersValue = select('gutters', ['loose', 'tight'], 'loose');
+    const hrefValue = text('href', 'https://www.optimizely.com');
+    const hrefTargetValue = select('hrefTarget', ['_self', '_blank'], '_blank');
+    const hrefTitleValue = text('hrefTitle', 'Optimizely');
+    const isDisabledValue = boolean('isDisabled', false);
+    return (
+      <div>
+        <BlockList hasBorder={ true } >
+          <BlockList.Category header="Recent Pages">
+            <BlockList.Item
+              gutters={ guttersValue }
+              href={ hrefValue }
+              hrefTarget={ hrefTargetValue }
+              hrefTitle={ hrefTitleValue }
+              isDisabled={ isDisabledValue }>
+              Home
+            </BlockList.Item>
+            <BlockList.Item
+              gutters={ guttersValue }
+              href={ hrefValue }
+              hrefTarget={ hrefTargetValue }
+              hrefTitle={ hrefTitleValue }
+              isDisabled={ isDisabledValue }>
+              Shopping Cart
+            </BlockList.Item>
+            <BlockList.Item
+              gutters={ guttersValue }
+              href={ hrefValue }
+              hrefTarget={ hrefTargetValue }
+              hrefTitle={ hrefTitleValue }
+              isDisabled={ isDisabledValue }>
+              Order Confirmation
+            </BlockList.Item>
+          </BlockList.Category>
+        </BlockList>
+      </div>
+    );
+  }))
   .add('blocklist with border', withInfo()(() => (<div>
     <BlockList hasBorder={ true } >
       <BlockList.Category header="Recent Pages">
@@ -137,6 +177,25 @@ stories
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
+      </BlockList.Category>
+    </BlockList>
+  </div>)))
+  .add('blocklist with no side padding on items', withInfo()(() => (<div>
+    <BlockList hasBorder={ false }>
+      <BlockList.Category>
+        <BlockList.Item gutters="tight">
+          <Token name="Global shoppers"></Token>
+        </BlockList.Item>
+      </BlockList.Category>
+      <BlockList.Category>
+        <BlockList.Item gutters="tight">
+          <Token name="Cold weather"></Token>
+        </BlockList.Item>
+      </BlockList.Category>
+      <BlockList.Category>
+        <BlockList.Item gutters="tight">
+          <Token name="Puppies"></Token>
+        </BlockList.Item>
       </BlockList.Category>
     </BlockList>
   </div>)));

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class Item extends React.Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class Item extends React.Component {
 
   render() {
     let item;
-    const commonClasses = 'oui-block-list__item';
+    const commonClasses = classNames({
+      'oui-block-list__item': true,
+      'hard--sides': this.props.gutters === 'tight',
+    });
 
     if (this.props.isDisabled) {
       item = (
@@ -77,6 +81,8 @@ class Item extends React.Component {
 Item.propTypes = {
   /** String or JSX that appears within the component */
   children: PropTypes.node.isRequired,
+  /** Determines level of padding of item */
+  gutters: PropTypes.oneOf(['loose', 'tight']),
   /** URL to navigate to when clicking on the item */
   href: PropTypes.string,
   /** Target that the link, if provided, should open in */
@@ -91,6 +97,10 @@ Item.propTypes = {
   onMouseDown: PropTypes.func,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+};
+
+Item.defaultProps = {
+  gutters: 'loose',
 };
 
 Item.displayName = 'BlockList.Item';
