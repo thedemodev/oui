@@ -5,7 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] Add gutters prop to BlockList.Item
+
+## 40.13.3 - 2018-12-5
+- [Patch] Add gutters prop to BlockList.Item
 - [Patch] Remove unused npm-run-all package that was pulling in the malicious version of `flatmap-stream` 🙀
 - [Patch] Update SelectDropdown props to reduce errors in production apps. Fully backwards compatible and no visible changes
 
