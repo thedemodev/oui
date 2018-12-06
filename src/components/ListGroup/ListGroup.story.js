@@ -50,7 +50,7 @@ stories
       { name: 'ListGroup.Item Text 4', value: 'Value 4' },
       { name: 'ListGroup.Item Text 5', value: 'Value 5' },
       { name: 'ListGroup.Item Text 6', value: 'Value 6' },
-    ]);
+    ], "FakeProps");
 
     return (
       <ListGroup
