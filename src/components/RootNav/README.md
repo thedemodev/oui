@@ -2,7 +2,7 @@
 
 Create a React component that allows consumers to contruct a list of nav elements. 
 
-Mock:
+Mock:\
 <img width="222" alt="screen shot 2018-12-06 at 10 35 09 am" src="https://user-images.githubusercontent.com/2287470/49595500-16c77f00-f946-11e8-9431-1bcd8a1d3be9.png">
 
 In Use:
