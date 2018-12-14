@@ -39,6 +39,8 @@ const Attention = ({
   const alignClass = `oui-attention ${colorClassName} ${alignmentClassName}`.trim();
   const classes = classNames({
     [`${alignClass}`]: true,
+    "flex": true,
+    "flex-align--center": true,
   });
   const dismissBtn = isDismissible ? renderDismissButton(testSection) : null;
 
@@ -49,7 +51,7 @@ const Attention = ({
       data-test-section={ testSection }
       aria-label={ attentionAriaLabel }
       role="alert">
-      { children }
+      <div className="flex--1">{ children }</div>
       { dismissBtn }
     </div>
   );
