@@ -34,10 +34,10 @@
 /// attribute on an empty element. This is useful for preventing an element's
 /// text from being copied to the clipboard.
 /// @example[html] Try to highlight and copy the plus sign
-///   <span data-lego-pseudo-content="+"></span> Some text
+///   <span data-oui-pseudo-content="+"></span> Some text
 
-[data-lego-pseudo-content]::before {
-  content: attr(data-lego-pseudo-content);
+[data-oui-pseudo-content]::before {
+  content: attr(data-oui-pseudo-content);
 }
 
 /// Number font
