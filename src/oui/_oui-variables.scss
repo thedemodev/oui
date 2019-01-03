@@ -320,7 +320,13 @@ $button: (
 $token: (
   background-color: (
     primary                  : map-fetch($brand-color, blue),
-    secondary                : map-fetch($brand-color, white-40b)
+    secondary                : map-fetch($brand-color, white-40b),
+    tertiary                 : map-fetch($brand-color, grey-50),
+    error                    : map-fetch($brand-color, red)
+  ),
+  font-color: (
+    light                    : $base-white,
+    dark                     : map-fetch($brand-color, dark-blue-100)
   ),
   token__number: (
     min-width                : 10px

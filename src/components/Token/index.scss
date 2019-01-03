@@ -20,11 +20,15 @@
 
 .#{$namespace}token-wrap,
 .oui-token-wrap {
-  display: inline-flex;
-  border: 1px solid map-fetch($color, ui, base);
-  background: map-fetch($color, background, light);
+  display: inline-block;
   padding: map-fetch($token, padding);
+}
+
+.#{$namespace}token-padding,
+.oui-token-padding {
+  background: map-fetch($color, background, light);
   border-radius: map-fetch($token, border-radius);
+  border: 1px solid map-fetch($color, ui, base);
 }
 
 .#{$namespace}token,
@@ -46,6 +50,22 @@
 .#{$namespace}token--secondary,
 .oui-token--secondary {
   background: map-fetch($token, background-color, secondary);
+}
+
+.oui-token--tertiary {
+  background: map-fetch($token, background-color, tertiary);
+}
+
+.oui-token--error {
+  background: map-fetch($token, background-color, secondary);
+}
+
+.oui-token--font-dark {
+  color: map-fetch($token, font-color, dark);
+}
+
+.oui-token--font-light {
+  color: map-fetch($token, font-color, light);
 }
 
 .#{$namespace}token-tool,

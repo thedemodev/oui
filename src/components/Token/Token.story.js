@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Token from './index.js';
+import { action } from '@storybook/addon-actions/dist/preview';
 
 const stories = storiesOf('Token', module);
 stories
@@ -36,5 +37,14 @@ stories
         name="Duck Duck Goose"
         order={ 1 }
         style="primary"
+      />);
+  })
+  .add('dismissible', () => {
+    return (
+      <Token
+        isDismissible={ true }
+        name="Delete me!"
+        style="primary"
+        onDismiss={ action('token dismissed') }
       />);
   });

@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import EllipsisIcon from '../Icon/EllipsisIcon';
 import Icon from 'react-oui-icons';
 import DismissButton from './DismissButton';
 import classNames from 'classnames';
+
+const DARK_BACKGROUND_STYLES = [
+  'tertiary',
+];
+
+const getStylingInfo = style => DARK_BACKGROUND_STYLES.includes(style) ?
+  { font: 'oui-token--font-dark', fill: '#080738' } :
+  { font: 'oui-token--font-light', fill: 'white' };
 
 /**
  * Token to be used to make token lists.
@@ -18,10 +25,12 @@ const Token = ({
   onDismiss,
   order,
   style,
+  padding,
   testSection,
 }) => {
   const classes = classNames({
     'oui-token-wrap': true,
+    'oui-token-padding': padding,
     'flex': true,
   });
   const tokenToolsClasses = classNames({
@@ -49,7 +58,7 @@ const Token = ({
         }
       </div>
       <div className={ `oui-token oui-token--${style}` }>
-        <div>
+        <div className={ getStylingInfo(style).font }>
           { name }
           { description &&
             <div className="oui-token__description">
@@ -60,6 +69,7 @@ const Token = ({
         { (isDismissible && onDismiss) &&
           <DismissButton
             onClick={ onDismiss }
+            fill={ getStylingInfo(style).fill }
             testSection={ testSection }
           />
         }
@@ -89,7 +99,12 @@ Token.propTypes = {
   /** Show a number indicating the token's order */
   order: PropTypes.number,
   /** Determines style of token depending on priority level */
-  style: PropTypes.oneOf(['primary', 'secondary']),
+  padding: PropTypes.bool,
+  /**
+   * Whether or not to display the background padding circle
+   * around the Token
+   */
+  style: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'error']),
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
 };
@@ -97,6 +112,7 @@ Token.propTypes = {
 Token.defaultProps = {
   isDismissible: false,
   style: 'secondary',
+  padding: true,
 };
 
 export default Token;
