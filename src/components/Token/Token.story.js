@@ -28,6 +28,18 @@ stories
       style="secondary"
     />
   </div>)))
+  .add('no well', withInfo()(() => (<div>
+    <Token
+      name="Hello"
+      style="primary"
+      well={ false }
+    />
+    <Token
+      name="World"
+      style="secondary"
+      well={ false }
+    />
+  </div>)))
   .add('draggable', () => {
     return (
       <Token

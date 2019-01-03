@@ -4,13 +4,14 @@ import Icon from 'react-oui-icons';
 import DismissButton from './DismissButton';
 import classNames from 'classnames';
 
-const DARK_BACKGROUND_STYLES = [
+const LIGHT_BACKGROUND_STYLES = [
   'tertiary',
 ];
 
-const getStylingInfo = style => DARK_BACKGROUND_STYLES.includes(style) ?
-  { font: 'oui-token--font-dark', fill: '#080738' } :
-  { font: 'oui-token--font-light', fill: 'white' };
+// Light backgrounds require a dark font and dismiss Icon color.
+const getStylingInfo = style => LIGHT_BACKGROUND_STYLES.includes(style) ?
+  { fontClass: 'oui-token--font-dark', fillColor: 'black' } :
+  { fontClass: 'oui-token--font-light', fillColor: 'white' };
 
 /**
  * Token to be used to make token lists.
@@ -25,17 +26,18 @@ const Token = ({
   onDismiss,
   order,
   style,
-  padding,
+  well,
   testSection,
 }) => {
   const classes = classNames({
     'oui-token-wrap': true,
-    'oui-token-padding': padding,
+    'oui-token-wrap--well': well,
     'flex': true,
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable,
   });
+  const { fontClass, fillColor } = getStylingInfo(style);
 
   return (
     /* eslint-disable react/jsx-boolean-value */
@@ -58,7 +60,7 @@ const Token = ({
         }
       </div>
       <div className={ `oui-token oui-token--${style}` }>
-        <div className={ getStylingInfo(style).font }>
+        <div className={ fontClass }>
           { name }
           { description &&
             <div className="oui-token__description">
@@ -69,7 +71,7 @@ const Token = ({
         { (isDismissible && onDismiss) &&
           <DismissButton
             onClick={ onDismiss }
-            fill={ getStylingInfo(style).fill }
+            fill={ fillColor }
             testSection={ testSection }
           />
         }
@@ -98,21 +100,18 @@ Token.propTypes = {
   onDismiss: PropTypes.func,
   /** Show a number indicating the token's order */
   order: PropTypes.number,
-  /** Determines style of token depending on priority level */
-  padding: PropTypes.bool,
-  /**
-   * Whether or not to display the background padding circle
-   * around the Token
-   */
+  /** Whether or not a well is presented around the token. */
   style: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'error']),
-  /** Hook for automated JavaScript tests */
+  /** Determines style of token depending on priority level or error */
   testSection: PropTypes.string,
+  /** Hook for automated JavaScript tests */
+  well: PropTypes.bool,
 };
 
 Token.defaultProps = {
   isDismissible: false,
   style: 'secondary',
-  padding: true,
+  well: true,
 };
 
 export default Token;

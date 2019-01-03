@@ -20,15 +20,14 @@
 
 .#{$namespace}token-wrap,
 .oui-token-wrap {
-  display: inline-block;
+  display: inline-flex;
   padding: map-fetch($token, padding);
-}
 
-.#{$namespace}token-padding,
-.oui-token-padding {
-  background: map-fetch($color, background, light);
-  border-radius: map-fetch($token, border-radius);
-  border: 1px solid map-fetch($color, ui, base);
+  &--well {
+    background: map-fetch($color, background, light);
+    border-radius: map-fetch($token, border-radius);
+    border: 1px solid map-fetch($color, ui, base);
+  }
 }
 
 .#{$namespace}token,
@@ -42,30 +41,26 @@
   text-shadow: map-fetch($token, text-shadow);
 }
 
-.#{$namespace}token--primary,
-.oui-token--primary {
-  background: map-fetch($token, background-color, primary);
-}
-
-.#{$namespace}token--secondary,
-.oui-token--secondary {
-  background: map-fetch($token, background-color, secondary);
-}
-
-.oui-token--tertiary {
-  background: map-fetch($token, background-color, tertiary);
-}
-
-.oui-token--error {
-  background: map-fetch($token, background-color, secondary);
-}
-
-.oui-token--font-dark {
-  color: map-fetch($token, font-color, dark);
-}
-
-.oui-token--font-light {
-  color: map-fetch($token, font-color, light);
+.#{$namespace}token,
+.oui-token{
+  &--primary {
+    background: map-fetch($token, background-color, primary);
+  }
+  &--secondary {
+    background: map-fetch($token, background-color, secondary);
+  }
+  &--tertiary {
+    background: map-fetch($token, background-color, tertiary);
+  }
+  &--error {
+    background: map-fetch($token, background-color, error);
+  }
+  &--font-dark {
+    color: map-fetch($token, font-color, dark);
+  }
+  &--font-light {
+    color: map-fetch($token, font-color, light);
+  }
 }
 
 .#{$namespace}token-tool,

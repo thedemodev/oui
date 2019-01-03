@@ -9,7 +9,7 @@ import TagsInputCore from './index.js';
 
 const SAMPLE_DATA = [
   { name: 'error', style: 'error' },
-  { name: 'null' },
+  { name: 'no-style' },
   { name: 'primary', style: 'primary' },
   { name: 'secondary', style: 'secondary' },
   { name: 'tertiary', style: 'tertiary' },
@@ -24,6 +24,7 @@ stories
     </div>
   ));
 
+// Helper wrapper class to store the state so the stories are usable/interactive
 class TagsInput extends React.Component {
   state = {
     tags: this.props.tags,
@@ -35,11 +36,21 @@ class TagsInput extends React.Component {
   }
 
   render() {
-    const { tags, ...rest } = this; //eslint-disable-line
-    return <TagsInputCore tags={ this.state.tags } { ...rest } />;
+    const { tags, onChange, ...rest } = this.props; //eslint-disable-line
+    return <TagsInputCore tags={ this.state.tags } onChange={ this.onChange } { ...rest } />;
   }
 }
 
 stories.add('Default', withInfo()(() => {
   return <TagsInput onChange={ action('tokens changed') } tags={ SAMPLE_DATA }/>;
+}));
+
+stories.add('spacesAllowed', withInfo()(() => {
+  return (
+    <TagsInput
+      onChange={ action('tokens changed') }
+      tags={ SAMPLE_DATA }
+      spacesAllowed={ true }
+    />
+  );
 }));
