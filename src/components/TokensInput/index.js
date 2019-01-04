@@ -97,7 +97,7 @@ export const TokensInput = ({tags, spacesAllowed, placeholder, onChange}) => {
         renderTag={ renderTag }
         renderLayout={ defaultRenderLayout }
         inputProps={{
-          className: 'no-border width--150',
+          className: 'soft-half--ends soft--sides no-border width--150',
           placeholder,
         }}
       />

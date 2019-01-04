@@ -324,6 +324,7 @@ $token: (
     tertiary                 : map-fetch($brand-color, grey-50),
     error                    : map-fetch($brand-color, red)
   ),
+  selected                   : map-fetch($brand-color, light-blue-100),
   font-color: (
     light                    : $base-white,
     dark                     : map-fetch($brand-color, dark-blue-100)

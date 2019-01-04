@@ -27,11 +27,13 @@ const DismissButton = (props) => (
 );
 
 DismissButton.propTypes = {
-  /** Function to call that dismisses the token */
-  fill: PropTypes.string,
-  /** Hook for automated JavaScript tests */
-  onClick: PropTypes.func.isRequired,
   /** Color of the dismiss X */
+  fill: PropTypes.string,
+
+  /** Function to call that dismisses the token */
+  onClick: PropTypes.func.isRequired,
+
+  /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
 };
 
