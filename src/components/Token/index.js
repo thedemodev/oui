@@ -26,12 +26,12 @@ const Token = ({
   onDismiss,
   order,
   style,
-  well,
+  showWell,
   testSection,
 }) => {
   const classes = classNames({
     'oui-token-wrap': true,
-    'oui-token-wrap--well': well,
+    'oui-token-wrap--well': showWell,
     'flex': true,
   });
   const tokenToolsClasses = classNames({
@@ -84,34 +84,42 @@ const Token = ({
 Token.propTypes = {
   /** Description explaining the token */
   description: PropTypes.string,
+
   /**
    * Determines if token has dismissible feature or not. If true, `onDismiss`
    * is required.
    */
   isDismissible: PropTypes.bool,
+
   /** Shows an icon indicating that the token is draggable */
   isDraggable: PropTypes.bool,
+
   /** Name label on token */
   name: PropTypes.string.isRequired,
+
   /**
    * Function to call that dismisses the token. Required if the token is
    * dismissible.
    */
   onDismiss: PropTypes.func,
+
   /** Show a number indicating the token's order */
   order: PropTypes.number,
+
   /** Whether or not a well is presented around the token. */
-  style: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'error']),
+  showWell: PropTypes.bool,
+
   /** Determines style of token depending on priority level or error */
-  testSection: PropTypes.string,
+  style: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'error']),
+
   /** Hook for automated JavaScript tests */
-  well: PropTypes.bool,
+  testSection: PropTypes.string,
 };
 
 Token.defaultProps = {
   isDismissible: false,
   style: 'secondary',
-  well: true,
+  showWell: true,
 };
 
 export default Token;

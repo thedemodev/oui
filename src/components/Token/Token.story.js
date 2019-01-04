@@ -32,12 +32,12 @@ stories
     <Token
       name="Hello"
       style="primary"
-      well={ false }
+      showWell={ false }
     />
     <Token
       name="World"
       style="secondary"
-      well={ false }
+      showWell={ false }
     />
   </div>)))
   .add('draggable', () => {

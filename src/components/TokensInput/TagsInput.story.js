@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import TagsInputCore from './index.js';
+import TokensInputCore from './index.js';
 
 const SAMPLE_DATA = [
   { name: 'error', style: 'error' },
@@ -15,7 +15,7 @@ const SAMPLE_DATA = [
   { name: 'tertiary', style: 'tertiary' },
 ];
 
-const stories = storiesOf('TagsInput', module);
+const stories = storiesOf('TokensInput', module);
 stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
@@ -25,7 +25,7 @@ stories
   ));
 
 // Helper wrapper class to store the state so the stories are usable/interactive
-class TagsInput extends React.Component {
+class TokensInput extends React.Component {
   state = {
     tags: this.props.tags,
   };
@@ -37,17 +37,17 @@ class TagsInput extends React.Component {
 
   render() {
     const { tags, onChange, ...rest } = this.props; //eslint-disable-line
-    return <TagsInputCore tags={ this.state.tags } onChange={ this.onChange } { ...rest } />;
+    return <TokensInputCore tags={ this.state.tags } onChange={ this.onChange } { ...rest } />;
   }
 }
 
 stories.add('Default', withInfo()(() => {
-  return <TagsInput onChange={ action('tokens changed') } tags={ SAMPLE_DATA }/>;
+  return <TokensInput onChange={ action('tokens changed') } tags={ SAMPLE_DATA }/>;
 }));
 
 stories.add('spacesAllowed', withInfo()(() => {
   return (
-    <TagsInput
+    <TokensInput
       onChange={ action('tokens changed') }
       tags={ SAMPLE_DATA }
       spacesAllowed={ true }

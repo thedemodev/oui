@@ -5,20 +5,31 @@ import ReactTagsInput from 'react-tagsinput';
 import Token from '../Token';
 
 /**
+ * @typedef {Object} TokenWrapper
+ * @property {String} name - The text display for the token.
+ * @property {String=} style - The style to use for displaying via <Token>
+ *            Indicates how to style the token.
+ */
+
+/**
  * Key codes which should be interpreted as an
  * indication to add the current text as a new tag.
  */
-const ADD_KEYS = [9, 13];
+const ADD_KEYS = [
+  /** TAB   */ 9,
+  /** ENTER */ 13,
+  /** COMMA */ 188,
+];
 
 /**
  * Tags Input Component
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
+export const TokensInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   /**
    * Wrap the layout in a flexed <div>
-   * https://github.com/olahol/react-tagsinput#renderlayout
+   * https://github.com/olahol/react-TokensInput#renderlayout
    * @param {Array<ReactElement>} tagComponents - Tag components
    * @param {ReactElement} inputComponent - Input component
    * @returns {ReactElement}
@@ -34,7 +45,7 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
 
   /**
    * Render an OUI Token to display each tag.
-   * https://github.com/olahol/react-tagsinput#rendertag
+   * https://github.com/olahol/react-TokensInput#rendertag
    * @param {Object} renderOptions - values to render tag
    * @returns {ReactElement}
    */
@@ -48,7 +59,7 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
         onDismiss={ onDismiss }
         name={ tag.name }
         style={ tag.style }
-        well={ false }
+        showWell={ false }
         testSection="token"
       />
     );
@@ -57,7 +68,7 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   /**
    * When the list of tags changes, convert any string tags
    * to object form and ensure there are no duplicates.
-   * @param {Array.<Object>} allTags - All tags
+   * @param {Array.<TokenWrapper|String>} allTags - All tags
    */
   function __onChange(allTags) {
     const updatedTags = allTags.reduce((acc, tag) => {
@@ -78,7 +89,7 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
         value={ tags }
-        addKeys={ ADD_KEYS.concat(spacesAllowed ? [] : /* Space Key */ 32) }
+        addKeys={ ADD_KEYS.concat(spacesAllowed ? [] : /** SPACE */ 32) }
         onlyUnique={ true }
         addOnPaste={ true }
         maxTags={ 12 }
@@ -94,20 +105,21 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   );
 };
 
-TagsInput.propTypes = {
-  /**
-   * Whether or not spaces are a valid character in a tag name.
-   * If false, typing the space key will add the current text
-   * as a new tag via the addKeys prop.
-   */
+TokensInput.propTypes = {
+
   maxTags: PropTypes.number,
 
   onChange: PropTypes.func.isRequired,
 
+  /**
+   * Placeholder text for the input box.
+   */
   placeholder: PropTypes.string,
 
   /**
-   * Placeholder text for the input box.
+   * Whether or not spaces are a valid character in a tag name.
+   * If false, typing the space key will add the current text
+   * as a new tag via the addKeys prop.
    */
   spacesAllowed: PropTypes.bool,
 
@@ -117,14 +129,17 @@ TagsInput.propTypes = {
    *     name: <String>,
    *     style: <String=>
    *   }
+   * @type {Array.<TokenWrapper>}
    */
   tags: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-TagsInput.defaultProps = {
+TokensInput.defaultProps = {
+  maxTags: -1,
+
   placeholder: 'enter tags',
 
   spacesAllowed: false,
 };
 
-export default TagsInput;
+export default TokensInput;
