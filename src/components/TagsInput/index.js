@@ -19,9 +19,9 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   /**
    * Wrap the layout in a flexed <div>
    * https://github.com/olahol/react-tagsinput#renderlayout
-   * @param {Array<React.Component>} tagComponents
-   * @param {React.Component} inputComponent
-   * @returns <React.Component>
+   * @param {Array<ReactElement>} tagComponents - Tag components
+   * @param {ReactElement} inputComponent - Input component
+   * @returns {ReactElement}
    */
   function defaultRenderLayout(tagComponents, inputComponent) {
     return (
@@ -35,9 +35,10 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   /**
    * Render an OUI Token to display each tag.
    * https://github.com/olahol/react-tagsinput#rendertag
-   * @param {Object}
+   * @param {Object} renderOptions - values to render tag
+   * @returns {ReactElement}
    */
-  function renderTag({ tag, key, onRemove }) {
+  function renderTag({ tag, key, onRemove }) { // eslint-disable-line react/prop-types
     function onDismiss() {
       onRemove(key);
     }
@@ -56,7 +57,7 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
   /**
    * When the list of tags changes, convert any string tags
    * to object form and ensure there are no duplicates.
-   * @param {Array.<Object>} allTags
+   * @param {Array.<Object>} allTags - All tags
    */
   function __onChange(allTags) {
     const updatedTags = allTags.reduce((acc, tag) => {
@@ -73,7 +74,6 @@ export const TagsInput = ({tags, spacesAllowed, placeholder, onChange}) => {
     onChange(updatedTags);
   }
 
-  console.log('SPACES ALLOWED: ', spacesAllowed);
   return (
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
