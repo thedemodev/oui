@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 40.14.0 - 2019-1-4
+- [Feature] Added <TokensInput> Component (#1097)
+
 ## 40.13.3 - 2018-12-5
 - [Patch] Add gutters prop to BlockList.Item
 - [Patch] Remove unused npm-run-all package that was pulling in the malicious version of `flatmap-stream` 🙀
