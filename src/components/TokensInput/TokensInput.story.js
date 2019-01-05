@@ -15,42 +15,49 @@ const SAMPLE_DATA = [
   { name: 'tertiary', style: 'tertiary' },
 ];
 
-const stories = storiesOf('TokensInput', module);
-stories
+const SAMPLE_DATA_WITH_SPACES = [
+  { name: 'errors present', style: 'error' },
+  { name: 'primary token', style: 'primary' },
+  { name: 'secondary token', style: 'secondary' },
+  { name: 'tertiary token', style: 'tertiary' },
+];
+
+// Helper wrapper class to store the state so the stories are usable/interactive
+class TokensInput extends React.Component {
+  state = {
+    tokens: this.props.tokens,
+  };
+
+  onChange = (tokens) => {
+    this.setState({ tokens });
+    this.props.onChange(tokens);
+  }
+
+  render() {
+    const { tokens, onChange, ...rest } = this.props; //eslint-disable-line
+    return <TokensInputCore tokens={ this.state.tokens } onChange={ this.onChange } { ...rest } />;
+  }
+}
+
+TokensInput.propTypes = TokensInputCore.propTypes;
+TokensInput.defaultProps = TokensInputCore.defaultProps;
+
+storiesOf('TokensInput', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
-  ));
-
-// Helper wrapper class to store the state so the stories are usable/interactive
-class TokensInput extends React.Component {
-  state = {
-    tags: this.props.tags,
-  };
-
-  onChange = (tags) => {
-    this.setState({ tags });
-    this.props.onChange(tags);
-  }
-
-  render() {
-    const { tags, onChange, ...rest } = this.props; //eslint-disable-line
-    return <TokensInputCore tags={ this.state.tags } onChange={ this.onChange } { ...rest } />;
-  }
-}
-
-stories.add('Default', withInfo()(() => {
-  return <TokensInput onChange={ action('tokens changed') } tags={ SAMPLE_DATA }/>;
-}));
-
-stories.add('spacesAllowed', withInfo()(() => {
-  return (
-    <TokensInput
-      onChange={ action('tokens changed') }
-      tags={ SAMPLE_DATA }
-      spacesAllowed={ true }
-    />
-  );
-}));
+  ))
+  .add('Default', withInfo()(() => {
+    return <TokensInput onChange={ action('tokens changed') } tokens={ SAMPLE_DATA }/>;
+  }))
+  .add('spacesAllowedInToken', withInfo()(() => {
+    return (
+      <TokensInput
+        onChange={ action('tokens changed') }
+        tokens={ SAMPLE_DATA_WITH_SPACES }
+        spacesAllowedInToken={ true }
+      />
+    );
+  }));

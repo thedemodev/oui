@@ -2,7 +2,7 @@ import React from 'react';
 import { cloneDeep } from 'lodash';
 import { mount } from 'enzyme';
 
-import TagsInput from '../index';
+import TokensInput from '../index';
 
 const SAMPLE_DATA = [
   { name: 'error', style: 'error' },
@@ -12,7 +12,7 @@ const SAMPLE_DATA = [
   { name: 'tertiary', style: 'tertiary' },
 ];
 
-describe('components/TagsInput', () => {
+describe('components/TokensInput', () => {
   let component;
   let mockOnChange;
 
@@ -20,7 +20,7 @@ describe('components/TagsInput', () => {
     beforeEach(function() {
       mockOnChange = jest.fn();
       component = mount(
-        <TagsInput onChange={ mockOnChange } tags={ SAMPLE_DATA } />
+        <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
       );
     });
     function assertTokenRender(comp, style, font, text) {
@@ -60,19 +60,19 @@ describe('components/TagsInput', () => {
       beforeEach(function() {
         mockOnChange = jest.fn();
         component = mount(
-          <TagsInput onChange={ mockOnChange } tags={ SAMPLE_DATA } />
+          <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
         );
       });
 
       it('should invoke onChange with the updated token list', () => {
         const input = component.find('input');
-        input.simulate('change', { target: { value: 'newtagval' }});
+        input.simulate('change', { target: { value: 'newtokenval' }});
         input.simulate('keyDown', { keyCode: 32 });
         component.update();
 
-        const expectedTags = cloneDeep(SAMPLE_DATA).concat({ name: 'newtagval' });
+        const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'newtokenval' });
         expect(mockOnChange).toBeCalled();
-        expect(mockOnChange).toHaveBeenCalledWith(expectedTags);
+        expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
       });
 
       it('should not allow duplicates', () => {
@@ -91,13 +91,13 @@ describe('components/TagsInput', () => {
       beforeEach(function() {
         mockOnChange = jest.fn();
         component = mount(
-          <TagsInput onChange={ mockOnChange } tags={ SAMPLE_DATA } spacesAllowed={ true } />
+          <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } spacesAllowedInToken={ true } />
         );
       });
 
       it('should allow tokens with spaces', () => {
         const input = component.find('input');
-        input.simulate('change', { target: { value: 'new tag val' }});
+        input.simulate('change', { target: { value: 'new token val' }});
         input.simulate('keyDown', { keyCode: 32 });
         component.update();
 
@@ -106,9 +106,9 @@ describe('components/TagsInput', () => {
         input.simulate('keyDown', { keyCode: 13 });
         component.update();
 
-        const expectedTags = cloneDeep(SAMPLE_DATA).concat({ name: 'new tag val' });
+        const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'new token val' });
         expect(mockOnChange).toBeCalled();
-        expect(mockOnChange).toHaveBeenCalledWith(expectedTags);
+        expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
       });
     });
   });
