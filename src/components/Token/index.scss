@@ -21,10 +21,13 @@
 .#{$namespace}token-wrap,
 .oui-token-wrap {
   display: inline-flex;
-  border: 1px solid map-fetch($color, ui, base);
-  background: map-fetch($color, background, light);
   padding: map-fetch($token, padding);
-  border-radius: map-fetch($token, border-radius);
+
+  &--well {
+    background: map-fetch($color, background, light);
+    border-radius: map-fetch($token, border-radius);
+    border: 1px solid map-fetch($color, ui, base);
+  }
 }
 
 .#{$namespace}token,
@@ -38,14 +41,26 @@
   text-shadow: map-fetch($token, text-shadow);
 }
 
-.#{$namespace}token--primary,
-.oui-token--primary {
-  background: map-fetch($token, background-color, primary);
-}
-
-.#{$namespace}token--secondary,
-.oui-token--secondary {
-  background: map-fetch($token, background-color, secondary);
+.#{$namespace}token,
+.oui-token{
+  &--primary {
+    background: map-fetch($token, background-color, primary);
+  }
+  &--secondary {
+    background: map-fetch($token, background-color, secondary);
+  }
+  &--tertiary {
+    background: map-fetch($token, background-color, tertiary);
+  }
+  &--error {
+    background: map-fetch($token, background-color, error);
+  }
+  &--font-dark {
+    color: map-fetch($token, font-color, dark);
+  }
+  &--font-light {
+    color: map-fetch($token, font-color, light);
+  }
 }
 
 .#{$namespace}token-tool,

@@ -20,17 +20,25 @@ const DismissButton = (props) => (
       <Icon
         size="small"
         name="close"
-        fill="white"
+        fill={ props.fill }
       />
     </Button>
   </div>
 );
 
 DismissButton.propTypes = {
+  /** Color of the dismiss X */
+  fill: PropTypes.string,
+
   /** Function to call that dismisses the token */
   onClick: PropTypes.func.isRequired,
+
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+};
+
+DismissButton.defaultProps = {
+  fill: 'white',
 };
 
 DismissButton.displayName = 'DismissButton';
