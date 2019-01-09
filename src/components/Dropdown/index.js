@@ -23,7 +23,7 @@ class Dropdown extends React.Component {
   };
 
   handleToggle = () => {
-    if(this.props.isDisabled) {
+    if (this.props.isDisabled) {
       return;
     }
     this.props.setOverChildren(false);
