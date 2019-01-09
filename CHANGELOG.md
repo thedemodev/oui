@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+### Fixed
+- [Patch] Fixed <SelectDropdown> Component. Gets properly disabled when isDisabled prop is true
+
 ## 40.14.0 - 2019-1-4
 - [Feature] Added <TokensInput> Component (#1097)
 
