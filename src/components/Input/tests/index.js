@@ -167,6 +167,14 @@ describe('components/Input', () => {
     expect(component.is('[min=10]')).toBe(true);
   });
 
+  it('should add a `step` attribute when `step` is provided', () => {
+    const component = shallow(
+      <Input type="number" step="0.1" />
+    );
+
+    expect(component.is('[step="0.1"]')).toBe(true);
+  });
+
   it('should have a properly set test section', () => {
     const component = shallow(
       <Input type="text" testSection="foo" />

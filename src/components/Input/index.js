@@ -34,6 +34,7 @@ class Input extends React.Component {
     onFocus,
     min,
     max,
+    step,
     maxLength,
     testSection,
     focus,
@@ -72,6 +73,7 @@ class Input extends React.Component {
         onFocus={ onFocus }
         min={ min }
         max={ max }
+        step={ step }
         { ...(typeof maxLength === 'undefined' ? {} : { maxLength }) }
         data-test-section={ testSection }
         autoFocus={ focus }
@@ -177,6 +179,8 @@ Input.propTypes = {
   onKeyDown: PropTypes.func,
   /** Input placeholder text */
   placeholder: PropTypes.string,
+  /** Input step value */
+  step: PropTypes.string,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
   /** Align text inside input. Default is left. */
