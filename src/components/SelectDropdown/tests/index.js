@@ -89,6 +89,20 @@ describe('components/SelectDropdown', function() {
     expect(component.find('DropdownContents').prop('minWidth')).toEqual('400px');
   });
 
+  it('should not render DropdownContents when isDisabled is true', function() {
+    component = mount(
+      <SelectDropdown
+        items={ items }
+        isDisabled={ true }
+        value={ 'value 2' }
+        onChange={ onChange }
+      />);
+    const activator = component.find('Button');
+    activator.simulate('click');
+    expect(component.find('Dropdown').prop('isDisabled')).toEqual(true);
+    expect(component.find('DropdownContents').length).toEqual(0);
+  });
+
   it('should display activatorLabel if provided', function() {
     const itemsWithActivatorLabel = [
       {

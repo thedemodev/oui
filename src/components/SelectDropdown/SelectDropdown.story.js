@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
@@ -80,6 +80,18 @@ stories.add('default', withInfo()(() => {
         value={ 'dog' }
         onChange={ action('SelectDropdown value changed') }
         minDropdownWidth={ '400px ' }
+      />
+    </Container>
+  );
+})).add('Disabled', withInfo()(() => {
+  return (
+    <Container>
+      <SelectDropdown
+        items={ items }
+        value={ 'dog' }
+        minDropdownWidth={ '400px ' }
+        isDisabled={ boolean('isDisabled', true) }
+        onChange={ action('SelectDropdown value changed') }
       />
     </Container>
   );

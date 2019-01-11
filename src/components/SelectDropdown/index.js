@@ -107,7 +107,7 @@ class SelectDropdown extends React.Component {
   };
 
   render() {
-    const { buttonStyle, value, width, zIndex } = this.props;
+    const { buttonStyle, value, width, zIndex, isDisabled } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
       if (item.value === value) {
@@ -124,6 +124,7 @@ class SelectDropdown extends React.Component {
     return (
       <Dropdown
         { ...(zIndex ? { zIndex } : {}) }
+        isDisabled={ isDisabled }
         activator={ (
           <div
             style={{ width: width}}
