@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 
 ### Fixed
+- [Patch] Add "step" property to <Input> component.
 - [Patch] Fixed <SelectDropdown> Component. Gets properly disabled when isDisabled prop is true
 
 ## 40.14.0 - 2019-1-4
