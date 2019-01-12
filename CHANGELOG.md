@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Relax Input component value attribute propType validation to allow number type in addition to string
 
 ## 40.14.1 - 2019-1-11
 - [Patch] Add "step" property to <Input> component.

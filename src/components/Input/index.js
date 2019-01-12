@@ -197,7 +197,10 @@ Input.propTypes = {
     'tel',
   ]).isRequired,
   /** Text within the input */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 Input.defaultProps = {
