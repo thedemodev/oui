@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Relax Input component value attribute propType validation to allow number type in addition to string
+- [Docs] Update FilterPicker docs
 
 ## 40.14.1 - 2019-1-11
 - [Patch] Add "step" property to <Input> component.
