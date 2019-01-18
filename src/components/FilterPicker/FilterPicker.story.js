@@ -33,10 +33,11 @@ away some of the implementation complexity while allowing for maximum extensibil
 "props explosion" that would come with all the variations we have of this pattern. This approach will give control to 
 the implementer and keep this component lean.  
 .  
+*-* **ATTN:** If a max scrollable height should be used (likely in most cases), consider using use an oui class like "max-scroll--medium" around \`BlockList.Category\`  
+*-* **ATTN:** If a search Input will be used with \`Blocklist\` and \`FilterList.ListItem\`, consider wrapping \`Blocklist\` inside a div with the \`oui-filter-picker-list\` class to remove the Input's bottom border (see story and story source for example)  
 *-* Using \`react-immutable-proptypes\`, FilterPicker can be used with Immutable or POJO datasets  
 *-* By default, this component filters \`selectedEntityIds\` and items that don't match the \`filterQuery\` to create and return \`availableEntities\` via the render props function  
-*-* If a \`customFilterFn\` is used, it will be used in place of the \`filterQuery\` filter. If \`selectedEntityIds\` should be kept in, simply do not include that list as a component prop
-*-* If a search Input will be used with \`Blocklist\` and \`FilterList.ListItem\`, consider wrapping \`Blocklist\` inside a div with the \`oui-filter-picker-list\` class to remove the Input's bottom border (see story and story source for example)  
+*-* If a \`customFilterFn\` is used, it will be used in place of the \`filterQuery\` filter. If \`selectedEntityIds\` should be kept in, simply do not include that list as a component prop  
 *-* Find out more below  
 .  
 See more how this was implemented in [\`FilterPicker.story.js\`](https://github.com/optimizely/oui/blob/devel/src/components/FilterPicker/FilterPicker.story.js).    
@@ -201,21 +202,23 @@ storiesOf('FilterPicker', module)
                     onClick={ action('Create Entity') }
                   />
                 </BlockList.Category>
-                <BlockList.Category header='Recently Created Audiences'>
-                  { availableEntities.map((item, index) => {
-                    return (
-                      <FilterPicker.ListItem
-                        key={ item.id }
-                        id={ item.id }
-                        name={ item.name }
-                        description={ item.description }
-                        onClick={ action(`Entity Add: ${item.id}`) }
-                        buttonText={ 'View' }
-                        onButtonClick={ action(`Entity Picker View: ${item.id}`) }
-                      />
-                    );
-                  }) }
-                </BlockList.Category>
+                <div className="max-scroll--medium">
+                  <BlockList.Category header='Recently Created Audiences'>
+                    { availableEntities.map((item, index) => {
+                      return (
+                        <FilterPicker.ListItem
+                          key={ item.id }
+                          id={ item.id }
+                          name={ item.name }
+                          description={ item.description }
+                          onClick={ action(`Entity Add: ${item.id}`) }
+                          buttonText={ 'View' }
+                          onButtonClick={ action(`Entity Picker View: ${item.id}`) }
+                        />
+                      );
+                    }) }
+                  </BlockList.Category>
+                </div>
               </BlockList>
             </div>
           </React.Fragment>
