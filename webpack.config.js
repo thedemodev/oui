@@ -61,10 +61,10 @@ const config = {
     extensions: ['.json', '.js'],
   },
   plugins: plugins,
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM'
-    }
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  }
 };
 
 
