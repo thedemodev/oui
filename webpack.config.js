@@ -17,6 +17,7 @@ let plugins = [
 
 const config = {
   entry: {
+    main: path.resolve(__dirname, './src/main.js'),
     styles: path.resolve(__dirname, './src/oui/oui.scss'),
   },
   devtool: 'source-map',
@@ -60,6 +61,11 @@ const config = {
     extensions: ['.json', '.js'],
   },
   plugins: plugins,
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM'
+    }
 };
+
 
 module.exports = config;
