@@ -6,8 +6,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Fix OUI main.js React bundle so it can be consumed via script tag without webpack
+
+## 40.14.2 - 2019-1-22
 - [Patch] Relax Input component value attribute propType validation to allow number type in addition to string
 - [Docs] Update FilterPicker docs
+- [Patch] Add indented prop to <Disclose> to allow consumers to disable the default indentation.
 
 ## 40.14.1 - 2019-1-11
 - [Patch] Add "step" property to <Input> component.
