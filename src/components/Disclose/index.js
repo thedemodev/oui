@@ -9,7 +9,7 @@ const Disclose = ({
   childrenStyle,
   headerStyle,
   isOpen,
-  noIndent,
+  indented,
   title,
   toggle,
 }) => {
@@ -25,7 +25,7 @@ const Disclose = ({
     {
       ['background--faint display--block']: headerStyle === 'header',
       ['border--all background--faint display--block']: headerStyle === 'header-bordered',
-      ['hard--left']: noIndent,
+      ['hard--left']: !indented,
     }
   );
   const arrowClass = classNames(
@@ -53,15 +53,15 @@ Disclose.propTypes = {
   children: PropTypes.node.isRequired,
   childrenStyle: PropTypes.string,
   headerStyle: PropTypes.string,
+  indented: PropTypes.bool,
   isOpen: PropTypes.bool,
   noBorder: PropTypes.bool,
-  noIndent: PropTypes.bool,
   title: PropTypes.string.isRequired,
   toggle: PropTypes.func,
 };
 
 Disclose.defaultProps = {
-  noIndent: false,
+  indented: true,
 };
 
 export default withToggle(toClass(Disclose));

@@ -12,8 +12,8 @@ describe('Disclose Component ', () => {
     expect(shallowToJson(disclose)).toMatchSnapshot();
   });
 
-  it('should add a hard left class to the link when the noIndent prop is passed', () => {
-    const component = mount(<Disclose title='Some title' noIndent={ true }> <div>disclose this</div> </Disclose>);
+  it('should add a hard left class to the link when the indented prop is false', () => {
+    const component = mount(<Disclose title='Some title' indented={ false }> <div>disclose this</div> </Disclose>);
     expect(component.find('a').hasClass('hard--left')).toBe(true);
   });
 });
