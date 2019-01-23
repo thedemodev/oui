@@ -19,7 +19,7 @@ A custom CSS framework and React component library that powers the Optimizely us
 
 - [Storybook](http://optimizely.github.io/oui/storybook/)
 - [Archived SASS documentation](http://design.optimizely.com/docs/oui/9.0.0/) (requires VPN access)
-- [latest.css](http://design.optimizely.com/oui/latest/styles.css)
+- [latest.css](https://s3-us-west-2.amazonaws.com/design.optimizely.com/oui/latest/styles.css)
 
 ## 📦 Install
 
