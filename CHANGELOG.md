@@ -5,8 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 40.15.0 - 2019-1-23
 - [Patch] Add -webkit vendor prefix for select
-- [Patch] Fix OUI main.js React bundle so it can be consumed via script tag without webpack
+- [Feature] Fix OUI main.js React bundle so it can be consumed via script tag without webpack
 
 ## 40.14.2 - 2019-1-22
 - [Patch] Relax Input component value attribute propType validation to allow number type in addition to string
