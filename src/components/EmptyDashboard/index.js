@@ -86,11 +86,11 @@ EmptyDashboard.propTypes = {
   /** Short text about the empty state */
   headline: PropTypes.string.isRequired,
   /** Enable image tinting for non-rebranded assets. */
-  tintImage: PropTypes.bool,
-  /** Path to an image representing the empty state */
   imagePath: PropTypes.string,
-  /** Identifier used to create data-test-section attributes for testing */
+  /** Path to an image representing the empty state */
   testSection: PropTypes.string,
+  /** Identifier used to create data-test-section attributes for testing */
+  tintImage: PropTypes.bool,
 };
 
 EmptyDashboard.getDefaultProps = {
