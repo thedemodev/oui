@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add tintImage=false prop option for EmptyDashboard use in Program Management
 
 ## 40.15.0 - 2019-1-23
 - [Patch] Add -webkit vendor prefix for select

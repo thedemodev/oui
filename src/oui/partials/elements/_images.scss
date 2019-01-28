@@ -84,3 +84,7 @@ img[height] {
   margin-bottom: spacer(1);
   margin-left: auto;
 }
+
+.img--tinted {
+  filter: hue-rotate(33deg) saturate(130%);
+}

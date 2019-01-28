@@ -1,14 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const EmptyDashboard = ({
   button,
   imagePath,
   headline,
+  tintImage,
   description,
   descriptionMaxWidth,
   testSection,
 }) => {
+  const imageClassNames = classNames({
+    'svg--non-scaling-stroke': true,
+    'display--inline': true,
+    ['img--tinted']: tintImage,
+  });
+
   return (
     <div
       data-oui-component={ true }
@@ -28,8 +36,8 @@ const EmptyDashboard = ({
               style={{ width: '550px', margin: 'auto' }}>
               <object
                 data={ imagePath }
-                className="svg--non-scaling-stroke display--inline"
-                style={{ maxWidth: '450px', maxHeight: '290px', 'filter': 'hue-rotate(33deg) saturate(130%)' }}
+                className={ imageClassNames }
+                style={{ maxWidth: '450px', maxHeight: '290px' }}
                 data-test-section={ testSection && `${testSection}-image` }
                 alt=""
               />
@@ -77,6 +85,8 @@ EmptyDashboard.propTypes = {
   ]),
   /** Short text about the empty state */
   headline: PropTypes.string.isRequired,
+  /** Enable image tinting for non-rebranded assets. */
+  tintImage: PropTypes.bool,
   /** Path to an image representing the empty state */
   imagePath: PropTypes.string,
   /** Identifier used to create data-test-section attributes for testing */
@@ -86,6 +96,10 @@ EmptyDashboard.propTypes = {
 EmptyDashboard.getDefaultProps = {
   descriptionMaxWidth: '450px',
   testSection: 'empty-hello',
+};
+
+EmptyDashboard.defaultProps = {
+  tintImage: true,
 };
 
 export default EmptyDashboard;
