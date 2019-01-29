@@ -6,7 +6,6 @@ const EmptyDashboard = ({
   button,
   imagePath,
   headline,
-  tintImage,
   description,
   descriptionMaxWidth,
   testSection,
@@ -14,7 +13,6 @@ const EmptyDashboard = ({
   const imageClassNames = classNames({
     'svg--non-scaling-stroke': true,
     'display--inline': true,
-    ['img--tinted']: tintImage,
   });
 
   return (
@@ -89,17 +87,11 @@ EmptyDashboard.propTypes = {
   imagePath: PropTypes.string,
   /** Identifier used to create data-test-section attributes for testing */
   testSection: PropTypes.string,
-  /** Enable image tinting for non-rebranded assets. */
-  tintImage: PropTypes.bool,
 };
 
 EmptyDashboard.getDefaultProps = {
   descriptionMaxWidth: '450px',
   testSection: 'empty-hello',
-};
-
-EmptyDashboard.defaultProps = {
-  tintImage: true,
 };
 
 export default EmptyDashboard;
