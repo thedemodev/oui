@@ -26,7 +26,13 @@ const ADD_KEYS = [
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-export const TokensInput = ({tokens, spacesAllowedInToken, placeholder, onChange}) => {
+export const TokensInput = ({
+  maxTags,
+  onChange,
+  placeholder,
+  spacesAllowedInToken,
+  tokens,
+}) => {
   /**
    * Wrap the layout in a flexed <div>
    * https://github.com/olahol/react-tagsinput#renderlayout
@@ -72,16 +78,18 @@ export const TokensInput = ({tokens, spacesAllowedInToken, placeholder, onChange
    * @param {Array.<TokenWrapper|String>} allTokens - All tokens
    */
   function __onChange(allTokens) {
-    const updatedTokens = allTokens.reduce((acc, token) => {
-      // A newly typed token will be in string form
-      if (typeof token === 'string') {
-        token = { name: token };
-      }
-      if (!acc.find(item => item.name === token.name)) {
-        acc.push(token);
-      }
-      return acc;
-    }, []);
+    const updatedTokens = allTokens
+      .reduce((acc, token) => {
+        // A newly typed token will be in string form
+        if (typeof token === 'string') {
+          token = { name: token };
+        }
+        if (!acc.find(item => item.name === token.name)) {
+          acc.push(token);
+        }
+        return acc;
+      }, [])
+      .filter(token => !!token.name);
 
     onChange(updatedTokens);
   }
@@ -93,7 +101,7 @@ export const TokensInput = ({tokens, spacesAllowedInToken, placeholder, onChange
         addKeys={ ADD_KEYS.concat(spacesAllowedInToken ? [] : /** SPACE */ 32) }
         onlyUnique={ true }
         addOnPaste={ true }
-        maxTags={ 12 }
+        maxTags={ maxTags }
         onChange={ __onChange }
         renderTag={ renderToken }
         renderLayout={ renderLayout }

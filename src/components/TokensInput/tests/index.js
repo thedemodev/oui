@@ -83,7 +83,16 @@ describe('components/TokensInput', () => {
 
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
+      });
 
+      it('should not allow empty strings', () => {
+        const input = component.find('input');
+        input.simulate('change', { target: { value: '' }});
+        input.simulate('keyDown', { keyCode: 32 });
+        component.update();
+
+        expect(mockOnChange).toBeCalled();
+        expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
       });
     });
 
