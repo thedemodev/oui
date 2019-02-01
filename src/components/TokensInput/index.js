@@ -64,6 +64,7 @@ export const TokensInput = ({
   /**
    * Render an OUI Token to display each token.
    * https://github.com/olahol/react-tagsinput#rendertag
+   *
    * @param {Object} renderOptions - Values to render token
    * @returns {ReactElement}
    */
@@ -74,6 +75,7 @@ export const TokensInput = ({
     const { name, style } = tag;
     return (
       <Token
+        key={ key }
         isDismissible={ true }
         onDismiss={ onDismiss }
         name={ name }
@@ -87,6 +89,8 @@ export const TokensInput = ({
   /**
    * Handler for when a string is pasted into the input.
    * Splits the string on all the addKeys and extraAddKeys.
+   * https://github.com/olahol/react-tagsinput#pastesplit
+   *
    * @param {string} str - The pasted string.
    * @returns {Array<string>}
    */
@@ -95,8 +99,8 @@ export const TokensInput = ({
       .map(k => k.match)
       .concat(extraAddKeys)
 
-      // Split the string by all our addKeys by joining with an
-      // \n which we will use as the final split operator.
+      // Split the string by all our addKeys by joining with a
+      // \n, which we will use as the final split operator.
       .reduce((acc, value) => acc.split(value).join('\n'), str)
       .split('\n')
       .filter(k => !!k);
@@ -154,7 +158,7 @@ TokensInput.propTypes = {
    * an intent to enter the current string as a new Token.
    * See ADD_KEYS above.
    */
-  extraAddKeys: PropTypes.arrayOf(PropTypes.number),
+  extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
 
   maxTags: PropTypes.number,
 

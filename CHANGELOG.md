@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably.
+                             Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
 - [Patch] Conditionally render <Popper> within <Dropdown> only when the children should be shown for performance reasons.
 - [Feature] Add Sortable component (#1115)
 

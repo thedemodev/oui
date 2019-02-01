@@ -56,7 +56,7 @@ describe('components/TokensInput', () => {
   });
 
   describe('entering tokens', function() {
-    describe('with spaces disallowed', function() {
+    describe('with the default addKeys', function() {
       beforeEach(function() {
         mockOnChange = jest.fn();
         component = mount(
@@ -67,7 +67,7 @@ describe('components/TokensInput', () => {
       it('should invoke onChange with the updated token list', () => {
         const input = component.find('input');
         input.simulate('change', { target: { value: 'newtokenval' }});
-        input.simulate('keyDown', { keyCode: 32 });
+        input.simulate('keyDown', { keyCode: 13, key: 'Enter' });
         component.update();
 
         const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'newtokenval' });
@@ -78,7 +78,7 @@ describe('components/TokensInput', () => {
       it('should not allow duplicates', () => {
         const input = component.find('input');
         input.simulate('change', { target: { value: 'primary' }});
-        input.simulate('keyDown', { keyCode: 32 });
+        input.simulate('keyDown', { keyCode: 13, key: 'Enter' });
         component.update();
 
         expect(mockOnChange).toBeCalled();
@@ -93,23 +93,23 @@ describe('components/TokensInput', () => {
           <TokensInput
             onChange={ mockOnChange }
             tokens={ SAMPLE_DATA }
-            extraAddKeys={ [' ', '.', '_'] }
+            extraAddKeys={ [' ', '.', '_', ','] }
           />
         );
       });
 
-      it('should allow tokens with spaces', () => {
+      it('should respect additional addKeys', () => {
         const input = component.find('input');
-        input.simulate('change', { target: { value: 'new token val' }});
-        input.simulate('keyDown', { keyCode: 32 });
+        input.simulate('change', { target: { value: 'new-token-val' }});
+        input.simulate('keyDown', { keyCode: 191, key: '/' });
         component.update();
 
         expect(mockOnChange).not.toBeCalled();
 
-        input.simulate('keyDown', { keyCode: 13 });
+        input.simulate('keyDown', { keyCode: 13, key: 'Enter' });
         component.update();
 
-        const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'new token val' });
+        const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'new-token-val' });
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
       });
@@ -117,13 +117,46 @@ describe('components/TokensInput', () => {
       it('should break up pasted strings based on the extra add keys', () => {
         const input = component.find('input');
         input.simulate('paste', { clipboardData: { getData: () => 'balloons_banana-smoothie   hotdogs' }});
-        // input.simulate('keyDown', { keyCode: 13 });
         component.update();
 
         const expectedTokens = cloneDeep(SAMPLE_DATA).concat([
           { name: 'balloons' },
           { name: 'banana-smoothie' },
           { name: 'hotdogs' },
+        ]);
+        expect(mockOnChange).toBeCalled();
+        expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
+      });
+
+      it('should break up pasted strings that contain tabs and newlines', () => {
+        const input = component.find('input');
+        /* eslint-disable no-tabs */
+        const testString = `
+        
+        some
+        	tokens
+        		with
+        			tabs and      spaces
+        	one.two
+        	three,
+        	four_five
+        	
+        `;
+        input.simulate('paste', { clipboardData: { getData: () => testString }});
+        component.update();
+
+        const expectedTokens = cloneDeep(SAMPLE_DATA).concat([
+          { name: 'some' },
+          { name: 'tokens' },
+          { name: 'with' },
+          { name: 'tabs' },
+          { name: 'and' },
+          { name: 'spaces' },
+          { name: 'one' },
+          { name: 'two' },
+          { name: 'three' },
+          { name: 'four' },
+          { name: 'five' },
         ]);
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
