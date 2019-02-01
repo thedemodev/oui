@@ -15,7 +15,7 @@ import Token from '../Token';
  * Key codes which should be interpreted as an
  * indication to add the current text as a new token.
  */
-const ADD_KEYS = [
+const DEFAULT_ADD_KEYS = [
   /** TAB   */
   {
     keyCode: 9,
@@ -95,14 +95,15 @@ export const TokensInput = ({
    * @returns {Array<string>}
    */
   function pasteSplit(str) {
-    return ADD_KEYS
+    const SEPARATOR = '\n';
+    return DEFAULT_ADD_KEYS
       .map(k => k.match)
       .concat(extraAddKeys)
 
       // Split the string by all our addKeys by joining with a
       // \n, which we will use as the final split operator.
-      .reduce((acc, value) => acc.split(value).join('\n'), str)
-      .split('\n')
+      .reduce((acc, addKey) => acc.split(addKey).join(SEPARATOR), str)
+      .split(SEPARATOR)
       .filter(k => !!k);
   }
 
@@ -128,7 +129,7 @@ export const TokensInput = ({
     onChange(updatedTokens);
   }
 
-  const addKeys = ADD_KEYS.map(k => k.keyCode).concat(extraAddKeys);
+  const addKeys = DEFAULT_ADD_KEYS.map(k => k.keyCode).concat(extraAddKeys);
 
   return (
     <div className="oui-text-input text--left flush">
@@ -156,7 +157,8 @@ TokensInput.propTypes = {
   /**
    * Additional keycodes which should be considered
    * an intent to enter the current string as a new Token.
-   * See ADD_KEYS above.
+   * These are passed along to the <ReactTagsInput> via the addKeys prop
+   * See DEFAULT_ADD_KEYS above.
    */
   extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
 
