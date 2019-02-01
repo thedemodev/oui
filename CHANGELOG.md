@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Conditionally render <Popper> within <Dropdown> only when the children should be shown for performance reasons.
+- [Feature] Add Sortable component (#1115)
 
 ## 40.15.0 - 2019-1-23
 - [Patch] Add -webkit vendor prefix for select
