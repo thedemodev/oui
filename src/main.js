@@ -32,6 +32,7 @@ export { default as Radio } from './components/Radio';
 export { default as RangeSlider } from './components/RangeSlider';
 export { default as SelectDropdown } from './components/SelectDropdown';
 export { default as Sidebar } from './components/Sidebar';
+export { default as Sortable } from './components/Sortable';
 export { default as Spinner } from './components/Spinner';
 export { default as Steps } from './components/Steps';
 export { default as Switch } from './components/Switch';
