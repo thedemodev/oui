@@ -107,23 +107,25 @@ class Dropdown extends React.Component {
             })
           }
         </Target>
-        <Popper
-          placement={ placement }
-          className='oui-dropdown-children'
-          style={{
-            zIndex: zIndex,
-            position: 'absolute',
-            width: width,
-            marginTop: 2,
-            marginBottom: 2,
-            borderRadius: 'var(--border-radius)',
-            boxShadow: '0 2px 3px rgba(0,0,0,.1)',
-          }}
-          onMouseOver={ this.onMouseOver }
-          onMouseLeave={ this.onMouseLeave }
-          onClick={ this.handleToggle }>
-          { isOpen && !isDisabled && children }
-        </Popper>
+        {isOpen && !isDisabled &&
+          <Popper
+            placement={ placement }
+            className='oui-dropdown-children'
+            style={{
+              zIndex: zIndex,
+              position: 'absolute',
+              width: width,
+              marginTop: 2,
+              marginBottom: 2,
+              borderRadius: 'var(--border-radius)',
+              boxShadow: '0 2px 3px rgba(0,0,0,.1)',
+            }}
+            onMouseOver={ this.onMouseOver }
+            onMouseLeave={ this.onMouseLeave }
+            onClick={ this.handleToggle }>
+            {children}
+          </Popper>
+        }
       </Manager>
     );
   }
