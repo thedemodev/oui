@@ -160,8 +160,14 @@ TokensInput.propTypes = {
    */
   extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
 
+  /**
+   * Maximum number of allowed tokens (pass-through to <ReactTagsInput>)
+   */
   maxTags: PropTypes.number,
 
+  /**
+   * Handler to invoke when the token list changes.
+   */
   onChange: PropTypes.func.isRequired,
 
   /**
@@ -182,8 +188,6 @@ TokensInput.defaultProps = {
   maxTags: -1,
 
   placeholder: 'enter tokens',
-
-  spacesAllowedInToken: false,
 };
 
 export default TokensInput;
