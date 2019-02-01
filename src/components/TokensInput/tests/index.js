@@ -84,23 +84,17 @@ describe('components/TokensInput', () => {
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
       });
-
-      it('should not allow empty strings', () => {
-        const input = component.find('input');
-        input.simulate('change', { target: { value: '' }});
-        input.simulate('keyDown', { keyCode: 32 });
-        component.update();
-
-        expect(mockOnChange).toBeCalled();
-        expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
-      });
     });
 
-    describe('with spaces allowed', function() {
+    describe('with extra addKeys allowed', function() {
       beforeEach(function() {
         mockOnChange = jest.fn();
         component = mount(
-          <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } spacesAllowedInToken={ true } />
+          <TokensInput
+            onChange={ mockOnChange }
+            tokens={ SAMPLE_DATA }
+            extraAddKeys={ [' ', '.', '_'] }
+          />
         );
       });
 
@@ -116,6 +110,21 @@ describe('components/TokensInput', () => {
         component.update();
 
         const expectedTokens = cloneDeep(SAMPLE_DATA).concat({ name: 'new token val' });
+        expect(mockOnChange).toBeCalled();
+        expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
+      });
+
+      it('should break up pasted strings based on the extra add keys', () => {
+        const input = component.find('input');
+        input.simulate('paste', { clipboardData: { getData: () => 'balloons_banana-smoothie   hotdogs' }});
+        // input.simulate('keyDown', { keyCode: 13 });
+        component.update();
+
+        const expectedTokens = cloneDeep(SAMPLE_DATA).concat([
+          { name: 'balloons' },
+          { name: 'banana-smoothie' },
+          { name: 'hotdogs' },
+        ]);
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
       });

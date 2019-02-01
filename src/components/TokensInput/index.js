@@ -16,9 +16,21 @@ import Token from '../Token';
  * indication to add the current text as a new token.
  */
 const ADD_KEYS = [
-  /** TAB   */ 9,
-  /** ENTER */ 13,
-  /** COMMA */ 188,
+  /** TAB   */
+  {
+    keyCode: 9,
+    match: '\t',
+  },
+  /** ENTER */
+  {
+    keyCode: 13,
+    match: '\n',
+  },
+  /** COMMA */
+  {
+    keyCode: 188,
+    match: ',',
+  },
 ];
 
 /**
@@ -27,10 +39,10 @@ const ADD_KEYS = [
  * @returns {ReactElement}
  */
 export const TokensInput = ({
+  extraAddKeys,
   maxTags,
   onChange,
   placeholder,
-  spacesAllowedInToken,
   tokens,
 }) => {
   /**
@@ -73,6 +85,24 @@ export const TokensInput = ({
   }
 
   /**
+   * Handler for when a string is pasted into the input.
+   * Splits the string on all the addKeys and extraAddKeys.
+   * @param {string} str - The pasted string.
+   * @returns {Array<string>}
+   */
+  function pasteSplit(str) {
+    return ADD_KEYS
+      .map(k => k.match)
+      .concat(extraAddKeys)
+
+      // Split the string by all our addKeys by joining with an
+      // \n which we will use as the final split operator.
+      .reduce((acc, value) => acc.split(value).join('\n'), str)
+      .split('\n')
+      .filter(k => !!k);
+  }
+
+  /**
    * When the list of tokens changes, convert any string tokens
    * to object form and ensure there are no duplicates.
    * @param {Array.<TokenWrapper|String>} allTokens - All tokens
@@ -94,27 +124,37 @@ export const TokensInput = ({
     onChange(updatedTokens);
   }
 
+  const addKeys = ADD_KEYS.map(k => k.keyCode).concat(extraAddKeys);
+
   return (
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
-        value={ tokens }
-        addKeys={ ADD_KEYS.concat(spacesAllowedInToken ? [] : /** SPACE */ 32) }
-        onlyUnique={ true }
+        addKeys={ addKeys }
         addOnPaste={ true }
-        maxTags={ maxTags }
-        onChange={ __onChange }
-        renderTag={ renderToken }
-        renderLayout={ renderLayout }
         inputProps={{
           className: 'soft-half--ends soft--sides no-border width--150',
           placeholder,
         }}
+        maxTags={ maxTags }
+        onChange={ __onChange }
+        onlyUnique={ true }
+        pasteSplit={ pasteSplit }
+        renderTag={ renderToken }
+        renderLayout={ renderLayout }
+        value={ tokens }
       />
     </div>
   );
 };
 
 TokensInput.propTypes = {
+
+  /**
+   * Additional keycodes which should be considered
+   * an intent to enter the current string as a new Token.
+   * See ADD_KEYS above.
+   */
+  extraAddKeys: PropTypes.arrayOf(PropTypes.number),
 
   maxTags: PropTypes.number,
 
@@ -126,19 +166,15 @@ TokensInput.propTypes = {
   placeholder: PropTypes.string,
 
   /**
-   * Whether or not spaces are a valid character in a token name.
-   * If false, typing the space key will add the current text
-   * as a new token via the addKeys prop.
-   */
-  spacesAllowedInToken: PropTypes.bool,
-
-  /**
    * @type {Array.<TokenWrapper>}
    */
   tokens: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 TokensInput.defaultProps = {
+
+  extraAddKeys: [],
+
   maxTags: -1,
 
   placeholder: 'enter tokens',
