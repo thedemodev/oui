@@ -39,33 +39,79 @@ exports[`components/Dropdown should include oui-form-bad-news class when display
 />
 `;
 
-exports[`components/Dropdown should not render children when isDisabled is true 1`] = `
-<withHandlers(withState(Dropdown))
+exports[`components/Dropdown should not render children or Popper when isDisabled is true 1`] = `
+<withState(withHandlers(withState(Dropdown)))
   arrowIcon="none"
   buttonContent="Dropdown"
   icon={true}
   idDisabled={true}
-  isOpen={false}
-  toggle={[Function]}
 >
-  <ul>
-    <li
-      key="0"
+  <withHandlers(withState(Dropdown))
+    arrowIcon="none"
+    buttonContent="Dropdown"
+    icon={true}
+    idDisabled={true}
+    isOpen={false}
+    toggle={[Function]}
+  >
+    <withState(Dropdown)
+      arrowIcon="none"
+      buttonContent="Dropdown"
+      hide={[Function]}
+      icon={true}
+      idDisabled={true}
+      isOpen={false}
+      show={[Function]}
+      toggle={[Function]}
     >
-      Manual
-    </li>
-    <li
-      key="1"
-    >
-      Maximize Conventions
-    </li>
-    <li
-      key="2"
-    >
-      Faster Results
-    </li>
-  </ul>
-</withHandlers(withState(Dropdown))>
+      <Dropdown
+        arrowIcon="none"
+        buttonContent="Dropdown"
+        hide={[Function]}
+        icon={true}
+        idDisabled={true}
+        isOpen={false}
+        overChildren={false}
+        setOverChildren={[Function]}
+        show={[Function]}
+        toggle={[Function]}
+      >
+        <Manager
+          className="oui-dropdown-group"
+          data-ui-component={true}
+          tag="div"
+        >
+          <div
+            className="oui-dropdown-group"
+            data-ui-component={true}
+          >
+            <Target>
+              <div>
+                <button
+                  className="oui-button"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="flex"
+                  >
+                    <div
+                      className="flex--1 truncate"
+                    >
+                      Dropdown
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </Target>
+          </div>
+        </Manager>
+      </Dropdown>
+    </withState(Dropdown)>
+  </withHandlers(withState(Dropdown))>
+</withState(withHandlers(withState(Dropdown)))>
 `;
 
 exports[`components/Dropdown should not use .oui-arrow-inline--down when icon isEqual to triangle 1`] = `

@@ -7,6 +7,13 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Patch] Fix design debt and remove CSS to tint EmptyDashboard images
 
+
+## 41.0.0 - 2019-2-1
+- [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably. (#1116)
+                             Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
+- [Patch] Conditionally render <Popper> within <Dropdown> only when the children should be shown for performance reasons.
+- [Feature] Add Sortable component (#1115)
+
 ## 40.15.0 - 2019-1-23
 - [Patch] Add -webkit vendor prefix for select
 - [Feature] Fix OUI main.js React bundle so it can be consumed via script tag without webpack

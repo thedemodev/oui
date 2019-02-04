@@ -31,7 +31,7 @@ class TokensInput extends React.Component {
   onChange = (tokens) => {
     this.setState({ tokens });
     this.props.onChange(tokens);
-  }
+  };
 
   render() {
     const { tokens, onChange, ...rest } = this.props; //eslint-disable-line
@@ -52,12 +52,12 @@ storiesOf('TokensInput', module)
   .add('Default', withInfo()(() => {
     return <TokensInput onChange={ action('tokens changed') } tokens={ SAMPLE_DATA }/>;
   }))
-  .add('spacesAllowedInToken', withInfo()(() => {
+  .add('with extraAddKeys', withInfo()(() => {
     return (
       <TokensInput
         onChange={ action('tokens changed') }
         tokens={ SAMPLE_DATA_WITH_SPACES }
-        spacesAllowedInToken={ true }
+        extraAddKeys={ [' ', '_', ';', '|', '.'] }
       />
     );
   }));

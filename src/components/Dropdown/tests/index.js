@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from '../index';
 import { mount, shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
+import { mountToJson, shallowToJson } from 'enzyme-to-json';
 
 const data = [
   {title: 'Manual', description: 'Dolcelatte cheeseburger swiss paneer cow gouda edam cheese slices'},
@@ -30,10 +30,11 @@ describe('components/Dropdown', () => {
 
     expect(component.find('Dropdown').props().isOpen).toBe(true);
     expect(component.find('ul').exists()).toBe(true);
+    expect(component.find('Popper').exists()).toBe(true);
   });
 
-  it('should not render children when isDisabled is true', () => {
-    const component = shallow(
+  it('should not render children or Popper when isDisabled is true', () => {
+    const component = mount(
       <Dropdown
         icon={ true }
         buttonContent='Dropdown'
@@ -48,7 +49,8 @@ describe('components/Dropdown', () => {
         </ul>
       </Dropdown>
     );
-    expect(shallowToJson(component)).toMatchSnapshot();
+    expect(mountToJson(component)).toMatchSnapshot();
+    expect(component.find('Popper').exists()).toBe(false);
   });
 
   it('should call the child onClick handler when clicked', () => {
