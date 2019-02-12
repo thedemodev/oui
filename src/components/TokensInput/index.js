@@ -40,7 +40,7 @@ const DEFAULT_ADD_KEYS = [
  */
 export const TokensInput = ({
   extraAddKeys,
-  maxTags,
+  maxTokens,
   onChange,
   placeholder,
   tokens,
@@ -140,7 +140,7 @@ export const TokensInput = ({
           className: 'soft-half--ends soft--sides no-border width--150',
           placeholder,
         }}
-        maxTags={ maxTags }
+        maxTags={ maxTokens }
         onChange={ __onChange }
         onlyUnique={ true }
         pasteSplit={ pasteSplit }
@@ -165,7 +165,7 @@ TokensInput.propTypes = {
   /**
    * Maximum number of allowed tokens (pass-through to <ReactTagsInput>)
    */
-  maxTags: PropTypes.number,
+  maxTokens: PropTypes.number,
 
   /**
    * Handler to invoke when the token list changes.
