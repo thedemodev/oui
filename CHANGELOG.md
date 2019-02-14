@@ -5,12 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Update webpack-dev-server to fix vulnerability issue
 - [Patch] Fix design debt and remove CSS to tint EmptyDashboard images
 
-
 ## 41.0.0 - 2019-2-1
-- [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably. (#1116)
-                             Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
+- [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably. (#1116) Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
 - [Patch] Conditionally render <Popper> within <Dropdown> only when the children should be shown for performance reasons.
 - [Feature] Add Sortable component (#1115)
 
