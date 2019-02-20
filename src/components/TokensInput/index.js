@@ -40,7 +40,6 @@ const ADD_KEYS = [
  */
 export const TokensInput = ({
   extraAddKeys,
-  inputStyle,
   maxTags,
   onChange,
   placeholder,
@@ -130,16 +129,18 @@ export const TokensInput = ({
   }
 
   const addKeys = ADD_KEYS.map(k => k.keyCode).concat(extraAddKeys);
-  const isNumberOfTokensMoreThanOrEqualToMaxTags = tokens.length >= maxTags;
+  const isNumberOfTokensMoreThanOrEqualToMaxTags = tokens.length >= maxTags && maxTags !== -1;
+  const minWidth = isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : 'min-width--150';
 
   return (
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
         addKeys={ addKeys }
+        addOnBlur={ true }
         addOnPaste={ true }
         inputProps={{
-          className: `${inputStyle} soft-half--ends soft--sides no-border width--150`,
-          placeholder,
+          className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
           readonly: isNumberOfTokensMoreThanOrEqualToMaxTags ? 'true' : false,
         }}
         maxTags={ maxTags }
@@ -162,11 +163,6 @@ TokensInput.propTypes = {
    * See ADD_KEYS above.
    */
   extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
-
-  /**
-   * Additional styling for the input field.
-   */
-  inputStyle: PropTypes.string,
 
   /**
    * Maximum number of allowed tokens (pass-through to <ReactTagsInput>)

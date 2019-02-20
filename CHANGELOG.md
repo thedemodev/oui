@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] Add inputStyle prop and logic with maxTags for input of TokensInput
+- [Feature] Add onBlur, flexing, and logic with maxTags and placeholder for input of TokensInput
 - [Patch] Update webpack-dev-server to fix vulnerability issue
 - [Patch] Fix design debt and remove CSS to tint EmptyDashboard images
 
