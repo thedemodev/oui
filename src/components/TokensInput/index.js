@@ -141,7 +141,7 @@ export const TokensInput = ({
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
           placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
-          readonly: isNumberOfTokensMoreThanOrEqualToMaxTags ? 'true' : false,
+          readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
         }}
         maxTags={ maxTags }
         onChange={ __onChange }

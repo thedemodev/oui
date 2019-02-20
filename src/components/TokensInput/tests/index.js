@@ -76,7 +76,7 @@ describe('components/TokensInput', () => {
 
       it('should SHOW input has custom placeholder', function() {
         expect(component.find('Token').length).toBe(5);
-        expect(component.find(inputCSS).props().readonly).toBe(false);
+        expect(component.find(inputCSS).props().readOnly).toBe(false);
         expect(component.find(inputCSS).props().placeholder).toBe('keywords');
       });
     });
@@ -101,7 +101,7 @@ describe('components/TokensInput', () => {
 
       it('should SHOW input is readonly if the number of tokens is not less than the value of maxTags', function() {
         expect(component.find('Token').length).toBe(5);
-        expect(component.find(inputCSS).props().readonly).toBe('true');
+        expect(component.find(inputCSS).props().readOnly).toBe(true);
         expect(component.find(inputCSS).props().placeholder).toBe('');
       });
     });
