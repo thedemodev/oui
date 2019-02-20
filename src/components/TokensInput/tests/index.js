@@ -16,6 +16,12 @@ describe('components/TokensInput', () => {
   let component;
   let mockOnChange;
 
+  afterEach(function() {
+    if (component) {
+      component.unmount();
+    }
+  });
+
   describe('rendering tokens', function() {
     beforeEach(function() {
       mockOnChange = jest.fn();
@@ -23,6 +29,7 @@ describe('components/TokensInput', () => {
         <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
       );
     });
+
     function assertTokenRender(comp, style, font, text) {
       expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap')).toBe(true);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${style}`).length).toBe(1);
@@ -70,10 +77,6 @@ describe('components/TokensInput', () => {
         );
       });
 
-      afterEach(function() {
-        component.unmount();
-      });
-
       it('should SHOW input has custom placeholder', function() {
         expect(component.find('Token').length).toBe(5);
         expect(component.find(inputCSS).props().readOnly).toBe(false);
@@ -93,10 +96,6 @@ describe('components/TokensInput', () => {
             tokens={ SAMPLE_DATA }
           />
         );
-      });
-
-      afterEach(function() {
-        component.unmount();
       });
 
       it('should SHOW input is readonly if the number of tokens is not less than the value of maxTags', function() {
