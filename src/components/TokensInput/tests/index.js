@@ -55,6 +55,29 @@ describe('components/TokensInput', () => {
     });
   });
 
+  describe('when rendering tokens with inputStyle, maxTags, and placeholder', function() {
+    const inputCSS = '.flex .flex--1 .soft-half--ends .soft--sides .no-border .width--150';
+
+    beforeEach(function() {
+      mockOnChange = jest.fn();
+      component = mount(
+        <TokensInput
+          inputStyle='flex flex--1'
+          maxTags={ 5 }
+          placeholder='keywords'
+          onChange={ mockOnChange }
+          tokens={ SAMPLE_DATA }
+        />
+      );
+    });
+
+    it('should SHOW input is readonly if the number of tokens is not less than the value of maxTags', function() {
+      expect(component.find('Token').length).toBe(5);
+      expect(component.find(inputCSS).props().readonly).toBe('true');
+      expect(component.find(inputCSS).props().placeholder).toBe('keywords');
+    });
+  });
+
   describe('entering tokens', function() {
     describe('with the default addKeys', function() {
       beforeEach(function() {
