@@ -20,9 +20,9 @@ const req = require.context('../src/', true, /story\.js$/);
 
 function loadStories() {
   require('./overview.story.js');
+  require('./color.story.js');
   require('./borderradius.story.js');
   req.keys().forEach(req)
 }
 
 storybook.configure(loadStories, module);
-
