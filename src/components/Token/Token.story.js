@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Token from './index.js';
@@ -22,10 +22,12 @@ stories
       isDismissible={ true }
       name="Hello"
       style="primary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
       name="World"
       style="secondary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
   .add('no well', withInfo()(() => (<div>
@@ -33,11 +35,13 @@ stories
       name="Hello"
       style="primary"
       showWell={ false }
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
       name="World"
       style="secondary"
       showWell={ false }
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
   .add('draggable', () => {
@@ -58,5 +62,6 @@ stories
         name="Delete me!"
         style="primary"
         onDismiss={ action('token dismissed') }
+        hasSnugWrap={ boolean('hasSnugWrap', false) }
       />);
   });

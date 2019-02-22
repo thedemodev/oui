@@ -93,4 +93,20 @@ describe('components/Token', () => {
     const component = shallow(<Token testSection="goose" name="Goose" />);
     expect(component.is('[data-test-section="goose"]')).toBe(true);
   });
+
+  it('should apply `oui-token-wrap--snug` class if token has a snug wrap', () => {
+    const component = shallow(<Token name="goose" hasSnugWrap={ true } />);
+    expect(component.find('.oui-token-wrap--snug').length).toBe(1);
+  });
+
+  it('should apply `oui-token-wrap` class if token wrap is not specified', () => {
+    const component = shallow(<Token name="goose" />);
+    expect(component.find('.oui-token-wrap').length).toBe(1);
+  });
+
+  it('should not apply `oui-token-wrap` class if token does not have a wrap', () => {
+    const component = shallow(<Token name="goose" hasWrap={ false }/>);
+    expect(component.find('.oui-token-wrap').length).toBe(0);
+  });
+
 });

@@ -30,6 +30,12 @@
   }
 }
 
+.#{$namespace}token-wrap--snug,
+.oui-token-wrap--snug {
+  display: inline-flex;
+  padding: map-fetch($token, padding)/2;
+}
+
 .#{$namespace}token,
 .oui-token {
   display: inline-flex;
