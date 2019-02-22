@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add encodecolor() SASS function to convert `#` character to `%23` encoded entity to fix Chrome update breaking `#hexcolor` use in inline `<svg>` background image with `$var-color`
 - [Feature] Add hasSnugWrap and hasWrap props for <Token> component
 - [Patch] Tighten spacing around tokens in <TokensInput> component by using new snug wrap Token
 
