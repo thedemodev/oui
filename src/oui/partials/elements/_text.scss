@@ -14,10 +14,12 @@
     color: map-fetch($color, text, muted);
 
     &::after {
+      display: inline-block;
       color: map-fetch($color, text, muted);
       content: '\270E';
       font-size: 1em;
-      padding-left: spacer(0.5);
+      padding-right: spacer(0.5);
+      transform: scaleX(-1);
     }
   }
 }
