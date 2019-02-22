@@ -73,6 +73,7 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
     - [Release] Added a cool breaking change. (#999)
     ```
 5. Commit to master: `git add . && git commit -a -m 'Prep for new release version x.y.z'`
+    * You'll be commiting the CHANGELOG file and the new Storybook iframe.html and bundle
 6. Run one of these depending on the highest importance issue this release:
     * `[Patch]` changes: `yarn version --patch`
     * `[Feature]` changes: `yarn version --minor`
@@ -80,6 +81,7 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
 7. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new):
     * Select the new tag version
     * Leave “Release title” blank
-    * Paste in new release contributions from the `CHANGELOG.md` release notes section from step 3 above.
+    * Paste in new release contributions from the `CHANGELOG.md` release notes section from step 3 above into the Description field
+    * Click Publish Release
 8. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
 9. You're done :sunglasses:
