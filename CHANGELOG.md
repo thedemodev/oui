@@ -5,13 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add hasSnugWrap and hasWrap props for <Token> component
+- [Patch] Tighten spacing around tokens in <TokensInput> component by using new snug wrap Token
 
 ## 42.1.0 - 2019-02-20
 - [Feature] Add onBlur, flexing, and logic with maxTags and placeholder for input of TokensInput (#1123)
 - [Patch] Update webpack-dev-server to fix vulnerability issue
 - [Patch] Fix design debt and remove CSS to tint EmptyDashboard images
-- [Feature] Add hasSnugWrap and hasWrap props for <Token> component
-- [Patch] Tighten spacing around tokens in <TokensInput> component by using new snug wrap Token
 
 ## 41.0.0 - 2019-2-1
 - [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably. (#1116) Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
