@@ -63,3 +63,15 @@
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+
+/// Replace #hex with %23hex for valid use inside <svg>
+
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string:unquote("#{$hex}");
+	}
+  $string: '%23' + $string;
+	@return $string;
+}

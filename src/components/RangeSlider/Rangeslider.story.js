@@ -17,13 +17,9 @@ stories
 
 stories.add('default', withInfo()(() => {
   return (
-    <div>
-      <input type="text" className="oui-text-input push-double--bottom" />
-      <RangeSlider
-        value={ number('value', 50) }
-      />
-      <input type="text" className="oui-text-input" />
-    </div>
+    <RangeSlider
+      value={ number('value', 50) }
+    />
   );
 }))
   .add('disabled', withInfo()(() => {
