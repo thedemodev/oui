@@ -31,7 +31,7 @@ describe('components/TokensInput', () => {
     });
 
     function assertTokenRender(comp, style, font, text) {
-      expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap')).toBe(true);
+      expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap--snug')).toBe(true);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${style}`).length).toBe(1);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${font}`).length).toBe(1);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${font}`).text()).toBe(text);

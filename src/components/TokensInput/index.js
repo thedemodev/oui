@@ -76,6 +76,7 @@ export const TokensInput = ({
     return (
       <Token
         key={ key }
+        hasSnugWrap={ true }
         isDismissible={ true }
         onDismiss={ onDismiss }
         name={ name }

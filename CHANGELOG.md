@@ -6,6 +6,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Add encodecolor() SASS function to convert `#` character to `%23` encoded entity to fix Chrome update breaking `#hexcolor` use in inline `<svg>` background image with `$var-color`
+- [Feature] Add hasSnugWrap and hasWrap props for <Token> component
+- [Patch] Tighten spacing around tokens in <TokensInput> component by using new snug wrap Token
 
 ## 42.1.0 - 2019-02-20
 - [Feature] Add onBlur, flexing, and logic with maxTags and placeholder for input of TokensInput (#1123)
