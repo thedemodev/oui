@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 42.2.1 - 2019-02-25
+  - [Patch] Lockdown highlight.js dependency to version 9.5.0
+
 ## 42.2.0 - 2019-02-22
 - [Patch] Change edit pencil to face opposite direction in <EditableInput> component
 - [Patch] Add encodecolor() SASS function to convert `#` character to `%23` encoded entity to fix Chrome update breaking `#hexcolor` use in inline `<svg>` background image with `$var-color`
