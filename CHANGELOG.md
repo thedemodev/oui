@@ -5,9 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add Select to main.js
 
 ## 42.2.1 - 2019-02-25
-  - [Patch] Lockdown highlight.js dependency to version 9.5.0
+- [Patch] Lockdown highlight.js dependency to version 9.5.0
 
 ## 42.2.0 - 2019-02-22
 - [Patch] Change edit pencil to face opposite direction in <EditableInput> component
