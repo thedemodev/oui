@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Update <Steps> styling to have an outline for the Active step and filled circles for Complete steps
 
 ## 42.2.1 - 2019-02-25
   - [Patch] Lockdown highlight.js dependency to version 9.5.0
