@@ -19,7 +19,7 @@ stories
   .add('select the arrow', withInfo()(() => {
     return (
       <ArrowsInline
-        direction={ select('direction', { up: 'up', down: 'down', left: 'left', right: 'right' }, 'up') }
+        direction={ select('direction', { up: 'up', down: 'down', left: 'left', right: 'right' }, 'down') }
         testSection="arrow-test"
       />
     );

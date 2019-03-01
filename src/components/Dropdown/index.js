@@ -67,7 +67,7 @@ class Dropdown extends React.Component {
     const iconClass = classNames(
       'push-half--left',
       {
-        ['oui-arrow-inline--down']: arrowIcon === true || arrowIcon === 'down',
+        ['oui-arrow-inline--down']: arrowIcon === 'down',
         ['oui-arrow-inline--left']: arrowIcon === 'left',
         ['oui-arrow-inline--right']: arrowIcon === 'right',
         ['oui-arrow-inline--up']: arrowIcon === 'up',
@@ -88,7 +88,7 @@ class Dropdown extends React.Component {
                 disabled={ isDisabled }
                 onClick={ this.handleToggle }
                 onBlur={ this.handleOnBlur }>
-                <div className='flex'>
+                <div className='flex flex-align--center'>
                   <div className='flex--1 truncate'>{ buttonContent }</div>
                   {
                     !!arrowIcon && arrowIcon !== 'none' && (

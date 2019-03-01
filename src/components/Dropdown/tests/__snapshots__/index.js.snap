@@ -95,7 +95,7 @@ exports[`components/Dropdown should not render children or Popper when isDisable
                   type="button"
                 >
                   <div
-                    className="flex"
+                    className="flex flex-align--center"
                   >
                     <div
                       className="flex--1 truncate"
