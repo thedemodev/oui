@@ -26,6 +26,10 @@ const ArrowsInline = ({
   );
 };
 
+ArrowsInline.defaultProps = {
+  direction: 'down',
+};
+
 ArrowsInline.propTypes = {
   /** Direction the arrow points */
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),

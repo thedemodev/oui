@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
@@ -33,7 +33,7 @@ stories.add('Default', withInfo()(() => {
       <Dropdown
         buttonContent={ text('buttonContent', 'Default Dropdown') }
         width={ number('width', 300) }
-        arrowIcon={ true }>
+        arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
         <BlockList>
           {
             data.map((item, index) => {
@@ -64,7 +64,7 @@ stories.add('Error', withInfo()(() => {
         buttonContent={ text('buttonContent', 'Error State') }
         width={ number('width', 300) }
         displayError={ true }
-        arrowIcon={ true }>
+        arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
         <BlockList>
           {
             data.map((item, index) => {
