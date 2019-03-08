@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Patch] Update ArrowInline default arrow direction to down
 - [Patch] Update Dropdown component to remove arrowIcon `true` option
+- [Patch] Update <Steps> styling to have an outline for the Active step and filled circles for Complete steps
 
 ## 42.2.1 - 2019-02-25
 - [Patch] Lockdown highlight.js dependency to version 9.5.0
