@@ -30,6 +30,7 @@ export { default as Popover } from './components/Popover';
 export { default as Poptip } from './components/Poptip';
 export { default as Radio } from './components/Radio';
 export { default as RangeSlider } from './components/RangeSlider';
+export { default as Select } from './components/Select';
 export { default as SelectDropdown } from './components/SelectDropdown';
 export { default as Sidebar } from './components/Sidebar';
 export { default as Sortable } from './components/Sortable';
