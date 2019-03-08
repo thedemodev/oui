@@ -7,7 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 
 ## 42.3.0 - 2019-03-08
-- [Minor] Fixed <Select> export by including in src/main.js.
+- [Feature] Fixed <Select> export by including in src/main.js.
 - [Patch] Update ArrowInline default arrow direction to down
 - [Patch] Update Dropdown component to remove arrowIcon `true` option
 - [Patch] Update <Steps> styling to have an outline for the Active step and filled circles for Complete steps
