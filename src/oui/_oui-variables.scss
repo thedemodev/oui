@@ -532,6 +532,8 @@ $spinner: (
 /// Z-index Values
 
 $z-index: (
+  dialog                     : 2000,
+  overlay                    : 1000,
   poptip                     : 100,
   sidebar                    : 99,
   toolbar                    : 1,

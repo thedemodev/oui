@@ -1,0 +1,51 @@
+.oui-prompt {
+  position: relative;
+  box-shadow: 0 0 map-fetch($shadow, big);
+  width: map-fetch($dialog, width, base);
+  z-index: map-fetch($z-index, dialog);
+  background: map-fetch($color, background, white);
+}
+
+.oui-prompt__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.oui-prompt__overlay {
+  background: map-fetch($color, background, white);
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: map-fetch($z-index, overlay);
+}
+
+.oui-prompt__header {
+  margin: spacer(2);
+}
+
+.oui-prompt__footer {
+  border-top: 1px solid map-fetch($color, ui, light);
+  padding: spacer(1) spacer(2);
+}
+
+.oui-prompt__body {
+  display: flex;
+  padding: spacer(2) spacer(2) spacer(3) spacer(2);
+}
+
+.oui-prompt__link {
+  margin-left: spacer(0.5);
+}
+
+.oui-prompt__close {
+  @include dialog-close;
+}
