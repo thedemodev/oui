@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Footer = props => (
-  <div className="oui-form__footer">
+  <div className="oui-dialog__footer">
     { props.children }
   </div>
 );

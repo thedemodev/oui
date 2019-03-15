@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Title = props => (
-  <div className="push-quad--bottom">
-    <div className="beta push--bottom">
+  <div className="oui-dialog__header">
+    <h2 className="push--bottom">
       { props.children }
-    </div>
+    </h2>
     { props.subtitle && (
-      <div className="push--bottom">
+      <p>
         { props.subtitle }
-      </div>
+      </p>
     ) }
   </div>
 );

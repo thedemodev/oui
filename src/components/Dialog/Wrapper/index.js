@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Icon from 'react-oui-icons';
 
 const Wrapper = props => (
-  <div
-    data-ui-component={ true }
-    className="overflow-y--auto flex--1"
-    data-test-section={ props.testSection }>
-    <div className="reading-column">
-      <div className="push-quad--bottom">
-        { props.children }
+  <div className="oui-dialog__wrapper">
+    <button className="oui-dialog__close">
+      <Icon name="close" />
+    </button>
+    <div className="oui-dialog__container">
+      <div
+        data-ui-component={ true }
+        className="oui-dialog"
+        data-test-section={ props.testSection }>
+        {props.children}
       </div>
     </div>
   </div>
