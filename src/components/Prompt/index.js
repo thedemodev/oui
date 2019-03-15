@@ -40,13 +40,13 @@ Prompt.propTypes = {
    *  The text used in the body of the prompt to give the user information.
    */
   bodyText: PropTypes.node.isRequired,
-  /** 
+  /**
    * Array of buttons used in the footer of the prompt.
    */
   footerButtonContent: PropTypes.array.isRequired,
   /**
    *  Used to determine if the prompt should have a close button.
-   */ 
+   */
   hasCloseButton: PropTypes.bool,
   /**
    *  The URL for the user to learn more about the current action. Link text will be 'Learn more'.
@@ -56,11 +56,11 @@ Prompt.propTypes = {
    *  Function to be called when the close button is click.
    */
   onClose: PropTypes.func,
-  /** 
+  /**
    * Identifier used to create data-test-section attributes for testing.
    */
   testSection: PropTypes.string,
-  /** 
+  /**
    * Main title of the prompt.
    */
   title: PropTypes.string.isRequired,

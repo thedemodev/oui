@@ -21,7 +21,10 @@ stories
         <p>This is text behind the prompt that is blocked by the overlay.</p>
         <Prompt
           title={ text('title', 'This is a Prompt') }
-          bodyText={ text('bodyText', 'Prompts only contain text in the body, no data input.') }
+          bodyText={ text(
+            'bodyText',
+            'Prompts only contain text in the body, no data input.'
+          ) }
           footerButtonContent={ array('footerButtonContent', [
             <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
@@ -29,7 +32,7 @@ stories
             <Button style="highlight" key={ 1 } onClick={ noop }>
               Confirm
             </Button>,
-          ] )}
+          ]) }
         />
       </div>
     ))
@@ -42,14 +45,15 @@ stories
         <Prompt
           hasCloseButton={ boolean('hasCloseButton', false) }
           title={ text('title', 'This is a Prompt') }
-          bodyText={ text('bodyText', 
-            'Prompts only contain text in the body, no data input.')
-          }
-          footerButtonContent={ array('footerButtonContent',[
+          bodyText={ text(
+            'bodyText',
+            'Prompts only contain text in the body, no data input.'
+          ) }
+          footerButtonContent={ array('footerButtonContent', [
             <Button style="highlight" key={ 1 } onClick={ noop }>
               Confirm
             </Button>,
-          ])}
+          ]) }
         />
       </div>
     ))
@@ -62,12 +66,15 @@ stories
         <Prompt
           linkURL={ text('linkURL', 'www.optimizely.com') }
           title={ text('title', 'This is a Prompt') }
-          bodyText={ text('bodyText', 'Prompts only contain text in the body, no data input. They can also contain a link for learning more.') }
+          bodyText={ text(
+            'bodyText',
+            'Prompts only contain text in the body, no data input. They can also contain a link for learning more.'
+          ) }
           footerButtonContent={ array('footerButtonContent', [
             <Button style="highlight" key={ 1 } onClick={ noop }>
               Confirm
             </Button>,
-          ])}
+          ]) }
         />
       </div>
     ))
