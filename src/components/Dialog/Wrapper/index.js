@@ -19,7 +19,13 @@ const Wrapper = props => (
 );
 
 Wrapper.propTypes = {
+  /**
+   * Contents of the dialog - usually a title, body, and footer.
+   */
   children: PropTypes.node.isRequired,
+  /**
+   * Identifier used to create data-test-section attributes for testing.
+   */
   testSection: PropTypes.string,
 };
 

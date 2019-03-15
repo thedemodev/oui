@@ -15,8 +15,14 @@ const Title = props => (
 );
 
 Title.propTypes = {
-  children: PropTypes.node.isRequired,
-  subtitle: PropTypes.node,
+  /**
+   * The title of the dialog.
+   */
+  children: PropTypes.string.isRequired,
+  /**
+   * Optional subtitle of the dialog.
+   */
+  subtitle: PropTypes.string,
 };
 
 export default Title;

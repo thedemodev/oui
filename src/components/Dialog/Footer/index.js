@@ -8,6 +8,9 @@ const Footer = props => (
 );
 
 Footer.propTypes = {
+  /**
+   * Button contents of the Dialog footer.
+   */
   children: PropTypes.element.isRequired,
 };
 

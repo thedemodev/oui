@@ -9,6 +9,9 @@ const Body = props => (
 );
 
 Body.propTypes = {
+  /**
+   * Contents of the dialog body. Can be anything.
+   */
   children: PropTypes.node.isRequired,
 };
 
