@@ -49,7 +49,8 @@ Prompt.propTypes = {
    */
   hasCloseButton: PropTypes.bool,
   /**
-   *  The URL for the user to learn more about the current action. Link text will be 'Learn more'.
+   *  The URL for the user to learn more about the current action.
+   *  Link text will be 'Learn more'.
    */
   linkURL: PropTypes.string,
   /**
