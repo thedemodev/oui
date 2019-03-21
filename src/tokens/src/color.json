@@ -1,0 +1,221 @@
+{
+  "name": "Color",
+  "description": "Optimizely brand and product colors.",
+  "tokens": [
+    {
+      "name": "Brand Blue (Light)",
+      "id": "brand-blue-light",
+      "value": "hsla(227, 100%, 75%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Brand Blue",
+      "id": "brand-blue-base",
+      "value": "hsla(227, 100%, 63%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Brand Blue (Dark)",
+      "id": "brand-blue-dark",
+      "value": "hsla(227, 100%, 50%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Brand Purple (Light)",
+      "id": "brand-purple-light",
+      "value": "hsla(240, 11%, 56%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Brand Purple",
+      "id": "brand-purple-base",
+      "value": "hsla(242, 21%, 34%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Brand Purple (Dark)",
+      "id": "brand-purple-dark",
+      "value": "hsla(241, 78%, 12%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Purple (Light)",
+      "id": "purple-light",
+      "value": "hsla(263, 76%, 66%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Purple",
+      "id": "purple-base",
+      "value": "hsla(262, 52%, 47%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Purple (Dark)",
+      "id": "purple-dark",
+      "value": "hsla(259, 85%, 28%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Aqua Blue (Light)",
+      "id": "aqua-light",
+      "value": "hsla(186, 100%, 69%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Aqua Blue",
+      "id": "aqua-base",
+      "value": "hsla(187, 100%, 42%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Aqua Blue (Dark)",
+      "id": "aqua-blue-dark",
+      "value": "hsla(189, 100%, 32%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Pink (Light)",
+      "id": "pink-light",
+      "value": "hsla(342, 100%, 69%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Pink",
+      "id": "pink-base",
+      "value": "hsla(340, 82%, 52%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Pink (Dark)",
+      "id": "pink-dark",
+      "value": "hsla(340, 100%, 35%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Orange (Light)",
+      "id": "orange-light",
+      "value": "hsla(43, 100%, 74%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Orange",
+      "id": "orange-base",
+      "value": "hsla(36, 100%, 50%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Orange (Dark)",
+      "id": "orange-dark",
+      "value": "hsla(33, 75%, 45%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Magenta (Light)",
+      "id": "magenta-light",
+      "value": "hsla(292, 71%, 63%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Magenta",
+      "id": "magenta-base",
+      "value": "hsla(291, 64%, 42%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Magenta (Dark)",
+      "id": "magenta-dark",
+      "value": "hsla(290, 100%, 25%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Green (Light)",
+      "id": "green-light",
+      "value": "hsla(119, 63%, 69%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Green",
+      "id": "green-base",
+      "value": "hsla(122, 39%, 49%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Green (Dark)",
+      "id": "green-dark",
+      "value": "hsla(134, 88%, 26%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Red (Light)",
+      "id": "red-light",
+      "value": "hsla(9, 100%, 69%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Red",
+      "id": "red-base",
+      "value": "hsla(4, 90%, 58%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Red (Dark)",
+      "id": "red-dark",
+      "value": "hsla(356, 100%, 36%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Blue (Light)",
+      "id": "blue-light",
+      "value": "hsla(204, 100%, 72%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Blue",
+      "id": "blue-base",
+      "value": "hsla(207, 90%, 54%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Blue (Dark)",
+      "id": "blue-dark",
+      "value": "hsla(207, 100%, 38%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Amber (Light)",
+      "id": "amber-light",
+      "value": "hsla(56, 100%, 66%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Amber",
+      "id": "amber-base",
+      "value": "hsla(45, 100%, 51%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Amber (Dark)",
+      "id": "amber-dark",
+      "value": "hsla(44, 100%, 39%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Grey (Light)",
+      "id": "grey-light",
+      "value": "hsla(0, 0%, 81%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Grey",
+      "id": "grey-base",
+      "value": "hsla(0, 0%, 62%, 1)",
+      "type": "color"
+    },
+    {
+      "name": "Grey (Dark)",
+      "id": "grey-dark",
+      "value": "hsla(0, 0%, 44%, 1)"
+    }
+  ]
+}
