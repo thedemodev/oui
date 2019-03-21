@@ -1,8 +1,6 @@
 import * as storybook from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-
 require('../dist/styles.js');
-
 require('../src/oui/oui.scss');
 
 const options = {
@@ -29,6 +27,7 @@ const req = require.context('../src/', true, /story\.js$/);
 function loadStories() {
   require('./overview.story.js');
   require('./tokens.story.js');
+  require('./css.story.js');
   require('./borderradius.story.js');
   req.keys().forEach(req);
 }
