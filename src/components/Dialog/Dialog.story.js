@@ -6,8 +6,8 @@ import { withInfo } from '@storybook/addon-info';
 import noop from 'lodash.noop';
 
 import Dialog from './index.js';
+import Fieldset from '../Fieldset';
 import Button from '../Button';
-import ButtonRow from '../ButtonRow';
 import Input from '../Input';
 
 const stories = storiesOf('Dialog', module);
@@ -24,43 +24,28 @@ stories
           {' '}
           <p>You shouldn't see this text behind the dialog.</p>
         </div>
-        <Dialog.Wrapper>
-          <Dialog.Title subtitle="This is a subtitle">
-            This is a Full Screen Dialog
-          </Dialog.Title>
-          <Dialog.Body>
-            <Dialog.Fieldset
-              title="Project Name"
-              description="Give your project a name"
-              isOptional={ false }
-              helpIcon={ true }
-              popoverTitle="Popover title"
-              popoverText="This should help you figure out what to do">
-              <Input label="Some data" />
-            </Dialog.Fieldset>
-            <Dialog.Fieldset
-              title="Project Description"
-              description="Give your project a description"
-              isOptional={ true }
-              helpIcon={ true }
-              popoverTitle="Popover title"
-              popoverText="This should help you figure out what to do">
-              <Input label="Some data" />
-            </Dialog.Fieldset>
-          </Dialog.Body>
-          <Dialog.Footer>
-            <ButtonRow
-              rightGroup={ [
-                <Button style="plain" key={ 0 } onClick={ noop }>
-                  Cancel
-                </Button>,
-                <Button style="highlight" key={ 1 } onClick={ noop }>
-                  Save
-                </Button>,
-              ] }
-            />
-          </Dialog.Footer>
-        </Dialog.Wrapper>
+        <Dialog
+          title="This is a  Dialog"
+          subtitle="This is a subtitle"
+          footerButtonContent={[
+            <Button style="plain" key={ 0 } onClick={ noop }>
+              Cancel
+            </Button>,
+            <Button style="highlight" key={ 1 } onClick={ noop }>
+              Save
+            </Button>,
+          ] }>
+          <Fieldset
+            title="Project Settings"
+            description="Some quick setup"
+            isOptional={ true }
+            helpIcon={ true }
+            popoverTitle="Popover title"
+            popoverText="This should help you figure out what to do">
+            <Input label="Verify Email" />
+            <Input label="Confirm Email" />
+          </Fieldset>
+        </Dialog>
       </div>
     ))
   );

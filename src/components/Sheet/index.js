@@ -3,32 +3,30 @@ import React from 'react';
 import Icon from 'react-oui-icons';
 import ButtonRow from '../ButtonRow';
 
-const Prompt = props => (
-  <div className="oui-dialog__wrapper">
-    <div className="oui-dialog__overlay" />
+const Sheet = props => (
+  <div className="oui-sheet__wrapper">
+    <div className="oui-sheet__overlay" />
     <div
       data-ui-component={ true }
-      className="oui-dialog oui-dialog--large overflow-y--auto"
+      className="oui-sheet overflow-y--auto"
       data-test-section={ props.testSection }>
-      {props.hasCloseButton && (
-        <button className="oui-dialog__close" onClick={ props.onClose }>
-          <Icon name="close" />
-        </button>
-      )}
-      <div className="oui-dialog__header">
+      <button className="oui-sheet__close" onClick={ props.onClose }>
+        <Icon name="close" />
+      </button>
+      <div className="oui-sheet__header">
         <h2 className="push--bottom">{props.title}</h2>
       </div>
-      <div className="oui-dialog__body">
+      <div className="oui-sheet__body">
         {props.children}
       </div>
-      <div className="oui-dialog__footer">
+      <div className="oui-sheet__footer">
         <ButtonRow rightGroup={ props.footerButtonContent }/>
       </div>
     </div>
   </div>
 );
 
-Prompt.propTypes = {
+Sheet.propTypes = {
   /**
    *  The text used in the body of the prompt to give the user information.
    */
@@ -39,15 +37,6 @@ Prompt.propTypes = {
   footerButtonContent: PropTypes.array.isRequired,
   /**
    *  Used to determine if the prompt should have a close button.
-   */
-  hasCloseButton: PropTypes.bool,
-  /**
-   *  The URL for the user to learn more about the current action.
-   *  Link text will be 'Learn more'.
-   */
-  linkURL: PropTypes.string,
-  /**
-   *  Function to be called when the close button is click.
    */
   onClose: PropTypes.func,
   /**
@@ -60,8 +49,4 @@ Prompt.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-Prompt.defaultProps = {
-  hasCloseButton: true,
-};
-
-export default Prompt;
+export default Sheet;
