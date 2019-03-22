@@ -104,7 +104,12 @@ class Input extends React.Component {
           <Label testSection={ testSection && testSection + '-label' }>
             <div className="oui-label">
               { label }
-              { isRequired && <span className="oui-label--required"></span> }
+              { isRequired &&
+                <span
+                  className="oui-label--required"
+                  data-test-section={ testSection && testSection + '-required' }
+                />
+              }
               { isOptional && <span className="oui-label__optional">(Optional)</span> }
             </div>
             { this.renderInput(this.props) }

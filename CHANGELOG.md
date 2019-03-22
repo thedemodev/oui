@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+### Fixed
+- [Patch] Fixed the isRequired prop on <Input> component which wasn't working as expected.
 
 ## 42.3.0 - 2019-03-08
 - [Feature] Fixed <Select> export by including in src/main.js.
