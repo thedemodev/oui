@@ -33,7 +33,7 @@ stories
         onBlur={ action('on blur') }
         onKeyDown={ action('on key press') }
         placeholder={ text('placeholder', 'just a placeholder') }
-        required={ boolean('required', false) }
+        isRequired={ boolean('isRequired', false) }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
   })).add('Inputs', () => {

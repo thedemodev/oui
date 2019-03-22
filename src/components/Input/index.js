@@ -93,6 +93,7 @@ class Input extends React.Component {
       testSection,
       isOptional,
       note,
+      isRequired,
     } = this.props;
 
     if (label) {
@@ -103,6 +104,7 @@ class Input extends React.Component {
           <Label testSection={ testSection && testSection + '-label' }>
             <div className="oui-label">
               { label }
+              { isRequired && <span className="oui-label--required"></span> }
               { isOptional && <span className="oui-label__optional">(Optional)</span> }
             </div>
             { this.renderInput(this.props) }
@@ -145,7 +147,7 @@ Input.propTypes = {
   },
   /** Prevents input from being modified but doesn't appear disabled */
   isReadOnly: PropTypes.bool,
-  /** Prevents input from being submitted without value */
+  /** Includes required asterisk label if true */
   isRequired: PropTypes.bool,
   /** Text that describes the input */
   label: PropTypes.string,
@@ -205,6 +207,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   note: null,
+  isRequired: false,
 };
 
 export default Input;
