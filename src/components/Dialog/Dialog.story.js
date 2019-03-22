@@ -27,7 +27,7 @@ stories
         <Dialog
           title="This is a  Dialog"
           subtitle="This is a subtitle"
-          footerButtonContent={[
+          footerButtonContent={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
             </Button>,

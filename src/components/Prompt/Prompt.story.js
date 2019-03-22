@@ -7,8 +7,6 @@ import noop from 'lodash.noop';
 
 import Prompt from './index.js';
 import Button from '../Button';
-import Dialog from '../Dialog/index.js';
-import Input from '../Input';
 
 const stories = storiesOf('Prompt', module);
 stories

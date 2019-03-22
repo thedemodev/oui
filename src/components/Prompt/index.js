@@ -8,7 +8,7 @@ const Prompt = props => (
     <div className="oui-dialog__overlay" />
     <div
       data-ui-component={ true }
-      className="oui-dialog oui-dialog--large overflow-y--auto"
+      className="oui-dialog oui-prompt overflow-y--auto"
       data-test-section={ props.testSection }>
       {props.hasCloseButton && (
         <button className="oui-dialog__close" onClick={ props.onClose }>

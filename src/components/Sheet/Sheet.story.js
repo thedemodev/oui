@@ -77,7 +77,7 @@ stories
             </Button>,
             <Button style="highlight" key={ 1 } onClick={ noop }>
               Confirm
-            </Button>
+            </Button>,
           ]) }>
           <Fieldset
             title="Project Name"
