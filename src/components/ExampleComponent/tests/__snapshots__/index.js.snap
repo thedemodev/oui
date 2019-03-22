@@ -37,6 +37,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
     className="oui-example-component"
   >
     <Input
+      isRequired={false}
       note={null}
       onInput={[Function]}
       testSection="nameInput"
@@ -47,6 +48,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
         data-oui-component={true}
         data-test-section="nameInput"
         onInput={[Function]}
+        required={false}
         type="text"
       />
     </Input>

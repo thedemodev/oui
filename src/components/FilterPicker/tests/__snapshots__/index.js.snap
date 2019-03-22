@@ -121,6 +121,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
     </ul>
     <Input
       isFilter={true}
+      isRequired={false}
       note={null}
       onInput={[Function]}
       placeholder="Browse for Audiences"
@@ -133,6 +134,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
         data-test-section="filter-query-input"
         onInput={[Function]}
         placeholder="Browse for Audiences"
+        required={false}
         type="search"
       />
     </Input>
@@ -728,6 +730,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
     </ul>
     <Input
       isFilter={true}
+      isRequired={false}
       note={null}
       onInput={[Function]}
       placeholder="Browse for Audiences"
@@ -740,6 +743,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
         data-test-section="filter-query-input"
         onInput={[Function]}
         placeholder="Browse for Audiences"
+        required={false}
         type="search"
       />
     </Input>
@@ -1310,6 +1314,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
     </ul>
     <Input
       isFilter={true}
+      isRequired={false}
       note={null}
       onInput={[Function]}
       placeholder="Browse for Audiences"
@@ -1322,6 +1327,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
         data-test-section="filter-query-input"
         onInput={[Function]}
         placeholder="Browse for Audiences"
+        required={false}
         type="search"
       />
     </Input>
@@ -1893,6 +1899,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
     </ul>
     <Input
       isFilter={true}
+      isRequired={false}
       note={null}
       onInput={[Function]}
       placeholder="Browse for Audiences"
@@ -1905,6 +1912,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
         data-test-section="filter-query-input"
         onInput={[Function]}
         placeholder="Browse for Audiences"
+        required={false}
         type="search"
       />
     </Input>
