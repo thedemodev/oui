@@ -28,15 +28,15 @@ const Sheet = props => (
 
 Sheet.propTypes = {
   /**
-   *  The text used in the body of the prompt to give the user information.
+   *  The body of the sheet to request information and data from the user.
    */
-  bodyText: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /**
-   * Array of buttons used in the footer of the prompt.
+   * Array of buttons used in the footer of the sheet.
    */
   footerButtonContent: PropTypes.array.isRequired,
   /**
-   *  Used to determine if the prompt should have a close button.
+   * Function to perform when the sheet is closed.
    */
   onClose: PropTypes.func,
   /**
@@ -44,7 +44,7 @@ Sheet.propTypes = {
    */
   testSection: PropTypes.string,
   /**
-   * Main title of the prompt.
+   * Main title of the sheet.
    */
   title: PropTypes.string.isRequired,
 };

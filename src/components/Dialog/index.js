@@ -28,15 +28,15 @@ const Dialog = props => (
 
 Dialog.propTypes = {
   /**
-   *  The text used in the body of the prompt to give the user information.
+   * The body of the dialog to request minimal information from the user.
    */
-  bodyText: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /**
-   * Array of buttons used in the footer of the prompt.
+   * Array of buttons used in the footer of the dialog.
    */
   footerButtonContent: PropTypes.array.isRequired,
   /**
-   *  Used to determine if the prompt should have a close button.
+   *  Function to perform when the dialog is closed.
    */
   onClose: PropTypes.func,
   /**
@@ -44,7 +44,7 @@ Dialog.propTypes = {
    */
   testSection: PropTypes.string,
   /**
-   * Main title of the prompt.
+   * Main title of the dialog.
    */
   title: PropTypes.string.isRequired,
 };

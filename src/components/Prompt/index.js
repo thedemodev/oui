@@ -30,9 +30,10 @@ const Prompt = props => (
 
 Prompt.propTypes = {
   /**
-   *  The text used in the body of the prompt to give the user information.
+   *  The body of the prompt to request acknowledgement from the user.
+   *  Should not contain data input.
    */
-  bodyText: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /**
    * Array of buttons used in the footer of the prompt.
    */
@@ -42,12 +43,7 @@ Prompt.propTypes = {
    */
   hasCloseButton: PropTypes.bool,
   /**
-   *  The URL for the user to learn more about the current action.
-   *  Link text will be 'Learn more'.
-   */
-  linkURL: PropTypes.string,
-  /**
-   *  Function to be called when the close button is click.
+   *  Function to be called when the close button is clicked.
    */
   onClose: PropTypes.func,
   /**

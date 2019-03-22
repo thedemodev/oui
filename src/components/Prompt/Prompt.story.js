@@ -22,27 +22,17 @@ stories
       <div>
         <p>This is text behind the prompt that is blocked by the overlay.</p>
         <Prompt
-          title={ text('title', 'Try Optimizely Rollouts for Free') }
+          title={ text('title', 'Try Our New Feature') }
           footerButtonContent={ array('footerButtonContent', [
             <Button style="plain" key={ 0 } onClick={ noop }>
               No Thanks
             </Button>,
             <Button style="highlight" key={ 1 } onClick={ noop }>
-              Agree
+              Continue
             </Button>,
           ]) }>
-          <p>
-            <a href="https://www.optimizely.com/rollouts/">Optimizely Rollouts</a> is a safer, faster way to release new features. 
-            Implement feature flagging, gradual rollouts, and safe rollbacks in your development process - 
-            all with zero latency through our server-side and mobile SDKs.
-          </p>
-          <p>We’re providing this product completely free, with unlimited usage.
-            By proceeding, you agree that your company’s use of Rollouts is governed by
-            our online <a href="https://www.optimizely.com/terms/">Terms of Service</a> as a Free Access Subscription.
-          </p>
-          <p>
-            <a href="https://www.optimizely.com/terms/">Privacy Policy</a>
-          </p>
+          <p>Prompts only contain text in the body, no data input.</p>
+          <p>They can also contain links to <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
         </Prompt>
       </div>
     ))
@@ -55,16 +45,17 @@ stories
         <Prompt
           hasCloseButton={ boolean('hasCloseButton', false) }
           title={ text('title', 'This is a Prompt') }
-          bodyText={ text(
-            'bodyText',
-            'Prompts only contain text in the body, no data input.'
-          ) }
           footerButtonContent={ array('footerButtonContent', [
+            <Button style="plain" key={ 0 } onClick={ noop }>
+              Cancel
+            </Button>,
             <Button style="highlight" key={ 1 } onClick={ noop }>
               Confirm
             </Button>,
-          ]) }
-        />
+          ]) }>
+          <p>Prompts only contain text in the body, no data input.</p>
+          <p>They can also contain links to <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
+        </Prompt>
       </div>
     ))
   );

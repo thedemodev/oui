@@ -65,7 +65,7 @@ stories
   //   ))
   // )
   .add(
-    'With a link',
+    'Default Sheet',
     withInfo()(() => (
       <div>
         <p>This is text behind the prompt that is blocked by the overlay.</p>
