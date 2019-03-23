@@ -214,7 +214,7 @@ describe('components/Input', () => {
       <Input type="text" testSection="foo" label="Input Label" isRequired={ true } />
     );
 
-    expect(component.find('[data-test-section="foo-required"]').length).toBe(1);
+    expect(component.find('.oui-label--required').length).toBe(1);
   });
 
   it('should not render a label by default', () => {
