@@ -20,8 +20,8 @@ stories
       <div>
         <p>This is text behind the prompt that is blocked by the overlay.</p>
         <Prompt
-          title={ text('title', 'Try Our New Feature') }
-          hasCloseButton={ boolean('hasCloseButton', false) }
+          title={ text('title', 'This is a Prompt') }
+          hasCloseButton={ boolean('hasCloseButton', true) }
           footerButtonContent={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               No Thanks
