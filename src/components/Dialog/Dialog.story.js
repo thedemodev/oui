@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import noop from 'lodash.noop';
 
@@ -22,11 +22,12 @@ stories
       <div>
         <div>
           {' '}
-          <p>You shouldn't see this text behind the dialog.</p>
+          <p>This is text behind the dialog that is blocked by the overlay.</p>
         </div>
         <Dialog
-          title="This is a  Dialog"
-          subtitle="This is a subtitle"
+          title={ text('title', 'This is a  Dialog') }
+          subtitle={ text('subtitle', 'This is a subtitle') }
+          hasCloseButton={ boolean('hasCloseButton', true) }
           footerButtonContent={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
@@ -38,12 +39,11 @@ stories
           <Fieldset
             title="Project Settings"
             description="Some quick setup"
-            isOptional={ true }
             helpIcon={ true }
             popoverTitle="Popover title"
             popoverText="This should help you figure out what to do">
-            <Input label="Verify Email" />
-            <Input label="Confirm Email" />
+            <Input label="Verify Email" type="email"/>
+            <Input label="Confirm Email" type="email"/>
           </Fieldset>
         </Dialog>
       </div>

@@ -1,9 +1,11 @@
+$sheet-width: map-fetch($dialog, width, wide);
+
 .oui-sheet {
   position: fixed;
   bottom: 0;
   height: 85%;
   box-shadow: 0 0 map-fetch($shadow, big);
-  width: map-fetch($dialog, width, base);
+  width: $sheet-width;
   z-index: map-fetch($z-index, dialog);
   background: map-fetch($color, background, white);
 }
@@ -37,7 +39,7 @@
 .oui-sheet__footer {
   position: fixed;
   bottom: 0;
-  width: map-fetch($dialog, width, base);
+  width: $sheet-width;
   background: map-fetch($dialog, footer, color);
   border-top: 1px solid map-fetch($color, ui, light);
   padding: spacer(1) spacer(3);

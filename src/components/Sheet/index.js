@@ -10,9 +10,9 @@ const Sheet = props => (
       data-ui-component={ true }
       className="oui-sheet overflow-y--auto"
       data-test-section={ props.testSection }>
-      <button className="oui-sheet__close" onClick={ props.onClose }>
+      {props.hasCloseButton && <button className="oui-sheet__close" onClick={ props.onClose }>
         <Icon name="close" />
-      </button>
+      </button>}
       <div className="oui-sheet__header">
         <h2 className="push--bottom">{props.title}</h2>
       </div>
@@ -35,6 +35,10 @@ Sheet.propTypes = {
    * Array of buttons used in the footer of the sheet.
    */
   footerButtonContent: PropTypes.array.isRequired,
+  /**
+   *  Used to determine if the sheet should have a close button.
+   */
+  hasCloseButton: PropTypes.bool,
   /**
    * Function to perform when the sheet is closed.
    */

@@ -10,9 +10,9 @@ const Dialog = props => (
       data-ui-component={ true }
       className="oui-dialog overflow-y--auto"
       data-test-section={ props.testSection }>
-      <button className="oui-dialog__close" onClick={ props.onClose }>
+      {props.hasCloseButton && <button className="oui-dialog__close" onClick={ props.onClose }>
         <Icon name="close" />
-      </button>
+      </button>}
       <div className="oui-dialog__header">
         <h2 className="push--bottom">{props.title}</h2>
       </div>
@@ -35,6 +35,10 @@ Dialog.propTypes = {
    * Array of buttons used in the footer of the dialog.
    */
   footerButtonContent: PropTypes.array.isRequired,
+  /**
+   *  Used to determine if the dialog should have a close button.
+   */
+  hasCloseButton: PropTypes.bool,
   /**
    *  Function to perform when the dialog is closed.
    */
