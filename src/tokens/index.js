@@ -7,7 +7,7 @@ const formatToES = require("./formatters/javascript-es");
 const formatToCJS = require("./formatters/javascript-cjs");
 const formatToScss = require("./formatters/scss");
 
-const clean = (outputDir = "./dist") => {
+const clean = (outputDir = "./forimport") => {
   // Clean `dist` directory before starting.
   fse.removeSync(outputDir);
 };
@@ -45,7 +45,7 @@ const processFiles = (globPath = path.resolve(__dirname, "./src/*.json")) => {
   };
 };
 
-const saveFiles = (contents, dist = path.resolve(__dirname, "./dist")) => {
+const saveFiles = (contents, dist = path.resolve(__dirname, "./forimport")) => {
   if (process.env.NODE_ENV !== "test") {
     fse.outputFileSync(`${dist}/index.cjs.js`, contents.cjs);
     fse.outputFileSync(`${dist}/index.es.js`, contents.es);
