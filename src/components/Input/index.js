@@ -146,8 +146,16 @@ Input.propTypes = {
   },
   /** Prevents input from being modified but doesn't appear disabled */
   isReadOnly: PropTypes.bool,
-  /** Includes required asterisk label if true */
-  isRequired: PropTypes.bool,
+  /** Includes required asterisk label if true
+   *  @param {Object} props Object of props
+   *  @returns {Error} Error or null
+   */
+  isRequired: function verifyIsRequiredProp(props) {
+    if (props.isRequired && !props.label) {
+      return new Error('Must include a value for the label prop to use the isRequired prop');
+    }
+    return null;
+  },
   /** Text that describes the input */
   label: PropTypes.string,
   /**

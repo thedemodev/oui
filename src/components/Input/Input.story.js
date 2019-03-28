@@ -49,6 +49,15 @@ stories
         </fieldset>
         <fieldset>
           <Input
+            label="Label for required field"
+            isRequired={ true }
+            note="A short description or note about this field."
+            placeholder="Just a placeholder"
+            type="text"
+          />
+        </fieldset>
+        <fieldset>
+          <Input
             label="Field label"
             placeholder="Just a placeholder"
             type="text"
