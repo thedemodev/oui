@@ -45,7 +45,6 @@ stories.add("All Tokens", () => {
           <CopyToClipboard text={item.id} key={item.id}>
             <li className="border--bottom soft--bottom soft--sides push--bottom flex flex-align--center">
               <span className="flex flex--1">
-                <Icon name="clipboard" />
                 <span className="cursor--pointer push-half--left">
                   {item.id}
                 </span>

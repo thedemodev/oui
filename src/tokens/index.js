@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-const _ = require("lodash");
-const path = require("path");
-const glob = require("glob");
-const fse = require("fs-extra");
-const formatToES = require("./formatters/javascript-es");
-const formatToCJS = require("./formatters/javascript-cjs");
-const formatToScss = require("./formatters/scss");
+const _ = require('lodash');
+const path = require('path');
+const glob = require('glob');
+const fse = require('fs-extra');
+const formatToES = require('./formatters/javascript-es');
+const formatToCJS = require('./formatters/javascript-cjs');
+const formatToScss = require('./formatters/scss');
 
-const clean = (outputDir = "./forimport") => {
+const clean = (outputDir = './forimport') => {
   // Clean `dist` directory before starting.
   fse.removeSync(outputDir);
 };
 
-const processFiles = (globPath = path.resolve(__dirname, "./src/*.json")) => {
+const processFiles = (globPath = path.resolve(__dirname, './src/*.json')) => {
   const files = glob.sync(globPath);
 
   if (files.length === 0) {
@@ -22,16 +22,16 @@ const processFiles = (globPath = path.resolve(__dirname, "./src/*.json")) => {
   const contents = {
     cjs: [],
     es: [],
-    scss: []
+    scss: [],
   };
 
   _.forEach(files, file => {
     const fileText = fse.readFileSync(file).toString();
     const fileJSON = JSON.parse(fileText);
 
-    const cjs = _.trim(_.reduce(fileJSON.tokens, formatToCJS, ""));
-    const es = _.trim(_.reduce(fileJSON.tokens, formatToES, ""));
-    const scss = _.trim(_.reduce(fileJSON.tokens, formatToScss, ""));
+    const cjs = _.trim(_.reduce(fileJSON.tokens, formatToCJS, ''));
+    const es = _.trim(_.reduce(fileJSON.tokens, formatToES, ''));
+    const scss = _.trim(_.reduce(fileJSON.tokens, formatToScss, ''));
 
     contents.cjs.push(cjs);
     contents.es.push(es);
@@ -39,14 +39,14 @@ const processFiles = (globPath = path.resolve(__dirname, "./src/*.json")) => {
   });
 
   return {
-    cjs: contents.cjs.join("\n"),
-    es: contents.es.join("\n"),
-    scss: contents.scss.join("\n")
+    cjs: contents.cjs.join('\n'),
+    es: contents.es.join('\n'),
+    scss: contents.scss.join('\n'),
   };
 };
 
-const saveFiles = (contents, dist = path.resolve(__dirname, "./forimport")) => {
-  if (process.env.NODE_ENV !== "test") {
+const saveFiles = (contents, dist = path.resolve(__dirname, './forimport')) => {
+  if (process.env.NODE_ENV !== 'test') {
     fse.outputFileSync(`${dist}/index.cjs.js`, contents.cjs);
     fse.outputFileSync(`${dist}/index.es.js`, contents.es);
     fse.outputFileSync(`${dist}/_index.scss`, contents.scss);
@@ -62,5 +62,5 @@ saveFiles(contents);
 module.exports = {
   clean,
   processFiles,
-  saveFiles
+  saveFiles,
 };
