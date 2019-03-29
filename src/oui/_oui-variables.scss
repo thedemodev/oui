@@ -257,6 +257,9 @@ $button: (
         background           : shade(map-fetch($brand-color, light-blue-100), 20%),
         border               : shade(map-fetch($brand-color, light-blue-100), 30%),
         box-shadow           : inset 0 1px 3px 0 rgba(0, 0, 0, 0.5),
+      ),
+      focus:(
+        border               : map-fetch($brand-color, light-blue-100),
       )
     ),
     outline: (
