@@ -33,7 +33,7 @@ stories
         onBlur={ action('on blur') }
         onKeyDown={ action('on key press') }
         placeholder={ text('placeholder', 'just a placeholder') }
-        required={ boolean('required', false) }
+        isRequired={ boolean('isRequired', false) }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
   })).add('Inputs', () => {
@@ -42,6 +42,15 @@ stories
         <fieldset>
           <Input
             label="Field label"
+            note="A short description or note about this field."
+            placeholder="Just a placeholder"
+            type="text"
+          />
+        </fieldset>
+        <fieldset>
+          <Input
+            label="Label for required field"
+            isRequired={ true }
             note="A short description or note about this field."
             placeholder="Just a placeholder"
             type="text"

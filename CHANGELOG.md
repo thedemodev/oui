@@ -7,6 +7,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens
 
+### Fixed
+- [Patch] Fixed the isRequired prop on <Input> component which wasn't working as expected.
+
 ## 42.3.0 - 2019-03-08
 - [Feature] Fixed <Select> export by including in src/main.js.
 - [Patch] Update ArrowInline default arrow direction to down

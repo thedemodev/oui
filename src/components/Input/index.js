@@ -93,6 +93,7 @@ class Input extends React.Component {
       testSection,
       isOptional,
       note,
+      isRequired,
     } = this.props;
 
     if (label) {
@@ -100,13 +101,13 @@ class Input extends React.Component {
         <div
           data-oui-component={ true }
           className={ classNames({'oui-form-bad-news': displayError}) }>
-          <Label testSection={ testSection && testSection + '-label' }>
-            <div className="oui-label">
-              { label }
-              { isOptional && <span className="oui-label__optional">(Optional)</span> }
-            </div>
-            { this.renderInput(this.props) }
+          <Label
+            testSection={ testSection && testSection + '-label' }
+            isRequired={ isRequired }
+            isOptional={ isOptional }>
+            { label }
           </Label>
+          { this.renderInput(this.props) }
           { note && this.renderNote(this.props)}
         </div>
       );
@@ -145,8 +146,16 @@ Input.propTypes = {
   },
   /** Prevents input from being modified but doesn't appear disabled */
   isReadOnly: PropTypes.bool,
-  /** Prevents input from being submitted without value */
-  isRequired: PropTypes.bool,
+  /** Includes required asterisk label if true
+   *  @param {Object} props Object of props
+   *  @returns {Error} Error or null
+   */
+  isRequired: function verifyIsRequiredProp(props) {
+    if (props.isRequired && !props.label) {
+      return new Error('Must include a value for the label prop to use the isRequired prop');
+    }
+    return null;
+  },
   /** Text that describes the input */
   label: PropTypes.string,
   /**
@@ -205,6 +214,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   note: null,
+  isRequired: false,
 };
 
 export default Input;

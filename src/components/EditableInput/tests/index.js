@@ -45,6 +45,7 @@ describe('components/EditableInput', function() {
       const expectedProps = {
         focus: true,
         value: '',
+        isRequired: false,
         displayError: false,
         label: '',
         note: 'test',
