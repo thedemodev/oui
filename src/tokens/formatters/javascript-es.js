@@ -28,7 +28,7 @@ const toES = (memo, { id, value, description, deprecated }) => {
   }
 
   const formattedName = _.camelCase(id);
-  const formattedValue = _.isNumber(value) ? value : `"${value}"`;
+  const formattedValue = _.isNumber(value) ? value : `'${value}'`;
   const comment = generateComment(description, deprecated);
 
   return `${memo}${comment}\nexport var ${formattedName} = ${formattedValue};`;
