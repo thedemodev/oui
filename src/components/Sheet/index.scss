@@ -1,12 +1,16 @@
-.oui-dialog {
-  position: relative;
+$sheet-width: map-fetch($dialog, width, wide);
+
+.oui-sheet {
+  position: fixed;
+  bottom: 0;
+  height: 85%;
   box-shadow: 0 0 map-fetch($shadow, big);
-  width: map-fetch($dialog, width, base);
+  width: $sheet-width;
   z-index: map-fetch($z-index, dialog);
   background: map-fetch($color, background, white);
 }
 
-.oui-dialog__wrapper {
+.oui-sheet__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +21,7 @@
   top: 0;
 }
 
-.oui-dialog__overlay {
+.oui-sheet__overlay {
   background: map-fetch($color, background, white);
   opacity: 0.5;
   width: 100%;
@@ -28,26 +32,29 @@
   z-index: map-fetch($z-index, overlay);
 }
 
-.oui-dialog__header {
-  margin: spacer(2);
+.oui-sheet__header {
+  margin: spacer(3);
 }
 
-.oui-dialog__footer {
+.oui-sheet__footer {
+  position: fixed;
+  bottom: 0;
+  width: $sheet-width;
   background: map-fetch($dialog, footer, color);
   border-top: 1px solid map-fetch($color, ui, light);
-  padding: spacer(1) spacer(2);
+  padding: spacer(1) spacer(3);
 }
 
-.oui-dialog__body {
+.oui-sheet__body {
   display: flex;
   flex-direction: column;
-  padding: spacer(2) spacer(2) spacer(3) spacer(2);
+  padding: spacer(2) spacer(3) spacer(4) spacer(3);
 }
 
-.oui-dialog__link {
+.oui-sheet__link {
   margin-left: spacer(0.5);
 }
 
-.oui-dialog__close {
+.oui-sheet__close {
   @include dialog-close;
 }

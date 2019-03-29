@@ -1,66 +1,51 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import noop from 'lodash.noop';
 
 import Dialog from './index.js';
+import Fieldset from '../Fieldset';
 import Button from '../Button';
-import ButtonRow from '../ButtonRow';
 import Input from '../Input';
 
 const stories = storiesOf('Dialog', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <div id="root-preview">
-      {story()}
-    </div>
-  ));
+  .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
-  .add('default', withInfo()(() => (<div>
-    <Dialog.Wrapper>
-      <Dialog.Title>This is a Dialog</Dialog.Title>
-
-      <Dialog.Fieldset
-        title="Project Name"
-        description="Give your project a name"
-        isOptional={ false }
-        helpIcon={ true }
-        popoverTitle="Popover title"
-        popoverText="This should help you figure out what to do">
-        <Input label="Some data" />
-      </Dialog.Fieldset>
-
-      <Dialog.Fieldset
-        title="Project Description"
-        description="Give your project a description"
-        isOptional={ true }
-        helpIcon={ true }
-        popoverTitle="Popover title"
-        popoverText="This should help you figure out what to do">
-        <Input label="Some data" />
-      </Dialog.Fieldset>
-
-      <Dialog.Footer>
-        <ButtonRow
-          rightGroup={ [
-            <Button
-              style="plain"
-              key={ 0 }
-              onClick={ noop }>
+  .add(
+    'Default Dialog',
+    withInfo()(() => (
+      <div>
+        <div>
+          {' '}
+          <p>This is text behind the dialog that is blocked by the overlay.</p>
+        </div>
+        <Dialog
+          title={ text('title', 'This is a  Dialog') }
+          subtitle={ text('subtitle', 'This is a subtitle') }
+          hasCloseButton={ boolean('hasCloseButton', true) }
+          footerButtonContent={ [
+            <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
             </Button>,
-            <Button
-              style="highlight"
-              key={ 1 }
-              onClick={ noop }>
+            <Button style="highlight" key={ 1 } onClick={ noop }>
               Save
             </Button>,
-          ] }
-        />
-      </Dialog.Footer>
-    </Dialog.Wrapper>
-  </div>)));
+          ] }>
+          <Fieldset
+            title="Project Settings"
+            description="Some quick setup"
+            helpIcon={ true }
+            popoverTitle="Popover title"
+            popoverText="This should help you figure out what to do">
+            <Input label="Verify Email" type="email"/>
+            <Input label="Confirm Email" type="email"/>
+          </Fieldset>
+        </Dialog>
+      </div>
+    ))
+  );

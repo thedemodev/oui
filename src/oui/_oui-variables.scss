@@ -449,6 +449,9 @@ $dialog: (
     base                     : 700px,
     narrow                   : 500px,
     wide                     : 900px
+  ),
+  footer:(
+    color                    : #f7f7f7,
   )
 );
 
@@ -532,6 +535,8 @@ $spinner: (
 /// Z-index Values
 
 $z-index: (
+  dialog                     : 2000,
+  overlay                    : 1000,
   poptip                     : 100,
   sidebar                    : 99,
   toolbar                    : 1,

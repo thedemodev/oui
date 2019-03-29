@@ -3,44 +3,44 @@ import React from 'react';
 import Icon from 'react-oui-icons';
 import ButtonRow from '../ButtonRow';
 
-const Dialog = props => (
-  <div className="oui-dialog__wrapper">
-    <div className="oui-dialog__overlay" />
+const Sheet = props => (
+  <div className="oui-sheet__wrapper">
+    <div className="oui-sheet__overlay" />
     <div
       data-ui-component={ true }
-      className="oui-dialog overflow-y--auto"
+      className="oui-sheet overflow-y--auto"
       data-test-section={ props.testSection }>
-      {props.hasCloseButton && <button className="oui-dialog__close" onClick={ props.onClose }>
+      {props.hasCloseButton && <button className="oui-sheet__close" onClick={ props.onClose }>
         <Icon name="close" />
       </button>}
-      <div className="oui-dialog__header">
+      <div className="oui-sheet__header">
         <h2 className="push--bottom">{props.title}</h2>
       </div>
-      <div className="oui-dialog__body">
+      <div className="oui-sheet__body">
         {props.children}
       </div>
-      <div className="oui-dialog__footer">
+      <div className="oui-sheet__footer">
         <ButtonRow rightGroup={ props.footerButtonContent }/>
       </div>
     </div>
   </div>
 );
 
-Dialog.propTypes = {
+Sheet.propTypes = {
   /**
-   * The body of the dialog to request minimal information from the user.
+   *  The body of the sheet to request information and data from the user.
    */
   children: PropTypes.node.isRequired,
   /**
-   * Array of buttons used in the footer of the dialog.
+   * Array of buttons used in the footer of the sheet.
    */
   footerButtonContent: PropTypes.array.isRequired,
   /**
-   *  Used to determine if the dialog should have a close button.
+   *  Used to determine if the sheet should have a close button.
    */
   hasCloseButton: PropTypes.bool,
   /**
-   *  Function to perform when the dialog is closed.
+   * Function to perform when the sheet is closed.
    */
   onClose: PropTypes.func,
   /**
@@ -48,9 +48,9 @@ Dialog.propTypes = {
    */
   testSection: PropTypes.string,
   /**
-   * Main title of the dialog.
+   * Main title of the sheet.
    */
   title: PropTypes.string.isRequired,
 };
 
-export default Dialog;
+export default Sheet;
