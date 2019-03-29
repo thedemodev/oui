@@ -1,18 +1,18 @@
 {
   "name": "Color",
-  "description": "Optimizely brand and product colors.",
+  "description": "Optimizely product colors.",
   "tokens": [
     {
       "name": "Brand Blue (Light)",
       "id": "brand-blue-light",
-      "value": "hsla(227, 100%, 75%, 1)",
+      "value": "hsla(227, 100%, 95%, 1)",
       "hex": "#e6ebff",
       "type": "color"
     },
     {
       "name": "Brand Blue",
       "id": "brand-blue-base",
-      "value": "hsla(227, 100%, 63%, 1)",
+      "value": "hsla(227, 100%, 87%, 1)",
       "hex": "#bdcbff",
       "type": "color"
     },
@@ -26,14 +26,14 @@
     {
       "name": "Brand Purple (Light)",
       "id": "brand-purple-light",
-      "value": "hsla(240, 11%, 56%, 1)",
+      "value": "hsla(240, 11%, 91%, 1)",
       "hex": "#e6e6eb",
       "type": "color"
     },
     {
       "name": "Brand Purple",
       "id": "brand-purple-base",
-      "value": "hsla(242, 21%, 34%, 1)",
+      "value": "hsla(240, 11%, 78%, 1)",
       "hex": "#c1c1cd",
       "type": "color"
     },
@@ -66,6 +66,26 @@
       "type": "color"
     },
     {
+      "name": "Grey (Light)",
+      "id": "grey-light",
+      "value": "hsla(0, 0%, 81%, 1)",
+      "hex": "#cfcfcf",
+      "type": "color"
+    },
+    {
+      "name": "Grey",
+      "id": "grey-base",
+      "value": "hsla(0, 0%, 62%, 1)",
+      "hex": "#9e9e9e",
+      "type": "color"
+    },
+    {
+      "name": "Grey (Dark)",
+      "id": "grey-dark",
+      "value": "hsla(0, 0%, 44%, 1)",
+      "hex": "#707070"
+    },
+    {
       "name": "Purple (Light)",
       "id": "purple-light",
       "value": "hsla(263, 76%, 66%, 1)",
@@ -87,24 +107,45 @@
       "type": "color"
     },
     {
-      "name": "Aqua Blue (Light)",
-      "id": "aqua-light",
-      "value": "hsla(186, 100%, 69%, 1)",
-      "hex": "#61efff",
+      "name": "Magenta (Light)",
+      "id": "magenta-light",
+      "value": "hsla(292, 71%, 63%, 1)",
+      "hex": "#d25ee4",
       "type": "color"
     },
     {
-      "name": "Aqua Blue",
-      "id": "aqua-base",
-      "value": "hsla(187, 100%, 42%, 1)",
-      "hex": "#00bdd6",
+      "name": "Magenta",
+      "id": "magenta-base",
+      "value": "hsla(291, 64%, 42%, 1)",
+      "hex": "#9b27b0",
       "type": "color"
     },
     {
-      "name": "Aqua Blue (Dark)",
-      "id": "aqua-blue-dark",
-      "value": "hsla(189, 100%, 32%, 1)",
-      "hex": "#008ba3",
+      "name": "Magenta (Dark)",
+      "id": "magenta-dark",
+      "value": "hsla(290, 100%, 25%, 1)",
+      "hex": "#6a0080",
+      "type": "color"
+    },
+    {
+      "name": "Red (Light)",
+      "id": "red-light",
+      "value": "hsla(9, 100%, 69%, 1)",
+      "hex": "#ff7961",
+      "type": "color"
+    },
+    {
+      "name": "Red",
+      "id": "red-base",
+      "value": "hsla(4, 90%, 58%, 1)",
+      "hex": "#f44034",
+      "type": "color"
+    },
+    {
+      "name": "Red (Dark)",
+      "id": "red-dark",
+      "value": "hsla(356, 100%, 36%, 1)",
+      "hex": "#b8000c",
       "type": "color"
     },
     {
@@ -150,24 +191,24 @@
       "type": "color"
     },
     {
-      "name": "Magenta (Light)",
-      "id": "magenta-light",
-      "value": "hsla(292, 71%, 63%, 1)",
-      "hex": "#d25ee4",
+      "name": "Amber (Light)",
+      "id": "amber-light",
+      "value": "hsla(56, 100%, 66%, 1)",
+      "hex": "#fff352",
       "type": "color"
     },
     {
-      "name": "Magenta",
-      "id": "magenta-base",
-      "value": "hsla(291, 64%, 42%, 1)",
-      "hex": "#9b27b0",
+      "name": "Amber",
+      "id": "amber-base",
+      "value": "hsla(45, 100%, 51%, 1)",
+      "hex": "#ffc105",
       "type": "color"
     },
     {
-      "name": "Magenta (Dark)",
-      "id": "magenta-dark",
-      "value": "hsla(290, 100%, 25%, 1)",
-      "hex": "#6a0080",
+      "name": "Amber (Dark)",
+      "id": "amber-dark",
+      "value": "hsla(44, 100%, 39%, 1)",
+      "hex": "#c79200",
       "type": "color"
     },
     {
@@ -192,24 +233,24 @@
       "type": "color"
     },
     {
-      "name": "Red (Light)",
-      "id": "red-light",
-      "value": "hsla(9, 100%, 69%, 1)",
-      "hex": "#ff7961",
+      "name": "Aqua Blue (Light)",
+      "id": "aqua-light",
+      "value": "hsla(186, 100%, 69%, 1)",
+      "hex": "#61efff",
       "type": "color"
     },
     {
-      "name": "Red",
-      "id": "red-base",
-      "value": "hsla(4, 90%, 58%, 1)",
-      "hex": "#f44034",
+      "name": "Aqua Blue",
+      "id": "aqua-base",
+      "value": "hsla(187, 100%, 42%, 1)",
+      "hex": "#00bdd6",
       "type": "color"
     },
     {
-      "name": "Red (Dark)",
-      "id": "red-dark",
-      "value": "hsla(356, 100%, 36%, 1)",
-      "hex": "#b8000c",
+      "name": "Aqua Blue (Dark)",
+      "id": "aqua-blue-dark",
+      "value": "hsla(189, 100%, 32%, 1)",
+      "hex": "#008ba3",
       "type": "color"
     },
     {
@@ -232,47 +273,6 @@
       "value": "hsla(207, 100%, 38%, 1)",
       "hex": "#006bc2",
       "type": "color"
-    },
-    {
-      "name": "Amber (Light)",
-      "id": "amber-light",
-      "value": "hsla(56, 100%, 66%, 1)",
-      "hex": "#fff352",
-      "type": "color"
-    },
-    {
-      "name": "Amber",
-      "id": "amber-base",
-      "value": "hsla(45, 100%, 51%, 1)",
-      "hex": "#ffc105",
-      "type": "color"
-    },
-    {
-      "name": "Amber (Dark)",
-      "id": "amber-dark",
-      "value": "hsla(44, 100%, 39%, 1)",
-      "hex": "#c79200",
-      "type": "color"
-    },
-    {
-      "name": "Grey (Light)",
-      "id": "grey-light",
-      "value": "hsla(0, 0%, 81%, 1)",
-      "hex": "#cfcfcf",
-      "type": "color"
-    },
-    {
-      "name": "Grey",
-      "id": "grey-base",
-      "value": "hsla(0, 0%, 62%, 1)",
-      "hex": "#9e9e9e",
-      "type": "color"
-    },
-    {
-      "name": "Grey (Dark)",
-      "id": "grey-dark",
-      "value": "hsla(0, 0%, 44%, 1)",
-      "hex": "#707070"
     }
   ]
 }
