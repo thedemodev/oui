@@ -9,6 +9,18 @@ const RangeSlider = (props) => {
     isDisabled,
   } = props;
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selected: this.props.sliderValue,
+    };
+  }
+
+  handleSlider() {
+      return {state.sliderValue}
+  }
+
   const rangeClasses = classnames({
     'oui-rangeslider': true,
     'oui-rangeslider--disabled': isDisabled,
@@ -25,7 +37,7 @@ const RangeSlider = (props) => {
           <div className="range-display">
             <div
               className="range-display range-display-overlay"
-              style={{ left: value + '%' }}>
+              style={{ left: this.state.sliderValue + '%' }}>
             </div>
           </div>
           <div className="range-grid">
@@ -46,7 +58,7 @@ const RangeSlider = (props) => {
             min="0"
             max="100"
             step="1"
-            value={ value }
+            defaultvalue={ value }
             onChange={ onChange }
             disabled={ isDisabled }
           />
