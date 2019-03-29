@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] Add colors design tokens
+- [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens
 
 ## 42.3.0 - 2019-03-08
 - [Feature] Fixed <Select> export by including in src/main.js.
