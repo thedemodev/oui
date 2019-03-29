@@ -14,7 +14,7 @@ import designTokens from "../src/tokens/src/color.json";
 const stories = storiesOf("Design Tokens/", module);
 stories.addDecorator(story => <div id="root-preview">{story()}</div>);
 
-stories.add("All Tokens", () => {
+stories.add("Colors", () => {
   return (
     <div className="reading-column">
       <h1 className="push--bottom">
