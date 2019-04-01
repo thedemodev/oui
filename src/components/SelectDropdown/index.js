@@ -119,7 +119,7 @@ class SelectDropdown extends React.Component {
       {['oui-form-bad-news']: this.props.displayError}
     );
 
-    const activatorLabel = selectedItem.activatorLabel || selectedItem.label;
+    const activatorLabel = !!selectedItem ? (selectedItem.activatorLabel || selectedItem.label) : '';
 
     return (
       <Dropdown
