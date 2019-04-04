@@ -38,7 +38,8 @@ class Input extends React.Component {
     maxLength,
     testSection,
     focus,
-    textAlign }) {
+    textAlign,
+    id }) {
 
     let hasAlignStyle = false;
     if (textAlign) {
@@ -58,6 +59,7 @@ class Input extends React.Component {
       <input
         data-oui-component={ true }
         className={ classes }
+        id={ id }
         ref={ (c) => { this._input = c; } }
         type={ type }
         value={ value }
@@ -94,6 +96,7 @@ class Input extends React.Component {
       isOptional,
       note,
       isRequired,
+      id,
     } = this.props;
 
     if (label) {
@@ -104,7 +107,8 @@ class Input extends React.Component {
           <Label
             testSection={ testSection && testSection + '-label' }
             isRequired={ isRequired }
-            isOptional={ isOptional }>
+            isOptional={ isOptional }
+            inputId={ id }>
             { label }
           </Label>
           { this.renderInput(this.props) }
@@ -130,6 +134,8 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   /** Includes search icon if true */
   displayError: PropTypes.bool,
+  /** Id of the input to properly associate with the input's label */
+  id: PropTypes.string,
   /** Prevents input from being modified and appears disabled */
   isDisabled: PropTypes.bool,
   /** Includes error if true */

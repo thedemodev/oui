@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add option to link a Label to an Input by specifying an `inputId` on the Label or an `id` and `label` on an Input. 
+
 ### Fixed
 - [Patch] Fixed the isRequired prop on <Input> component which wasn't working as expected.
 
