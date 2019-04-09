@@ -5,23 +5,24 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-### Fixed
-- [Patch] Fixed the isRequired prop on <Input> component which wasn't working as expected.
+
+- [Feature] Add option to link a **Label** to an **Input** by specifying an `inputId` on the **Label** or an `id` and `label` on an **Input** ([#1141](https://github.com/optimizely/oui/pull/1141))
+- [Patch] Fixed the `isRequired` prop on **Input** component which wasn't working as expected ([#1136](https://github.com/optimizely/oui/pull/1136))
 
 ## 42.3.0 - 2019-03-08
-- [Feature] Fixed <Select> export by including in src/main.js.
+- [Feature] Fixed Select export by including in src/main.js.
 - [Patch] Update ArrowInline default arrow direction to down
 - [Patch] Update Dropdown component to remove arrowIcon `true` option
-- [Patch] Update <Steps> styling to have an outline for the Active step and filled circles for Complete steps
+- [Patch] Update Steps styling to have an outline for the Active step and filled circles for Complete steps
 
 ## 42.2.1 - 2019-02-25
 - [Patch] Lockdown highlight.js dependency to version 9.5.0
 
 ## 42.2.0 - 2019-02-22
-- [Patch] Change edit pencil to face opposite direction in <EditableInput> component
+- [Patch] Change edit pencil to face opposite direction in EditableInput component
 - [Patch] Add encodecolor() SASS function to convert `#` character to `%23` encoded entity to fix Chrome update breaking `#hexcolor` use in inline `<svg>` background image with `$var-color`
-- [Feature] Add hasSnugWrap and hasWrap props for <Token> component
-- [Patch] Tighten spacing around tokens in <TokensInput> component by using new snug wrap Token
+- [Feature] Add hasSnugWrap and hasWrap props for Token component
+- [Patch] Tighten spacing around tokens in TokensInput component by using new snug wrap Token
 
 ## 42.1.0 - 2019-02-20
 - [Feature] Add onBlur, flexing, and logic with maxTags and placeholder for input of TokensInput (#1123)
@@ -29,8 +30,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Fix design debt and remove CSS to tint EmptyDashboard images
 
 ## 41.0.0 - 2019-2-1
-- [Major] (Breaking changes) Update <TokensInput> props form to handle addKeys more clearly and scalably. (#1116) Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
-- [Patch] Conditionally render <Popper> within <Dropdown> only when the children should be shown for performance reasons.
+- [Major] (Breaking changes) Update TokensInput props form to handle addKeys more clearly and scalably. (#1116) Removes `spacesAllowedInToken` prop in favor of `extraAddKeys`.
+- [Patch] Conditionally render Popper within Dropdown only when the children should be shown for performance reasons.
 - [Feature] Add Sortable component (#1115)
 
 ## 40.15.0 - 2019-1-23
@@ -40,14 +41,14 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## 40.14.2 - 2019-1-22
 - [Patch] Relax Input component value attribute propType validation to allow number type in addition to string
 - [Docs] Update FilterPicker docs
-- [Patch] Add indented prop to <Disclose> to allow consumers to disable the default indentation.
+- [Patch] Add indented prop to Disclose to allow consumers to disable the default indentation.
 
 ## 40.14.1 - 2019-1-11
-- [Patch] Add "step" property to <Input> component.
-- [Patch] Fixed <SelectDropdown> Component. Gets properly disabled when isDisabled prop is true
+- [Patch] Add "step" property to Input component.
+- [Patch] Fixed SelectDropdown Component. Gets properly disabled when isDisabled prop is true
 
 ## 40.14.0 - 2019-1-4
-- [Feature] Added <TokensInput> Component (#1097)
+- [Feature] Added TokensInput Component (#1097)
 
 ## 40.13.3 - 2018-12-5
 - [Patch] Add gutters prop to BlockList.Item
@@ -230,8 +231,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## 31.8.0 - 2018-07-13
 ### Added
-- [Feature] Add <Accordion> React component from existing OUI HTML/CSS
-- [Feature] Add <TabNav style=dashboard> style ported from X (#989)
+- [Feature] Add Accordion React component from existing OUI HTML/CSS
+- [Feature] Add `<TabNav style=dashboard>` style ported from X (#989)
 
 ### Fixed
 - [Patch] Updated CONTRIBUTING.md file with better instructions on installing, developing in and releasing new versions of OUI
@@ -282,7 +283,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## 31.4.0 - 2018-05-25
 ### Added
-- [Feature] New `type=percent` prop for <TextField> component that adds `%` and handles vertical centering automatically.
+- [Feature] New `type=percent` prop for TextField component that adds `%` and handles vertical centering automatically.
 - [Patch] Fix `<TextField type=number>` to align text right.
 
 ### Changed
@@ -363,13 +364,13 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Update babel to support decorators
 
 ## 29.3.2 - 2018-02-22
-- [Fix] Fix Code and CopyButton components  
-- [Fix] Fix Accordion CSS to be backward compatible  
+- [Fix] Fix Code and CopyButton components
+- [Fix] Fix Accordion CSS to be backward compatible
 
 ## 29.1.0 - 2018-02-21
 - [Docs] Add new docs and update storybook
 - [Patch] Bump react-oui-icons library
-- [Patch] Export ES5 React Components as `package.main`, ES6 Components as `package.module`  
+- [Patch] Export ES5 React Components as `package.main`, ES6 Components as `package.module`
 
 ## 29.0.2 - 2018-02-16
 - [Fixed] Ensure recompose'd components (Disclose/Dropdown) can still be identified by their exported class name.
@@ -390,7 +391,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## 28.8.0 - 2018-02-02
 - [Patch] Fix ProgressDots bug
 - [Patch] Travis config changes to remove danoc from npm account
-- [Feature] Add arrowIcon prop and node Dropdown component.  
+- [Feature] Add arrowIcon prop and node Dropdown component.
 - [Feature] Add toggle/show/hide higher-order component
 - [Feature] New utility library called recompose
 - [Feature] Convert components to stateless/dumb components
@@ -930,7 +931,7 @@ _This version was accidentally released and contains no changes._
 ### Added
 - [Feature] Add size class based on icon size prop. (#517)
 - [Feature] Add TabNav react component
-- [Feature] Add isFilter prop to <Input> for search icon (#488)
+- [Feature] Add isFilter prop to Input for search icon (#488)
 
 ### Changed
 - [Patch] Update disclose arrow to narrow style per Silvia. (#504)
@@ -939,7 +940,7 @@ _This version was accidentally released and contains no changes._
 
 ## [14.0.5](http://design.optimizely.com/docs/oui/14.0.5/) - 2016-08-17
 ### Added
-- [Feature] Add isFilter prop to <Input> for search icon (#488)
+- [Feature] Add isFilter prop to Input for search icon (#488)
 - [Patch] Update require.css statement to ignore local webpack config transforms. Minor version bump from publish issues (user error). (#498)
 - [Patch] Update require.css statement to ignore local webpack config transforms. Version patch bump due to publish user error. (#498)
 
