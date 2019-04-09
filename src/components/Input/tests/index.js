@@ -191,6 +191,14 @@ describe('components/Input', () => {
     expect(component.find('[data-test-section="foo-label"]').length).toBe(1);
   });
 
+  it('should render for and id attributes if an id is passed', () => {
+    const component = mount(
+      <Input type="text" testSection="foo" label="Input Label" id="input-01" />
+    );
+    expect(component.is('[id="input-01"]')).toBe(true);
+    expect(component.find('[htmlFor="input-01"]').exists()).toBe(true);
+  });
+
   it('should render a label with optional text if label and isOptional is passed', () => {
     const component = mount(
       <Input type="text" testSection="foo" label="Input Label" isOptional={ true } />
