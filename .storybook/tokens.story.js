@@ -14,6 +14,23 @@ import designTokens from "../src/tokens/src/color.json";
 const stories = storiesOf("Design Tokens/", module);
 stories.addDecorator(story => <div id="root-preview">{story()}</div>);
 
+stories.add("Overview", () => {
+  return (
+    <div className="reading-column">
+      <h1 className="push--bottom">
+        Axiom Design Tokens <span className="muted">v1.0.0</span>
+      </h1>
+      <div className="push-quad--bottom">
+        <p>
+          Design tokens represent the fundamental visual attributes of our design system. We use these tokens in place of hard-coded values such as hex colors or pixel sizes in order to maintain a scalable and consistent user interface.
+        </p>
+        <p>
+          Think of design tokens as global design variables to be used across our apps, products and services.
+        </p>
+      </div>
+    </div>
+  );
+});
 stories.add("Colors", () => {
   return (
     <div className="reading-column">
