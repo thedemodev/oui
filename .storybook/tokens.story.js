@@ -9,7 +9,6 @@ import Icon from "react-oui-icons";
 
 import css from "/Users/drau/Sites/csswhat/css/oui.css.json";
 import designTokens from "../src/tokens/src/color.json";
-// import OUItokens from "@optimizely-oui/src/tokens/forimport/index.es";
 
 const stories = storiesOf("Design Tokens/", module);
 stories.addDecorator(story => <div id="root-preview">{story()}</div>);
