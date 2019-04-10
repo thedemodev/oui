@@ -1,4 +1,5 @@
 import React from "react";
+const _ = require('lodash');
 import { storiesOf } from "@storybook/react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Code from "../src/components/Code";
@@ -32,7 +33,8 @@ stories.add("Colors", () => {
       </h1>
       <div className="push-quad--bottom">
         <p>
-          Design tokens are global design variables for a given context, available in Sass or JavaScript.
+          Design tokens are global design variables for a given context.
+          <span className="push-half--left micro muted">(Available in JavaScript and Sass)</span>
         </p>
 
         <Code
@@ -55,7 +57,7 @@ stories.add("Colors", () => {
             <li className="border--bottom soft--bottom soft--sides push--bottom flex flex-align--center">
               <span className="flex flex--1">
                 <span className="cursor--pointer push-half--left">
-                  {item.id}
+                  {_.camelCase(item.id)}
                 </span>
               </span>
               <span className="flex">
