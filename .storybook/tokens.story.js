@@ -36,15 +36,15 @@ stories.add("Colors", () => {
           Design tokens are global design variables for a given context.
           <span className="push-half--left micro muted">(Available in JavaScript and Sass)</span>
         </p>
-
         <Code
           hasCopyButton
           testSection="my-code-box"
           type="block"
           language="js"
         >
-          import designTokens from
+          import &#123;brandBlueDark&#125; from
           "@optimizely-oui/src/tokens/forimport/index.es";
+          ...&lt;YourComponent backgroundColor=&#123;brandBlueDark&#125;/&gt;
         </Code>
       </div>
 
