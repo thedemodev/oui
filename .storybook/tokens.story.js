@@ -1,12 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
-import Select from "../src/components/Select";
-import TabNav from "../src/components/TabNav";
 import Code from "../src/components/Code";
-import Icon from "react-oui-icons";
-
 import designTokens from "../src/tokens/src/color.json";
 
 const stories = storiesOf("Design Tokens/", module);
