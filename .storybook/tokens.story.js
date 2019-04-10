@@ -7,7 +7,6 @@ import TabNav from "../src/components/TabNav";
 import Code from "../src/components/Code";
 import Icon from "react-oui-icons";
 
-import css from "/Users/drau/Sites/csswhat/css/oui.css.json";
 import designTokens from "../src/tokens/src/color.json";
 
 const stories = storiesOf("Design Tokens/", module);
