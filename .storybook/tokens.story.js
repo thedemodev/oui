@@ -20,11 +20,11 @@ stories.add("Overview", () => {
         Axiom Design Tokens <span className="muted">v1.0.0</span>
       </h1>
       <div className="push-quad--bottom">
-        <p>
-          Design tokens represent the fundamental visual attributes of our design system. We use these tokens in place of hard-coded values such as hex colors or pixel sizes in order to maintain a scalable and consistent user interface.
+        <p className="delta">
+          Think of design tokens as <strong>global design variables for a given context</strong> that can be used across our apps, products and services.
         </p>
         <p>
-          Think of design tokens as global design variables to be used across our apps, products and services.
+          Design tokens represent the fundamental visual attributes of our design system. We use these tokens in place of hard-coded values such as hex colors or pixel sizes in order to maintain a scalable and consistent user interface.
         </p>
       </div>
     </div>
@@ -38,8 +38,7 @@ stories.add("Colors", () => {
       </h1>
       <div className="push-quad--bottom">
         <p>
-          Our design tokens serve as global design variables across apps,
-          products and services.
+          Design tokens are global design variables for a given context, available in Sass or JavaScript.
         </p>
 
         <Code
