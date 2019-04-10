@@ -71,4 +71,9 @@ describe('components/Label', () => {
     const component = shallow(<Label testSection="foo">Foo</Label>);
     expect(component.is('[data-test-section="foo"]')).toBe(true);
   });
+
+  it('should have a properly set for attribute if inputId is set', () => {
+    const component = render(<Label testSection="foo" inputId="input-01">Foo</Label>);
+    expect(component.is('[for="input-01"]')).toBe(true);
+  });
 });

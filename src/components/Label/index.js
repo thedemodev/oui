@@ -11,6 +11,7 @@ const Label = ({
   isRequired,
   children,
   testSection,
+  inputId,
 }) => {
   let classes = null;
   let fieldLabel = null;
@@ -29,7 +30,8 @@ const Label = ({
     <label
       data-oui-component={ true }
       className={ classes }
-      data-test-section={ testSection }>
+      data-test-section={ testSection }
+      htmlFor={ inputId }>
       { children }
       { fieldLabel }
     </label>
@@ -42,6 +44,8 @@ Label.propTypes = {
     PropTypes.string.isRequired,
     PropTypes.node.isRequired,
   ]),
+  /** Id of the input to properly associate with this label */
+  inputId: PropTypes.string,
   /** Includes optional label if true */
   isOptional: PropTypes.bool,
   /** Includes required asterisk label if true */
