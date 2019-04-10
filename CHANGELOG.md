@@ -5,8 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens
-- [Patch] Fixed the isRequired prop on <Input> component which wasn't working as expected.
+
+## 42.5.0 - 2019-04-00
+- [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens ([#1137](https://github.com/optimizely/oui/pull/1137))
 
 ## 42.4.0 - 2019-04-09
 - [Feature] Add option to link a **Label** to an **Input** by specifying an `inputId` on the **Label** or an `id` and `label` on an **Input** ([#1141](https://github.com/optimizely/oui/pull/1141))
