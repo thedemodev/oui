@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Minor fixes to Storybook Button and Design Tokens stories ([#1143](https://github.com/optimizely/oui/pull/1143))
 
 ## 42.5.0 - 2019-04-00
 - [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens ([#1137](https://github.com/optimizely/oui/pull/1137))
