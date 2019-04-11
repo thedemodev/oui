@@ -53,7 +53,7 @@ stories.add("Colors", () => {
       </h3>
       <ul className="oui-list push--ends">
         {designTokens.tokens.map(item => (
-          <CopyToClipboard text={item.id} key={item.id}>
+          <CopyToClipboard text={_.camelCase(item.id)} key={item.id}>
             <li className="border--bottom soft--bottom soft--sides push--bottom flex flex-align--center">
               <span className="flex flex--1">
                 <span className="cursor--pointer push-half--left">
