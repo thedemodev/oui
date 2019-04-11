@@ -20,7 +20,7 @@ stories
   ));
 
 stories
-  .add('customize me!', () => {
+  .add('customize me!', withInfo()(() => {
     return (
       <Button
         style={ select('style', {
@@ -47,7 +47,7 @@ stories
           'tight': 'tight'}, 'narrow') }>
         { text('customize me!', 'customize me!') }
       </Button>);
-  })
+  }))
   .add('all buttons', withInfo()(() => {
     return (
       <ButtonRow
