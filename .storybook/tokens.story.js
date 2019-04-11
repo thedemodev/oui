@@ -16,36 +16,24 @@ stories.add("Overview", () => {
       </h1>
       <div className="push-quad--bottom">
         <p className="delta">
-          Think of design tokens as <strong>global design variables for a given context</strong> that can be used across our apps, products and services.
+          Think of design tokens as <strong>global design variables for a given context</strong>.
         </p>
         <p>
           Design tokens represent the fundamental visual attributes of our design system. We use these tokens in place of hard-coded values such as hex colors or pixel sizes in order to maintain a scalable and consistent user interface.
-        </p>
-      </div>
-    </div>
-  );
-});
-stories.add("Colors", () => {
-  return (
-    <div className="reading-column">
-      <h1 className="push--bottom">
-        Axiom Design Tokens <span className="muted">v1.0.0</span>
-      </h1>
-      <div className="push-quad--bottom">
-        <p>
-          Design tokens are global design variables for a given context.
           <span className="push-half--left micro muted">(Available in JavaScript and Sass)</span>
         </p>
-        <Code
+        <div className="push-double--top">
+          <Code
           hasCopyButton
           testSection="my-code-box"
           type="block"
           language="js"
         >
           import &#123;brandBlueDark&#125; from
-          "@optimizely-oui/src/tokens/forimport/index.es";
-          ...&lt;YourComponent backgroundColor=&#123;brandBlueDark&#125;/&gt;
+          "@optimizely-oui/src/tokens/forimport/index.es";<br/>
+          ... &lt;YourComponent backgroundColor=&#123;brandBlueDark&#125;/&gt;
         </Code>
+        </div>
       </div>
 
       <h3 className="push-double--bottom">
@@ -53,7 +41,7 @@ stories.add("Colors", () => {
       </h3>
       <ul className="oui-list push--ends">
         {designTokens.tokens.map(item => (
-          <CopyToClipboard text={item.id} key={item.id}>
+          <CopyToClipboard text={_.camelCase(item.id)} key={item.id}>
             <li className="border--bottom soft--bottom soft--sides push--bottom flex flex-align--center">
               <span className="flex flex--1">
                 <span className="cursor--pointer push-half--left">
