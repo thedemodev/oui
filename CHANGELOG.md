@@ -5,11 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 42.6.0 - 2019-04-12
 - [Feature] Update **Dialog** component to be a smaller, quick action dialog for user acknowledgment or a few inputs ([#1134](https://github.com/optimizely/oui/pull/1134))
 - [Feature] Add **Sheet** component for large creation flows that involve multiple data inputs ([#1134](https://github.com/optimizely/oui/pull/1134))
 - [Patch] Minor fixes to Storybook Button and Design Tokens stories ([#1143](https://github.com/optimizely/oui/pull/1143))
 
-## 42.5.0 - 2019-04-00
+## 42.5.0 - 2019-04-10
 - [Feature] Add Design Tokens v1.0.0: Colors; added story, import base Sass colors from tokens ([#1137](https://github.com/optimizely/oui/pull/1137))
 
 ## 42.4.0 - 2019-04-09
