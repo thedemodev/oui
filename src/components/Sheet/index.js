@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from 'react-oui-icons';
 import ButtonRow from '../ButtonRow';
+import CloseButton from '../CloseButton';
 
 const Sheet = props => (
   <div className="oui-sheet__wrapper">
@@ -10,18 +10,17 @@ const Sheet = props => (
       data-ui-component={ true }
       className="oui-sheet overflow-y--auto"
       data-test-section={ props.testSection }>
-      {props.hasCloseButton && <button className="oui-sheet__close" onClick={ props.onClose }>
-        <Icon name="close" />
-      </button>}
-      <div className="oui-sheet__header">
-        <h2 className="push--bottom">{props.title}</h2>
-      </div>
+      {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}
+      <header className="oui-sheet__header">
+        <h2 className="flush--bottom">{props.title}</h2>
+        {props.subtitle && <p className="push--top flush--bottom">{props.subtitle}</p>}
+      </header>
       <div className="oui-sheet__body">
         {props.children}
       </div>
-      <div className="oui-sheet__footer">
-        <ButtonRow rightGroup={ props.footerButtonContent }/>
-      </div>
+      <footer className="oui-sheet__footer">
+        <ButtonRow rightGroup={ props.footerButtonList }/>
+      </footer>
     </div>
   </div>
 );
@@ -34,7 +33,7 @@ Sheet.propTypes = {
   /**
    * Array of buttons used in the footer of the sheet.
    */
-  footerButtonContent: PropTypes.array.isRequired,
+  footerButtonList: PropTypes.array.isRequired,
   /**
    *  Used to determine if the sheet should have a close button.
    */
@@ -44,6 +43,10 @@ Sheet.propTypes = {
    */
   onClose: PropTypes.func,
   /**
+   * A subtitle for the sheet.
+   */
+  subtitle: PropTypes.string,
+  /**
    * Identifier used to create data-test-section attributes for testing.
    */
   testSection: PropTypes.string,
@@ -51,6 +54,13 @@ Sheet.propTypes = {
    * Main title of the sheet.
    */
   title: PropTypes.string.isRequired,
+};
+
+Sheet.defaultProps = {
+  hasCloseButton: true,
+  onClose: () => {},
+  subtitle: '',
+  testSection: '',
 };
 
 export default Sheet;

@@ -11,6 +11,8 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Code } from './components/Code';
 export { default as CopyButton } from './components/CopyButton';
 export { default as Dialog } from './components/Dialog';
+/* Temporary export while we migrate from deprecated to new Dialog cmp */
+export { DialogNew } from './components/Dialog';
 export { default as Disclose } from './components/Disclose';
 export { default as DiscloseTable } from './components/DiscloseTable';
 export { default as Dropdown } from './components/Dropdown';
@@ -32,6 +34,7 @@ export { default as Radio } from './components/Radio';
 export { default as RangeSlider } from './components/RangeSlider';
 export { default as Select } from './components/Select';
 export { default as SelectDropdown } from './components/SelectDropdown';
+export { default as Sheet } from './components/Sheet';
 export { default as Sidebar } from './components/Sidebar';
 export { default as Sortable } from './components/Sortable';
 export { default as Spinner } from './components/Spinner';

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import noop from 'lodash.noop';
+import { action } from '@storybook/addon-actions';
 
 import Sheet from './index.js';
 import Button from '../Button';
@@ -17,14 +18,16 @@ stories
 
 stories
   .add(
-    'Default Sheet',
+    'default',
     withInfo()(() => (
       <div>
-        <p>This is text behind the prompt that is blocked by the overlay.</p>
+        <p>This is text behind the sheet that is blocked by the overlay.</p>
         <Sheet
           title={ text('title', 'This is a Sheet') }
+          subtitle={ text('subtitle', 'This is an optional subtitle') }
           hasCloseButton={ boolean('hasCloseButton', true) }
-          footerButtonContent={ [
+          onClose={ action('Sheet was closed') }
+          footerButtonList={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
             </Button>,

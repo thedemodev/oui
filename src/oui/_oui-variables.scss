@@ -443,7 +443,8 @@ $shadow: (
 /// Opacity
 
 $opacity: (
-  medium                     : 0.5
+  medium                     : 0.5,
+  heavy                      : 0.75,
 );
 
 /// Dialog widths
@@ -539,8 +540,7 @@ $spinner: (
 /// Z-index Values
 
 $z-index: (
-  dialog                     : 2000,
-  overlay                    : 1000,
+  dialog                     : 3000,
   poptip                     : 100,
   sidebar                    : 99,
   toolbar                    : 1,
