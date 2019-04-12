@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import EditableInput from './index.js';
 
@@ -16,14 +17,14 @@ stories
   ));
 
 stories
-  .add('EditableInput', () => {
+  .add('EditableInput', withInfo()(() => {
     return (
       <EditableInput
         value="Click me to edit"
         onChange={ action('on change') }
         type="text"
       />);
-  })
+  }))
   .add('Error state', () => {
     return (
       <EditableInput
