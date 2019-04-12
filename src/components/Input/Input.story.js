@@ -37,7 +37,7 @@ stories
         isRequired={ boolean('isRequired', false) }
         type={ select('type', ['text', 'password', 'number', 'date'], 'text') }
       />);
-  })).add('Inputs', () => {
+  })).add('Inputs', withInfo()(() => {
     return (
       <div>
         <fieldset>
@@ -91,7 +91,7 @@ stories
           />
         </fieldset>
       </div>);
-  }).add('Error states', () => {
+  })).add('Error states', withInfo()(() => {
     return (
       <div>
         <fieldset>
@@ -131,4 +131,4 @@ stories
           />
         </fieldset>
       </div>);
-  });
+  }));

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Button from '../Button/';
 import Link from '../Link/';
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('Default empty', () => {
+  .add('Default empty', withInfo()(() => {
     return (
       <EmptyDashboard
         headline={ text('headline', 'Get started with Optimizely X') }
@@ -35,8 +36,8 @@ stories
         }, 'https://app.optimizely.com/static/img/x/empty-states/campaign-list-empty-state.svg') }
       />
     );
-  })
-  .add('All images', () => {
+  }))
+  .add('All images', withInfo()(() => {
     return (
       <div>
         <EmptyDashboard
@@ -182,4 +183,4 @@ stories
         />
       </div>
     );
-  });
+  }));

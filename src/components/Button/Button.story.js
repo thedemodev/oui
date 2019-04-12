@@ -62,7 +62,7 @@ stories
         ] }
       />);
   }))
-  .add('all disabled', () => {
+  .add('all disabled', withInfo()(() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -75,15 +75,15 @@ stories
           <Button key="7" isDisabled={ true } style="toggle" width="default">Toggle</Button>,
         ] }
       />);
-  })
-  .add('underline button', () => {
+  }))
+  .add('underline button', withInfo()(() => {
     return (
       <Button style="underline" width="default">
         Underline Button
         <ArrowsInline direction="down" />
       </Button>);
-  })
-  .add('sizes variations', () => {
+  }))
+  .add('sizes variations', withInfo()(() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -94,17 +94,17 @@ stories
           <Button key="5" width="default" size="tight">Tight Button</Button>,
         ] }
       />);
-  })
-  .add('Button without an onClick', () => {
+  }))
+  .add('Button without an onClick', withInfo()(() => {
     return (
       <Button isLink={ true }>Faux Button</Button>
     );
-  })
-  .add('Button without an onClick (disabled)', () => {
+  }))
+  .add('Button without an onClick (disabled)', withInfo()(() => {
     return (
       <Button isLink={ true } isDisabled={ true }>Faux Button</Button>
     );
-  })
+  }))
   .add('Button that looks like a Link', withInfo()(() => {
     return (
       <Button

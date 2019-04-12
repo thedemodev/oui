@@ -60,7 +60,7 @@ stories
       </ul>
     );
   }))
-  .add('all links', () => {
+  .add('all links', withInfo()(() => {
     return (
       <ul>
         <li><Link href="http://google.com" isDisabled={ boolean('isDisabled', false) } onClick={ action('click blocklist item home') }>{ text('default', 'Link') }</Link></li>
@@ -70,8 +70,8 @@ stories
         <li className="background--brand"><Link href="http://google.com" isDisabled={ boolean('isDisabled', false) } style="reverse">{ text('reverse', 'Link Reverse') }</Link></li>
       </ul>
     );
-  })
-  .add('all disabled', () => {
+  }))
+  .add('all disabled', withInfo()(() => {
     return (
       <ul>
         <li><Link href="http://google.com" isDisabled={ true }>Link</Link></li>
@@ -81,8 +81,8 @@ stories
         <li className="background--brand"><Link href="http://google.com" isDisabled={ true } style="reverse">Link Reverse</Link></li>
       </ul>
     );
-  })
-  .add('Link that looks like a Button', () => {
+  }))
+  .add('Link that looks like a Button', withInfo()(() => {
     return (
       <Link
         newWindow={ true }
@@ -90,7 +90,7 @@ stories
         <Button onClick={ null }>Go To Google</Button>
       </Link>
     );
-  });
+  }));
 
 storiesOf('Link (Fake)', module)
   .addDecorator(withKnobs)
@@ -99,16 +99,16 @@ storiesOf('Link (Fake)', module)
       {story()}
     </div>
   ))
-  .add('Enabled', () => {
+  .add('Enabled', withInfo()(() => {
     return (
       <Link>Faux Link</Link>
     );
-  })
-  .add('Disabled', () => {
+  }))
+  .add('Disabled', withInfo()(() => {
     return (
       <Link
         isDisabled={ true }>
         Faux Link
       </Link>
     );
-  });
+  }));

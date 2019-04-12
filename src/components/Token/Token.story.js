@@ -44,7 +44,7 @@ stories
       hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
-  .add('draggable', () => {
+  .add('draggable', withInfo()(() => {
     return (
       <Token
         description="A popular childhood game."
@@ -54,8 +54,8 @@ stories
         order={ 1 }
         style="primary"
       />);
-  })
-  .add('dismissible', () => {
+  }))
+  .add('dismissible', withInfo()(() => {
     return (
       <Token
         isDismissible={ true }
@@ -64,4 +64,4 @@ stories
         onDismiss={ action('token dismissed') }
         hasSnugWrap={ boolean('hasSnugWrap', false) }
       />);
-  });
+  }));

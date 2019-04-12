@@ -29,10 +29,10 @@ stories
   ));
 
 stories
-  .add('Component Overview', () => {
+  .add('Components', () => {
     return (<div>
 
-      <h1>OUI Component Overview</h1>
+      <h1>OUI Components Overview</h1>
 
       <TabNav activeTab="second" style={ ['dashboard'] }>
         <TabNav.Tab tabId="first">

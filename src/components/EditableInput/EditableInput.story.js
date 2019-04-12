@@ -25,7 +25,7 @@ stories
         type="text"
       />);
   }))
-  .add('Error state', () => {
+  .add('Error state', withInfo()(() => {
     return (
       <EditableInput
         label="Field label"
@@ -35,5 +35,5 @@ stories
         placeholder="Just a placeholder"
         type="text"
       />);
-  });
+  }));
 

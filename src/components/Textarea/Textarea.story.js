@@ -32,7 +32,7 @@ stories
           onKeyDown={ action('Textarea: onKeyDown') }
         />
       </div>);
-  })).add('With label and note', () => {
+  })).add('With label and note', withInfo()(() => {
     return (
       <Textarea
         label="Field label"
@@ -40,7 +40,7 @@ stories
         placeholder="Just a placeholder"
         type="text"
       />);
-  }).add('Error state', () => {
+  })).add('Error state', withInfo()(() => {
     return (
       <Textarea
         label="Field label"
@@ -49,7 +49,7 @@ stories
         placeholder="Just a placeholder"
         type="text"
       />);
-  }).add('Textarea with auto focus', withInfo()(() => {
+  })).add('Textarea with auto focus', withInfo()(() => {
     return (
       <Textarea
         label="Field label"
