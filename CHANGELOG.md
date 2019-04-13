@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Update node for running tests/builds to v10.15.3 - travis CI pulls the node version from the updated .nvmrc
 
 ## 42.6.0 - 2019-04-12
 - [Feature] Update **Dialog** component to be a smaller, quick action dialog for user acknowledgment or a few inputs ([#1134](https://github.com/optimizely/oui/pull/1134))
