@@ -249,7 +249,7 @@ class OverlayWrapper extends React.Component {
 }
 
 OverlayWrapper.propTypes = {
-  /** Determines how the attachment is constrainted to the target */
+  /** Determines how the attachment is constrained to the target */
   attachmentConstraint: PropTypes.oneOf(['both', 'element', 'none', 'target', 'together']),
   /** Event to listen to and open the overlay */
   behavior: PropTypes.oneOf(['click', 'hover']),

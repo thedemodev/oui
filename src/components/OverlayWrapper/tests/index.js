@@ -62,7 +62,7 @@ describe('components/OverlayWrapper when componentDidMount', () => {
   it('should pass the correct options when all the layout props are provided', () => {
     const component = mountComponentAndSubscribeToBodyReady(
       <OverlayWrapper
-        attachmentConstraint="bottom"
+        attachmentConstraint="none"
         overlay={ <TestPopover /> }
         horizontalAttachment="center"
         verticalAttachment="top"
@@ -78,7 +78,7 @@ describe('components/OverlayWrapper when componentDidMount', () => {
       expect(tetherOptions.attachment).toBe('top center');
       expect(tetherOptions.constraints.length).toBe(1);
       expect(tetherOptions.constraints[0]).toEqual({
-        attachment: 'bottom',
+        attachment: 'none',
         to: 'window',
         pin: true,
       });
