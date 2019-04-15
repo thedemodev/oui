@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Update node for running tests/builds to v10.15.3 - travis CI pulls the node version from the updated .nvmrc
+- [Patch] Add attachmentConstraint prop to OverlayWrapper component.
 
 ## 42.6.0 - 2019-04-12
 - [Feature] Update **Dialog** component to be a smaller, quick action dialog for user acknowledgment or a few inputs ([#1134](https://github.com/optimizely/oui/pull/1134))
@@ -20,8 +21,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Fixed the `isRequired` prop on **Input** component which wasn't working as expected ([#1136](https://github.com/optimizely/oui/pull/1136))
 
 ## 42.3.0 - 2019-03-08
-- [Feature] Add attachmentConstraint prop to OverlayWrapper component.
-- [Feature] Fixed <Select> export by including in src/main.js.
+- [Feature] Fixed Select export by including in src/main.js.
 - [Patch] Update ArrowInline default arrow direction to down
 - [Patch] Update Dropdown component to remove arrowIcon `true` option
 - [Patch] Update Steps styling to have an outline for the Active step and filled circles for Complete steps
