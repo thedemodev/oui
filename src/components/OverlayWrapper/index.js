@@ -32,7 +32,7 @@ class OverlayWrapper extends React.Component {
       attachment: `${this.props.verticalAttachment} ${this.props.horizontalAttachment}`,
       constraints: [{
         to: 'window',
-        attachment: 'together',
+        attachment: this.props.attachmentConstraint,
         pin: this.props.isConstrainedToScreen,
       }],
     };
@@ -249,6 +249,8 @@ class OverlayWrapper extends React.Component {
 }
 
 OverlayWrapper.propTypes = {
+  /** Determines how the attachment is constrainted to the target */
+  attachmentConstraint: PropTypes.string,
   /** Event to listen to and open the overlay */
   behavior: PropTypes.oneOf(['click', 'hover']),
   /** Element that the `overlay` should attach to */
@@ -279,6 +281,7 @@ OverlayWrapper.propTypes = {
 };
 
 OverlayWrapper.defaultProps = {
+  attachmentConstraint: 'together',
   behavior: 'click',
   isConstrainedToScreen: false,
   shouldHideOnClick: true,
