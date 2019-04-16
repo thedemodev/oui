@@ -38,7 +38,8 @@ const Token = ({
     'flex': true,
   });
   const tokenToolsClasses = classNames({
-    'oui-token-tool': isDraggable,
+    'oui-token-tool': isDraggable || order,
+    'cursor--move': isDraggable,
   });
   const { fontClass, fillColor } = getStylingInfo(style);
 

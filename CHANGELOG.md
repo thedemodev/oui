@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Fix token order rendering when token is not draggable.
 
 ## 42.6.1 - 2019-04-15
 - [Patch] Update node for running tests/builds to v10.15.3 - travis CI pulls the node version from the updated .nvmrc
