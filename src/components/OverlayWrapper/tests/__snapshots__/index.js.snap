@@ -2,6 +2,7 @@
 
 exports[`components/OverlayWrapper snapshots & others should render a Popover component inside 1`] = `
 <OverlayWrapper
+  attachmentConstraint="together"
   behavior="click"
   horizontalAttachment="center"
   isConstrainedToScreen={false}

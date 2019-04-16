@@ -2,6 +2,7 @@
 
 exports[`components/HelpPopover renders correctly 1`] = `
 <OverlayWrapper
+  attachmentConstraint="together"
   behavior="click"
   horizontalAttachment="center"
   isConstrainedToScreen={true}
