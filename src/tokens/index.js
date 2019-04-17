@@ -47,8 +47,8 @@ const processFiles = (globPath = path.resolve(__dirname, './src/*.json')) => {
 
 const saveFiles = (contents, dist = path.resolve(__dirname, './forimport')) => {
   if (process.env.NODE_ENV !== 'test') {
-    fse.outputFileSync(`${dist}/index.cjs.js`, contents.cjs);
-    fse.outputFileSync(`${dist}/index.es.js`, contents.es);
+    fse.outputFileSync(`${dist}/index.cjs.js`, contents.cjs + '\n');
+    fse.outputFileSync(`${dist}/index.es.js`, contents.es + '\n');
     fse.outputFileSync(`${dist}/_index.scss`, contents.scss);
   }
 };
