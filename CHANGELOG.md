@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Patch] Include idJavaScript as CamelCase for Axiom color tool consumption
+- [Patch] Include id, name (as CamelCase), and friendlyName (with space etc) for Axiom color tool consumption ([#1147](https://github.com/optimizely/oui/pull/1147))
 - [Patch] Fix token order rendering when token is not draggable.
 
 ## 42.6.1 - 2019-04-15
