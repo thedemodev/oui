@@ -267,7 +267,7 @@
     },
     {
       "name": "Aqua Blue (Light)",
-      "id": "aqua-light",
+      "id": "aqua-blue-light",
       "value": "hsla(186, 100%, 69%, 1)",
       "hex": "#61efff",
       "type": "color",
@@ -275,7 +275,7 @@
     },
     {
       "name": "Aqua Blue",
-      "id": "aqua-base",
+      "id": "aqua-blue-base",
       "value": "hsla(187, 100%, 42%, 1)",
       "hex": "#00bdd6",
       "type": "color",
