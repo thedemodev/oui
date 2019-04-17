@@ -17,6 +17,8 @@ stories
     </div>
   ));
 
+const outlineDebug = false;
+
 stories.add('Default', withInfo()(() => {
   return (
     <Container fluid={ boolean('fluid', false) }>
@@ -87,7 +89,7 @@ stories.add('Default', withInfo()(() => {
   }))
   .add('Responsive', withInfo()(() => {
     return (
-      <div>
+      <div className={ boolean('outlineDebug', outlineDebug) }>
         <h1>Simple</h1>
         <Container fluid={ boolean('fluid', false) }>
           <Row noGutters={ boolean('noGutters', false) }>
