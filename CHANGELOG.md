@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Include idJavaScript as CamelCase for Axiom color tool consumption
 - [Patch] Fix token order rendering when token is not draggable.
 
 ## 42.6.1 - 2019-04-15
