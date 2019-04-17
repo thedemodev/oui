@@ -25,12 +25,12 @@ const column = PropTypes.oneOfType([
 ]);
 
 const propTypes = {
+  as: PropTypes.elementType,
+
   /**
    * @default 'col'
    */
   bsPrefix: PropTypes.string,
-
-  as: PropTypes.elementType,
 
   /**
    * The number of columns to span on sxtra small devices (<576px)
@@ -91,13 +91,20 @@ const Col = React.forwardRef(
 
       let infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
 
-      if (span != null)
+      if (span != null) {
         spans.push(
           span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`,
         );
+      }
 
-      if (order != null) classes.push(`order${infix}-${order}`);
-      if (offset != null) classes.push(`offset${infix}-${offset}`);
+      if (order != null) {
+        classes.push(`order${infix}-${order}`);
+      }
+
+      if (offset != null) {
+        classes.push(`offset${infix}-${offset}`);
+      }
+
     });
 
     if (!spans.length) {
@@ -106,9 +113,9 @@ const Col = React.forwardRef(
 
     return (
       <Component
-        {...props}
-        ref={ref}
-        className={classNames(className, ...spans, ...classes)}
+        { ...props }
+        ref={ ref }
+        className={ classNames(className, ...spans, ...classes) }
       />
     );
   },
