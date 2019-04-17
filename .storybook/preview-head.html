@@ -28,16 +28,15 @@
     border: 1px dashed #ccc;
 }
 
-.container {
-    outline: 1px solid hsla(330, 100%, 11%, 0.33);
-}
 
-.row {
-    outline: 1px solid hsla(330, 100%, 40%, 0.33);
+.outlineDebug .row, .outlineDebug .col {
+    padding: 20px;
 }
-
-.outline--debug, .col {
+.outlineDebug, .row, .col, .container {
     outline: 1px solid hsla(330, 100%, 71%, 0.33);
+}
+.outlineDebug .row + .row {
+   margin-top: 20px;
 }
 
 </style>
