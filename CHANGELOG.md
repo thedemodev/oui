@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 42.7.0 - 2019-04-19
 - [Feature] Add **Date Picker** component, for single date selection, and **Date Range Picker** component, for selecting a start and end date ([#1140](https://github.com/optimizely/oui/pull/1140))
 
 ## 42.6.2 - 2019-04-17
