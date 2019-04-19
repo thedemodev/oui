@@ -12,6 +12,11 @@ const propTypes = {
    * Allow the Container to fill all of it's availble horizontal space.
    */
   fluid: PropTypes.bool,
+
+  outlineDebug: PropTypes.bool,
+  hasAllGutters: PropTypes.bool,
+  hasAllGaps: PropTypes.bool,
+
   /**
    * You can use a custom element for this component
    */
@@ -24,13 +29,21 @@ const defaultProps = {
 };
 
 const Container = React.forwardRef(
-  ({ bsPrefix, fluid, as: Component, className, ...props }, ref) => {
+  ({ bsPrefix, outlineDebug, paddedContent, pushRowsTop, pushColsSides, fluid, as: Component, className, ...props }, ref) => {
     const prefix = 'container';
+
     return (
       <Component
         ref={ref}
         {...props}
-        className={classNames(className, fluid ? `${prefix}-fluid` : prefix)}
+        className={classNames(
+          className,
+          outlineDebug && 'outline--debug',
+          paddedContent && 'content--padded',
+          pushRowsTop && 'push-rows--top',
+          pushColsSides && 'push-cols--sides',
+          fluid ? `${prefix}-fluid` : prefix,
+        )}
       />
     );
   },

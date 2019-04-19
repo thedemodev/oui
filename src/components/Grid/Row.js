@@ -16,7 +16,7 @@ const propTypes = {
 const defaultProps = {
   as: 'div',
   noGutters: false,
-  className: ['row', 'outline--debug'],
+  className: ['row'],
 };
 
 const Row = React.forwardRef(
