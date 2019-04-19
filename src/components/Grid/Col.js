@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DEVICE_SIZES = ['xl', 'lg', 'md', 'sm', 'xs'];
+const DEVICE_SIZES = ['large', 'medium', 'small'];
 const colSize = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.number,
@@ -24,6 +24,12 @@ const column = PropTypes.oneOfType([
   }),
 ]);
 
+/**
+* TODO[1]: col and row gap split
+* hasAllPadding?
+* paddedContent
+*/
+
 const propTypes = {
   as: PropTypes.elementType,
 
@@ -33,39 +39,25 @@ const propTypes = {
   bsPrefix: PropTypes.string,
 
   /**
-   * The number of columns to span on sxtra small devices (<576px)
+   * The number of columns to span on large devices (≥992px)
    *
    * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
    */
-  xs: column,
-
-  /**
-   * The number of columns to span on small devices (≥576px)
-   *
-   * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
-   */
-  sm: column,
+  large: column,
 
   /**
    * The number of columns to span on medium devices (≥768px)
    *
    * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
    */
-  md: column,
+  medium: column,
 
   /**
-   * The number of columns to span on large devices (≥992px)
+   * The number of columns to span on small devices (≥576px)
    *
    * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
    */
-  lg: column,
-
-  /**
-   * The number of columns to span on extra large devices (≥1200px)
-   *
-   * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
-   */
-  xl: column,
+  small: column,
 };
 
 const defaultProps = {
@@ -89,20 +81,18 @@ const Col = React.forwardRef(
         span = propValue;
       }
 
-      let infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
-
       if (span != null) {
         spans.push(
-          span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`,
+          span === true ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
       }
 
       if (order != null) {
-        classes.push(`order${infix}-${order}`);
+        classes.push(`order-${brkPoint}-${order}`);
       }
 
       if (offset != null) {
-        classes.push(`offset${infix}-${offset}`);
+        classes.push(`offset-${brkPoint}-${offset}`);
       }
 
     });
