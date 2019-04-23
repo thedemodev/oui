@@ -145,7 +145,7 @@ stories.add('Default', withInfo()(() => {
   .add('Fluid', withInfo()(() => {
     return (
       <Container
-        outlineDebug={ boolean('outlineDebug', false) }
+        outlineDebug={ boolean('outlineDebug', true) }
         pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
@@ -165,7 +165,7 @@ stories.add('Default', withInfo()(() => {
   .add('2-Column', withInfo()(() => {
     return (
       <Container
-        outlineDebug={ boolean('outlineDebug', false) }
+        outlineDebug={ boolean('outlineDebug', true) }
         pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
@@ -184,7 +184,7 @@ stories.add('Default', withInfo()(() => {
   .add('Auto width', withInfo()(() => {
     return (
       <Container
-        outlineDebug={ boolean('outlineDebug', false) }
+        outlineDebug={ boolean('outlineDebug', true) }
         pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
@@ -204,7 +204,7 @@ stories.add('Default', withInfo()(() => {
   .add('Order', withInfo()(() => {
     return (
       <Container
-        outlineDebug={ boolean('outlineDebug', false) }
+        outlineDebug={ boolean('outlineDebug', true) }
         pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
@@ -221,7 +221,7 @@ stories.add('Default', withInfo()(() => {
     return (
       <div>
         <Container
-          outlineDebug={ boolean('outlineDebug', false) }
+          outlineDebug={ boolean('outlineDebug', true) }
           pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }
@@ -297,7 +297,7 @@ if(enabled) {
   .add('Defined width', withInfo()(() => {
     return (
       <Container
-        outlineDebug={ boolean('outlineDebug', false) }
+        outlineDebug={ boolean('outlineDebug', true) }
         pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
@@ -320,7 +320,7 @@ if(enabled) {
       <div>
         <h1>Simple</h1>
         <Container
-          outlineDebug={ boolean('outlineDebug', false) }
+          outlineDebug={ boolean('outlineDebug', true) }
           pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }
