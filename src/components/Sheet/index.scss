@@ -47,8 +47,8 @@ $sheet-width: map-fetch($dialog, width, wide);
 .oui-sheet__body {
   display: flex;
   flex-direction: column;
-  padding: spacer(2) spacer(3) spacer(4) spacer(3);
-  margin-bottom: spacer(5);
+  position: relative;
+  padding: spacer(2) spacer(3) spacer(6) spacer(3);
 }
 
 .oui-sheet__link {
