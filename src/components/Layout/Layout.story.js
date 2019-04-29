@@ -8,6 +8,7 @@ import Col from './Col';
 import Row from './Row';
 import Container from './Container';
 import Button from '../Button';
+import Code from '../Code';
 
 const stories = storiesOf('Layout', module);
 stories
@@ -21,7 +22,7 @@ stories
 stories.add('Default', withInfo()(() => {
   return (
     <div>
-      <h1>Auto</h1>
+      <h1>Default (Equal Widths)</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
@@ -29,14 +30,19 @@ stories.add('Default', withInfo()(() => {
         pushColsSides={ boolean('pushColsSides', false) }
         fluid={ boolean('fluid', false) }>
         <Row noGutters={ boolean('noGutters', false) }>
-          <Col small={ true }>true</Col>
-          <Col small={ true }>true</Col>
-          <Col small={ true }>true</Col>
+          <Col>Col</Col>
+          <Col>Col</Col>
         </Row>
         <Row noGutters={ boolean('noGutters', false) }>
-          <Col small={ 'auto' }>auto</Col>
-          <Col small={ 'auto' }>auto</Col>
-          <Col small={ 'auto' }>auto</Col>
+          <Col>Col</Col>
+          <Col>Col</Col>
+          <Col>Col</Col>
+        </Row>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col>Col</Col>
+          <Col>Col</Col>
+          <Col>Col</Col>
+          <Col>Col</Col>
         </Row>
       </Container>
       <h1 className="push-triple--top">Widths</h1>
@@ -139,6 +145,24 @@ stories.add('Default', withInfo()(() => {
           <Col large={ 1 }>1</Col>
         </Row>
       </Container>
+      <h1 className="push-triple--top">"Auto"</h1>
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pushRowsTop={ boolean('pushRowsTop', true) }
+        paddedContent={ boolean('paddedContent', false) }
+        pushColsSides={ boolean('pushColsSides', false) }
+        fluid={ boolean('fluid', false) }>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col small={ true }>true</Col>
+          <Col small={ true }>true</Col>
+          <Col small={ true }>true</Col>
+        </Row>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col small={ 'auto' }>auto</Col>
+          <Col small={ 'auto' }>auto</Col>
+          <Col small={ 'auto' }>auto</Col>
+        </Row>
+      </Container>
     </div>
   );
 }))
@@ -217,81 +241,47 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
-  .add('Zach', withInfo()(() => {
+  .add('Feature Flag Welcome', withInfo()(() => {
     return (
-      <div>
-        <Container
-          outlineDebug={ boolean('outlineDebug', true) }
-          pushColsSides={ boolean('pushColsSides', false) }
-          pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ boolean('paddedContent', false) }
-          fluid={ boolean('fluid', false) }>
-          <Row noGutters={ boolean('noGutters', false) }>
-            <Col medium={ 8 }>
-              <h2>Features</h2>
-              <p className="lead">Manage your app’s feature flags</p>
-              <Row>
-                <Col small={ 6 }>
-                  <img src="https://s3-us-west-1.amazonaws.com/zach-designs/flagly/thing.svg" />
-                </Col>
-                <Col small={ 6 }>
-                  <h6>What’s a Feature Flag?</h6>
-                  <p>Feature flags, also known as feature toggles, are a software development technique that lets you turn certain functionality on and off without deploying new code. This allows for better control and more experimentation over the full lifecycle of features. You can toggle a feature off to release code quickly without exposing it to users.</p>
-
-                  <h6>Try it for yourself</h6>
-                  <Row>
-                    <Col large={ 6 }>
-                      <Button>View Docs</Button>
-                    </Col>
-                    <Col large={ 6 }>
-                      <Button>Create Feature</Button>
-                    </Col>
-                  </Row>
-
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-
-      <div data-contents="" className="container mt-5 mb-5">
-        <div className="row">
-            <div className="col-md-8 offset-md-2">
-                <h2>Features</h2>
-                  <p className="lead">Manage your app’s feature flags</p>
-
-                <div className="row">
-                    <div className="col-sm-6">
-                        <img className="mb-5" src="https://s3-us-west-1.amazonaws.com/zach-designs/flagly/thing.svg" />
-                    </div>
-                    <div className="col-sm-6">
-                        <h6>What’s a Feature Flag?</h6>
-                        <p>Feature flags, also known as feature toggles, are a software development technique that lets you turn certain functionality on and off without deploying new code. This allows for better control and more experimentation over the full lifecycle of features. You can toggle a feature off to release code quickly without exposing it to users.</p>
-                        <h6>Features use the <code>isFeatureEnabled</code> method</h6>
-                        <div className="bg-light p-3 mb-3">
-                          <code>var enabled = optimizely.isFeatureEnabled(”chat_window”, userId);
-if(enabled) {
-    // Feature is enabled
-} else {
-    // Feature is disabled
-}</code>
-                        </div>
-                        <h6>Try it for yourself</h6>
-                        <div className="row">
-                          <div className="col-xl-6">
-                            <button type="button" className="btn btn-outline-primary btn-block mb-2">View Docs</button>
-                          </div>
-                          <div className="col-xl-6">
-                            <button type="button" className="btn btn-primary btn-block mb-2">Create Feature</button>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        </div>
-    </div>
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pushColsSides={ boolean('pushColsSides', false) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ boolean('paddedContent', false) }
+        fluid={ boolean('fluid', false) }>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col medium={{ span: 8, offset: 2 }}>
+            <h2>Features</h2>
+            <p className="lead">Manage your app’s feature flags</p>
+            <Row>
+              <Col small={ 6 }>
+                <img src="https://s3-us-west-1.amazonaws.com/zach-designs/flagly/thing.svg" />
+              </Col>
+              <Col small={ 6 }>
+                <h6>What’s a Feature Flag?</h6>
+                <p>Feature flags, also known as feature toggles, are a software development technique that lets you turn certain functionality on and off without deploying new code. This allows for better control and more experimentation over the full lifecycle of features. You can toggle a feature off to release code quickly without exposing it to users.</p>
+                <h6>Try it for yourself</h6>
+                <Code>
+  var enabled = optimizely.isFeatureEnabled(”chat_window”, userId);
+  if(enabled) {
+      // Feature is enabled
+  } else {
+      // Feature is disabled
+  }
+                  </Code>
+                <Row>
+                  <Col large={ 6 }>
+                    <Button width={ 'full' }>View Docs</Button>
+                  </Col>
+                  <Col large={ 6 }>
+                    <Button width={ 'full' }>Create Feature</Button>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     );
   }))
   .add('Defined width', withInfo()(() => {

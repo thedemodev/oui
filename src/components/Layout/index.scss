@@ -11,6 +11,9 @@
 .content--padded .row > div[class*="col"] {
     padding: 10px;
 }
+.content--padded .row > div[class*="col"] {
+    padding: 10px 5px;
+}
 .outline--debug .container,
 .outline--debug .row,
 .outline--debug .col,
