@@ -76,17 +76,15 @@ exports[`components/Dropdown should not render children or Popper when isDisable
         show={[Function]}
         toggle={[Function]}
       >
-        <Manager
-          className="oui-dropdown-group"
-          data-ui-component={true}
-          tag="div"
-        >
+        <Manager>
           <div
             className="oui-dropdown-group"
             data-ui-component={true}
           >
-            <Target>
-              <div>
+            <Reference>
+              <InnerReference
+                setReferenceNode={[Function]}
+              >
                 <button
                   className="oui-button"
                   disabled={false}
@@ -104,8 +102,8 @@ exports[`components/Dropdown should not render children or Popper when isDisable
                     </div>
                   </div>
                 </button>
-              </div>
-            </Target>
+              </InnerReference>
+            </Reference>
           </div>
         </Manager>
       </Dropdown>
