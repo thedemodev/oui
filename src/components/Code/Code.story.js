@@ -44,4 +44,18 @@ stories
         { text('code', 'var foo = `bar`; \nvar bat = `baz`;') }
       </Code>
     );
+  }))
+  .add('with styled copy button', withInfo()(() => {
+    return (
+      <Code
+        copyButtonStyle="none"
+        hasCopyButton={ boolean('hasCopyButton', true) }
+        testSection='my-code-box'
+        type={ select('type', {inline: 'inline', block: 'block'}, 'block') }
+        language={ select('language', langOptions, 'js') }>
+        { text(
+          'code', 'var foo = `bar`; var bat = `baz`; var withAReallyReallyLongName = `a value with a really really long string`'
+        ) }
+      </Code>
+    );
   }));
