@@ -52,12 +52,15 @@ const propTypes = {
    */
   medium: column,
 
+  paddedContent: PropTypes.bool,
+
   /**
    * The number of columns to span on small devices (≥576px)
    *
    * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
    */
   small: column,
+
 };
 
 const defaultProps = {
