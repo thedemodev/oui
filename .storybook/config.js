@@ -22,6 +22,7 @@ function loadStories() {
   require('./overview.story.js');
   require('./tokens.story.js');
   require('./borderradius.story.js');
+  require('./AppFrame.story.js');
   req.keys().forEach(req);
 }
 
