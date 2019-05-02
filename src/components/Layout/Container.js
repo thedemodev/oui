@@ -18,17 +18,16 @@ const propTypes = {
   hasAllGaps: PropTypes.bool,
   hasAllGutters: PropTypes.bool,
   outlineDebug: PropTypes.bool,
-  sidePadding: PropTypes.bool,
+  paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
 };
 
 const defaultProps = {
   as: 'div',
   fluid: false,
-  sidePadding: true,
 };
 
 const Container = React.forwardRef(
-  ({ bsPrefix, sidePadding, outlineDebug, paddedContent, pushRowsTop, pushColsSides, fluid, as: Component, className, ...props }, ref) => {
+  ({ bsPrefix, outlineDebug, paddedContent, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
     const prefix = 'container';
 
     return (
@@ -37,11 +36,9 @@ const Container = React.forwardRef(
         {...props}
         className={classNames(
           className,
-          !sidePadding && 'hard--sides',
           outlineDebug && 'outline--debug',
-          paddedContent && 'content--padded',
+          paddedContent && `padded-content--${paddedContent}`,
           pushRowsTop && 'push-rows--top',
-          pushColsSides && 'push-cols--sides',
           fluid ? `${prefix}-fluid` : prefix,
         )}
       />

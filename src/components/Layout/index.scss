@@ -14,19 +14,24 @@
 .content--padded .row > div[class*="col"] {
     padding: 15px;
 }
-.outline--debug .container,
-.outline--debug .row,
-.outline--debug .col,
-.outline--debug .row > div[class*="col"] {
+
+.outline--debug .container {
     outline: 1px solid hsla(330, 100%, 71%, 0.33);
     background: hsla(330, 100%, 71%, 0.15);
 }
+.outline--debug .row {
+    outline: 1px solid hsla(230, 41%, 87%, 0.33);
+    background: hsla(230, 100%, 71%, 0.15);
+}
+.outline--debug .col,
+.outline--debug .row > div[class*="col"] {
+    outline: 1px solid hsla(130, 100%, 71%, 0.33);
+    background: hsla(130, 100%, 71%, 0.15);
+}
+
+
 .push-rows--top .row + .row {
     margin-top: 15px;
-}
-.push-cols--sides div[class*="col"] {
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 
