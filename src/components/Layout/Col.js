@@ -7,7 +7,7 @@ const colSize = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.number,
   PropTypes.string,
-  PropTypes.oneOf(['auto']),
+  PropTypes.oneOf(['fitContent', 'fillSpace']),
 ]);
 
 const stringOrNumber = PropTypes.oneOfType([
@@ -41,14 +41,14 @@ const propTypes = {
   /**
    * The number of columns to span on large devices (≥992px)
    *
-   * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
    */
   large: column,
 
   /**
    * The number of columns to span on medium devices (≥768px)
    *
-   * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
    */
   medium: column,
 
@@ -57,7 +57,7 @@ const propTypes = {
   /**
    * The number of columns to span on small devices (≥576px)
    *
-   * @type {(true|"auto"|number|{ span: true|"auto"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
    */
   small: column,
 
@@ -79,14 +79,14 @@ const Col = React.forwardRef(
 
       let span, offset, order;
       if (propValue != null && typeof propValue === 'object') {
-        ({ span = true, offset, order } = propValue);
+        ({ span = "fillSpace", offset, order } = propValue);
       } else {
         span = propValue;
       }
 
       if (span != null) {
         spans.push(
-          span === true ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
+          span === "fillSpace" ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
       }
 
