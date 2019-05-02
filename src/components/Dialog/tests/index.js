@@ -90,6 +90,29 @@ describe('Dialog Component ', () => {
     expect(component.find('.oui-dialog__header').containsMatchingElement(<p>{subtitleString}</p>)).toBe(true);
   });
 
+  it('renders a subtitle node when passed in', () => {
+    const onClickSpy = jest.fn();
+    const onCloseSpy = jest.fn();
+
+    const subtitleNode = <p>This is a subtitle</p>;
+
+    const component = mount(<DialogNew
+      title='This is a Dialog'
+      subtitle={ subtitleNode }
+      onClose={ onCloseSpy }
+      footerButtonList={ [
+        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+          No Thanks
+        </Button>,
+        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+          Continue
+        </Button>,
+      ] }>
+      <p>Dialogs can contain simple text in the body.</p>
+    </DialogNew>);
+    expect(component.find('.oui-dialog__header').containsMatchingElement(<div>{subtitleNode}</div>)).toBe(true);
+  });
+
   it('renders the footer buttons', () => {
     const onClickSpy = jest.fn();
     const onCloseSpy = jest.fn();

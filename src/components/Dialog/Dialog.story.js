@@ -79,8 +79,8 @@ stories
             helpIcon={ true }
             popoverTitle="Popover title"
             popoverText="This should help you figure out what to do">
-            <Input label="Verify Email" type="email"/>
-            <Input label="Confirm Email" type="email"/>
+            <Input id="input-01" label="Verify Email" type="email"/>
+            <Input id="input-02" label="Confirm Email" type="email"/>
           </Fieldset>
         </DialogNew>
       </div>
@@ -96,6 +96,7 @@ stories
         </div>
         <DialogNew
           title={ text('title', 'Welcome to this Feature') }
+          subtitle={ <p>Let&apos;s get you up and running with <a href="https://www.optimizely.com/">our feature.</a></p> }
           hasCloseButton={ boolean('hasCloseButton', true) }
           onClose={ action('Dialog was closed') }
           footerButtonList={ [
@@ -103,15 +104,14 @@ stories
               Get Started
             </Button>,
           ] }>
-          <p>Let&apos;s get you up and running with our feature.</p>
           <Fieldset
             title="Project Settings"
             description="Some quick setup"
             helpIcon={ true }
             popoverTitle="Popover title"
             popoverText="This should help you figure out what to do">
-            <Input label="Project Name" type="text"/>
-            <Input label="Description" type="text"/>
+            <Input id="input-03" label="Project Name" type="text"/>
+            <Input id="input-04" label="Description" type="text"/>
           </Fieldset>
           <Label>Select your language</Label>
           {LanguageDropdown}
@@ -177,14 +177,14 @@ stories
             </Button>,
           ] }>
           <p>Dialogs can also contain only text in the body, no data input.</p>
-          <p>They can also contain links, like <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
+          <p>They can also contain links, like <a href="https://www.optimizely.com/">learn more about Optimizely features</a>.</p>
         </DialogNew>
       </div>
     ))
   )
   .add('deprecated dialog', withInfo()(() => (<div>
     <Dialog.Wrapper>
-      <Dialog.Title>This is a Dialog</Dialog.Title>
+      <Dialog.Title subtitle="Test Subtitle">This is a Dialog</Dialog.Title>
 
       <Dialog.Fieldset
         title="Project Name"
@@ -193,7 +193,7 @@ stories
         helpIcon={ true }
         popoverTitle="Popover title"
         popoverText="This should help you figure out what to do">
-        <Input label="Some data" type="text"/>
+        <Input id="input-05" label="Some data" type="text"/>
       </Dialog.Fieldset>
 
       <Dialog.Fieldset
@@ -203,7 +203,7 @@ stories
         helpIcon={ true }
         popoverTitle="Popover title"
         popoverText="This should help you figure out what to do">
-        <Input label="Some data" type="text"/>
+        <Input id="input-06" label="Some data" type="text"/>
       </Dialog.Fieldset>
 
       <Dialog.Footer>

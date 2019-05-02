@@ -7,27 +7,35 @@ import Footer from './Deprecated/Footer';
 import Title from './Deprecated/Title';
 import Wrapper from './Deprecated/Wrapper';
 
-export const DialogNew = props => (
-  <div className="oui-dialog__wrapper">
-    <div className="oui-dialog__overlay" />
-    <div
-      data-ui-component={ true }
-      className="oui-dialog"
-      data-test-section={ props.testSection }>
-      {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="medium"/>}
-      <header className="oui-dialog__header">
-        <h2 className="flush--bottom">{props.title}</h2>
-        {props.subtitle && <p className="push--top flush--bottom">{props.subtitle}</p>}
-      </header>
-      <div className="oui-dialog__body overflow-y--auto">
-        {props.children}
+export const DialogNew = props => {
+  let subtitleContent;
+  if (props.subtitle && typeof (props.subtitle) === 'string') {
+    subtitleContent = <p className="push--top flush--bottom">{props.subtitle}</p>;
+  } else {
+    subtitleContent = <div className="push--top flush--bottom">{props.subtitle}</div>;
+  }
+  return (
+    <div className="oui-dialog__wrapper">
+      <div className="oui-dialog__overlay" />
+      <div
+        data-ui-component={ true }
+        className="oui-dialog"
+        data-test-section={ props.testSection }>
+        {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="medium"/>}
+        <header className="oui-dialog__header">
+          <h2 className="flush--bottom">{props.title}</h2>
+          {subtitleContent}
+        </header>
+        <div className="oui-dialog__body overflow-y--auto">
+          {props.children}
+        </div>
+        <footer className="oui-dialog__footer-container">
+          <ButtonRow rightGroup={ props.footerButtonList }/>
+        </footer>
       </div>
-      <footer className="oui-dialog__footer-container">
-        <ButtonRow rightGroup={ props.footerButtonList }/>
-      </footer>
     </div>
-  </div>
-);
+  );
+};
 
 DialogNew.propTypes = {
   /**
@@ -49,7 +57,7 @@ DialogNew.propTypes = {
   /**
    * A subtitle for the dialog.
    */
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.node || PropTypes.string,
   /**
    * Identifier used to create data-test-section attributes for testing.
    */

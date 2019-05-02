@@ -90,6 +90,29 @@ describe('Sheet Component ', () => {
     expect(component.find('.oui-sheet__header').containsMatchingElement(<p>{subtitleString}</p>)).toBe(true);
   });
 
+  it('renders a subtitle node when passed in', () => {
+    const onClickSpy = jest.fn();
+    const onCloseSpy = jest.fn();
+
+    const subtitleNode = <p>This is a <a href="#">subtitle</a></p>;
+
+    const component = mount(<Sheet
+      title='This is a Sheet'
+      subtitle={ subtitleNode }
+      onClose={ onCloseSpy }
+      footerButtonList={ [
+        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+          No Thanks
+        </Button>,
+        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+          Continue
+        </Button>,
+      ] }>
+      <p>Sheets can contain anything, typically forms, in the body.</p>
+    </Sheet>);
+    expect(component.find('.oui-sheet__header').containsMatchingElement(<div>{subtitleNode}</div>)).toBe(true);
+  });
+
   it('renders the footer buttons', () => {
     const onClickSpy = jest.fn();
     const onCloseSpy = jest.fn();

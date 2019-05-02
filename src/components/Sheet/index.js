@@ -3,27 +3,36 @@ import React from 'react';
 import ButtonRow from '../ButtonRow';
 import CloseButton from '../CloseButton';
 
-const Sheet = props => (
-  <div className="oui-sheet__wrapper">
-    <div className="oui-sheet__overlay" />
-    <div
-      data-ui-component={ true }
-      className="oui-sheet overflow-y--auto"
-      data-test-section={ props.testSection }>
-      {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}
-      <header className="oui-sheet__header">
-        <h2 className="flush--bottom">{props.title}</h2>
-        {props.subtitle && <p className="push--top flush--bottom">{props.subtitle}</p>}
-      </header>
-      <div className="oui-sheet__body">
-        {props.children}
+const Sheet = props => {
+  let subtitleContent;
+  if (props.subtitle && typeof (props.subtitle) === 'string') {
+    subtitleContent = <p className="push--top flush--bottom">{props.subtitle}</p>;
+  } else {
+    subtitleContent = <div className="push--top flush--bottom">{props.subtitle}</div>;
+  }
+
+  return (
+    <div className="oui-sheet__wrapper">
+      <div className="oui-sheet__overlay" />
+      <div
+        data-ui-component={ true }
+        className="oui-sheet overflow-y--auto"
+        data-test-section={ props.testSection }>
+        {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}
+        <header className="oui-sheet__header">
+          <h2 className="flush--bottom">{props.title}</h2>
+          {subtitleContent}
+        </header>
+        <div className="oui-sheet__body">
+          {props.children}
+        </div>
+        <footer className="oui-sheet__footer">
+          <ButtonRow rightGroup={ props.footerButtonList }/>
+        </footer>
       </div>
-      <footer className="oui-sheet__footer">
-        <ButtonRow rightGroup={ props.footerButtonList }/>
-      </footer>
     </div>
-  </div>
-);
+  );
+};
 
 Sheet.propTypes = {
   /**
@@ -45,7 +54,7 @@ Sheet.propTypes = {
   /**
    * A subtitle for the sheet.
    */
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.node || PropTypes.string,
   /**
    * Identifier used to create data-test-section attributes for testing.
    */
