@@ -7,6 +7,7 @@ import { withInfo } from '@storybook/addon-info';
 import Col from './Col';
 import Row from './Row';
 import Container from './Container';
+import Card from '../Card';
 import Button from '../Button';
 import Code from '../Code';
 
@@ -27,7 +28,6 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ boolean('paddedContent', false) }
-        pushColsSides={ boolean('pushColsSides', false) }
         fluid={ boolean('fluid', false) }>
         <Row noGutters={ boolean('noGutters', false) }>
           <Col>Col</Col>
@@ -50,7 +50,6 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ boolean('paddedContent', false) }
-        pushColsSides={ boolean('pushColsSides', false) }
         fluid={ boolean('fluid', false) }>
         <Row noGutters={ boolean('noGutters', false) }>
           <Col small={ 12 }>12</Col>
@@ -105,7 +104,6 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ boolean('paddedContent', false) }
-        pushColsSides={ boolean('pushColsSides', false) }
         fluid={ boolean('fluid', false) }>
         <Row noGutters={ boolean('noGutters', false) }>
           <Col small={ 6 }>6</Col>
@@ -150,7 +148,6 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ boolean('paddedContent', false) }
-        pushColsSides={ boolean('pushColsSides', false) }
         fluid={ boolean('fluid', false) }>
         <Row noGutters={ boolean('noGutters', false) }>
           <Col small={ true }>true</Col>
@@ -166,11 +163,44 @@ stories.add('Default', withInfo()(() => {
     </div>
   );
 }))
+  .add('testme', withInfo()(() => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ boolean('paddedContent', false) }
+        fluid={ boolean('fluid', false) }>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col large={ 'fillSpace' }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+          <Col large={ 'fillSpace' }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+        </Row>
+        <Row noGutters={ boolean('noGutters', false) }>
+          <Col large={ 'fitContent' }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+          <Col large={ 'fitContent' }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }))
   .add('Fluid', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -190,7 +220,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -209,7 +238,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -229,7 +257,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -245,7 +272,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -288,7 +314,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushColsSides={ boolean('pushColsSides', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ boolean('paddedContent', false) }
         fluid={ boolean('fluid', false) }>
@@ -311,7 +336,6 @@ stories.add('Default', withInfo()(() => {
         <h1>Simple</h1>
         <Container
           outlineDebug={ boolean('outlineDebug', true) }
-          pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }
           fluid={ boolean('fluid', false) }>
@@ -330,7 +354,6 @@ stories.add('Default', withInfo()(() => {
         <Container
           fluid={ boolean('fluid', false) }
           outlineDebug={ boolean('outlineDebug', true) }
-          pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }>
 
@@ -360,7 +383,6 @@ stories.add('Default', withInfo()(() => {
         <h1>Simple</h1>
         <Container
           outlineDebug={ boolean('outlineDebug', true) }
-          pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }
           fluid={ boolean('fluid', false) }>
@@ -379,7 +401,6 @@ stories.add('Default', withInfo()(() => {
         <Container
           fluid={ boolean('fluid', false) }
           outlineDebug={ boolean('outlineDebug', true) }
-          pushColsSides={ boolean('pushColsSides', false) }
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ boolean('paddedContent', false) }>
 
