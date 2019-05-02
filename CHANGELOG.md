@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 42.8.0 - 2019-05-02
 - [Feature] Add `copyButtonStyle` prop to **Code** component, and `style` prop to **CopyButton** component ([#1152](https://github.com/optimizely/oui/pull/1152))
 - [Patch] Update positioning for the **Sheet** body content ([#1148](https://github.com/optimizely/oui/pull/1148))
 
