@@ -49,6 +49,7 @@ const filterByCityName = (suggestion) => suggestion.name.toLowerCase();
 const stories = storiesOf('Autocomplete', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -56,7 +57,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <Autocomplete
         onSuggestionClick={ action('suggestion') }
@@ -64,7 +65,7 @@ stories
       />
     );
   }))
-  .add('custom suggestion field', withInfo()(() => {
+  .add('custom suggestion field', (() => {
     return (
       <Autocomplete
         placeholder='Search cities'
@@ -75,7 +76,7 @@ stories
       />
     );
   }))
-  .add('action field', withInfo()(() => {
+  .add('action field', (() => {
     return (
       <Autocomplete
         placeholder='Search cities'

@@ -16,6 +16,7 @@ const typeOptions = {
 const stories = storiesOf('Attention', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -23,7 +24,7 @@ stories
   ));
 
 stories
-  .add('attentions states', withInfo()(() => {
+  .add('attentions states', (() => {
     return (
       <Attention
         alignment={ select('alignment', { center: 'center', left: 'left' }, 'center') }

@@ -8,6 +8,7 @@ import Checkbox from '../Checkbox';
 const stories = storiesOf('Checkbox', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -15,7 +16,7 @@ stories
   ));
 
 stories
-  .add('with string label', withInfo()(() => {
+  .add('with string label', (() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -24,7 +25,7 @@ stories
       />
     );
   }))
-  .add('with html label', withInfo()(() => {
+  .add('with html label', (() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -39,7 +40,7 @@ stories
       />
     );
   }))
-  .add('with labelWeight', withInfo()(() => {
+  .add('with labelWeight', (() => {
     return (
       <Checkbox
         defaultChecked={ true }

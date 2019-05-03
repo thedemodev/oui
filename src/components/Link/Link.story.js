@@ -11,6 +11,7 @@ import Button from '../Button';
 const stories = storiesOf('Link', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -18,7 +19,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <ul>
         <li>
@@ -39,7 +40,7 @@ stories
       </ul>
     );
   }))
-  .add('new window', withInfo()(() => {
+  .add('new window', (() => {
     return (
       <ul>
         <li>

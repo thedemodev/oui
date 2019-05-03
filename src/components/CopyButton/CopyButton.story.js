@@ -24,6 +24,7 @@ const code = `const CopyButton = ({ testSection, onClick, text }) => {
 const stories = storiesOf('CopyButton', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -31,12 +32,12 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <CopyButton textToCopy={ code } />
     );
   }))
-  .add('with style specified', withInfo()(() => {
+  .add('with style specified', (() => {
     return (
       <CopyButton
         textToCopy={ code }

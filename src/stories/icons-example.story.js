@@ -13,6 +13,7 @@ const stories = storiesOf('Icons', module);
 // this add some decorators for making addons available
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo('react <Icon /> component'))
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -68,7 +69,7 @@ stories.add('all icons', () => {
   );
 });
 
-stories.add('icon docs', withInfo('react <Icon /> component')(() => {
+stories.add('icon docs', (() => {
   return (
     <Icon name='bell' size='large' />
   );

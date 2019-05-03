@@ -10,6 +10,7 @@ const stories = storiesOf('Sidebar', module);
 
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       { story() }
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (
+  .add('default', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -47,7 +48,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('anchor left', withInfo()(() => (
+  .add('anchor left', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -78,7 +79,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('docked', withInfo()(() => (
+  .add('docked', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -109,7 +110,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('docked with box shadow', withInfo()(() => (
+  .add('docked with box shadow', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>

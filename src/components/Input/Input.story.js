@@ -10,6 +10,7 @@ import Input from './index.js';
 const stories = storiesOf('Input', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('input with knobs', withInfo()(() => {
+  .add('input with knobs', (() => {
     return (
       <Input
         defaultValue={ text('defaultValue', 'some default value') }

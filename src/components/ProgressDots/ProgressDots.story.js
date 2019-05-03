@@ -9,12 +9,13 @@ import ProgressDots from './index.js';
 const stories = storiesOf('ProgressDots', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
   return <ProgressDots testSection="test-progress-dots" />;
 }));

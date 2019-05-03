@@ -10,6 +10,7 @@ import Button from '../Button';
 const stories = storiesOf('ButtonRow', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('button row skip step', withInfo()(() => (<div>
+  .add('button row skip step', (() => (<div>
     <ButtonRow
       leftGroup={ [
         <Button key="1" style="plain" width="default">Skip this step</Button>,
@@ -28,7 +29,7 @@ stories
       ] }
     />
   </div>)))
-  .add('buttons centered', withInfo()(() => (<div>
+  .add('buttons centered', (() => (<div>
     <ButtonRow
       centerGroup={ [
         <Button key="1" style="outline" width="default">Center Button</Button>,
@@ -36,7 +37,7 @@ stories
       ] }
     />
   </div>)))
-  .add('buttons fullwidth', withInfo()(() => (<div>
+  .add('buttons fullwidth', (() => (<div>
     <ButtonRow
       centerGroup={ [
         <Button key="1" style="outline" width="full">Full Width</Button>,

@@ -12,11 +12,11 @@ import Input from '../Input';
 const stories = storiesOf('DatePicker', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories.add(
-  'default single date picker',
-  withInfo()(() => (
+  'default single date picker', (() => (
     <Container>
       <DatePicker
         inputId="date-picker-id"
@@ -29,8 +29,7 @@ stories.add(
   ))
 )
   .add(
-    'with absolute positioning',
-    withInfo()(() => (
+    'with absolute positioning', (() => (
       <Container>
         <DatePicker
           inputId="date-picker-id"
@@ -44,8 +43,7 @@ stories.add(
     ))
   )
   .add(
-    'part of a form',
-    withInfo()(() => (
+    'part of a form', (() => (
       <FlexContainer>
         <DatePicker
           inputId="date-picker-id"
@@ -63,8 +61,7 @@ stories.add(
     ))
   )
   .add(
-    'with an initial date',
-    withInfo()(() => (
+    'with an initial date', (() => (
       <Container>
         <DatePicker
           inputId="date-picker-id"
@@ -78,8 +75,7 @@ stories.add(
     ))
   )
   .add(
-    'with past date selectable',
-    withInfo()(() => (
+    'with past date selectable', (() => (
       <Container>
         <DatePicker
           inputId="date-picker-id"
@@ -92,8 +88,7 @@ stories.add(
     ))
   )
   .add(
-    'remains open after date selection',
-    withInfo()(() => (
+    'remains open after date selection', (() => (
       <Container>
         <DatePicker
           inputId="date-picker-id"
@@ -107,8 +102,7 @@ stories.add(
     ))
   )
   .add(
-    'remains open always, even when clicking outside the component',
-    withInfo()(() => (
+    'remains open always, even when clicking outside the component', (() => (
       <Container>
         <DatePicker
           inputId="date-picker-id"

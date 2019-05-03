@@ -9,6 +9,7 @@ import ArrowsInline from '../ArrowsInline';
 const stories = storiesOf('ArrowsInline', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .add('select the arrow', withInfo()(() => {
+  .add('select the arrow', (() => {
     return (
       <ArrowsInline
         direction={ select('direction', { up: 'up', down: 'down', left: 'left', right: 'right' }, 'down') }

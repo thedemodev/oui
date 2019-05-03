@@ -56,6 +56,7 @@ const DNDContextContainer = DragDropContext(HTML5Backend)(({ children }) => (
 const stories = storiesOf('Sortable', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <DNDContextContainer>
       <div id="root-preview">
@@ -67,7 +68,7 @@ stories
 const changeHandler = (data) => action('onChange')(data.toJS());
 
 stories
-  .add('Normal Sorting', withInfo()(() => {
+  .add('Normal Sorting', (() => {
     return (
       <UnwrappedSortable
         allowGrouping={ boolean('allowGrouping', false) }
@@ -77,7 +78,7 @@ stories
       />
     );
   }))
-  .add('Grouped Sorting', withInfo()(() => {
+  .add('Grouped Sorting', (() => {
     return (
       <UnwrappedSortable
         allowGrouping={ boolean('allowGrouping', true) }

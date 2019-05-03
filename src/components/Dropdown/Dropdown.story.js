@@ -21,13 +21,14 @@ const data = [
 const stories = storiesOf('Dropdown', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('Default', withInfo()(() => {
+stories.add('Default', (() => {
   return (
     <Container>
       <Dropdown
@@ -57,7 +58,7 @@ stories.add('Default', withInfo()(() => {
   );
 }));
 
-stories.add('Error', withInfo()(() => {
+stories.add('Error', (() => {
   return (
     <Container>
       <Dropdown
@@ -88,7 +89,7 @@ stories.add('Error', withInfo()(() => {
   );
 }));
 
-stories.add('Icon', withInfo()(() => {
+stories.add('Icon', (() => {
   return (
     <Container>
       <Dropdown
@@ -119,7 +120,7 @@ stories.add('Icon', withInfo()(() => {
   );
 }));
 
-stories.add('Z-index', withInfo()(() => {
+stories.add('Z-index', (() => {
   return (
     <Container className="background--faint">
       <SubContainer>
@@ -154,7 +155,7 @@ stories.add('Z-index', withInfo()(() => {
   );
 }));
 
-stories.add('List', withInfo()(() => {
+stories.add('List', (() => {
   return (
     <Container className="background--faint">
       <SubContainer>
@@ -188,7 +189,7 @@ stories.add('List', withInfo()(() => {
   );
 }));
 
-stories.add('Warnings', withInfo()(() => {
+stories.add('Warnings', (() => {
   const longSecondaryText = 'exclaimation! '.repeat(10);
   return (
     <Container>

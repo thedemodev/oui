@@ -31,6 +31,7 @@ Use one <ListGroup.Item> per single setting or a logical grouping of a few relat
 const stories = storiesOf('ListGroup', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo(infoAddonConfig))
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -38,7 +39,7 @@ stories
   ));
 
 stories
-  .add('Default', withInfo(infoAddonConfig)(() => {
+  .add('Default', (() => {
 
     const theTitle = text('The Main Title', 'Hello World!');
     const itemDensity = select('item.density', { 'loose': 'loose', 'tight': 'tight' }, 'loose');
@@ -65,31 +66,31 @@ stories
       </ListGroup>
     );
   }))
-  .add('ListGroup density tight', withInfo()(() => {
+  .add('ListGroup density tight', (() => {
     return (
       <ListGroup
         title='ListGroup Title'
         subtitle='ListGroup Subtitle'>
         <ListGroup.Item>
-          <Input placeholder="Plain Input inside <ListGroup>" />
+          <Input placeholder="Plain Input inside <ListGroup>" type="text" />
         </ListGroup.Item>
         <ListGroup.Item>
-          <Input placeholder="Plain Input inside <ListGroup>" />
+          <Input placeholder="Plain Input inside <ListGroup>" type="text" />
         </ListGroup.Item>
         <ListGroup.Item>
-          <Input placeholder="Plain Input inside <ListGroup>" />
+          <Input placeholder="Plain Input inside <ListGroup>" type="text" />
         </ListGroup.Item>
         <ListGroup.Item
           density={ select('Density (4th item)', {
             'loose': 'loose',
             'tight': 'tight'}, 'tight') }>
-          <Input placeholder="Plain Input inside <ListGroup density=tight> (try the density knob!)" />
+          <Input placeholder="Plain Input inside <ListGroup density=tight> (try the density knob!)" type="text" />
         </ListGroup.Item>
         <ListGroup.Item>
-          <Input placeholder="Plain Input inside <ListGroup>" />
+          <Input placeholder="Plain Input inside <ListGroup>" type="text" />
         </ListGroup.Item>
         <ListGroup.Item>
-          <Input placeholder="Plain Input inside <ListGroup>" />
+          <Input placeholder="Plain Input inside <ListGroup>" type="text" />
         </ListGroup.Item>
       </ListGroup>
     );

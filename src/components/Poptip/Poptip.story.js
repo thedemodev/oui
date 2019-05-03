@@ -11,6 +11,7 @@ import Icon from 'react-oui-icons';
 const stories = storiesOf('Poptip', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       <div className="flexboxCenter">
@@ -20,7 +21,7 @@ stories
   ));
 
 stories
-  .add('Basic poptip', withInfo()(() => (
+  .add('Basic poptip', (() => (
     <Poptip
       trigger='click'
       content="This is a sample poptip."
@@ -30,7 +31,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('Poptip with children inline', withInfo()(() => (
+  .add('Poptip with children inline', (() => (
     <div
       className="flex flex-align--center line--1">
       <input
@@ -45,7 +46,7 @@ stories
       </Poptip>
     </div>
   )))
-  .add('Poptip to the right', withInfo()(() => (
+  .add('Poptip to the right', (() => (
     <Poptip
       trigger='mouseenter'
       content="This is a sample poptip."
@@ -55,7 +56,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('Poptip light theme', withInfo()(() => (
+  .add('Poptip light theme', (() => (
     <Poptip
       trigger='click'
       content="This is a sample poptip."
@@ -65,7 +66,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('Poptip light theme on the right', withInfo()(() => (
+  .add('Poptip light theme on the right', (() => (
     <Poptip
       trigger='click'
       content="This is a sample poptip."
@@ -76,7 +77,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('Customizable with knobs', withInfo()(() => (
+  .add('Customizable with knobs', (() => (
     <Poptip
       content={ 'This is a sample poptip.' }
       disable={ boolean('disable', false) }
@@ -89,7 +90,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('basic poptip with delay', withInfo()(() => (
+  .add('basic poptip with delay', (() => (
     <Poptip
       trigger='mouseenter'
       delay={ 1000 }

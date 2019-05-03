@@ -49,12 +49,12 @@ const LanguageDropdown = (
 const stories = storiesOf('Dialog', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
   .add(
-    'default',
-    withInfo()(() => (
+    'default', (() => (
       <div>
         <div>
           {' '}
@@ -87,8 +87,7 @@ stories
     ))
   )
   .add(
-    'with a form and dropdown',
-    withInfo()(() => (
+    'with a form and dropdown', (() => (
       <div>
         <div>
           {' '}
@@ -120,8 +119,7 @@ stories
     ))
   )
   .add(
-    'with scrolling',
-    withInfo()(() => (
+    'with scrolling', (() => (
       <div>
         <div>
           {' '}
@@ -161,8 +159,7 @@ stories
     ))
   )
   .add(
-    'with simple text and link',
-    withInfo()(() => (
+    'with simple text and link', (() => (
       <div>
         <p>This is text behind the dialog that is blocked by the overlay.</p>
         <DialogNew
@@ -182,7 +179,7 @@ stories
       </div>
     ))
   )
-  .add('deprecated dialog', withInfo()(() => (<div>
+  .add('deprecated dialog', (() => (<div>
     <Dialog.Wrapper>
       <Dialog.Title subtitle="Test Subtitle">This is a Dialog</Dialog.Title>
 

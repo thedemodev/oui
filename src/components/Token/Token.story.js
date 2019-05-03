@@ -10,6 +10,7 @@ import { action } from '@storybook/addon-actions/dist/preview';
 const stories = storiesOf('Token', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (<div>
+  .add('default', (() => (<div>
     <Token
       isDismissible={ true }
       name="Hello"
@@ -30,7 +31,7 @@ stories
       hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
-  .add('no well', withInfo()(() => (<div>
+  .add('no well', (() => (<div>
     <Token
       name="Hello"
       style="primary"

@@ -9,13 +9,14 @@ import Spinner from './index.js';
 const stories = storiesOf('Spinner', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
   return <Spinner data-test-section="test-spinner" />;
 }));
 

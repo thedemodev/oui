@@ -14,12 +14,12 @@ import Input from '../Input';
 const stories = storiesOf('Sheet', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
   .add(
-    'default',
-    withInfo()(() => (
+    'default', (() => (
       <div>
         <p>This is text behind the sheet that is blocked by the overlay.</p>
         <Sheet

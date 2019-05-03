@@ -12,7 +12,7 @@ import { Tooltip } from 'react-tippy';
  * @returns {ReactElement}
  */
 @withState('bodyDefined', 'setBodyDefined', !!document.body)
-export default class Poptip extends React.Component {
+class Poptip extends React.Component {
   constructor(props) {
     super(props);
     // Set the bodyDefined prop to true when the body is ready
@@ -112,3 +112,5 @@ export default class Poptip extends React.Component {
     return bodyDefined ? this.renderPoptip() : null;
   }
 }
+
+export default Poptip;

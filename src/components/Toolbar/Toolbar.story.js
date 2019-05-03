@@ -10,6 +10,7 @@ import Toolbar from './index.js';
 const stories = storiesOf('Toolbar', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (<div>
+  .add('default', (() => (<div>
     <Toolbar>
       <Toolbar.Left>
         <Toolbar.Link

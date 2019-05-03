@@ -27,6 +27,7 @@ const langOptions = {
 const stories = storiesOf('Code', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -34,7 +35,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <Code
         hasCopyButton={ boolean('hasCopyButton', true) }

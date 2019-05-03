@@ -35,13 +35,13 @@ stories
       <h1>OUI Component Overview</h1>
 
       <TabNav activeTab="second" style={ ['dashboard'] }>
-        <TabNav.Tab tabId="first">
+        <TabNav.Tab tabId="first" onClick={ () => {} }>
           Tab #1
         </TabNav.Tab>
-        <TabNav.Tab tabId="second">
+        <TabNav.Tab tabId="second" onClick={ () => {} }>
           Tab #2
         </TabNav.Tab>
-        <TabNav.Tab tabId="third">
+        <TabNav.Tab tabId="third" onClick={ () => {} }>
           Tab #3
         </TabNav.Tab>
       </TabNav>
@@ -65,7 +65,7 @@ stories
       </div>
 
 
-      <div class="push--ends">
+      <div className="push--ends">
          <h1>H1 Experiments</h1>
          <h2>H2 Experiments</h2>
          <h3>H3 Experiments</h3>
@@ -74,7 +74,7 @@ stories
          <h6>H6 Experiments</h6>
       </div>
 
-      <div class="oui--swatches push--ends">
+      <div className="oui--swatches push--ends">
          <span className="width--50 height--50 display--inline-block background--red"></span>
          <span className="width--50 height--50 display--inline-block background--gold"></span>
          <span className="width--50 height--50 display--inline-block background--indigo"></span>
@@ -96,13 +96,13 @@ stories
 
       <BlockList hasBorder={ true }>
         <BlockList.Category>
-          <BlockList.Item onClick={ true }>No click</BlockList.Item>
+          <BlockList.Item onClick={ () => {} }>No click</BlockList.Item>
         </BlockList.Category>
         <BlockList.Category>
           <BlockList.Item href="https://www.optimizely.com/" hrefTarget="_blank">Open optimizely.com</BlockList.Item>
         </BlockList.Category>
         <BlockList.Category>
-          <BlockList.Item onClick={ true }>
+          <BlockList.Item onClick={ () => {} }>
             <div className="flex flex-align--center">
               <div className="flex--1">
                 <div>Complex Item</div>
@@ -138,10 +138,14 @@ stories
         <Button key="6" style="plain">Plain</Button>
         <Button key="7" style="toggle">Toggle</Button>
 
-        <SelectDropdown items={[
-    {label: 'Cat',description: 'A small feline.',value: 'cat'},
-    {label: 'Dog',value: 'dog'},
-    {label: 'Bear',description: 'Likes honey',value: 'bear'}]} value="dog" />
+        <SelectDropdown
+          items={[
+            {label: 'Cat',description: 'A small feline.',value: 'cat'},
+            {label: 'Dog',value: 'dog'},
+            {label: 'Bear',description: 'Likes honey',value: 'bear'}
+          ]}
+          value="dog"
+          onChange={ () => {} } />
 
         <Switch checked={ false } />
         <Switch checked={ true } />

@@ -10,6 +10,7 @@ import Table from '../Table';
 const stories = storiesOf('DiscloseTable', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (<div>
+  .add('default', (() => (<div>
     <DiscloseTable>
       <Table.THead>
         <Table.TR>

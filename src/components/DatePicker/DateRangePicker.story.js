@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import DateRangePicker from './DateRangePicker';
-import { text } from '@storybook/addon-knobs/dist/vue';
 
 const presetPanelOptions = [
   {
@@ -36,12 +35,12 @@ const presetPanelOptions = [
 const stories = storiesOf('DateRangePicker', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
   .add(
-    'default date range picker',
-    withInfo()(() => (
+    'default date range picker', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -53,8 +52,7 @@ stories
     ))
   )
   .add(
-    'with absolute positioning',
-    withInfo()(() => (
+    'with absolute positioning', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -68,8 +66,7 @@ stories
     ))
   )
   .add(
-    'focused initially',
-    withInfo()(() => (
+    'focused initially', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -81,8 +78,7 @@ stories
     ))
   )
   .add(
-    'with initial start date',
-    withInfo()(() => (
+    'with initial start date', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -95,8 +91,7 @@ stories
     ))
   )
   .add(
-    'with past dates selectable',
-    withInfo()(() => (
+    'with past dates selectable', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -110,8 +105,7 @@ stories
     ))
   )
   .add(
-    'remains open after date selection',
-    withInfo()(() => (
+    'remains open after date selection', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -124,8 +118,7 @@ stories
     ))
   )
   .add(
-    'remains open always, even when clicking outside component',
-    withInfo()(() => (
+    'remains open always, even when clicking outside component', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -138,8 +131,7 @@ stories
     ))
   )
   .add(
-    'with preset options panel',
-    withInfo()(() => (
+    'with preset options panel', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -158,8 +150,7 @@ stories
     ))
   )
   .add(
-    'with buttons panel',
-    withInfo()(() => (
+    'with buttons panel', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -177,8 +168,7 @@ stories
     ))
   )
   .add(
-    'with preset options and no border on calendar',
-    withInfo()(() => (
+    'with preset options and no border on calendar', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -198,8 +188,7 @@ stories
     ))
   )
   .add(
-    'with no border on calendar',
-    withInfo()(() => (
+    'with no border on calendar', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'

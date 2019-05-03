@@ -10,6 +10,7 @@ import TextField from './index.js';
 const stories = storiesOf('TextField (deprecated)', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       <div className="attention attention--bad-news oui-text--center push-double--bottom">
@@ -20,7 +21,7 @@ stories
   ));
 
 stories
-  .add('TextField with knobs', withInfo()(() => {
+  .add('TextField with knobs', (() => {
     return (
       <TextField
         defaultValue={ text('defaultValue', 'some default value') }

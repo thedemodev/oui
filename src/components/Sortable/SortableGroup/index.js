@@ -61,6 +61,12 @@ const SortableGroupContainer = ({
     <li data-test-section={ testSection } { ...props }>{ children }</li>
 );
 
+SortableGroupContainer.propTypes = {
+  children: PropTypes.node,
+  isRootGroup: PropTypes.bool,
+  testSection: PropTypes.string,
+};
+
 class SortableGroup extends React.Component {
   static propTypes = {
     baseTestSection: PropTypes.string.isRequired,

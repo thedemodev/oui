@@ -24,15 +24,15 @@ stories.add("Overview", () => {
         </p>
         <div className="push-double--top">
           <Code
-          hasCopyButton
-          testSection="my-code-box"
-          type="block"
-          language="js"
-        >
-          import &#123;brandBlueDark&#125; from
-          "@optimizely-oui/src/tokens/forimport/index.es";<br/>
-          ... &lt;YourComponent backgroundColor=&#123;brandBlueDark&#125;/&gt;
-        </Code>
+            hasCopyButton
+            testSection="my-code-box"
+            type="block"
+            language="js"
+          >
+            import &#123;brandBlueDark&#125; from
+            "@optimizely-oui/src/tokens/forimport/index.es";<br/>
+            ... &lt;YourComponent backgroundColor=&#123;brandBlueDark&#125;/&gt;
+          </Code>
         </div>
       </div>
 
