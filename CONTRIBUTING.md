@@ -18,7 +18,7 @@ Then you can run and develop locally:
 ### :bulb: Adopt Storybook Driven Development
 Storybook is the best way to learn about, play with, prototype, and build OUI components. Storybook runs locally and will watch for component and documentation updates. Visit http://storybooks-official.netlify.com/ for inspiration on all that is possible!
 
-Every component should contain prop definitions and a robust set of Storybook examples (stories). This will allow for quicker adoption and help Storybook to serve as the best hub for OUI technical documentation. **If you create or update a component, it shouldn't be considered finished until you've completed the following:**  
+Every component should contain prop definitions and a robust set of Storybook examples (stories). This will allow for quicker adoption and help Storybook to serve as the best hub for OUI technical documentation. **If you create or update a component, it shouldn't be considered finished until you've completed the following:**
 
 1. Run Storybook and watch assets via `yarn storybook`
 2. Copy or reference the Story format of this [ExampleComponent](./data/components/ExampleComponent)
@@ -42,7 +42,7 @@ Every component should contain prop definitions and a robust set of Storybook ex
 
 4. Verify your OUI changes work as expected in the Optimizely repo.
 
-    Use yarn link: 
+    Use yarn link:
 
     ```sh
     cd ~/projects/optimizely-oui    # go into package directory
@@ -84,10 +84,6 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
     * Paste in new release contributions from the `CHANGELOG.md` release notes section from step 3 above into the Description field
     * Click Publish Release
 8. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
-    * For a Minor bump: in the Optimizely repo run `yarn upgrade optimizely-oui`, which will update the version in the `yarn.lock` file
-        * For a Major bump
-            - Run `yarn upgrade optimizely-oui@[version #]`, which will update the version in the `yarn.lock` file
-            - Ex: `yarn upgrade optimizely-oui@43.x.x`
+    * Within the Optimizely repo run `yarn upgrade optimizely-oui@xx.xx.xx` to update the version numbers referenced in `yarn.lock` and `package.json`
     * Make a PR that links to the OUI release and includes descriptions of the issues fixed and the JIRA ticket numbers for the fixes in this release
-        - You should expect to see the yarn.lock file changed
 9. You're done :sunglasses:
