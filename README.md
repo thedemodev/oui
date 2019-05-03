@@ -12,7 +12,7 @@ A custom CSS framework and React component library that powers the Optimizely us
 
 [![Build Status](https://travis-ci.org/optimizely/oui.svg?branch=devel)](https://travis-ci.org/optimizely/oui)
 [![codecov](https://codecov.io/gh/optimizely/oui/branch/devel/graph/badge.svg)](https://codecov.io/gh/optimizely/oui)
-[![npm version](https://badge.fury.io/js/survey-monkey-streams.svg)](//npmjs.com/package/optimizely-oui)
+[![npm version](https://badge.fury.io/js/optimizely-oui.svg)](//npmjs.com/package/optimizely-oui)
 
 </div>
 
