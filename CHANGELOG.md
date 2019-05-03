@@ -7,6 +7,17 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Patch] Include node version inside travis.yml
 
+## 42.8.0 - 2019-05-02
+- [Feature] Add `copyButtonStyle` prop to **Code** component, and `style` prop to **CopyButton** component ([#1152](https://github.com/optimizely/oui/pull/1152))
+- [Patch] Update positioning for the **Sheet** body content ([#1148](https://github.com/optimizely/oui/pull/1148))
+
+ ## 42.7.0 - 2019-04-19
+- [Feature] Add **Date Picker** component, for single date selection, and **Date Range Picker** component, for selecting a start and end date ([#1140](https://github.com/optimizely/oui/pull/1140))
+
+ ## 42.6.2 - 2019-04-17
+- [Patch] Include id, name (as CamelCase), and friendlyName (with space etc) for Axiom color tool consumption ([#1147](https://github.com/optimizely/oui/pull/1147))
+- [Patch] Fix token order rendering when token is not draggable.
+
 ## 42.6.1 - 2019-04-15
 - [Patch] Update node for running tests/builds to v10.15.3 - travis CI pulls the node version from the updated .nvmrc
 - [Patch] Add attachmentConstraint prop to OverlayWrapper component.
