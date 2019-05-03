@@ -34,6 +34,10 @@ yarn storybook
 
 Read [how to contribute to OUI](CONTRIBUTING.md) for instructions on making pull requests.
 
+## 🚢 Release
+
+Check out the [Release a New Version section](https://github.com/optimizely/oui/blob/devel/CONTRIBUTING.md#ship-release-a-new-version) for instructions on releasing a new version of OUI
+
 ## ⚡️ React
 
 To use an OUI component inside your React app:
