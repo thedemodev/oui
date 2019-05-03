@@ -1,5 +1,5 @@
 language: node_js
-cache: yarn
+cache: bundler
 node_js: 10.15.3
 after_script:
 - npm run codecov

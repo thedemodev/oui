@@ -6,6 +6,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+- [Patch] Disable yarn cache for travis.yml
+
 ## 42.8.1 - 2019-05-02
 - [Patch] Include node version inside travis.yml
 
