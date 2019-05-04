@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 42.8.2 - 2019-05-03
+- [Patch] Fix babel config to properly export es5 and esm with babel 7
+
 ## 42.8.1 - 2019-05-02
 - [Patch] Include node version inside travis.yml
 
