@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "needs-changelog": ["!CHANGELOG.md"]
+  }
+}
