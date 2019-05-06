@@ -55,7 +55,7 @@ DialogNew.propTypes = {
    */
   onClose: PropTypes.func,
   /**
-   * A subtitle for the dialog.
+   * A subtitle for the dialog, either a string or node.
    */
   subtitle: PropTypes.node || PropTypes.string,
   /**
