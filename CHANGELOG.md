@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add `minHeight` prop to **Textarea** component ([#1159](https://github.com/optimizely/oui/pull/1159))
 
 ## 42.8.3 - 2019-05-06
 - [Patch] Fix regression caused by react-popper upgrade ([#1158](https://github.com/optimizely/oui/pull/1158))
