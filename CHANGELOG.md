@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 42.8.3 - 2019-05-06
+- [Patch] Fix regression caused by react-popper upgrade ([#1158](https://github.com/optimizely/oui/pull/1158))
+
 ## 42.8.2 - 2019-05-03
 - [Patch] Fix babel config to properly export es5 and esm with babel 7
 
