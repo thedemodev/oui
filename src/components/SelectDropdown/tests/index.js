@@ -60,7 +60,7 @@ describe('components/SelectDropdown', function() {
         onChange={ onChange }
         width="400px"
       />);
-    expect(component.find('Dropdown').prop('activator').props.style).toEqual({
+    expect(component.find('Dropdown').find('Activator').childAt(0).props().style).toEqual({
       width: '400px',
     });
   });

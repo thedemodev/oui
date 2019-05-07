@@ -108,7 +108,7 @@ class Dropdown extends React.Component {
                   // trigger the dropdown if the child element is clicked on
                   onClick: this.handleToggle,
                   onBlur: this.handleOnBlur,
-                  ref,
+                  buttonRef: ref,
                 });
               }
             }}

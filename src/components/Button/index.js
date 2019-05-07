@@ -21,6 +21,7 @@ const Button = ({
   style,
   testSection,
   width = 'default',
+  buttonRef,
 }) => {
   const buttonClassNames = classNames({
     'oui-button': true,
@@ -39,7 +40,8 @@ const Button = ({
         className={ buttonClassNames }
         disabled={ isDisabled }
         onBlur={ onBlur }
-        data-test-section={ testSection }>
+        data-test-section={ testSection }
+        ref={ buttonRef }>
         { children }
       </div>
     );
@@ -55,7 +57,8 @@ const Button = ({
       onClick={ onClick }
       onMouseDown={ onMouseDown }
       data-test-section={ testSection }
-      aria-label={ ariaLabel }>
+      aria-label={ ariaLabel }
+      ref={ buttonRef }>
       { children }
     </button>
   );
@@ -64,6 +67,11 @@ const Button = ({
 Button.propTypes = {
   /** Describes buttons that have an icon but no text */
   ariaLabel: PropTypes.string,
+  /** React ref to the underlying button component */
+  buttonRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
   /** Text within the button */
   children: PropTypes.node.isRequired,
   /** Render button with active state */
