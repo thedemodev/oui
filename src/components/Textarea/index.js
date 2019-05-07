@@ -41,7 +41,7 @@ class Textarea extends React.Component {
     return (
       /* eslint-disable react/jsx-no-bind */
       <textarea
-        style={ { minHeight: minHeight } }
+        style={{ minHeight: minHeight }}
         data-oui-component={ true }
         className={ classes }
         ref={ (c) => { this._textarea = c; } }
