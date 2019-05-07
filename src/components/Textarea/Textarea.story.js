@@ -22,6 +22,7 @@ stories
     return (
       <div>
         <Textarea
+          minHeight={ number('minHeight', 250) }
           isDisabled={ boolean('isDisabled', false) }
           defaultValue='Delete this default value and see the placeholder'
           maxLength={ number('maxLength', 250) }

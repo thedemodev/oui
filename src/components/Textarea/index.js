@@ -23,6 +23,7 @@ class Textarea extends React.Component {
     isRequired,
     isDisabled,
     maxLength,
+    minHeight,
     onBlur,
     onChange,
     onFocus,
@@ -40,6 +41,7 @@ class Textarea extends React.Component {
     return (
       /* eslint-disable react/jsx-no-bind */
       <textarea
+        style={ { minHeight: minHeight } }
         data-oui-component={ true }
         className={ classes }
         ref={ (c) => { this._textarea = c; } }
@@ -133,6 +135,10 @@ Textarea.propTypes = {
    * Max length of the input value
    */
   maxLength: PropTypes.number,
+  /**
+   * Min height of the text area
+   */
+  minHeight: PropTypes.number,
   /** Form note for the input */
   note: PropTypes.string,
   /**
@@ -165,6 +171,7 @@ Textarea.defaultProps = {
   label: null,
   note: null,
   isOptional: false,
+  minHeight: null,
 };
 
 export default Textarea;
