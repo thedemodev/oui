@@ -64,6 +64,7 @@ stories
           title={ text('title', 'This is a  Dialog') }
           subtitle={ text('subtitle', 'This is an optional subtitle') }
           hasCloseButton={ boolean('hasCloseButton', true) }
+          hasOverlay={ boolean('hasOverlay', true) }
           onClose={ action('Dialog was closed') }
           footerButtonList={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
@@ -97,6 +98,7 @@ stories
           title={ text('title', 'Welcome to this Feature') }
           subtitle={ <p>Let&apos;s get you up and running with <a href="https://www.optimizely.com/">our feature.</a></p> }
           hasCloseButton={ boolean('hasCloseButton', true) }
+          hasOverlay={ boolean('hasOverlay', true) }
           onClose={ action('Dialog was closed') }
           footerButtonList={ [
             <Button style="highlight" key={ 0 } onClick={ noop }>
@@ -129,6 +131,7 @@ stories
           title={ text('title', 'Welcome to this Feature') }
           hasCloseButton={ boolean('hasCloseButton', true) }
           onClose={ action('Dialog was closed') }
+          hasOverlay={ boolean('hasOverlay', true) }
           footerButtonList={ [
             <Button style="highlight" key={ 0 } onClick={ noop }>
               Get Started in the Docs
@@ -165,6 +168,29 @@ stories
         <DialogNew
           title={ text('title', 'This is a Dialog') }
           hasCloseButton={ boolean('hasCloseButton', false) }
+          hasOverlay={ boolean('hasOverlay', true) }
+          footerButtonList={ [
+            <Button style="plain" key={ 0 } onClick={ noop }>
+              No Thanks
+            </Button>,
+            <Button style="highlight" key={ 1 } onClick={ noop }>
+              Continue
+            </Button>,
+          ] }>
+          <p>Dialogs can also contain only text in the body, no data input.</p>
+          <p>They can also contain links, like <a href="https://www.optimizely.com/">learn more about Optimizely features</a>.</p>
+        </DialogNew>
+      </div>
+    ))
+  )
+  .add(
+    'without overlay', (() => (
+      <div>
+        <p>This is text behind the dialog that is NOT blocked by the overlay because the overlay is hidden.</p>
+        <DialogNew
+          title={ text('title', 'This is a Dialog') }
+          hasCloseButton={ boolean('hasCloseButton', false) }
+          hasOverlay={ boolean('hasOverlay', false) }
           footerButtonList={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               No Thanks
