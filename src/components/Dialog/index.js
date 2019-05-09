@@ -16,7 +16,11 @@ export const DialogNew = props => {
   }
   return (
     <div className="oui-dialog__wrapper">
-      <div className="oui-dialog__overlay" />
+      {
+        props.hasOverlay && (
+          <div className="oui-dialog__overlay" />
+        )
+      }
       <div
         data-ui-component={ true }
         className="oui-dialog"
@@ -51,6 +55,11 @@ DialogNew.propTypes = {
    */
   hasCloseButton: PropTypes.bool,
   /**
+   * Used to determine if dialog should have a semi
+   * transparent overlay behind it.
+   */
+  hasOverlay: PropTypes.bool,
+  /**
    *  Function to perform when the dialog is closed.
    */
   onClose: PropTypes.func,
@@ -70,6 +79,7 @@ DialogNew.propTypes = {
 
 DialogNew.defaultProps = {
   hasCloseButton: true,
+  hasOverlay: true,
   onClose: () => {},
   subtitle: '',
   testSection: '',

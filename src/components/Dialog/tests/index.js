@@ -156,4 +156,51 @@ describe('Dialog Component ', () => {
     </DialogNew>);
     expect(component.find('.oui-close-button').length).toBe(0);
   });
+
+  it('renders the overlay behind the dialog', function() {
+    const onClickSpy = jest.fn();
+    const onCloseSpy = jest.fn();
+
+    const bodyString = 'Dialogs can contain simple text in the body.';
+
+    const component = mount(<DialogNew
+      title='This is a Dialog'
+      onClose={ onCloseSpy }
+      footerButtonList={ [
+        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+          No Thanks
+        </Button>,
+        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+          Continue
+        </Button>,
+      ] }>
+      <p>{bodyString}</p>
+    </DialogNew>);
+
+    expect(component.find('.oui-dialog__overlay').length).toBe(1);
+  });
+
+  it('does not render the overlay behind the dialog if hasOverlay is false', function() {
+    const onClickSpy = jest.fn();
+    const onCloseSpy = jest.fn();
+
+    const bodyString = 'Dialogs can contain simple text in the body.';
+
+    const component = mount(<DialogNew
+      title='This is a Dialog'
+      onClose={ onCloseSpy }
+      hasOverlay={ false }
+      footerButtonList={ [
+        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+          No Thanks
+        </Button>,
+        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+          Continue
+        </Button>,
+      ] }>
+      <p>{bodyString}</p>
+    </DialogNew>);
+
+    expect(component.find('.oui-dialog__overlay').length).toBe(0);
+  });
 });
