@@ -6,7 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 42.9.3 - 2019-05-09
+## 42.9.0 - 2019-05-09
 - [Feature] Add `hasOverlay` prop to **DialogNew** ([#1160](https://github.com/optimizely/oui/pull/1160)) 
 
 ## 42.8.3 - 2019-05-06
