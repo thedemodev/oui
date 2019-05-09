@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Spinner from '../Spinner';
 
 /**
  * @param {Object} props - Properties passed to component
@@ -9,11 +10,13 @@ import classNames from 'classnames';
 
 const Button = ({
   ariaLabel,
-  isSubmit = false,
+  isSubmit,
   isLink,
   children,
   isActive,
-  isDisabled = false,
+  isDisabled,
+  isLoading,
+  loadingText,
   onBlur,
   onClick,
   onMouseDown,
@@ -23,15 +26,24 @@ const Button = ({
   width = 'default',
   buttonRef,
 }) => {
-  const buttonClassNames = classNames({
-    'oui-button': true,
-    [`oui-button--${style}`]: style,
-    [`oui-button--${size}`]: size,
-    [`oui-button--${width}`]: width,
-    ['is-active']: isActive,
-  });
+
+  const buttonClassNames = classNames(
+    'oui-button', {
+      [`oui-button--${style}`]: style,
+      [`oui-button--${size}`]: size,
+      [`oui-button--${width}`]: width,
+      'is-active': isActive,
+      'oui-button--loading': isLoading,
+    });
 
   const type = isSubmit ? 'submit' : 'button';
+
+  function handleOnClick(event) {
+    if (isDisabled || isLoading) {
+      return;
+    }
+    onClick(event);
+  }
 
   if (isLink) {
     return (
@@ -51,15 +63,17 @@ const Button = ({
     <button
       data-oui-component={ true }
       className={ buttonClassNames }
-      disabled={ isDisabled }
+      disabled={ isDisabled || isLoading }
       type={ type }
       onBlur={ onBlur }
-      onClick={ onClick }
+      onClick={ handleOnClick }
       onMouseDown={ onMouseDown }
       data-test-section={ testSection }
       aria-label={ ariaLabel }
+      aria-live="polite"
       ref={ buttonRef }>
-      { children }
+      { isLoading && <Spinner data-test-section="button-spinner" size="tiny"/> }
+      { isLoading ? loadingText || 'Processing' : children }
     </button>
   );
 };
@@ -80,8 +94,12 @@ Button.propTypes = {
   isDisabled: PropTypes.bool,
   /** Changes the button to a div for insertion within a Link component */
   isLink: PropTypes.bool,
+  /** When true, adds a spinner to the button and disables the button */
+  isLoading: PropTypes.bool,
   /** Make the button act as a submit button */
   isSubmit: PropTypes.bool,
+  /** When the button adds a spinner, it displays this text */
+  loadingText: PropTypes.string,
   /** Function that fires when the button loses focus */
   onBlur: PropTypes.func,
   /** Function that fires when the button is clicked on */
@@ -119,9 +137,14 @@ Button.propTypes = {
 
 Button.defaultProps = {
   isLink: false,
+  isLoading: false,
+  isDisabled: false,
+  isSubmit: false,
+  loadingText: '',
   onBlur: () => {},
   onClick: () => {},
   onMouseDown: () => {},
+  width: 'default',
 };
 
 Button.displayName = 'Button';

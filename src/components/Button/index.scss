@@ -351,4 +351,11 @@
       background-color: transparent;
     }
   }
+
+  &--loading {
+    .oui-spinner {
+      margin-bottom: spacer(-0.5);
+      margin-right: spacer(0.5);
+    }
+  }
 }
