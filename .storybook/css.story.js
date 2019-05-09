@@ -45,6 +45,7 @@ stories
 
       <h2>Frequently Used Colors
        ({ css.uniqueColors.length })</h2>
+       <p>To find these colors first we convert every known color value to hex (rgb(a), hsl(a), and HTML named colors (rebeccapurple). What it doesn't yet cover is color variables/tokens.</p>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.uniqueColors.map(item => (
           console.log(item),
