@@ -44,15 +44,16 @@ TokensInput.defaultProps = TokensInputCore.defaultProps;
 
 storiesOf('TokensInput', module)
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ))
-  .add('Default', withInfo()(() => {
+  .add('Default', (() => {
     return <TokensInput onChange={ action('tokens changed') } tokens={ SAMPLE_DATA }/>;
   }))
-  .add('with extraAddKeys', withInfo()(() => {
+  .add('with extraAddKeys', (() => {
     return (
       <TokensInput
         onChange={ action('tokens changed') }

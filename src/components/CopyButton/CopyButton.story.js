@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import CopyButton from '../CopyButton';
@@ -9,7 +9,7 @@ import CopyButton from '../CopyButton';
 const code = `const CopyButton = ({ testSection, onClick, text }) => {
   return (
     <CopyToClipboard
-      text={ text }
+      text={ textToCopy }
       onCopy={ onClick }>
       <Button
         style="plain"
@@ -24,6 +24,7 @@ const code = `const CopyButton = ({ testSection, onClick, text }) => {
 const stories = storiesOf('CopyButton', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -31,8 +32,27 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
-      <CopyButton text={ code } />
+      <CopyButton textToCopy={ code } />
+    );
+  }))
+  .add('with style specified', (() => {
+    return (
+      <CopyButton
+        textToCopy={ code }
+        style={ select('style', {
+          'none': 'none (use default button style)',
+          'highlight': 'highlight',
+          'danger': 'danger',
+          'danger-outline': 'danger-outline',
+          'outline': 'outline',
+          'outline-reverse': 'outline-reverse',
+          'plain': 'plain',
+          'toggle': 'toggle',
+          'underline': 'underline',
+          'unstyled': 'unstyled',
+        }, 'none') }
+      />
     );
   }));

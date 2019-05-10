@@ -9,6 +9,7 @@ import Card from '../Card';
 const stories = storiesOf('Card', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       { story() }
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .add('card states', withInfo()(() => {
+  .add('card states', (() => {
     return (
       <Card
         title={ text('title', 'Card Title') }

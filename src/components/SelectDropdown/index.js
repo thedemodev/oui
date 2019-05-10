@@ -119,28 +119,32 @@ class SelectDropdown extends React.Component {
       {['oui-form-bad-news']: this.props.displayError}
     );
 
-    const activatorLabel = selectedItem.activatorLabel || selectedItem.label;
+    const activatorLabel = !!selectedItem ? (selectedItem.activatorLabel || selectedItem.label) : '';
+    const Activator = ({ buttonRef, onClick, onBlur }) => (
+      <div
+        style={{ width: width}}
+        className={ outerClass }>
+        <Button
+          isDisabled={ this.props.isDisabled }
+          style={ buttonStyle }
+          testSection={ this.props.testSection }
+          width="full"
+          buttonRef={ buttonRef }
+          onClick={ onClick }
+          onBlur={ onBlur }>
+          <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
+            <span style={{overflow: 'hidden'}} className="flex flex--1">{ activatorLabel }</span>
+            <span className="push--left oui-arrow-inline--down" />
+          </div>
+        </Button>
+      </div>
+    );
 
     return (
       <Dropdown
         { ...(zIndex ? { zIndex } : {}) }
         isDisabled={ isDisabled }
-        activator={ (
-          <div
-            style={{ width: width}}
-            className={ outerClass }>
-            <Button
-              isDisabled={ this.props.isDisabled }
-              style={ buttonStyle }
-              testSection={ this.props.testSection }
-              width="full">
-              <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
-                <span style={{overflow: 'hidden'}} className="flex flex--1">{ activatorLabel }</span>
-                <span className="push--left oui-arrow-inline--down" />
-              </div>
-            </Button>
-          </div>
-        ) }>
+        activator={ <Activator /> }>
         { this.renderContents() }
       </Dropdown>
     );

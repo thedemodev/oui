@@ -10,6 +10,7 @@ import TabNav from './index.js';
 const stories = storiesOf('TabNav', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('Dashboard tabs', withInfo()(() => (
+  .add('Dashboard tabs', (() => (
     <TabNav activeTab="second" style={ ['dashboard'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -30,7 +31,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Basic tabs', withInfo()(() => (
+  .add('Basic tabs', (() => (
     <TabNav activeTab="first">
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -43,7 +44,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Closed tabs', withInfo()(() => (
+  .add('Closed tabs', (() => (
     <TabNav activeTab="second" style={ ['small'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -56,7 +57,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Centered tabs', withInfo()(() => (
+  .add('Centered tabs', (() => (
     <TabNav activeTab="first" style={ ['small', 'center'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -69,7 +70,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Plain tabs', withInfo()(() => (
+  .add('Plain tabs', (() => (
     <TabNav activeTab="first" style={ ['small', 'sub'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -82,7 +83,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Sub tabs', withInfo()(() => (
+  .add('Sub tabs', (() => (
     <TabNav activeTab="first" style={ ['sub'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1
@@ -95,7 +96,7 @@ stories
       </TabNav.Tab>
     </TabNav>
   )))
-  .add('Header tabs', withInfo()(() => (
+  .add('Header tabs', (() => (
     <TabNav activeTab="first" style={ ['header'] }>
       <TabNav.Tab onClick={ action('first tab clicked') } tabId="first">
         Tab #1

@@ -10,13 +10,14 @@ import Checkbox from '../Checkbox';
 const stories = storiesOf('Disclose', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
   return (
     <Disclose title='default title'>
       <h3>Some Title</h3>
@@ -27,7 +28,7 @@ stories.add('default', withInfo()(() => {
   );
 }));
 
-stories.add('multiple stacked', withInfo()(() => {
+stories.add('multiple stacked', (() => {
   return (
     <div>
       <Disclose headerStyle='header-bordered' title='Some Title' childrenStyle='border'>
@@ -50,7 +51,7 @@ stories.add('multiple stacked', withInfo()(() => {
   );
 }));
 
-stories.add('header style', withInfo()(() => {
+stories.add('header style', (() => {
   return (
     <div>
       <Disclose headerStyle='header' title='Browsers'>
@@ -71,7 +72,7 @@ stories.add('header style', withInfo()(() => {
   );
 }));
 
-stories.add('with divider', withInfo()(() => {
+stories.add('with divider', (() => {
   return (
     <div>
       <Disclose childrenStyle='divider' title='Some Title'>
@@ -90,7 +91,7 @@ stories.add('with divider', withInfo()(() => {
   );
 }));
 
-stories.add('with ul', withInfo()(() => {
+stories.add('with ul', (() => {
   return (
     <div>
       <Disclose childrenStyle='divider' title='Some Title'>

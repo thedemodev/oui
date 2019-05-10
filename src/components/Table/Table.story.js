@@ -10,6 +10,7 @@ import Button from '../Button';
 const stories = storiesOf('Table', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (<div>
+  .add('default', (() => (<div>
     <Table density="loose" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -50,7 +51,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('custom tr borders', withInfo()(() => (<div>
+  .add('custom tr borders', (() => (<div>
     <Table>
       <Table.THead>
         <Table.TR>
@@ -73,7 +74,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('loose & rule style', withInfo()(() => (<div>
+  .add('loose & rule style', (() => (<div>
     <Table density="loose" style="rule" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -106,7 +107,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('tight & no bottom border', withInfo()(() => (<div>
+  .add('tight & no bottom border', (() => (<div>
     <Table density="tight" style="rule-no-bottom-border" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -139,7 +140,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('dome', withInfo()(() => (<div>
+  .add('dome', (() => (<div>
     <Table density="tight" style="wall" tableLayoutAlgorithm="auto">
       <Table.THead>
         <Table.TR>

@@ -10,6 +10,7 @@ import Pagination from './index.js';
 const stories = storiesOf('Pagination', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <Pagination
         currentPage={ number('currentPage', 1) }

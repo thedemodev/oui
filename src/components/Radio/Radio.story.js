@@ -9,6 +9,7 @@ import Radio from './index.js';
 const stories = storiesOf('Radio', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }
@@ -25,7 +26,7 @@ stories
       />
     );
   }))
-  .add('with html label', withInfo()(() => {
+  .add('with html label', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }
@@ -40,7 +41,7 @@ stories
       />
     );
   }))
-  .add('with labelWeight prop', withInfo()(() => {
+  .add('with labelWeight prop', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }

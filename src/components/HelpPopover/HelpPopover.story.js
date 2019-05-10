@@ -9,6 +9,7 @@ import HelpPopover from './index.js';
 const stories = storiesOf('HelpPopover', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -16,12 +17,12 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (
+  .add('default', (() => (
     <HelpPopover popoverTitle="This is a popover title">
       This is a popover description. 🤓
     </HelpPopover>
   )))
-  .add('hover', withInfo()(() => (<div>
+  .add('hover', (() => (<div>
     <div className="position--relative height--100 text--center">
       <HelpPopover
         popoverTitle="This is a popover title"

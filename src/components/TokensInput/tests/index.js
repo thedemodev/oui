@@ -16,6 +16,12 @@ describe('components/TokensInput', () => {
   let component;
   let mockOnChange;
 
+  afterEach(function() {
+    if (component) {
+      component.unmount();
+    }
+  });
+
   describe('rendering tokens', function() {
     beforeEach(function() {
       mockOnChange = jest.fn();
@@ -23,8 +29,9 @@ describe('components/TokensInput', () => {
         <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
       );
     });
+
     function assertTokenRender(comp, style, font, text) {
-      expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap')).toBe(true);
+      expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap--snug')).toBe(true);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${style}`).length).toBe(1);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${font}`).length).toBe(1);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${font}`).text()).toBe(text);
@@ -52,6 +59,50 @@ describe('components/TokensInput', () => {
     it('should render tokens with tertiary style correctly', () => {
       const tertiaryToken = component.find('Token').at(4);
       assertTokenRender(tertiaryToken, 'tertiary', 'font-dark', 'tertiary');
+    });
+  });
+
+  describe('when rendering tokens with optional props', function() {
+    describe('when optional prop is placeholder', function() {
+      const inputCSS = '.flex .flex--1 .min-width--150 .no-border .soft-half--ends .soft--sides';
+
+      beforeEach(function() {
+        mockOnChange = jest.fn();
+        component = mount(
+          <TokensInput
+            placeholder='keywords'
+            onChange={ mockOnChange }
+            tokens={ SAMPLE_DATA }
+          />
+        );
+      });
+
+      it('should SHOW input has custom placeholder', function() {
+        expect(component.find('Token').length).toBe(5);
+        expect(component.find(inputCSS).props().readOnly).toBe(false);
+        expect(component.find(inputCSS).props().placeholder).toBe('keywords');
+      });
+    });
+
+    describe('when optional prop is maxTags', function() {
+      const inputCSS = '.flex .flex--1 .no-border .soft-half--ends .soft--sides';
+
+      beforeEach(function() {
+        mockOnChange = jest.fn();
+        component = mount(
+          <TokensInput
+            maxTags={ 5 }
+            onChange={ mockOnChange }
+            tokens={ SAMPLE_DATA }
+          />
+        );
+      });
+
+      it('should SHOW input is readonly if the number of tokens is not less than the value of maxTags', function() {
+        expect(component.find('Token').length).toBe(5);
+        expect(component.find(inputCSS).props().readOnly).toBe(true);
+        expect(component.find(inputCSS).props().placeholder).toBe('');
+      });
     });
   });
 

@@ -9,24 +9,21 @@ import RangeSlider from './index.js';
 const stories = storiesOf('RangeSlider', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
   return (
-    <div>
-      <input type="text" className="oui-text-input push-double--bottom" />
-      <RangeSlider
-        value={ number('value', 50) }
-      />
-      <input type="text" className="oui-text-input" />
-    </div>
+    <RangeSlider
+      value={ number('value', 50) }
+    />
   );
 }))
-  .add('disabled', withInfo()(() => {
+  .add('disabled', (() => {
     return (
       <div>
         <input type="text" className="oui-text-input push-double--bottom" />

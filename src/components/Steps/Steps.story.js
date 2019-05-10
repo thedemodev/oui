@@ -11,6 +11,7 @@ import Steps from './index.js';
 const stories = storiesOf('Steps', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -36,7 +37,7 @@ const items = [
   },
 ];
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
   return (
     <Container>
       <Steps
@@ -46,7 +47,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('user cannot edit', withInfo()(() => {
+})).add('user cannot edit', (() => {
   return (
     <Container>
       <Steps

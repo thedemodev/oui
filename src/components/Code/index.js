@@ -72,6 +72,7 @@ class Code extends React.Component {
       children,
       type,
       hasCopyButton,
+      copyButtonStyle,
       testSection,
       className,
       ouiStyle = true,
@@ -92,7 +93,7 @@ class Code extends React.Component {
       <div data-oui-component={ true } className="position--relative">
         { hasCopyButton &&
           <div style={{position: 'absolute', top: '5px', right: '5px' }}>
-            <CopyButton textToCopy={ children } testSection={ testSection } />
+            <CopyButton textToCopy={ children } testSection={ testSection } style={ copyButtonStyle }/>
           </div>
         }
         <pre
@@ -110,6 +111,19 @@ Code.propTypes = {
   children: PropTypes.string,
   /** className provide the possibility for extra classNames */
   className: PropTypes.string,
+  /** Style for the CopyButton */
+  copyButtonStyle: PropTypes.oneOf([
+    'highlight',
+    'danger',
+    'danger-outline',
+    'outline',
+    'outline-reverse',
+    'plain',
+    'toggle',
+    'underline',
+    'unstyled',
+    'none',
+  ]),
   /** Adds a copy button to code examples */
   hasCopyButton: PropTypes.bool,
   /** Apply syntax highlighting to the code */

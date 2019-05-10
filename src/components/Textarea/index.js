@@ -33,7 +33,7 @@ class Textarea extends React.Component {
     value,
   }) {
     const classes = classNames(
-      'oui-textarea': true,
+      {'oui-textarea': true},
       {'oui-form-bad-news': displayError},
     );
 

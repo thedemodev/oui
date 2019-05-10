@@ -38,7 +38,8 @@ class Input extends React.Component {
     maxLength,
     testSection,
     focus,
-    textAlign }) {
+    textAlign,
+    id }) {
 
     let hasAlignStyle = false;
     if (textAlign) {
@@ -58,6 +59,7 @@ class Input extends React.Component {
       <input
         data-oui-component={ true }
         className={ classes }
+        id={ id }
         ref={ (c) => { this._input = c; } }
         type={ type }
         value={ value }
@@ -93,6 +95,8 @@ class Input extends React.Component {
       testSection,
       isOptional,
       note,
+      isRequired,
+      id,
     } = this.props;
 
     if (label) {
@@ -100,13 +104,14 @@ class Input extends React.Component {
         <div
           data-oui-component={ true }
           className={ classNames({'oui-form-bad-news': displayError}) }>
-          <Label testSection={ testSection && testSection + '-label' }>
-            <div className="oui-label">
-              { label }
-              { isOptional && <span className="oui-label__optional">(Optional)</span> }
-            </div>
-            { this.renderInput(this.props) }
+          <Label
+            testSection={ testSection && testSection + '-label' }
+            isRequired={ isRequired }
+            isOptional={ isOptional }
+            inputId={ id }>
+            { label }
           </Label>
+          { this.renderInput(this.props) }
           { note && this.renderNote(this.props)}
         </div>
       );
@@ -129,6 +134,8 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   /** Includes search icon if true */
   displayError: PropTypes.bool,
+  /** Id of the input to properly associate with the input's label */
+  id: PropTypes.string,
   /** Prevents input from being modified and appears disabled */
   isDisabled: PropTypes.bool,
   /** Includes error if true */
@@ -145,8 +152,16 @@ Input.propTypes = {
   },
   /** Prevents input from being modified but doesn't appear disabled */
   isReadOnly: PropTypes.bool,
-  /** Prevents input from being submitted without value */
-  isRequired: PropTypes.bool,
+  /** Includes required asterisk label if true
+   *  @param {Object} props Object of props
+   *  @returns {Error} Error or null
+   */
+  isRequired: function verifyIsRequiredProp(props) {
+    if (props.isRequired && !props.label) {
+      return new Error('Must include a value for the label prop to use the isRequired prop');
+    }
+    return null;
+  },
   /** Text that describes the input */
   label: PropTypes.string,
   /**
@@ -205,6 +220,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   note: null,
+  isRequired: false,
 };
 
 export default Input;

@@ -26,10 +26,13 @@ $spacer-unit                 : 10px;
 $base-black                  : #000000;
 $base-white                  : #FFFFFF;
 
+
+/// TODO: @dave.rau Combine brand, root and new tokens into 1 map
+
 $brand-color: (
 
   /* brand */
-  light-blue-100             : #0037FF,
+  light-blue-100             : $brand-blue-dark,
   light-blue-75              : #4069FF,
   light-blue-50              : #809BFF,
   light-blue-25              : #BFCDFF,
@@ -47,17 +50,15 @@ $brand-color: (
   orange                     : #FF9C33,
 
   /* greys */
-  dark-blue-100              : #080738,
+  dark-blue-100              : $brand-purple-dark,
   dark-blue-50               : #83839B,
-  dark-blue-25               : #C1C1CD,
+  dark-blue-25               : $brand-purple-base,
   grey-50                    : #E8E8E8,
   grey-25                    : #F9F9F9,
   paper                      : #FDFDFD,
   white-40b                  : shade($base-white, 40%),
 
 );
-
-/// Could be combined with brand-color in the future.
 
 $root-color: (
   grey-85                    : tint($base-black, 15%),
@@ -257,6 +258,9 @@ $button: (
         background           : shade(map-fetch($brand-color, light-blue-100), 20%),
         border               : shade(map-fetch($brand-color, light-blue-100), 30%),
         box-shadow           : inset 0 1px 3px 0 rgba(0, 0, 0, 0.5),
+      ),
+      focus:(
+        border               : map-fetch($brand-color, light-blue-100),
       )
     ),
     outline: (
@@ -439,7 +443,8 @@ $shadow: (
 /// Opacity
 
 $opacity: (
-  medium                     : 0.5
+  medium                     : 0.5,
+  heavy                      : 0.75,
 );
 
 /// Dialog widths
@@ -449,6 +454,9 @@ $dialog: (
     base                     : 700px,
     narrow                   : 500px,
     wide                     : 900px
+  ),
+  footer:(
+    color                    : #f7f7f7,
   )
 );
 
@@ -532,6 +540,7 @@ $spinner: (
 /// Z-index Values
 
 $z-index: (
+  dialog                     : 3000,
   poptip                     : 100,
   sidebar                    : 99,
   toolbar                    : 1,

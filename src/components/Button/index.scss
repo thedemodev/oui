@@ -79,7 +79,7 @@
     }
 
     &:focus {
-      border: 1px solid var(--light-blue-100);
+      border: 1px solid map-fetch($button, type, highlight, focus, border);
     }
 
     &:active {
@@ -106,11 +106,7 @@
     }
 
     &:focus {
-      border-color: map-fetch($button, type, outline, hover, border);
-    }
-
-    &:focus {
-      border: 1px solid var(--light-blue-100);
+      border: 1px solid map-fetch($button, type, outline, hover, border);
     }
 
     &:hover {
@@ -313,7 +309,7 @@
   &--unstyled {
     // scss-lint:disable ImportantRule
     background: inherit !important;
-    border: inherit !important;
+    border: none !important;
     border-radius: inherit !important;
     box-shadow: inherit !important;
     color: inherit !important;
@@ -353,6 +349,13 @@
     &.#{$namespace}button--outline-reverse,
     &.oui-button--outline-reverse {
       background-color: transparent;
+    }
+  }
+
+  &--loading {
+    .oui-spinner {
+      margin-bottom: spacer(-0.5);
+      margin-right: spacer(0.5);
     }
   }
 }

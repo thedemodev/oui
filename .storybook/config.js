@@ -1,28 +1,39 @@
 import * as storybook from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { withA11y } from '@storybook/addon-a11y';
 
-require(`../dist/styles.js`);
+require('../dist/styles.js');
 
-require(`../src/oui/oui.scss`);
+require('../src/oui/oui.scss');
 
-setOptions({
+const options = {
   name: 'OUI Storybook',
   url: 'https://github.com/optimizely/oui',
-  goFullScreen: false,
-  showLeftPanel: true,
-  showDownPanel: true,
-  showSearchBox: false,
-  downPanelInRight: true,
-  sortStoriesByKind: false,
-});
+  isFullScreen: false,
+  showNav: true,
+  showPanel: true,
+  showSearchBox: true,
+  sortStoriesByKind: false
+};
+
+const a11y = {
+  a11y: {
+    // ... axe options
+    element: '#root-preview', // optional selector which element to inspect
+    config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+    options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+  },
+};
 
 const req = require.context('../src/', true, /story\.js$/);
 
 function loadStories() {
   require('./overview.story.js');
+  require('./tokens.story.js');
   require('./borderradius.story.js');
-  req.keys().forEach(req)
+  req.keys().forEach(req);
 }
 
 storybook.configure(loadStories, module);
-
+storybook.addDecorator(withA11y);
+storybook.addParameters(options);
+storybook.addParameters(a11y);

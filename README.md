@@ -12,6 +12,7 @@ A custom CSS framework and React component library that powers the Optimizely us
 
 [![Build Status](https://travis-ci.org/optimizely/oui.svg?branch=devel)](https://travis-ci.org/optimizely/oui)
 [![codecov](https://codecov.io/gh/optimizely/oui/branch/devel/graph/badge.svg)](https://codecov.io/gh/optimizely/oui)
+[![npm version](https://badge.fury.io/js/optimizely-oui.svg)](//npmjs.com/package/optimizely-oui)
 
 </div>
 
@@ -32,6 +33,10 @@ yarn storybook
 ## 💪 Contribute
 
 Read [how to contribute to OUI](CONTRIBUTING.md) for instructions on making pull requests.
+
+## 🚢 Release
+
+Check out the [Release a New Version section](https://github.com/optimizely/oui/blob/devel/CONTRIBUTING.md#ship-release-a-new-version) for instructions on releasing a new version of OUI
 
 ## ⚡️ React
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
@@ -21,19 +21,20 @@ const data = [
 const stories = storiesOf('Dropdown', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
     </div>
   ));
 
-stories.add('Default', withInfo()(() => {
+stories.add('Default', (() => {
   return (
     <Container>
       <Dropdown
         buttonContent={ text('buttonContent', 'Default Dropdown') }
         width={ number('width', 300) }
-        arrowIcon={ true }>
+        arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
         <BlockList>
           {
             data.map((item, index) => {
@@ -57,14 +58,14 @@ stories.add('Default', withInfo()(() => {
   );
 }));
 
-stories.add('Error', withInfo()(() => {
+stories.add('Error', (() => {
   return (
     <Container>
       <Dropdown
         buttonContent={ text('buttonContent', 'Error State') }
         width={ number('width', 300) }
         displayError={ true }
-        arrowIcon={ true }>
+        arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
         <BlockList>
           {
             data.map((item, index) => {
@@ -88,7 +89,7 @@ stories.add('Error', withInfo()(() => {
   );
 }));
 
-stories.add('Icon', withInfo()(() => {
+stories.add('Icon', (() => {
   return (
     <Container>
       <Dropdown
@@ -119,7 +120,7 @@ stories.add('Icon', withInfo()(() => {
   );
 }));
 
-stories.add('Z-index', withInfo()(() => {
+stories.add('Z-index', (() => {
   return (
     <Container className="background--faint">
       <SubContainer>
@@ -154,7 +155,7 @@ stories.add('Z-index', withInfo()(() => {
   );
 }));
 
-stories.add('List', withInfo()(() => {
+stories.add('List', (() => {
   return (
     <Container className="background--faint">
       <SubContainer>
@@ -188,7 +189,7 @@ stories.add('List', withInfo()(() => {
   );
 }));
 
-stories.add('Warnings', withInfo()(() => {
+stories.add('Warnings', (() => {
   const longSecondaryText = 'exclaimation! '.repeat(10);
   return (
     <Container>

@@ -76,6 +76,7 @@ export const TokensInput = ({
     return (
       <Token
         key={ key }
+        hasSnugWrap={ true }
         isDismissible={ true }
         onDismiss={ onDismiss }
         name={ name }
@@ -130,15 +131,19 @@ export const TokensInput = ({
   }
 
   const addKeys = DEFAULT_ADD_KEYS.map(k => k.keyCode).concat(extraAddKeys);
+  const isNumberOfTokensMoreThanOrEqualToMaxTags = tokens.length >= maxTags && maxTags !== -1;
+  const minWidth = isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : 'min-width--150';
 
   return (
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
         addKeys={ addKeys }
+        addOnBlur={ true }
         addOnPaste={ true }
         inputProps={{
-          className: 'soft-half--ends soft--sides no-border width--150',
-          placeholder,
+          className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
+          readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
         }}
         maxTags={ maxTokens }
         onChange={ __onChange }

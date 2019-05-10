@@ -10,6 +10,7 @@ import Textarea from './index.js';
 const stories = storiesOf('Textarea', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,7 +18,7 @@ stories
   ));
 
 stories
-  .add('textarea with knobs', withInfo()(() => {
+  .add('textarea with knobs', (() => {
     return (
       <div>
         <Textarea
@@ -49,7 +50,7 @@ stories
         placeholder="Just a placeholder"
         type="text"
       />);
-  }).add('Textarea with auto focus', withInfo()(() => {
+  }).add('Textarea with auto focus', (() => {
     return (
       <Textarea
         label="Field label"

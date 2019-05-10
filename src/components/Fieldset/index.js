@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import HelpPopover from '../../HelpPopover';
+import HelpPopover from '../HelpPopover';
 
 const Fieldset = props => (
   <fieldset data-test-section={ props.testSection }>

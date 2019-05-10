@@ -9,6 +9,7 @@ import { Accordion, AccordionSection } from '../Accordion';
 const stories = storiesOf('Accordion', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .add('Single Section Accordion', withInfo()(() => {
+  .add('Single Section Accordion', (() => {
     return (
       <div className="height--300">
         <Accordion>
@@ -70,7 +71,7 @@ stories
       </div>
     );
   }))
-  .add('Multi-Section Accordion', withInfo()(() => {
+  .add('Multi-Section Accordion', (() => {
     return (
       <div className="height--300">
         <Accordion>

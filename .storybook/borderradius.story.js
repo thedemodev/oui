@@ -76,10 +76,15 @@ stories
           <Button key="6" style="plain">Plain</Button>
           <Button key="7" style="toggle">Toggle</Button>
 
-          <SelectDropdown items={[
-          {label: 'Cat',description: 'A small feline.',value: 'cat'},
-          {label: 'Dog',value: 'dog'},
-          {label: 'Bear',description: 'Likes honey',value: 'bear'}]} value="dog" />
+          <SelectDropdown
+            items={[
+              {label: 'Cat',description: 'A small feline.',value: 'cat'},
+              {label: 'Dog',value: 'dog'},
+              {label: 'Bear',description: 'Likes honey',value: 'bear'}
+            ]}
+            value="dog"
+            onChange={ () => {} }
+          />
         </div>
 
         <div className="push--ends">

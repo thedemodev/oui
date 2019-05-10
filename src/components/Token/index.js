@@ -20,6 +20,8 @@ const getStylingInfo = style => LIGHT_BACKGROUND_STYLES.includes(style) ?
  */
 const Token = ({
   description,
+  hasSnugWrap,
+  hasWrap,
   isDismissible,
   isDraggable,
   name,
@@ -30,12 +32,14 @@ const Token = ({
   testSection,
 }) => {
   const classes = classNames({
-    'oui-token-wrap': true,
+    'oui-token-wrap': hasWrap && !hasSnugWrap,
+    'oui-token-wrap--snug': hasSnugWrap,
     'oui-token-wrap--well': showWell,
     'flex': true,
   });
   const tokenToolsClasses = classNames({
-    'oui-token-tool': isDraggable,
+    'oui-token-tool': isDraggable || order,
+    'cursor--move': isDraggable,
   });
   const { fontClass, fillColor } = getStylingInfo(style);
 
@@ -85,6 +89,12 @@ Token.propTypes = {
   /** Description explaining the token */
   description: PropTypes.string,
 
+  /** Whether or not the token should have a tighter wrap */
+  hasSnugWrap: PropTypes.bool,
+
+  /** Whether or not the token should have a wrap */
+  hasWrap: PropTypes.bool,
+
   /**
    * Determines if token has dismissible feature or not. If true, `onDismiss`
    * is required.
@@ -117,6 +127,7 @@ Token.propTypes = {
 };
 
 Token.defaultProps = {
+  hasWrap: true,
   isDismissible: false,
   style: 'secondary',
   showWell: true,

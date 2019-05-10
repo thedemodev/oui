@@ -11,6 +11,7 @@ import SelectDropdown from './index.js';
 const stories = storiesOf('SelectDropdown', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -39,7 +40,7 @@ const items = [
   },
 ];
 
-stories.add('default', withInfo()(() => {
+stories.add('default', (() => {
 
   return (
     <Container>
@@ -50,7 +51,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('width of activator', withInfo()(() => {
+})).add('width of activator', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -61,7 +62,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('has error', withInfo()(() => {
+})).add('has error', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -72,7 +73,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('width of dropdown', withInfo()(() => {
+})).add('width of dropdown', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -83,7 +84,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('Disabled', withInfo()(() => {
+})).add('Disabled', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -95,7 +96,7 @@ stories.add('default', withInfo()(() => {
       />
     </Container>
   );
-})).add('activatorLabel', withInfo()(() => {
+})).add('activatorLabel', (() => {
   const itemsWithActivatorLabel = [
     {
       activatorLabel: 'Production',

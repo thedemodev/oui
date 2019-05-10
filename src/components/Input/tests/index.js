@@ -191,6 +191,14 @@ describe('components/Input', () => {
     expect(component.find('[data-test-section="foo-label"]').length).toBe(1);
   });
 
+  it('should render for and id attributes if an id is passed', () => {
+    const component = mount(
+      <Input type="text" testSection="foo" label="Input Label" id="input-01" />
+    );
+    expect(component.is('[id="input-01"]')).toBe(true);
+    expect(component.find('[htmlFor="input-01"]').exists()).toBe(true);
+  });
+
   it('should render a label with optional text if label and isOptional is passed', () => {
     const component = mount(
       <Input type="text" testSection="foo" label="Input Label" isOptional={ true } />
@@ -209,6 +217,13 @@ describe('components/Input', () => {
     expect(console.error.calls.all()[0].args[0]).toContain('Must include a value for the label prop to use the isOptional prop'); // eslint-disable-line
   });
 
+  it('should render a label with * if isRequired is passed', () => {
+    const component = mount(
+      <Input type="text" testSection="foo" label="Input Label" isRequired={ true } />
+    );
+
+    expect(component.find('.oui-label--required').length).toBe(1);
+  });
 
   it('should not render a label by default', () => {
     const component = mount(

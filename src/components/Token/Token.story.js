@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Token from './index.js';
@@ -10,6 +10,7 @@ import { action } from '@storybook/addon-actions/dist/preview';
 const stories = storiesOf('Token', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -17,27 +18,31 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => (<div>
+  .add('default', (() => (<div>
     <Token
       isDismissible={ true }
       name="Hello"
       style="primary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
       name="World"
       style="secondary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
-  .add('no well', withInfo()(() => (<div>
+  .add('no well', (() => (<div>
     <Token
       name="Hello"
       style="primary"
       showWell={ false }
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
       name="World"
       style="secondary"
       showWell={ false }
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
   .add('draggable', () => {
@@ -58,5 +63,6 @@ stories
         name="Delete me!"
         style="primary"
         onDismiss={ action('token dismissed') }
+        hasSnugWrap={ boolean('hasSnugWrap', false) }
       />);
   });

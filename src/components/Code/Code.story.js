@@ -27,6 +27,7 @@ const langOptions = {
 const stories = storiesOf('Code', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -34,7 +35,7 @@ stories
   ));
 
 stories
-  .add('default', withInfo()(() => {
+  .add('default', (() => {
     return (
       <Code
         hasCopyButton={ boolean('hasCopyButton', true) }
@@ -42,6 +43,20 @@ stories
         type={ select('type', {inline: 'inline', block: 'block'}, 'block') }
         language={ select('language', langOptions, 'js') }>
         { text('code', 'var foo = `bar`; \nvar bat = `baz`;') }
+      </Code>
+    );
+  }))
+  .add('with styled copy button', withInfo()(() => {
+    return (
+      <Code
+        copyButtonStyle="none"
+        hasCopyButton={ boolean('hasCopyButton', true) }
+        testSection='my-code-box'
+        type={ select('type', {inline: 'inline', block: 'block'}, 'block') }
+        language={ select('language', langOptions, 'js') }>
+        { text(
+          'code', 'var foo = `bar`; var bat = `baz`; var withAReallyReallyLongName = `a value with a really really long string`'
+        ) }
       </Code>
     );
   }));

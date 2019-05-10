@@ -9,6 +9,7 @@ import ProgressBar from '../ProgressBar';
 const stories = storiesOf('ProgressBar', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -16,7 +17,7 @@ stories
   ));
 
 stories
-  .add('Progress with knobs', withInfo()(() => {
+  .add('Progress with knobs', (() => {
     return (
       <ProgressBar
         displayError={ boolean('displayError', false) }
@@ -28,7 +29,7 @@ stories
         rightLabel={ text('rightLabel', 'Available traffic') }
       />);
   }))
-  .add('Progress bad news', withInfo()(() => {
+  .add('Progress bad news', (() => {
     return (
       <ProgressBar
         max={ number('max', 100) }

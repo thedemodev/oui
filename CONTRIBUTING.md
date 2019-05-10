@@ -18,7 +18,7 @@ Then you can run and develop locally:
 ### :bulb: Adopt Storybook Driven Development
 Storybook is the best way to learn about, play with, prototype, and build OUI components. Storybook runs locally and will watch for component and documentation updates. Visit http://storybooks-official.netlify.com/ for inspiration on all that is possible!
 
-Every component should contain prop definitions and a robust set of Storybook examples (stories). This will allow for quicker adoption and help Storybook to serve as the best hub for OUI technical documentation. **If you create or update a component, it shouldn't be considered finished until you've completed the following:**  
+Every component should contain prop definitions and a robust set of Storybook examples (stories). This will allow for quicker adoption and help Storybook to serve as the best hub for OUI technical documentation. **If you create or update a component, it shouldn't be considered finished until you've completed the following:**
 
 1. Run Storybook and watch assets via `yarn storybook`
 2. Copy or reference the Story format of this [ExampleComponent](./data/components/ExampleComponent)
@@ -35,14 +35,14 @@ Every component should contain prop definitions and a robust set of Storybook ex
     ```md
     ## Unreleased
     ### Added/Changed/Deprecated/Removed/Fixed/Security
-    - [Release/Feature/Patch] Describe your change here. (#GITHUB_ISSUE)
+    - [Release/Feature/Patch] Describe your change here. ([#GITHUB_ISSUE](Link to github issue))
     ```
 
     > **Note:** please do not create a new version number header, this is done only during release.
 
 4. Verify your OUI changes work as expected in the Optimizely repo.
 
-    Use yarn link: 
+    Use yarn link:
 
     ```sh
     cd ~/projects/optimizely-oui    # go into package directory
@@ -57,23 +57,14 @@ Every component should contain prop definitions and a robust set of Storybook ex
 6. [Open a pull request](https://github.com/optimizely/oui/compare) of your branch, add at least one reviewer
     > **Making a breaking change?** Please [update the Optimizely app](https://github.com/optimizely/oui/issues/360) and bump the `package.json` OUI version to prevent unreleased changes from blocking future releases.
 
-## :warning: Pre-Release
-
-Don't forget these before you create a release:
-
-1. Re-build Storybook documentation: `yarn build-storybook`
-2. Export your component in main.js: `export { default as TheName } from './components/TheName';`
-3. Include details in `Changelog.md` of your changes and the related GitHub issue
-4. `git push` your changes to GitHub.
-5. Open a pull request comparing your feature `branch-name` against `devel`.
-
 ## :ship: Release a New Version
 
-Both UI Engineers and the Frontend team have permission to release OUI via `yarn  version ...`:
+Both UI Engineers and the Frontend team have permission to release OUI via `yarn version --xxxxx`:
 
 1. Get latest code: `git checkout devel && git pull && git checkout master && git pull`
 2. Merge your changes: `git merge devel`
-3. Add a new header to `CHANGELOG.md` under “Unreleased” with the [new version number](https://medium.com/design-optimizely/how-to-version-your-ui-library-1c7a1b7ee23a):
+3. Build static Storybook documentation for this release: `yarn build-storybook`
+4. Add a new header to `CHANGELOG.md` under “Unreleased” with the [new version number](https://medium.com/design-optimizely/how-to-version-your-ui-library-1c7a1b7ee23a):
 
     ```md
     ## Unreleased
@@ -81,14 +72,18 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
     ## 31.0.0 - 2018-04-13
     - [Release] Added a cool breaking change. (#999)
     ```
-4. Commit to master: `git add . && git commit -a -m 'Prep for new release version x.y.z'`
-5. Run one of these depending on the highest importance issue this release:
+5. Commit to master: `git add . && git commit -a -m 'Prep for new release version x.y.z'`
+    * You'll be commiting the CHANGELOG file and the new Storybook iframe.html and bundle
+6. Run one of these depending on the highest importance issue this release:
     * `[Patch]` changes: `yarn version --patch`
     * `[Feature]` changes: `yarn version --minor`
     * `[Release]` changes: `yarn version --major`
-6. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new):
+7. [Create a new release on GitHub](https://github.com/optimizely/oui/releases/new):
     * Select the new tag version
     * Leave “Release title” blank
-    * Paste in new release contributions from the `CHANGELOG.md` release notes section from step 3 above.
-7. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
-8. You're done :sunglasses:
+    * Paste in new release contributions from the `CHANGELOG.md` release notes section from step 3 above into the Description field
+    * Click Publish Release
+8. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
+    * Within the Optimizely repo run `yarn upgrade optimizely-oui@xx.xx.xx` to update the version numbers referenced in `yarn.lock` and `package.json`
+    * Make a PR that links to the OUI release and includes descriptions of the issues fixed and the JIRA ticket numbers for the fixes in this release
+9. You're done :sunglasses:

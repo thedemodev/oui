@@ -27,6 +27,7 @@ const ClosePopoverButton = (props, context) => {
 const stories = storiesOf('OverlayWrapper', module);
 stories
   .addDecorator(withKnobs)
+  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       <div className="flexboxCenter">
@@ -36,7 +37,7 @@ stories
   ));
 
 stories
-  .add('default popover', withInfo()(() => {
+  .add('default popover', (() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -52,7 +53,7 @@ stories
       </OverlayWrapper>
     );
   }))
-  .add('pinned popover', withInfo()(() => {
+  .add('pinned popover', (() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -72,7 +73,7 @@ stories
       </OverlayWrapper>
     );
   }))
-  .add('open on hover', withInfo()(() => {
+  .add('open on hover', (() => {
     return (
       <OverlayWrapper
         behavior="hover"
@@ -88,7 +89,7 @@ stories
     );
   }))
 
-  .add('trying diff components', withInfo()(() => {
+  .add('trying diff components', (() => {
     return (
       <OverlayWrapper
         behavior="hover"
