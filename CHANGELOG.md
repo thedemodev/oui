@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Patch] Token color change to use base-blue ([#1160](https://github.com/optimizely/oui/pull/1160))
+- [Patch] Token and handle to use rebrand color values ([#1162](https://github.com/optimizely/oui/pull/1162))
 
 ## 42.9.0 - 2019-05-09
 - [Feature] Add `hasOverlay` prop to **DialogNew** ([#1160](https://github.com/optimizely/oui/pull/1160))
