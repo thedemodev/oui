@@ -47,14 +47,39 @@ stories
   </div>)))
   .add('draggable', () => {
     return (
-      <Token
-        description="A popular childhood game."
-        isDismissible={ true }
-        isDraggable={ true }
-        name="Duck Duck Goose"
-        order={ 1 }
-        style="primary"
-      />);
+      <React.Fragment>
+        <div className="push--bottom">
+          <Token
+            description="The big kids."
+            isDismissible={ true }
+            isDraggable={ true }
+            name="Students: Grades 6-12"
+            order={ 1 }
+            style="primary"
+          />
+        </div>
+        <div className="push--bottom">
+          <Token
+            description="The little kids."
+            isDismissible={ true }
+            isDraggable={ true }
+            name="Students: Grades K-5"
+            order={ 1 }
+            style="secondary"
+          />
+        </div>
+        <div className="push--bottom">
+          <Token
+            description="The little little kids."
+            isDismissible={ true }
+            isDraggable={ true }
+            name="Students: TK"
+            order={ 1 }
+            style="secondary"
+          />
+        </div>
+      </React.Fragment>
+    );
   })
   .add('dismissible', () => {
     return (
