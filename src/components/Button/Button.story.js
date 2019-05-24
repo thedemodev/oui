@@ -37,6 +37,7 @@ stories
         }, 'highlight') }
         isDisabled={ boolean('isDisabled', false) }
         isActive={ boolean('isActive', false) }
+        isLoading={ boolean('isLoading', false) }
         width={ select('width', {
           'default': 'default',
           'full': 'full'}, 'default') }
@@ -114,4 +115,25 @@ stories
         <Link>Say Hi</Link>
       </Button>
     );
-  }));
+  }))
+  .add('Button that disables on click', () => {
+    return (
+      <Button
+        style="highlight"
+        isLoading={ boolean('isLoading', true) }
+        onClick={ action('I have been clicked') }>
+          Create Campaign
+      </Button>
+    );
+  })
+  .add('Button that disables on click with custom text', () => {
+    return (
+      <Button
+        style="highlight"
+        isLoading={ boolean('isLoading', true) }
+        loadingText={ text('loadingText', 'Creating Campaign') }
+        onClick={ action('I have been clicked') }>
+          Create Campaign
+      </Button>
+    );
+  });

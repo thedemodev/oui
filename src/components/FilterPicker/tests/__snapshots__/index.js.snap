@@ -353,7 +353,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -362,6 +366,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -463,7 +468,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -472,6 +481,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -573,7 +583,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -582,6 +596,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -962,7 +977,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -971,6 +990,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -1072,7 +1092,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -1081,6 +1105,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -1182,7 +1207,11 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -1191,6 +1220,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -1546,7 +1576,11 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -1555,6 +1589,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -1656,7 +1691,11 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -1665,6 +1704,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -1766,7 +1806,11 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -1775,6 +1819,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -2131,7 +2176,11 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -2140,6 +2189,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -2241,7 +2291,11 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -2250,6 +2304,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}
@@ -2351,7 +2406,11 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             </div>
                           </div>
                           <Button
+                            isDisabled={false}
                             isLink={false}
+                            isLoading={false}
+                            isSubmit={false}
+                            loadingText=""
                             onBlur={[Function]}
                             onClick={[Function]}
                             onMouseDown={[Function]}
@@ -2360,6 +2419,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
                             width="default"
                           >
                             <button
+                              aria-live="polite"
                               className="oui-button oui-button--outline oui-button--tiny oui-button--default"
                               data-oui-component={true}
                               disabled={false}

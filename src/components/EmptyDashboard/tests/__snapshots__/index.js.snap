@@ -4,11 +4,16 @@ exports[`components/EmptyDashboard should render 1`] = `
 <EmptyDashboard
   button={
     <Button
+      isDisabled={false}
       isLink={false}
+      isLoading={false}
+      isSubmit={false}
+      loadingText=""
       onBlur={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
       style="highlight"
+      width="default"
     >
       Highlight Button
     </Button>
@@ -100,13 +105,19 @@ exports[`components/EmptyDashboard should render 1`] = `
           className="push-double--top"
         >
           <Button
+            isDisabled={false}
             isLink={false}
+            isLoading={false}
+            isSubmit={false}
+            loadingText=""
             onBlur={[Function]}
             onClick={[Function]}
             onMouseDown={[Function]}
             style="highlight"
+            width="default"
           >
             <button
+              aria-live="polite"
               className="oui-button oui-button--highlight oui-button--default"
               data-oui-component={true}
               disabled={false}
