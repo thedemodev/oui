@@ -82,6 +82,8 @@ stories.add('icon docs', (() => {
 }
 ));
 
+/* eslint-disable max-len */
+
 stories.add('icon alignment', (() => (<div className="reading-column--new">
   <h1>Icon alignment</h1>
   <p>These example stories shows approaches to align icons using various techniques and demonstrates some solutions and potential short-comings.</p>
