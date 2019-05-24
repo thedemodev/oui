@@ -103,7 +103,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
         <Table.TD>
           <div className="flex flex-align--start">
             <span className="flex push-half--right">
-              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
             </span>
             Flex align start
           </div>
@@ -114,7 +114,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
         <Table.TD>
           <div className="flex flex-align--center">
             <span className="flex push-half--right">
-              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
             </span>
             Flex align center
           </div>
@@ -125,7 +125,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
         <Table.TD>
           <div className="flex flex-align--end">
             <span className="flex push-half--right">
-              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+              <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
             </span>
             Flex align end
           </div>
@@ -148,7 +148,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
       <Table.TR>
         <Table.TD verticalAlign='top'>
           <span className="push-half--right">
-            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
           </span>
           verticalAlign top <span className="muted">(default)</span>
         </Table.TD>
@@ -157,7 +157,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
       <Table.TR>
         <Table.TD verticalAlign='middle'>
           <span className="push-half--right">
-            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
           </span>
           verticalAlign middle
         </Table.TD>
@@ -166,7 +166,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
       <Table.TR>
         <Table.TD verticalAlign='bottom'>
           <span className="push-half--right">
-            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar')} />
+            <Icon name={ select('name', {bell: 'bell', archive: 'archive', close: 'close', exclamation: 'exclamation', add: 'add', inconclusive: 'inconclusive', redo: 'redo', calendar: 'calendar'}, 'calendar') } />
           </span>
           verticalAlign bottom
         </Table.TD>
