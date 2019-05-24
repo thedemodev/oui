@@ -55,12 +55,12 @@ storiesOf('Overview/', module)
   .addDecorator(withKnobs)
   .addDecorator(withInfo(infoAddonConfig))
   .addDecorator(story => (
-    <div id="root-preview">
+    <div id="root-preview" className="reading-column">
       { story() }
     </div>
   ))
   .add('Example Story', (() => {
-    const OBJECTS_GROUP_NAME = 'Objects and Arrays';
+    const OBJECTS_GROUP_NAME = 'Data';
 
     const aStringValue = text('aString', 'Hello World!');
     const aNumberValue = number('aNumber', 5);
@@ -89,12 +89,12 @@ storiesOf('Overview/', module)
             name,
           }) => (
             <React.Fragment>
-              <h2>Example OUI Component, Story, and README</h2>
+              <h1>Example OUI Component</h1>
               <p>
                   This component uses the <a href="https://reactjs.org/docs/render-props.html" target="_blank" rel="noopener noreferrer">render props</a> pattern to allow for more extensibility while abstracting some common complexity. Check out the README in the "Show Info" section for more info!
               </p>
-              <p className="micro">These paragraphs have their background color changed by the ExampleComponent's sass.</p>
-              <h3>Abstrating State Management</h3>
+              <p className="micro"><span className="micro">This text has its background color changed</span> by the ExampleComponent's sass.</p>
+              <h3 className="push-double--top">Abstrating State Management</h3>
               <div className="push--ends">
                 <Input
                   type="text"
@@ -109,7 +109,7 @@ storiesOf('Overview/', module)
                   </div>
                 ) }
               </div>
-              <h3>Using a Render Component to Transform Props</h3>
+              <h3 className="push-double--top">Using a Render Component to Transform Props</h3>
               <div className="micro">Use the Storybook Knobs feature to update these.</div>
               <div className="push--ends">
                 <Button style="outline" onClick={ aFunction }>Press Me and Check Out the Action Logger!</Button>

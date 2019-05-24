@@ -6,8 +6,9 @@
  */
 
 
-.#{$namespace}example-component, .oui-example-component {
-  p {
-    background-color: yellow;
+.#{$namespace}example-component,
+.oui-example-component {
+  span.micro {
+    background-color: map-fetch($root-color, warning);
   }
 }
