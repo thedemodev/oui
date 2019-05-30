@@ -4,8 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
-## Unreleased
+## 42.10.1 - 2019-05-30
 - [Patch] Token and handle to use rebrand color values ([#1162](https://github.com/optimizely/oui/pull/1162))
+- [Patch] Export existing DateRangePicker component ([#1164](https://github.com/optimizely/oui/pull/1164))
 
 ## 42.10.0 - 2019-05-17
 - [Feature] Added a variation to **Button** component that disables the button and adds a spinner using `isLoading` prop ([#1135](https://github.com/optimizely/oui/pull/1135))
