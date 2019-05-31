@@ -163,7 +163,7 @@ stories.add('Default', withInfo()(() => {
     </div>
   );
 }))
-  .add('testme', withInfo()(() => {
+  .add('Testme', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }

@@ -22,7 +22,11 @@ stories
     </div>
   ));
 
+<<<<<<< HEAD
 stories.add('Everything', () => {
+=======
+stories.add('All icons', () => {
+>>>>>>> Storybook first letter capitalization
   const iconsElements = icons.map((icon, index) => {
     const Box = styled.div`
     border: 1px dashed #ccc;
@@ -71,7 +75,11 @@ stories.add('Everything', () => {
   );
 });
 
+<<<<<<< HEAD
 stories.add('Knobs', (() => {
+=======
+stories.add('Icon docs', (() => {
+>>>>>>> Storybook first letter capitalization
   return (
     <Icon
       name={ select('name', {bell: 'bell', medium: 'medium', large: 'large'}, 'bell') }
@@ -82,6 +90,7 @@ stories.add('Knobs', (() => {
 }
 ));
 
+<<<<<<< HEAD
 /* eslint-disable max-len */
 
 stories.add('Alignment', (() => (<div className="reading-column--new">
@@ -178,6 +187,9 @@ stories.add('Alignment', (() => (<div className="reading-column--new">
   </Table></div>)));
 
 stories.add('Animated', () => {
+=======
+stories.add('Animated icon', () => {
+>>>>>>> Storybook first letter capitalization
   return (
     <Icon className='rotating' name='settings' size='large' />
   );
