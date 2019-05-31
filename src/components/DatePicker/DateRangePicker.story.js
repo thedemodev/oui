@@ -37,8 +37,7 @@ stories
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
-  .add(
-    'default date range picker', (() => (
+  .add('Default date range picker', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -49,8 +48,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with absolute positioning', (() => (
+  .add('With absolute positioning', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -63,8 +61,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'focused initially', (() => (
+  .add('Focused initially', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -75,8 +72,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with initial start date', (() => (
+  .add('With initial start date', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -88,8 +84,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with past dates selectable', (() => (
+  .add('With past dates selectable', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -102,8 +97,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'remains open after date selection', (() => (
+  .add('Remains open after date selection', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -115,8 +109,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'remains open always, even when clicking outside component', (() => (
+  .add('Remains open always, even when clicking outside component', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -128,8 +121,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with preset options panel', (() => (
+  .add('With preset options panel', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -147,8 +139,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with buttons panel', (() => (
+  .add('With buttons panel', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -165,8 +156,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with preset options and no border on calendar', (() => (
+  .add('With preset options and no border on calendar', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'
@@ -185,8 +175,7 @@ stories
       </Container>
     ))
   )
-  .add(
-    'with no border on calendar', (() => (
+  .add('With no border on calendar', (() => (
       <Container>
         <DateRangePicker
           endDateInputId='end-date-id-0'

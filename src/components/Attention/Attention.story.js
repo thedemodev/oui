@@ -22,7 +22,7 @@ stories
   ));
 
 stories
-  .add('attentions states', (() => {
+  .add('Attentions states', (() => {
     return (
       <Attention
         alignment={ select('alignment', { center: 'center', left: 'left' }, 'center') }

@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .add('all badges', () => (<div>
+  .add('All badges', () => (<div>
     <Badge color="default">Default</Badge>
     <Badge color="draft">Draft</Badge>
     <Badge color="live">Live</Badge>
@@ -23,11 +23,11 @@ stories
     <Badge color="plain">Plain</Badge>
     <Badge color="bad-news">Bad News</Badge>
   </div>))
-  .add('with text', (() => (<div className="flex flex-align--center">
+  .add('With text', (() => (<div className="flex flex-align--center">
     <Badge color="draft">1</Badge>{ text('text', 'Unpublished Change') }
   </div>)
   ))
-  .add('with numbers', () => (<div>
+  .add('With numbers', () => (<div>
     <Badge color="draft">{ number('draft number', 9) }</Badge>
     <Badge color="live">{ number('light number', 9) }</Badge>
   </div>)
