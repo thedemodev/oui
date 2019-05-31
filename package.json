@@ -53,6 +53,7 @@
     "babel-plugin-react-docgen": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "codecov": "^1.0.1",
+    "csswhat": "optimizely/csswhat#master",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "doctrine": "^1.2.2",
@@ -116,6 +117,10 @@
     "postversion:publish": "git push --follow-tags",
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
     "storybook": "start-storybook -p 9009",
+
+    "csswhat": "onchange 'dist/styles.css' -- node node_modules/csswhat/csswhat.js dist/styles.css",
+    "csswhat:watch": "onchange 'src/**/*.scss' -- npm run csswhat",
+
     "build-storybook": "build-storybook -c .storybook -o ./storybook",
     "build-styles": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack --watch"
