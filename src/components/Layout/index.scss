@@ -6,13 +6,20 @@
 */
 
 // Layout base helpers
-.content--padded .row,
-.content--padded .col,
-.content--padded .row > div[class*="col"] {
-    padding: 15px;
+.padded-content--around .row,
+.padded-content--around .col,
+.padded-content--around .row > div[class*="col"] {
+    padding: spacer(1.5);
 }
-.content--padded .row > div[class*="col"] {
-    padding: 15px;
+.padded-content--sides .row,
+.padded-content--sides .col,
+.padded-content--sides .row > div[class*="col"] {
+    padding: 0 spacer(1.5);
+}
+.padded-content--ends .row,
+.padded-content--ends .col,
+.padded-content--ends .row > div[class*="col"] {
+    padding: spacer(1.5) 0;
 }
 
 .outline--debug .container {
@@ -31,15 +38,15 @@
 
 
 .push-rows--top .row + .row {
-    margin-top: 15px;
+    margin-top: spacer(1.5);
 }
 
 
 // Based on Bootstrap flexbox grid
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: spacer(1.5);
+  padding-left: spacer(1.5);
   margin-right: auto;
   margin-left: auto;
 }
@@ -71,8 +78,8 @@
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: spacer(1.5);
+  padding-left: spacer(1.5);
   margin-right: auto;
   margin-left: auto;
 }
@@ -80,8 +87,8 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -spacer(1.5);
+  margin-left: -spacer(1.5);
 }
 
 .no-gutters {
@@ -102,8 +109,8 @@
 .col-large-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: spacer(1.5);
+  padding-left: spacer(1.5);
 }
 
 .col {
