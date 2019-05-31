@@ -105,8 +105,6 @@ class DatePicker extends React.Component {
   }
 }
 
-export default DatePicker;
-
 DatePicker.propTypes = {
   /** An initial date to populate the input with, must be a moment() */
   initialDate: momentPropTypes.momentObj,
@@ -148,3 +146,5 @@ DatePicker.defaultProps = {
   keepOpenAlways: false,
   keepOpenOnDateSelect: false,
 };
+
+export default DatePicker;
