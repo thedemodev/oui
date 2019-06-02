@@ -2,8 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import { storiesOf } from '@storybook/react';
 // import css from '../data/oui.css.json';
-import css from '/Users/drau/Sites/csswhat/css/oui.css.json';
+// import css from '/Users/drau/Sites/csswhat/css/oui.css.json';
 // import css from '/Users/drau/Sites/csswhat/css/optly_full_v3.css.json';
+import css from '../data/csswhat/oui.css.json';
 
 const searchSelectors = function(e) {
   console.log(e);
@@ -72,16 +73,16 @@ stories
       </div>
 
     </div>
-  )})
-  .add('Search', () => {
-    console.log(css.selectors);
-    return (
-      <div>
-        <h2>Search</h2>
-        <input type="text" onKeyUp={ searchSelectors } />
-        <ul>
-          ...
-        </ul>
-      </div>
-    );
-  });
+)})
+.add('Search', () => {
+  console.log(css.selectors);
+  return (
+    <div>
+      <h2>Search</h2>
+      <input type="text" onKeyUp={ searchSelectors } />
+      <ul>
+        ...
+      </ul>
+    </div>
+  );
+});
