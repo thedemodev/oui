@@ -77,6 +77,7 @@ stories
   return (
     <div>
       <h2>Search</h2>
+      <p>Not yet working</p>
       <input type="text" onKeyUp={ searchSelectors } />
       <ul>
         ...
