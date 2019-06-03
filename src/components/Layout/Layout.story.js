@@ -29,16 +29,16 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
@@ -51,50 +51,50 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 12 }>12</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 11 }>11</Col>
           <Col small={ 1 }>1</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 10 }>10</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 9 }>9</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 8 }>8</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 7 }>7</Col>
           <Col small={ 5 }>5</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 5 }>5</Col>
           <Col small={ 7 }>7</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 4 }>4</Col>
           <Col small={ 8 }>8</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 3 }>3</Col>
           <Col small={ 9 }>9</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 2 }>2</Col>
           <Col small={ 10 }>10</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 1 }>1</Col>
           <Col small={ 11 }>11</Col>
         </Row>
@@ -105,22 +105,22 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
@@ -128,7 +128,7 @@ stories.add('Default', withInfo()(() => {
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
@@ -149,12 +149,12 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', true) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
@@ -163,14 +163,15 @@ stories.add('Default', withInfo()(() => {
     </div>
   );
 }))
-  .add('Testme', withInfo()(() => {
+  .add('Cards test', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <p>Row 1: fillSpace</p>
+        <Row gutters={ boolean('gutters', false) }>
           <Col large={ 'fillSpace' }>
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
@@ -182,7 +183,8 @@ stories.add('Default', withInfo()(() => {
             </Card>
           </Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <p className="push-triple--top">Row 2: fitContent</p>
+        <Row gutters={ boolean('gutters', false) }>
           <Col large={ 'fitContent' }>
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
@@ -192,6 +194,41 @@ stories.add('Default', withInfo()(() => {
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
             </Card>
+          </Col>
+        </Row>
+        <p className="push-triple--top">Row 2: 8/4</p>
+        <Row gutters={ boolean('gutters', false) }>
+          <Col large={ 4 }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+          <Col large={ 8 }>
+            <Card title="Card Title" shadow={ false } testSection="card">
+              Hello! This is a short card example.
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }))
+  .add('Col paddedContent', withInfo()(() => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ 'none' }
+        gutters={ true }
+        fluid={ boolean('fluid', false) }>
+        <p>Note the Container has gutters=true</p>
+        <Row gutters={ boolean('gutters', false) }>
+          <Col
+            large={ 'fillSpace' }
+            paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
+            Change the padding on individual Columns via props. Try the knob to adjust padding in this cell only.
+          </Col>
+          <Col large={ 'fillSpace' }>
+            This space is paddable but not enabled via knobs so you'd have to manually alter the story to include <Code>paddedContent=around|sides|ends</Code>
           </Col>
         </Row>
       </Container>
@@ -204,11 +241,11 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 2</Col>
           <Col>2 of 2</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
           <Col>2 of 3</Col>
           <Col>3 of 3</Col>
@@ -223,11 +260,11 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ true }>1 of 2</Col>
           <Col small={ true }>2 of 2</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ 8 }>8</Col>
           <Col small={ 4 }>4</Col>
         </Row>
@@ -241,11 +278,11 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 2</Col>
           <Col>2 of 2</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
           <Col>2 of 3</Col>
           <Col>3 of 3</Col>
@@ -260,7 +297,7 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col small={ true }>First, but unordered</Col>
           <Col small={{ order: 12 }}>Second, but last</Col>
           <Col small={{ order: 1 }}>Third, but second</Col>
@@ -275,7 +312,7 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col medium={{ span: 8, offset: 2 }}>
             <h2>Features</h2>
             <p className="lead">Manage your app’s feature flags</p>
@@ -317,12 +354,12 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
           <Col small={ 6 }>2 of 3 (wider)</Col>
           <Col>3 of 3</Col>
         </Row>
-        <Row noGutters={ boolean('noGutters', false) }>
+        <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
           <Col small={ 5 }>2 of 3 (wider)</Col>
           <Col>3 of 3</Col>
@@ -339,11 +376,11 @@ stories.add('Default', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
           fluid={ boolean('fluid', false) }>
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 8 }>small=8</Col>
             <Col small={ 4 }>small=4</Col>
           </Row>
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
@@ -357,19 +394,19 @@ stories.add('Default', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
             <Col small={ 6 } medium={ 4 }>small=6 medium=4</Col>
           </Row>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
           </Row>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 6 }>small=6</Col>
             <Col small={ 6 }>small=6</Col>
           </Row>
@@ -386,11 +423,11 @@ stories.add('Default', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
           fluid={ boolean('fluid', false) }>
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 8 }>small=8</Col>
             <Col small={ 4 }>small=4</Col>
           </Row>
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
@@ -404,19 +441,19 @@ stories.add('Default', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
             <Col small={ 6 } medium={ 4 }>small=6 medium=4</Col>
           </Row>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
           </Row>
 
-          <Row noGutters={ boolean('noGutters', false) }>
+          <Row gutters={ boolean('gutters', false) }>
             <Col small={ 6 }>small=6</Col>
             <Col small={ 6 }>small=6</Col>
           </Row>

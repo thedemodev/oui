@@ -10,21 +10,21 @@ const propTypes = {
    */
   bsPrefix: PropTypes.string,
   /** Removes gutters and negative margins. */
-  noGutters: PropTypes.bool,
+  gutters: PropTypes.bool,
 };
 
 const defaultProps = {
   as: 'div',
-  noGutters: false,
+  gutters: false,
   className: ['row'],
 };
 
 const Row = React.forwardRef(
-  ({ bsPrefix, noGutters, className, as: Component, ...props }, ref) => {
+  ({ bsPrefix, gutters, className, as: Component, ...props }, ref) => {
     return (
       <Component
         { ...props }
-        className={ classNames(className, bsPrefix, noGutters && 'no-gutters') }
+        className={ classNames(className, bsPrefix, !gutters && 'gutters--none') }
       />
     );
   },

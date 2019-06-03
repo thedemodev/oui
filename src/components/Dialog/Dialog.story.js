@@ -339,7 +339,7 @@ stories
             paddedContent={ boolean('paddedContent', false) }
             pushColsSides={ boolean('pushColsSides', false) }
             fluid={ boolean('fluid', false) }>
-            <Row noGutters={ boolean('<Row> noGutters', false) }>
+            <Row gutters={ boolean('<Row> gutters', false) }>
               <Col>
                 <p>Dialogs can also contain only text in the body, no data input.</p>
               </Col>
@@ -383,7 +383,7 @@ stories
             paddedContent={ boolean('paddedContent', false) }
             pushColsSides={ boolean('pushColsSides', false) }
             fluid={ boolean('fluid', false) }>
-            <Row noGutters={ boolean('<Row> noGutters', false) }>
+            <Row gutters={ boolean('<Row> gutters', false) }>
               <Col small={ 4 }>
                 -Insert Image Here-
               </Col>

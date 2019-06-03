@@ -20,12 +20,12 @@ stories.add('Default', withInfo()(() => {
       paddedContent={ boolean('paddedContent', false) }
       pushColsSides={ boolean('pushColsSides', false) }
       fluid={ boolean('fluid', true) }>
-      <Row noGutters={ boolean('noGutters', false) }>
+      <Row gutters={ boolean('gutters', false) }>
         <Col small={ 2 }>Rootnav
         </Col>
         <Col small={ 10 }>
           <div className="flex flex--column">
-            <Row noGutters={ boolean('noGutters', false) }>
+            <Row gutters={ boolean('gutters', false) }>
               <Col small={ 2 }>Tabs/Header
               </Col>
               <Col small={ 10 }>Stage

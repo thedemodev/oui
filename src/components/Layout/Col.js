@@ -21,6 +21,7 @@ const column = PropTypes.oneOfType([
     size: colSize,
     order: stringOrNumber,
     offset: stringOrNumber,
+    paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
   }),
 ]);
 
@@ -68,7 +69,7 @@ const defaultProps = {
 };
 
 const Col = React.forwardRef(
-  ({ bsPrefix, className, as: Component, ...props }, ref) => {
+  ({ bsPrefix, className, paddedContent, as: Component, ...props }, ref) => {
     const prefix = 'col';
     const spans = [];
     const classes = [];
@@ -88,6 +89,10 @@ const Col = React.forwardRef(
         spans.push(
           span === "fillSpace" ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
+      }
+
+      if (paddedContent && paddedContent !== 'none') {
+        classes.push(`padded-content--${paddedContent}`);
       }
 
       if (order != null) {
