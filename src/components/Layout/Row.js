@@ -16,11 +16,21 @@ const propTypes = {
 const defaultProps = {
   as: 'div',
   gutters: false,
+  displayVertical: false,
   className: ['row'],
 };
+const classes = [];
 
 const Row = React.forwardRef(
-  ({ bsPrefix, gutters, className, as: Component, ...props }, ref) => {
+  ({ bsPrefix, gutters, displayVertical, className, as: Component, ...props }, ref) => {
+
+    // let classes = classNames({
+    //   className,
+    //   bsPrefix,
+    //   !gutters && 'gutters--none',
+    //   displayVertical && 'test',
+    // });
+
     return (
       <Component
         { ...props }

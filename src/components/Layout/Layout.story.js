@@ -253,6 +253,32 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
+  .add('Vertical', withInfo()(() => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        fluid={ boolean('fluid', false) }>
+        <Row
+          gutters={ boolean('gutters', false) }
+          displayVertical={ true }>
+          <Col>1 of 6</Col>
+          <Col>2 of 6</Col>
+          <Col>3 of 6</Col>
+          <Col>4 of 6</Col>
+          <Col>5 of 6</Col>
+          <Col>6 of 6</Col>
+        </Row>
+        <Row
+          gutters={ boolean('gutters', false) }
+          displayVertical={ true }>
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+        </Row>
+      </Container>
+    );
+  }))
   .add('2-Column', withInfo()(() => {
     return (
       <Container
