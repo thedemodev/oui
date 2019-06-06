@@ -10,6 +10,8 @@ export { default as Card } from './components/Card';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Code } from './components/Code';
 export { default as CopyButton } from './components/CopyButton';
+export { default as DatePicker } from './components/DatePicker/DatePicker';
+export { default as DateRangePicker } from './components/DatePicker/DateRangePicker';
 export { default as Dialog } from './components/Dialog';
 /* Temporary export while we migrate from deprecated to new Dialog cmp */
 export { DialogNew } from './components/Dialog';

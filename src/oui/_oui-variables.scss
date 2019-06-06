@@ -323,7 +323,7 @@ $button: (
 
 $token: (
   background-color: (
-    primary                  : map-fetch($brand-color, blue),
+    primary                  : $blue-base,
     secondary                : map-fetch($brand-color, white-40b),
     tertiary                 : map-fetch($brand-color, grey-50),
     error                    : map-fetch($brand-color, red)
@@ -340,6 +340,7 @@ $token: (
     width                    : 12px,
     height                   : 12px
   ),
+  move-drag-handle           : map-fetch($brand-color, white-40b),
   border-radius              : 5px,
   text-shadow                : 0 0 1px rgba(0, 0, 0, 0.2),
   padding                    : 4px

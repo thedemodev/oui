@@ -205,8 +205,6 @@ class DateRangePicker extends React.Component {
   }
 }
 
-export default DateRangePicker;
-
 DateRangePicker.propTypes = {
   /** The id of the end date input, used to associate with a label */
   endDateInputId: PropTypes.string.isRequired,
@@ -283,3 +281,5 @@ DateRangePicker.defaultProps = {
   startDateInputLabel: 'Start Date',
   startDateInputPlaceholder: 'Start Date',
 };
+
+export default DateRangePicker;

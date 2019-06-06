@@ -66,7 +66,7 @@ stories
         </p>
       </div>
       <Sidebar
-        anchor={ select('anchor', { left: 'left', right: 'right' }, 'left', 'left') }
+        anchor={ select('anchor', { left: 'left', right: 'right' }, 'left') }
         border={ boolean('border', true) }
         isOpen={ boolean('isOpen', true) }
         width={ number('width', 200) }>
