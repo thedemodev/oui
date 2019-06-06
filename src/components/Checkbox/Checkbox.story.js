@@ -2,13 +2,11 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 import Checkbox from '../Checkbox';
 
 const stories = storiesOf('Checkbox', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

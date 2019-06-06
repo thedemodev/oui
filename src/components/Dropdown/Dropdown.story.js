@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from './index.js';
 import Button from '../Button';
@@ -21,7 +20,6 @@ const data = [
 const stories = storiesOf('Dropdown', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

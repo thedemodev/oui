@@ -3,7 +3,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Link from './index.js';
 import Button from '../Button';
@@ -11,7 +10,6 @@ import Button from '../Button';
 const stories = storiesOf('Link', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

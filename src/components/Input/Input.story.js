@@ -3,14 +3,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Input from './index.js';
 
 const stories = storiesOf('Input', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

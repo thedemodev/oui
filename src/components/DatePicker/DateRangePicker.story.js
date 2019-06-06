@@ -4,7 +4,6 @@ import moment from 'moment';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import DateRangePicker from './DateRangePicker';
@@ -35,7 +34,6 @@ const presetPanelOptions = [
 const stories = storiesOf('DateRangePicker', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories

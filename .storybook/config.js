@@ -1,5 +1,6 @@
 import * as storybook from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
+import { withInfo } from '@storybook/addon-info';
 
 require('../dist/styles.js');
 
@@ -11,6 +12,7 @@ const options = {
   isFullScreen: false,
   showNav: true,
   showPanel: true,
+  panelPosition: 'right',
   showSearchBox: true,
   sortStoriesByKind: false
 };
@@ -34,6 +36,7 @@ function loadStories() {
 }
 
 storybook.configure(loadStories, module);
-storybook.addDecorator(withA11y);
 storybook.addParameters(options);
+storybook.addDecorator(withA11y);
+storybook.addDecorator(withInfo);
 storybook.addParameters(a11y);
