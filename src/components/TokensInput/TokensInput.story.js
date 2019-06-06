@@ -3,7 +3,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import TokensInputCore from './index.js';
 
@@ -44,7 +43,6 @@ TokensInput.defaultProps = TokensInputCore.defaultProps;
 
 storiesOf('TokensInput', module)
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import OverlayWrapper from '../OverlayWrapper';
 import Popover from '../Popover';
@@ -27,7 +26,6 @@ const ClosePopoverButton = (props, context) => {
 const stories = storiesOf('OverlayWrapper', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       <div className="flexboxCenter">

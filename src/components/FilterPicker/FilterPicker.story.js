@@ -2,8 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
 
 import Dropdown from '../Dropdown';
 import Button from '../Button';

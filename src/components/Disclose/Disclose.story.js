@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Disclose from './index.js';
 import Checkbox from '../Checkbox';
@@ -10,7 +9,6 @@ import Checkbox from '../Checkbox';
 const stories = storiesOf('Disclose', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

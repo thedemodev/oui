@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Code from '../Code';
 
@@ -27,7 +26,6 @@ const langOptions = {
 const stories = storiesOf('Code', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
@@ -46,7 +44,7 @@ stories
       </Code>
     );
   }))
-  .add('with styled copy button', withInfo()(() => {
+  .add('with styled copy button', (() => {
     return (
       <Code
         copyButtonStyle="none"
