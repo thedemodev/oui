@@ -1,7 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
 import { storiesOf } from '@storybook/react';
-import css from '/Users/drau/Sites/csswhat/css/oui.css.json';
 import Input from '../src/components/Input';
 import css from '../data/csswhat/oui.css.json';
 
