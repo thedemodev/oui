@@ -2,17 +2,20 @@ import React from 'react';
 import _ from 'lodash';
 import { storiesOf } from '@storybook/react';
 import css from '/Users/drau/Sites/csswhat/css/oui.css.json';
+import Input from '../src/components/Input';
 import css from '../data/csswhat/oui.css.json';
+
+// [@dave.rau] This file is a work-in-progress
 
 const searchSelectors = function(e) {
   console.log(e);
   console.log(this);
 }
 
-const stories = storiesOf('CSS/', module);
+const stories = storiesOf('CSS Analytics/', module);
 stories
   .addDecorator(story => (
-    <div id="root-preview">
+    <div id="root-preview" className="reading-column">
       {story()}
     </div>
   ));
@@ -22,7 +25,7 @@ stories
   console.log(css);
   return (
     <div>
-      <h2>Stats</h2>
+      <h1>Stats</h1>
       <ul>
         <li><h3><span className="muted">Size</span> {css.filesize}</h3></li>
         <li><h3><span className="muted">Rules</span> {css.rules.length}</h3></li>
@@ -38,16 +41,16 @@ stories
   );
 })
 .add('Colors', () => {
-  console.log(css);
+  // console.log(css);
   return (
     <div>
-
-      <h2>Frequently Used Colors
+      <h1>Colors</h1>
+      <h2 className="push--bottom">Frequently Used Colors
        ({ css.uniqueColors.length })</h2>
        <p>To find these colors first we convert every known color value to hex (rgb(a), hsl(a), and HTML named colors (rebeccapurple). What it doesn't yet cover is color variables/tokens.</p>
-      <div className="oui--swatches flex flex-wrap push--ends">
+      <div className="oui--swatches flex flex-wrap push--ends push-double--top">
         { css.uniqueColors.map(item => (
-          console.log(item),
+          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
@@ -56,7 +59,7 @@ stories
        ({ css.oneOfAKindColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindColors.map(item => (
-          console.log(item),
+          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
@@ -65,23 +68,81 @@ stories
        ({ css.oneOfAKindAlphaHexesColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindAlphaHexesColors.map(item => (
-          console.log(item),
+          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
 
     </div>
 )})
-.add('Search', () => {
-  console.log(css.selectors);
+.add('Table of Properties', () => {
+  // console.log(css.propertiesObj);
   return (
     <div>
-      <h2>Search</h2>
-      <p>Not yet working</p>
-      <input type="text" onKeyUp={ searchSelectors } />
-      <ul>
-        ...
-      </ul>
+      <h1>Table of CSS Properties</h1>
+      <table width={700} className="overflow--hidden">
+          { Object.keys(css.propertiesObj).map((key,i)=>(
+            <tr key={i}>
+              <td className="vertical-align--top border--top soft-double--ends width--300 push-quad--top push--bottom"><h2 className="flush">{key}</h2></td>
+              <td className="border--top soft-double--ends">
+                {css.propertiesObj[key].map((k,index)=>(
+                  <p key={`${i}_${index}`} className="flush push-half--bottom">{k.selector}: <span className="color--brand">{k.value}</span></p>
+                ))}
+              </td>
+            </tr>
+          ))}
+      </table>
+    </div>
+    // <div>
+    //     { Object.keys(css.propertiesObj).map((key,i)=>(
+    //       <div key={i}>
+    //         <h2 className="push-quad--top push--bottom">{key}</h2>
+    //         {css.propertiesObj[key].map((k,index)=>(
+    //           <p className="soft-quad--left">{k.selector}: {k.value}</p>
+    //         ))}
+    //       </div>
+    //     ))}
+    // </div>
+  );
+})
+.add('Search (Coming soon)', () => {
+  // console.log(css.selectors);
+  return (
+    <div>
+      <h1>Search</h1>
+      <p>Soon you will be able to search across OUI CSS helper classes, selectors, properties and values, all from one search box!</p>
+      <Input type="text" onKeyUp={ searchSelectors } />
+
+      <div className="push-double--ends border--bottom soft-double--bottom">
+        <h3>float</h3>
+        <ul className="soft-quad--left">
+          <li>.img--right: right</li>
+          <li>.img--left: left</li>
+          <li>.oui-attention__close: right</li>
+          <li>.oui-disclose--right .oui-disclose__symbol: right</li>
+          <li>.float--right: right !important</li>
+          <li>.float--left: left !important</li>
+          <li>.float--none: none !important</li>
+          <li>.tippy-tooltip [x-circle]:before: left</li>
+          <li>.tippy-backdrop::after: left</li>
+        </ul>
+      </div>
+
+      <div className="push-double--ends border--bottom soft-double--bottom">
+        <h3>margin</h3>
+        <ul className="soft-quad--left">
+          <li>.img--right: right</li>
+          <li>.img--left: left</li>
+          <li>.oui-attention__close: right</li>
+          <li>.oui-disclose--right .oui-disclose__symbol: right</li>
+          <li>.float--right: right !important</li>
+          <li>.float--left: left !important</li>
+          <li>.float--none: none !important</li>
+          <li>.tippy-tooltip [x-circle]:before: left</li>
+          <li>.tippy-backdrop::after: left</li>
+        </ul>
+      </div>
+
     </div>
   );
 });
