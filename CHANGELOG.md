@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 42.11.0 - 2019-06-10
+- [Feature] Add backwards compatible Dropdown functionality for custom children toggling ([#1169](https://github.com/optimizely/oui/pull/1169))
+
 ## 42.10.2 - 2019-05-31
 - [Patch] Properly export DatePicker and DateRangePicker ([#1165](https://github.com/optimizely/oui/pull/1165))
 
