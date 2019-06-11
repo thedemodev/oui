@@ -163,7 +163,10 @@ TokensInput.propTypes = {
    * an intent to enter the current string as a new Token.
    * See ADD_KEYS above.
    */
-  extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
+  extraAddKeys: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ])),
 
   /**
    * Maximum number of allowed tokens (pass-through to <ReactTagsInput>)
