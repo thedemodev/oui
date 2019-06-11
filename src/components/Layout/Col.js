@@ -18,21 +18,26 @@ const stringOrNumber = PropTypes.oneOfType([
 const column = PropTypes.oneOfType([
   colSize,
   PropTypes.shape({
-    size: colSize,
+    border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
     order: stringOrNumber,
     offset: stringOrNumber,
     paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
+    size: colSize,
   }),
 ]);
 
-/**
-* TODO[1]: col and row gap split
-* hasAllPadding?
-* paddedContent
-*/
-
 const propTypes = {
   as: PropTypes.elementType,
+
+  border: PropTypes.oneOf([
+    'top',
+    'bottom',
+    'left',
+    'right',
+    'sides',
+    'ends',
+    'all',
+  ]),
 
   /**
    * @default 'col'
@@ -53,12 +58,17 @@ const propTypes = {
    */
   medium: column,
 
-  paddedContent: PropTypes.bool,
+  paddedContent: PropTypes.oneOf([
+    'around',
+    'sides',
+    'ends',
+  ]),
 
   /**
    * The number of columns to span on small devices (≥576px)
    *
-   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number
+   * offset: number, order: number })}
    */
   small: column,
 
@@ -69,7 +79,7 @@ const defaultProps = {
 };
 
 const Col = React.forwardRef(
-  ({ bsPrefix, className, paddedContent, as: Component, ...props }, ref) => {
+  ({ border, bsPrefix, className, paddedContent, as: Component, ...props }, ref) => {
     const prefix = 'col';
     const spans = [];
     const classes = [];
@@ -78,7 +88,9 @@ const Col = React.forwardRef(
       let propValue = props[brkPoint];
       delete props[brkPoint];
 
-      let span, offset, order;
+      let span;
+      let offset;
+      let order;
       if (propValue != null && typeof propValue === 'object') {
         ({ span = "fillSpace", offset, order } = propValue);
       } else {
@@ -93,6 +105,10 @@ const Col = React.forwardRef(
 
       if (paddedContent && paddedContent !== 'none') {
         classes.push(`padded-content--${paddedContent}`);
+      }
+
+      if (border && border !== 'none') {
+        classes.push(`border--${border}`);
       }
 
       if (order != null) {

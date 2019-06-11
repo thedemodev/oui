@@ -62,7 +62,6 @@ stories
         <Attention type='warning'>Warning: This is a short attention bar.</Attention>
       </div>
 
-
       <div className="push--ends">
          <h1>H1 Experiments</h1>
          <h2>H2 Experiments</h2>
@@ -81,7 +80,6 @@ stories
          <span className="width--50 height--50 display--inline-block background--blue"></span>
          <span className="width--50 height--50 display--inline-block background--orange"></span>
          <span className="width--50 height--50 display--inline-block background--white-40b"></span>
-
       </div>
 
       <div className="push--ends">
@@ -235,6 +233,5 @@ stories
 
       <div className="push--ends">
       </div>
-
 
   </div>)});
