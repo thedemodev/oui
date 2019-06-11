@@ -40,7 +40,6 @@ stories
   );
 })
 .add('Colors', () => {
-  // console.log(css);
   return (
     <div>
       <h1>Colors</h1>
@@ -49,7 +48,6 @@ stories
        <p>To find these colors first we convert every known color value to hex (rgb(a), hsl(a), and HTML named colors (rebeccapurple). What it doesn't yet cover is color variables/tokens.</p>
       <div className="oui--swatches flex flex-wrap push--ends push-double--top">
         { css.uniqueColors.map(item => (
-          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
@@ -58,7 +56,6 @@ stories
        ({ css.oneOfAKindColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindColors.map(item => (
-          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
@@ -67,7 +64,6 @@ stories
        ({ css.oneOfAKindAlphaHexesColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindAlphaHexesColors.map(item => (
-          // console.log(item),
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
@@ -75,7 +71,6 @@ stories
     </div>
 )})
 .add('Table of Properties', () => {
-  // console.log(css.propertiesObj);
   return (
     <div>
       <h1>Table of CSS Properties</h1>
@@ -92,20 +87,9 @@ stories
           ))}
       </table>
     </div>
-    // <div>
-    //     { Object.keys(css.propertiesObj).map((key,i)=>(
-    //       <div key={i}>
-    //         <h2 className="push-quad--top push--bottom">{key}</h2>
-    //         {css.propertiesObj[key].map((k,index)=>(
-    //           <p className="soft-quad--left">{k.selector}: {k.value}</p>
-    //         ))}
-    //       </div>
-    //     ))}
-    // </div>
   );
 })
 .add('Search (Coming soon)', () => {
-  // console.log(css.selectors);
   return (
     <div>
       <h1>Search</h1>
