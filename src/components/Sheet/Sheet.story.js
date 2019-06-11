@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 import noop from 'lodash.noop';
 import { action } from '@storybook/addon-actions';
 
@@ -14,7 +13,6 @@ import Input from '../Input';
 const stories = storiesOf('Sheet', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
@@ -64,7 +62,7 @@ stories
   )
   .add(
     'with a link in subtitle',
-    withInfo()(() => (
+    (() => (
       <div>
         <p>This is text behind the sheet that is blocked by the overlay.</p>
         <Sheet

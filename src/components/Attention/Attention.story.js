@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Attention from '../Attention';
 
@@ -16,7 +15,6 @@ const typeOptions = {
 const stories = storiesOf('Attention', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

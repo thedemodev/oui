@@ -2,14 +2,12 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Card from '../Card';
 
 const stories = storiesOf('Card', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       { story() }

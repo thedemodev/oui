@@ -4,7 +4,6 @@ import moment from 'moment';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import DatePicker from './DatePicker.js';
 import Input from '../Input';
@@ -12,7 +11,6 @@ import Input from '../Input';
 const stories = storiesOf('DatePicker', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories.add(

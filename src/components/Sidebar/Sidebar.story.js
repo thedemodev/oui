@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Sidebar from './Sidebar';
 
@@ -10,7 +9,6 @@ const stories = storiesOf('Sidebar', module);
 
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       { story() }
@@ -66,7 +64,7 @@ stories
         </p>
       </div>
       <Sidebar
-        anchor={ select('anchor', { left: 'left', right: 'right' }, 'left', 'left') }
+        anchor={ select('anchor', { left: 'left', right: 'right' }, 'left') }
         border={ boolean('border', true) }
         isOpen={ boolean('isOpen', true) }
         width={ number('width', 200) }>

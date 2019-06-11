@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Autocomplete from './index.js';
 import Link from '../Link';
@@ -49,7 +48,6 @@ const filterByCityName = (suggestion) => suggestion.name.toLowerCase();
 const stories = storiesOf('Autocomplete', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

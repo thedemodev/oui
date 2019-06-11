@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import Steps from './index.js';
@@ -11,7 +10,6 @@ import Steps from './index.js';
 const stories = storiesOf('Steps', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}

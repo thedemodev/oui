@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Popover from './index.js';
 import OverlayWrapper from '../OverlayWrapper';
@@ -11,7 +10,6 @@ import Button from '../Button';
 const stories = storiesOf('Popover', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(withInfo)
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
