@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 43.0.0
 - [Patch] Fix **TokensInput** `extraAddKeys` prop-type check
 - [Patch] Update **Sheet** styling to be 90% of window height
 - [Feature] CSSWhat stats about color, selectors, !important, etc.

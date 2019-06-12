@@ -4386,7 +4386,7 @@ code {
 .oui-sheet {
   position: fixed;
   bottom: 0;
-  height: 85%;
+  height: 90%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   width: 900px;
   background: #FFFFFF; }
@@ -4412,7 +4412,7 @@ code {
   top: 0; }
 
 .oui-sheet__header {
-  padding: 20px 30px; }
+  padding: 50px 60px 20px; }
 
 .oui-sheet__footer {
   position: fixed;
@@ -4420,13 +4420,13 @@ code {
   width: 900px;
   background: #f7f7f7;
   border-top: 1px solid #f0f0f0;
-  padding: 10px 30px; }
+  padding: 10px 60px; }
 
 .oui-sheet__body {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px 30px 60px 30px; }
+  padding: 20px 60px 60px 60px; }
 
 .oui-sheet__link {
   margin-left: 5px; }
