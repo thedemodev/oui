@@ -221,14 +221,20 @@ stories.add('Default', withInfo()(() => {
         gutters={ true }
         fluid={ boolean('fluid', false) }>
         <p>Note the Container has gutters=true</p>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row
+          gutters={ boolean('gutters', false) }
+          border={ 'top' }>
           <Col
             large={ 'fillSpace' }
-            paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
-            Change the padding on individual Columns via props. Try the knob to adjust padding in this cell only.
+            paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'around') }
+            border={ select('border', { top: 'top', bottom: 'bottom', left: 'left', right: 'right', sides: 'sides', ends: 'ends', all: 'all', none: 'none' }, 'right') }>
+            Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
           </Col>
-          <Col large={ 'fillSpace' }>
-            This space is paddable but not enabled via knobs so you'd have to manually alter the story to include <Code>paddedContent=around|sides|ends</Code>
+          <Col
+            large={ 'fillSpace' }
+            paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'around') }
+            border={ select('border', { top: 'top', bottom: 'bottom', left: 'left', right: 'right', sides: 'sides', ends: 'ends', all: 'all', none: 'none' }, 'right') }>
+            Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
           </Col>
         </Row>
       </Container>

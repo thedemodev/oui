@@ -8,6 +8,7 @@ const propTypes = {
   /**
    * @default 'row'
    */
+  border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
   bsPrefix: PropTypes.string,
   /** Removes gutters and negative margins. */
   gutters: PropTypes.bool,
@@ -15,6 +16,7 @@ const propTypes = {
 
 const defaultProps = {
   as: 'div',
+  border: 'none',
   gutters: false,
   displayVertical: false,
   className: ['row'],
@@ -22,7 +24,7 @@ const defaultProps = {
 const classes = [];
 
 const Row = React.forwardRef(
-  ({ bsPrefix, gutters, displayVertical, className, as: Component, ...props }, ref) => {
+  ({ border, bsPrefix, gutters, displayVertical, className, as: Component, ...props }, ref) => {
 
     // let classes = classNames({
     //   className,

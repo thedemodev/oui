@@ -107,7 +107,7 @@ const Col = React.forwardRef(
         classes.push(`padded-content--${paddedContent}`);
       }
 
-      if (border && border !== 'none') {
+      if (border) {
         classes.push(`border--${border}`);
       }
 
