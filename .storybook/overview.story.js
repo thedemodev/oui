@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ArrowsInline from '../src/components/ArrowsInline';
 import Attention from '../src/components/Attention';
 import Badge from '../src/components/Badge';
 import BlockList from '../src/components/BlockList';
 import Button from '../src/components/Button';
-import Card from '../src/components/Card';
 import EmptyDashboard from '../src/components/EmptyDashboard';
 import Input from '../src/components/Input';
 import Link from '../src/components/Link';
@@ -23,7 +21,7 @@ import Token from '../src/components/Token';
 const stories = storiesOf('Overview/', module);
 stories
   .addDecorator(story => (
-    <div id="root-preview">
+    <div id="root-preview" className="reading-column">
       {story()}
     </div>
   ));
@@ -94,29 +92,6 @@ stories
         <Badge color="plain">Plain</Badge>
       </div>
 
-      <BlockList hasBorder={ true }>
-        <BlockList.Category>
-          <BlockList.Item onClick={ () => {} }>No click</BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category>
-          <BlockList.Item href="https://www.optimizely.com/" hrefTarget="_blank">Open optimizely.com</BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category>
-          <BlockList.Item onClick={ () => {} }>
-            <div className="flex flex-align--center">
-              <div className="flex--1">
-                <div>Complex Item</div>
-                <div className="muted micro">This is the item description.</div>
-              </div>
-              <Button size="small" style="outline" width="default">Inner Button</Button>
-            </div>
-          </BlockList.Item>
-        </BlockList.Category>
-        <BlockList.Category>
-          <BlockList.Item>Plain Text Example</BlockList.Item>
-        </BlockList.Category>
-      </BlockList>
-
       <div className="push--ends">
         <Token
           isDismissible={ true }
@@ -178,6 +153,29 @@ stories
         <span className="background--brand soft-half"><Link href="http://google.com" style="reverse">Reverse Text Link</Link></span>
       </div>
 
+      <BlockList hasBorder={ true }>
+        <BlockList.Category>
+          <BlockList.Item onClick={ () => {} }>No click</BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item href="https://www.optimizely.com/" hrefTarget="_blank">Open optimizely.com</BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item onClick={ () => {} }>
+            <div className="flex flex-align--center">
+              <div className="flex--1">
+                <div>Complex Item</div>
+                <div className="muted micro">This is the item description.</div>
+              </div>
+              <Button size="small" style="outline" width="default">Inner Button</Button>
+            </div>
+          </BlockList.Item>
+        </BlockList.Category>
+        <BlockList.Category>
+          <BlockList.Item>Plain Text Example</BlockList.Item>
+        </BlockList.Category>
+      </BlockList>
+
       <div className="push--ends">
         <ProgressBar
           max={100}
@@ -229,8 +227,8 @@ stories
 
       <div className="push--ends">
         <EmptyDashboard
-          headline='Get started with Optimizely X'
-          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> } button={ (<Button style="highlight">Highlight</Button>) }
+          headline='Get started with an empty dashboard'
+          description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a link.</div> } button={ (<Button style="highlight">Highlight</Button>) }
           imagePath='https://app.optimizely.com/static/img/x/empty-states/integrations-empty.svg'
         />
       </div>

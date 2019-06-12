@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] CSSWhat stats about color, selectors, !important, etc.
+            Note: this is a breaking change for external consumers of OUI until the csswhat repo is open sourced and set to public by an Optimizely GitHub admin. ([#1161](https://github.com/optimizely/oui/pull/1161/)
 - [Patch] Fix TokensInput extraAddKeys prop-type check
 
 ## 42.11.0 - 2019-06-10
