@@ -10,6 +10,8 @@ const propTypes = {
   as: PropTypes.elementType,
   /** Add visible border to row */
   border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
+  /** Display layout as vertical column. */
+  displayVertical: PropTypes.bool,
   /** Removes gutters and negative margins. */
   gutters: PropTypes.bool,
   /** Force overflow scrolling */
@@ -19,10 +21,10 @@ const propTypes = {
 const defaultProps = {
   as: 'div',
   border: 'none',
-  gutters: false,
-  displayVertical: false,
-  overflow: 'none',
   className: ['row'],
+  displayVertical: false,
+  gutters: false,
+  overflow: 'none',
 };
 const classes = [];
 
@@ -37,6 +39,10 @@ const Row = React.forwardRef(
       classes.push(className);
     }
 
+    if (displayVertical) {
+      classes.push('flex--column');
+    }
+
     if (overflow) {
       classes.push(overflow);
     }
@@ -44,7 +50,7 @@ const Row = React.forwardRef(
     return (
       <Component
         { ...props }
-        className={ classNames(className, !gutters && 'gutters--none') }
+        className={ classNames(className, classes, !gutters && 'gutters--none') }
       />
     );
   },

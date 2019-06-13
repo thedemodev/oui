@@ -90,8 +90,8 @@ div[class*="col"].padded-content--ends,
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -spacer(1.5);
-  margin-left: -spacer(1.5);
+  margin-right: spacer(-1.5);
+  margin-left: spacer(-1.5);
 }
 
 .gutters--none {

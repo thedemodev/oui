@@ -310,7 +310,7 @@ stories.add('Default', withInfo()(() => {
         fluid={ boolean('fluid', false) }>
         <Row
           gutters={ boolean('gutters', false) }
-          displayVertical={ true }>
+          displayVertical={ boolean('displayVertical', true) }>
           <Col>1 of 6</Col>
           <Col>2 of 6</Col>
           <Col>3 of 6</Col>
