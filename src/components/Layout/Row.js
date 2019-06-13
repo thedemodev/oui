@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const propTypes = {
-  as: PropTypes.elementType,
   /**
    * @default 'row'
    */
+  as: PropTypes.elementType,
+  /** Add visible border to row */
   border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
-  bsPrefix: PropTypes.string,
   /** Removes gutters and negative margins. */
   gutters: PropTypes.bool,
+  /** Force overflow scrolling */
+  overflow: PropTypes.oneOf(['none', 'overflow-y--scroll', 'overflow-x--auto', 'overflow-y--auto']),
 };
 
 const defaultProps = {
@@ -19,12 +21,13 @@ const defaultProps = {
   border: 'none',
   gutters: false,
   displayVertical: false,
+  overflow: 'none',
   className: ['row'],
 };
 const classes = [];
 
 const Row = React.forwardRef(
-  ({ border, bsPrefix, gutters, displayVertical, className, as: Component, ...props }, ref) => {
+  ({ border, gutters, overflow, displayVertical, className, as: Component, ...props }, ref) => {
 
     if (border) {
       classes.push(`border--${border}`);
@@ -34,10 +37,14 @@ const Row = React.forwardRef(
       classes.push(className);
     }
 
+    if (overflow) {
+      classes.push(overflow);
+    }
+
     return (
       <Component
         { ...props }
-        className={ classNames(className, bsPrefix, !gutters && 'gutters--none') }
+        className={ classNames(className, !gutters && 'gutters--none') }
       />
     );
   },

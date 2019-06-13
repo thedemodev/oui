@@ -8,10 +8,6 @@ const propTypes = {
    */
   as: PropTypes.elementType,
   /**
-   * @default 'container'
-   */
-  bsPrefix: PropTypes.string,
-  /**
    * Allow the Container to fill all of it's availble horizontal space.
    */
   fluid: PropTypes.bool,
@@ -27,7 +23,7 @@ const defaultProps = {
 };
 
 const Container = React.forwardRef(
-  ({ bsPrefix, outlineDebug, paddedContent, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
+  ({ outlineDebug, paddedContent, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
     const prefix = 'container';
 
     return (

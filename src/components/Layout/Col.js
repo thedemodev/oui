@@ -40,11 +40,6 @@ const propTypes = {
   ]),
 
   /**
-   * @default 'col'
-   */
-  bsPrefix: PropTypes.string,
-
-  /**
    * The number of columns to span on large devices (≥992px)
    *
    * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
@@ -79,7 +74,7 @@ const defaultProps = {
 };
 
 const Col = React.forwardRef(
-  ({ border, bsPrefix, className, paddedContent, as: Component, ...props }, ref) => {
+  ({ border, className, paddedContent, as: Component, ...props }, ref) => {
     const prefix = 'col';
     const spans = [];
     const classes = [];
