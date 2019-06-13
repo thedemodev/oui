@@ -26,19 +26,25 @@ stories.add('Default', withInfo()(() => {
       <h1>Default (Equal Widths)</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row
+          gutters={ boolean('gutters', false) }
+          displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row
+          gutters={ boolean('gutters', false) }
+          displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row
+          gutters={ boolean('gutters', false) }
+          displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
@@ -48,7 +54,7 @@ stories.add('Default', withInfo()(() => {
       <h1 className="push-triple--top">Widths</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
@@ -102,7 +108,7 @@ stories.add('Default', withInfo()(() => {
       <h1 className="push-triple--top">Equal Widths</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
@@ -146,7 +152,7 @@ stories.add('Default', withInfo()(() => {
       <h1 className="push-triple--top">"Auto"</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', true) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
@@ -242,44 +248,86 @@ stories.add('Default', withInfo()(() => {
   }))
   .add('Ricky borders', withInfo()(() => {
     return (
-      <Container
-        outlineDebug={ boolean('outlineDebug', false) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ 'none' }
-        gutters={ true }
-        fluid={ boolean('fluid', true) }>
-        <hr />
-        <Row
-          gutters={ boolean('gutters', true) }
-          border={ 'none' }>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
-            Cell with border sides
-          </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
-            Cell with border sides
-          </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
-            Cell with border sides
-          </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
-            Cell with border sides
-          </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'sides' }>
-            Cell with border right
-          </Col>
-        </Row>
-        <hr />
-      </Container>
+      <div>
+        <Container
+          outlineDebug={ boolean('outlineDebug', false) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          paddedContent={ 'none' }
+          gutters={ false }
+          fluid={ boolean('fluid', true) }>
+          <hr />
+          <Row
+            gutters={ boolean('gutters', false) }
+            border={ 'none' }>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              <h2 className="push-half--bottom">Some Title</h2>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              <h2 className="push-half--bottom">A Longer Page Title</h2>
+              Cell with border sides and long-ish content that will definitely run to multiple lines.
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'sides' }>
+              Cell with border right
+            </Col>
+          </Row>
+          <hr />
+        </Container>
+        <Container
+          outlineDebug={ boolean('outlineDebug', false) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          paddedContent={ 'none' }
+          gutters={ false }
+          fluid={ boolean('fluid', true) }>
+          <hr />
+          <Row
+            gutters={ boolean('gutters', false) }
+            border={ 'none' }>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'none' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border sides
+            </Col>
+            <Col
+              paddedContent={ 'around' }
+              border={ 'left' }>
+              Cell with border right
+            </Col>
+          </Row>
+          <hr />
+        </Container>
+      </div>
     );
   }))
   .add('Fluid', withInfo()(() => {
@@ -310,7 +358,7 @@ stories.add('Default', withInfo()(() => {
         fluid={ boolean('fluid', false) }>
         <Row
           gutters={ boolean('gutters', false) }
-          displayVertical={ boolean('displayVertical', true) }>
+          displayVertical={ boolean('displayVertical', false) }>
           <Col>1 of 6</Col>
           <Col>2 of 6</Col>
           <Col>3 of 6</Col>

@@ -21,7 +21,6 @@ const propTypes = {
 const defaultProps = {
   as: 'div',
   border: 'none',
-  className: ['row'],
   displayVertical: false,
   gutters: false,
   overflow: 'none',
@@ -29,14 +28,10 @@ const defaultProps = {
 const classes = [];
 
 const Row = React.forwardRef(
-  ({ border, gutters, overflow, displayVertical, className, as: Component, ...props }, ref) => {
+  ({ border, gutters, overflow, displayVertical, as: Component, ...props }, ref) => {
 
     if (border) {
       classes.push(`border--${border}`);
-    }
-
-    if (className) {
-      classes.push(className);
     }
 
     if (displayVertical) {
@@ -50,7 +45,7 @@ const Row = React.forwardRef(
     return (
       <Component
         { ...props }
-        className={ classNames(className, classes, !gutters && 'gutters--none') }
+        className={ classNames('row', classes, !gutters && 'gutters--none') }
       />
     );
   },
