@@ -26,12 +26,13 @@ const classes = [];
 const Row = React.forwardRef(
   ({ border, bsPrefix, gutters, displayVertical, className, as: Component, ...props }, ref) => {
 
-    // let classes = classNames({
-    //   className,
-    //   bsPrefix,
-    //   !gutters && 'gutters--none',
-    //   displayVertical && 'test',
-    // });
+    if (border) {
+      classes.push(`border--${border}`);
+    }
+
+    if (className) {
+      classes.push(className);
+    }
 
     return (
       <Component

@@ -240,6 +240,48 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
+  .add('Ricky borders', withInfo()(() => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', false) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ 'none' }
+        gutters={ true }
+        fluid={ boolean('fluid', true) }>
+        <hr />
+        <Row
+          gutters={ boolean('gutters', true) }
+          border={ 'none' }>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Cell with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Cell with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Cell with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Cell with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'sides' }>
+            Cell with border right
+          </Col>
+        </Row>
+        <hr />
+      </Container>
+    );
+  }))
   .add('Fluid', withInfo()(() => {
     return (
       <Container
