@@ -25,10 +25,11 @@ const defaultProps = {
   gutters: false,
   overflow: 'none',
 };
-const classes = [];
 
 const Row = React.forwardRef(
   ({ border, gutters, overflow, displayVertical, as: Component, ...props }, ref) => {
+
+    const classes = [];
 
     if (border) {
       classes.push(`border--${border}`);

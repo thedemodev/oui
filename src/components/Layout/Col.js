@@ -79,6 +79,14 @@ const Col = React.forwardRef(
     const spans = [];
     const classes = [];
 
+    if (paddedContent && paddedContent !== 'none') {
+      classes.push(`padded-content--${paddedContent}`);
+    }
+
+    if (border) {
+      classes.push(`border--${border}`);
+    }
+
     DEVICE_SIZES.forEach(brkPoint => {
       let propValue = props[brkPoint];
       delete props[brkPoint];
@@ -96,14 +104,6 @@ const Col = React.forwardRef(
         spans.push(
           span === "fillSpace" ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
-      }
-
-      if (paddedContent && paddedContent !== 'none') {
-        classes.push(`padded-content--${paddedContent}`);
-      }
-
-      if (border) {
-        classes.push(`border--${border}`);
       }
 
       if (order != null) {

@@ -169,7 +169,7 @@ stories.add('Default', withInfo()(() => {
     </div>
   );
 }))
-  .add('Cards test', withInfo()(() => {
+  .add('Cards', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -262,29 +262,33 @@ stories.add('Default', withInfo()(() => {
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              <h2 className="push-half--bottom">Some Title</h2>
-              Cell with border sides
+              <Row displayVertical={ true } paddedContent={ false }>
+                <Col paddedContent={ 'none' }>
+                  <h2 className="push-half--bottom">Some Title</h2>
+                  Col with border sides
+                </Col>
+              </Row>
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
               <h2 className="push-half--bottom">A Longer Page Title</h2>
-              Cell with border sides and long-ish content that will definitely run to multiple lines.
+              Col with border sides and long-ish content that will definitely run to multiple lines.
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'sides' }>
-              Cell with border right
+              Col with border right
             </Col>
           </Row>
           <hr />
@@ -302,27 +306,27 @@ stories.add('Default', withInfo()(() => {
             <Col
               paddedContent={ 'around' }
               border={ 'none' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border sides
+              Col with border sides
             </Col>
             <Col
               paddedContent={ 'around' }
               border={ 'left' }>
-              Cell with border right
+              Col with border right
             </Col>
           </Row>
           <hr />
@@ -358,7 +362,7 @@ stories.add('Default', withInfo()(() => {
         fluid={ boolean('fluid', false) }>
         <Row
           gutters={ boolean('gutters', false) }
-          displayVertical={ boolean('displayVertical', false) }>
+          displayVertical={ boolean('displayVertical', true) }>
           <Col>1 of 6</Col>
           <Col>2 of 6</Col>
           <Col>3 of 6</Col>
