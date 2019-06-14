@@ -7,7 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Feature] Add icons.json to OUI repo in prep for moving all icons into repo and automating a build script.
 
-## 43.0.0
+## 43.0.0 - 2019-06-12
 - [Patch] Fix **TokensInput** `extraAddKeys` prop-type check
 - [Patch] Update **Sheet** styling to be 90% of window height
 - [Release] CSSWhat stats about color, selectors, !important, etc.
