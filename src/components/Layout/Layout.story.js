@@ -248,90 +248,45 @@ stories.add('Default', withInfo()(() => {
   }))
   .add('Ricky borders', withInfo()(() => {
     return (
-      <div>
-        <Container
-          outlineDebug={ boolean('outlineDebug', false) }
-          pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ 'none' }
-          gutters={ false }
-          fluid={ boolean('fluid', true) }>
-          <hr />
-          <Row
-            gutters={ boolean('gutters', false) }
-            border={ 'none' }>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              <Row displayVertical={ true } paddedContent={ false }>
-                <Col paddedContent={ 'none' }>
-                  <h2 className="push-half--bottom">Some Title</h2>
-                  Col with border sides
-                </Col>
-              </Row>
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              <h2 className="push-half--bottom">A Longer Page Title</h2>
-              Col with border sides and long-ish content that will definitely run to multiple lines.
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'sides' }>
-              Col with border right
-            </Col>
-          </Row>
-          <hr />
-        </Container>
-        <Container
-          outlineDebug={ boolean('outlineDebug', false) }
-          pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ 'none' }
-          gutters={ false }
-          fluid={ boolean('fluid', true) }>
-          <hr />
-          <Row
-            gutters={ boolean('gutters', false) }
-            border={ 'none' }>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'none' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border sides
-            </Col>
-            <Col
-              paddedContent={ 'around' }
-              border={ 'left' }>
-              Col with border right
-            </Col>
-          </Row>
-          <hr />
-        </Container>
-      </div>
+      <Container
+        outlineDebug={ boolean('outlineDebug', false) }
+        pushRowsTop={ boolean('pushRowsTop', false) }
+        paddedContent={ 'none' }
+        gutters={ false }
+        fluid={ boolean('fluid', true) }>
+        <hr />
+        <Row
+          gutters={ boolean('gutters', false) }
+          border={ 'none' }>
+          <Col
+            paddedContent={ 'around' }>
+            <h2 className="push-half--bottom">Some Title</h2>
+            Col with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            <h2 className="push-half--bottom">A Longer Page Title</h2>
+            Col with border sides and long-ish content that will definitely run to multiple lines.
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Col with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Col with border sides
+          </Col>
+          <Col
+            paddedContent={ 'around' }
+            border={ 'left' }>
+            Col with border right
+          </Col>
+        </Row>
+        <hr />
+      </Container>
     );
   }))
   .add('Fluid', withInfo()(() => {
