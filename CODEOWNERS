@@ -1,4 +1,8 @@
 # OUI CODEOWNERS file
 
-# All Frontend and OUI engineers should be able to review this repo.
-* @optimizely/frontend @optimizely/ui-engineers
+# UI engineers must review .scss/.css changes
+* **/*.css @optimizely/ui-engineers
+* **/*.scss @optimizely/ui-engineers
+
+# Frontend engineers must review .js changes
+* **/*.js @optimizely/frontend
