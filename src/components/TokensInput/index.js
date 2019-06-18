@@ -42,6 +42,7 @@ export const TokensInput = ({
   extraAddKeys,
   maxTags,
   onChange,
+  onInputChange,
   placeholder,
   tokens,
 }) => {
@@ -141,6 +142,7 @@ export const TokensInput = ({
         addOnPaste={ true }
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          onChange: onInputChange,
           placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
           readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
         }}
@@ -179,6 +181,11 @@ TokensInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 
   /**
+   * Handler to invoke when the token input changes
+   */
+  onInputChange: PropTypes.func,
+
+  /**
    * Placeholder text for the input box.
    */
   placeholder: PropTypes.string,
@@ -194,6 +201,8 @@ TokensInput.defaultProps = {
   extraAddKeys: [],
 
   maxTags: -1,
+
+  onInputChange: () => {},
 
   placeholder: 'enter tokens',
 };

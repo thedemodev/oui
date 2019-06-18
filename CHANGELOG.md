@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Feature] Add icons.json to OUI repo in prep for moving all icons into repo and automating a build script.
+- [Feature] Add onInputChange handler to the TokenInput component.
 
 ## 43.0.0 - 2019-06-12
 - [Patch] Fix **TokensInput** `extraAddKeys` prop-type check

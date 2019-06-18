@@ -15,6 +15,7 @@ const SAMPLE_DATA = [
 describe('components/TokensInput', () => {
   let component;
   let mockOnChange;
+  let mockOnInputChange;
 
   afterEach(function() {
     if (component) {
@@ -110,8 +111,13 @@ describe('components/TokensInput', () => {
     describe('with the default addKeys', function() {
       beforeEach(function() {
         mockOnChange = jest.fn();
+        mockOnInputChange = jest.fn();
         component = mount(
-          <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
+          <TokensInput
+            onChange={ mockOnChange }
+            onInputChange={ mockOnInputChange }
+            tokens={ SAMPLE_DATA }
+          />
         );
       });
 
@@ -134,6 +140,14 @@ describe('components/TokensInput', () => {
 
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
+      });
+
+      it('should call onInputChange function when input is changed', function() {
+        const input = component.find('input');
+        input.simulate('change', { target: { value: 'primary' }});
+        input.simulate('keyDown', { keyCode: 13, key: 'Enter' });
+        component.update();
+        expect(mockOnInputChange).toBeCalled();
       });
     });
 
@@ -183,7 +197,7 @@ describe('components/TokensInput', () => {
         const input = component.find('input');
         /* eslint-disable no-tabs */
         const testString = `
-        
+
         some
         	tokens
         		with
@@ -191,7 +205,7 @@ describe('components/TokensInput', () => {
         	one.two
         	three,
         	four_five
-        	
+
         `;
         input.simulate('paste', { clipboardData: { getData: () => testString }});
         component.update();
