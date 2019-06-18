@@ -104,23 +104,23 @@ const Col = React.forwardRef(
       let span;
       let offset;
       let order;
-      if (propValue && typeof propValue === 'object') {
+      if (propValue !== null && propValue !== undefined && typeof propValue === 'object') {
         ({ span = 'fillSpace', offset, order } = propValue);
       } else {
         span = propValue;
       }
 
-      if (span) {
+      if (span !== null && span !== undefined) {
         spans.push(
           span === 'fillSpace' ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
       }
 
-      if (order) {
+      if (order !== null && order !== undefined) {
         classes.push(`order-${brkPoint}-${order}`);
       }
 
-      if (offset) {
+      if (offset !== null && offset !== undefined) {
         classes.push(`offset-${brkPoint}-${offset}`);
       }
 
