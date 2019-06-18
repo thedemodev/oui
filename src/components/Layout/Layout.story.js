@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Col from './Col';
@@ -30,20 +30,20 @@ stories.add('Default', withInfo()(() => {
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row
-          gutters={ boolean('gutters', false) }
+          gutters={ boolean('gutters', true) }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
         <Row
-          gutters={ boolean('gutters', false) }
+          gutters={ boolean('gutters', true) }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
         <Row
-          gutters={ boolean('gutters', false) }
+          gutters={ boolean('gutters', true) }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
@@ -57,50 +57,50 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 12 }>12</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 11 }>11</Col>
           <Col small={ 1 }>1</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 10 }>10</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 9 }>9</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 8 }>8</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 7 }>7</Col>
           <Col small={ 5 }>5</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 5 }>5</Col>
           <Col small={ 7 }>7</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 4 }>4</Col>
           <Col small={ 8 }>8</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 3 }>3</Col>
           <Col small={ 9 }>9</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 2 }>2</Col>
           <Col small={ 10 }>10</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 1 }>1</Col>
           <Col small={ 11 }>11</Col>
         </Row>
@@ -111,22 +111,22 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
@@ -134,7 +134,7 @@ stories.add('Default', withInfo()(() => {
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
@@ -155,12 +155,12 @@ stories.add('Default', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row gutters={ boolean('gutters', true) }>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
@@ -230,6 +230,7 @@ stories.add('Default', withInfo()(() => {
         <Row
           gutters={ boolean('gutters', false) }
           border={ 'top' }>
+          { /* eslint-disable max-len */ }
           <Col
             large={ 'fillSpace' }
             paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'around') }
@@ -242,6 +243,7 @@ stories.add('Default', withInfo()(() => {
             border={ select('border', { top: 'top', bottom: 'bottom', left: 'left', right: 'right', sides: 'sides', ends: 'ends', all: 'all', none: 'none' }, 'right') }>
             Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
           </Col>
+          { /* eslint-enable max-len */ }
         </Row>
       </Container>
     );
@@ -420,16 +422,18 @@ stories.add('Default', withInfo()(() => {
               </Col>
               <Col small={ 6 }>
                 <h6>What’s a Feature Flag?</h6>
+                { /* eslint-disable max-len */ }
                 <p>Feature flags, also known as feature toggles, are a software development technique that lets you turn certain functionality on and off without deploying new code. This allows for better control and more experimentation over the full lifecycle of features. You can toggle a feature off to release code quickly without exposing it to users.</p>
+                { /* eslint-enable max-len */ }
                 <h6>Try it for yourself</h6>
                 <Code>
   var enabled = optimizely.isFeatureEnabled(”chat_window”, userId);
   if(enabled) {
-      // Feature is enabled
-  } else {
-      // Feature is disabled
-  }
-                  </Code>
+                    // Feature is enabled
+                  } else {
+                    // Feature is disabled
+                  }
+                </Code>
                 <Row>
                   <Col large={ 6 }>
                     <Button width={ 'full' }>View Docs</Button>
@@ -559,4 +563,4 @@ stories.add('Default', withInfo()(() => {
       </div>
     );
   }))
-  ;
+;

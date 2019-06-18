@@ -7,6 +7,7 @@ const propTypes = {
    * You can use a custom element for this component
    */
   as: PropTypes.elementType,
+  className: PropTypes.string,
   /**
    * Allow the Container to fill all of it's availble horizontal space.
    */
@@ -16,6 +17,7 @@ const propTypes = {
   outlineDebug: PropTypes.bool,
   paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
   pull: PropTypes.bool,
+  pushRowsTop: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -29,16 +31,16 @@ const Container = React.forwardRef(
 
     return (
       <Component
-        ref={ref}
-        {...props}
-        className={classNames(
+        ref={ ref }
+        { ...props }
+        className={ classNames(
           className,
           pull && 'container--pull',
           outlineDebug && 'outline--debug',
           paddedContent && `padded-content--${paddedContent}`,
           pushRowsTop && 'push-rows--top',
           fluid ? `${prefix}-fluid` : prefix,
-        )}
+        ) }
       />
     );
   },

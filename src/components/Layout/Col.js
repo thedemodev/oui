@@ -19,6 +19,7 @@ const column = PropTypes.oneOfType([
   colSize,
   PropTypes.shape({
     border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
+    className: PropTypes.string,
     order: stringOrNumber,
     offset: stringOrNumber,
     paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
@@ -39,17 +40,25 @@ const propTypes = {
     'all',
   ]),
 
+  children: PropTypes.node,
+
+  className: PropTypes.string,
+
   /**
    * The number of columns to span on large devices (≥992px)
    *
-   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|
+   *  { span: "fillSpace"|"fitContent"|number, offset: number, order: number }
+   * )}
    */
   large: column,
 
   /**
    * The number of columns to span on medium devices (≥768px)
    *
-   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number, offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|
+   *  { span: "fillSpace"|"fitContent"|number, offset: number, order: number }
+   * )}
    */
   medium: column,
 
@@ -62,8 +71,9 @@ const propTypes = {
   /**
    * The number of columns to span on small devices (≥576px)
    *
-   * @type {("fillSpace"|"fitContent"|number|{ span: "fillSpace"|"fitContent"|number
-   * offset: number, order: number })}
+   * @type {("fillSpace"|"fitContent"|number|
+   *  { span: "fillSpace"|"fitContent"|number, offset: number, order: number }
+   * )}
    */
   small: column,
 
@@ -94,23 +104,23 @@ const Col = React.forwardRef(
       let span;
       let offset;
       let order;
-      if (propValue != null && typeof propValue === 'object') {
-        ({ span = "fillSpace", offset, order } = propValue);
+      if (propValue && typeof propValue === 'object') {
+        ({ span = 'fillSpace', offset, order } = propValue);
       } else {
         span = propValue;
       }
 
-      if (span != null) {
+      if (span) {
         spans.push(
-          span === "fillSpace" ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
+          span === 'fillSpace' ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
         );
       }
 
-      if (order != null) {
+      if (order) {
         classes.push(`order-${brkPoint}-${order}`);
       }
 
-      if (offset != null) {
+      if (offset) {
         classes.push(`offset-${brkPoint}-${offset}`);
       }
 

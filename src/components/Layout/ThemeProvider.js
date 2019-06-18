@@ -8,6 +8,7 @@ const { Consumer, Provider } = ThemeContext;
 
 class ThemeProvider extends React.Component {
   static propTypes = {
+    children: PropTypes.node,
     prefixes: PropTypes.object.isRequired,
   };
 
@@ -20,7 +21,7 @@ class ThemeProvider extends React.Component {
   }
 
   render() {
-    return <Provider value={this.prefixes}>{this.props.children}</Provider>;
+    return <Provider value={ this.prefixes }>{this.props.children}</Provider>;
   }
 }
 
@@ -30,7 +31,7 @@ export function useBootstrapPrefix(prefix, defaultPrefix) {
 }
 
 function createBootstrapComponent(Component, opts) {
-  if (typeof opts === 'string') opts = { prefix: opts };
+  if (typeof opts === 'string') {opts = { prefix: opts };}
   const isClassy = Component.prototype && Component.prototype.isReactComponent;
   // If it's a functional component make sure we don't break it with a ref
   const { prefix, forwardRefAs = isClassy ? 'ref' : 'innerRef' } = opts;
@@ -41,9 +42,9 @@ function createBootstrapComponent(Component, opts) {
       const prefixes = useContext(ThemeContext);
       return (
         <Component
-          {...props}
+          { ...props }
           // eslint-disable-next-line react/prop-types
-          bsPrefix={props.bsPrefix || prefixes.get(prefix) || prefix}
+          bsPrefix={ props.bsPrefix || prefixes.get(prefix) || prefix }
         />
       );
     },
