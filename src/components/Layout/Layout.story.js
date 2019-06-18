@@ -3,8 +3,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
-import { addParameters } from '@storybook/react';
-
 
 import Col from './Col';
 import Row from './Row';
@@ -13,10 +11,38 @@ import Card from '../Card';
 import Button from '../Button';
 import Code from '../Code';
 
+import { addParameters } from '@storybook/react';
+const viewports = {
+  iphone5: {
+    name: 'Small Phone',
+    styles: {
+      height: '568px',
+      width: '320px',
+    },
+    type: 'mobile',
+  },
+  iphonex: {
+    name: 'Large Phone',
+    styles: {
+      height: '812px',
+      width: '375px',
+    },
+    type: 'mobile',
+  },
+  ipad: {
+    name: 'Tablet',
+    styles: {
+      height: '1024px',
+      width: '768px',
+    },
+    type: 'tablet',
+  },
+};
+addParameters({ viewport: { viewports: viewports } });
+
 const stories = storiesOf('Layout', module);
 stories
   .addDecorator(withKnobs)
-  .addParameters({ viewport: { viewports: viewports } })
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
