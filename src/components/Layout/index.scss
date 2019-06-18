@@ -39,11 +39,9 @@ div[class*="col"].padded-content--ends,
     background: hsla(130, 100%, 71%, 0.15);
 }
 
-
 .push-rows--top .row + .row {
     margin-top: spacer(1.5);
 }
-
 
 // Based on Bootstrap flexbox grid
 .container {
