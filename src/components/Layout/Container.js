@@ -15,6 +15,7 @@ const propTypes = {
   hasAllGutters: PropTypes.bool,
   outlineDebug: PropTypes.bool,
   paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
+  pull: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -23,7 +24,7 @@ const defaultProps = {
 };
 
 const Container = React.forwardRef(
-  ({ outlineDebug, paddedContent, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
+  ({ outlineDebug, paddedContent, pull, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
     const prefix = 'container';
 
     return (
@@ -32,6 +33,7 @@ const Container = React.forwardRef(
         {...props}
         className={classNames(
           className,
+          pull && 'container--pull',
           outlineDebug && 'outline--debug',
           paddedContent && `padded-content--${paddedContent}`,
           pushRowsTop && 'push-rows--top',
