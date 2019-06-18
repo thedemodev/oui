@@ -3,6 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
+import { addParameters } from '@storybook/react';
+
 
 import Col from './Col';
 import Row from './Row';
@@ -14,6 +16,7 @@ import Code from '../Code';
 const stories = storiesOf('Layout', module);
 stories
   .addDecorator(withKnobs)
+  .addParameters({ viewport: { viewports: viewports } })
   .addDecorator(story => (
     <div id="root-preview">
       {story()}
