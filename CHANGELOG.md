@@ -6,6 +6,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Feature] Add icons.json to OUI repo in prep for moving all icons into repo and automating a build script.
+- [Patch] Fix **Progress Dots** to prevent wrapping in narrow regions ([#1173](https://github.com/optimizely/oui/pull/1173))
 
 ## 43.0.0 - 2019-06-12
 - [Patch] Fix **TokensInput** `extraAddKeys` prop-type check
@@ -17,11 +18,11 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] Add backwards compatible Dropdown functionality for custom children toggling ([#1169](https://github.com/optimizely/oui/pull/1169))
 
 ## 42.10.2 - 2019-05-31
-- [Patch] Properly export DatePicker and DateRangePicker ([#1165](https://github.com/optimizely/oui/pull/1165))
+- [Patch] Properly export **DatePicker** and **DateRangePicker** ([#1165](https://github.com/optimizely/oui/pull/1165))
 
 ## 42.10.1 - 2019-05-30
 - [Patch] Token and handle to use rebrand color values ([#1162](https://github.com/optimizely/oui/pull/1162))
-- [Patch] Export existing DateRangePicker component ([#1164](https://github.com/optimizely/oui/pull/1164))
+- [Patch] Export existing **DateRangePicker** component ([#1164](https://github.com/optimizely/oui/pull/1164))
 
 ## 42.10.0 - 2019-05-17
 - [Feature] Added a variation to **Button** component that disables the button and adds a spinner using `isLoading` prop ([#1135](https://github.com/optimizely/oui/pull/1135))
