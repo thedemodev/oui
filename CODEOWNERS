@@ -1,8 +1,8 @@
 # OUI CODEOWNERS file
 
 # UI engineers must review .scss/.css changes
-* **/*.css @optimizely/ui-engineers
-* **/*.scss @optimizely/ui-engineers
+**/*.css @optimizely/ui-engineers
+**/*.scss @optimizely/ui-engineers
 
 # Frontend engineers must review .js changes
-* **/*.js @optimizely/frontend
+**/*.js @optimizely/frontend
