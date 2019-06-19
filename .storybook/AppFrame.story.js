@@ -10,9 +10,9 @@ import Container from '../src/components/Layout/Container';
 import Button from '../src/components/Button';
 import Code from '../src/components/Code';
 
-const stories = storiesOf('Layout: App', module);
+const stories = storiesOf('Layout', module);
 stories.addDecorator(withKnobs);
-stories.add('Default', withInfo()(() => {
+stories.add('Special: App Frame', withInfo()(() => {
   return (
     <Container
       outlineDebug={ boolean('outlineDebug', true) }
