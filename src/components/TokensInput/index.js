@@ -185,7 +185,7 @@ TokensInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 
   /**
-   * Handler to invoke when the token input is blured
+   * Handler to invoke when the token input is blurred
    */
   onInputBlur: PropTypes.func,
 
