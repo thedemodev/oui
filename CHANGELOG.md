@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Remove csswhat data ([#1178](https://github.com/optimizely/oui/pull/1178))
 
 ## 43.1.0 - 2019-06-19
 - [Feature] Add icons.json to OUI repo in prep for moving all icons into repo and automating a build script.
