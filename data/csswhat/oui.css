@@ -4214,7 +4214,8 @@ code {
 
 .progress-dots,
 .oui-progress-dots {
-  display: inline-block; }
+  display: inline-block;
+  white-space: nowrap; }
   .progress-dots li,
   .oui-progress-dots li {
     opacity: 0;
