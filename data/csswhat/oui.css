@@ -4387,7 +4387,7 @@ code {
 .oui-sheet {
   position: fixed;
   bottom: 0;
-  height: 90%;
+  height: 95%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   width: 900px;
   background: #FFFFFF; }
@@ -4413,7 +4413,7 @@ code {
   top: 0; }
 
 .oui-sheet__header {
-  padding: 50px 60px 20px; }
+  padding: 60px 60px 20px; }
 
 .oui-sheet__footer {
   position: fixed;
@@ -4431,6 +4431,10 @@ code {
 
 .oui-sheet__link {
   margin-left: 5px; }
+
+.oui-sheet .oui-close-button {
+  top: 30px;
+  right: 30px; }
 
 .oui-sidebar {
   transition: all 0.3s;
