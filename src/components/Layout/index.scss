@@ -6,23 +6,33 @@
 */
 
 // Layout base helpers
+.padded-content--around.row,
 .padded-content--around .row,
 .padded-content--around .col,
 div[class*="col"].padded-content--around,
 .padded-content--around .row > div[class*="col"] {
     padding: spacer(1.5);
 }
+.padded-content--sides.row,
 .padded-content--sides .row,
 .padded-content--sides .col,
 div[class*="col"].padded-content--sides,
 .padded-content--sides .row > div[class*="col"] {
     padding: 0 spacer(1.5);
 }
+.padded-content--ends.row,
 .padded-content--ends .row,
 .padded-content--ends .col,
 div[class*="col"].padded-content--ends,
 .padded-content--ends .row > div[class*="col"] {
     padding: spacer(1.5) 0;
+}
+.padded-content--none.row,
+.padded-content--none .row,
+.padded-content--none .col,
+div[class*="col"].padded-content--none,
+.padded-content--none .row > div[class*="col"] {
+    padding: 0;
 }
 
 .outline--debug .container {

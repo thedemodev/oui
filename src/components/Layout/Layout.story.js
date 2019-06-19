@@ -283,13 +283,13 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('Padded Content', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'around') }
         gutters={ boolean('gutters', false) }
         fluid={ boolean('fluid', true) }>
-        <hr />
         <Row
           gutters={ boolean('gutters', false) }
-          border={ 'none' }>
+          border={ 'ends' }
+          paddedContent={ 'ends' }>
           <Col
             paddedContent={ 'around' }>
             <h2 className="push-half--bottom">Some Title</h2>
@@ -317,7 +317,6 @@ stories.add('Default', withInfo()(() => {
             Col with border right
           </Col>
         </Row>
-        <hr />
       </Container>
     );
   }))

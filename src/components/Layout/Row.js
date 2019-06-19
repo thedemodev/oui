@@ -16,6 +16,13 @@ const propTypes = {
   gutters: PropTypes.bool,
   /** Force overflow scrolling */
   overflow: PropTypes.oneOf(['none', 'overflow-y--scroll', 'overflow-x--auto', 'overflow-y--auto']),
+  /** Pad inner content. */
+  paddedContent: PropTypes.oneOf([
+    'around',
+    'sides',
+    'ends',
+    'none',
+  ]),
 };
 
 const defaultProps = {
@@ -24,15 +31,20 @@ const defaultProps = {
   displayVertical: false,
   gutters: false,
   overflow: 'none',
+  paddedContent: 'none',
 };
 
 const Row = React.forwardRef(
-  ({ border, gutters, overflow, displayVertical, as: Component, ...props }, ref) => {
+  ({ border, gutters, overflow, displayVertical, paddedContent, as: Component, ...props }, ref) => {
 
     const classes = [];
 
     if (border) {
       classes.push(`border--${border}`);
+    }
+
+    if (paddedContent && paddedContent !== 'none') {
+      classes.push(`padded-content--${paddedContent}`);
     }
 
     if (displayVertical) {
