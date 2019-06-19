@@ -49,6 +49,16 @@ stories.add('default', (() => {
       />
     </Container>
   );
+})).add('with an initial placeholder', (() => {
+  return (
+    <Container>
+      <SelectDropdown
+        items={ items }
+        initialPlaceholder="Select a value..."
+        onChange={ action('SelectDropdown value changed') }
+      />
+    </Container>
+  );
 })).add('width of activator', (() => {
   return (
     <Container>

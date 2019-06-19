@@ -125,4 +125,15 @@ describe('components/SelectDropdown', function() {
     const activator = component.find('Button');
     expect(activator.text()).toBe('Production');
   });
+
+  it('should display initialPlaceholder if provided', function() {
+    component = mount(
+      <SelectDropdown
+        items={ items }
+        initialPlaceholder="Select a value..."
+        onChange={ onChange }
+      />);
+    const activator = component.find('Button');
+    expect(activator.text()).toBe('Select a value...');
+  });
 });

@@ -20,6 +20,10 @@ class SelectDropdown extends React.Component {
      */
     dropdownDirection: PropTypes.oneOf(['right', 'left']),
     /**
+     * An initial value for the dropdown before anything is selected
+     */
+    initialPlaceholder: PropTypes.node,
+    /**
      * The select is greyed out if it is disabled.
      */
     isDisabled: PropTypes.bool,
@@ -63,7 +67,7 @@ class SelectDropdown extends React.Component {
       PropTypes.string,
       PropTypes.number,
       PropTypes.bool,
-    ]).isRequired,
+    ]),
     /**
      * Width of the activator container.
      */
@@ -79,12 +83,13 @@ class SelectDropdown extends React.Component {
 
   static defaultProps = {
     buttonStyle: 'outline',
-    inputPlaceholder: '',
+    initialPlaceholder: '',
     displayError: false,
     dropdownDirection: 'right',
     width: '100%',
     trackId: '',
     testSection: '',
+    value: '',
   };
 
   renderContents = () => {
@@ -107,7 +112,7 @@ class SelectDropdown extends React.Component {
   };
 
   render() {
-    const { buttonStyle, value, width, zIndex, isDisabled } = this.props;
+    const { buttonStyle, value, width, zIndex, isDisabled, initialPlaceholder } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
       if (item.value === value) {
@@ -119,7 +124,13 @@ class SelectDropdown extends React.Component {
       {['oui-form-bad-news']: this.props.displayError}
     );
 
-    const activatorLabel = !!selectedItem ? (selectedItem.activatorLabel || selectedItem.label) : '';
+    let activatorLabel = '';
+    if (selectedItem) {
+      activatorLabel = selectedItem.activatorLabel || selectedItem.label;
+    } else if (initialPlaceholder) {
+      activatorLabel = initialPlaceholder;
+    }
+
     const Activator = ({ buttonRef, onClick, onBlur }) => (
       <div
         style={{ width: width}}

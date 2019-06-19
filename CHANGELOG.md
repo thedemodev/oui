@@ -6,6 +6,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Feature] Add icons.json to OUI repo in prep for moving all icons into repo and automating a build script.
+- [Feature] Add ability to provide **SelectDropdown** with an `initialPlaceholder` value to use when a value is not yet selected ([#1176](https://github.com/optimizely/oui/pull/1176))
+    - Also changed the `value` prop to no longer be required
 - [Patch] Fix **Progress Dots** to prevent wrapping in narrow regions ([#1173](https://github.com/optimizely/oui/pull/1173))
 
 ## 43.0.0 - 2019-06-12
