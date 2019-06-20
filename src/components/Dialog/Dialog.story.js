@@ -14,10 +14,6 @@ import { action } from '@storybook/addon-actions';
 import Label from '../Label/index.js';
 import ButtonRow from '../ButtonRow/index.js';
 
-import Col from '../Layout/Col';
-import Row from '../Layout/Row';
-import Container from '../Layout/Container';
-
 const data = [
   {title: 'JavaScript'},
   {title: 'Java'},
@@ -55,10 +51,9 @@ stories
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
-  .add('Default', (() => (
-    <div>
+  .add(
+    'default', (() => (
       <div>
-<<<<<<< HEAD
         <div>
           {' '}
           <p>This is text behind the dialog that is blocked by the overlay.</p>
@@ -120,40 +115,12 @@ stories
           <Label>Select your language</Label>
           {LanguageDropdown}
         </DialogNew>
-=======
-        {' '}
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
->>>>>>> Storybook first letter capitalization
       </div>
-      <DialogNew
-        title={ text('title', 'This is a  Dialog') }
-        subtitle={ text('subtitle', 'This is an optional subtitle') }
-        hasCloseButton={ boolean('hasCloseButton', true) }
-        onClose={ action('Dialog was closed') }
-        footerButtonList={ [
-          <Button style="plain" key={ 0 } onClick={ noop }>
-            Cancel
-          </Button>,
-          <Button style="highlight" key={ 1 } onClick={ noop }>
-            Save
-          </Button>,
-        ] }>
-        <Fieldset
-          title="Project Settings"
-          description="Some quick setup"
-          helpIcon={ true }
-          popoverTitle="Popover title"
-          popoverText="This should help you figure out what to do">
-          <Input id="input-01" label="Verify Email" type="email"/>
-          <Input id="input-02" label="Confirm Email" type="email"/>
-        </Fieldset>
-      </DialogNew>
-    </div>
-  )))
-  .add('With a form and dropdown', (() => (
-    <div>
+    ))
+  )
+  .add(
+    'with scrolling', (() => (
       <div>
-<<<<<<< HEAD
         <div>
           {' '}
           <p>This is text behind the dialog that is blocked by the overlay.</p>
@@ -189,41 +156,13 @@ stories
             accusantium corporis, beatae maxime quasi. Tempora.
           </p>
         </DialogNew>
-=======
-        {' '}
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
->>>>>>> Storybook first letter capitalization
       </div>
-      <DialogNew
-        title={ text('title', 'Welcome to this Feature') }
-        subtitle={ <p>Let&apos;s get you up and running with <a href="https://www.optimizely.com/">our feature.</a></p> }
-        hasCloseButton={ boolean('hasCloseButton', true) }
-        onClose={ action('Dialog was closed') }
-        footerButtonList={ [
-          <Button style="highlight" key={ 0 } onClick={ noop }>
-            Get Started
-          </Button>,
-        ] }>
-        <Fieldset
-          title="Project Settings"
-          description="Some quick setup"
-          helpIcon={ true }
-          popoverTitle="Popover title"
-          popoverText="This should help you figure out what to do">
-          <Input id="input-03" label="Project Name" type="text"/>
-          <Input id="input-04" label="Description" type="text"/>
-        </Fieldset>
-        <Label>Select your language</Label>
-        {LanguageDropdown}
-      </DialogNew>
-    </div>
-  )))
-  .add('With scrolling', (() => (
-    <div>
+    ))
+  )
+  .add(
+    'with simple text and link', (() => (
       <div>
-        {' '}
         <p>This is text behind the dialog that is blocked by the overlay.</p>
-<<<<<<< HEAD
         <DialogNew
           title={ text('title', 'This is a Dialog') }
           hasCloseButton={ boolean('hasCloseButton', false) }
@@ -243,7 +182,6 @@ stories
     ))
   )
   .add(
-<<<<<<< HEAD
     'without overlay', (() => (
       <div>
         <p>This is text behind the dialog that is NOT blocked by the overlay because the overlay is hidden.</p>
@@ -261,147 +199,11 @@ stories
           ] }>
           <p>Dialogs can also contain only text in the body, no data input.</p>
           <p>They can also contain links, like <a href="https://www.optimizely.com/">learn more about Optimizely features</a>.</p>
-=======
-    'with layout',
-=======
-      </div>
-      <DialogNew
-        title={ text('title', 'Welcome to this Feature') }
-        hasCloseButton={ boolean('hasCloseButton', true) }
-        onClose={ action('Dialog was closed') }
-        footerButtonList={ [
-          <Button style="highlight" key={ 0 } onClick={ noop }>
-            Get Started in the Docs
-          </Button>,
-        ] }>
-        <p>
-          Content should be kept to small, digestible amounts.
-          If you need more space, consider using a <b>Sheet</b>.
-          If the content does overflow the space, the dialog will scroll.
-        </p>
-        <p className="muted">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-          accusantium corporis, beatae maxime quasi. Tempora.
-        </p>
-        <p className="muted">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-          accusantium corporis, beatae maxime quasi. Tempora.
-        </p>
-        <p className="muted">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi id voluptas vitae eius
-          expedita alias iste deserunt rndis earum voluptatibus quae, numquam dolorum perspiciatis
-          accusantium corporis, beatae maxime quasi. Tempora.
-        </p>
-      </DialogNew>
-    </div>
-  )))
-  .add('With simple text and link', (() => (
-    <div>
-      <p>This is text behind the dialog that is blocked by the overlay.</p>
-      <DialogNew
-        title={ text('title', 'This is a Dialog') }
-        hasCloseButton={ boolean('hasCloseButton', false) }
-        footerButtonList={ [
-          <Button style="plain" key={ 0 } onClick={ noop }>
-            No Thanks
-          </Button>,
-          <Button style="highlight" key={ 1 } onClick={ noop }>
-            Continue
-          </Button>,
-        ] }>
-        <p>Dialogs can also contain only text in the body, no data input.</p>
-        <p>They can also contain links, like <a href="https://www.optimizely.com/">learn more about Optimizely features</a>.</p>
-      </DialogNew>
-    </div>
-  )))
-  .add('With layout',
->>>>>>> Storybook first letter capitalization
-    withInfo()(() => (
-      <div>
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
-        <DialogNew
-          title={ 'Dialog with Layout' }
-          hasCloseButton={ true }
-          footerButtonList={ [
-            <Button style="plain" key={ 0 } onClick={ noop }>
-              Goodbye
-            </Button>,
-            <Button style="highlight" key={ 1 } onClick={ noop }>
-              Say Hello
-            </Button>,
-          ] }>
-          <Container
-            outlineDebug={ boolean('outlineDebug', true) }
-            pushRowsTop={ boolean('pushRowsTop', true) }
-            sidePadding={ boolean('sidePadding', false) }
-            paddedContent={ boolean('paddedContent', false) }
-            pushColsSides={ boolean('pushColsSides', false) }
-            fluid={ boolean('fluid', false) }>
-            <Row gutters={ boolean('<Row> gutters', false) }>
-              <Col>
-                <p>Dialogs can also contain only text in the body, no data input.</p>
-              </Col>
-              <Col>
-                <p>They can also contain links, like <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
-              </Col>
-            </Row>
-          </Container>
->>>>>>> WIP layout stories
         </DialogNew>
       </div>
     ))
   )
-<<<<<<< HEAD
-<<<<<<< HEAD
   .add('deprecated dialog', (() => (<div>
-=======
-  .add(
-    'with layout thirds',
-=======
-  .add('With layout thirds',
->>>>>>> Storybook first letter capitalization
-    withInfo()(() => (
-      <div>
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
-        <DialogNew
-          title={ 'Dialog with Layout' }
-          hasCloseButton={ true }
-          footerButtonList={ [
-            <Button style="plain" key={ 0 } onClick={ noop }>
-              Goodbye
-            </Button>,
-            <Button style="highlight" key={ 1 } onClick={ noop }>
-              Say Hello
-            </Button>,
-          ] }>
-          <Container
-            outlineDebug={ boolean('outlineDebug', true) }
-            pushRowsTop={ boolean('pushRowsTop', true) }
-            sidePadding={ boolean('sidePadding', false) }
-            paddedContent={ boolean('paddedContent', false) }
-            pushColsSides={ boolean('pushColsSides', false) }
-            fluid={ boolean('fluid', false) }>
-            <Row gutters={ boolean('<Row> gutters', false) }>
-              <Col small={ 4 }>
-                -Insert Image Here-
-              </Col>
-              <Col small={ 8 }>
-                <p>They can also contain links, like <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
-              </Col>
-            </Row>
-          </Container>
-        </DialogNew>
-      </div>
-    ))
-  )
-<<<<<<< HEAD
-  .add('deprecated dialog', withInfo()(() => (<div>
->>>>>>> WIP layout stories
-=======
-  .add('Deprecated dialog', withInfo()(() => (<div>
->>>>>>> Storybook first letter capitalization
     <Dialog.Wrapper>
       <Dialog.Title subtitle="Test Subtitle">This is a Dialog</Dialog.Title>
 
