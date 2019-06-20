@@ -15,7 +15,8 @@ const propTypes = {
   hasAllGaps: PropTypes.bool,
   hasAllGutters: PropTypes.bool,
   outlineDebug: PropTypes.bool,
-  paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
+  /** Pad inner content. */
+  paddedContent: PropTypes.oneOf(['none', 'around', 'sides', 'ends', 'remove']),
   pull: PropTypes.bool,
   pushRowsTop: PropTypes.bool,
 };

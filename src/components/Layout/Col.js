@@ -22,7 +22,8 @@ const column = PropTypes.oneOfType([
     className: PropTypes.string,
     order: stringOrNumber,
     offset: stringOrNumber,
-    paddedContent: PropTypes.oneOf(['around', 'sides', 'ends']),
+    /** Pad inner content. */
+    paddedContent: PropTypes.oneOf(['none', 'around', 'sides', 'ends', 'remove']),
     size: colSize,
   }),
 ]);

@@ -11,46 +11,46 @@
 .padded-content--around .col,
 div[class*="col"].padded-content--around,
 .padded-content--around .row > div[class*="col"] {
-    padding: spacer(1.5);
+  padding: spacer(1.5);
 }
 .padded-content--sides.row,
 .padded-content--sides .row,
 .padded-content--sides .col,
 div[class*="col"].padded-content--sides,
 .padded-content--sides .row > div[class*="col"] {
-    padding: 0 spacer(1.5);
+  padding: 0 spacer(1.5);
 }
 .padded-content--ends.row,
 .padded-content--ends .row,
 .padded-content--ends .col,
 div[class*="col"].padded-content--ends,
 .padded-content--ends .row > div[class*="col"] {
-    padding: spacer(1.5) 0;
+  padding: spacer(1.5) 0;
 }
-.padded-content--none.row,
-.padded-content--none .row,
-.padded-content--none .col,
-div[class*="col"].padded-content--none,
-.padded-content--none .row > div[class*="col"] {
-    padding: 0;
+.padded-content--remove.row,
+.padded-content--remove .row,
+.padded-content--remove .col,
+div[class*="col"].padded-content--remove,
+.padded-content--remove .row > div[class*="col"] {
+  padding: 0;
 }
 
 .outline--debug .container {
-    outline: 1px solid hsla(330, 100%, 71%, 0.33);
-    background: hsla(330, 100%, 71%, 0.15);
+  outline: 1px solid hsla(330, 100%, 71%, 0.5);
+  background: hsla(330, 100%, 71%, 0.15);
 }
 .outline--debug .row {
-    outline: 1px solid hsla(230, 41%, 87%, 0.33);
-    background: hsla(230, 100%, 71%, 0.15);
+  outline: 1px solid hotpink;
+  background: hsla(330, 100%, 71%, 0.15);
 }
 .outline--debug .col,
 .outline--debug .row > div[class*="col"] {
-    outline: 1px solid hsla(130, 100%, 71%, 0.33);
-    background: hsla(130, 100%, 71%, 0.15);
+  outline: 1px solid hsl(330, 100%, 71%);
+  background: hsla(330, 100%, 71%, 0.15);
 }
 
 .push-rows--top .row + .row {
-    margin-top: spacer(1.5);
+  margin-top: spacer(1.5);
 }
 
 // Based on Bootstrap flexbox grid

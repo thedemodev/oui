@@ -17,12 +17,7 @@ const propTypes = {
   /** Force overflow scrolling */
   overflow: PropTypes.oneOf(['none', 'overflow-y--scroll', 'overflow-x--auto', 'overflow-y--auto']),
   /** Pad inner content. */
-  paddedContent: PropTypes.oneOf([
-    'around',
-    'sides',
-    'ends',
-    'none',
-  ]),
+  paddedContent: PropTypes.oneOf(['none', 'around', 'sides', 'ends', 'remove']),
 };
 
 const defaultProps = {
