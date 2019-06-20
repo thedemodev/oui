@@ -79,20 +79,20 @@ stories.add('Basic Examples', withInfo()(() => {
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row
-          gutters={ boolean('gutters', true) }
+          removeGutters={ boolean('removeGutters', true, 'Row') }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
         <Row
-          gutters={ boolean('gutters', true) }
+          removeGutters={ boolean('removeGutters', true, 'Row') }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
           <Col>Col</Col>
         </Row>
         <Row
-          gutters={ boolean('gutters', true) }
+          removeGutters={ boolean('removeGutters', true, 'Row') }
           displayVertical={ boolean('displayVertical', false) }>
           <Col>Col</Col>
           <Col>Col</Col>
@@ -107,50 +107,50 @@ stories.add('Basic Examples', withInfo()(() => {
         pull={ boolean('pull', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 12 }>12</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 11 }>11</Col>
           <Col small={ 1 }>1</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 10 }>10</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 9 }>9</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 8 }>8</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 7 }>7</Col>
           <Col small={ 5 }>5</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 5 }>5</Col>
           <Col small={ 7 }>7</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 4 }>4</Col>
           <Col small={ 8 }>8</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 3 }>3</Col>
           <Col small={ 9 }>9</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 2 }>2</Col>
           <Col small={ 10 }>10</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 1 }>1</Col>
           <Col small={ 11 }>11</Col>
         </Row>
@@ -162,22 +162,22 @@ stories.add('Basic Examples', withInfo()(() => {
         pull={ boolean('pull', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 6 }>6</Col>
           <Col small={ 6 }>6</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
           <Col small={ 4 }>4</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
           <Col small={ 3 }>3</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
@@ -185,7 +185,7 @@ stories.add('Basic Examples', withInfo()(() => {
           <Col small={ 2 }>2</Col>
           <Col small={ 2 }>2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
           <Col large={ 1 }>1</Col>
@@ -207,12 +207,12 @@ stories.add('Basic Examples', withInfo()(() => {
         pull={ boolean('pull', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
           <Col small={ true }>true</Col>
         </Row>
-        <Row gutters={ boolean('gutters', true) }>
+        <Row removeGutters={ boolean('removeGutters', true, 'Row') }>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
           <Col small={ 'auto' }>auto</Col>
@@ -235,7 +235,6 @@ stories.add('Basic Examples', withInfo()(() => {
         pull={ boolean('pull', true) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', true) }>
-        <p>Row / Col Col</p>
         <Row>
           <Col>Hello short example</Col>
           <Col>Hello short example</Col>
@@ -300,7 +299,7 @@ stories.add('Basic Examples', withInfo()(() => {
         fluid={ boolean('fluid', false) }>
         <p>Note the Container has gutters=true</p>
         <Row
-          gutters={ boolean('gutters', false) }
+          removeGutters={ boolean('removeGutters', false) }
           border={ 'top' }>
           <Col
             large={ 'fillSpace' }
@@ -325,10 +324,10 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'around') }
-        gutters={ boolean('gutters', false) }
+        removeGutters={ boolean('removeGutters', false) }
         fluid={ boolean('fluid', true) }>
         <Row
-          gutters={ boolean('gutters', false) }
+          removeGutters={ boolean('removeGutters', false) }
           border={ 'ends' }
           paddedContent={ 'ends' }>
           <Col
@@ -361,34 +360,14 @@ stories.add('Basic Examples', withInfo()(() => {
       </Container>
     );
   }))
-  .add('Fluid', withInfo()(() => {
-    return (
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
-          <Col>1 of 2</Col>
-          <Col>2 of 2</Col>
-        </Row>
-        <Row gutters={ boolean('gutters', false) }>
-          <Col>1 of 3</Col>
-          <Col>2 of 3</Col>
-          <Col>3 of 3</Col>
-        </Row>
-      </Container>
-    );
-  }))
   .add('Pull', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', true) }
         paddedContent={ select('paddedContent', paddingOptions, 'around') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row>
           <Col>1 of 3</Col>
           <Col>2 of 3</Col>
           <Col>3 of 3</Col>
@@ -404,7 +383,7 @@ stories.add('Basic Examples', withInfo()(() => {
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row
-          gutters={ boolean('gutters', false) }
+          removeGutters={ boolean('removeGutters', false) }
           displayVertical={ boolean('displayVertical', true) }>
           <Col>1 of 6</Col>
           <Col>2 of 6</Col>
@@ -414,7 +393,7 @@ stories.add('Basic Examples', withInfo()(() => {
           <Col>6 of 6</Col>
         </Row>
         <Row
-          gutters={ boolean('gutters', false) }
+          removeGutters={ boolean('removeGutters', false) }
           displayVertical={ true }>
           <Col>1 of 3</Col>
           <Col>2 of 3</Col>
@@ -429,11 +408,11 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col small={ true }>1 of 2</Col>
           <Col small={ true }>2 of 2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col small={ 8 }>8</Col>
           <Col small={ 4 }>4</Col>
         </Row>
@@ -447,11 +426,11 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col>1 of 2</Col>
           <Col>2 of 2</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col>1 of 3</Col>
           <Col>2 of 3</Col>
           <Col>3 of 3</Col>
@@ -466,7 +445,7 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col small={ true }>First, but unordered</Col>
           <Col small={{ order: 12 }}>Second, but last</Col>
           <Col small={{ order: 1 }}>Third, but second</Col>
@@ -481,7 +460,7 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col medium={{ span: 8, offset: 2 }}>
             <h2>Features</h2>
             <p className="lead">Manage your app’s feature flags</p>
@@ -525,12 +504,12 @@ stories.add('Basic Examples', withInfo()(() => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col>1 of 3</Col>
           <Col small={ 6 }>2 of 3 (wider)</Col>
           <Col>3 of 3</Col>
         </Row>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row removeGutters={ boolean('removeGutters', false) }>
           <Col>1 of 3</Col>
           <Col small={ 5 }>2 of 3 (wider)</Col>
           <Col>3 of 3</Col>
@@ -547,11 +526,11 @@ stories.add('Basic Examples', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', paddingOptions, 'none') }
           fluid={ boolean('fluid', false) }>
-          <Row gutters={ boolean('gutters', false) }>
+          <Row removeGutters={ boolean('removeGutters', false) }>
             <Col small={ 8 }>small=8</Col>
             <Col small={ 4 }>small=4</Col>
           </Row>
-          <Row gutters={ boolean('gutters', false) }>
+          <Row removeGutters={ boolean('removeGutters', false) }>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
             <Col small={ true }>small=true</Col>
@@ -565,19 +544,19 @@ stories.add('Basic Examples', withInfo()(() => {
           pushRowsTop={ boolean('pushRowsTop', false) }
           paddedContent={ select('paddedContent', paddingOptions, 'none') }>
 
-          <Row gutters={ boolean('gutters', false) }>
+          <Row removeGutters={ boolean('removeGutters', false) }>
             <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
             <Col small={ 6 } medium={ 4 }>small=6 medium=4</Col>
           </Row>
 
-          <Row gutters={ boolean('gutters', false) }>
+          <Row removeGutters={ boolean('removeGutters', false) }>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
             <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
           </Row>
 
-          <Row gutters={ boolean('gutters', false) }>
+          <Row removeGutters={ boolean('removeGutters', false) }>
             <Col small={ 6 }>small=6</Col>
             <Col small={ 6 }>small=6</Col>
           </Row>
