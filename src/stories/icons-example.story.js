@@ -7,12 +7,9 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Icon from 'react-oui-icons';
-import Button from '../components/Button';
-import Table from '../components/Table';
 
 const stories = storiesOf('Icons', module);
 
-// this add some decorators for making addons available
 stories
   .addDecorator(withKnobs)
   .addDecorator(withInfo('react <Icon /> component'))
@@ -76,10 +73,14 @@ stories.add('All icons', () => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 stories.add('Knobs', (() => {
 =======
 stories.add('Icon docs', (() => {
 >>>>>>> Storybook first letter capitalization
+=======
+stories.add('Knobs', (() => {
+>>>>>>> lint fixups
   return (
     <Icon
       name={ select('name', {bell: 'bell', medium: 'medium', large: 'large'}, 'bell') }

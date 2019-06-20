@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Token from './index.js';
 import { action } from '@storybook/addon-actions/dist/preview';
