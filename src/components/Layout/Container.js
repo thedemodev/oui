@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   /**
-   * You can use a custom element for this component
+   * Use a custom element for this component
    */
   as: PropTypes.elementType,
   /**
-   * Allow the Container to fill all of it's availble horizontal space.
+   * Allow the Container to fill availble horizontal space.
    */
   fluid: PropTypes.bool,
   /**
@@ -41,12 +41,12 @@ const defaultProps = {
 };
 
 const Container = React.forwardRef(({
+  as: Component,
+  fluid,
   outlineDebug,
   paddedContent,
   pull,
   pushRowsTop,
-  fluid,
-  as: Component,
   ...props
 }, ref) => {
   const prefix = 'container';
@@ -56,11 +56,11 @@ const Container = React.forwardRef(({
       ref={ ref }
       { ...props }
       className={ classNames(
-        pull && 'container--pull',
+        fluid ? `${prefix}-fluid` : prefix,
         outlineDebug && 'outline--debug',
         paddedContent && `padded-content--${paddedContent}`,
+        pull && 'container--pull',
         pushRowsTop && 'push-rows--top',
-        fluid ? `${prefix}-fluid` : prefix,
       ) }
     />
   );

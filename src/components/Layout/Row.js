@@ -25,6 +25,10 @@ const propTypes = {
   */
   displayVertical: PropTypes.bool,
   /**
+   * For dev only -- show hotpink border and background on grid elements.
+   */
+  outlineDebug: PropTypes.bool,
+  /**
    * Force overflow scrolling
    */
   overflow: PropTypes.oneOf([
@@ -53,18 +57,20 @@ const defaultProps = {
   as: 'div',
   border: 'none',
   displayVertical: false,
-  removeGutters: false,
   overflow: 'none',
+  outlineDebug: false,
   paddedContent: 'none',
+  removeGutters: false,
 };
 
 const Row = React.forwardRef(({
-  border,
-  removeGutters,
-  overflow,
-  displayVertical,
-  paddedContent,
   as: Component,
+  border,
+  displayVertical,
+  overflow,
+  outlineDebug,
+  paddedContent,
+  removeGutters,
   ...props
 }, ref) => {
 
@@ -74,16 +80,20 @@ const Row = React.forwardRef(({
     classes.push(`border--${border}`);
   }
 
-  if (paddedContent && paddedContent !== 'none') {
-    classes.push(`padded-content--${paddedContent}`);
-  }
-
   if (displayVertical) {
     classes.push('flex--column');
   }
 
+  if (outlineDebug) {
+    classes.push('outline--debug');
+  }
+
   if (overflow) {
     classes.push(overflow);
+  }
+
+  if (paddedContent && paddedContent !== 'none') {
+    classes.push(`padded-content--${paddedContent}`);
   }
 
   return (

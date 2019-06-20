@@ -31,8 +31,8 @@ const column = PropTypes.oneOfType([
       'all',
     ]),
     className: PropTypes.string,
-    order: stringOrNumber,
     offset: stringOrNumber,
+    order: stringOrNumber,
     /** Pad inner content. */
     paddedContent: PropTypes.oneOf([
       'none',
@@ -107,12 +107,12 @@ const Col = React.forwardRef(
     const spans = [];
     const classes = [];
 
-    if (paddedContent && paddedContent !== 'none') {
-      classes.push(`padded-content--${paddedContent}`);
-    }
-
     if (border) {
       classes.push(`border--${border}`);
+    }
+
+    if (paddedContent && paddedContent !== 'none') {
+      classes.push(`padded-content--${paddedContent}`);
     }
 
     DEVICE_SIZES.forEach(brkPoint => {
@@ -128,18 +128,18 @@ const Col = React.forwardRef(
         span = propValue;
       }
 
-      if (span !== null && span !== undefined) {
-        spans.push(
-          span === 'fillSpace' ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
-        );
+      if (offset !== null && offset !== undefined) {
+        classes.push(`offset-${brkPoint}-${offset}`);
       }
 
       if (order !== null && order !== undefined) {
         classes.push(`order-${brkPoint}-${order}`);
       }
 
-      if (offset !== null && offset !== undefined) {
-        classes.push(`offset-${brkPoint}-${offset}`);
+      if (span !== null && span !== undefined) {
+        spans.push(
+          span === 'fillSpace' ? `${prefix}-${brkPoint}` : `${prefix}-${brkPoint}-${span}`,
+        );
       }
 
     });
