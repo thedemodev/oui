@@ -71,15 +71,6 @@ const propTypes = {
    */
   large: column,
 
-  /**
-   * The number of columns to span on medium devices (≥768px)
-   *
-   * @type {("fillSpace"|"fitContent"|number|
-   *  { span: "fillSpace"|"fitContent"|number, offset: number, order: number }
-   * )}
-   */
-  medium: column,
-
   paddedContent: PropTypes.oneOf([
     'around',
     'sides',
