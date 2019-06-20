@@ -40,6 +40,25 @@ const viewports = {
 };
 addParameters({ viewport: { viewports: viewports } });
 
+const paddingOptions = {
+  none: 'none',
+  around: 'around',
+  sides: 'sides',
+  ends: 'ends',
+  remove: 'remove',
+};
+
+const borderOptions = {
+  top: 'top',
+  bottom: 'bottom',
+  left: 'left',
+  right: 'right',
+  sides: 'sides',
+  ends: 'ends',
+  all: 'all',
+  none: 'none',
+};
+
 const stories = storiesOf('Layout', module);
 stories
   .addDecorator(withKnobs)
@@ -49,7 +68,7 @@ stories
     </div>
   ));
 
-stories.add('Default', withInfo()(() => {
+stories.add('Basic Examples', withInfo()(() => {
   return (
     <div>
       <h1>Default (Equal Widths)</h1>
@@ -57,8 +76,7 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row
           gutters={ boolean('gutters', true) }
@@ -87,8 +105,7 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', true) }>
           <Col small={ 12 }>12</Col>
@@ -143,8 +160,7 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', true) }>
           <Col small={ 6 }>6</Col>
@@ -189,8 +205,7 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', true) }>
           <Col small={ true }>true</Col>
@@ -206,17 +221,36 @@ stories.add('Default', withInfo()(() => {
     </div>
   );
 }))
+  .add('Minimal', withInfo()(() => {
+    return (<div>
+      <h1>No Container &mdash; Row and Col Only</h1>
+      <Row
+        outlineDebug={ boolean('outlineDebug', true) }>
+        <Col>Hello short example</Col>
+        <Col>Hello short example</Col>
+      </Row>
+      <h1 className="push-quad--top">With Container</h1>
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        pull={ boolean('pull', true) }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
+        fluid={ boolean('fluid', true) }>
+        <p>Row / Col Col</p>
+        <Row>
+          <Col>Hello short example</Col>
+          <Col>Hello short example</Col>
+        </Row>
+      </Container>
+    </div>);
+  }))
   .add('Cards', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <p>Row 1: fillSpace</p>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row>
           <Col large={ 'fillSpace' }>
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
@@ -229,7 +263,7 @@ stories.add('Default', withInfo()(() => {
           </Col>
         </Row>
         <p className="push-triple--top">Row 2: fitContent</p>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row>
           <Col large={ 'fitContent' }>
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
@@ -242,7 +276,7 @@ stories.add('Default', withInfo()(() => {
           </Col>
         </Row>
         <p className="push-triple--top">Row 2: 8/4</p>
-        <Row gutters={ boolean('gutters', false) }>
+        <Row>
           <Col large={ 4 }>
             <Card title="Card Title" shadow={ false } testSection="card">
               Hello! This is a short card example.
@@ -261,41 +295,36 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ 'none' }
-        pull={ boolean('pull', false) }
         gutters={ true }
         fluid={ boolean('fluid', false) }>
         <p>Note the Container has gutters=true</p>
         <Row
           gutters={ boolean('gutters', false) }
           border={ 'top' }>
-          { /* eslint-disable max-len */ }
           <Col
             large={ 'fillSpace' }
-            paddedContent={ select('Padded Content', { none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'around') }
-            border={ select('border', { top: 'top', bottom: 'bottom', left: 'left', right: 'right', sides: 'sides', ends: 'ends', all: 'all', none: 'none' }, 'right') }>
+            paddedContent={ select('paddedContent', paddingOptions, 'around') }
+            border={ select('border', borderOptions, 'right') }>
             Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
           </Col>
           <Col
             large={ 'fillSpace' }
-            paddedContent={ select('Padded Content', { none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'around') }
-            border={ select('border', { top: 'top', bottom: 'bottom', left: 'left', right: 'right', sides: 'sides', ends: 'ends', all: 'all', none: 'none' }, 'right') }>
+            paddedContent={ select('paddedContent', paddingOptions, 'around') }
+            border={ select('border', borderOptions, 'right') }>
             Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
           </Col>
-          { /* eslint-enable max-len */ }
         </Row>
       </Container>
     );
   }))
-  .add('Ricky borders', withInfo()(() => {
+  .add('Borders', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', false) }
-        paddedContent={ select('Padded Content', {
-          none: 'none', around: 'around', sides: 'sides', ends: 'ends', remove: 'remove' }, 'around') }
+        paddedContent={ select('paddedContent', paddingOptions, 'around') }
         gutters={ boolean('gutters', false) }
         fluid={ boolean('fluid', true) }>
         <Row
@@ -337,7 +366,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 2</Col>
@@ -357,7 +386,7 @@ stories.add('Default', withInfo()(() => {
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         pull={ boolean('pull', true) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'around') }
+        paddedContent={ select('paddedContent', paddingOptions, 'around') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
@@ -372,7 +401,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row
           gutters={ boolean('gutters', false) }
@@ -398,7 +427,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col small={ true }>1 of 2</Col>
@@ -416,7 +445,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 2</Col>
@@ -435,7 +464,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col small={ true }>First, but unordered</Col>
@@ -450,7 +479,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col medium={{ span: 8, offset: 2 }}>
@@ -494,7 +523,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row gutters={ boolean('gutters', false) }>
           <Col>1 of 3</Col>
@@ -516,7 +545,7 @@ stories.add('Default', withInfo()(() => {
         <Container
           outlineDebug={ boolean('outlineDebug', true) }
           pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
           fluid={ boolean('fluid', false) }>
           <Row gutters={ boolean('gutters', false) }>
             <Col small={ 8 }>small=8</Col>
@@ -534,54 +563,7 @@ stories.add('Default', withInfo()(() => {
           fluid={ boolean('fluid', false) }
           outlineDebug={ boolean('outlineDebug', true) }
           pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
-
-          <Row gutters={ boolean('gutters', false) }>
-            <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
-            <Col small={ 6 } medium={ 4 }>small=6 medium=4</Col>
-          </Row>
-
-          <Row gutters={ boolean('gutters', false) }>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-          </Row>
-
-          <Row gutters={ boolean('gutters', false) }>
-            <Col small={ 6 }>small=6</Col>
-            <Col small={ 6 }>small=6</Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }))
-  .add('Responsive All Sizes', withInfo()(() => {
-    return (
-      <div>
-        <h1>Simple</h1>
-        <Container
-          outlineDebug={ boolean('outlineDebug', true) }
-          pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }
-          fluid={ boolean('fluid', false) }>
-          <Row gutters={ boolean('gutters', false) }>
-            <Col small={ 8 }>small=8</Col>
-            <Col small={ 4 }>small=4</Col>
-          </Row>
-          <Row gutters={ boolean('gutters', false) }>
-            <Col small={ true }>small=true</Col>
-            <Col small={ true }>small=true</Col>
-            <Col small={ true }>small=true</Col>
-          </Row>
-        </Container>
-
-        <h1 className="push-quad--top">Complex</h1>
-        <Container
-          fluid={ boolean('fluid', false) }
-          outlineDebug={ boolean('outlineDebug', true) }
-          pushRowsTop={ boolean('pushRowsTop', false) }
-          paddedContent={ select('paddedContent', { around: 'around', sides: 'sides', ends: 'ends', none: 'none' }, 'none') }>
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }>
 
           <Row gutters={ boolean('gutters', false) }>
             <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
