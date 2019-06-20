@@ -7,17 +7,31 @@ const propTypes = {
    * You can use a custom element for this component
    */
   as: PropTypes.elementType,
-  className: PropTypes.string,
   /**
    * Allow the Container to fill all of it's availble horizontal space.
    */
   fluid: PropTypes.bool,
-  hasAllGaps: PropTypes.bool,
-  hasAllGutters: PropTypes.bool,
+  /**
+   * For dev only -- show hotpink border and background on grid elements.
+   */
   outlineDebug: PropTypes.bool,
-  /** Pad inner content. */
-  paddedContent: PropTypes.oneOf(['none', 'around', 'sides', 'ends', 'remove']),
+  /**
+   * Pad inner content.
+   */
+  paddedContent: PropTypes.oneOf([
+    'none',
+    'around',
+    'sides',
+    'ends',
+    'remove',
+  ]),
+  /**
+   * Remove first and last child side padding.
+   */
   pull: PropTypes.bool,
+  /**
+   * Add top margin space between rows.
+   */
   pushRowsTop: PropTypes.bool,
 };
 
@@ -26,25 +40,31 @@ const defaultProps = {
   fluid: false,
 };
 
-const Container = React.forwardRef(
-  ({ outlineDebug, paddedContent, pull, pushRowsTop, fluid, as: Component, className, ...props }, ref) => {
-    const prefix = 'container';
+const Container = React.forwardRef(({
+  outlineDebug,
+  paddedContent,
+  pull,
+  pushRowsTop,
+  fluid,
+  as: Component,
+  ...props
+}, ref) => {
+  const prefix = 'container';
 
-    return (
-      <Component
-        ref={ ref }
-        { ...props }
-        className={ classNames(
-          className,
-          pull && 'container--pull',
-          outlineDebug && 'outline--debug',
-          paddedContent && `padded-content--${paddedContent}`,
-          pushRowsTop && 'push-rows--top',
-          fluid ? `${prefix}-fluid` : prefix,
-        ) }
-      />
-    );
-  },
+  return (
+    <Component
+      ref={ ref }
+      { ...props }
+      className={ classNames(
+        pull && 'container--pull',
+        outlineDebug && 'outline--debug',
+        paddedContent && `padded-content--${paddedContent}`,
+        pushRowsTop && 'push-rows--top',
+        fluid ? `${prefix}-fluid` : prefix,
+      ) }
+    />
+  );
+},
 );
 
 Container.displayName = 'Container';

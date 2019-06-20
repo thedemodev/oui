@@ -2,12 +2,15 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DEVICE_SIZES = ['large', 'medium', 'small'];
+const DEVICE_SIZES = ['large', 'small'];
 const colSize = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.number,
   PropTypes.string,
-  PropTypes.oneOf(['fitContent', 'fillSpace']),
+  PropTypes.oneOf([
+    'fitContent',
+    'fillSpace',
+  ]),
 ]);
 
 const stringOrNumber = PropTypes.oneOfType([
@@ -18,12 +21,26 @@ const stringOrNumber = PropTypes.oneOfType([
 const column = PropTypes.oneOfType([
   colSize,
   PropTypes.shape({
-    border: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'sides', 'ends', 'all']),
+    border: PropTypes.oneOf([
+      'top',
+      'bottom',
+      'left',
+      'right',
+      'sides',
+      'ends',
+      'all',
+    ]),
     className: PropTypes.string,
     order: stringOrNumber,
     offset: stringOrNumber,
     /** Pad inner content. */
-    paddedContent: PropTypes.oneOf(['none', 'around', 'sides', 'ends', 'remove']),
+    paddedContent: PropTypes.oneOf([
+      'none',
+      'around',
+      'sides',
+      'ends',
+      'remove',
+    ]),
     size: colSize,
   }),
 ]);
@@ -135,7 +152,11 @@ const Col = React.forwardRef(
       <Component
         { ...props }
         ref={ ref }
-        className={ classNames(className, ...spans, ...classes) }
+        className={ classNames(
+          className,
+          ...spans,
+          ...classes
+        ) }
       />
     );
   },
