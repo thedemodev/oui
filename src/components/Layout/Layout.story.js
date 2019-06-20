@@ -223,13 +223,7 @@ stories.add('Basic Examples', withInfo()(() => {
 }))
   .add('Minimal', withInfo()(() => {
     return (<div>
-      <h1>No Container &mdash; Row and Col Only</h1>
-      <Row
-        outlineDebug={ boolean('outlineDebug', true) }>
-        <Col>Hello short example</Col>
-        <Col>Hello short example</Col>
-      </Row>
-      <h1 className="push-quad--top">With Container</h1>
+      <h1>With Container</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pull={ boolean('pull', true) }
@@ -240,6 +234,12 @@ stories.add('Basic Examples', withInfo()(() => {
           <Col>Hello short example</Col>
         </Row>
       </Container>
+      <h1 className="push-quad--top">No Container</h1>
+      <Row
+        outlineDebug={ boolean('outlineDebug', true) }>
+        <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>Hello short example</Col>
+        <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>Hello short example</Col>
+      </Row>
     </div>);
   }))
   .add('Cards', withInfo()(() => {
