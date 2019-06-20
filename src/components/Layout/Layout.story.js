@@ -339,9 +339,11 @@ stories.add('Default', withInfo()(() => {
         paddedContent={ select('paddedContent', paddingOptions, 'around') }
         fluid={ boolean('fluid', false) }>
         <Row>
-          <Col>1 of 3</Col>
-          <Col>2 of 3</Col>
-          <Col>3 of 3</Col>
+          <Col>pull removes left padding here.</Col>
+          <Col>pull does nothing here.</Col>
+          <Col>pull does nothing here.</Col>
+          <Col>pull does nothing here.</Col>
+          <Col>pull removes right padding here.</Col>
         </Row>
       </Container>
     );
