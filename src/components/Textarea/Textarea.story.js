@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('Textarea with knobs', (() => {
+  .add('textarea with knobs', (() => {
     return (
       <div>
         <Textarea

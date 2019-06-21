@@ -88,7 +88,7 @@ stories
       </Button>
     </Poptip>
   )))
-  .add('Basic poptip with delay', (() => (
+  .add('basic poptip with delay', (() => (
     <Poptip
       trigger='mouseenter'
       delay={ 1000 }

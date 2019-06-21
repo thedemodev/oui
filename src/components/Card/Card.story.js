@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .add('Card states', (() => {
+  .add('card states', (() => {
     return (
       <Card
         title={ text('title', 'Card Title') }

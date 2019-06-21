@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .add('Default', (() => {
+  .add('default', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }
@@ -24,7 +24,7 @@ stories
       />
     );
   }))
-  .add('With html label', (() => {
+  .add('with html label', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }
@@ -39,7 +39,7 @@ stories
       />
     );
   }))
-  .add('With labelWeight prop', (() => {
+  .add('with labelWeight prop', (() => {
     return (
       <Radio
         testSection={ text('testSection', 'test-radio') }

@@ -37,6 +37,7 @@ stories
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
+<<<<<<< HEAD
   .add('Default date range picker', (() => (
     <Container>
       <DateRangePicker
@@ -188,6 +189,170 @@ stories
       />
     </Container>
   ))
+=======
+  .add(
+    'default date range picker', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+        <p>I appear after the calendar.</p>
+      </Container>
+    ))
+  )
+  .add(
+    'with absolute positioning', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          isAbsolutelyPositioned={ boolean('isAbsolutelyPositioned', true) }
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+        <p>I should be behind the calendar when opened</p>
+      </Container>
+    ))
+  )
+  .add(
+    'focused initially', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput={ text('focusedInput (either "startDate" or "endDate"', 'startDate') }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with initial start date', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput={ text('focusedInput', 'endDate') }
+          initialStartDate={ moment() }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with past dates selectable', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='endDate'
+          initialStartDate={ moment() }
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'remains open after date selection', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'remains open always, even when clicking outside component', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          keepOpenAlways={ boolean('keepOpenAlways', true) }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with preset options panel', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+          onDatesChange={ action('onDatesChange') }
+          panelButtons={ [
+            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+          ] }
+          presetPanelOptions={ presetPanelOptions }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with buttons panel', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+          onDatesChange={ action('onDatesChange') }
+          panelButtons={ [
+            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+          ] }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with preset options and no border on calendar', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          isBorderless={ boolean('isBorderless', true) }
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+          onDatesChange={ action('onDatesChange') }
+          panelButtons={ [
+            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+          ] }
+          presetPanelOptions={ presetPanelOptions }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+  )
+  .add(
+    'with no border on calendar', (() => (
+      <Container>
+        <DateRangePicker
+          endDateInputId='end-date-id-0'
+          focusedInput='startDate'
+          isBorderless={ boolean('isBorderless', true) }
+          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+          onDatesChange={ action('onDatesChange') }
+          startDateInputId='start-date-id-0'
+        />
+      </Container>
+    ))
+>>>>>>> parent of 462ce655... Storybook first letter capitalization
   );
 
 const Container = styled.div`

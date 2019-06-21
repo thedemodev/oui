@@ -30,12 +30,12 @@ stories
   ));
 
 stories
-  .add('Default', (() => {
+  .add('default', (() => {
     return (
       <CopyButton textToCopy={ code } />
     );
   }))
-  .add('With style specified', (() => {
+  .add('with style specified', (() => {
     return (
       <CopyButton
         textToCopy={ code }

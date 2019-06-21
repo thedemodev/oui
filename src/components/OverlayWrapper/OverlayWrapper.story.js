@@ -35,7 +35,7 @@ stories
   ));
 
 stories
-  .add('Default popover', (() => {
+  .add('default popover', (() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -51,7 +51,7 @@ stories
       </OverlayWrapper>
     );
   }))
-  .add('Pinned popover', (() => {
+  .add('pinned popover', (() => {
     return (
       <OverlayWrapper
         behavior="click"
@@ -71,7 +71,7 @@ stories
       </OverlayWrapper>
     );
   }))
-  .add('Open on hover', (() => {
+  .add('open on hover', (() => {
     return (
       <OverlayWrapper
         behavior="hover"
@@ -87,7 +87,7 @@ stories
     );
   }))
 
-  .add('Trying diff components', (() => {
+  .add('trying diff components', (() => {
     return (
       <OverlayWrapper
         behavior="hover"

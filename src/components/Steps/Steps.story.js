@@ -35,7 +35,7 @@ const items = [
   },
 ];
 
-stories.add('Default', (() => {
+stories.add('default', (() => {
   return (
     <Container>
       <Steps
@@ -45,7 +45,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('User cannot edit', (() => {
+})).add('user cannot edit', (() => {
   return (
     <Container>
       <Steps

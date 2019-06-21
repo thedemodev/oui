@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('Button row skip step', (() => (<div>
+  .add('button row skip step', (() => (<div>
     <ButtonRow
       leftGroup={ [
         <Button key="1" style="plain" width="default">Skip this step</Button>,
@@ -27,7 +27,7 @@ stories
       ] }
     />
   </div>)))
-  .add('Buttons centered', (() => (<div>
+  .add('buttons centered', (() => (<div>
     <ButtonRow
       centerGroup={ [
         <Button key="1" style="outline" width="default">Center Button</Button>,
@@ -35,7 +35,7 @@ stories
       ] }
     />
   </div>)))
-  .add('Buttons fullwidth', (() => (<div>
+  .add('buttons fullwidth', (() => (<div>
     <ButtonRow
       centerGroup={ [
         <Button key="1" style="outline" width="full">Full Width</Button>,

@@ -38,7 +38,7 @@ const items = [
   },
 ];
 
-stories.add('Default', (() => {
+stories.add('default', (() => {
 
   return (
     <Container>
@@ -49,7 +49,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('Initial placeholder', (() => {
+})).add('with an initial placeholder', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -59,7 +59,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('Width of activator', (() => {
+})).add('width of activator', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -70,7 +70,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('Display Error', (() => {
+})).add('has error', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -81,7 +81,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('Width of dropdown', (() => {
+})).add('width of dropdown', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -104,7 +104,7 @@ stories.add('Default', (() => {
       />
     </Container>
   );
-})).add('ActivatorLabel', (() => {
+})).add('activatorLabel', (() => {
   const itemsWithActivatorLabel = [
     {
       activatorLabel: 'Production',

@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .add('Default', (() => {
+  .add('default', (() => {
     return (
       <ul>
         <li>
@@ -38,7 +38,7 @@ stories
       </ul>
     );
   }))
-  .add('New window', (() => {
+  .add('new window', (() => {
     return (
       <ul>
         <li>
@@ -59,7 +59,7 @@ stories
       </ul>
     );
   }))
-  .add('All links', () => {
+  .add('all links', () => {
     return (
       <ul>
         <li><Link href="http://google.com" isDisabled={ boolean('isDisabled', false) } onClick={ action('click blocklist item home') }>{ text('default', 'Link') }</Link></li>
@@ -70,7 +70,7 @@ stories
       </ul>
     );
   })
-  .add('All disabled', () => {
+  .add('all disabled', () => {
     return (
       <ul>
         <li><Link href="http://google.com" isDisabled={ true }>Link</Link></li>

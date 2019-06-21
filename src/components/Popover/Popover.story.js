@@ -17,7 +17,7 @@ stories
   ));
 
 stories
-  .add('Default', (() => (
+  .add('default', (() => (
     <div>
       <div className="position--relative height--100 text--center">
         <Popover title="Lorem ipsum dolor sit amet">
@@ -28,7 +28,7 @@ stories
       </div>
     </div>
   )))
-  .add('Popover in action', (() => (
+  .add('popover in action', (() => (
     <div className="position--relative height--100 text--center">
       <OverlayWrapper
         behavior="click"

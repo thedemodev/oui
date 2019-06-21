@@ -15,12 +15,12 @@ stories
   ));
 
 stories
-  .add('Default', (() => (
+  .add('default', (() => (
     <HelpPopover popoverTitle="This is a popover title">
       This is a popover description. 🤓
     </HelpPopover>
   )))
-  .add('Hover', (() => (<div>
+  .add('hover', (() => (<div>
     <div className="position--relative height--100 text--center">
       <HelpPopover
         popoverTitle="This is a popover title"

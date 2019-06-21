@@ -14,7 +14,7 @@ stories
     </div>
   ));
 
-stories.add('Default', (() => {
+stories.add('default', (() => {
   return (
     <Select isDisabled={ boolean('isDisabled', false) } name='zoo' id='zoo' >
       <option value="one">This is option one</option>

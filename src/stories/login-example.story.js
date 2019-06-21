@@ -46,7 +46,7 @@ stories
   ));
 
 stories
-  .add('Default state', () => (<div style={ styles.container }>
+  .add('default state', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
@@ -95,7 +95,7 @@ stories
     </div>
   </div>));
 stories
-  .add('Loading', () => (<div style={ styles.container }>
+  .add('loading', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">
@@ -141,7 +141,7 @@ stories
     </div>
   </div>));
 stories
-  .add('Error', () => (<div style={ styles.container }>
+  .add('error', () => (<div style={ styles.container }>
     <div className="signin-form lego-grid__cell soft-double flex flex--column">
       <form className="flex--1">
         <ol className="lego-form-fields">

@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('Default', (() => (<div>
+  .add('default', (() => (<div>
     <Table density="loose" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -49,7 +49,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('Custom tr borders', (() => (<div>
+  .add('custom tr borders', (() => (<div>
     <Table>
       <Table.THead>
         <Table.TR>
@@ -72,7 +72,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('Loose & rule style', (() => (<div>
+  .add('loose & rule style', (() => (<div>
     <Table density="loose" style="rule" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -105,7 +105,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('Tight & no bottom border', (() => (<div>
+  .add('tight & no bottom border', (() => (<div>
     <Table density="tight" style="rule-no-bottom-border" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -138,7 +138,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('Dome', (() => (<div>
+  .add('dome', (() => (<div>
     <Table density="tight" style="wall" tableLayoutAlgorithm="auto">
       <Table.THead>
         <Table.TR>

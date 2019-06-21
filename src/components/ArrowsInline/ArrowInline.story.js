@@ -15,7 +15,7 @@ stories
   ));
 
 stories
-  .add('Select the arrow', (() => {
+  .add('select the arrow', (() => {
     return (
       <ArrowsInline
         direction={ select('direction', { up: 'up', down: 'down', left: 'left', right: 'right' }, 'down') }
