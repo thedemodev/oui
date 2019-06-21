@@ -42,6 +42,9 @@ export const TokensInput = ({
   extraAddKeys,
   maxTags,
   onChange,
+  onInputBlur,
+  onInputChange,
+  onInputFocus,
   placeholder,
   tokens,
 }) => {
@@ -141,6 +144,9 @@ export const TokensInput = ({
         addOnPaste={ true }
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          onBlur: onInputBlur,
+          onChange: onInputChange,
+          onFocus: onInputFocus,
           placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
           readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
         }}
@@ -179,6 +185,21 @@ TokensInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 
   /**
+   * Handler to invoke when the token input is blurred
+   */
+  onInputBlur: PropTypes.func,
+
+  /**
+   * Handler to invoke when the token input changes
+   */
+  onInputChange: PropTypes.func,
+
+  /**
+   * Handler to invoke when the token input is focused
+   */
+  onInputFocus: PropTypes.func,
+
+  /**
    * Placeholder text for the input box.
    */
   placeholder: PropTypes.string,
@@ -194,6 +215,12 @@ TokensInput.defaultProps = {
   extraAddKeys: [],
 
   maxTags: -1,
+
+  onInputBlur: () => {},
+
+  onInputChange: () => {},
+
+  onInputFocus: () => {},
 
   placeholder: 'enter tokens',
 };
