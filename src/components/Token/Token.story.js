@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import Token from './index.js';
 import { action } from '@storybook/addon-actions/dist/preview';
@@ -16,43 +16,20 @@ stories
   ));
 
 stories
-  .add('Default', (() => (<div>
+  .add('default', (() => (<div>
     <Token
+      isDismissible={ true }
       name="Hello"
       style="primary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
       name="World"
       style="secondary"
+      hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
-  .add('With knobs', (() => (<div>
-    <Token
-      isDismissible={ boolean('isDismissible', true) }
-      name="Hello"
-      style="primary"
-      onDismiss={ action('token dismissed') }
-      showWell={ boolean('showWell', true) }
-      hasSnugWrap={ boolean('hasSnugWrap', false) }
-      hasWrap={ boolean('hasWrap', false) }
-      description={ text('description', '') }
-      isDraggable={ boolean('isDraggable', false) }
-      order={ text('order', 1) }
-    />
-    <Token
-      isDismissible={ boolean('isDismissible', true) }
-      name="World"
-      style="secondary"
-      onDismiss={ action('token dismissed') }
-      showWell={ boolean('showWell', true) }
-      hasSnugWrap={ boolean('hasSnugWrap', false) }
-      hasWrap={ boolean('hasWrap', false) }
-      description={ text('description', '') }
-      isDraggable={ boolean('isDraggable', false) }
-      order={ text('order', 1) }
-    />
-  </div>)))
-  .add('No well', (() => (<div>
+  .add('no well', (() => (<div>
     <Token
       name="Hello"
       style="primary"
@@ -66,7 +43,7 @@ stories
       hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
   </div>)))
-  .add('Draggable', () => {
+  .add('draggable', () => {
     return (
       <React.Fragment>
         <div className="push--bottom">
@@ -102,10 +79,10 @@ stories
       </React.Fragment>
     );
   })
-  .add('Dismissible', () => {
+  .add('dismissible', () => {
     return (
       <Token
-        isDismissible={ boolean('isDismissible', true) }
+        isDismissible={ true }
         name="Delete me!"
         style="primary"
         onDismiss={ action('token dismissed') }

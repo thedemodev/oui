@@ -3,7 +3,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
 
 import ButtonRow from '../ButtonRow';
 import Button from './index.js';
@@ -20,7 +19,7 @@ stories
   ));
 
 stories
-  .add('Knobs', withInfo()(() => {
+  .add('customize me!', (() => {
     return (
       <Button
         style={ select('style', {
@@ -46,10 +45,10 @@ stories
           'large': 'large',
           'narrow': 'narrow',
           'tight': 'tight'}, 'narrow') }>
-        { text('Customize this Button', 'Customize this Button') }
+        { text('customize me!', 'customize me!') }
       </Button>);
   }))
-  .add('Styles', withInfo()(() => {
+  .add('all buttons', (() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -63,7 +62,7 @@ stories
         ] }
       />);
   }))
-  .add('Disabled', () => {
+  .add('all disabled', () => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -77,14 +76,14 @@ stories
         ] }
       />);
   })
-  .add('Underline button', () => {
+  .add('underline button', () => {
     return (
       <Button style="underline" width="default">
         Underline Button
         <ArrowsInline direction="down" />
       </Button>);
   })
-  .add('Sizes', () => {
+  .add('sizes variations', () => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -96,22 +95,22 @@ stories
         ] }
       />);
   })
-  .add('No onClick', () => {
+  .add('Button without an onClick', () => {
     return (
       <Button isLink={ true }>Faux Button</Button>
     );
   })
-  .add('No onClick + Disabled', () => {
+  .add('Button without an onClick (disabled)', () => {
     return (
       <Button isLink={ true } isDisabled={ true }>Faux Button</Button>
     );
   })
-  .add('Looks like a Link', withInfo()(() => {
+  .add('Button that looks like a Link', (() => {
     return (
       <Button
         style='unstyled'
-        onClick={ action('Oh, hello there!') }>
-        <Link>Say hello</Link>
+        onClick={ action('Saying hi!') }>
+        <Link>Say Hi</Link>
       </Button>
     );
   }))

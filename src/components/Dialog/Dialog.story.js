@@ -199,91 +199,11 @@ stories
           ] }>
           <p>Dialogs can also contain only text in the body, no data input.</p>
           <p>They can also contain links, like <a href="https://www.optimizely.com/">learn more about Optimizely features</a>.</p>
-<<<<<<< HEAD
-=======
-=======
-    'with layout',
-    withInfo()(() => (
-      <div>
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
-        <DialogNew
-          title={ 'Dialog with Layout' }
-          hasCloseButton={ true }
-          footerButtonList={ [
-            <Button style="plain" key={ 0 } onClick={ noop }>
-              Goodbye
-            </Button>,
-            <Button style="highlight" key={ 1 } onClick={ noop }>
-              Say Hello
-            </Button>,
-          ] }>
-          <Container
-            outlineDebug={ boolean('outlineDebug', true) }
-            pushRowsTop={ boolean('pushRowsTop', true) }
-            sidePadding={ boolean('sidePadding', false) }
-            paddedContent={ boolean('paddedContent', false) }
-            pushColsSides={ boolean('pushColsSides', false) }
-            fluid={ boolean('fluid', false) }>
-            <Row noGutters={ boolean('<Row> noGutters', false) }>
-              <Col>
-                <p>Dialogs can also contain only text in the body, no data input.</p>
-              </Col>
-              <Col>
-                <p>They can also contain links, like <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
-              </Col>
-            </Row>
-          </Container>
->>>>>>> WIP layout stories
->>>>>>> parent of 462ce655... Storybook first letter capitalization
         </DialogNew>
       </div>
     ))
   )
-<<<<<<< HEAD
   .add('deprecated dialog', (() => (<div>
-=======
-<<<<<<< HEAD
-  .add('deprecated dialog', (() => (<div>
-=======
-  .add(
-    'with layout thirds',
-    withInfo()(() => (
-      <div>
-        <p>This is text behind the dialog that is blocked by the overlay.</p>
-        <DialogNew
-          title={ 'Dialog with Layout' }
-          hasCloseButton={ true }
-          footerButtonList={ [
-            <Button style="plain" key={ 0 } onClick={ noop }>
-              Goodbye
-            </Button>,
-            <Button style="highlight" key={ 1 } onClick={ noop }>
-              Say Hello
-            </Button>,
-          ] }>
-          <Container
-            outlineDebug={ boolean('outlineDebug', true) }
-            pushRowsTop={ boolean('pushRowsTop', true) }
-            sidePadding={ boolean('sidePadding', false) }
-            paddedContent={ boolean('paddedContent', false) }
-            pushColsSides={ boolean('pushColsSides', false) }
-            fluid={ boolean('fluid', false) }>
-            <Row noGutters={ boolean('<Row> noGutters', false) }>
-              <Col small={ 4 }>
-                -Insert Image Here-
-              </Col>
-              <Col small={ 8 }>
-                <p>They can also contain links, like <a href="www.optimizely.com">learn more about Optimizely features</a>.</p>
-              </Col>
-            </Row>
-          </Container>
-        </DialogNew>
-      </div>
-    ))
-  )
-  .add('deprecated dialog', withInfo()(() => (<div>
->>>>>>> WIP layout stories
->>>>>>> parent of 462ce655... Storybook first letter capitalization
     <Dialog.Wrapper>
       <Dialog.Title subtitle="Test Subtitle">This is a Dialog</Dialog.Title>
 
