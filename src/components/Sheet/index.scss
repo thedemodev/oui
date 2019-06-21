@@ -4,7 +4,7 @@ $sheet-horizontal-padding: spacer(6);
 .oui-sheet {
   position: fixed;
   bottom: 0;
-  height: 90%;
+  height: 95%;
   box-shadow: 0 0 map-fetch($shadow, big);
   width: $sheet-width;
   background: map-fetch($color, background, white);
@@ -33,7 +33,7 @@ $sheet-horizontal-padding: spacer(6);
 }
 
 .oui-sheet__header {
-  padding: spacer(5) $sheet-horizontal-padding spacer(2);
+  padding: spacer(6) $sheet-horizontal-padding spacer(2);
 }
 
 .oui-sheet__footer {
@@ -54,4 +54,9 @@ $sheet-horizontal-padding: spacer(6);
 
 .oui-sheet__link {
   margin-left: spacer(0.5);
+}
+
+.oui-sheet .oui-close-button {
+  top: spacer(3);
+  right: spacer(3);
 }
