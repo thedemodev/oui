@@ -38,156 +38,156 @@ stories
 
 stories
   .add('Default date range picker', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-        <p>I appear after the calendar.</p>
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+      <p>I appear after the calendar.</p>
+    </Container>
+  ))
   )
   .add('With absolute positioning', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          isAbsolutelyPositioned={ boolean('isAbsolutelyPositioned', true) }
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-        <p>I should be behind the calendar when opened</p>
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        isAbsolutelyPositioned={ boolean('isAbsolutelyPositioned', true) }
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+      <p>I should be behind the calendar when opened</p>
+    </Container>
+  ))
   )
   .add('Focused initially', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput={ text('focusedInput (either "startDate" or "endDate"', 'startDate') }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput={ text('focusedInput (either "startDate" or "endDate"', 'startDate') }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With initial start date', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput={ text('focusedInput', 'endDate') }
-          initialStartDate={ moment() }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput={ text('focusedInput', 'endDate') }
+        initialStartDate={ moment() }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With past dates selectable', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='endDate'
-          initialStartDate={ moment() }
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='endDate'
+        initialStartDate={ moment() }
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('Remains open after date selection', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('Remains open always, even when clicking outside component', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          keepOpenAlways={ boolean('keepOpenAlways', true) }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        keepOpenAlways={ boolean('keepOpenAlways', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With preset options panel', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
-          onDatesChange={ action('onDatesChange') }
-          panelButtons={ [
-            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
-            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
-          ] }
-          presetPanelOptions={ presetPanelOptions }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        panelButtons={ [
+          <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+          <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+        ] }
+        presetPanelOptions={ presetPanelOptions }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With buttons panel', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
-          onDatesChange={ action('onDatesChange') }
-          panelButtons={ [
-            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
-            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
-          ] }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        panelButtons={ [
+          <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+          <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+        ] }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With preset options and no border on calendar', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          isBorderless={ boolean('isBorderless', true) }
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
-          onDatesChange={ action('onDatesChange') }
-          panelButtons={ [
-            <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
-            <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
-          ] }
-          presetPanelOptions={ presetPanelOptions }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        isBorderless={ boolean('isBorderless', true) }
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        panelButtons={ [
+          <Button key={ 0 } style="plain" onClick={ action('onClick Clear') }>Clear</Button>,
+          <Button key={ 1 } style="highlight" onClick={ action('onClick Apply') }>Apply</Button>,
+        ] }
+        presetPanelOptions={ presetPanelOptions }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   )
   .add('With no border on calendar', (() => (
-      <Container>
-        <DateRangePicker
-          endDateInputId='end-date-id-0'
-          focusedInput='startDate'
-          isBorderless={ boolean('isBorderless', true) }
-          isPastDateSelectable={ boolean('isPastDateSelectable', true) }
-          keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
-          onDatesChange={ action('onDatesChange') }
-          startDateInputId='start-date-id-0'
-        />
-      </Container>
-    ))
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        isBorderless={ boolean('isBorderless', true) }
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  ))
   );
 
 const Container = styled.div`
