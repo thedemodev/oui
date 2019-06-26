@@ -22,7 +22,7 @@ stories
     </div>
   ));
 
-stories.add('all icons', () => {
+stories.add('Everything', () => {
   const iconsElements = icons.map((icon, index) => {
     const Box = styled.div`
     border: 1px dashed #ccc;
@@ -71,7 +71,7 @@ stories.add('all icons', () => {
   );
 });
 
-stories.add('icon docs', (() => {
+stories.add('Knobs', (() => {
   return (
     <Icon
       name={ select('name', {bell: 'bell', medium: 'medium', large: 'large'}, 'bell') }
@@ -84,7 +84,7 @@ stories.add('icon docs', (() => {
 
 /* eslint-disable max-len */
 
-stories.add('icon alignment', (() => (<div className="reading-column--new">
+stories.add('Alignment', (() => (<div className="reading-column--new">
   <h1>Icon alignment</h1>
   <p>These example stories shows approaches to align icons using various techniques and demonstrates some solutions and potential short-comings.</p>
 
@@ -177,7 +177,7 @@ stories.add('icon alignment', (() => (<div className="reading-column--new">
     </Table.TBody>
   </Table></div>)));
 
-stories.add('animated icon', () => {
+stories.add('Animated', () => {
   return (
     <Icon className='rotating' name='settings' size='large' />
   );

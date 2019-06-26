@@ -55,7 +55,7 @@ stories
   ));
 
 stories
-  .add('default', (() => {
+  .add('Default', (() => {
     return (
       <Autocomplete
         onSuggestionClick={ action('suggestion') }
@@ -63,7 +63,7 @@ stories
       />
     );
   }))
-  .add('custom suggestion field', (() => {
+  .add('Custom suggestion field', (() => {
     return (
       <Autocomplete
         placeholder='Search cities'
@@ -74,7 +74,7 @@ stories
       />
     );
   }))
-  .add('action field', (() => {
+  .add('Action field', (() => {
     return (
       <Autocomplete
         placeholder='Search cities'

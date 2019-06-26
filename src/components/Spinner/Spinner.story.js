@@ -14,15 +14,15 @@ stories
     </div>
   ));
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
   return <Spinner data-test-section="test-spinner" />;
 }));
 
-stories.add('smaller sizes', () => {
+stories.add('Smaller sizes', () => {
   return <Spinner size={ select('size', { small: 'small', tiny: 'tiny' }, 'small') } />;
 });
 
-stories.add('with overlay', () => {
+stories.add('With overlay', () => {
   return (
     <div className="position--relative">
       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cum iusto repudiandae

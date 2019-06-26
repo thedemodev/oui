@@ -19,7 +19,7 @@ stories
   ));
 
 stories
-  .add('blocklist with knobs', (() => {
+  .add('Blocklist with knobs', (() => {
     const guttersValue = select('gutters', ['loose', 'tight'], 'loose');
     const hrefValue = text('href', 'https://www.optimizely.com');
     const hrefTargetValue = select('hrefTarget', ['_self', '_blank'], '_blank');
@@ -58,7 +58,7 @@ stories
       </div>
     );
   }))
-  .add('blocklist with border', (() => (<div>
+  .add('Blocklist with border', (() => (<div>
     <BlockList hasBorder={ true } >
       <BlockList.Category header="Recent Pages">
         <BlockList.Item onClick={ action('click blocklist item home') }>
@@ -73,7 +73,7 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)))
-  .add('blocklist with target link', (() => (<div>
+  .add('Blocklist with target link', (() => (<div>
     <BlockList hasBorder={ true }>
       <BlockList.Category
         header={ <div className="flex"><div className="flex--1">Attic & Button</div>
@@ -90,7 +90,7 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)))
-  .add('blocklist with inner button', (() => (<div>
+  .add('Blocklist with inner button', (() => (<div>
     <BlockList hasBorder={ true }>
       <BlockList.Category>
         <BlockList.Item onClick={ action('click on example') }> onClick Example</BlockList.Item>
@@ -114,7 +114,7 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)))
-  .add('results with border', (() => (<div>
+  .add('Results with border', (() => (<div>
     <BlockList hasBorder={ true }>
       <BlockList.Category>
         <BlockList.Item onClick={ action('clicked Archive link') }>Archive</BlockList.Item>
@@ -123,7 +123,7 @@ stories
       <BlockList.Item onClick={ action('clicked on results') }>View Results</BlockList.Item>
     </BlockList>
   </div>)))
-  .add('results with no border', (() => (<div>
+  .add('Results with no border', (() => (<div>
     <BlockList hasBorder={ false }>
       <BlockList.Category>
         <BlockList.Item onClick={ action('clicked on Archive') }>Archive</BlockList.Item>
@@ -132,7 +132,7 @@ stories
       <BlockList.Item onClick={ action('clicked on Results') }>View Results</BlockList.Item>
     </BlockList>
   </div>)))
-  .add('three dots', (() => (<div>
+  .add('Three dots', (() => (<div>
     <OverlayWrapper
       behavior="click" horizontalAttachment="left" horizontalTargetAttachment="left"
       overlay={ <BlockList
@@ -145,7 +145,7 @@ stories
       </Button>
     </OverlayWrapper>
   </div>)))
-  .add('with text', (() => (<div>
+  .add('With text', (() => (<div>
     <BlockList hasBorder={ true }>
       <BlockList.Category header="Recent Pages">
         <BlockList.Item>
@@ -160,7 +160,7 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)))
-  .add('with scroll', (() => (<div>
+  .add('With scroll', (() => (<div>
     <BlockList hasBorder={ true } maxHeight="150px">
       <BlockList.Category header="BlockList with Scroll">
         <BlockList.Item>Lorem ipsum dolor sit amet.</BlockList.Item>
@@ -179,7 +179,7 @@ stories
       </BlockList.Category>
     </BlockList>
   </div>)))
-  .add('blocklist with no side padding on items', (() => (<div>
+  .add('Blocklist with no side padding on items', (() => (<div>
     <BlockList hasBorder={ false }>
       <BlockList.Category>
         <BlockList.Item gutters="tight">

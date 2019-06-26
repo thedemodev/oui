@@ -15,7 +15,7 @@ stories
     </div>
   ));
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
   return (
     <Disclose title='default title'>
       <h3>Some Title</h3>
@@ -26,7 +26,7 @@ stories.add('default', (() => {
   );
 }));
 
-stories.add('multiple stacked', (() => {
+stories.add('Multiple stacked', (() => {
   return (
     <div>
       <Disclose headerStyle='header-bordered' title='Some Title' childrenStyle='border'>
@@ -49,7 +49,7 @@ stories.add('multiple stacked', (() => {
   );
 }));
 
-stories.add('header style', (() => {
+stories.add('Header style', (() => {
   return (
     <div>
       <Disclose headerStyle='header' title='Browsers'>
@@ -70,7 +70,7 @@ stories.add('header style', (() => {
   );
 }));
 
-stories.add('with divider', (() => {
+stories.add('With divider', (() => {
   return (
     <div>
       <Disclose childrenStyle='divider' title='Some Title'>
@@ -89,7 +89,7 @@ stories.add('with divider', (() => {
   );
 }));
 
-stories.add('with ul', (() => {
+stories.add('With ul', (() => {
   return (
     <div>
       <Disclose childrenStyle='divider' title='Some Title'>

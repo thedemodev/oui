@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', (() => {
+  .add('Default', (() => {
     return (
       <Pagination
         currentPage={ number('currentPage', 1) }

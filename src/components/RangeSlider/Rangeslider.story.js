@@ -14,14 +14,14 @@ stories
     </div>
   ));
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
   return (
     <RangeSlider
       value={ number('value', 50) }
     />
   );
 }))
-  .add('disabled', (() => {
+  .add('Disabled', (() => {
     return (
       <div>
         <input type="text" className="oui-text-input push-double--bottom" />
