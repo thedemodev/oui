@@ -32,8 +32,6 @@ const column = PropTypes.oneOfType([
       'ends',
       'all',
     ]),
-    /** Arbitrary classname. */
-    className: PropTypes.string,
     /** Push columns around with an offset. */
     offset: stringOrNumber,
     /** Specify a content display order different from HTML source order. */
@@ -69,8 +67,6 @@ const propTypes = {
   /** Inner contents. */
   children: PropTypes.node,
 
-  className: PropTypes.string,
-
   /**
    * The number of columns to span on large devices (≥992px)
    *
@@ -103,7 +99,7 @@ const defaultProps = {
 };
 
 const Col = React.forwardRef(
-  ({ border, className, paddedContent, as: Component, ...props }, ref) => {
+  ({ border, paddedContent, as: Component, ...props }, ref) => {
     const prefix = 'col';
     const spans = [];
     const classes = [];
@@ -154,7 +150,6 @@ const Col = React.forwardRef(
         { ...props }
         ref={ ref }
         className={ classNames(
-          className,
           ...spans,
           ...classes
         ) }
