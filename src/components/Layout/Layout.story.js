@@ -563,4 +563,7 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
+  .add('Special: App Frame', withInfo()(() => {
+    require('./AppFrame.story.js');
+  }))
 ;

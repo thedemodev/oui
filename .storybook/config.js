@@ -1,6 +1,6 @@
 import * as storybook from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { addParameters } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 
 require('../dist/styles.js');
 require('../src/oui/oui.scss');
@@ -33,7 +33,6 @@ function loadStories() {
   require('./css.story.js');
   require('./borderradius.story.js');
   req.keys().forEach(req);
-  require('./AppFrame.story.js');
 }
 
 storybook.configure(loadStories, module);

@@ -19,8 +19,10 @@ const stringOrNumber = PropTypes.oneOfType([
 ]);
 
 const column = PropTypes.oneOfType([
+  /** colSize shorthand */
   colSize,
   PropTypes.shape({
+    /** Draw border on this single column. */
     border: PropTypes.oneOf([
       'top',
       'bottom',
@@ -30,10 +32,13 @@ const column = PropTypes.oneOfType([
       'ends',
       'all',
     ]),
+    /** Arbitrary classname. */
     className: PropTypes.string,
+    /** Push columns around with an offset. */
     offset: stringOrNumber,
+    /** Specify a content display order different from HTML source order. */
     order: stringOrNumber,
-    /** Pad inner content. */
+    /** Pad inner content with a default amount. */
     paddedContent: PropTypes.oneOf([
       'none',
       'around',
@@ -41,13 +46,16 @@ const column = PropTypes.oneOfType([
       'ends',
       'remove',
     ]),
+    /** Size of this column; allows for some shorthand. */
     size: colSize,
   }),
 ]);
 
 const propTypes = {
+  /** Specify an element besides <div>. */
   as: PropTypes.elementType,
 
+  /** Add single border column. */
   border: PropTypes.oneOf([
     'top',
     'bottom',
@@ -58,6 +66,7 @@ const propTypes = {
     'all',
   ]),
 
+  /** Inner contents. */
   children: PropTypes.node,
 
   className: PropTypes.string,
@@ -71,6 +80,7 @@ const propTypes = {
    */
   large: column,
 
+  /** Add default amount of padding. */
   paddedContent: PropTypes.oneOf([
     'around',
     'sides',
