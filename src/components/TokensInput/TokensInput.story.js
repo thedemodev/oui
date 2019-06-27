@@ -51,7 +51,7 @@ storiesOf('TokensInput', module)
   .add('Default', (() => {
     return <TokensInput onChange={ action('tokens changed') } tokens={ SAMPLE_DATA }/>;
   }))
-  .add('with extraAddKeys', (() => {
+  .add('With extraAddKeys', (() => {
     return (
       <TokensInput
         onChange={ action('tokens changed') }

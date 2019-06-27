@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', (() => (<div>
+  .add('Default', (() => (<div>
     <DiscloseTable>
       <Table.THead>
         <Table.TR>

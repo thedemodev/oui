@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', (() => (<div>
+  .add('Default', (() => (<div>
     <Toolbar>
       <Toolbar.Left>
         <Toolbar.Link

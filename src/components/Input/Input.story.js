@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('input with knobs', (() => {
+  .add('Input with knobs', (() => {
     return (
       <Input
         defaultValue={ text('defaultValue', 'some default value') }

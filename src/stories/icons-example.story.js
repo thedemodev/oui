@@ -71,7 +71,7 @@ stories.add('Everything', () => {
   );
 });
 
-stories.add('icon docs', (() => {
+stories.add('Knobs', (() => {
   return (
     <Icon
       name={ select('name', {bell: 'bell', medium: 'medium', large: 'large'}, 'bell') }
