@@ -127,7 +127,8 @@
     "csswhat-json": "node node_modules/csswhat/csswhat.js --in=./data/csswhat/oui.css --out=./data/csswhat/oui.css.json",
     "csswhat:watch": "yarn csswhat-json:watch & yarn csswhat-css:watch",
     "csswhat-json:watch": "onchange 'data/csswhat/oui.css' -- yarn csswhat-json",
-    "csswhat-css:watch": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat"
+    "csswhat-css:watch": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat",
+    "generate-tokens": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat"
   },
   "repository": {
     "type": "git",
