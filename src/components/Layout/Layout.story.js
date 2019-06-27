@@ -386,7 +386,6 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row removeGutters={ boolean('Row removeGutters', false) }>
           <Col small={ true }>First, but unordered</Col>
@@ -400,13 +399,12 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', true) }
         fluid={ boolean('fluid', false) }>
         <Row>
-          <Col>left column (no size specificed)</Col>
+          <Col>left column</Col>
           <Col small={ number('small', 6) }>middle column (small=6)
             <br/>Adjust this size via knob "small"</Col>
-          <Col>right column (no size specificed)</Col>
+          <Col>right column</Col>
         </Row>
       </Container>
     );

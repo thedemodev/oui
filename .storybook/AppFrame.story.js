@@ -12,7 +12,7 @@ import Code from '../src/components/Code';
 
 const stories = storiesOf('Layout', module);
 stories.addDecorator(withKnobs);
-stories.add('Special: App Frame', withInfo()(() => {
+stories.add('Special: App Frame (coming soon)', withInfo()(() => {
   return (
     <Container
       outlineDebug={ boolean('outlineDebug', true) }
