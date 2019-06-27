@@ -15,7 +15,7 @@ const Sheet = props => {
     <div className="oui-sheet__wrapper">
       <div className="oui-sheet__overlay" />
       <div
-        data-ui-component={ true }
+        data-oui-component={ true }
         className="oui-sheet overflow-y--auto"
         data-test-section={ props.testSection }>
         {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}

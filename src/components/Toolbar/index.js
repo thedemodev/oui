@@ -13,7 +13,7 @@ const Toolbar = (props) => {
 
   return (
     <div
-      data-ui-component={ true }
+      data-oui-component={ true }
       className="toolbar"
       data-test-section={ props.testSection }>
       <div className={ toolbarContentClasses }>
