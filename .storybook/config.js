@@ -33,6 +33,7 @@ function loadStories() {
   require('./css.story.js');
   require('./borderradius.story.js');
   req.keys().forEach(req);
+  require('./AppFrame.story.js');
 }
 
 storybook.configure(loadStories, module);

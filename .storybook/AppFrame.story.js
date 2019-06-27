@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
-import Col from './Col';
-import Row from './Row';
-import Container from './Container';
+import Col from '../src/components/Layout/Col';
+import Row from '../src/components/Layout/Row';
+import Container from '../src/components/Layout/Container';
+import Button from '../src/components/Button';
+import Code from '../src/components/Code';
 
 const stories = storiesOf('Layout', module);
 stories.addDecorator(withKnobs);
