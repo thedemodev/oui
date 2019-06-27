@@ -396,16 +396,17 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
-  .add('Widths', withInfo()(() => {
+  .add('Adjustable Size', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', true) }
         fluid={ boolean('fluid', false) }>
         <Row>
-          <Col>1 of 3</Col>
-          <Col small={ number('number', 6) }>2 of 3 (variable)</Col>
-          <Col>3 of 3</Col>
+          <Col>left column (no size specificed)</Col>
+          <Col small={ number('small', 6) }>middle column (small=6)
+            <br/>Adjust this size via knob "small"</Col>
+          <Col>right column (no size specificed)</Col>
         </Row>
       </Container>
     );
