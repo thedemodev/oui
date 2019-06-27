@@ -19,13 +19,14 @@ const propTypes = {
     'sides',
     'ends',
     'all',
+    'none',
   ]),
   /**
    * Display layout as vertical column.
   */
   displayVertical: PropTypes.bool,
   /**
-   * For dev only -- show hotpink border and background on grid elements.
+   * For testing/debugging only -- show grid hotpink borders and backgrounds.
    */
   outlineDebug: PropTypes.bool,
   /**

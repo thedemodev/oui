@@ -410,7 +410,7 @@ stories.add('Default', withInfo()(() => {
       </Container>
     );
   }))
-  .add('Cards', withInfo()(() => {
+  .add('With Cards Inside', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -419,39 +419,39 @@ stories.add('Default', withInfo()(() => {
         <h1>fillSpace</h1>
         <Row>
           <Col large={ 'fillSpace' }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
           <Col large={ 'fillSpace' }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
         </Row>
         <h1 className="push-triple--top">fitContent</h1>
         <Row>
           <Col large={ 'fitContent' }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
           <Col large={ 'fitContent' }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
         </Row>
         <h1 className="push-triple--top">4/8</h1>
         <Row>
           <Col large={ 4 }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
           <Col large={ 8 }>
-            <Card title="Card Title" shadow={ false } testSection="card">
-              Hello! This is a short card example.
+            <Card title="Hello Card" shadow={ false } testSection="card">
+              I am the short card example. Bye.
             </Card>
           </Col>
         </Row>
