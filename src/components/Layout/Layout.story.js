@@ -75,7 +75,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         fluid={ boolean('fluid', false) }
-        pull={ boolean('pull', false) }
+        pullRowPadding={ boolean('pullRowPadding', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }>
         <Row
@@ -104,7 +104,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        pull={ boolean('pull', false) }
+        pullRowPadding={ boolean('pullRowPadding', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row removeGutters={ boolean('Row removeGutters', false) }>
@@ -159,7 +159,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        pull={ boolean('pull', false) }
+        pullRowPadding={ boolean('pullRowPadding', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row removeGutters={ boolean('Row removeGutters', false) }>
@@ -204,7 +204,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        pull={ boolean('pull', false) }
+        pullRowPadding={ boolean('pullRowPadding', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
         <Row removeGutters={ boolean('Row removeGutters', false) }>
@@ -248,7 +248,7 @@ stories.add('Default', withInfo()(() => {
       <h1>With Container</h1>
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pull={ boolean('pull', true) }
+        pullRowPadding={ boolean('pullRowPadding', true) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', true) }>
         <Row>
@@ -293,7 +293,7 @@ stories.add('Default', withInfo()(() => {
       <Container
         outlineDebug={ boolean('outlineDebug', false) }
         pushRowsTop={ boolean('pushRowsTop', false) }
-        pull={ boolean('pull', false) }
+        pullRowPadding={ boolean('pullRowPadding', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'around') }
         removeGutters={ boolean('Row removeGutters', false) }
         fluid={ boolean('fluid', true) }>
@@ -335,15 +335,15 @@ stories.add('Default', withInfo()(() => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
-        pull={ boolean('pull', true) }
+        pullRowPadding={ boolean('pullRowPadding', true) }
         paddedContent={ select('paddedContent', paddingOptions, 'around') }
         fluid={ boolean('fluid', false) }>
         <Row>
-          <Col>pull removes left padding here.</Col>
-          <Col>pull does nothing here.</Col>
-          <Col>pull does nothing here.</Col>
-          <Col>pull does nothing here.</Col>
-          <Col>pull removes right padding here.</Col>
+          <Col>pullRowPadding removes left padding here</Col>
+          <Col>pull does nothing here</Col>
+          <Col>pull does nothing here</Col>
+          <Col>pull does nothing here</Col>
+          <Col>pullRowPadding removes right padding here</Col>
         </Row>
       </Container>
     );

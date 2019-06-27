@@ -8,11 +8,11 @@ const propTypes = {
    */
   as: PropTypes.elementType,
   /**
-   * Allow the Container to fill availble horizontal space.
+   * Allow the Container to fill available horizontal space.
    */
   fluid: PropTypes.bool,
   /**
-   * For dev only -- show hotpink border and background on grid elements.
+   * For testing/debugging only -- show hotpink grid borders and backgrounds.
    */
   outlineDebug: PropTypes.bool,
   /**
@@ -28,7 +28,7 @@ const propTypes = {
   /**
    * Remove first and last child side padding.
    */
-  pull: PropTypes.bool,
+  pullRowPadding: PropTypes.bool,
   /**
    * Add top margin space between rows.
    */
@@ -45,7 +45,7 @@ const Container = React.forwardRef(({
   fluid,
   outlineDebug,
   paddedContent,
-  pull,
+  pullRowPadding,
   pushRowsTop,
   ...props
 }, ref) => {
@@ -59,7 +59,7 @@ const Container = React.forwardRef(({
         fluid ? `${prefix}-fluid` : prefix,
         outlineDebug && 'outline--debug',
         paddedContent && `padded-content--${paddedContent}`,
-        pull && 'container--pull',
+        pullRowPadding && 'container--pull',
         pushRowsTop && 'push-rows--top',
       ) }
     />
