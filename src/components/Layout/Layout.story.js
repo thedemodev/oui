@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Col from './Col';
 import Row from './Row';
@@ -68,7 +67,7 @@ stories
     </div>
   ));
 
-stories.add('Default', withInfo()(() => {
+stories.add('Default', () => {
   return (
     <div>
       <h1>Default (Equal Widths)</h1>
@@ -242,8 +241,8 @@ stories.add('Default', withInfo()(() => {
       </Container>
     </div>
   );
-}))
-  .add('Minimal', withInfo()(() => {
+})
+  .add('Container vs None', () => {
     return (<div>
       <h1>With Container</h1>
       <Container
@@ -263,8 +262,8 @@ stories.add('Default', withInfo()(() => {
         <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>Hello short example</Col>
       </Row>
     </div>);
-  }))
-  .add('Padding', withInfo()(() => {
+  })
+  .add('Column Padding', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', false) }
@@ -287,8 +286,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('Borders', withInfo()(() => {
+  })
+  .add('Borders', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', false) }
@@ -330,8 +329,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('Pull', withInfo()(() => {
+  })
+  .add('Pull Row Padding', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -340,15 +339,15 @@ stories.add('Default', withInfo()(() => {
         fluid={ boolean('fluid', false) }>
         <Row>
           <Col>pullRowPadding removes left padding here</Col>
-          <Col>pull does nothing here</Col>
-          <Col>pull does nothing here</Col>
-          <Col>pull does nothing here</Col>
+          <Col>pullRowPadding does nothing here</Col>
+          <Col>pullRowPadding does nothing here</Col>
+          <Col>pullRowPadding does nothing here</Col>
           <Col>pullRowPadding removes right padding here</Col>
         </Row>
       </Container>
     );
-  }))
-  .add('Vertical', withInfo()(() => {
+  })
+  .add('Vertical Columns', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -381,8 +380,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('Order', withInfo()(() => {
+  })
+  .add('Changing Order', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -394,8 +393,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('Adjustable Size', withInfo()(() => {
+  })
+  .add('Adjustable Size', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -408,8 +407,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('With Cards Inside', withInfo()(() => {
+  })
+  .add('With Cards Inside', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -456,8 +455,8 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
-  .add('Special: Responsive Tests', withInfo()(() => {
+  })
+  .add('Special: Responsive Tests', () => {
     return (
       <div>
         <h1>Simple</h1>
@@ -517,8 +516,8 @@ stories.add('Default', withInfo()(() => {
         </Container>
       </div>
     );
-  }))
-  .add('Special: Responsive Layout', withInfo()(() => {
+  })
+  .add('Special: Responsive Layout', () => {
     return (
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
@@ -561,5 +560,5 @@ stories.add('Default', withInfo()(() => {
         </Row>
       </Container>
     );
-  }))
+  })
 ;
