@@ -267,7 +267,7 @@
     },
     {
       "friendlyName": "Aqua Blue (Light)",
-      "id": "aqua-blue-light",
+      "id": "aqua-light",
       "value": "hsla(186, 100%, 69%, 1)",
       "hex": "#61efff",
       "type": "color",
@@ -275,7 +275,7 @@
     },
     {
       "friendlyName": "Aqua Blue",
-      "id": "aqua-blue-base",
+      "id": "aqua-base",
       "value": "hsla(187, 100%, 42%, 1)",
       "hex": "#00bdd6",
       "type": "color",
@@ -283,11 +283,11 @@
     },
     {
       "friendlyName": "Aqua Blue (Dark)",
-      "id": "aqua-blue-dark",
+      "id": "aqua-dark",
       "value": "hsla(189, 100%, 32%, 1)",
       "hex": "#008ba3",
       "type": "color",
-      "name": "aquaBlueDark"
+      "name": "aquaDark"
     },
     {
       "friendlyName": "Blue (Light)",
