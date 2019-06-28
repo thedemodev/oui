@@ -98,7 +98,7 @@ class Dropdown extends React.Component {
       <Manager>
         <div
           className={ groupClass }
-          data-ui-component={ true }
+          data-oui-component={ true }
           data-test-section={ testSection }>
           <Reference>
             {({ ref }) => {

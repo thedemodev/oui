@@ -48,7 +48,7 @@ exports[`components/EmptyDashboard should render 1`] = `
     >
       <div
         className="text--center soft-quad"
-        data-ui-component={true}
+        data-oui-component={true}
       >
         <div
           className="muted push-double--bottom"
@@ -91,7 +91,7 @@ exports[`components/EmptyDashboard should render 1`] = `
             >
               <a
                 className="link"
-                data-ui-component={true}
+                data-oui-component={true}
                 disabled={false}
                 href="http://google.com"
               >

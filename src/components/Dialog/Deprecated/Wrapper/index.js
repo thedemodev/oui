@@ -3,7 +3,7 @@ import React from 'react';
 
 const Wrapper = props => (
   <div
-    data-ui-component={ true }
+    data-oui-component={ true }
     className="overflow-y--auto flex--1"
     data-test-section={ props.testSection }>
     <div className="reading-column">

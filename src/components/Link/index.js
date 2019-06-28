@@ -26,7 +26,7 @@ const Link = ({
   if (!href && !onClick) {
     return (
       <span
-        data-ui-component={ true }
+        data-oui-component={ true }
         className={ classes }
         data-test-section={ testSection }
         data-track-id={ testSection }
@@ -38,7 +38,7 @@ const Link = ({
 
   return (
     <a
-      data-ui-component={ true }
+      data-oui-component={ true }
       href={ href }
       className={ classes }
       data-test-section={ testSection }

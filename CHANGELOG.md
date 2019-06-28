@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Rename `data-ui-component` to `data-oui-component` ([#1181](https://github.com/optimizely/oui/pull/1181))
 - [Release] Aqua token update (breaking change) from `aqua-blue-light/base/dark` to just `aqua-light/base/dark` ([#1181](https://github.com/optimizely/oui/pull/1181))
 - [Patch] Global search/replace to capitalize all Storybook story names ([#1180](https://github.com/optimizely/oui/pull/1180))
 - [Patch] Spacing and alignment refinements to **Sheet** ([#1177](https://github.com/optimizely/oui/pull/1177))

@@ -18,7 +18,7 @@ const EmptyDashboard = ({
       <div className='anchor--middle height--1-1 flex flex--column'>
 
         <div
-          data-ui-component={ true }
+          data-oui-component={ true }
           className='text--center soft-quad'
           data-test-section={ testSection }>
 

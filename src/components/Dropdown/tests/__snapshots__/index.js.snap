@@ -138,8 +138,8 @@ exports[`components/Dropdown should not render children or Popper when isDisable
         <Manager>
           <div
             className="oui-dropdown-group"
+            data-oui-component={true}
             data-test-section=""
-            data-ui-component={true}
           >
             <Reference>
               <InnerReference

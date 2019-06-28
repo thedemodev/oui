@@ -54,7 +54,7 @@ class Steps extends React.Component {
     return (
       <ul
         className="oui-steps"
-        data-ui-component={ true }
+        data-oui-component={ true }
         { ...(testSection ? { 'data-test-section': testSection } : {}) }>
         {
           items.map((item, index) => {

@@ -22,7 +22,7 @@ export const DialogNew = props => {
         )
       }
       <div
-        data-ui-component={ true }
+        data-oui-component={ true }
         className="oui-dialog"
         data-test-section={ props.testSection }>
         {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="medium"/>}
