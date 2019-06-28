@@ -118,8 +118,8 @@
     "postversion": "npm run postversion:publish && npm run postversion:update-devel",
     "postversion:publish": "git push --follow-tags",
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
-    "storybook": "yarn csswhat:watch & start-storybook -p 9009",
-    "build-storybook": "yarn csswhat && build-storybook -c .storybook -o ./storybook",
+    "storybook": "yarn generate-tokens:watch & yarn csswhat:watch & start-storybook -p 9009",
+    "build-storybook": "yarn generate-tokens && yarn csswhat && build-storybook -c .storybook -o ./storybook",
     "build-styles": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack --watch",
     "csswhat": "yarn csswhat-css && yarn csswhat-json",
@@ -128,7 +128,8 @@
     "csswhat:watch": "yarn csswhat-json:watch & yarn csswhat-css:watch",
     "csswhat-json:watch": "onchange 'data/csswhat/oui.css' -- yarn csswhat-json",
     "csswhat-css:watch": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat",
-    "generate-tokens": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat"
+    "generate-tokens": "node src/tokens/index.js",
+    "generate-tokens:watch": "onchange 'src/tokens/src/**/*.json' -- yarn generate-tokens"
   },
   "repository": {
     "type": "git",
