@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site (()[])
+- [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site ((#1183)[https://github.com/optimizely/oui/pull/1183])
 
 ## 44.0.0 - 2019-06-28
 - [Feature] **Layout** kit is a new responsive 12-column grid, which adds Container, Row and Col components ([#1179](https://github.com/optimizely/oui/pull/1179))
