@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add new **Layout** component storybook example for row add/remove ((#1183)[https://github.com/optimizely/oui/pull/1183])
 
 - [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
 
