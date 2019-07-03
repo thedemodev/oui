@@ -9,8 +9,12 @@ import Container from './Container';
 import Card from '../Card';
 import Button from '../Button';
 import Code from '../Code';
+import SelectDropdown from '../SelectDropdown';
+import Input from '../Input';
+import Icon from 'react-oui-icons';
 
 import { addParameters } from '@storybook/react';
+
 const viewports = {
   iphone5: {
     name: 'Small Phone',
@@ -38,6 +42,28 @@ const viewports = {
   },
 };
 addParameters({ viewport: { viewports: viewports } });
+
+const items = [
+  {
+    label: 'Cat',
+    description: 'A small feline.',
+    value: 'cat',
+  },
+  {
+    label: 'Dog',
+    value: 'dog',
+  },
+  {
+    label: 'Bear',
+    description: 'Likes honey',
+    value: 'bear',
+  },
+  {
+    label: 'Squirrel',
+    description: 'Smarter than it looks',
+    value: 'squirrel',
+  },
+];
 
 const paddingOptions = {
   none: 'none',
@@ -405,6 +431,85 @@ stories.add('Default', () => {
             <br/>Adjust this size via knob "small"</Col>
           <Col>right column</Col>
         </Row>
+      </Container>
+    );
+  })
+  .add('Rows example: URL Match', () => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        paddedContent={ select('paddedContent', paddingOptions, 'all') }
+        fluid={ boolean('fluid', true) }
+        pushRowsTop={ true }>
+        <Row>
+          <Col small={ 'fitContent' }>URL</Col>
+          <Col small={ 'fitContent' } paddedContent={ 'sides' }>
+            <SelectDropdown
+              items={ items }
+              value={ 'dog' }
+            />
+          </Col>
+          <Col small={ 'fitContent' }>these URLs:</Col>
+        </Row>
+
+        <Row pullRowPadding={ true }>
+          <Col>
+            <Input
+              id="input-01"
+              placeholder="Just a placeholder"
+              type="text"
+            />
+          </Col>
+          <Col small={ 'fitContent' }>
+            <SelectDropdown
+              items={ items }
+              value={ 'dog' }
+              width={ '200px' }
+            />
+          </Col>
+          <Col small={ 'fitContent' } paddedContent={ 'sides' }>
+            <Button
+              style="plain"
+              ariaLabel="Add another item">
+              <Icon name='add' />
+            </Button>
+            <Button
+              style="plain"
+              ariaLabel="Remove this item">
+              <Icon name='close' />
+            </Button>
+          </Col>
+        </Row>
+
+        <Row pullRowPadding={ true }>
+          <Col>
+            <Input
+              id="input-01"
+              placeholder="Just a placeholder"
+              type="text"
+            />
+          </Col>
+          <Col small={ 'fitContent' }>
+            <SelectDropdown
+              items={ items }
+              value={ 'dog' }
+              width={ '200px' }
+            />
+          </Col>
+          <Col small={ 'fitContent' } paddedContent={ 'sides' }>
+            <Button
+              style="plain"
+              ariaLabel="Add another item">
+              <Icon name='add' />
+            </Button>
+            <Button
+              style="plain"
+              ariaLabel="Remove this item">
+              <Icon name='close' />
+            </Button>
+          </Col>
+        </Row>
+
       </Container>
     );
   })
