@@ -249,6 +249,12 @@
       border-bottom-color: map-fetch($color, ui, medium);
       color: map-fetch($color, background, brand-dark);
     }
+
+    &:hover, &:focus, &:active {
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, outline, hover, border);
+      }
+    }
   }
 
   // Button Sizes
