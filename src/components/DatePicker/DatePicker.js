@@ -133,7 +133,9 @@ DatePicker.propTypes = {
    */
   keepOpenOnDateSelect: PropTypes.bool,
   /** Function callback to perform when a date has been selected.
-   * The date selected is passed as a parameter
+   * The date selected is passed as a parameter.
+   * Use React.createRef(); to get access to this component's
+   * onDateChange method and set it from a parent
    */
   onDateChange: PropTypes.func,
 };

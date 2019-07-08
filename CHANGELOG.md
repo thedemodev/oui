@@ -7,6 +7,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Patch] Add `addOnBlur` and `addOnPaste` props to the `TokensInput` component ([#1185](https://github.com/optimizely/oui/pull/1185))
 
+## 44.1.0 - 2019-07-08
+- [Feature] Introduce render props option for `onDatesChange` access in **DateRangePicker** ([#1186](https://github.com/optimizely/oui/pull/1186))
+
 ## 44.0.1 - 2019-07-01
 - [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site ((#1183)[https://github.com/optimizely/oui/pull/1183])
 
