@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.1.0 - 2019-07-08
 - [Feature] Introduce render props option for `onDatesChange` access in **DateRangePicker** ([#1186](https://github.com/optimizely/oui/pull/1186))
 
 ## 44.0.1 - 2019-07-01
