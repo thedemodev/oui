@@ -39,6 +39,8 @@ const ADD_KEYS = [
  * @returns {ReactElement}
  */
 export const TokensInput = ({
+  addOnBlur,
+  addOnPaste,
   extraAddKeys,
   maxTags,
   onChange,
@@ -140,8 +142,8 @@ export const TokensInput = ({
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
         addKeys={ addKeys }
-        addOnBlur={ true }
-        addOnPaste={ true }
+        addOnBlur={ addOnBlur }
+        addOnPaste={ addOnPaste }
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
           onBlur: onInputBlur,
@@ -163,6 +165,15 @@ export const TokensInput = ({
 };
 
 TokensInput.propTypes = {
+  /**
+   * Adds a new tag on input blur
+   */
+  addOnBlur: PropTypes.bool,
+
+  /**
+   * Adds a new tag on input paste
+   */
+  addOnPaste: PropTypes.bool,
 
   /**
    * Additional keycodes which should be considered
@@ -211,6 +222,9 @@ TokensInput.propTypes = {
 };
 
 TokensInput.defaultProps = {
+  addOnBlur: true,
+
+  addOnPaste: true,
 
   extraAddKeys: [],
 
