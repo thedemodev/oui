@@ -237,22 +237,25 @@
       border-bottom-width: 2px;
       border-bottom-color: map-fetch($root-color, grey-50);
       color: map-fetch($button, type, base, color);
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, outline, hover, border);
+      }
     }
 
     &:focus {
       border-bottom-width: 2px;
       border-bottom-color: map-fetch($button, type, outline, hover, border);
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, outline, hover, border);
+      }
     }
 
     &:active {
       border-bottom-width: 2px;
-      border-bottom-color: map-fetch($color, ui, medium);
+      border-bottom-color: map-fetch($root-color, grey-35);
       color: map-fetch($color, background, brand-dark);
-    }
-
-    &:hover, &:focus, &:active {
       & .oui-arrow-inline--down {
-        color: map-fetch($button, type, outline, hover, border);
+        color: map-fetch($color, background, brand);
       }
     }
   }

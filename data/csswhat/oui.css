@@ -1698,25 +1698,29 @@ blockquote {
       border-bottom-width: 2px;
       border-bottom-color: gray;
       color: #080736; }
+      
+      .button--underline:hover .oui-arrow-inline--down,
+      .oui-button--underline:hover .oui-arrow-inline--down {
+        color: #0037ff; }
     
     .button--underline:focus,
     .oui-button--underline:focus {
       border-bottom-width: 2px;
       border-bottom-color: #0037ff; }
+      
+      .button--underline:focus .oui-arrow-inline--down,
+      .oui-button--underline:focus .oui-arrow-inline--down {
+        color: #0037ff; }
     
     .button--underline:active,
     .oui-button--underline:active {
       border-bottom-width: 2px;
-      border-bottom-color: #999999;
+      border-bottom-color: #a6a6a6;
       color: #46456A; }
-    
-    .button--underline:hover .oui-arrow-inline--down,
-    .button--underline:focus .oui-arrow-inline--down,
-    .button--underline:active .oui-arrow-inline--down,
-    .oui-button--underline:hover .oui-arrow-inline--down,
-    .oui-button--underline:focus .oui-arrow-inline--down,
-    .oui-button--underline:active .oui-arrow-inline--down {
-      color: #0037ff; }
+      
+      .button--underline:active .oui-arrow-inline--down,
+      .oui-button--underline:active .oui-arrow-inline--down {
+        color: #4069FF; }
   
   .button--tiny,
   .oui-button--tiny {
