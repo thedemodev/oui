@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.1.1 - 2019-07-08
 - [Patch] Add `addOnBlur` and `addOnPaste` props to the `TokensInput` component ([#1185](https://github.com/optimizely/oui/pull/1185))
 
 ## 44.1.0 - 2019-07-08
