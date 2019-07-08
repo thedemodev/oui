@@ -45,7 +45,7 @@ class DateRangePicker extends React.Component {
         dayPickerIsOpen: !!focusedInput,
       });
     }
-  }
+  };
 
   onDatesChange = ({ startDate, endDate }) => {
     this.setState({
@@ -55,13 +55,13 @@ class DateRangePicker extends React.Component {
       endDateString: getDateString(endDate),
     });
     this.props.onDatesChange && this.props.onDatesChange({ startDate, endDate });
-  }
+  };
 
   onOutsideClick = () => {
     !this.props.keepOpenAlways && this.setState({
       dayPickerIsOpen: false,
     });
-  }
+  };
 
   onClose = () => {
     const dayPickerShouldRemainOpen = this.props.keepOpenOnDateSelect || this.props.keepOpenAlways;
@@ -70,14 +70,14 @@ class DateRangePicker extends React.Component {
         dayPickerIsOpen: true,
       });
     }
-  }
+  };
 
   getAcceptableDateRange = (day) => {
     if (this.props.isPastDateSelectable) {
       return false;
     }
     return day.isBefore(moment()) && !day.isSame(moment(), 'day');
-  }
+  };
 
   renderPresetButtons = (presetPanelOptions) => {
     var presetButtons = presetPanelOptions.map(({label, startDate, endDate}, index) => {
@@ -114,9 +114,17 @@ class DateRangePicker extends React.Component {
           </ul>
         </div>
       }
-      { panelButtons && <ButtonRow rightGroup={ panelButtons }/> }
+      { // render panel buttons via render props if a function is provided
+        panelButtons && (
+          typeof panelButtons === 'function' ? (
+            <ButtonRow rightGroup={ panelButtons({ onDatesChange: this.onDatesChange }) }/>
+          ) : (
+            <ButtonRow rightGroup={ panelButtons }/>
+          )
+        )
+      }
     </div>);
-  }
+  };
 
   render() {
     const {
@@ -149,6 +157,7 @@ class DateRangePicker extends React.Component {
       isBorderless && 'oui-date-picker--borderless',
       isAbsolutelyPositioned && 'oui-date-picker--absolute',
     );
+
     return (
       <OutsideClickHandler onOutsideClick={ this.onOutsideClick }>
         <div className={ computedClassNames }>
@@ -161,6 +170,7 @@ class DateRangePicker extends React.Component {
                 name="startDate"
                 onFocus={ () => this.onFocusChange('startDate') }
                 placeholder={ startDateInputPlaceholder }
+                testSection="date-range-picker-start-date-input"
                 type="text"
                 value={ startDateString }
               />
@@ -173,6 +183,7 @@ class DateRangePicker extends React.Component {
                 name="endDate"
                 onFocus={ () => this.onFocusChange('endDate') }
                 placeholder={ endDateInputPlaceholder }
+                testSection="date-range-picker-end-date-input"
                 type="text"
                 value={ endDateString }
               />
@@ -243,16 +254,23 @@ DateRangePicker.propTypes = {
   keepOpenOnDateSelect: PropTypes.bool,
   /** Function callback to perform when either a start date
    * or end date has been selected.
-   * The dates are passed as a parameter
-   * object with startDate and endDate as keys
+   * The dates are passed as a parameter object with startDate and endDate
+   * as keys.
+   * For access in panelButtons row items, use render prop function that returns
+   * an array.
    */
   onDatesChange: PropTypes.func,
   /** An array of buttons to display with the
    * calendar, such as Cancel and Apply. If presetPanelOptions
    * are also defined, the buttons will be to the right of the calendar.
    * Otherwise, they are directly below the calendar.
+   * Use render prop function that returns an array to get access to component's
+   * onDatesChange method
    */
-  panelButtons: PropTypes.array,
+  panelButtons: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.func,
+  ]),
   /** Array of objects used to render preset buttons to the right
    * of the calendar. Each object must have a startDate, endDate, and label.
    */

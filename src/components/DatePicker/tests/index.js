@@ -5,7 +5,6 @@ import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
 import Button from '../../Button';
 
-
 describe('components/DatePicker', function() {
   it('should only render the input by default', () => {
     const component = mount(<DatePicker inputId="date-picker-01"/>);
@@ -289,4 +288,110 @@ describe('components/DateRangePicker', function() {
       .containsMatchingElement(<button>Clear</button>)).toBe(true);
   });
 
+  it('should pass onDatesChange via panelButtons when array is used (without render props pattern)', () => {
+    const applyMock = jest.fn();
+    const clearMock = jest.fn();
+    const onDatesChangeMock = jest.fn();
+
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-01"
+        focusedInput='startDate'
+        initialStartDate={ moment('2019-01-01') }
+        initialEndDate={ moment('2019-12-31') }
+        isPastDateSelectable={ true }
+        keepOpenOnDateSelect={ true }
+        onDatesChange={ onDatesChangeMock }
+        panelButtons={ [
+          <Button
+            key={ 0 }
+            style="plain"
+            onClick={ clearMock }
+            testSection="date-range-picker-clear-button">
+            Clear
+          </Button>,
+          <Button
+            key={ 1 }
+            style="highlight"
+            onClick={ applyMock }
+            testSection="date-range-picker-apply-button">
+            Apply
+          </Button>,
+        ] }
+        startDateInputId="start-date-picker-01"
+      />
+    );
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+    expect(applyMock).toHaveBeenCalledTimes(0);
+    expect(clearMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-apply-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(clearMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-clear-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(clearMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+  });
+
+  it('should pass onDatesChange via panelButtons when render props pattern is used', () => {
+    /* eslint-disable react/jsx-no-bind */
+    const applyMock = jest.fn();
+    const onDatesChangeMock = jest.fn();
+
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-01"
+        focusedInput='startDate'
+        initialStartDate={ moment('2019-01-01') }
+        initialEndDate={ moment('2019-12-31') }
+        isPastDateSelectable={ true }
+        keepOpenOnDateSelect={ true }
+        onDatesChange={ onDatesChangeMock }
+        panelButtons={ ({ onDatesChange }) => ([
+          <Button
+            key={ 0 }
+            style="plain"
+            onClick={ () => onDatesChange({ startDate: null, endDate: null }) }
+            testSection="date-range-picker-clear-button">
+            Clear
+          </Button>,
+          <Button
+            key={ 1 }
+            style="highlight"
+            onClick={ applyMock }
+            testSection="date-range-picker-apply-button">
+            Apply
+          </Button>,
+        ]) }
+        startDateInputId="start-date-picker-01"
+      />
+    );
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+    expect(applyMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-apply-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-clear-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toBeCalledWith({ endDate: null, startDate: null });
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('');
+    /* eslint-enable react/jsx-no-bind */
+  });
 });
