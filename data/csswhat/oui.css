@@ -1696,12 +1696,12 @@ blockquote {
     .button--underline:hover,
     .oui-button--underline:hover {
       border-bottom-width: 2px;
-      border-bottom-color: gray;
+      border-bottom-color: #4069FF;
       color: #080736; }
       
       .button--underline:hover .oui-arrow-inline--down,
       .oui-button--underline:hover .oui-arrow-inline--down {
-        color: #0037ff; }
+        color: #4069FF; }
     
     .button--underline:focus,
     .oui-button--underline:focus {
@@ -1715,12 +1715,12 @@ blockquote {
     .button--underline:active,
     .oui-button--underline:active {
       border-bottom-width: 2px;
-      border-bottom-color: #a6a6a6;
+      border-bottom-color: #4069FF;
       color: #46456A; }
       
       .button--underline:active .oui-arrow-inline--down,
       .oui-button--underline:active .oui-arrow-inline--down {
-        color: #4069FF; }
+        color: #46456A; }
   
   .button--tiny,
   .oui-button--tiny {
