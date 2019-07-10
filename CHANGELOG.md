@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Add hover style for button underline arrow ([#1188](https://github.com/optimizely/oui/pull/1188))
 
 ## 44.1.1 - 2019-07-08
 - [Patch] Add `addOnBlur` and `addOnPaste` props to the `TokensInput` component ([#1185](https://github.com/optimizely/oui/pull/1185))
@@ -13,7 +14,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] Introduce render props option for `onDatesChange` access in **DateRangePicker** ([#1186](https://github.com/optimizely/oui/pull/1186))
 
 ## 44.0.1 - 2019-07-01
-- [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site ((#1183)[https://github.com/optimizely/oui/pull/1183])
+- [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site ([#1183](https://github.com/optimizely/oui/pull/1183))
 
 ## 44.0.0 - 2019-06-28
 - [Feature] **Layout** kit is a new responsive 12-column grid, which adds Container, Row and Col components ([#1179](https://github.com/optimizely/oui/pull/1179))

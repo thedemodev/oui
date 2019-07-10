@@ -228,26 +228,35 @@
   }
 
   &--underline {
-    border-bottom: 2px solid map-fetch($root-color, grey-35);
+    border-bottom: 2px solid map-fetch($button, type, underline, border);
     color: map-fetch($button, type, base, color);
     padding-left: spacer(0.5);
     padding-right: spacer(0.5);
 
     &:hover {
       border-bottom-width: 2px;
-      border-bottom-color: map-fetch($root-color, grey-50);
-      color: map-fetch($button, type, base, color);
+      border-bottom-color: map-fetch($button, type, underline, hover, border);
+      color: map-fetch($button, type, underline, color);
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, underline, hover, arrow-color);
+      }
     }
 
     &:focus {
       border-bottom-width: 2px;
-      border-bottom-color: map-fetch($button, type, outline, hover, border);
+      border-bottom-color: map-fetch($button, type, underline, focus, border);
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, underline, focus, border);
+      }
     }
 
     &:active {
       border-bottom-width: 2px;
-      border-bottom-color: map-fetch($color, ui, medium);
-      color: map-fetch($color, background, brand-dark);
+      border-bottom-color: map-fetch($button, type, underline, active, border);
+      color: map-fetch($button, type, underline, active, color);
+      & .oui-arrow-inline--down {
+        color: map-fetch($button, type, underline, active, arrow-color);
+      }
     }
   }
 
