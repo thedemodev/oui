@@ -4579,6 +4579,28 @@ code {
 .svg--non-scaling-stroke-path, .svg--non-scaling-stroke-circle, .svg--non-scaling-stroke-rect, .svg--non-scaling-stroke-line {
   vector-effect: non-scaling-stroke; }
 
+.oui-icon-button {
+  padding: 4px;
+  line-height: 1rem; }
+  .oui-icon-button__small {
+    width: 24px;
+    height: 24px; }
+    .oui-icon-button__small .oui-icon {
+      width: 12px;
+      height: 12px; }
+  .oui-icon-button__medium {
+    width: 28px;
+    height: 28px; }
+    .oui-icon-button__medium .oui-icon {
+      width: 16px;
+      height: 16px; }
+  .oui-icon-button__large {
+    width: 32px;
+    height: 32px; }
+    .oui-icon-button__large .oui-icon {
+      width: 16px;
+      height: 16px; }
+
 .text-input,
 .oui-text-input {
   transition: border-color 0.3s;

@@ -37,3 +37,5 @@ exports.aquaDark = 'hsla(189, 100%, 32%, 1)';
 exports.blueLight = 'hsla(204, 100%, 72%, 1)';
 exports.blueBase = 'hsla(207, 90%, 54%, 1)';
 exports.blueDark = 'hsla(207, 100%, 38%, 1)';
+exports.iconSmall = '12px';
+exports.iconLarge = '16px';

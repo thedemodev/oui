@@ -37,3 +37,5 @@ export var aquaDark = 'hsla(189, 100%, 32%, 1)';
 export var blueLight = 'hsla(204, 100%, 72%, 1)';
 export var blueBase = 'hsla(207, 90%, 54%, 1)';
 export var blueDark = 'hsla(207, 100%, 38%, 1)';
+export var iconSmall = '12px';
+export var iconLarge = '16px';

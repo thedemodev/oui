@@ -56,12 +56,7 @@
 }
 
 /// Icon alignment fixes
-/// @description Fix for icons inside buttons with text and icons inside tabs.
-
-.#{$namespace}button .#{$namespace}icon,
-.oui-button:not(.oui-button--unstyled) .oui-icon {
-  vertical-align: sub;
-}
+/// @description Fix for icons inside tabs.
 
 .#{$namespace}tabs-nav__item .#{$namespace}icon,
 .#{$namespace}tabs-nav__item .oui-icon {

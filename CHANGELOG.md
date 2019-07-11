@@ -6,9 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Add hover style for button underline arrow ([#1188](https://github.com/optimizely/oui/pull/1188))
+- [Feature] Add **ButtonIcon** component for square buttons with an icon ([#1184](https://github.com/optimizely/oui/pull/1184))
 
 ## 44.1.1 - 2019-07-08
-- [Patch] Add `addOnBlur` and `addOnPaste` props to the `TokensInput` component ([#1185](https://github.com/optimizely/oui/pull/1185))
+- [Patch] Add `addOnBlur` and `addOnPaste` props to the **TokensInput** component ([#1185](https://github.com/optimizely/oui/pull/1185))
 
 ## 44.1.0 - 2019-07-08
 - [Feature] Introduce render props option for `onDatesChange` access in **DateRangePicker** ([#1186](https://github.com/optimizely/oui/pull/1186))
@@ -25,7 +26,6 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Remove **csswhat** data ([#1178](https://github.com/optimizely/oui/pull/1178))
 
 ## 43.1.1 - 2019-06-21
-- [Patch] Remove csswhat data ([#1178](https://github.com/optimizely/oui/pull/1178))
 - [Feature] Add `onInputChange`, `onInputBlur`, and `onInputFocus` handlers to the **TokenInput** component [#1175](https://github.com/optimizely/oui/pull/1175).
 
 ## 43.1.0 - 2019-06-19
