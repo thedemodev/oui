@@ -442,6 +442,16 @@ stories.add('Default', () => {
         fluid={ boolean('fluid', true) }
         pushRowsTop={ true }>
         <Row
+          border={ 'all' }
+          paddedContent={ 'around' }>
+          <Col>
+            <h6>URL Match</h6>
+          </Col>
+          <Col small={ 'auto' }>
+            <h6>x</h6>
+          </Col>
+        </Row>
+        <Row
           border={ 'all' }>
           <Col paddedContent={ 'around' }>
             <Row>
