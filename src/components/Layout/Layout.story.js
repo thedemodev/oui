@@ -442,7 +442,7 @@ stories.add('Default', () => {
         fluid={ boolean('fluid', true) }
         pushRowsTop={ true }>
         <Row>
-          <Col small={ 'fitContent' }>URL</Col>
+          <Col small={ 'auto' }>URL</Col>
           <Col small={ 'fitContent' } paddedContent={ 'sides' }>
             <SelectDropdown
               items={ items }
