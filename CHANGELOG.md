@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add **CodeDiff** component ([#1191](https://github.com/optimizely/oui/pull/1191))
 - [Patch] Add hover style for button underline arrow ([#1188](https://github.com/optimizely/oui/pull/1188))
 - [Feature] Add **ButtonIcon** component for square buttons with an icon ([#1184](https://github.com/optimizely/oui/pull/1184))
 
