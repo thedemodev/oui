@@ -19,6 +19,7 @@
     "react-dnd": "^7.0.2",
     "react-dnd-html5-backend": "^7.0.2",
     "react-dnd-test-backend": "^7.0.2",
+    "react-gh-like-diff": "^1.0.7",
     "react-immutable-proptypes": "^2.1.0",
     "react-oui-icons": "^2.2.0",
     "react-outside-click-handler": "^1.2.3",

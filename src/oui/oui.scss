@@ -12,6 +12,7 @@ $include-fonts:(
 );
 
 @import 'library/react-dates/20.1.0/index';
+@import 'library/react-gh-like-diff/1.0.7/index';
 
 /// OUI functions
 @import 'partials/sass/functions';
