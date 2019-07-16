@@ -6,6 +6,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.2.1 - 2019-07-16
+- [Chore] Upgrade react-oui-icons to v2.6.1. (#1193)
+
 ## 44.2.0 - 2019-07-12
 - [Feature] Add **CodeDiff** component ([#1191](https://github.com/optimizely/oui/pull/1191))
 - [Patch] Add hover style for button underline arrow ([#1188](https://github.com/optimizely/oui/pull/1188))
