@@ -46,8 +46,6 @@ See more how this was implemented in [\`FilterPicker.story.js\`](https://github.
 /* eslint-enable max-len */
 
 storiesOf('FilterPicker', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withInfo(infoAddonConfig))
   .addDecorator(story => (
     <div id="root-preview">
       { story() }
