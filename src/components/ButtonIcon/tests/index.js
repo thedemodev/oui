@@ -35,6 +35,12 @@ describe('ButtonIcon component', () => {
     );
     expect(component.find('.oui-button--danger').length).toBe(1);
   });
+  it('should fill the icon when iconFill is supplied', () => {
+    const component = mount(
+      <ButtonIcon iconName="add" iconFill="#abcabc"/>
+    );
+    expect(component.find('.oui-icon').getDOMNode().attributes.getNamedItem('style').value).toContain('fill: #abcabc');
+  });
   it('should call function that is passed in as `onClick` after click', () => {
     const onClickSpy = jest.fn();
     const component = mount(
