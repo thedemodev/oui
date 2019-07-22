@@ -19,10 +19,6 @@ const verticalAlignOpts = {
   'bottom': 'bottom',
 };
 
-const ClosePopoverButton = (props, context) => {
-  return <Button onClick={ context.hideOverlay }>Close Popopver</Button>;
-};
-
 const stories = storiesOf('OverlayWrapper', module);
 stories
   .addDecorator(withKnobs)
@@ -60,7 +56,6 @@ stories
         isConstrainedToScreen={ true }
         overlay={ <Popover title="Lorem ipsum dolor sit amet">
           <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
-          <ClosePopoverButton />
         </Popover> }
         shouldHideOnClick={ true }
         verticalAttachment="middle"
@@ -73,17 +68,74 @@ stories
   }))
   .add('Open on hover', (() => {
     return (
-      <OverlayWrapper
-        behavior="hover"
-        horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
-        overlay={ <Popover title="Lorem ipsum dolor sit amet">
-          <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
-        </Popover> }
-        verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
-        <Button width="default">
-          Open Popover
-        </Button>
-      </OverlayWrapper>
+      <div>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+        <OverlayWrapper
+          behavior="hover"
+          horizontalAttachment={ select('horizontalAttachment', alignOpts, 'center') }
+          overlay={ <Popover title="Lorem ipsum dolor sit amet">
+            <p>Ipsa officiis bad-news minus earum a aperiam! Aperiam reiciendis vitae nihil libero et, hic!</p>
+          </Popover> }
+          verticalAttachment={ select('verticalAttachment', verticalAlignOpts, 'top') } >
+          <Button width="default">
+            Open Popover
+          </Button>
+        </OverlayWrapper>
+      </div>
     );
   }))
 
