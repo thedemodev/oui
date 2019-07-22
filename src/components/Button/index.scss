@@ -206,7 +206,7 @@
   }
 
   &--plain {
-    &:focus {
+    &:focus, &:hover {
       border: 1px solid var(--light-blue-25);
     }
   }

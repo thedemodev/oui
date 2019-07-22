@@ -4,6 +4,7 @@ import Icon from 'react-oui-icons';
 import classNames from 'classnames';
 
 const ButtonIcon = ({
+  iconFill,
   iconName,
   isDisabled,
   onClick,
@@ -28,12 +29,16 @@ const ButtonIcon = ({
       disabled={ isDisabled }
       onClick={ handleOnClick }
       title={ title }>
-      <Icon name={ iconName } size={ size } />
+      <Icon name={ iconName } size={ size } fill={ iconFill }/>
     </button>
   );
 };
 
 ButtonIcon.propTypes = {
+  /**
+   *  Color to use for the fill of the icon
+   */
+  iconFill: PropTypes.string,
   /**
    *  Name of the icon to use
    */
