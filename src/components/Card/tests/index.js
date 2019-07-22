@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('components/Card', () => {
   const title = 'Hello world card';
-  const body = '<span>Basic content inside this card</span>';
+  const body = 'Basic content inside this card';
   const test = 'foo';
   const mockFunction = jest.fn();
 
@@ -18,7 +18,7 @@ describe('components/Card', () => {
     expect(component.find('[data-test-section="foo-title"]').text()).toBe(title);
   });
 
-  it('should render element passed in as children', () => {
+  it('should render text passed in as children', () => {
     const component = shallow(
       <Card title={ title } testSection={ test }>
         { body }
@@ -26,6 +26,18 @@ describe('components/Card', () => {
     );
 
     expect(component.find('[data-test-section="foo-body"]').text()).toBe(body);
+  });
+
+  it('should render element passed in as children', () => {
+    const component = shallow(
+      <Card title={ title } testSection={ test }>
+        <span data-test-section="foo-body-inner">
+          { body }
+        </span>
+      </Card>
+    );
+
+    expect(component.exists('[[data-test-section="foo-body-inner"]]')).toBe(true);
   });
 
   it('should not render dismiss button by default', () => {

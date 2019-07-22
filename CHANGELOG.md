@@ -6,6 +6,8 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+- [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
+
 ## 44.2.1 - 2019-07-16
 - [Chore] Upgrade react-oui-icons to v2.6.1. (#1193)
 
