@@ -439,11 +439,10 @@ stories.add('Default', () => {
       <Container
         outlineDebug={ boolean('outlineDebug', true) }
         paddedContent={ 'around' }
-        fluid={ boolean('fluid', true) }
-        pushRowsTop={ true }>
+        fluid={ boolean('fluid', true) }>
         <Row
           border={ 'all' }
-          paddedContent={ 'around' }>
+          paddedContent={ 'ends' }>
           <Col>
             <h6>URL Match</h6>
           </Col>
@@ -452,8 +451,12 @@ stories.add('Default', () => {
           </Col>
         </Row>
         <Row
-          border={ 'all' }>
-          <Col paddedContent={ 'around' }>
+          border={ 'all' }
+          paddedContent={ 'ends' }>
+          <Container
+            pushRowsTop={ true }
+            paddedContent={ 'none' }
+            fluid={ boolean('fluid', true) }>
             <Row>
               <Col small={ 'auto' }>URL</Col>
               <Col small={ 'fitContent' }>
@@ -464,9 +467,8 @@ stories.add('Default', () => {
               </Col>
               <Col small={ 'auto' }>these <strong>URLs</strong>:</Col>
             </Row>
-
-            <Row pullRowPadding={ true }>
-              <Col>
+            <Row>
+              <Col small={ 'fillSpace' }>
                 <Input
                   id="input-01"
                   type="text"
@@ -496,9 +498,8 @@ stories.add('Default', () => {
                 />
               </Col>
             </Row>
-
-            <Row pullRowPadding={ true }>
-              <Col>
+            <Row>
+              <Col small={ 'fillSpace' }>
                 <Input
                   id="input-01"
                   type="text"
@@ -528,7 +529,7 @@ stories.add('Default', () => {
                 />
               </Col>
             </Row>
-          </Col>
+          </Container>
         </Row>
       </Container>
     );
