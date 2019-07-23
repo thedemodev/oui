@@ -8,9 +8,15 @@ import Row from './Row';
 import Container from './Container';
 import Card from '../Card';
 import Button from '../Button';
+import ButtonIcon from '../ButtonIcon';
 import Code from '../Code';
+import SelectDropdown from '../SelectDropdown';
+import Input from '../Input';
+import ButtonRow from '../ButtonRow';
+import Icon from 'react-oui-icons';
 
 import { addParameters } from '@storybook/react';
+
 const viewports = {
   iphone5: {
     name: 'Small Phone',
@@ -38,6 +44,17 @@ const viewports = {
   },
 };
 addParameters({ viewport: { viewports: viewports } });
+
+const items = [
+  {
+    label: 'does match',
+    value: 'does',
+  },
+  {
+    label: 'Simple match',
+    value: 'simple',
+  },
+];
 
 const paddingOptions = {
   none: 'none',
@@ -404,6 +421,114 @@ stories.add('Default', () => {
           <Col small={ number('small', 6) }>middle column (small=6)
             <br/>Adjust this size via knob "small"</Col>
           <Col>right column</Col>
+        </Row>
+      </Container>
+    );
+  })
+  .add('Rows example: URL Match', () => {
+    return (
+      <Container
+        outlineDebug={ boolean('outlineDebug', true) }
+        paddedContent={ 'around' }
+        fluid={ boolean('fluid', true) }>
+        <Row
+          border={ 'all' }
+          paddedContent={ 'ends' }>
+          <Col>
+            <h6>URL Match</h6>
+          </Col>
+          <Col small={ 'auto' }>
+            <Icon name='close' />
+          </Col>
+        </Row>
+        <Row
+          border={ 'all' }
+          paddedContent={ 'ends' }>
+          <Container
+            pushRowsTop={ true }
+            paddedContent={ 'none' }
+            fluid={ boolean('fluid', true) }>
+            <Row>
+              <Col small={ 'auto' }>URL</Col>
+              <Col small={ 'fitContent' }>
+                <SelectDropdown
+                  items={ items }
+                  value={ 'does' }
+                />
+              </Col>
+              <Col small={ 'auto' }>these <strong>URLs</strong>:</Col>
+            </Row>
+            <Row>
+              <Col small={ 'fillSpace' }>
+                <Input
+                  id="input-01"
+                  type="text"
+                />
+              </Col>
+              <Col small={ 'fitContent' }>
+                <SelectDropdown
+                  items={ items }
+                  value={ 'simple' }
+                  width={ '200px' }
+                />
+              </Col>
+              <Col small={ 'fitContent' } paddedContent={ 'sides' }>
+                <ButtonRow
+                  centerGroup={ [
+                    <ButtonIcon
+                      key={ 1 }
+                      iconName="add"
+                      isDisabled={ false }
+                      size="large"
+                      title="Add Row"
+                    />,
+                    <ButtonIcon
+                      key={ 2 }
+                      iconName="close"
+                      isDisabled={ false }
+                      size="large"
+                      title="Remove Row"
+                    />,
+                  ] }
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col small={ 'fillSpace' }>
+                <Input
+                  id="input-01"
+                  type="text"
+                />
+              </Col>
+              <Col small={ 'fitContent' }>
+                <SelectDropdown
+                  items={ items }
+                  value={ 'simple' }
+                  width={ '200px' }
+                />
+              </Col>
+              <Col small={ 'fitContent' } paddedContent={ 'sides' }>
+                <ButtonRow
+                  centerGroup={ [
+                    <ButtonIcon
+                      key={ 3 }
+                      iconName="add"
+                      isDisabled={ false }
+                      size="large"
+                      title="Add Row"
+                    />,
+                    <ButtonIcon
+                      key={ 4 }
+                      iconName="close"
+                      isDisabled={ false }
+                      size="large"
+                      title="Remove Row"
+                    />,
+                  ] }
+                />
+              </Col>
+            </Row>
+          </Container>
         </Row>
       </Container>
     );

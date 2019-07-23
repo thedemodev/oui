@@ -3122,29 +3122,18 @@ li > ol {
       margin-right: 0; }
 
 .padded-content--around.row,
-.padded-content--around .row,
-.padded-content--around .col,
-div[class*="col"].padded-content--around,
-.padded-content--around .row > div[class*="col"] {
+div[class*="col"].padded-content--around {
   padding: 15px; }
 
 .padded-content--sides.row,
-.padded-content--sides .row,
-.padded-content--sides .col,
-div[class*="col"].padded-content--sides,
-.padded-content--sides .row > div[class*="col"] {
+div[class*="col"].padded-content--sides {
   padding: 0 15px; }
 
 .padded-content--ends.row,
-.padded-content--ends .row,
-.padded-content--ends .col,
-div[class*="col"].padded-content--ends,
-.padded-content--ends .row > div[class*="col"] {
+div[class*="col"].padded-content--ends {
   padding: 15px 0; }
 
 .padded-content--remove.row,
-.padded-content--remove .row,
-.padded-content--remove .col,
 div[class*="col"].padded-content--remove,
 .padded-content--remove .row > div[class*="col"] {
   padding: 0; }
