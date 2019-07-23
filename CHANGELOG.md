@@ -6,11 +6,12 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Add new **Layout** component storybook example for row add/remove ([#1183](https://github.com/optimizely/oui/pull/1183))
+- [Chore] Export **Fieldset** component for now, full docs and stories to come. ([#1198](https://github.com/optimizely/oui/pull/1198))
 
 - [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
 
 ## 44.2.1 - 2019-07-16
-- [Chore] Upgrade react-oui-icons to v2.6.1. (#1193)
+- [Chore] Upgrade react-oui-icons to v2.6.1. ([#1193](https://github.com/optimizely/oui/pull/1193))
 
 ## 44.2.0 - 2019-07-12
 - [Feature] Add **CodeDiff** component ([#1191](https://github.com/optimizely/oui/pull/1191))
