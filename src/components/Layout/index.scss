@@ -52,12 +52,10 @@ div[class*="col"].padded-content--remove,
   margin-right: auto;
   margin-left: auto;
 }
-.container--pull .row .col:first-child,
-.container--pull.row .col:first-child {
+.container--pull .row .col:first-child {
   padding-left: 0;
 }
-.container--pull .row .col:last-child,
-.container--pull.row .col:last-child {
+.container--pull .row .col:last-child {
   padding-right: 0;
 }
 
