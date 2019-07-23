@@ -71,6 +71,12 @@ stories
          <h6>H6 Experiments</h6>
       </div>
 
+      <div className="push--ends">
+        <p className="color--good-news">This is using color--good-news</p>
+        <p className="color--bad-news">This is using color--bad-news</p>
+        <p className="color--warning">This is using color--warning</p>
+      </div>
+
       <div className="oui--swatches push--ends">
          <span className="width--50 height--50 display--inline-block background--red"></span>
          <span className="width--50 height--50 display--inline-block background--gold"></span>
