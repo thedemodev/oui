@@ -54,16 +54,6 @@ const items = [
     label: 'Simple match',
     value: 'simple',
   },
-  {
-    label: 'Bear',
-    description: 'Likes honey',
-    value: 'bear',
-  },
-  {
-    label: 'Squirrel',
-    description: 'Smarter than it looks',
-    value: 'squirrel',
-  },
 ];
 
 const paddingOptions = {
