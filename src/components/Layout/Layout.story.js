@@ -480,14 +480,14 @@ stories.add('Default', () => {
                       iconName="add"
                       isDisabled={ false }
                       size="large"
-                      title="Close Dialog"
+                      title="Add Row"
                     />,
                     <ButtonIcon
                       key={ 2 }
                       iconName="close"
                       isDisabled={ false }
                       size="large"
-                      title="Close Dialog"
+                      title="Remove Row"
                     />,
                   ] }
                 />
@@ -515,14 +515,14 @@ stories.add('Default', () => {
                       iconName="add"
                       isDisabled={ false }
                       size="large"
-                      title="Close Dialog"
+                      title="Add Row"
                     />,
                     <ButtonIcon
                       key={ 4 }
                       iconName="close"
                       isDisabled={ false }
                       size="large"
-                      title="Close Dialog"
+                      title="Remove Row"
                     />,
                   ] }
                 />
