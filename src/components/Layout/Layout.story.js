@@ -8,6 +8,7 @@ import Row from './Row';
 import Container from './Container';
 import Card from '../Card';
 import Button from '../Button';
+import ButtonIcon from '../ButtonIcon';
 import Code from '../Code';
 import SelectDropdown from '../SelectDropdown';
 import Input from '../Input';
@@ -447,7 +448,7 @@ stories.add('Default', () => {
             <h6>URL Match</h6>
           </Col>
           <Col small={ 'auto' }>
-            <h6>x</h6>
+            <Icon name='close' />
           </Col>
         </Row>
         <Row
@@ -484,16 +485,20 @@ stories.add('Default', () => {
               <Col small={ 'fitContent' } paddedContent={ 'sides' }>
                 <ButtonRow
                   centerGroup={ [
-                    <Button
+                    <ButtonIcon
                       key={ 1 }
-                      ariaLabel="Add another item">
-                      <Icon name='add' />
-                    </Button>,
-                    <Button
+                      iconName="add"
+                      isDisabled={ false }
+                      size="large"
+                      title="Close Dialog"
+                    />,
+                    <ButtonIcon
                       key={ 2 }
-                      ariaLabel="Remove this item">
-                      <Icon name='close' />
-                    </Button>,
+                      iconName="close"
+                      isDisabled={ false }
+                      size="large"
+                      title="Close Dialog"
+                    />,
                   ] }
                 />
               </Col>
@@ -515,16 +520,20 @@ stories.add('Default', () => {
               <Col small={ 'fitContent' } paddedContent={ 'sides' }>
                 <ButtonRow
                   centerGroup={ [
-                    <Button
-                      key={ 1 }
-                      ariaLabel="Add another item">
-                      <Icon name='add' />
-                    </Button>,
-                    <Button
-                      key={ 2 }
-                      ariaLabel="Remove this item">
-                      <Icon name='close' />
-                    </Button>,
+                    <ButtonIcon
+                      key={ 3 }
+                      iconName="add"
+                      isDisabled={ false }
+                      size="large"
+                      title="Close Dialog"
+                    />,
+                    <ButtonIcon
+                      key={ 4 }
+                      iconName="close"
+                      isDisabled={ false }
+                      size="large"
+                      title="Close Dialog"
+                    />,
                   ] }
                 />
               </Col>
