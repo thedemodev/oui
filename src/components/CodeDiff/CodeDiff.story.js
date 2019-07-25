@@ -21,7 +21,7 @@ const NEWTEXT = data.newFile;
 const OLDTEXT = data.oldFile;
 
 stories
-  .add('Default test', (() => {
+  .add('Default', (() => {
     return (
       <CodeDiff
         fileName={ text('fileName', 'fileName.md') }
@@ -33,7 +33,7 @@ stories
       />
     );
   }))
-  .add('Simple test', (() => {
+  .add('Minimal', (() => {
     return (
       <CodeDiff
         fileName={ text('fileName', 'fileName.md') }
@@ -44,7 +44,7 @@ stories
       />
     );
   }))
-  .add('Tables nested', (() => {
+  .add('Nested Inside Table', (() => {
     return (
       <Table density="loose" tableLayoutAlgorithm="fixed">
         <Table.THead>
@@ -64,11 +64,46 @@ stories
               />
             </Table.TD>
           </Table.TR>
+          <Table.TR noHover={ true }>
+            <Table.TD>
+              <Table density="loose" tableLayoutAlgorithm="fixed">
+                <Table.THead>
+                  <Table.TR>
+                    <Table.TH> Experiment </Table.TH>
+                    <Table.TH> Conversion Rate </Table.TH>
+                    <Table.TH> Status </Table.TH>
+                  </Table.TR>
+                </Table.THead>
+                <Table.TBody>
+                  <Table.TR>
+                    <Table.TD> Header CTA </Table.TD>
+                    <Table.TD width="20%"> 12% </Table.TD>
+                    <Table.TD> Paused </Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD> Shorter Contact Form </Table.TD>
+                    <Table.TD> 4% </Table.TD>
+                    <Table.TD> Draft </Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD> Larger search bar </Table.TD>
+                    <Table.TD> 6.7% </Table.TD>
+                    <Table.TD> Paused </Table.TD>
+                  </Table.TR>
+                  <Table.TR>
+                    <Table.TD> Center aligned headline </Table.TD>
+                    <Table.TD> 9.3% </Table.TD>
+                    <Table.TD> Running </Table.TD>
+                  </Table.TR>
+                </Table.TBody>
+              </Table>
+            </Table.TD>
+          </Table.TR>
         </Table.TBody>
       </Table>
     );
   }))
-  .add('New filename', (() => {
+  .add('New Filename', (() => {
     return (
       <CodeDiff
         fileName={ text('fileName', 'fileName.md') }
@@ -80,7 +115,7 @@ stories
       />
     );
   }))
-  .add('Style options', (() => {
+  .add('Style Options', (() => {
     return (
       <div>
         <CodeDiff
@@ -102,7 +137,7 @@ stories
       </div>
     );
   }))
-  .add('No differences', (() => {
+  .add('No Differences', (() => {
     return (
       <CodeDiff
         fileName={ text('fileName', 'fileName.md') }
