@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import data from './data.json';
+import Table from '../Table/index.js';
 
 import CodeDiff from './index.js';
 import 'react-gh-like-diff/lib/diff2html.min.css';
@@ -41,6 +42,30 @@ stories
         hideTitle={ boolean('hideTitle', false) }
         hideInfo={ boolean('hideInfo', false) }
       />
+    );
+  }))
+  .add('Tables nested', (() => {
+    return (
+      <Table density="loose" tableLayoutAlgorithm="fixed">
+        <Table.THead>
+          <Table.TR>
+            <Table.TH>Before/After</Table.TH>
+          </Table.TR>
+        </Table.THead>
+        <Table.TBody>
+          <Table.TR>
+            <Table.TD>
+              <CodeDiff
+                fileName={ text('fileName', 'fileName.md') }
+                oldText={ 'A test with old things' }
+                newText={ 'A test with new things added and changed.' }
+                hideTitle={ boolean('hideTitle', false) }
+                hideInfo={ boolean('hideInfo', false) }
+              />
+            </Table.TD>
+          </Table.TR>
+        </Table.TBody>
+      </Table>
     );
   }))
   .add('New filename', (() => {
