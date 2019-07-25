@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/RangeSlider should render component same as snapshot 1`] = `
+exports[`components/RangeSlider default fill color should render component same as snapshot 1`] = `
 <div
   className="oui-rangeslider"
   data-test-section="myTestSection"
@@ -28,6 +28,18 @@ exports[`components/RangeSlider should render component same as snapshot 1`] = `
       <div
         className="range-display"
       >
+        <svg
+          height="256"
+          preserveAspectRatio="none"
+          viewBox="0 0 256 256"
+          width="256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 256h256V0z"
+            fill="hsla(227, 100%, 50%, 1)"
+          />
+        </svg>
         <div
           className="range-display range-display-overlay"
           style={
@@ -71,6 +83,7 @@ exports[`components/RangeSlider should render component same as snapshot 1`] = `
       <input
         className="hard position--relative width--1-1"
         data-traffic-group="1"
+        disabled={false}
         max="100"
         min="0"
         onChange={[Function]}

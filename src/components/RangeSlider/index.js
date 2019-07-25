@@ -2,8 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 
+import { FILL_COLOR_MAP } from './constants';
+
+const DEFAULT_FILL_COLOR_NAME = 'default';
+
 const RangeSlider = (props) => {
   const {
+    fillColorName,
     value,
     onChange,
     isDisabled,
@@ -14,6 +19,10 @@ const RangeSlider = (props) => {
     'oui-rangeslider--disabled': isDisabled,
   });
 
+  // ensure valid fillColor name (in the case that propType errors are ignored)
+  const validFillColorName = Object.keys(FILL_COLOR_MAP).includes(fillColorName) ? fillColorName : DEFAULT_FILL_COLOR_NAME;
+  const fillColor = FILL_COLOR_MAP[validFillColorName];
+
   return (
     <div className={ rangeClasses } data-test-section={ props.testSection }>
       <div className="oui-grid">
@@ -23,6 +32,14 @@ const RangeSlider = (props) => {
             <label className="oui-label muted flush">100%</label>
           </div>
           <div className="range-display">
+            <svg
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              width="256"
+              height="256"
+              viewBox="0 0 256 256">
+              <path fill={ fillColor } d="M0 256h256V0z"/>
+            </svg>
             <div
               className="range-display range-display-overlay"
               style={{ left: value + '%' }}>
@@ -57,6 +74,8 @@ const RangeSlider = (props) => {
 };
 
 RangeSlider.propTypes = {
+  /** Custom color for slider **/
+  fillColorName: PropTypes.oneOf(Object.keys(FILL_COLOR_MAP)),
   /** Whether it is disabled, will render as greyscale if so **/
   isDisabled: PropTypes.bool,
   /** onChange function */
@@ -65,6 +84,14 @@ RangeSlider.propTypes = {
   testSection: PropTypes.string,
   /** The value */
   value: PropTypes.number,
+};
+
+RangeSlider.defaultProps = {
+  fillColorName: DEFAULT_FILL_COLOR_NAME,
+  isDisabled: false,
+  onChange: undefined,
+  testSection: undefined,
+  value: undefined,
 };
 
 export default RangeSlider;

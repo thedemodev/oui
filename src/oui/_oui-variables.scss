@@ -368,7 +368,7 @@ $token: (
 
 $switch: (
   background-color: (
-    on                       : map-fetch($brand-color, light-blue-75),
+    on                       : $brand-blue-dark,
     off                      : map-fetch($brand-color, grey-50)
   )
 );
@@ -377,7 +377,7 @@ $switch: (
 /// Rangeslider
 
 $rangeslider: (
-  background-color           : map-fetch($brand-color, light-blue-75)
+  background-color           : $brand-blue-dark
 );
 
 
