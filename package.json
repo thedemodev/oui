@@ -123,7 +123,7 @@
     "postversion:update-devel": "git checkout devel && git pull && git merge master && git push origin devel && git checkout master",
     "storybook": "yarn generate-tokens:watch & yarn csswhat:watch & start-storybook -p 9009",
     "build-storybook": "yarn generate-tokens && yarn csswhat && build-storybook -c .storybook -o ./storybook",
-    "build-styles": "./node_modules/.bin/webpack",
+    "build-styles": "yarn csswhat && ./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack --watch",
     "csswhat": "yarn csswhat-css && yarn csswhat-json",
     "csswhat-css": "node-sass-chokidar src/oui/oui.scss -o ./data/csswhat",
