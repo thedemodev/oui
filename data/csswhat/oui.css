@@ -5494,12 +5494,14 @@ code {
 
 .oui-rangeslider .range-display {
   height: 35px;
-  background-image: url('data:image/svg+xml;utf-8,<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="%234069FF" d="M0 256h256V0z"/></svg>');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   position: absolute;
   left: 12px;
   right: 11px; }
+
+.oui-rangeslider .range-display svg {
+  display: inline-flex;
+  width: 100%;
+  height: 100%; }
 
 .oui-rangeslider.oui-rangeslider--disabled .range-display {
   filter: grayscale(1) opacity(0.3); }
@@ -5510,6 +5512,7 @@ code {
 .oui-rangeslider .range-display.range-display-overlay {
   background-color: white;
   background-image: none;
+  display: inline-flex;
   left: 50%;
   opacity: 0.9;
   right: 0; }
@@ -5909,7 +5912,7 @@ code {
   transition: all 0.1s ease-in-out; }
 
 .oui-switch:checked + label {
-  background-color: #4069FF; }
+  background-color: #0037ff; }
 
 .oui-switch:checked + label:before {
   color: #fff;
@@ -6981,15 +6984,15 @@ body:target *[data-oui-component],
 
 
 .color--good-news {
-  color: #29a65e !important; }
+  color: #087d23 !important; }
 
 
 .color--warning {
-  color: #FFD233 !important; }
+  color: #c97b1d !important; }
 
 
 .color--bad-news {
-  color: #FF5B5B !important; }
+  color: #b8000c !important; }
 
 
 .color--charcoal {
