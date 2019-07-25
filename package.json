@@ -93,7 +93,7 @@
     "regenerator-runtime": "^0.11.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "7.1.0",
-    "scribesass-parser": "optimizely/scribesass-parser#9639a63cb8883c5341cd285af468c5949a06f66f",
+    "scribesass-parser": "optimizely/scribesass-parser#0.0.3",
     "storybook-addon-smart-knobs": "^4.1.2",
     "style-loader": "^0.13.1",
     "svg-inline-loader": "^0.7.1",
