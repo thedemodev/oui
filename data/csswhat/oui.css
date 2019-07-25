@@ -2838,6 +2838,14 @@ li > ol {
   .oui-table td {
     vertical-align: top; }
   
+  .table > tbody > tr:hover > td:not(.hover--disabled),
+  .table > tr:hover > td:not(.hover--disabled),
+  .oui-disclose-table > tbody > tr:hover > td:not(.hover--disabled),
+  .oui-disclose-table > tr:hover > td:not(.hover--disabled),
+  .oui-table > tbody > tr:hover > td:not(.hover--disabled),
+  .oui-table > tr:hover > td:not(.hover--disabled) {
+    background-color: var(--grey-25); }
+  
   .table [rowspan],
   .oui-disclose-table [rowspan],
   .oui-table [rowspan] {
@@ -2922,32 +2930,32 @@ li > ol {
   .oui-table--hover > tbody > tr > td:last-child {
     padding-right: 10px; }
   
-  .table--loose th,
-  .table--loose td,
-  .oui-table--loose th,
-  .oui-table--loose td {
+  .table--loose > th,
+  .table--loose > td,
+  .oui-table--loose > th,
+  .oui-table--loose > td {
     padding-left: 10px;
     padding-right: 10px; }
     
-    .table--loose th:first-child,
-    .table--loose td:first-child,
-    .oui-table--loose th:first-child,
-    .oui-table--loose td:first-child {
+    .table--loose > th:first-child,
+    .table--loose > td:first-child,
+    .oui-table--loose > th:first-child,
+    .oui-table--loose > td:first-child {
       padding-left: 20px; }
     
-    .table--loose th:last-child,
-    .table--loose td:last-child,
-    .oui-table--loose th:last-child,
-    .oui-table--loose td:last-child {
+    .table--loose > th:last-child,
+    .table--loose > td:last-child,
+    .oui-table--loose > th:last-child,
+    .oui-table--loose > td:last-child {
       padding-right: 20px; }
   
-  .table--loose th,
-  .oui-table--loose th {
+  .table--loose > th,
+  .oui-table--loose > th {
     padding-top: 5px;
     padding-bottom: 5px; }
   
-  .table--loose td,
-  .oui-table--loose td {
+  .table--loose > td,
+  .oui-table--loose > td {
     padding-top: 10px;
     padding-bottom: 10px; }
   
