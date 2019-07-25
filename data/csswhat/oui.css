@@ -2838,12 +2838,12 @@ li > ol {
   .oui-table td {
     vertical-align: top; }
   
-  .table > tbody > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  .table > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  .oui-disclose-table > tbody > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  .oui-disclose-table > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  .oui-table > tbody > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  .oui-table > tr:hover:not(.hover--disabled) > td:not(.hover--disabled) {
+  .table > tbody > tr:hover:not(.hover--disabled) > td,
+  .table > tr:hover:not(.hover--disabled) > td,
+  .oui-disclose-table > tbody > tr:hover:not(.hover--disabled) > td,
+  .oui-disclose-table > tr:hover:not(.hover--disabled) > td,
+  .oui-table > tbody > tr:hover:not(.hover--disabled) > td,
+  .oui-table > tr:hover:not(.hover--disabled) > td {
     background-color: var(--grey-25); }
   
   .table [rowspan],

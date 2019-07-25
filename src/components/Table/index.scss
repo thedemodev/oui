@@ -201,8 +201,8 @@
     vertical-align: top;
   }
 
-  & > tbody > tr:hover:not(.hover--disabled) > td:not(.hover--disabled),
-  & > tr:hover:not(.hover--disabled) > td:not(.hover--disabled) {
+  & > tbody > tr:hover:not(.hover--disabled) > td,
+  & > tr:hover:not(.hover--disabled) > td {
     background-color: var(--grey-25);
   }
 
