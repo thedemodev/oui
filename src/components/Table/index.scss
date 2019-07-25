@@ -201,6 +201,13 @@
     vertical-align: top;
   }
 
+  & > tbody > tr:hover > td:not(.hover--disabled),
+  & > tr:hover > td:not(.hover--disabled) {
+    background-color: var(--grey-25);
+  }
+
+
+
   // Cell Alignments
   // Defaults for cell alignments with one helper class for numbers.
 
@@ -291,8 +298,8 @@
   }
 
   &--loose {
-    th,
-    td {
+    & > th,
+    & > td {
       padding-left: spacer(1);
       padding-right: spacer(1);
 
@@ -305,12 +312,12 @@
       }
     }
 
-    th {
+    & > th {
       padding-top: spacer(0.5);
       padding-bottom: spacer(0.5);
     }
 
-    td {
+    & > td {
       padding-top: spacer(1);
       padding-bottom: spacer(1);
     }
