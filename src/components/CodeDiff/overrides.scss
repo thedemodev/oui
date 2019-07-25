@@ -1,3 +1,13 @@
 .d2h-code-linenumber {
   display: none;
 }
+
+.d2h-wrapper td {
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: unset !important;
+}
+
+.d2h-file-side-diff {
+  overflow-x: auto !important;
+}

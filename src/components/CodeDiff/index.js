@@ -17,6 +17,7 @@ const CodeDiff = ({
     <div
       className={ classNames(
         'oui-codediff',
+        'background--white',
         { 'oui-codediff__hide-info': hideInfo },
         { 'oui-codediff__hide-title': hideTitle }
       ) }>

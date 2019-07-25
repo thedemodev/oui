@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const TR = ({
   isActive,
   noBorder,
+  noHover,
   borderStyle,
   backgroundColor,
   testSection,
@@ -13,6 +14,7 @@ const TR = ({
   let classes = classNames({
     'oui-table-row--active': isActive,
     'no-border': noBorder,
+    'hover--disabled': noHover,
     [`border--${borderStyle}`]: borderStyle,
     [`background--${backgroundColor}`]: backgroundColor,
   });
@@ -36,6 +38,8 @@ TR.propTypes = {
   isActive: PropTypes.bool,
   /** If true, add class to remove border */
   noBorder: PropTypes.bool,
+  /** If true, remove hover on inner TDs */
+  noHover: PropTypes.bool,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
 };
