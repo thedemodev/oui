@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.3.0 - 2019-07-25
 - [Patch] Have CSSWhat run on `yarn build-styles` ([#1203](https://github.com/optimizely/oui/pull/1203))
 - [Patch] Update **Table** style to include hover by default in OUI; Update **CodeDiff** src/components/Table/TR/index.js style to be more resiliant inside a table ([#1202](https://github.com/optimizely/oui/pull/1202))
 - [Patch] Update node version for running tests/builds to v12.4.0 ([#1201](https://github.com/optimizely/oui/pull/1201))
