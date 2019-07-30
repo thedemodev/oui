@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  select,
+} from '@storybook/addon-knobs';
 
 import Table from './index.js';
 import Button from '../Button';
@@ -17,7 +20,14 @@ stories
 
 stories
   .add('Default', (() => (<div>
-    <Table density="loose" tableLayoutAlgorithm="fixed">
+    <Table
+      density={
+        select('density', {
+          'loose': 'loose',
+          'tight': 'tight',
+        }, 'tight')
+      }
+      tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
           <Table.TH> Experiment </Table.TH>
