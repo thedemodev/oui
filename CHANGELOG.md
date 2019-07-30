@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.3.1 - 2019-07-30
 - [Patch] Revert **Table** css styles and add **CodeDiff** css styles ([#1206](https://github.com/optimizely/oui/pull/1206))
 
 ## 44.3.0 - 2019-07-25
