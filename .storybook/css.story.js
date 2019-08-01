@@ -4,6 +4,31 @@ import { storiesOf } from '@storybook/react';
 import Input from '../src/components/Input';
 import css from '../data/csswhat/oui.css.json';
 
+const colorTokens = require('../src/tokens/src/color.json').tokens;
+var tokens = {};
+colorTokens.map(colorToken => (
+  tokens[colorToken.name] = colorToken.hex
+));
+var nearestColor = require('../src/utils/nearestColor').from(tokens);
+
+css.nearestColors = [];
+css.uniqueColors.map(function(c) {
+  if (c.color.length == 7) {
+    var newColor = nearestColor(c.color);
+    newColor.original = c.color;
+    // console.log(newColor);
+    css.nearestColors.push(newColor);
+    // console.log(newColor.value + ' -> ' + newColor.name + ' ('+ Math.round(newColor.distance) +')');
+  }
+});
+css.oneOfAKindColors.map(function(c) {
+  if (c.color.length == 7) {
+    var newColor = nearestColor(c.color);
+    newColor.original = c.color;
+    css.nearestColors.push(newColor);
+  }
+});
+
 // [@dave.rau] This file is a work-in-progress
 
 const searchSelectors = function(e) {
@@ -67,6 +92,22 @@ stories
           <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
+
+      <h2 className="push-quad--top">Nearest Tokens ({ css.nearestColors.length })</h2>
+      <div className="push--ends">
+        <table>
+        {css.nearestColors.map(c => (
+          <tr className="align--center">
+              <td key={ c.value } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: c.original }}></td>
+              <td className="soft--left">{ c.original }</td>
+              <td className="soft--sides"> -> </td>
+              <td className="soft--right">{ c.name }</td>
+              <td key={ c.value } className="width--50 height--50 flex flex--dead-center background--c.color" style={{ backgroundColor: c.value }}> {  } </td>
+            </tr>
+        ))}
+        </table>
+      </div>
+
 
     </div>
 )})
