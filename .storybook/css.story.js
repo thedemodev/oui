@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Input from '../src/components/Input';
 import css from '../data/csswhat/oui.css.json';
 
+const HEX_LENGTH = 7;
 const colorTokens = require('../src/tokens/src/color.json').tokens;
 var tokens = {};
 colorTokens.map(colorToken => (
@@ -13,7 +14,7 @@ var nearestColor = require('nearest-color').from(tokens);
 
 css.nearestColors = [];
 css.uniqueColors.map(function(c) {
-  if (c.color.length == 7) {
+  if (c.color.length == HEX_LENGTH) {
     var newColor = nearestColor(c.color);
     if (newColor.distance > 0) {
       newColor.original = c.color;
@@ -24,7 +25,7 @@ css.uniqueColors.map(function(c) {
   }
 });
 css.oneOfAKindColors.map(function(c) {
-  if (c.color.length == 7) {
+  if (c.color.length == HEX_LENGTH) {
     var newColor = nearestColor(c.color);
     if (newColor.distance > 0) {
       newColor.original = c.color;
