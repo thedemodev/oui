@@ -5621,6 +5621,15 @@ code {
 .search--active .icon {
   display: block; }
 
+.oui-dropdown-group .oui-button--outline {
+  background: white; }
+
+.oui-dropdown-group__activator-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block; }
+
 .oui-sheet {
   position: fixed;
   bottom: 0;
