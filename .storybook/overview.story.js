@@ -5,18 +5,47 @@ import Attention from '../src/components/Attention';
 import Badge from '../src/components/Badge';
 import BlockList from '../src/components/BlockList';
 import Button from '../src/components/Button';
+import ButtonIcon from '../src/components/ButtonIcon';
 import EmptyDashboard from '../src/components/EmptyDashboard';
 import Input from '../src/components/Input';
+import TokensInput from '../src/components/TokensInput';
 import Link from '../src/components/Link';
 import ProgressBar from '../src/components/ProgressBar';
 import ProgressDots from '../src/components/ProgressDots';
 import RangeSlider from '../src/components/RangeSlider';
 import SelectDropdown from '../src/components/SelectDropdown';
 import Spinner from '../src/components/Spinner';
+import Steps from '../src/components/Steps';
 import Switch from '../src/components/Switch';
 import TabNav from '../src/components/TabNav';
 import Table from '../src/components/Table';
 import Token from '../src/components/Token';
+
+const SAMPLE_DATA_WITH_SPACES = [
+  { name: 'errors', style: 'error' },
+  { name: 'primary token', style: 'primary' },
+  { name: 'secondary', style: 'secondary' },
+  { name: 'tertiary', style: 'tertiary' },
+];
+
+const items = [
+  {
+    label: 'Cat',
+    value: 'cat',
+  },
+  {
+    label: 'Dog',
+    value: 'dog',
+  },
+  {
+    label: 'Bear',
+    value: 'bear',
+  },
+  {
+    label: 'Squirrel',
+    value: 'squirrel',
+  },
+];
 
 const stories = storiesOf('Overview/', module);
 stories
@@ -71,12 +100,6 @@ stories
          <h6>H6 Experiments</h6>
       </div>
 
-      <div className="push--ends">
-        <p className="color--good-news">This is using color--good-news</p>
-        <p className="color--bad-news">This is using color--bad-news</p>
-        <p className="color--warning">This is using color--warning</p>
-      </div>
-
       <div className="oui--swatches push--ends">
          <span className="width--50 height--50 display--inline-block background--red"></span>
          <span className="width--50 height--50 display--inline-block background--gold"></span>
@@ -88,11 +111,80 @@ stories
          <span className="width--50 height--50 display--inline-block background--white-40b"></span>
       </div>
 
+      <div className="push--ends flex">
+        <Button key="1">Button</Button>
+        <Button key="2" style="highlight">Highlight</Button>
+        <Button key="3" style="danger">Danger</Button>
+        <Button key="4" style="danger-outline">Danger Outline</Button>
+        <Button key="5" style="outline">Outline</Button>
+        <Button style="highlight" onClick={''} isLoading loadingText="Loading...">
+          Create Campaign
+        </Button>
+        <Button key="6" style="plain">Plain</Button>
+        <Button key="7" style="toggle">Toggle</Button>
+      </div>
+
+      <div className="push--ends flex">
+        <ButtonIcon
+          iconName="arrow-left"
+          isDisabled={false}
+          onClick={''}
+          title="Previous"
+          size="small"
+        />
+        <ButtonIcon
+          iconName="arrow-right"
+          isDisabled={false}
+          onClick={''}
+          size="small"
+          style="highlight"
+          title="Next"
+        />
+        <ButtonIcon
+          iconName="close"
+          isDisabled={false}
+          onClick={''}
+          size="small"
+          style="outline"
+          title="Close Dialog"
+        />
+        <ButtonIcon
+          isDisabled={false}
+          onClick={''}
+          size="small"
+          style="danger"
+          title="Add row"
+        />
+        <ButtonIcon
+          iconName="minus"
+          isDisabled={false}
+          onClick={''}
+          size="small"
+          style="danger-outline"
+          title="delete row"
+        />
+        <ButtonIcon
+          iconName="ellipsis"
+          isDisabled={false}
+          onClick={''}
+          size="small"
+          style="plain"
+          title="More options"
+        />
+      </div>
+
+      <div className="push--ends">This is&nbsp;
+        <span className="color--good-news">color--good-news</span>,&nbsp;
+        <span className="color--bad-news">color--bad-news</span>,&nbsp;and&nbsp;
+        <span className="color--warning">color--warning</span> text.
+      </div>
+
       <div className="push--ends">
         <Badge color="default">Default</Badge>
-        <Badge color="draft">Draft</Badge>
-        <Badge color="live">Live</Badge>
         <Badge color="primary">Primary</Badge>
+        <Badge color="live">Live</Badge>
+        <Badge color="draft">Draft</Badge>
+        <Badge color="bad-news">Bad news</Badge>
         <Badge color="plain">Plain</Badge>
       </div>
 
@@ -109,14 +201,6 @@ stories
       </div>
 
       <div className="push--ends flex">
-        <Button key="1">Button</Button>
-        <Button key="2" style="highlight">Highlight</Button>
-        <Button key="3" style="danger">Danger</Button>
-        <Button key="4" style="danger-outline">Danger Outline</Button>
-        <Button key="5" style="outline">Outline</Button>
-        <Button key="6" style="plain">Plain</Button>
-        <Button key="7" style="toggle">Toggle</Button>
-
         <SelectDropdown
           items={[
             {label: 'Cat',description: 'A small feline.',value: 'cat'},
@@ -125,7 +209,6 @@ stories
           ]}
           value="dog"
           onChange={ () => {} } />
-
         <Switch checked={ false } />
         <Switch checked={ true } />
       </div>
@@ -146,6 +229,14 @@ stories
           note="A short description or note about this field."
           placeholder="Just a placeholder"
           type="text"
+        />
+      </div>
+
+      <div className="push--ends">
+        <TokensInput
+          onChange={ '' }
+          tokens={ SAMPLE_DATA_WITH_SPACES }
+          extraAddKeys={ [' ', '_', ';', '|', '.'] }
         />
       </div>
 
@@ -188,6 +279,14 @@ stories
           topLabel="Progress Bar of Hope..."
           leftLabel="None"
           rightLabel="Some"
+        />
+      </div>
+
+      <div className="push--ends push-quad--top">
+        <Steps
+          items={ items }
+          currentStep={ 'bear' }
+          onClick={''}
         />
       </div>
 
