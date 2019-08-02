@@ -9,7 +9,7 @@ var tokens = {};
 colorTokens.map(colorToken => (
   tokens[colorToken.name] = colorToken.hex
 ));
-var nearestColor = require('../src/utils/nearestColor').from(tokens);
+var nearestColor = require('nearest-color').from(tokens);
 
 css.nearestColors = [];
 css.uniqueColors.map(function(c) {
