@@ -14,20 +14,23 @@ var nearestColor = require('../src/utils/nearestColor').from(tokens);
 css.nearestColors = [];
 css.uniqueColors.map(function(c) {
   if (c.color.length == 7) {
-    // console.log(c);
     var newColor = nearestColor(c.color);
-    newColor.original = c.color;
-    newColor.count = c.count;
-    // console.log(newColor);
-    css.nearestColors.push(newColor);
-    // console.log(newColor.value + ' -> ' + newColor.name + ' ('+ Math.round(newColor.distance) +')');
+    if (newColor.distance > 0) {
+      newColor.original = c.color;
+      newColor.count = c.count;
+      newColor.distance = Math.round(newColor.distance);
+      css.nearestColors.push(newColor);
+    }
   }
 });
 css.oneOfAKindColors.map(function(c) {
   if (c.color.length == 7) {
     var newColor = nearestColor(c.color);
-    newColor.original = c.color;
-    css.nearestColors.push(newColor);
+    if (newColor.distance > 0) {
+      newColor.original = c.color;
+      newColor.distance = Math.round(newColor.distance);
+      css.nearestColors.push(newColor);
+    }
   }
 });
 
@@ -101,8 +104,8 @@ stories
         {css.nearestColors.map(c => (
           <tr className="vertical-align--middle push--top">
             <td className="vertical-align--middle text--right soft-double--right">{ c.original }</td>
-              <td key={ c.value } title={ c.original } className="vertical-align--middle text--center width--250 height--250 push--bottom" style={{ borderBottom: '10px solid white', backgroundColor: c.original }}>{ c.count }</td>
-              <td key={ c.value } title={ c.color } className="width--250 height--250 background--c.color" style={{ borderBottom: '10px solid white', backgroundColor: c.value }}></td>
+              <td key={ c.value } title={ c.original } className="oui--swatches vertical-align--middle text--center width--250 height--250 push--bottom hard" style={{ borderBottom: '10px solid white', backgroundColor: c.original }}>{ c.count }</td>
+              <td key={ c.value } title={ c.color } className="oui--swatches vertical-align--middle text--center width--250 height--250 hard background--c.color" style={{ borderBottom: '10px solid white', backgroundColor: c.value }}>{ c.distance }</td>
               <td className="vertical-align--middle">{ c.name }</td>
             </tr>
         ))}
