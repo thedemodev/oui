@@ -107,6 +107,14 @@ describe('components/Button', () => {
     expect(component.find('[aria-label="a11y"]').exists()).toBe(true);
   });
 
+  it('should add a title when provided', () => {
+    const component = mount(
+      <Button title="a11y">Hello!</Button>
+    );
+
+    expect(component.find('[title="a11y"]').exists()).toBe(true);
+  });
+
   it('should add the active class if `isActive` is true', () => {
     const component = mount(
       <Button isActive={ true }>Hello!</Button>
