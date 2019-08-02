@@ -65,6 +65,17 @@ describe('components/SelectDropdown', function() {
     });
   });
 
+  it('should set the maxWidth of the activator', function() {
+    component = mount(
+      <SelectDropdown
+        items={ items }
+        value={ 'value 2' }
+        onChange={ onChange }
+        maxWidth="100px"
+      />);
+    expect(component.find('Dropdown').find('Activator').childAt(0).props().style).toEqual({maxWidth: '100px', width: '100%'});
+  });
+
   it('should contain error class', function() {
     component = mount(
       <SelectDropdown

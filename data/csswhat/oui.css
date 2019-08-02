@@ -2838,14 +2838,6 @@ li > ol {
   .oui-table td {
     vertical-align: top; }
   
-  .table > tbody > tr:hover:not(.hover--disabled) > td,
-  .table > tr:hover:not(.hover--disabled) > td,
-  .oui-disclose-table > tbody > tr:hover:not(.hover--disabled) > td,
-  .oui-disclose-table > tr:hover:not(.hover--disabled) > td,
-  .oui-table > tbody > tr:hover:not(.hover--disabled) > td,
-  .oui-table > tr:hover:not(.hover--disabled) > td {
-    background-color: var(--grey-25); }
-  
   .table [rowspan],
   .oui-disclose-table [rowspan],
   .oui-table [rowspan] {
@@ -2930,32 +2922,32 @@ li > ol {
   .oui-table--hover > tbody > tr > td:last-child {
     padding-right: 10px; }
   
-  .table--loose > th,
-  .table--loose > td,
-  .oui-table--loose > th,
-  .oui-table--loose > td {
+  .table--loose th,
+  .table--loose td,
+  .oui-table--loose th,
+  .oui-table--loose td {
     padding-left: 10px;
     padding-right: 10px; }
     
-    .table--loose > th:first-child,
-    .table--loose > td:first-child,
-    .oui-table--loose > th:first-child,
-    .oui-table--loose > td:first-child {
+    .table--loose th:first-child,
+    .table--loose td:first-child,
+    .oui-table--loose th:first-child,
+    .oui-table--loose td:first-child {
       padding-left: 20px; }
     
-    .table--loose > th:last-child,
-    .table--loose > td:last-child,
-    .oui-table--loose > th:last-child,
-    .oui-table--loose > td:last-child {
+    .table--loose th:last-child,
+    .table--loose td:last-child,
+    .oui-table--loose th:last-child,
+    .oui-table--loose td:last-child {
       padding-right: 20px; }
   
-  .table--loose > th,
-  .oui-table--loose > th {
+  .table--loose th,
+  .oui-table--loose th {
     padding-top: 5px;
     padding-bottom: 5px; }
   
-  .table--loose > td,
-  .oui-table--loose > td {
+  .table--loose td,
+  .oui-table--loose td {
     padding-top: 10px;
     padding-bottom: 10px; }
   
@@ -3004,6 +2996,19 @@ li > ol {
   .oui-table--scroll th,
   .oui-table--scroll td {
     display: block; }
+
+.oui-table > tbody tr:hover td a:hover {
+  color: var(--light-blue-75); }
+
+.oui-table > tbody > tr:hover > td:not(.CalendarDay) {
+  background-color: var(--grey-25); }
+
+.oui-table--loose > tbody > tr > td {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.lego-table--add-row__controls .flex {
+  width: 72px; }
 
 .editable:hover {
   color: #83839B; }
@@ -4470,6 +4475,12 @@ code {
     border: 0; }
   .oui-codediff .d2h-code-side-line {
     padding: 0 30px; }
+  .oui-codediff .d2h-wrapper td {
+    padding: 0 !important;
+    margin: 0 !important;
+    vertical-align: unset !important; }
+  .oui-codediff .d2h-file-side-diff {
+    overflow-x: auto !important; }
 
 .oui-close-button {
   display: flex;
@@ -5608,6 +5619,15 @@ code {
   background-size: 16px 16px; }
 
 .search--active .icon {
+  display: block; }
+
+.oui-dropdown-group .oui-button--outline {
+  background: white; }
+
+.oui-dropdown-group__activator-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   display: block; }
 
 .oui-sheet {

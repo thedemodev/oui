@@ -6,6 +6,14 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.4.0 - 2019-08-02
+- [Patch] Add color check for nearest design token ([#1208](https://github.com/optimizely/oui/pull/1208))
+- [Feature] New `maxWidth` prop for **SelectDropdown** to truncate long activator labels ([#1207](https://github.com/optimizely/oui/pull/1207))
+- [Feature] Add `title` prop for **Button** to specify a string for the title attribute ([#1207](https://github.com/optimizely/oui/pull/1207))
+
+## 44.3.1 - 2019-07-30
+- [Patch] Revert **Table** css styles and add **CodeDiff** css styles ([#1206](https://github.com/optimizely/oui/pull/1206))
+
 ## 44.3.0 - 2019-07-25
 - [Patch] Have CSSWhat run on `yarn build-styles` ([#1203](https://github.com/optimizely/oui/pull/1203))
 - [Patch] Update **Table** style to include hover by default in OUI; Update **CodeDiff** src/components/Table/TR/index.js style to be more resiliant inside a table ([#1202](https://github.com/optimizely/oui/pull/1202))

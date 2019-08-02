@@ -41,6 +41,13 @@ class SelectDropdown extends React.Component {
       ]).isRequired,
     })).isRequired,
     /**
+     * Max width of the activator container.
+     */
+    maxWidth: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    /**
      * The minimum width of the dropdown list; any valid CSS width value.
      */
     minDropdownWidth: PropTypes.oneOfType([
@@ -112,7 +119,7 @@ class SelectDropdown extends React.Component {
   };
 
   render() {
-    const { buttonStyle, value, width, zIndex, isDisabled, initialPlaceholder } = this.props;
+    const { buttonStyle, value, width, maxWidth, zIndex, isDisabled, initialPlaceholder } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
       if (item.value === value) {
@@ -121,7 +128,8 @@ class SelectDropdown extends React.Component {
     });
 
     const outerClass = classNames(
-      {['oui-form-bad-news']: this.props.displayError}
+      {['oui-form-bad-news']: this.props.displayError,
+        'oui-dropdown-group__activator': true}
     );
 
     let activatorLabel = '';
@@ -133,9 +141,10 @@ class SelectDropdown extends React.Component {
 
     const Activator = ({ buttonRef, onClick, onBlur }) => (
       <div
-        style={{ width: width}}
+        style={{ width: width, maxWidth: maxWidth}}
         className={ outerClass }>
         <Button
+          title={ activatorLabel }
           isDisabled={ this.props.isDisabled }
           style={ buttonStyle }
           testSection={ this.props.testSection }
@@ -144,7 +153,7 @@ class SelectDropdown extends React.Component {
           onClick={ onClick }
           onBlur={ onBlur }>
           <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
-            <span style={{overflow: 'hidden'}} className="flex flex--1">{ activatorLabel }</span>
+            <span className="oui-dropdown-group__activator-label flex flex--1">{ activatorLabel }</span>
             <span className="push--left oui-arrow-inline--down" />
           </div>
         </Button>

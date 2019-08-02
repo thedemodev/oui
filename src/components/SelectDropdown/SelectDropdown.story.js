@@ -27,6 +27,10 @@ const items = [
     value: 'dog',
   },
   {
+    label: 'Dog with a really long name',
+    value: 'dog-long',
+  },
+  {
     label: 'Bear',
     description: 'Likes honey',
     value: 'bear',
@@ -69,6 +73,29 @@ stories.add('Default', (() => {
         width={ '400px ' }
       />
     </Container>
+  );
+})).add('Specify max width of activator', (() => {
+  return (
+    <div>
+      <p className="push--bottom">
+        Specifying the <code>maxWidth</code> property allows you to truncate longer dropdowns while keeping shorter ones short.
+      </p>
+      <Container>
+        <SelectDropdown
+          items={ items }
+          value={ 'dog-long' }
+          onChange={ action('SelectDropdown value changed') }
+          maxWidth={ '120px ' }
+        />
+        <div className="push--left"></div>
+        <SelectDropdown
+          items={ items }
+          value={ 'dog' }
+          onChange={ action('SelectDropdown value changed') }
+          maxWidth={ '120px ' }
+        />
+      </Container>
+    </div>
   );
 })).add('Display Error', (() => {
   return (

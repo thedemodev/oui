@@ -4,6 +4,37 @@ import { storiesOf } from '@storybook/react';
 import Input from '../src/components/Input';
 import css from '../data/csswhat/oui.css.json';
 
+const HEX_LENGTH = 7;
+const colorTokens = require('../src/tokens/src/color.json').tokens;
+var tokens = {};
+colorTokens.map(colorToken => (
+  tokens[colorToken.name] = colorToken.hex
+));
+var nearestColor = require('nearest-color').from(tokens);
+
+css.nearestColors = [];
+css.uniqueColors.map(function(c) {
+  if (c.color.length == HEX_LENGTH) {
+    var newColor = nearestColor(c.color);
+    if (newColor.distance > 0) {
+      newColor.original = c.color;
+      newColor.count = c.count;
+      newColor.distance = Math.round(newColor.distance);
+      css.nearestColors.push(newColor);
+    }
+  }
+});
+css.oneOfAKindColors.map(function(c) {
+  if (c.color.length == HEX_LENGTH) {
+    var newColor = nearestColor(c.color);
+    if (newColor.distance > 0) {
+      newColor.original = c.color;
+      newColor.distance = Math.round(newColor.distance);
+      css.nearestColors.push(newColor);
+    }
+  }
+});
+
 // [@dave.rau] This file is a work-in-progress
 
 const searchSelectors = function(e) {
@@ -48,7 +79,7 @@ stories
        <p>To find these colors first we convert every known color value to hex (rgb(a), hsl(a), and HTML named colors (rebeccapurple). What it doesn't yet cover is color variables/tokens.</p>
       <div className="oui--swatches flex flex-wrap push--ends push-double--top">
         { css.uniqueColors.map(item => (
-          <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
+          <span key={ item.color } title={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
 
@@ -56,7 +87,7 @@ stories
        ({ css.oneOfAKindColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindColors.map(item => (
-          <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
+          <span key={ item.color } title={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
       </div>
 
@@ -64,8 +95,22 @@ stories
        ({ css.oneOfAKindAlphaHexesColors.length })</h2>
       <div className="oui--swatches flex flex-wrap push--ends">
         { css.oneOfAKindAlphaHexesColors.map(item => (
-          <span key={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
+          <span key={ item.color } title={ item.color } className="width--50 height--50 flex flex--dead-center" style={{ backgroundColor: item.color }}>{ item.count }</span>
         )) }
+      </div>
+
+      <h2 className="push-quad--top">Nearest Tokens ({ css.nearestColors.length })</h2>
+      <div className="push--ends">
+        <table className="oui-table">
+        {css.nearestColors.map(c => (
+          <tr className="vertical-align--middle push--top">
+            <td className="vertical-align--middle text--right soft-double--right">{ c.original }</td>
+              <td key={ c.value } title={ c.original } className="oui--swatches vertical-align--middle text--center width--250 height--250 push--bottom hard" style={{ borderBottom: '10px solid white', backgroundColor: c.original }}>{ c.count }</td>
+              <td key={ c.value } title={ c.color } className="oui--swatches vertical-align--middle text--center width--250 height--250 hard background--c.color" style={{ borderBottom: '10px solid white', backgroundColor: c.value }}>{ c.distance }</td>
+              <td className="vertical-align--middle">{ c.name }</td>
+            </tr>
+        ))}
+        </table>
       </div>
 
     </div>
