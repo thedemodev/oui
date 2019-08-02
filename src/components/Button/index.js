@@ -25,6 +25,7 @@ const Button = ({
   testSection,
   width = 'default',
   buttonRef,
+  title,
 }) => {
 
   const buttonClassNames = classNames(
@@ -71,6 +72,7 @@ const Button = ({
       data-test-section={ testSection }
       aria-label={ ariaLabel }
       aria-live="polite"
+      title={ title }
       ref={ buttonRef }>
       { isLoading && <Spinner data-test-section="button-spinner" size="tiny"/> }
       { isLoading ? loadingText || 'Processing' : children }
@@ -128,6 +130,8 @@ Button.propTypes = {
   ]),
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+  /** Title of the button shown as tooltip text when the button is hovered */
+  title: PropTypes.string,
   /** Various height and width options */
   width: PropTypes.oneOf([
     'default',
