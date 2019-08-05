@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.5.0 - 2019-08-05
 - [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):
     - Add optional `isFutureDateSelectable` property to allow for past dates only
     - Add `isOutsideRange` property to allow for a custom validation function for dates
