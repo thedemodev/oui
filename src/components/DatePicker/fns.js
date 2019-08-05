@@ -14,3 +14,18 @@ export const getCustomMonthElement = ({ month }) => (
     { month.format('MMMM') } { month.year() }
   </p>
 );
+
+export const isOutsideAcceptableDateRange = (day, isOutsideRange, isFutureDateSelectable, isPastDateSelectable) => {
+  if (isOutsideRange) {
+    return isOutsideRange(day);
+  }
+  if (isPastDateSelectable && isFutureDateSelectable) {
+    return false;
+  }
+  if (isFutureDateSelectable === false) {
+    return day.isAfter(moment()) && !day.isSame(moment(), 'day');
+  }
+  if (isPastDateSelectable === false) {
+    return day.isBefore(moment()) && !day.isSame(moment(), 'day');
+  }
+};

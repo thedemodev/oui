@@ -66,16 +66,54 @@ describe('components/DatePicker', function() {
     expect(component.find('.DayPicker').length).toBe(1);
   });
 
-  it('should not allow past dates by default', () => {
+  it('should allow past dates by default', () => {
     const component = mount(<DatePicker inputId="date-picker-01"/>);
+    component.find('input').simulate('focus');
+    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+  });
+
+  it('should not allow past dates if isPastDateSelectable is false', () => {
+    const component = mount(<DatePicker inputId="date-picker-01" isPastDateSelectable={ false }/>);
     component.find('input').simulate('focus');
     expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
   });
 
-  it('should allow past dates if isPastDateSelectable is true', () => {
-    const component = mount(<DatePicker inputId="date-picker-01" isPastDateSelectable={ true }/>);
+  it('should not allow future dates if isFutureDateSelectable is false', () => {
+    const component = mount(<DatePicker inputId="date-picker-01" isFutureDateSelectable={ false }/>);
     component.find('input').simulate('focus');
-    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should allow custom isOutsideRange function', () => {
+    const isOutsideRangeMock = jest.fn();
+
+    const component = mount(<DatePicker isOutsideRange={ isOutsideRangeMock } inputId="date-picker-01"/>);
+    component.find('input').simulate('focus');
+    expect(isOutsideRangeMock).toHaveBeenCalled();
+
+  });
+
+  // Disabled until we upgrade Enzyme to 3.10.0
+  // (current version 3.0.0 doesn't support the :not selector)
+  xit('should set an initialVisibleMonth', () => {
+    let previousMonthText = moment().subtract(1, 'months').startOf('month').format('MMMM');
+    function getVisibleMonth() {
+      return moment().subtract(1, 'months');
+    }
+
+    const component = mount(
+      <DatePicker
+        inputId="date-picker-01"
+        isFutureDateSelectable={ false }
+        initialVisibleMonth={ getVisibleMonth }
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component
+      // eslint-disable-next-line max-len
+      .find('.CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) .CalendarMonth_caption_1 .oui-date-picker__month-title')
+      .first()
+      .text()).toContain(previousMonthText);
   });
 
   it('should add default label and placeholder to the input', () => {
@@ -173,7 +211,8 @@ describe('components/DateRangePicker', function() {
     component.find('input[id="start-date-picker-01"]').simulate('focus');
     expect(component.find('.DayPicker').length).toBe(1);
     component.find('.CalendarDay__today').simulate('click');
-    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').first().simulate('click');
+    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').last().simulate('click');
+    component.update();
     expect(component.find('.DayPicker').length).toBe(0);
   });
 
@@ -189,7 +228,7 @@ describe('components/DateRangePicker', function() {
     component.find('input[id="start-date-picker-01"]').simulate('focus');
     expect(component.find('.DayPicker').length).toBe(1);
     component.find('.CalendarDay__today').simulate('click');
-    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').first().simulate('click');
+    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').last().simulate('click');
     expect(component.find('.DayPicker').length).toBe(1);
   });
 
@@ -393,5 +432,79 @@ describe('components/DateRangePicker', function() {
     expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('');
     expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('');
     /* eslint-enable react/jsx-no-bind */
+  });
+
+  it('should allow past dates by default', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+  });
+
+  it('should not allow past dates if isPastDateSelectable is false', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isPastDateSelectable={ false }
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should not allow future dates if isFutureDateSelectable is false', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isFutureDateSelectable={ false }
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should allow custom isOutsideRange function', () => {
+    const isOutsideRangeMock = jest.fn();
+
+    mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isOutsideRange={ isOutsideRangeMock }
+      />
+    );
+    expect(isOutsideRangeMock).toHaveBeenCalled();
+
+  });
+
+  // Disabled until we upgrade Enzyme to 3.10.0
+  // (current version 3.0.0 doesn't support the :not selector)
+  xit('should set an initialVisibleMonth', () => {
+    let previousMonthText = moment().subtract(1, 'months').startOf('month').format('MMMM');
+    function getVisibleMonth() {
+      return moment().subtract(1, 'months');
+    }
+
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        initialVisibleMonth={ getVisibleMonth }
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component
+      // eslint-disable-next-line max-len
+      .find('.CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) .CalendarMonth_caption_1 .oui-date-picker__month-title')
+      .first()
+      .text()).toContain(previousMonthText);
   });
 });

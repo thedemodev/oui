@@ -6,11 +6,10 @@ import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
 import OutsideClickHandler from 'react-outside-click-handler';
 import momentPropTypes from 'react-moment-proptypes';
-import moment from 'moment';
 import Input from '../Input';
 import CalendarNavButton from './CalendarNavButton';
 import { constants } from './constants';
-import { getDateString, getCustomMonthElement } from './fns';
+import { getDateString, getCustomMonthElement, isOutsideAcceptableDateRange } from './fns';
 
 class DatePicker extends React.Component {
   constructor(props) {
@@ -54,15 +53,20 @@ class DatePicker extends React.Component {
     });
   }
 
-  getAcceptableDateRange = (day) => {
-    if (this.props.isPastDateSelectable) {
-      return false;
-    }
-    return day.isBefore(moment()) && !day.isSame(moment(), 'day');
-  }
+  isOutsideAcceptableDateRange = (day) => {
+    const { isOutsideRange, isFutureDateSelectable, isPastDateSelectable } = this.props;
+    return isOutsideAcceptableDateRange(day, isOutsideRange, isFutureDateSelectable, isPastDateSelectable);
+  };
 
   render() {
-    const { isDisabledInput, inputId, inputLabel, inputPlaceholder, isAbsolutelyPositioned } = this.props;
+    const {
+      initialVisibleMonth,
+      isDisabledInput,
+      inputId,
+      inputLabel,
+      inputPlaceholder,
+      isAbsolutelyPositioned,
+    } = this.props;
     const { currentDateString, dayPickerIsOpen } = this.state;
     return (
       <OutsideClickHandler onOutsideClick={ this.onOutsideClick }>
@@ -87,7 +91,8 @@ class DatePicker extends React.Component {
               daySize={ constants.DAY_SIZE }
               focused={ this.state.isFocused }
               hideKeyboardShortcutsPanel={ true }
-              isOutsideRange={ this.getAcceptableDateRange }
+              initialVisibleMonth={ initialVisibleMonth }
+              isOutsideRange={ this.isOutsideAcceptableDateRange }
               navNext={ <CalendarNavButton type="next"/> }
               navPrev={ <CalendarNavButton type="previous"/> }
               numberOfMonths={ constants.SINGLE_NUM_MONTHS }
@@ -108,6 +113,10 @@ class DatePicker extends React.Component {
 DatePicker.propTypes = {
   /** An initial date to populate the input with, must be a moment() */
   initialDate: momentPropTypes.momentObj,
+  /** Function to determine what month the date picker
+   *  should show on the left hand side
+   */
+  initialVisibleMonth: PropTypes.func,
   /** The id of the input, used to associate with a label */
   inputId: PropTypes.string.isRequired,
   /** The label text above the input */
@@ -120,6 +129,14 @@ DatePicker.propTypes = {
   isDisabledInput: PropTypes.bool,
   /** Determines if the input is currently focused or not  */
   isFocused: PropTypes.bool,
+  /** Determines if the user can choose a date in the future  */
+  isFutureDateSelectable: PropTypes.bool,
+  /**
+   * Custom function to determine if a date is outside the acceptable range.
+   * Function is called for each visible day, with a moment() object
+   * passed as the first parameter.
+   */
+  isOutsideRange: PropTypes.func,
   /** Determines if the user can choose a date in the past  */
   isPastDateSelectable: PropTypes.bool,
   /**
@@ -145,6 +162,8 @@ DatePicker.defaultProps = {
   inputPlaceholder: 'Select Date',
   inputId: 'date-input-01',
   isAbsolutelyPositioned: false,
+  isFutureDateSelectable: true,
+  isPastDateSelectable: true,
   keepOpenAlways: false,
   keepOpenOnDateSelect: false,
 };

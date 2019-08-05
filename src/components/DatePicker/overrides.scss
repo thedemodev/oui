@@ -49,6 +49,14 @@
   color: $smoke-dark;
 }
 
+.CalendarDay__today {
+  text-decoration: underline;
+}
+
+.CalendarDay__default:not(.CalendarDay__blocked_out_of_range) + .CalendarDay__blocked_out_of_range  {
+  border-right-color: $smoke-dark;
+}
+
 .DateRangePickerInput__withBorder, .SingleDatePickerInput__withBorder {
   border: 1px solid #e0e0e0;
   border-radius: var(--border-radius);

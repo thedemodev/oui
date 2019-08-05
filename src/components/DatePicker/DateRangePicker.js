@@ -6,13 +6,12 @@ import 'react-dates/initialize';
 import { DayPickerRangeController } from 'react-dates';
 import OutsideClickHandler from 'react-outside-click-handler';
 import momentPropTypes from 'react-moment-proptypes';
-import moment from 'moment';
 import Button from '../Button';
 import ButtonRow from '../ButtonRow';
 import Input from '../Input';
 import CalendarNavButton from './CalendarNavButton';
 import { constants } from './constants';
-import { getDateString, getCustomMonthElement } from './fns';
+import { getDateString, getCustomMonthElement, isOutsideAcceptableDateRange } from './fns';
 
 class DateRangePicker extends React.Component {
   constructor(props) {
@@ -72,11 +71,9 @@ class DateRangePicker extends React.Component {
     }
   };
 
-  getAcceptableDateRange = (day) => {
-    if (this.props.isPastDateSelectable) {
-      return false;
-    }
-    return day.isBefore(moment()) && !day.isSame(moment(), 'day');
+  isOutsideAcceptableDateRange = (day) => {
+    const { isOutsideRange, isFutureDateSelectable, isPastDateSelectable } = this.props;
+    return isOutsideAcceptableDateRange(day, isOutsideRange, isFutureDateSelectable, isPastDateSelectable);
   };
 
   renderPresetButtons = (presetPanelOptions) => {
@@ -132,6 +129,7 @@ class DateRangePicker extends React.Component {
       endDateInputLabel,
       endDateInputPlaceholder,
       isAbsolutelyPositioned,
+      initialVisibleMonth,
       isBorderless,
       panelButtons,
       presetPanelOptions,
@@ -196,7 +194,8 @@ class DateRangePicker extends React.Component {
               endDate={ this.state.endDate }
               focusedInput={ this.state.focusedInput }
               hideKeyboardShortcutsPanel={ true }
-              isOutsideRange={ this.getAcceptableDateRange }
+              initialVisibleMonth={ initialVisibleMonth }
+              isOutsideRange={ this.isOutsideAcceptableDateRange }
               navNext={ <CalendarNavButton type="next"/> }
               navPrev={ <CalendarNavButton type="previous"/> }
               numberOfMonths={ 2 }
@@ -223,7 +222,8 @@ DateRangePicker.propTypes = {
   endDateInputLabel: PropTypes.string,
   /** The placeholder text of the end date input */
   endDateInputPlaceholder: PropTypes.string,
-  /** Used to indicate the current active input,
+  /**
+   * Used to indicate the current active input,
    * aka which date is about to be selected,
    * or null if neither is active
    */
@@ -236,10 +236,22 @@ DateRangePicker.propTypes = {
    * must be type moment()
    */
   initialStartDate: momentPropTypes.momentObj,
+  /** Function to determine what month the date picker
+   *  should show on the left hand side
+   */
+  initialVisibleMonth: PropTypes.func,
   /** When true, opens the calendar on top of other elements on the page */
   isAbsolutelyPositioned: PropTypes.bool,
   /** When true, removes the border around the calendar portion */
   isBorderless: PropTypes.bool,
+  /** Determines if the user can choose a date in the future  */
+  isFutureDateSelectable: PropTypes.bool,
+  /**
+   * Custom function to determine if a date is outside the acceptable range.
+   * Function is called for each visible day, with a moment() object
+   * passed as the first parameter.
+   */
+  isOutsideRange: PropTypes.func,
   /** Determines if the user can choose a date in the past  */
   isPastDateSelectable: PropTypes.bool,
   /**
@@ -247,12 +259,14 @@ DateRangePicker.propTypes = {
    * where the user clicks on the page
    */
   keepOpenAlways: PropTypes.bool,
-  /** Determines if the calendar should stay
+  /**
+   * Determines if the calendar should stay
    * open when a date has been selected,
    * but close when user clicks away
    */
   keepOpenOnDateSelect: PropTypes.bool,
-  /** Function callback to perform when either a start date
+  /**
+   * Function callback to perform when either a start date
    * or end date has been selected.
    * The dates are passed as a parameter object with startDate and endDate
    * as keys.
@@ -260,7 +274,8 @@ DateRangePicker.propTypes = {
    * an array.
    */
   onDatesChange: PropTypes.func,
-  /** An array of buttons to display with the
+  /**
+   * An array of buttons to display with the
    * calendar, such as Cancel and Apply. If presetPanelOptions
    * are also defined, the buttons will be to the right of the calendar.
    * Otherwise, they are directly below the calendar.
@@ -271,7 +286,8 @@ DateRangePicker.propTypes = {
     PropTypes.array,
     PropTypes.func,
   ]),
-  /** Array of objects used to render preset buttons to the right
+  /**
+   * Array of objects used to render preset buttons to the right
    * of the calendar. Each object must have a startDate, endDate, and label.
    */
   presetPanelOptions: PropTypes.arrayOf(PropTypes.shape({
@@ -292,6 +308,8 @@ DateRangePicker.defaultProps = {
   endDateInputPlaceholder: 'End Date',
   focusedInput: null,
   isAbsolutelyPositioned: false,
+  isFutureDateSelectable: true,
+  isPastDateSelectable: true,
   initialStartDate: null,
   initialEndDate: null,
   keepOpenAlways: false,
