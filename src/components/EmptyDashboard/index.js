@@ -26,8 +26,8 @@ const EmptyDashboard = ({
             <div
               className="muted push-double--bottom"
               style={{ width: '550px', margin: 'auto' }}>
-              <object
-                data={ imagePath }
+              <img
+                src={ imagePath }
                 className="svg--non-scaling-stroke display--inline"
                 style={{ maxWidth: '450px', maxHeight: '290px' }}
                 data-test-section={ testSection && `${testSection}-image` }
