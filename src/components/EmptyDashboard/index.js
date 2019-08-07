@@ -7,20 +7,27 @@ const EmptyDashboard = ({
   headline,
   description,
   descriptionMaxWidth,
+  showButtonBelow,
   testSection,
 }) => {
   return (
     <div
       data-oui-component={ true }
-      className='flex overflow-y--scroll flex--1'
-      data-test-section='layers-empty-state'
-      style={{ width: '750px', margin: 'auto' }}>
-      <div className='anchor--middle height--1-1 flex flex--column'>
+      className='flex flex--column overflow-y--scroll flex--1'
+      data-test-section='layers-empty-state'>
+      { button && !showButtonBelow && (
+        <div className="flex push-double--ends push-quad--sides">
+          <div className="lego-button-group flex--1" />
+          { button }
+        </div>
+      ) }
+      <div className='anchor--middle height--1-1 flex flex--row'>
 
         <div
           data-oui-component={ true }
           className='text--center soft-quad'
-          data-test-section={ testSection }>
+          data-test-section={ testSection }
+          style={{ margin: 'auto' }}>
 
           { imagePath && (
             <div
@@ -53,7 +60,7 @@ const EmptyDashboard = ({
             </div>
           ) }
 
-          { button && (
+          { button && showButtonBelow && (
             <div className="push-double--top">
               { button }
             </div>
@@ -79,12 +86,15 @@ EmptyDashboard.propTypes = {
   headline: PropTypes.string.isRequired,
   /** Path to an image representing the empty state */
   imagePath: PropTypes.string,
+  /** Boolean used to show the button below instead of top right corner */
+  showButtonBelow: PropTypes.bool,
   /** Identifier used to create data-test-section attributes for testing */
   testSection: PropTypes.string,
 };
 
 EmptyDashboard.getDefaultProps = {
   descriptionMaxWidth: '450px',
+  showButtonBelow: false,
   testSection: 'empty-hello',
 };
 
