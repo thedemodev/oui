@@ -16,7 +16,7 @@ const EmptyDashboard = ({
       className='flex flex--column overflow-y--scroll flex--1'
       data-test-section='layers-empty-state'>
       { button && !showButtonBelow && (
-        <div className="flex push-double--ends push-quad--sides">
+        <div className="flex push-quad--sides oui-empty-dashboard__button-row">
           <div className="lego-button-group flex--1" />
           { button }
         </div>
