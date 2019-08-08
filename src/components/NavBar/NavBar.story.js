@@ -1,24 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import NavBar from './index';
 
-const typeOptions = {
-  'bad-news': 'bad-news',
-  'brand': 'brand',
-  'good-news': 'good-news',
-  'warning': 'warning',
-};
-
-const Logo = ({ isNavOpen }) => {
+const Logo = () => {
   return (
-    <div>
-      { isNavOpen
-        ? (<div> Navbar Open </div>)
-        : (<div> Navbar Collapsed </div>)
-      }
-    </div>
+    <div> Brand Logo </div>
   );
 };
 
@@ -42,7 +30,7 @@ stories
           showProjectName={ true }
           trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
           isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo isNavOpen={ boolean('isNavOpen', true) } />) }
+          logo={ (<Logo />) }
         />
       </NavBar>
     );
@@ -55,7 +43,7 @@ stories
           homeUrl="http://optimizely.com"
           showProjectName={ true }
           isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo isNavOpen={ boolean('isNavOpen', true) } />) }
+          logo={ (<Logo />) }
         />
       </NavBar>
     );
