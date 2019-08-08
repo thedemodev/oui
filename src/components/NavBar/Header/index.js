@@ -13,17 +13,13 @@ const NavBarHeader = (props) => {
     showProjectName,
     trialSectionBody,
     isNavOpen,
+    logo,
   } = props;
   return (
     <div data-test-section="navbar-header">
       <li className="root-nav__logo push-double--bottom">
         <Link href={ homeUrl }>
-          <div
-            className={ classNames({
-              'root-nav__logo--full': isNavOpen,
-              'root-nav__logo--mark': !isNavOpen,
-            }) }
-          />
+          { logo }
         </Link>
       </li>
       { trialSectionBody }
@@ -52,6 +48,8 @@ NavBarHeader.propTypes = {
   homeUrl: PropTypes.string.isRequired,
   /* Is Nav Open or collapsed */
   isNavOpen: PropTypes.bool.isRequired,
+  /* Logo Component */
+  logo: PropTypes.node.isRequired,
   /* Platform Name */
   platformName: PropTypes.string.isRequired,
   /* Project Name */
