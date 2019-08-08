@@ -1,33 +1,9 @@
 $layout: (
   width:(
-    root-panel-min-width      : 1015px,
     root-nav: (
       closed                  : 76px,
       open                    : 226px
     ),
-    large-icon-width          : 24px,
-    performance-summary-cell  : 140px,
-    side-stage-nav            : 285px,
-    drawer                    : 270px,
-    daterangepicker-min-width : 400px,
-    dialog-width              : 750px,
-    dialog-width-narrow       : 600px,
-    dialog-width-wide         : 850px,
-    polling-popover           : 490px
-  ),
-  position:(
-    large-icon-offset         : -12px,
-  ),
-  reading:(
-    max-width                 : 700px,
-    min-width                 : 700px
-  ),
-  height: (
-    drop-filter-max           : 350px,
-    editor-code-min           : 400px,
-    progress-label            : 5px,
-    audience-breakdown-height : 400px,
-    timeseries-height         : 350px
   ),
 );
 $transition: (
@@ -35,15 +11,9 @@ $transition: (
     speed: 300ms,
     easing: cubic-bezier(0.1, -0.1, 0.1, 1.1)
   ),
-  background-hover: 300ms
 );
 $block-link-padding: 24px;
-$block-secondarylink-padding: 16px;
-$icon-dimensions--large: 24px;
-$icon-dimensions--small: 16px;
-$avatar-size: 29px;
 $animation-speed: map-fetch($transition, stage, speed) / 2;
-$root-shadow: inset -9px 0px 16px -7px rgba(70, 69, 106, 0.19);
 $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
 .root-nav {
@@ -91,18 +61,6 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   padding-left: spacer(2); // TODO(drau) need sidenav component!
 }
 
-.root-nav__project_badge {
-  border-radius: 5px;
-  background-color: var(--ron-project-badge);
-  color: var(--white);
-  padding: 2px 7px 3px; // TODO sync with Kelly on PM CSS for this
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  position: relative;
-  top: -2px;
-}
-
 .root-nav__project,
 .root-nav__link__text {
   opacity: 1;
@@ -110,140 +68,10 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   transition-delay: $animation-speed / 1.2;
 }
 
-.root-nav__link {
-  display: flex;
-  align-items: center;
-  color: var(--dark-blue-100);
-  padding-top: $block-link-padding / 3;
-  padding-bottom: $block-link-padding / 3;
-  @media (min-height: 1600px) {
-    padding-top: $block-link-padding / 2;
-    padding-bottom: $block-link-padding / 2;
-  }
-  width: map-fetch($layout, width, root-nav, closed);
-  transition: width $animation-speed ease-in;
-  overflow: hidden;
-}
-
-.root-nav__link__text {
-  margin-left: spacer(1);
-  display: none;
-}
-
-.root-nav__link--primary {
-  &:hover {
-    background: var(--light-blue-10);
-    color: var(--light-blue-75);
-  }
-
-  &.is-active,
-  &.is-active:hover {
-    background: var(--light-blue-10);
-  }
-}
-
-.root-nav__link--secondary,
-.root-nav__link--tertiary {
-  font-size: map-fetch($font, size, micro);
-  &, &:visited {
-    color: var(--dark-blue-100);
-  }
-  &:hover {
-    color: var(--light-blue-75);
-  }
-}
-
-.root-nav__link--secondary {
-  padding-top: $block-secondarylink-padding / 4;
-  padding-bottom: $block-secondarylink-padding / 4;
-  @media (min-height: 1600px) {
-    padding-top: $block-secondarylink-padding / 2;
-    padding-bottom: $block-secondarylink-padding / 2;
-  }
-  padding-left: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
-  padding-right: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
-}
-
-.root-nav__link--tertiary {
-  padding-left: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
-  padding-right: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
-}
-
 .root-nav__logo {
   height: 30px;
   position: relative;
   flex: none;
-}
-
-.root-nav__logo--full,
-.root-nav__logo--mark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  transition: opacity $animation-speed ease-in;
-}
-
-.root-nav__logo--full,
-.root-nav__logo--fullstack,
-.root-nav__logo--x-mobile,
-.root-nav__logo--x-ott {
-  background: url("/static/img/rebrand/logo.svg") 26px 0 no-repeat;
-  background-size: auto 100%;
-  opacity: 0;
-}
-
-// .root-nav__logo--fullstack {
-//   background: url($rebrand_path+"/static/img/x/x-full-stack-text.svg") 56px 0 no-repeat;
-//   background-size: auto 100%;
-// }
-//
-// .root-nav__logo--x-mobile {
-//   background: url($rebrand_path+"/static/img/x/x-mobile-text.svg") 56px 0 no-repeat;
-//   background-size: auto 100%;
-// }
-//
-// .root-nav__logo--x-ott {
-//   background: url($rebrand_path+"/static/img/x/x-ott-text.svg") 56px 0 no-repeat;
-//   background-size: auto 100%;
-// }
-
-.root-nav__logo--mark {
-  background: url("/static/img/rebrand/symbol.svg") 26px 0 no-repeat;
-  background-size: 30px auto;
-  opacity: 1;
-}
-
-.root-nav__icon {
-  align-items: center;
-  fill: currentColor;
-  // Prevent icon from shrinking
-  flex: none;
-}
-
-.root-nav__icon--large {
-  width: $icon-dimensions--large;
-  height: $icon-dimensions--large;
-}
-
-.root-nav__icon--small {
-  width: $icon-dimensions--small;
-  height: $icon-dimensions--small;
-}
-
-.root-nav__user {
-  align-items: flex-start;
-}
-
-.root-nav__faded__link {
-  $link-color: var(--dark-blue-100);
-  color: $link-color !important;
-
-  &:hover,
-  &:visited {
-    color: $link-color;
-  }
 }
 
 // Overwrite some styles when the navigation is expanded.
@@ -289,40 +117,4 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   * {
     cursor: default !important; // scss-lint:disable ImportantRule
   }
-}
-
-.root-nav__countdown {
-  display: flex;
-  align-items: center;
-  padding-top: $block-link-padding / 2;
-  padding-left: $block-link-padding / 1.5;
-  padding-right: $block-link-padding / 1.5;
-}
-
-.root-nav__countdown__text {
-  text-anchor: middle;
-  font-weight: 600;
-}
-
-.root-nav__link__countdown {
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 400;
-  font-style: normal;
-
-  span {
-    font-weight: 700;
-  }
-}
-
-.root-nav__link__countdown-upsell {
-  line-height: 16px;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 13px;
-
-}
-
-.root-nav__link__countdown-paused {
-  color: map-fetch($color, text, warning);
 }
