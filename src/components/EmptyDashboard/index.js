@@ -32,7 +32,7 @@ const EmptyDashboard = ({
           { imagePath && (
             <div
               className="muted push-double--bottom"
-              style={{ width: '550px', margin: 'auto' }}>
+              style={{ margin: 'auto' }}>
               <img
                 src={ imagePath }
                 className="svg--non-scaling-stroke display--inline"
