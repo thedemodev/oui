@@ -1,10 +1,10 @@
-import OverlayWrapper from '../index';
-import Popover from '../../Popover';
+import { mount } from 'enzyme';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import { waitForSelector } from '../../../utils/poll';
+
+import OverlayWrapper from '../index';
+import Popover from '../../Popover';
 
 const TestButton = (props) => <button>{ props.text }</button>;
 const TestPopover = (props) => {
@@ -19,48 +19,9 @@ TestButton.propTypes = {
   text: PropTypes.string,
 };
 
-
-// Set in mountComponentAndSubscribeToBodyReady, this can be used
-// to ensure the body exists
-let tetherReadyPromise;
-
-// Create helper function to mount the component and return
-// a promise that will resolve when the body is ready because
-// <OverlayWrapper/> will do the same before it initializes tether
-const mountComponentAndSubscribeToBodyReady = (componentConfig) => {
-  const componentInstance = mount(componentConfig);
-  tetherReadyPromise = waitForSelector('body');
-  return componentInstance;
-};
-
 describe('components/OverlayWrapper when componentDidMount', () => {
-  beforeEach(() => {
-    spyOn(OverlayWrapper.prototype, 'createTether').and.callThrough();
-  });
-
-  afterEach(() => {
-    OverlayWrapper.prototype.createTether.calls.reset();
-  });
-
-  it('should call function to disable Tether', () => {
-    const component = mountComponentAndSubscribeToBodyReady(
-      <OverlayWrapper
-        overlay={ <TestPopover /> }>
-        <TestButton text='just a button' />
-      </OverlayWrapper>
-    );
-
-    const instance = component.instance();
-    spyOn(instance, 'disableTether');
-    const initialCallCount = instance.disableTether.calls.count();
-
-    return tetherReadyPromise.then(() => {
-      expect(instance.disableTether.calls.count()).toBe(initialCallCount + 1);
-    });
-  });
-
-  it('should pass the correct options when all the layout props are provided', () => {
-    const component = mountComponentAndSubscribeToBodyReady(
+  it('should not instantiate tether until it is triggered for the first time', function() {
+    const component = mount(
       <OverlayWrapper
         attachmentConstraint="none"
         overlay={ <TestPopover /> }
@@ -72,20 +33,7 @@ describe('components/OverlayWrapper when componentDidMount', () => {
         <TestButton text='button' />
       </OverlayWrapper>
     );
-
-    return tetherReadyPromise.then(() => {
-      const tetherOptions = OverlayWrapper.prototype.createTether.calls.mostRecent().args[0];
-      expect(tetherOptions.attachment).toBe('top center');
-      expect(tetherOptions.constraints.length).toBe(1);
-      expect(tetherOptions.constraints[0]).toEqual({
-        attachment: 'none',
-        to: 'window',
-        pin: true,
-      });
-      expect(tetherOptions.targetAttachment).toBe('top center');
-      expect(tetherOptions.target.tagName.toLowerCase()).toBe(component.find(TestButton).render().first()[0].name);
-      expect(tetherOptions.element.tagName.toLowerCase()).toBe(component.find(TestPopover).render().first()[0].name);
-    });
+    expect(component.instance()._tether).toBe(undefined);
   });
 });
 
@@ -107,6 +55,7 @@ describe('components/OverlayWrapper when componentWillUnmount', () => {
     );
 
     instance = component.instance();
+    instance.enableTether();
   });
 
   afterEach(() => {
@@ -123,18 +72,18 @@ describe('components/OverlayWrapper when componentWillUnmount', () => {
     expect(instance._tether.destroy.calls.count()).toBe(initialCallCount + 1);
   });
 
-  it('should call `removeBodyEventListner` function', () => {
-    spyOn(instance, 'removeBodyEventListner');
+  it('should call `removeBodyEventListener` function', () => {
+    spyOn(instance, 'removeBodyEventListener');
 
-    const initialCallCount = instance.removeBodyEventListner.calls.count();
+    const initialCallCount = instance.removeBodyEventListener.calls.count();
 
     component.unmount();
-    expect(instance.removeBodyEventListner.calls.count()).toBe(initialCallCount + 1);
+    expect(instance.removeBodyEventListener.calls.count()).toBe(initialCallCount + 1);
   });
 });
 
 describe('#disableTether', () => {
-  it('should call function to remove event listner from document body', () => {
+  it('should call function to remove event listener from document body', () => {
     const component = mount(
       <OverlayWrapper
         overlay={ <TestPopover /> }>
@@ -143,33 +92,32 @@ describe('#disableTether', () => {
     );
 
     const instance = component.instance();
-    spyOn(instance, 'removeBodyEventListner');
+    spyOn(instance, 'removeBodyEventListener');
 
-    const initialCallCount = instance.removeBodyEventListner.calls.count();
+    const initialCallCount = instance.removeBodyEventListener.calls.count();
 
     instance._tether = { disable: () => {} };
     instance.disableTether();
 
-    expect(instance.removeBodyEventListner.calls.count()).toBe(initialCallCount + 1);
+    expect(instance.removeBodyEventListener.calls.count()).toBe(initialCallCount + 1);
   });
 
   it('should call `onHide` prop if a function is provided', () => {
     const obj = { func: () => {} };
     spyOn(obj, 'func').and.stub();
 
-    mountComponentAndSubscribeToBodyReady(
+    const component = mount(
       <OverlayWrapper
         overlay={ <TestPopover /> }
         onHide={ obj.func }>
         <TestButton text='button' />
       </OverlayWrapper>
     );
+    component.instance().enableTether();
 
     const initialCallCount = obj.func.calls.count();
-
-    return tetherReadyPromise.then(() => {
-      expect(obj.func.calls.count()).toBe(initialCallCount + 1);
-    });
+    component.instance().disableTether();
+    expect(obj.func.calls.count()).toBe(initialCallCount + 1);
   });
 
   it('should set visible state of `overlay` to false', () => {
@@ -193,7 +141,51 @@ describe('#disableTether', () => {
 });
 
 describe('#enableTether', () => {
-  it('should add click event listner to document if `shouldHideOnClick` is true', () => {
+  it('should only initialize tether if its not yet defined', function() {
+    const component = mount(
+      <OverlayWrapper
+        overlay={ <TestPopover /> }
+        shouldHideOnClick={ true }>
+        <TestButton text='button' />
+      </OverlayWrapper>
+    );
+    spyOn(component.instance(), 'initTether').and.callThrough();
+    expect(component.instance().initTether.calls.count()).toBe(0);
+    component.instance().enableTether();
+    expect(component.instance().initTether.calls.count()).toBe(1);
+    component.instance().enableTether();
+    expect(component.instance().initTether.calls.count()).toBe(1);
+  });
+
+  it('should pass the correct options when all the layout props are provided', () => {
+    const component = mount(
+      <OverlayWrapper
+        attachmentConstraint="none"
+        overlay={ <TestPopover /> }
+        horizontalAttachment="center"
+        verticalAttachment="top"
+        verticalTargetAttachment="top"
+        horizontalTargetAttachment="center"
+        isConstrainedToScreen={ true }>
+        <TestButton text='button' />
+      </OverlayWrapper>
+    );
+    const instance = component.instance();
+    instance.enableTether();
+    const tetherOptions = instance._tether.options;
+    expect(tetherOptions.attachment).toBe('top center');
+    expect(tetherOptions.constraints.length).toBe(1);
+    expect(tetherOptions.constraints[0]).toEqual({
+      attachment: 'none',
+      to: 'window',
+      pin: true,
+    });
+    expect(tetherOptions.targetAttachment).toBe('top center');
+    expect(tetherOptions.target.tagName.toLowerCase()).toBe(component.find(TestButton).render().first()[0].name);
+    expect(tetherOptions.element.tagName.toLowerCase()).toBe(component.find(TestPopover).render().first()[0].name);
+  });
+
+  it('should add click event listener to document if `shouldHideOnClick` is true', () => {
     spyOn(document, 'addEventListener');
 
     const component = mount(
@@ -215,7 +207,7 @@ describe('#enableTether', () => {
     expect(document.addEventListener.calls.argsFor(0)[1]).toBe(instance._bodyClickListener);
   });
 
-  it('should not add click event listner to document if `shouldHideOnClick` is false', () => {
+  it('should not add click event listener to document if `shouldHideOnClick` is false', () => {
     spyOn(document, 'addEventListener');
 
     const component = mount(
@@ -236,7 +228,7 @@ describe('#enableTether', () => {
     expect(document.addEventListener.calls.argsFor(0)[1]).not.toBe(instance._bodyClickListener);
   });
 
-  it('should add keyup event listner to document', () => {
+  it('should add keyup event listener to document', () => {
     spyOn(document, 'addEventListener');
 
     const component = mount(
@@ -260,7 +252,7 @@ describe('#enableTether', () => {
     const obj = { func: () => {} };
     spyOn(obj, 'func').and.stub();
 
-    const component = mountComponentAndSubscribeToBodyReady(
+    const component = mount(
       <OverlayWrapper
         overlay={ <TestPopover /> }
         onShow={ obj.func }>
@@ -270,11 +262,8 @@ describe('#enableTether', () => {
 
     const instance = component.instance();
     const initialCallCount = obj.func.calls.count();
-
-    return tetherReadyPromise.then(() => {
-      instance.enableTether();
-      expect(obj.func.calls.count()).toBe(initialCallCount + 1);
-    });
+    instance.enableTether();
+    expect(obj.func.calls.count()).toBe(initialCallCount + 1);
   });
 
 
@@ -405,20 +394,18 @@ describe('components/OverlayWrapper snapshots & others', () => {
   });
 
   it('should render component with `state.isOverlayOpen=true` when click if click bahavior', () => {
-    const component = mountComponentAndSubscribeToBodyReady(
+    const component = mount(
       <OverlayWrapper
         behavior="click"
         overlay={ <TestPopover /> }>
         <TestButton text='button' />
       </OverlayWrapper>
     );
-    return tetherReadyPromise.then(() => {
-      component.find('.click-area').simulate('click');
-      expect(component.state().isOverlayOpen).toBe(true);
-    });
+    component.find('.click-area').simulate('click');
+    expect(component.state().isOverlayOpen).toBe(true);
   });
   it('should render component with `state.isOverlayOpen=true` when hover if hover behavior', () => {
-    const component = mountComponentAndSubscribeToBodyReady(
+    const component = mount(
       <OverlayWrapper
         behavior="hover"
         overlay={ <TestPopover /> }
@@ -426,10 +413,8 @@ describe('components/OverlayWrapper snapshots & others', () => {
         <TestButton text='button' />
       </OverlayWrapper>
     );
-    return tetherReadyPromise.then(() => {
-      component.find('.click-area').simulate('mouseover');
-      expect(component.state().isOverlayOpen).toBe(true);
-    });
+    component.find('.click-area').simulate('mouseover');
+    expect(component.state().isOverlayOpen).toBe(true);
   });
 
   it('should render component with `state.isOverlayOpen=false` when clicking escape key', () => {
