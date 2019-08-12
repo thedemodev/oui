@@ -8,6 +8,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
     - Move button to top right corner by default
     - Add `showButtonBelow` property to allow button to be shown below the image if necessary
+    - Changed from using `object` html element to `img` element for image
 
 ## 44.5.0 - 2019-08-05
 - [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):
