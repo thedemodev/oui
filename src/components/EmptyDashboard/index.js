@@ -16,8 +16,7 @@ const EmptyDashboard = ({
       className='flex flex--column overflow-y--scroll flex--1'
       data-test-section='layers-empty-state'>
       { button && !showButtonBelow && (
-        <div className="flex push-quad--sides oui-empty-dashboard__button-row">
-          <div className="lego-button-group flex--1" />
+        <div className="flex push-quad--sides oui-empty-dashboard__button-row flex-justified--end">
           { button }
         </div>
       ) }
@@ -30,9 +29,7 @@ const EmptyDashboard = ({
           style={{ margin: 'auto' }}>
 
           { imagePath && (
-            <div
-              className="muted push-double--bottom"
-              style={{ margin: 'auto' }}>
+            <div className="push-double--bottom">
               <img
                 src={ imagePath }
                 className="svg--non-scaling-stroke display--inline"
@@ -86,7 +83,10 @@ EmptyDashboard.propTypes = {
   headline: PropTypes.string.isRequired,
   /** Path to an image representing the empty state */
   imagePath: PropTypes.string,
-  /** Boolean used to show the button below instead of top right corner */
+  /**
+   * Boolean used to show the button below the image
+   * instead of top right corner of the empty state
+   */
   showButtonBelow: PropTypes.bool,
   /** Identifier used to create data-test-section attributes for testing */
   testSection: PropTypes.string,
