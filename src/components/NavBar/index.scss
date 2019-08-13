@@ -13,6 +13,9 @@ $transition: (
   ),
 );
 $block-link-padding: 24px;
+$block-secondarylink-padding: 16px;
+$icon-dimensions--large: 24px;
+$icon-dimensions--small: 16px;
 $animation-speed: map-fetch($transition, stage, speed) / 2;
 $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
@@ -45,6 +48,38 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   .click-area {
     @extend .cursor--pointer;
   }
+}
+
+.root-nav__link {
+  display: flex;
+  align-items: center;
+  color: var(--dark-blue-100);
+  padding-top: $block-link-padding / 3;
+  padding-bottom: $block-link-padding / 3;
+  @media (min-height: 1600px) {
+    padding-top: $block-link-padding / 2;
+    padding-bottom: $block-link-padding / 2;
+  }
+  width: map-fetch($layout, width, root-nav, closed);
+  transition: width $animation-speed ease-in;
+  overflow: hidden;
+}
+
+.root-nav__link__text {
+  margin-left: spacer(1);
+  display: none;
+}
+
+// Link--reverse text is white on white
+// TODO(dave) remove link--reverse from these <a>s
+.root-nav__link .link--reverse {
+  color: var(--dark-blue-100) !important;
+  &:hover, &:active {
+    color: var(--light-blue-75) !important;
+  }
+}
+.root-nav__link .link--reverse.admin--color {
+  color: var(--purple) !important;
 }
 
 .root-nav__project,
@@ -110,6 +145,41 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
+.root-nav__link--primary {
+  &:hover {
+    background: var(--light-blue-10);
+    color: var(--light-blue-75);
+  }
+
+  &.is-active,
+  &.is-active:hover {
+    background: var(--light-blue-10);
+  }
+}
+
+.root-nav__link--secondary,
+.root-nav__link--tertiary {
+  font-size: map-fetch($font, size, micro);
+  &, &:visited {
+    color: var(--dark-blue-100);
+  }
+  &:hover {
+    color: var(--light-blue-75);
+  }
+}
+
+.root-nav__link--secondary {
+  padding-top: $block-secondarylink-padding / 4;
+  padding-bottom: $block-secondarylink-padding / 4;
+  @media (min-height: 1600px) {
+    padding-top: $block-secondarylink-padding / 2;
+    padding-bottom: $block-secondarylink-padding / 2;
+  }
+  padding-left: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
+  padding-right: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
+}
+
+
 .root-nav-fader {
   opacity: 0;
   transition: opacity $animation-speed ease-in;
@@ -118,3 +188,5 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
     cursor: default !important; // scss-lint:disable ImportantRule
   }
 }
+
+.root-nav__project > .oui-badge { background-color: var(--ron-project-badge); }

@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
+import PrimaryLinks from './PrimaryLinks';
+import SecondaryLinks from './SecondaryLinks';
 
 const NavBar = (props) => {
   const {
@@ -29,5 +31,7 @@ NavBar.propTypes = {
 };
 
 NavBar.Header = Header;
+NavBar.PrimaryLinks = PrimaryLinks;
+NavBar.SecondaryLinks = SecondaryLinks;
 
 export default NavBar;
