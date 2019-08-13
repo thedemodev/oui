@@ -1,14 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, object } from '@storybook/addon-knobs';
+import Icon from 'react-oui-icons';
 
 import NavBar from './index';
 
-const Logo = () => {
+const Logo = (props) => {
+  const { isNavOpen } = props;
   return (
-    <div> Brand Logo </div>
+    <div className="push-double--left flex">
+      <Icon
+        name="dimensions"
+        size="large"
+      />
+      { isNavOpen && <span className="push-half--left">Brand</span> }
+    </div>
   );
 };
+
+Logo.propTypes = { isNavOpen: PropTypes.bool.isRequired };
 
 const primaryLinksItems = [
   {
@@ -31,7 +42,17 @@ const primaryLinksItems = [
       action: '#',
     },
     linkDescription: 'Experiment',
-    testSection: 'projects-link',
+    testSection: 'experiment',
+  },
+  {
+    iconName: 'rollouts',
+    isVisible: true,
+    linkAction: {
+      type: 'LINK_HREF',
+      action: '#',
+    },
+    linkDescription: 'Features',
+    testSection: 'features',
   },
   {
     iconName: 'audiences',
@@ -41,17 +62,17 @@ const primaryLinksItems = [
       action: '#',
     },
     linkDescription: 'Audiences',
-    testSection: 'projects-link',
+    testSection: 'audiences',
   },
   {
-    iconName: 'pages',
+    iconName: 'events',
     isVisible: true,
     linkAction: {
       type: 'LINK_HREF',
       action: '#',
     },
-    linkDescription: 'Projects Link',
-    testSection: 'Pages',
+    linkDescription: 'Events',
+    testSection: 'events',
   },
   {
     iconName: 'settings',
@@ -60,32 +81,33 @@ const primaryLinksItems = [
       type: 'LINK_HREF',
       action: '#',
     },
-    linkDescription: 'Projects Link',
+    linkDescription: 'Settings',
     testSection: 'Settings',
+  },
+  {
+    iconName: 'getting-started',
+    isVisible: true,
+    linkAction: {
+      type: 'LINK_HREF',
+      action: '#',
+    },
+    linkDescription: 'Getting Started',
+    testSection: 'getting-started',
+    hasSeparator: true,
   },
 ];
 
 const secondaryLinksItems = [
   {
-    iconName: 'archive',
+    iconName: 'program-management',
     isVisible: true,
     isSecondaryLink: true,
     linkAction: {
       type: 'FUNCTION',
       action: () => {},
     },
-    linkDescription: 'Secondary Link 1',
-    testSection: 'projects-link',
-  },
-  {
-    iconName: 'ab',
-    isVisible: true,
-    linkAction: {
-      type: 'FUNCTION',
-      action: () => {},
-    },
-    linkDescription: 'Secondary Link 2',
-    testSection: 'projects-link',
+    linkDescription: 'Program Management',
+    testSection: 'program-management',
   },
   {
     iconName: 'help',
@@ -94,8 +116,8 @@ const secondaryLinksItems = [
       type: 'LINK_HREF',
       action: '#',
     },
-    linkDescription: 'Secondary Link 3',
-    testSection: 'Pages',
+    linkDescription: 'Help',
+    testSection: 'help',
   },
   {
     iconName: 'feedback',
@@ -104,8 +126,8 @@ const secondaryLinksItems = [
       type: 'LINK_HREF',
       action: '#',
     },
-    linkDescription: '4',
-    testSection: 'Settings',
+    linkDescription: 'Feedback',
+    testSection: 'feedback',
   },
 ];
 
@@ -115,76 +137,28 @@ stories
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div id="root-preview">
-      {story()}
+      { story() }
     </div>
   ));
 
 stories
-  .add('With Free Trial', (() => {
+  .add('Navigation bar with all options', (() => {
     return (
-      <NavBar isNavOpen={ boolean('isNavOpen', true) }>
-        <NavBar.Header
-          platformName="WEB"
-          projectName="Test Project"
-          homeUrl="http://optimizely.com"
-          showProjectName={ true }
-          trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
-          isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo />) }
-        />
-      </NavBar>
-    );
-  })).add('With no Trial', (() => {
-    return (
-      <NavBar isNavOpen={ boolean('isNavOpen', true) }>
-        <NavBar.Header
-          platformName="WEB"
-          projectName="Test Project"
-          homeUrl="http://optimizely.com"
-          showProjectName={ true }
-          isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo />) }
-        />
-      </NavBar>
-    );
-  })).add('Primary Links', (() => {
-    return (
-      <NavBar isNavOpen={ boolean('isNavOpen', true) }>
-        <NavBar.Header
-          platformName="WEB"
-          projectName="Test Project"
-          homeUrl="http://optimizely.com"
-          showProjectName={ true }
-          trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
-          isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo />) }
-        />
-        <NavBar.PrimaryLinks
-          isNavOpen={ boolean('isNavOpen', true) }
-          items={ primaryLinksItems }
-        />
-      </NavBar>
-    );
-  })).add('Secondary Links', (() => {
-    return (
-      <NavBar isNavOpen={ boolean('isNavOpen', true) }>
-        <NavBar.Header
-          platformName="WEB"
-          projectName="Test Project"
-          homeUrl="http://optimizely.com"
-          showProjectName={ true }
-          trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
-          isNavOpen={ boolean('isNavOpen', true) }
-          logo={ (<Logo />) }
-        />
-        <NavBar.PrimaryLinks
-          isNavOpen={ boolean('isNavOpen', true) }
-          items={ primaryLinksItems }
-        />
-        <NavBar.SecondaryLinks
-          isNavOpen={ boolean('isNavOpen', true) }
-          items={ secondaryLinksItems }
-        />
-      </NavBar>
+      <NavBar
+        isNavOpen={ boolean('isNavOpen', true) }
+        header={
+          <NavBar.Header
+            platformName="WEB"
+            projectName="Test Project"
+            homeUrl="http://optimizely.com"
+            showProjectName={ true }
+            trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
+            isNavOpen={ boolean('isNavOpen', true) }
+            logo={ (<Logo isNavOpen={ boolean('isNavOpen', true) } />) }
+          />
+        }
+        primaryLinks={ object('primaryLinks', primaryLinksItems) }
+        secondaryLinks={ object('secondaryLinks', secondaryLinksItems) }
+      />
     );
   }));
