@@ -16,8 +16,11 @@ const LinkActionTypes = {
   FUNCTION: 'FUNCTION',
 };
 
+// Should have a main component on its own.
 class IconLink extends React.PureComponent {
   static propTypes = {
+    /* Boolean, Should show a separator line before this link */
+    hasSeparator: PropTypes.bool,
     /* String, name of Icon */
     iconName: PropTypes.string.isRequired,
     /* Boolean, whether the link is highlighted
@@ -41,6 +44,7 @@ class IconLink extends React.PureComponent {
   };
 
   static defaultProps = {
+    hasSeparator: false,
     isActive: false,
     isNavOpen: true,
     isSecondaryLink: false,
@@ -52,35 +56,43 @@ class IconLink extends React.PureComponent {
       iconName,
       isNavOpen,
       isSecondaryLink,
+      hasSeparator,
       linkDescription,
     } = this.props;
     const iconSize = isSecondaryLink ? 'medium' : 'large';
     return (
-      <Poptip
-        content={ linkDescription }
-        disable={ isNavOpen }
-        isAnimated={ false }
-        position="right">
-        <div
-          className={ classNames(
-            'root-nav__link',
-            {
-              'is-active': isActive,
-              'root-nav__link--primary': !isSecondaryLink,
-              'root-nav__link--secondary truncate': isSecondaryLink,
-            },
-          ) }>
-          <div className="flex">
-            <Icon
-              name={ iconName }
-              size={ iconSize }
-            />
+      <React.Fragment>
+        { hasSeparator &&
+          <li className="spacer push-double">
+            <hr className="sidebar-line"/>
+          </li>
+        }
+        <Poptip
+          content={ linkDescription }
+          disable={ isNavOpen }
+          isAnimated={ false }
+          position="right">
+          <div
+            className={ classNames(
+              'root-nav__link',
+              {
+                'is-active': isActive,
+                'root-nav__link--primary': !isSecondaryLink,
+                'root-nav__link--secondary truncate': isSecondaryLink,
+              },
+            ) }>
+            <div className="flex">
+              <Icon
+                name={ iconName }
+                size={ iconSize }
+              />
+            </div>
+            <span className={ classNames('root-nav__link__text', { 'root-nav-fader': !isNavOpen }) }>
+              { linkDescription }
+            </span>
           </div>
-          <span className={ classNames('root-nav__link__text', { 'root-nav-fader': !isNavOpen }) }>
-            { linkDescription }
-          </span>
-        </div>
-      </Poptip>
+        </Poptip>
+      </React.Fragment>
     );
   };
 

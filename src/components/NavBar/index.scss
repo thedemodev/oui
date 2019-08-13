@@ -1,22 +1,8 @@
-$layout: (
-  width:(
-    root-nav: (
-      closed                  : 76px,
-      open                    : 226px
-    ),
-  ),
-);
-$transition: (
-  stage:(
-    speed: 300ms,
-    easing: cubic-bezier(0.1, -0.1, 0.1, 1.1)
-  ),
-);
 $block-link-padding: 24px;
 $block-secondarylink-padding: 16px;
 $icon-dimensions--large: 24px;
 $icon-dimensions--small: 16px;
-$animation-speed: map-fetch($transition, stage, speed) / 2;
+$animation-speed: 150ms;
 $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
 .root-nav {
@@ -25,11 +11,11 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   position: relative;
   height: 100%;
   min-height: fit-content;
-  z-index: map-fetch($z-index, root-nav);
+  z-index: 2001;
   padding: spacer(2.5) 0;
   color: var(--dark-blue-100);
   background: var(--grey-25);
-  width: map-fetch($layout, width, root-nav, closed);
+  width: 76px;
   transition: width $animation-speed ease-in;
   &:after {
     transition: width $animation-speed ease-in;
@@ -60,7 +46,7 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
     padding-top: $block-link-padding / 2;
     padding-bottom: $block-link-padding / 2;
   }
-  width: map-fetch($layout, width, root-nav, closed);
+  width: 76px;
   transition: width $animation-speed ease-in;
   overflow: hidden;
 }
@@ -111,7 +97,7 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
 // Overwrite some styles when the navigation is expanded.
 .root-nav--open {
-  width: map-fetch($layout, width, root-nav, open);
+  width: 226px;
   transition: width $animation-speed ease-in;
 
   &:after {
@@ -140,7 +126,7 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
   .root-nav__link {
     transition: width $animation-speed ease-in;
-    width: map-fetch($layout, width, root-nav, open);
+    width: 226px;
     overflow: visible;
   }
 }
