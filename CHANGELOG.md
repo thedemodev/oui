@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add `numRows` prop for **Textarea** component ([#1215](https://github.com/optimizely/oui/pull/1215))
 
 ## 44.5.0 - 2019-08-05
 - [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):

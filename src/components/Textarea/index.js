@@ -23,6 +23,7 @@ class Textarea extends React.Component {
     isRequired,
     isDisabled,
     maxLength,
+    numRows,
     onBlur,
     onChange,
     onFocus,
@@ -51,6 +52,7 @@ class Textarea extends React.Component {
         disabled={ isDisabled }
         { ...(typeof maxLength === 'undefined' ? {} : { maxLength }) }
         maxLength={ maxLength }
+        numRows={ numRows }
         onInput={ onInput }
         onChange={ onChange }
         onBlur={ onBlur }
@@ -135,6 +137,8 @@ Textarea.propTypes = {
   maxLength: PropTypes.number,
   /** Form note for the input */
   note: PropTypes.string,
+  /** Number of rows to fit in the textarea */
+  numRows: PropTypes.number,
   /**
     Function that fires when the textarea loses focus. It fires regardless of
     whether the value has changed.
