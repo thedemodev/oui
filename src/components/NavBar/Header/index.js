@@ -7,11 +7,10 @@ import Badge from '../../Badge';
 
 const NavBarHeader = (props) => {
   const {
-    platformName,
-    projectName,
+    badgeText,
+    title,
     homeUrl,
-    showProjectName,
-    trialSectionBody,
+    preTitle,
     isNavOpen,
     logo,
   } = props;
@@ -22,21 +21,19 @@ const NavBarHeader = (props) => {
           { logo }
         </Link>
       </li>
-      { trialSectionBody }
+      { preTitle }
       <li
         className={ classNames({
           'root-nav__project': true,
           'root-nav-fader': !isNavOpen,
         }) }>
-        { showProjectName && (
-          <div
-            className="epsilon truncate"
-            data-test-section="project-name">
-            { projectName }
-          </div>
-        ) }
+        <div
+          className="epsilon truncate"
+          data-test-section="project-name">
+          { title }
+        </div>
         <Badge color='primary'>
-          { platformName }
+          { badgeText }
         </Badge>
       </li>
     </div>
@@ -44,24 +41,22 @@ const NavBarHeader = (props) => {
 };
 
 NavBarHeader.propTypes = {
+  /* Text to appear on the Badge below title */
+  badgeText: PropTypes.string.isRequired,
   /* Root Url for Logo Link */
   homeUrl: PropTypes.string.isRequired,
   /* Is Nav Open or collapsed */
   isNavOpen: PropTypes.bool.isRequired,
   /* Logo Component */
   logo: PropTypes.node.isRequired,
-  /* Platform Name */
-  platformName: PropTypes.string.isRequired,
-  /* Project Name */
-  projectName: PropTypes.string.isRequired,
-  /* Boolean to show Project */
-  showProjectName: PropTypes.bool.isRequired,
-  /* Trial Section Content */
-  trialSectionBody: PropTypes.node,
+  /* Optional content to show above the title */
+  preTitle: PropTypes.node,
+  /* Nav bar Title */
+  title: PropTypes.string.isRequired,
 };
 
 NavBarHeader.defaultProps = {
-  trialSectionBody: null,
+  preTitle: null,
 };
 
 export default NavBarHeader;
