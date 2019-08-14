@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const EmptyDashboard = ({
   button,
+  imageHeight,
   imagePath,
+  imageWidth,
   headline,
   description,
   descriptionMaxWidth,
@@ -20,20 +22,24 @@ const EmptyDashboard = ({
           { button }
         </div>
       ) }
-      <div className='anchor--middle height--1-1 flex flex--row'>
+      <div className='anchor--middle height--1-1 flex flex--row flex-align--center'>
 
         <div
           data-oui-component={ true }
           className='text--center soft-quad'
-          data-test-section={ testSection }
-          style={{ margin: 'auto' }}>
+          data-test-section={ testSection }>
 
           { imagePath && (
             <div className="push-double--bottom">
               <img
                 src={ imagePath }
                 className="svg--non-scaling-stroke display--inline"
-                style={{ maxWidth: '450px', maxHeight: '290px' }}
+                style={{
+                  maxWidth: '450px',
+                  maxHeight: '290px',
+                  height: imageHeight,
+                  width: imageWidth,
+                }}
                 data-test-section={ testSection && `${testSection}-image` }
                 alt=""
               />
@@ -81,8 +87,12 @@ EmptyDashboard.propTypes = {
   ]),
   /** Short text about the empty state */
   headline: PropTypes.string.isRequired,
+  /** String to set the max image height */
+  imageHeight: PropTypes.string,
   /** Path to an image representing the empty state */
   imagePath: PropTypes.string,
+  /** String to set the max image width */
+  imageWidth: PropTypes.string,
   /**
    * Boolean used to show the button below the image
    * instead of top right corner of the empty state
@@ -94,6 +104,8 @@ EmptyDashboard.propTypes = {
 
 EmptyDashboard.getDefaultProps = {
   descriptionMaxWidth: '450px',
+  imageHeight: 'inherit',
+  imageWidth: 'inherit',
   showButtonBelow: false,
   testSection: 'empty-hello',
 };

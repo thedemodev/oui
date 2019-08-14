@@ -29,4 +29,17 @@ describe('components/EmptyDashboard', () => {
     );
     expect(shallowToJson(output)).toMatchSnapshot();
   });
+  it('should render with specified height and width when passed using the imageHeight and imageWidth properties', () => {
+    const output = mount(
+      <EmptyDashboard
+        headline='Get started with Optimizely X'
+        description={ <div>This is a test description about <Link href='http://google.com'>X Feature</Link> with a Google.</div> }
+        button={ (<Button style="highlight">Highlight Button</Button>) }
+        imagePath='https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg'
+        imageHeight='300px'
+        imageWidth='200px'
+      />
+    );
+    expect(shallowToJson(output)).toMatchSnapshot();
+  });
 });
