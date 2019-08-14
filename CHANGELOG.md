@@ -9,6 +9,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
     - Move button to top right corner by default
     - Add `showButtonBelow` property to allow button to be shown below the image if necessary
     - Changed from using `object` html element to `img` element for image
+    - Added `imageHeight` and `imageWidth` properties to permit implementer adjustments
 
 ## 44.5.0 - 2019-08-05
 - [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):
