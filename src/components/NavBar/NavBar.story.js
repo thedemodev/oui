@@ -142,21 +142,15 @@ stories
   ));
 
 stories
-  .add('Navigation bar with all options', (() => {
+  .add('With All Options', (() => {
     return (
       <NavBar
         isNavOpen={ boolean('isNavOpen', true) }
-        header={
-          <NavBar.Header
-            platformName="WEB"
-            projectName="Test Project"
-            homeUrl="http://optimizely.com"
-            showProjectName={ true }
-            trialSectionBody={ <div className="push-double--bottom push-double--left">Trial</div> }
-            isNavOpen={ boolean('isNavOpen', true) }
-            logo={ (<Logo isNavOpen={ boolean('isNavOpen', true) } />) }
-          />
-        }
+        logo={ <Logo isNavOpen={ boolean('isNavOpen', true) } /> }
+        title="Test Project"
+        badgeText="WEB"
+        homeUrl="http://optimizely.com"
+        preTitle={ <div className="push-double--bottom push-double--left">Trial</div> }
         primaryLinks={ object('primaryLinks', primaryLinksItems) }
         secondaryLinks={ object('secondaryLinks', secondaryLinksItems) }
       />

@@ -41,7 +41,11 @@ const renderLinks = (links, isPrimary, isNavOpen) => (
 const NavBar = (props) => {
   const {
     isNavOpen,
-    header,
+    homeUrl,
+    logo,
+    preTitle,
+    title,
+    badgeText,
     primaryLinks,
     secondaryLinks,
   } = props;
@@ -52,7 +56,14 @@ const NavBar = (props) => {
         'root-nav--open': isNavOpen,
       }) }
       data-test-section="p13n-root-navbar">
-      { header }
+      <Header
+        homeUrl={ homeUrl }
+        isNavOpen={ isNavOpen }
+        logo={ logo }
+        badgeText={ badgeText }
+        title={ title }
+        preTitle={ preTitle }
+      />
       { renderLinks(primaryLinks, true, isNavOpen) }
       <li className="anchor--bottom">
         <ul>
@@ -64,20 +75,33 @@ const NavBar = (props) => {
 };
 
 NavBar.propTypes = {
-  header: PropTypes.node,
-  /* Is Navigation Bar open or closed */
+  /** Text to appear below title in a badge. */
+  badgeText: PropTypes.string,
+  /** Url to navigate to when Brand Logo is clicked. */
+  homeUrl: PropTypes.string,
+  /** Is Navigation Bar open or closed. */
   isNavOpen: PropTypes.bool,
+  /** Component containing brand logo. */
+  logo: PropTypes.node,
+  /** Component to appear above title and below brand logo. */
+  preTitle: PropTypes.node,
+  /** Primary links of navigation bar. */
   primaryLinks: PropTypes.arrayOf(linksPropTypeShape),
+  /** Primary links of navigation bar. */
   secondaryLinks: PropTypes.arrayOf(linksPropTypeShape),
+  /** Title of navigation bar */
+  title: PropTypes.string,
 };
 
 NavBar.defaultProps = {
-  header: '',
+  badgeText: '',
+  homeUrl: '',
   isNavOpen: true,
+  logo: null,
+  preTitle: null,
   primaryLinks: [],
   secondaryLinks: [],
+  title: '',
 };
-
-NavBar.Header = Header;
 
 export default NavBar;
