@@ -33,40 +33,157 @@ exports[`components/EmptyDashboard should render 1`] = `
   imagePath="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
 >
   <div
-    className="flex overflow-y--scroll flex--1"
+    className="flex flex--column overflow-y--scroll flex--1"
     data-oui-component={true}
     data-test-section="layers-empty-state"
-    style={
-      Object {
-        "margin": "auto",
-        "width": "750px",
-      }
-    }
   >
     <div
-      className="anchor--middle height--1-1 flex flex--column"
+      className="flex push-quad--sides oui-empty-dashboard__button-row flex-justified--end"
+    >
+      <Button
+        isDisabled={false}
+        isLink={false}
+        isLoading={false}
+        isSubmit={false}
+        loadingText=""
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        style="highlight"
+        width="default"
+      >
+        <button
+          aria-live="polite"
+          className="oui-button oui-button--highlight oui-button--default"
+          data-oui-component={true}
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          Highlight Button
+        </button>
+      </Button>
+    </div>
+    <div
+      className="anchor--middle height--1-1 flex flex--row flex-align--center"
     >
       <div
         className="text--center soft-quad"
         data-oui-component={true}
       >
         <div
-          className="muted push-double--bottom"
+          className="push-double--bottom"
+        >
+          <img
+            alt=""
+            className="svg--non-scaling-stroke display--inline"
+            src="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+            style={
+              Object {
+                "height": undefined,
+                "maxHeight": "290px",
+                "maxWidth": "450px",
+                "width": undefined,
+              }
+            }
+          />
+        </div>
+        <h1
+          className="alpha push--bottom"
+        >
+          Get started with Optimizely X
+        </h1>
+        <div
+          className="muted push--bottom anchor--middle"
           style={
             Object {
-              "margin": "auto",
-              "width": "550px",
+              "maxWidth": undefined,
             }
           }
         >
-          <object
+          <div>
+            This is a test description about 
+            <Link
+              href="http://google.com"
+            >
+              <a
+                className="link"
+                data-oui-component={true}
+                disabled={false}
+                href="http://google.com"
+              >
+                X Feature
+              </a>
+            </Link>
+             with a Google.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</EmptyDashboard>
+`;
+
+exports[`components/EmptyDashboard should render with button below image when showButtonBelow property is set to TRUE 1`] = `
+<EmptyDashboard
+  button={
+    <Button
+      isDisabled={false}
+      isLink={false}
+      isLoading={false}
+      isSubmit={false}
+      loadingText=""
+      onBlur={[Function]}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      style="highlight"
+      width="default"
+    >
+      Highlight Button
+    </Button>
+  }
+  description={
+    <div>
+      This is a test description about 
+      <Link
+        href="http://google.com"
+      >
+        X Feature
+      </Link>
+       with a Google.
+    </div>
+  }
+  headline="Get started with Optimizely X"
+  imagePath="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+  showButtonBelow={true}
+>
+  <div
+    className="flex flex--column overflow-y--scroll flex--1"
+    data-oui-component={true}
+    data-test-section="layers-empty-state"
+  >
+    <div
+      className="anchor--middle height--1-1 flex flex--row flex-align--center"
+    >
+      <div
+        className="text--center soft-quad"
+        data-oui-component={true}
+      >
+        <div
+          className="push-double--bottom"
+        >
+          <img
             alt=""
             className="svg--non-scaling-stroke display--inline"
-            data="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+            src="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
             style={
               Object {
+                "height": undefined,
                 "maxHeight": "290px",
                 "maxWidth": "450px",
+                "width": undefined,
               }
             }
           />
@@ -129,6 +246,134 @@ exports[`components/EmptyDashboard should render 1`] = `
               Highlight Button
             </button>
           </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</EmptyDashboard>
+`;
+
+exports[`components/EmptyDashboard should render with specified height and width when passed using the imageHeight and imageWidth properties 1`] = `
+<EmptyDashboard
+  button={
+    <Button
+      isDisabled={false}
+      isLink={false}
+      isLoading={false}
+      isSubmit={false}
+      loadingText=""
+      onBlur={[Function]}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      style="highlight"
+      width="default"
+    >
+      Highlight Button
+    </Button>
+  }
+  description={
+    <div>
+      This is a test description about 
+      <Link
+        href="http://google.com"
+      >
+        X Feature
+      </Link>
+       with a Google.
+    </div>
+  }
+  headline="Get started with Optimizely X"
+  imageHeight="300px"
+  imagePath="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+  imageWidth="200px"
+>
+  <div
+    className="flex flex--column overflow-y--scroll flex--1"
+    data-oui-component={true}
+    data-test-section="layers-empty-state"
+  >
+    <div
+      className="flex push-quad--sides oui-empty-dashboard__button-row flex-justified--end"
+    >
+      <Button
+        isDisabled={false}
+        isLink={false}
+        isLoading={false}
+        isSubmit={false}
+        loadingText=""
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        style="highlight"
+        width="default"
+      >
+        <button
+          aria-live="polite"
+          className="oui-button oui-button--highlight oui-button--default"
+          data-oui-component={true}
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          Highlight Button
+        </button>
+      </Button>
+    </div>
+    <div
+      className="anchor--middle height--1-1 flex flex--row flex-align--center"
+    >
+      <div
+        className="text--center soft-quad"
+        data-oui-component={true}
+      >
+        <div
+          className="push-double--bottom"
+        >
+          <img
+            alt=""
+            className="svg--non-scaling-stroke display--inline"
+            src="https://app.optimizely.com/static/img/p13n/campaign-list-empty-state.svg"
+            style={
+              Object {
+                "height": "300px",
+                "maxHeight": "290px",
+                "maxWidth": "450px",
+                "width": "200px",
+              }
+            }
+          />
+        </div>
+        <h1
+          className="alpha push--bottom"
+        >
+          Get started with Optimizely X
+        </h1>
+        <div
+          className="muted push--bottom anchor--middle"
+          style={
+            Object {
+              "maxWidth": undefined,
+            }
+          }
+        >
+          <div>
+            This is a test description about 
+            <Link
+              href="http://google.com"
+            >
+              <a
+                className="link"
+                data-oui-component={true}
+                disabled={false}
+                href="http://google.com"
+              >
+                X Feature
+              </a>
+            </Link>
+             with a Google.
+          </div>
         </div>
       </div>
     </div>

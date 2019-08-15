@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
+    - Move button to top right corner by default
+    - Add `showButtonBelow` property to allow button to be shown below the image if necessary
+    - Changed from using `object` html element to `img` element for image
+    - Added `imageHeight` and `imageWidth` properties to permit implementer adjustments
 - [Feature] Add `numRows` prop for **Textarea** component ([#1215](https://github.com/optimizely/oui/pull/1215))
 
 ## 44.5.0 - 2019-08-05
