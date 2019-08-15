@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.6.0 - 2019-08-15
 - [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
     - Move button to top right corner by default
     - Add `showButtonBelow` property to allow button to be shown below the image if necessary
