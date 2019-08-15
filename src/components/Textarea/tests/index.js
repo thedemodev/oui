@@ -151,6 +151,13 @@ describe('components/Textarea', () => {
     expect(component.find('[data-test-section="foo-note"]').text()).toBe('A short description');
   });
 
+  it('should add a numRows attribute when numRows is passed', () => {
+    const component = mount(
+      <Textarea numRows={ 10 } />
+    );
+    expect(component.find('textarea').prop('numRows')).toBe(10);
+  });
+
   it('should add a maxLength attribute when maxLength is passed', () => {
     const component = mount(
       <Textarea maxLength={ 50 } />
