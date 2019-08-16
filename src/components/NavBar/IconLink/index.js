@@ -7,20 +7,16 @@ import Button from '../../Button';
 import Link from '../../Link';
 import Poptip from '../../Poptip';
 
-/**
- * Possible active tabs for the global navbar.
- */
-const LinkActionTypes = {
-  PUSH_STATE_HREF: 'PUSH_STATE_HREF',
-  LINK_HREF: 'LINK_HREF',
-  FUNCTION: 'FUNCTION',
-};
+const LINK = 'link';
+const PUSH_STATE = 'pushstate';
+const BUTTON = 'button';
 
 // Should have a main component on its own.
 class IconLink extends React.PureComponent {
   static propTypes = {
     /* Boolean, Should show a separator line before this link */
     hasSeparator: PropTypes.bool,
+    href: PropTypes.string,
     /* String, name of Icon */
     iconName: PropTypes.string.isRequired,
     /* Boolean, whether the link is highlighted
@@ -30,24 +26,22 @@ class IconLink extends React.PureComponent {
     isNavOpen: PropTypes.bool,
     /* Boolean, whether link is primary or secondary */
     isSecondaryLink: PropTypes.bool,
-    /* Object, { type: '', action: '', pushStateHandler: '' } */
-    /* type key value can be pushStateHref, linkHref, function */
-    /* if key is pushStateHref, action is string,
-     * pushStateHandler is a function */
-    /* if key is linkHref, action is string */
-    /* if key is function, action is function */
-    linkAction: PropTypes.object.isRequired,
     /* String, description of url */
     linkDescription: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
     /* String, name of test data section */
     testSection: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([LINK, PUSH_STATE, BUTTON]),
   };
 
   static defaultProps = {
     hasSeparator: false,
+    href: '',
     isActive: false,
     isNavOpen: true,
     isSecondaryLink: false,
+    onClick: () => {},
+    type: LINK,
   };
 
   renderNavLink = () => {
@@ -97,16 +91,16 @@ class IconLink extends React.PureComponent {
   };
 
   onAppRouteLinkClick = event => {
-    const { linkAction } = this.props;
-    return linkAction.pushStateHandler(linkAction.action, event);
+    const { href, onClick } = this.props;
+    return onClick(href, event);
   };
 
   renderAppRouteLink = () => {
-    const { linkAction, testSection } = this.props;
+    const { testSection, href } = this.props;
     return (
       <Link
         style="reverse"
-        href={ linkAction.action }
+        href={ href }
         onClick={ this.onAppRouteLinkClick }
         testSection={ `${testSection}-internal-link` }>
         { this.renderNavLink() }
@@ -115,10 +109,10 @@ class IconLink extends React.PureComponent {
   };
 
   renderExternalLink = () => {
-    const { linkAction, testSection } = this.props;
+    const { testSection, href } = this.props;
     return (
       <Link
-        href={ linkAction.action }
+        href={ href }
         style="reverse"
         testSection={ `${testSection}-external-link` }>
         { this.renderNavLink() }
@@ -127,10 +121,10 @@ class IconLink extends React.PureComponent {
   };
 
   renderButton = () => {
-    const { linkAction, testSection } = this.props;
+    const { testSection, onClick } = this.props;
     return (
       <Button
-        onClick={ linkAction.action }
+        onClick={ onClick }
         style="unstyled"
         testSection={ `${testSection}-button` }>
         { this.renderNavLink() }
@@ -139,17 +133,17 @@ class IconLink extends React.PureComponent {
   };
 
   render() {
-    const { linkAction, testSection } = this.props;
+    const { testSection, type } = this.props;
     let primaryLink;
 
-    switch (linkAction.type) {
-      case LinkActionTypes.PUSH_STATE_HREF:
+    switch (type) {
+      case PUSH_STATE:
         primaryLink = this.renderAppRouteLink();
         break;
-      case LinkActionTypes.LINK_HREF:
+      case LINK:
         primaryLink = this.renderExternalLink();
         break;
-      case LinkActionTypes.FUNCTION:
+      case BUTTON:
         primaryLink = this.renderButton();
         break;
       default:
