@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import Badge from '../Badge';
 import IconLink from './IconLink';
+import CurrentUserMenu from './CurrentUserMenu';
 
 const LINK = 'link';
 const PUSH_STATE = 'pushstate';
@@ -51,7 +52,7 @@ SecondaryLink.propTypes = linkPropTypes;
 SecondaryLink.defaultProps = linkDefaultProps;
 
 // TODO: Implement CurrentUser Component
-const CurrentUser = props => <div />;
+const CurrentUser = props => <CurrentUserMenu { ...props } />;
 
 const renderPrimaryLinks = children => React.Children.toArray(children).filter(child => child.type === PrimaryLink);
 const renderSecondaryLinks = children => React.Children.toArray(children).filter(child => child.type === SecondaryLink);
