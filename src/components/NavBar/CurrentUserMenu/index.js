@@ -50,6 +50,12 @@ const renderCurrentUserMenu = (
     </div>
   );
 
+  Activator.propTypes = {
+    buttonRef: PropTypes.object.isRequired,
+    onBLur: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
+  };
+
   const profilePicClassNames = classNames('avatar', 'avatar--small');
   const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
   return ([
