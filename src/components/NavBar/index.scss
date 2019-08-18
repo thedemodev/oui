@@ -3,6 +3,7 @@ $block-secondarylink-padding: 16px;
 $icon-dimensions--large: 24px;
 $icon-dimensions--small: 16px;
 $animation-speed: 150ms;
+$avatar-size: 29px;
 $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 
 .root-nav {
@@ -154,6 +155,11 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
+.root-nav__link--tertiary {
+  padding-left: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
+  padding-right: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
+}
+
 .root-nav__link--secondary {
   padding-top: $block-secondarylink-padding / 4;
   padding-bottom: $block-secondarylink-padding / 4;
@@ -176,3 +182,42 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .root-nav__project > .oui-badge { background-color: var(--ron-project-badge); }
+
+.avatar {
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+  background-position: center center;
+  background-size: cover;
+  //background-image: url('/static/img/profile-default.svg');
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.75);
+
+  &.color-admin--border {
+    box-shadow: 0 0 0 1.5px map-fetch($color, ui, admin);
+  }
+}
+
+.avatar--small {
+  height: 27px;
+  width: 27px;
+}
+
+.avatar--medium {
+  height: 50px;
+  width: 50px;
+}
+
+.oui-dropdown > li.oui-dropdown__item.oui-dropdown__block-link,
+.root-nav__user .lego-block-list__link {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.root-nav__user .lego-block-list li > div.soft-half--sides {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.root-nav__user {
+  align-items: flex-start;
+}
+

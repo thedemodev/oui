@@ -65,7 +65,21 @@ stories
         />
         <NavBar.SecondaryLink iconName="help" type="link" linkDescription="Help" testSection="help" />
         <NavBar.SecondaryLink iconName="feedback" type="link" linkDescription="Feedback" testSection="feedback" />
-        <NavBar.CurrentUser />
+        <NavBar.CurrentUser
+          isOpen={ boolean('isOpen', true) }
+          accountSwitcherItems={
+            [
+              { text: 'Account 1', url: '#', description: 'Account 1 Description', isCurrent: false },
+              { text: 'Account 2', url: '#', description: 'Account 2 Description', isCurrent: true },
+              { text: 'Account 3', url: '#', description: 'Account 3 Description very very very very very very very long', isCurrent: false },
+            ]
+          }
+          userName="Hassan Khalid"
+          accountSettingsUrl="#"
+          profileUrl="#"
+          logoutUrl="#"
+          profileAvatarUrl=""
+        />
       </NavBar>
     );
   }));
