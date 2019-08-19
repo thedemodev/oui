@@ -6,48 +6,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import AccountSwitcher from './AccountSwitcher';
-
 import BlockList from '../../BlockList';
 import Dropdown from '../../Dropdown';
-import DropdownContents from '../../Dropdown/DropdownContents';
 import Link from '../../Link';
 import OverlayWrapper from '../../OverlayWrapper';
 import Popover from '../../Popover';
 import Button from '../../Button';
 
-const renderEmulate = (isOpen, handler) => (
-  <li
-    className={ classNames({
-      'root-nav__faded__link truncate': isOpen,
-      'soft-half--sides': !isOpen,
-    }) }>
-    <Button
-      onClick={ handler }
-      style="unstyled"
-      testSection="nav-bar-close-impersonate">
-      <span className="admin--color">Emulate</span>
-    </Button>
-  </li>
-);
-
-const renderLinks = (isOpen, accountSettingsUrl, profileUrl, logoutUrl) => {
-  const linkClass = isOpen ? 'root-nav__faded__link truncate' : 'soft-half--sides';
-  const linkStyle = isOpen ? 'reverse' : 'default';
-  return (
-    <React.Fragment>
-      <li className={ linkClass }>
-        <Link href={ accountSettingsUrl } style={ linkStyle }>Account Settings</Link>
-      </li>
-      <li className={ linkClass }>
-        <Link href={ profileUrl } style={ linkStyle }>Profile</Link>
-      </li>
-      <li className={ linkClass }>
-        <Link href={ logoutUrl } style={ linkStyle }>Log Out</Link>
-      </li>
-    </React.Fragment>
-  );
-};
+import AccountSwitcher from './AccountSwitcher';
 
 const Activator = ({ buttonRef, onClick, onBLur, userName }) => (
   <div
@@ -112,17 +78,49 @@ class CurrentUserMenu extends React.Component {
     isOpen: true,
   };
 
+  renderEmulate = () => {
+    const { isOpen, onEmulateClick } = this.props;
+    return (
+      <li
+        className={ classNames({
+          'root-nav__faded__link truncate': isOpen,
+          'soft-half--sides': !isOpen,
+        }) }>
+        <Button
+          onClick={ onEmulateClick }
+          style="unstyled"
+          testSection="nav-bar-close-impersonate">
+          <span className="admin--color">Emulate</span>
+        </Button>
+      </li>
+    );
+  };
+
+  renderLinks = () => {
+    const { isOpen, accountSettingsUrl, profileUrl, logoutUrl } = this.props;
+    const linkClass = isOpen ? 'root-nav__faded__link truncate' : 'soft-half--sides';
+    const linkStyle = isOpen ? 'reverse' : 'default';
+    return (
+      <React.Fragment>
+        <li className={ linkClass }>
+          <Link href={ accountSettingsUrl } style={ linkStyle }>Account Settings</Link>
+        </li>
+        <li className={ linkClass }>
+          <Link href={ profileUrl } style={ linkStyle }>Profile</Link>
+        </li>
+        <li className={ linkClass }>
+          <Link href={ logoutUrl } style={ linkStyle }>Log Out</Link>
+        </li>
+      </React.Fragment>
+    );
+  };
+
   renderCurrentUserMenu = () => {
     const {
-      isOpen,
       userName,
-      profileUrl,
       profileAvatarUrl,
-      accountSettingsUrl,
-      logoutUrl,
       accountSwitcherItems,
       showEmulate,
-      onEmulateClick,
       accountSwitcherHandler,
     } = this.props;
     const shouldShowAccountList = accountSwitcherItems.length > 1;
@@ -143,7 +141,7 @@ class CurrentUserMenu extends React.Component {
         <Dropdown
           placement="right-start"
           activator={ <Activator userName={ userName } /> }>
-          <DropdownContents direction="up" minWidth="250px">
+          <Dropdown.Contents direction="up" minWidth="250px">
             <div data-test-section="account-switcher-dropdown-content">
               <BlockList>
                 <AccountSwitcher
@@ -152,7 +150,7 @@ class CurrentUserMenu extends React.Component {
                 />
               </BlockList>
             </div>
-          </DropdownContents>
+          </Dropdown.Contents>
         </Dropdown>
         }
         { !shouldShowAccountList &&
@@ -162,22 +160,17 @@ class CurrentUserMenu extends React.Component {
           { userName }
         </div>
         }
-        { showEmulate && renderEmulate(isOpen, onEmulateClick) }
-        { renderLinks(isOpen, accountSettingsUrl, profileUrl, logoutUrl) }
+        { showEmulate && this.renderEmulate() }
+        { this.renderLinks() }
       </ul>,
     ]);
   };
 
   renderCollapsedCurrentUserMenu = () => {
     const {
-      isOpen,
-      profileUrl,
       profileAvatarUrl,
-      accountSettingsUrl,
-      logoutUrl,
       accountSwitcherItems,
       showEmulate,
-      onEmulateClick,
       accountSwitcherHandler,
     } = this.props;
     const profilePicClassNames = classNames('avatar', 'avatar--small');
@@ -202,8 +195,8 @@ class CurrentUserMenu extends React.Component {
               />
             </BlockList>
             <ul className="soft">
-              { showEmulate && renderEmulate(isOpen, onEmulateClick) }
-              { renderLinks(isOpen, accountSettingsUrl, profileUrl, logoutUrl) }
+              { showEmulate && this.renderEmulate() }
+              { this.renderLinks() }
             </ul>
           </Popover>
         ) }>
