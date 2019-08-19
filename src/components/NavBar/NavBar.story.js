@@ -45,27 +45,78 @@ stories
             <b>5</b> days { boolean('isOpen', true) && 'left in your trial' }
           </div>
         }>
-        <NavBar.PrimaryLink iconName="projects" type="pushstate" linkDescription="Projects" testSection="projects"/>
-        <NavBar.PrimaryLink iconName="experiment" type="link" href="http://optimizely.com" linkDescription="Experiment" testSection="experiment" isActive={ true } />
-        <NavBar.PrimaryLink iconName="rollouts" type="link" linkDescription="Features" testSection="features" />
-        <NavBar.PrimaryLink iconName="audiences" type="link" linkDescription="Audiences" testSection="audiences" />
-        <NavBar.PrimaryLink iconName="events" type="button" linkDescription="Events" testSection="events" />
-        <NavBar.PrimaryLink iconName="settings" type="link" linkDescription="Settings" testSection="settings" />
+        <NavBar.PrimaryLink
+          iconName="projects"
+          type="pushstate"
+          linkDescription="Projects"
+          testSection="projects"
+          onClick={ action('PrimaryLink onClick') }
+        />
+        <NavBar.PrimaryLink
+          iconName="experiment"
+          type="link"
+          linkDescription="Experiment"
+          testSection="experiment"
+          isActive={ true }
+          onClick={ action('PrimaryLink onClick') }
+        />
+        <NavBar.PrimaryLink
+          iconName="rollouts"
+          type="link"
+          linkDescription="Features"
+          testSection="features"
+          onClick={ action('PrimaryLink onClick') }
+        />
+        <NavBar.PrimaryLink
+          iconName="audiences"
+          type="link"
+          linkDescription="Audiences"
+          testSection="audiences"
+          onClick={ action('PrimaryLink onClick') }
+        />
+        <NavBar.PrimaryLink
+          iconName="events"
+          type="button"
+          linkDescription="Events"
+          testSection="events"
+          onClick={ action('PrimaryLink onClick') }
+        />
+        <NavBar.PrimaryLink
+          iconName="settings"
+          type="link"
+          linkDescription="Settings"
+          testSection="settings"
+          onClick={ action('PrimaryLink onClick') }
+        />
         <NavBar.PrimaryLink
           iconName="getting-started"
           type="pushstate"
           linkDescription="Getting Started"
           testSection="getting-started"
           hasSeparator={ true }
+          onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.SecondaryLink
           iconName="program-management"
           type="button"
           linkDescription="Program Management"
           testSection="program-management"
+          onClick={ action('SecondaryLink onClick') }
         />
-        <NavBar.SecondaryLink iconName="help" type="link" linkDescription="Help" testSection="help" />
-        <NavBar.SecondaryLink iconName="feedback" type="link" linkDescription="Feedback" testSection="feedback" />
+        <NavBar.SecondaryLink
+          iconName="help"
+          type="link"
+          linkDescription="Help"
+          testSection="help"
+          onClick={ action('SecondaryLink onClick') }
+        />
+        <NavBar.SecondaryLink
+          onClick={ action('SecondaryLink onClick') }
+          iconName="feedback"
+          type="link"
+          linkDescription="Feedback"
+          testSection="feedback"
+        />
         <NavBar.CurrentUserMenu
           showEmulate={ boolean('showEmulate', true) }
           onEmulateClick={ action('onEmulateClick') }
@@ -76,6 +127,7 @@ stories
               { text: 'Account 3', url: '#', description: 'Account 3 Description', isCurrent: false },
             ]
           }
+          accountSwitcherHandler={ action('accountSwitcherHandler') }
           userName="Hassan Khalid"
           accountSettingsUrl="#"
           profileUrl="#"

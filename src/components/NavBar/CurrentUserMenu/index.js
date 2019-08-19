@@ -16,6 +16,33 @@ import OverlayWrapper from '../../OverlayWrapper';
 import Popover from '../../Popover';
 import Button from '../../Button';
 
+const currentUserMenuPropTypes = {
+  /** Account Settings Url */
+  accountSettingsUrl: PropTypes.string.isRequired,
+  /** Function Called to Switch Account */
+  accountSwitcherHandler: PropTypes.func.isRequired,
+  /** An array of elements containing the following account data
+   * text: String
+   * url: String
+   * description: String
+   * isCurrent: Bool */
+  accountSwitcherItems: PropTypes.array.isRequired,
+  /** True if Navbar is Open, False if collapsed */
+  isOpen: PropTypes.bool,
+  /** Account Log Out Url */
+  logoutUrl: PropTypes.string.isRequired,
+  /** Function called when Emulate is clicked */
+  onEmulateClick: PropTypes.bool.isRequired,
+  /** Account Profile Avatar Url */
+  profileAvatarUrl: PropTypes.string.isRequired,
+  /** Account Profile Url */
+  profileUrl: PropTypes.string.isRequired,
+  /** Show Emulate Link */
+  showEmulate: PropTypes.bool.isRequired,
+  /** Account User name to display */
+  userName: PropTypes.string.isRequired,
+};
+
 const renderEmulate = (isOpen, handler) => (
   <li
     className={ classNames({
@@ -59,6 +86,7 @@ const renderCurrentUserMenu = ({
   accountSwitcherItems,
   showEmulate,
   onEmulateClick,
+  accountSwitcherHandler,
 }) => {
   const shouldShowAccountList = accountSwitcherItems.length > 1;
 
@@ -113,6 +141,7 @@ const renderCurrentUserMenu = ({
               <BlockList>
                 <AccountSwitcher
                   accountSwitcherItems={ accountSwitcherItems }
+                  accountSwitcherHandler={ accountSwitcherHandler }
                 />
               </BlockList>
             </div>
@@ -132,6 +161,7 @@ const renderCurrentUserMenu = ({
   ]);
 };
 
+
 const renderCollapsedCurrentUserMenu = ({
   isOpen,
   userName,
@@ -142,8 +172,10 @@ const renderCollapsedCurrentUserMenu = ({
   accountSwitcherItems,
   showEmulate,
   onEmulateClick,
+  accountSwitcherHandler,
 }) => {
   const profilePicClassNames = classNames('avatar', 'avatar--small');
+
   const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
   return (
     <OverlayWrapper
@@ -160,6 +192,7 @@ const renderCollapsedCurrentUserMenu = ({
           <BlockList>
             <AccountSwitcher
               accountSwitcherItems={ accountSwitcherItems }
+              accountSwitcherHandler={ accountSwitcherHandler }
             />
           </BlockList>
           <ul className="soft">
@@ -178,6 +211,9 @@ const renderCollapsedCurrentUserMenu = ({
   );
 };
 
+renderCollapsedCurrentUserMenu.propTypes = currentUserMenuPropTypes;
+
+
 const CurrentUserMenu = (props) => {
   const { isOpen } = props;
   return (
@@ -191,29 +227,6 @@ CurrentUserMenu.defaultProps = {
   isOpen: true,
 };
 
-CurrentUserMenu.propTypes = {
-  /** Account Settings Url */
-  accountSettingsUrl: PropTypes.string.isRequired,
-  /** An array of elements containing the following account data
-   * text: String
-   * url: String
-   * description: String
-   * isCurrent: Bool */
-  accountSwitcherItems: PropTypes.array.isRequired,
-  /** True if Navbar is Open, False if collapsed */
-  isOpen: PropTypes.bool,
-  /** Account Log Out Url */
-  logoutUrl: PropTypes.string.isRequired,
-  /** Function called when Emulate is clicked */
-  onEmulateClick: PropTypes.bool.isRequired,
-  /** Account Profile Avatar Url */
-  profileAvatarUrl: PropTypes.string.isRequired,
-  /** Account Profile Url */
-  profileUrl: PropTypes.string.isRequired,
-  /** Show Emulate Link */
-  showEmulate: PropTypes.bool.isRequired,
-  /** Account User name to display */
-  userName: PropTypes.string.isRequired,
-};
+CurrentUserMenu.propTypes = currentUserMenuPropTypes;
 
 export default CurrentUserMenu;

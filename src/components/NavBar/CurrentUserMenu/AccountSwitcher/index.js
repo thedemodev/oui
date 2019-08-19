@@ -11,14 +11,20 @@ import BlockList from '../../../BlockList';
 const AccountSwitcher = (props) => {
   const {
     accountSwitcherItems,
+    accountSwitcherHandler,
   } = props;
   return accountSwitcherItems.map(account => {
+    function onAccountSelect() {
+      accountSwitcherHandler(account);
+    }
+
     return (
       <BlockList.Category
         key={ account.text }
         testSection="switch-account-row">
         <BlockList.Item
-          href={ `${!account.isCurrent ? account.url : ''}` } >
+          href={ `${!account.isCurrent ? account.url : ''}` }
+          onClick={ onAccountSelect } >
           <div
             className={ classNames({
               'color--base': account.isCurrent,
@@ -41,6 +47,8 @@ const AccountSwitcher = (props) => {
 };
 
 AccountSwitcher.propTypes = {
+  /** Function Called to Switch Account */
+  accountSwitcherHandler: PropTypes.func.isRequired,
   /* User account list */
   accountSwitcherItems: PropTypes.array.isRequired,
 };
