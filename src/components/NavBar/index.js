@@ -51,12 +51,24 @@ const SecondaryLink = props => <IconLink { ...props } isSecondaryLink={ true } /
 SecondaryLink.propTypes = linkPropTypes;
 SecondaryLink.defaultProps = linkDefaultProps;
 
-// TODO: Implement CurrentUser Component
-const CurrentUser = props => <CurrentUserMenu { ...props } />;
+const renderPrimaryLinks = (children, isOpen) =>
+  React.Children
+    .toArray(children)
+    .filter(child => child.type === PrimaryLink)
+    .map(element => React.cloneElement(element, { isOpen }));
 
-const renderPrimaryLinks = children => React.Children.toArray(children).filter(child => child.type === PrimaryLink);
-const renderSecondaryLinks = children => React.Children.toArray(children).filter(child => child.type === SecondaryLink);
-const renderCurrentUser = children => React.Children.toArray(children).filter(child => child.type === CurrentUser);
+const renderSecondaryLinks = (children, isOpen) =>
+  React.Children
+    .toArray(children)
+    .filter(child => child.type === SecondaryLink)
+    .map(element => React.cloneElement(element, { isOpen }));
+
+const renderCurrentUser = (children, isOpen) =>
+  React.Children
+    .toArray(children)
+    .filter(child => child.type === CurrentUserMenu)
+    .map(element => React.cloneElement(element, { isOpen }));
+
 
 const NavBar = (props) => {
   const {
@@ -99,19 +111,19 @@ const NavBar = (props) => {
       </div>
       <li className="push-double--ends">
         <ul>
-          { renderPrimaryLinks(children) }
+          { renderPrimaryLinks(children, isOpen) }
         </ul>
       </li>
       <li className="anchor--bottom">
         <ul>
           <li className="push-double--ends">
             <ul>
-              { renderSecondaryLinks(children) }
+              { renderSecondaryLinks(children, isOpen) }
             </ul>
           </li>
           <li>
             <ul>
-              { renderCurrentUser(children) }
+              { renderCurrentUser(children, isOpen) }
             </ul>
           </li>
         </ul>
@@ -128,11 +140,11 @@ NavBar.propTypes = {
     const prop = props[propName];
     let error = null;
     React.Children.forEach(prop, (child) => {
-      if (![SecondaryLink, PrimaryLink, CurrentUser].includes(child.type)) {
+      if (![SecondaryLink, PrimaryLink, CurrentUserMenu].includes(child.type)) {
         error = new Error('Children should be of type PrimaryLink, SecondaryLink, or CurrentUser.');
       }
     });
-    if (!error && React.Children.toArray(prop).filter(child => child.type === CurrentUser).length > 1) {
+    if (!error && React.Children.toArray(prop).filter(child => child.type === CurrentUserMenu).length > 1) {
       error = new Error('There should be only one instance of `CurrentUser`');
     }
     return error;
@@ -160,6 +172,6 @@ NavBar.defaultProps = {
 
 NavBar.PrimaryLink = PrimaryLink;
 NavBar.SecondaryLink = SecondaryLink;
-NavBar.CurrentUser = CurrentUser;
+NavBar.CurrentUserMenu = CurrentUserMenu;
 
 export default NavBar;

@@ -23,7 +23,7 @@ class IconLink extends React.PureComponent {
      * blue as the current active nav link */
     isActive: PropTypes.bool,
     /* Boolean, whether navbar is open or closed */
-    isNavOpen: PropTypes.bool,
+    isOpen: PropTypes.bool,
     /* Boolean, whether link is primary or secondary */
     isSecondaryLink: PropTypes.bool,
     /* String, description of url */
@@ -38,7 +38,7 @@ class IconLink extends React.PureComponent {
     hasSeparator: false,
     href: '',
     isActive: false,
-    isNavOpen: true,
+    isOpen: true,
     isSecondaryLink: false,
     onClick: () => {},
     type: LINK,
@@ -48,7 +48,7 @@ class IconLink extends React.PureComponent {
     const {
       isActive,
       iconName,
-      isNavOpen,
+      isOpen,
       isSecondaryLink,
       hasSeparator,
       linkDescription,
@@ -63,7 +63,7 @@ class IconLink extends React.PureComponent {
         }
         <Poptip
           content={ linkDescription }
-          disable={ isNavOpen }
+          disable={ isOpen }
           isAnimated={ false }
           position="right">
           <div
@@ -81,7 +81,7 @@ class IconLink extends React.PureComponent {
                 size={ iconSize }
               />
             </div>
-            <span className={ classNames('root-nav__link__text', { 'root-nav-fader': !isNavOpen }) }>
+            <span className={ classNames('root-nav__link__text', { 'root-nav-fader': !isOpen }) }>
               { linkDescription }
             </span>
           </div>
