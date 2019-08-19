@@ -51,25 +51,6 @@ const SecondaryLink = props => <IconLink { ...props } isSecondaryLink={ true } /
 SecondaryLink.propTypes = linkPropTypes;
 SecondaryLink.defaultProps = linkDefaultProps;
 
-const renderPrimaryLinks = (children, isOpen) =>
-  React.Children
-    .toArray(children)
-    .filter(child => child.type === PrimaryLink)
-    .map(element => React.cloneElement(element, { isOpen }));
-
-const renderSecondaryLinks = (children, isOpen) =>
-  React.Children
-    .toArray(children)
-    .filter(child => child.type === SecondaryLink)
-    .map(element => React.cloneElement(element, { isOpen }));
-
-const renderCurrentUser = (children, isOpen) =>
-  React.Children
-    .toArray(children)
-    .filter(child => child.type === CurrentUserMenu)
-    .map(element => React.cloneElement(element, { isOpen }));
-
-
 const NavBar = (props) => {
   const {
     isOpen,
@@ -80,6 +61,13 @@ const NavBar = (props) => {
     badgeText,
     children,
   } = props;
+
+  const renderChildrenByType = ComponentType =>
+    React.Children
+      .toArray(children)
+      .filter(child => child.type === ComponentType)
+      .map(element => React.cloneElement(element, { isOpen }));
+
   return (
     <ul
       className={ classNames({
@@ -111,19 +99,19 @@ const NavBar = (props) => {
       </div>
       <li className="push-double--ends">
         <ul>
-          { renderPrimaryLinks(children, isOpen) }
+          { renderChildrenByType(PrimaryLink) }
         </ul>
       </li>
       <li className="anchor--bottom">
         <ul>
           <li className="push-double--ends">
             <ul>
-              { renderSecondaryLinks(children, isOpen) }
+              { renderChildrenByType(SecondaryLink) }
             </ul>
           </li>
           <li>
             <ul>
-              { renderCurrentUser(children, isOpen) }
+              { renderChildrenByType(CurrentUserMenu) }
             </ul>
           </li>
         </ul>

@@ -14,9 +14,42 @@ import DropdownContents from '../../Dropdown/DropdownContents';
 import Link from '../../Link';
 import OverlayWrapper from '../../OverlayWrapper';
 import Popover from '../../Popover';
-import Button from "../../Button";
+import Button from '../../Button';
 
-const renderCurrentUserMenu = (
+const renderEmulate = (isOpen, handler) => (
+  <li
+    className={ classNames({
+      'root-nav__faded__link truncate': isOpen,
+      'soft-half--sides': !isOpen,
+    }) }>
+    <Button
+      onClick={ handler }
+      style="unstyled"
+      testSection="nav-bar-close-impersonate">
+      <span className="admin--color">Emulate</span>
+    </Button>
+  </li>
+);
+
+const renderLinks = (isOpen, accountSettingsUrl, profileUrl, logoutUrl) => {
+  const linkClass = isOpen ? 'root-nav__faded__link truncate' : 'soft-half--sides';
+  const linkStyle = isOpen ? 'reverse' : 'default';
+  return (
+    <React.Fragment>
+      <li className={ linkClass }>
+        <Link href={ accountSettingsUrl } style={ linkStyle }>Account Settings</Link>
+      </li>
+      <li className={ linkClass }>
+        <Link href={ profileUrl } style={ linkStyle }>Profile</Link>
+      </li>
+      <li className={ linkClass }>
+        <Link href={ logoutUrl } style={ linkStyle }>Log Out</Link>
+      </li>
+    </React.Fragment>
+  );
+};
+
+const renderCurrentUserMenu = ({
   isOpen,
   userName,
   profileUrl,
@@ -26,7 +59,7 @@ const renderCurrentUserMenu = (
   accountSwitcherItems,
   showEmulate,
   onEmulateClick,
-) => {
+}) => {
   const shouldShowAccountList = accountSwitcherItems.length > 1;
 
   const Activator = ({ buttonRef, onClick, onBLur }) => (
@@ -71,69 +104,35 @@ const renderCurrentUserMenu = (
     <ul
       className="push--left flex--1"
       key="current-user-links">
-      {
-        shouldShowAccountList ? (
-          <Dropdown
-            placement="right-start"
-            activator={ <Activator /> }>
-            <DropdownContents direction="up" minWidth="250px">
-              <div data-test-section="account-switcher-dropdown-content">
-                <BlockList>
-                  <AccountSwitcher
-                    accountSwitcherItems={ accountSwitcherItems }
-                  />
-                </BlockList>
-              </div>
-            </DropdownContents>
-          </Dropdown>
-        ) : (
-          <div
-            className="display--block truncate"
-            data-test-section="nav-bar-user-name">
-            { userName }
-          </div>
-        )
+      { shouldShowAccountList &&
+        <Dropdown
+          placement="right-start"
+          activator={ <Activator/> }>
+          <DropdownContents direction="up" minWidth="250px">
+            <div data-test-section="account-switcher-dropdown-content">
+              <BlockList>
+                <AccountSwitcher
+                  accountSwitcherItems={ accountSwitcherItems }
+                />
+              </BlockList>
+            </div>
+          </DropdownContents>
+        </Dropdown>
       }
-      {
-        showEmulate && (
-          <li className="root-nav__faded__link truncate">
-            <Button
-              onClick={ onEmulateClick }
-              style="unstyled"
-              testSection="nav-bar-open-impersonate">
-              <span className="admin--color">
-                Emulate
-              </span>
-            </Button>
-          </li>
-        )
+      { !shouldShowAccountList &&
+        <div
+          className="display--block truncate"
+          data-test-section="nav-bar-user-name">
+          { userName }
+        </div>
       }
-      <li className="root-nav__faded__link truncate">
-        <Link
-          href={ accountSettingsUrl }
-          style="reverse">
-          Account Settings
-        </Link>
-      </li>
-      <li className="root-nav__faded__link truncate">
-        <Link
-          href={ profileUrl }
-          style="reverse">
-          Profile
-        </Link>
-      </li>
-      <li className="root-nav__faded__link truncate">
-        <Link
-          href={ logoutUrl }
-          style="reverse">
-          Log Out
-        </Link>
-      </li>
+      { showEmulate && renderEmulate(isOpen, onEmulateClick) }
+      { renderLinks(isOpen, accountSettingsUrl, profileUrl, logoutUrl) }
     </ul>,
   ]);
 };
 
-const renderCollapsedCurrentUserMenu = (
+const renderCollapsedCurrentUserMenu = ({
   isOpen,
   userName,
   profileUrl,
@@ -143,7 +142,7 @@ const renderCollapsedCurrentUserMenu = (
   accountSwitcherItems,
   showEmulate,
   onEmulateClick,
-) => {
+}) => {
   const profilePicClassNames = classNames('avatar', 'avatar--small');
   const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
   return (
@@ -164,29 +163,8 @@ const renderCollapsedCurrentUserMenu = (
             />
           </BlockList>
           <ul className="soft">
-            {
-              showEmulate && (
-                <li className="soft-half--sides">
-                  <Button
-                    onClick={ onEmulateClick }
-                    style="unstyled"
-                    testSection="nav-bar-close-impersonate">
-                    <span className="admin--color">
-                      Emulate
-                    </span>
-                  </Button>
-                </li>
-              )
-            }
-            <li className="soft-half--sides">
-              <Link href={ accountSettingsUrl }>Account Settings</Link>
-            </li>
-            <li className="soft-half--sides">
-              <Link href={ profileUrl }>Profile</Link>
-            </li>
-            <li className="soft-half--sides">
-              <Link href={ logoutUrl }>Log Out</Link>
-            </li>
+            { showEmulate && renderEmulate(isOpen, onEmulateClick) }
+            { renderLinks(isOpen, accountSettingsUrl, profileUrl, logoutUrl) }
           </ul>
         </Popover>
       ) }>
@@ -201,44 +179,10 @@ const renderCollapsedCurrentUserMenu = (
 };
 
 const CurrentUserMenu = (props) => {
-  const {
-    profileAvatarUrl,
-    isOpen,
-    accountSwitcherItems,
-    userName,
-    accountSettingsUrl,
-    profileUrl,
-    logoutUrl,
-    showEmulate,
-    onEmulateClick,
-  } = props;
+  const { isOpen } = props;
   return (
     <div className="root-nav__user root-nav__link root-nav__link--tertiary">
-      {
-        isOpen
-          ? renderCurrentUserMenu(
-            isOpen,
-            userName,
-            profileUrl,
-            profileAvatarUrl,
-            accountSettingsUrl,
-            logoutUrl,
-            accountSwitcherItems,
-            showEmulate,
-            onEmulateClick,
-          )
-          : renderCollapsedCurrentUserMenu(
-            isOpen,
-            userName,
-            profileUrl,
-            profileAvatarUrl,
-            accountSettingsUrl,
-            logoutUrl,
-            accountSwitcherItems,
-            showEmulate,
-            onEmulateClick,
-          )
-      }
+      { isOpen ? renderCurrentUserMenu(props) : renderCollapsedCurrentUserMenu(props) }
     </div>
   );
 };

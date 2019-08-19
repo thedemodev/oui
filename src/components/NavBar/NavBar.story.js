@@ -80,7 +80,7 @@ stories
           accountSettingsUrl="#"
           profileUrl="#"
           logoutUrl="#"
-          profileAvatarUrl=""
+          profileAvatarUrl="https://app.optimizely.com/dist/static/img/profile-default-3da996cf8eaf436eb2f8f059bc277241.svg"
         />
       </NavBar>
     );
