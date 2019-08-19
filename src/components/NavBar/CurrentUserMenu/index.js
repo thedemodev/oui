@@ -14,6 +14,7 @@ import DropdownContents from '../../Dropdown/DropdownContents';
 import Link from '../../Link';
 import OverlayWrapper from '../../OverlayWrapper';
 import Popover from '../../Popover';
+import Button from "../../Button";
 
 const renderCurrentUserMenu = (
   isOpen,
@@ -23,6 +24,8 @@ const renderCurrentUserMenu = (
   accountSettingsUrl,
   logoutUrl,
   accountSwitcherItems,
+  showEmulate,
+  onEmulateClick,
 ) => {
   const shouldShowAccountList = accountSwitcherItems.length > 1;
 
@@ -56,11 +59,11 @@ const renderCurrentUserMenu = (
     onClick: PropTypes.func.isRequired,
   };
 
-  const profilePicClassNames = classNames('avatar', 'avatar--small');
+  const profilePicClassNames = classNames('avatar', 'avatar--small', 'flex--none');
   const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
   return ([
     <div
-      className={ classNames(profilePicClassNames, 'flex--none') }
+      className={ profilePicClassNames }
       data-test-section="profile-pic-wrapper-nav-open"
       key="profile-pic-wrapper"
       style={ profilePicInlineStyles }
@@ -89,6 +92,20 @@ const renderCurrentUserMenu = (
             data-test-section="nav-bar-user-name">
             { userName }
           </div>
+        )
+      }
+      {
+        showEmulate && (
+          <li className="root-nav__faded__link truncate">
+            <Button
+              onClick={ onEmulateClick }
+              style="unstyled"
+              testSection="nav-bar-open-impersonate">
+              <span className="admin--color">
+                Emulate
+              </span>
+            </Button>
+          </li>
         )
       }
       <li className="root-nav__faded__link truncate">
@@ -124,6 +141,8 @@ const renderCollapsedCurrentUserMenu = (
   accountSettingsUrl,
   logoutUrl,
   accountSwitcherItems,
+  showEmulate,
+  onEmulateClick,
 ) => {
   const profilePicClassNames = classNames('avatar', 'avatar--small');
   const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
@@ -145,6 +164,20 @@ const renderCollapsedCurrentUserMenu = (
             />
           </BlockList>
           <ul className="soft">
+            {
+              showEmulate && (
+                <li className="soft-half--sides">
+                  <Button
+                    onClick={ onEmulateClick }
+                    style="unstyled"
+                    testSection="nav-bar-close-impersonate">
+                    <span className="admin--color">
+                      Emulate
+                    </span>
+                  </Button>
+                </li>
+              )
+            }
             <li className="soft-half--sides">
               <Link href={ accountSettingsUrl }>Account Settings</Link>
             </li>
@@ -176,6 +209,8 @@ const CurrentUserMenu = (props) => {
     accountSettingsUrl,
     profileUrl,
     logoutUrl,
+    showEmulate,
+    onEmulateClick,
   } = props;
   return (
     <div className="root-nav__user root-nav__link root-nav__link--tertiary">
@@ -189,6 +224,8 @@ const CurrentUserMenu = (props) => {
             accountSettingsUrl,
             logoutUrl,
             accountSwitcherItems,
+            showEmulate,
+            onEmulateClick,
           )
           : renderCollapsedCurrentUserMenu(
             isOpen,
@@ -198,30 +235,40 @@ const CurrentUserMenu = (props) => {
             accountSettingsUrl,
             logoutUrl,
             accountSwitcherItems,
+            showEmulate,
+            onEmulateClick,
           )
       }
     </div>
   );
 };
 
+CurrentUserMenu.defaultProps = {
+  isOpen: true,
+};
+
 CurrentUserMenu.propTypes = {
-  /* Account Settings Url */
+  /** Account Settings Url */
   accountSettingsUrl: PropTypes.string.isRequired,
-  /* An array of elements containing the following account data
+  /** An array of elements containing the following account data
    * text: String
    * url: String
    * description: String
    * isCurrent: Bool */
   accountSwitcherItems: PropTypes.array.isRequired,
-  /* True if Navbar is Open, False if collapsed */
-  isOpen: PropTypes.bool.isRequired,
-  /* Account Log Out Url */
+  /** True if Navbar is Open, False if collapsed */
+  isOpen: PropTypes.bool,
+  /** Account Log Out Url */
   logoutUrl: PropTypes.string.isRequired,
-  /* Account Profile Avatar Url */
+  /** Function called when Emulate is clicked */
+  onEmulateClick: PropTypes.bool.isRequired,
+  /** Account Profile Avatar Url */
   profileAvatarUrl: PropTypes.string.isRequired,
-  /* Account Profile Url */
+  /** Account Profile Url */
   profileUrl: PropTypes.string.isRequired,
-  /* Account User name to display */
+  /** Show Emulate Link */
+  showEmulate: PropTypes.bool.isRequired,
+  /** Account User name to display */
   userName: PropTypes.string.isRequired,
 };
 

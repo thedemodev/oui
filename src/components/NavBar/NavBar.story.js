@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import Icon from 'react-oui-icons';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import NavBar from './index';
 
@@ -65,8 +66,9 @@ stories
         />
         <NavBar.SecondaryLink iconName="help" type="link" linkDescription="Help" testSection="help" />
         <NavBar.SecondaryLink iconName="feedback" type="link" linkDescription="Feedback" testSection="feedback" />
-        <NavBar.CurrentUser
-          isOpen={ boolean('isOpen', true) }
+        <NavBar.CurrentUserMenu
+          showEmulate={ boolean('showEmulate', true) }
+          onEmulateClick={ action('onEmulateClick') }
           accountSwitcherItems={
             [
               { text: 'Account 1', url: '#', description: 'Account 1 Description', isCurrent: false },
