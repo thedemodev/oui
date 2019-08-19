@@ -168,6 +168,7 @@ Textarea.defaultProps = {
   focus: false,
   label: null,
   note: null,
+  numRows: 3,
   isOptional: false,
 };
 
