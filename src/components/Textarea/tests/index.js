@@ -155,7 +155,7 @@ describe('components/Textarea', () => {
     const component = mount(
       <Textarea numRows={ 10 } />
     );
-    expect(component.find('textarea').prop('numRows')).toBe(10);
+    expect(component.find('textarea').prop('rows')).toBe(10);
   });
 
   it('should add a maxLength attribute when maxLength is passed', () => {

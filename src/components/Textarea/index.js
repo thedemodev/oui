@@ -52,7 +52,7 @@ class Textarea extends React.Component {
         disabled={ isDisabled }
         { ...(typeof maxLength === 'undefined' ? {} : { maxLength }) }
         maxLength={ maxLength }
-        numRows={ numRows }
+        rows={ numRows }
         onInput={ onInput }
         onChange={ onChange }
         onBlur={ onBlur }
