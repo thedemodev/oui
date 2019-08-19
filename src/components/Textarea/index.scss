@@ -33,7 +33,6 @@
 .oui-textarea {
   @include text-input;
 
-  height: 62px;
   resize: vertical;
 
   &--tall {
