@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.6.1 - 2019-08-19
 - [Patch] Modification to `numRows` prop for **Textarea** component ([#1216](https://github.com/optimizely/oui/pull/1216))
 
 ## 44.6.0 - 2019-08-15
