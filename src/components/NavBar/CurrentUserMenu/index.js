@@ -40,9 +40,9 @@ const Activator = ({ buttonRef, onClick, onBLur, userName }) => (
 );
 
 Activator.propTypes = {
-  buttonRef: PropTypes.object.isRequired,
-  onBLur: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
+  buttonRef: PropTypes.func,
+  onBLur: PropTypes.func,
+  onClick: PropTypes.func,
   userName: PropTypes.string.isRequired,
 };
 
@@ -63,7 +63,7 @@ class CurrentUserMenu extends React.Component {
     /** Account Log Out Url */
     logoutUrl: PropTypes.string.isRequired,
     /** Function called when Emulate is clicked */
-    onEmulateClick: PropTypes.bool.isRequired,
+    onEmulateClick: PropTypes.func.isRequired,
     /** Account Profile Avatar Url */
     profileAvatarUrl: PropTypes.string.isRequired,
     /** Account Profile Url */
