@@ -1,25 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-oui-icons';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import NavBar from './index';
 
-const Logo = (props) => {
-  const { isNavOpen } = props;
-  return (
-    <div className="push-double--left flex">
-      <Icon
-        name="dimensions"
-        size="large"
-      />
-      { isNavOpen && <span className="push-half--left">Brand</span> }
-    </div>
-  );
-};
-Logo.propTypes = { isNavOpen: PropTypes.bool.isRequired };
+const openLogoUrl = 'https://app.optimizely.com/dist/static/img/rebrand/logo-f64d2aed989db744b609666199d7d2a2.svg';
+const collapsedLogoUrl = 'https://app.optimizely.com/dist/static/img/rebrand/symbol-c90e70f8502ec71c46e528c5da800028.svg';
+
+const getLogoUrl = isOpen => isOpen ? openLogoUrl : collapsedLogoUrl;
 
 const stories = storiesOf('NavBar', module);
 stories
@@ -35,7 +24,7 @@ stories
     return (
       <NavBar
         isOpen={ boolean('isOpen', true) }
-        logo={ <Logo isNavOpen={ boolean('isOpen', true) } /> }
+        logoUrl={ getLogoUrl(boolean('isOpen', true)) }
         title="Test Project"
         badgeText="WEB"
         badgeColor="draft"
@@ -48,14 +37,14 @@ stories
         <NavBar.PrimaryLink
           iconName="projects"
           type="pushstate"
-          linkDescription="Projects"
+          linkLabel="Projects"
           testSection="projects"
           onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.PrimaryLink
           iconName="experiment"
           type="link"
-          linkDescription="Experiment"
+          linkLabel="Experiment"
           testSection="experiment"
           isActive={ true }
           onClick={ action('PrimaryLink onClick') }
@@ -63,35 +52,35 @@ stories
         <NavBar.PrimaryLink
           iconName="rollouts"
           type="link"
-          linkDescription="Features"
+          linkLabel="Features"
           testSection="features"
           onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.PrimaryLink
           iconName="audiences"
           type="link"
-          linkDescription="Audiences"
+          linkLabel="Audiences"
           testSection="audiences"
           onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.PrimaryLink
           iconName="events"
           type="button"
-          linkDescription="Events"
+          linkLabel="Events"
           testSection="events"
           onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.PrimaryLink
           iconName="settings"
           type="link"
-          linkDescription="Settings"
+          linkLabel="Settings"
           testSection="settings"
           onClick={ action('PrimaryLink onClick') }
         />
         <NavBar.PrimaryLink
           iconName="getting-started"
           type="pushstate"
-          linkDescription="Getting Started"
+          linkLabel="Getting Started"
           testSection="getting-started"
           hasSeparator={ true }
           onClick={ action('PrimaryLink onClick') }
@@ -99,14 +88,14 @@ stories
         <NavBar.SecondaryLink
           iconName="program-management"
           type="button"
-          linkDescription="Program Management"
+          linkLabel="Program Management"
           testSection="program-management"
           onClick={ action('SecondaryLink onClick') }
         />
         <NavBar.SecondaryLink
           iconName="help"
           type="link"
-          linkDescription="Help"
+          linkLabel="Help"
           testSection="help"
           onClick={ action('SecondaryLink onClick') }
         />
@@ -114,7 +103,7 @@ stories
           onClick={ action('SecondaryLink onClick') }
           iconName="feedback"
           type="link"
-          linkDescription="Feedback"
+          linkLabel="Feedback"
           testSection="feedback"
         />
         <NavBar.CurrentUserMenu

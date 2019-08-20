@@ -69,13 +69,14 @@ class CurrentUserMenu extends React.Component {
     /** Account Profile Url */
     profileUrl: PropTypes.string.isRequired,
     /** Show Emulate Link */
-    showEmulate: PropTypes.bool.isRequired,
+    showEmulate: PropTypes.bool,
     /** Account User name to display */
     userName: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     isOpen: true,
+    showEmulate: false,
   };
 
   renderEmulate = () => {

@@ -3,7 +3,6 @@ import Icon from 'react-oui-icons';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Button from '../../Button';
 import Link from '../../Link';
 import Poptip from '../../Poptip';
 
@@ -16,6 +15,7 @@ class IconLink extends React.PureComponent {
   static propTypes = {
     /* Boolean, Should show a separator line before this link */
     hasSeparator: PropTypes.bool,
+    /* Navigates to this URL when clicked */
     href: PropTypes.string,
     /* String, name of Icon */
     iconName: PropTypes.string.isRequired,
@@ -27,10 +27,15 @@ class IconLink extends React.PureComponent {
     /* Boolean, whether link is primary or secondary */
     isSecondaryLink: PropTypes.bool,
     /* String, description of url */
-    linkDescription: PropTypes.string.isRequired,
+    linkLabel: PropTypes.string.isRequired,
+    /* Function called when IconLink is clicked */
     onClick: PropTypes.func,
     /* String, name of test data section */
     testSection: PropTypes.string.isRequired,
+    /* IconLink can be one of these types
+     * LINK
+     * PUSH_STATE
+     * BUTTON */
     type: PropTypes.oneOf([LINK, PUSH_STATE, BUTTON]),
   };
 
@@ -51,18 +56,18 @@ class IconLink extends React.PureComponent {
       isOpen,
       isSecondaryLink,
       hasSeparator,
-      linkDescription,
+      linkLabel,
     } = this.props;
     const iconSize = isSecondaryLink ? 'medium' : 'large';
     return (
       <React.Fragment>
         { hasSeparator &&
-          <li className="spacer push-double">
-            <hr className="sidebar-line"/>
+          <li className="push-double">
+            <hr className="oui-rule"/>
           </li>
         }
         <Poptip
-          content={ linkDescription }
+          content={ linkLabel }
           disable={ isOpen }
           isAnimated={ false }
           position="right">
@@ -72,7 +77,7 @@ class IconLink extends React.PureComponent {
               {
                 'is-active': isActive,
                 'root-nav__link--primary': !isSecondaryLink,
-                'root-nav__link--secondary truncate': isSecondaryLink,
+                'root-nav__link--secondary': isSecondaryLink,
               },
             ) }>
             <div className="flex">
@@ -81,8 +86,8 @@ class IconLink extends React.PureComponent {
                 size={ iconSize }
               />
             </div>
-            <span className={ classNames('root-nav__link__text', { 'root-nav-fader': !isOpen }) }>
-              { linkDescription }
+            <span className={ classNames('root-nav__link__text', ' truncate', { 'root-nav-fader': !isOpen }) }>
+              { linkLabel }
             </span>
           </div>
         </Poptip>
@@ -123,37 +128,37 @@ class IconLink extends React.PureComponent {
   renderButton = () => {
     const { testSection, onClick } = this.props;
     return (
-      <Button
+      <Link
         onClick={ onClick }
-        style="unstyled"
+        style="reverse"
         testSection={ `${testSection}-button` }>
         { this.renderNavLink() }
-      </Button>
+      </Link>
     );
   };
 
   render() {
     const { testSection, type } = this.props;
-    let primaryLink;
+    let linkToRender;
 
     switch (type) {
       case PUSH_STATE:
-        primaryLink = this.renderAppRouteLink();
+        linkToRender = this.renderAppRouteLink();
         break;
       case LINK:
-        primaryLink = this.renderExternalLink();
+        linkToRender = this.renderExternalLink();
         break;
       case BUTTON:
-        primaryLink = this.renderButton();
+        linkToRender = this.renderButton();
         break;
       default:
         // Should never reach here
-        primaryLink = null;
+        linkToRender = null;
     }
 
     return (
       <li data-test-section={ testSection }>
-        { primaryLink }
+        { linkToRender }
       </li>
     );
   }

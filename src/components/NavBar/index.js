@@ -23,7 +23,7 @@ const linkPropTypes = {
   /** Condition in which this link is visible. */
   isVisible: PropTypes.bool,
   /** Description of url. */
-  linkDescription: PropTypes.string,
+  linkLabel: PropTypes.string,
   /** Handler called when link is clicked. */
   onClick: PropTypes.func,
   /** Name of test data section. */
@@ -36,7 +36,7 @@ const linkDefaultProps = {
   href: '',
   isActive: false,
   isVisible: true,
-  linkDescription: '',
+  linkLabel: '',
   testSection: null,
   hasSeparator: false,
   onClick: () => {},
@@ -55,7 +55,7 @@ const NavBar = (props) => {
   const {
     isOpen,
     homeUrl,
-    logo,
+    logoUrl,
     trialContent,
     title,
     badgeText,
@@ -68,21 +68,31 @@ const NavBar = (props) => {
       .filter(child => child.type === ComponentType)
       .map(element => React.cloneElement(element, { isOpen }));
 
+  const logoClasses = classNames('push-double--left',
+    {
+      'root-nav__logo--full': isOpen,
+      'root-nav__logo--mark': !isOpen,
+    });
+
   return (
-    <ul
+    <nav
       className={ classNames({
         'root-nav': true,
         'root-nav--open': isOpen,
       }) }
       data-test-section="p13n-root-navbar">
       <div data-test-section="navbar-header">
-        <li className="root-nav__logo push-double--bottom">
+        <div className="root-nav__logo push-double--bottom">
           <Link href={ homeUrl }>
-            { logo }
+            <img
+              alt="logo"
+              src={ logoUrl }
+              className={ logoClasses }
+            />
           </Link>
-        </li>
+        </div>
         { trialContent }
-        <li
+        <div
           className={ classNames({
             'root-nav__project': true,
             'root-nav-fader': !isOpen,
@@ -95,28 +105,18 @@ const NavBar = (props) => {
           <Badge color="primary">
             { badgeText }
           </Badge>
-        </li>
+        </div>
       </div>
-      <li className="push-double--ends">
-        <ul>
-          { renderChildrenByType(PrimaryLink) }
+      <ul className="push-double--ends">
+        { renderChildrenByType(PrimaryLink) }
+      </ul>
+      <div className="anchor--bottom">
+        <ul className="push-double--ends">
+          { renderChildrenByType(SecondaryLink) }
         </ul>
-      </li>
-      <li className="anchor--bottom">
-        <ul>
-          <li className="push-double--ends">
-            <ul>
-              { renderChildrenByType(SecondaryLink) }
-            </ul>
-          </li>
-          <li>
-            <ul>
-              { renderChildrenByType(CurrentUserMenu) }
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+        { renderChildrenByType(CurrentUserMenu) }
+      </div>
+    </nav>
   );
 };
 
@@ -132,7 +132,7 @@ NavBar.propTypes = {
         error = new Error('Children should be of type PrimaryLink, SecondaryLink, or CurrentUser.');
       }
     });
-    if (!error && React.Children.toArray(prop).filter(child => child.type === CurrentUserMenu).length > 1) {
+    if (!error && React.Children.toArray(prop).filter(child => child.type === CurrentUserMenu).length !== 1) {
       error = new Error('There should be only one instance of `CurrentUser`');
     }
     return error;
@@ -141,8 +141,8 @@ NavBar.propTypes = {
   homeUrl: PropTypes.string,
   /** Is Navigation Bar open or closed. */
   isOpen: PropTypes.bool,
-  /** Component containing brand logo. */
-  logo: PropTypes.node,
+  /** Brand logo URL. */
+  logoUrl: PropTypes.string,
   /** Title of navigation bar */
   title: PropTypes.string,
   /** Component to appear above title and below brand logo. */
@@ -153,7 +153,7 @@ NavBar.defaultProps = {
   badgeText: '',
   homeUrl: '',
   isOpen: true,
-  logo: null,
+  logoUrl: null,
   title: '',
   trialContent: null,
 };

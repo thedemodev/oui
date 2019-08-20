@@ -4,7 +4,7 @@ $icon-dimensions--large: 24px;
 $icon-dimensions--small: 16px;
 $animation-speed: 150ms;
 $avatar-size: 29px;
-$root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
+$root-shadow: inset -1px 0 3px 0 rgba(0, 0, 0, 0.1);
 
 .root-nav {
   display: flex;
@@ -22,9 +22,9 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
     transition: width $animation-speed ease-in;
     content : '';
     position: absolute;
-    top: 0px;
+    top: 0;
     background-color: transparent;
-    bottom: 0px;
+    bottom: 0;
     width: 100px;
     left: -24px;
     z-index: 0;
@@ -104,9 +104,9 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   &:after {
     content : '';
     position: absolute;
-    top: 0px;
+    top: 0;
     background-color: transparent;
-    bottom: 0px;
+    bottom: 0;
     width: 226px;
     left: 0;
     z-index: 0;
@@ -171,6 +171,25 @@ $root-shadow: inset -1px 0px 3px 0 rgba(0, 0, 0, 0.1);
   padding-right: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
 }
 
+.root-nav__logo--full,
+.root-nav__logo--mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: auto 100%;
+  height: 100%;
+  transition: opacity $animation-speed ease-in;
+}
+
+.root-nav__logo--full {
+  opacity: 0;
+}
+
+.root-nav__logo--mark {
+  opacity: 1;
+}
 
 .root-nav-fader {
   opacity: 0;
