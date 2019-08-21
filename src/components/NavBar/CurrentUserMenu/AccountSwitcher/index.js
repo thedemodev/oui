@@ -8,12 +8,22 @@ import classNames from 'classnames';
 import Badge from '../../../Badge';
 import BlockList from '../../../BlockList';
 
+const sortAscending = (a, b) => {
+  if (a.text > b.text) {
+    return 1;
+  }
+  if (b.text > a.text) {
+    return -1;
+  }
+  return 0;
+};
+
 const AccountSwitcher = (props) => {
   const {
     accountSwitcherItems,
     accountSwitcherHandler,
   } = props;
-  return accountSwitcherItems.map(account => {
+  return accountSwitcherItems.sort(sortAscending).map(account => {
     function onAccountSelect() {
       accountSwitcherHandler(account);
     }

@@ -112,8 +112,8 @@ stories
           accountSwitcherItems={
             [
               { text: 'Account 1', url: '#', description: 'Account 1 Description', isCurrent: false },
-              { text: 'Account 2', url: '#', description: 'Account 2 Description', isCurrent: true },
               { text: 'Account 3', url: '#', description: 'Account 3 Description', isCurrent: false },
+              { text: 'Account 2', url: '#', description: 'Account 2 Description', isCurrent: true },
             ]
           }
           accountSwitcherHandler={ action('accountSwitcherHandler') }
