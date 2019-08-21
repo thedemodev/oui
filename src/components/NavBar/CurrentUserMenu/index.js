@@ -90,7 +90,7 @@ class CurrentUserMenu extends React.Component {
         <Button
           onClick={ onEmulateClick }
           style="unstyled"
-          testSection="nav-bar-close-impersonate">
+          testSection="nav-bar-close-emulate">
           <span className="admin--color">Emulate</span>
         </Button>
       </li>

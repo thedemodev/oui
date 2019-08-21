@@ -102,7 +102,7 @@ const NavBar = (props) => {
             data-test-section="project-name">
             { title }
           </div>
-          <Badge color="primary">
+          <Badge color="primary" testSection="project-badge">
             { badgeText }
           </Badge>
         </div>
