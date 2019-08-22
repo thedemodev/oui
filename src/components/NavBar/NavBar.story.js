@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import NavBar from './index';
 
@@ -121,7 +121,7 @@ stories
           accountSettingsUrl="#"
           profileUrl="#"
           logoutUrl="#"
-          profileAvatarUrl="https://app.optimizely.com/dist/static/img/profile-default-3da996cf8eaf436eb2f8f059bc277241.svg"
+          profileAvatarUrl={ text('profileAvatarUrl', 'https://optimizely-profile-images-devel.s3.amazonaws.com/img/user/hassan.khalid%40optimizely.com/c57517e7ee4941d0a5e71f3d89df0c0d.jpg') }
         />
       </NavBar>
     );
