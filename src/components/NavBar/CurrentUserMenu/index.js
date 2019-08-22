@@ -126,7 +126,7 @@ class CurrentUserMenu extends React.Component {
     } = this.props;
     const shouldShowAccountList = accountSwitcherItems.length > 1;
 
-    const profilePicClassNames = classNames('avatar', 'avatar--small', 'flex--none');
+    const profilePicClassNames = classNames('avatar', 'avatar--small', 'flex--none', { 'color-admin--border': showEmulate });
     const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
     return ([
       <div
@@ -139,27 +139,27 @@ class CurrentUserMenu extends React.Component {
         className="push--left flex--1"
         key="current-user-links">
         { shouldShowAccountList &&
-        <Dropdown
-          placement="right-start"
-          activator={ <Activator userName={ userName } /> }>
-          <Dropdown.Contents direction="up" minWidth="250px">
-            <div data-test-section="account-switcher-dropdown-content">
-              <BlockList>
-                <AccountSwitcher
-                  accountSwitcherItems={ accountSwitcherItems }
-                  accountSwitcherHandler={ accountSwitcherHandler }
-                />
-              </BlockList>
-            </div>
-          </Dropdown.Contents>
-        </Dropdown>
+          <Dropdown
+            placement="right-start"
+            activator={ <Activator userName={ userName } /> }>
+            <Dropdown.Contents direction="up" minWidth="250px">
+              <div data-test-section="account-switcher-dropdown-content">
+                <BlockList>
+                  <AccountSwitcher
+                    accountSwitcherItems={ accountSwitcherItems }
+                    accountSwitcherHandler={ accountSwitcherHandler }
+                  />
+                </BlockList>
+              </div>
+            </Dropdown.Contents>
+          </Dropdown>
         }
         { !shouldShowAccountList &&
-        <div
-          className="display--block truncate"
-          data-test-section="nav-bar-user-name">
-          { userName }
-        </div>
+          <div
+            className="display--block truncate"
+            data-test-section="nav-bar-user-name">
+            { userName }
+          </div>
         }
         { showEmulate && this.renderEmulate() }
         { this.renderLinks() }
@@ -174,7 +174,7 @@ class CurrentUserMenu extends React.Component {
       showEmulate,
       accountSwitcherHandler,
     } = this.props;
-    const profilePicClassNames = classNames('avatar', 'avatar--small');
+    const profilePicClassNames = classNames('avatar', 'avatar--small', { 'color-admin--border': showEmulate });
 
     const profilePicInlineStyles = profileAvatarUrl ? { backgroundImage: `url(${profileAvatarUrl})` } : {};
     return (

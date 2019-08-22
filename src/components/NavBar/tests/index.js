@@ -96,15 +96,15 @@ describe('components/NavBar', () => {
       expect(getTestSection(component, 'project-badge').text()).toBe('WEB');
     });
 
-    it('should display trial content section', function () {
+    it('should display trial content section', function() {
       expect(getTestSection(component, 'trial-content-section').length).toBe(1);
     });
 
-    it('should display Current User name', function () {
+    it('should display Current User name', function() {
       expect(getTestSection(component, 'nav-bar-user-name').length).toBe(1);
     });
 
-    it('should display Emulate when showEmulate prop is true', function () {
+    it('should display Emulate when showEmulate prop is true', function() {
       expect(getTestSection(component, 'nav-bar-close-emulate').length).toBe(1);
     });
   });
@@ -191,7 +191,7 @@ describe('components/NavBar', () => {
       expect(getTestSection(component, 'switch-account-row').length).toBe(3);
     });
 
-    it('should display Emulate when showEmulate prop is true', function () {
+    it('should display Emulate when showEmulate prop is true', function() {
       getTestSection(component, 'account-switcher-popover').simulate('click');
       expect(getTestSection(component, 'nav-bar-close-emulate').length).toBe(1);
     });
