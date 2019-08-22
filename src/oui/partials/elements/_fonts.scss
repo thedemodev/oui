@@ -14,10 +14,9 @@ $hosted-fonts:(
     700: bold,
   ),
   url: 'https://dhm5hy2vn8l0l.cloudfront.net'
+  // https://s3.console.aws.amazon.com/s3/buckets/optimizely-fonts
 );
 
-
-// TODO(dave.rau) Update loop so this works as a mixin
 @font-face {
   font-family: 'Graphik';
   font-weight: 300;
