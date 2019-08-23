@@ -1,6 +1,7 @@
 import React from 'react';
-import NavBar from '../index';
 import { mount } from 'enzyme';
+
+import NavBar from '../index';
 
 const getTestSection = (component, testSection) => component.find(`[data-test-section="${testSection}"]`);
 

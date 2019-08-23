@@ -1,6 +1,7 @@
 import React from 'react';
-import IconLink from '../index';
 import { mount } from 'enzyme';
+
+import IconLink from '../index';
 
 const getTestSection = (component, testSection) => component.find(`[data-test-section="${testSection}"]`);
 
@@ -49,7 +50,7 @@ describe('components/NavBar/IconLink', () => {
       );
     });
 
-    it('should default isNavOpen to true if not passed as props', function() {
+    it('should default isOpen to true if not passed as props', function() {
       expect(component.props().isOpen).toBe(true);
     });
   });

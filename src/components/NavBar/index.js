@@ -129,11 +129,11 @@ NavBar.propTypes = {
     let error = null;
     React.Children.forEach(prop, (child) => {
       if (![SecondaryLink, PrimaryLink, CurrentUserMenu].includes(child.type)) {
-        error = new Error('Children should be of type PrimaryLink, SecondaryLink, or CurrentUser.');
+        error = new Error('Children should be of type PrimaryLink, SecondaryLink, or CurrentUserMenu.');
       }
     });
     if (!error && React.Children.toArray(prop).filter(child => child.type === CurrentUserMenu).length !== 1) {
-      error = new Error('There should be only one instance of `CurrentUser`');
+      error = new Error('There should be only one instance of `CurrentUserMenu`');
     }
     return error;
   },

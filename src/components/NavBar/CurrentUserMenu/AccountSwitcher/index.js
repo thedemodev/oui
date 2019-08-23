@@ -36,6 +36,7 @@ const AccountSwitcher = (props) => {
           href={ `${!account.isCurrent ? account.url : ''}` }
           onClick={ !account.isCurrent && onAccountSelect }>
           <div
+            data-test-section="switch-account-row-name"
             className={ classNames({
               'color--base': account.isCurrent,
               'color--brand': !account.isCurrent,
@@ -60,7 +61,12 @@ AccountSwitcher.propTypes = {
   /** Function Called to Switch Account */
   accountSwitcherHandler: PropTypes.func.isRequired,
   /* User account list */
-  accountSwitcherItems: PropTypes.array.isRequired,
+  accountSwitcherItems: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    isCurrent: PropTypes.bool.isRequired,
+  })).isRequired,
 };
 
 export default AccountSwitcher;

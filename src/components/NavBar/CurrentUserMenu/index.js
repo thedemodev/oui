@@ -15,11 +15,11 @@ import Button from '../../Button';
 
 import AccountSwitcher from './AccountSwitcher';
 
-const Activator = ({ buttonRef, onClick, onBLur, userName }) => (
+const Activator = ({ buttonRef, onClick, onBlur, userName }) => (
   <div
     ref={ buttonRef }
     onClick={ onClick }
-    onBlur={ onBLur }
+    onBlur={ onBlur }
     data-test-section="account-switcher-dropdown-activator"
     title={ userName }
     className={ classNames(
@@ -41,7 +41,7 @@ const Activator = ({ buttonRef, onClick, onBLur, userName }) => (
 
 Activator.propTypes = {
   buttonRef: PropTypes.func,
-  onBLur: PropTypes.func,
+  onBlur: PropTypes.func,
   onClick: PropTypes.func,
   userName: PropTypes.string.isRequired,
 };
@@ -57,7 +57,12 @@ class CurrentUserMenu extends React.Component {
      * url: String
      * description: String
      * isCurrent: Bool */
-    accountSwitcherItems: PropTypes.array.isRequired,
+    accountSwitcherItems: PropTypes.arrayOf(PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      isCurrent: PropTypes.bool.isRequired,
+    })).isRequired,
     /** True if Navbar is Open, False if collapsed */
     isOpen: PropTypes.bool,
     /** Account Log Out Url */
@@ -65,7 +70,7 @@ class CurrentUserMenu extends React.Component {
     /** Function called when Emulate is clicked */
     onEmulateClick: PropTypes.func.isRequired,
     /** Account Profile Avatar Url */
-    profileAvatarUrl: PropTypes.string.isRequired,
+    profileAvatarUrl: PropTypes.string,
     /** Account Profile Url */
     profileUrl: PropTypes.string.isRequired,
     /** Show Emulate Link */
