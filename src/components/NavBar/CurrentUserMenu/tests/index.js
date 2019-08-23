@@ -117,7 +117,6 @@ describe('components/NavBar/CurrentUserMenu', function() {
     });
   });
 
-  // TODO: Refactor the following tests. Can be better
   describe('showEmulate prop is false', function() {
     describe('when Navbar is open', function() {
       beforeEach(function() {
