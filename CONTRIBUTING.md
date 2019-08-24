@@ -85,5 +85,6 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
     * Click Publish Release
 8. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
     * Within the Optimizely repo run `yarn upgrade optimizely-oui@99.xx.xx` (note to include the major version number e.g. `99.`, leaving the minor and patch numbers as `xx.xx`) which updates `yarn.lock` and `package.json`
+        * If you notice that your yarn commands are removing the integrity shas inside the yarn.lock file, your yarn version needs an upgrade
     * Make a PR that links to the OUI release and includes descriptions of the issues fixed and the JIRA ticket numbers for the fixes in this release
 9. You're done :sunglasses:
