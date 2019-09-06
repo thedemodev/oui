@@ -102,7 +102,7 @@ class Poptip extends React.Component {
         position={ position }
         theme={ theme }
         trigger={ trigger }>
-        <div className={ wrapperInline }>{ children }</div>
+        <div className={ wrapperInline } title="">{ children }</div>
       </Tooltip>
     );
   };
