@@ -5386,6 +5386,13 @@ code {
   .pagination__current > a {
     color: #080736; }
 
+.oui-pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .oui-pagination-controls .oui-spinner {
+    margin-bottom: -5px; }
+
 
 .pop--over,
 .oui-pop--over {
