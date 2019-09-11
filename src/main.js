@@ -33,6 +33,7 @@ export { default as Link } from './components/Link';
 export { default as ListGroup } from './components/ListGroup';
 export { default as OverlayWrapper } from './components/OverlayWrapper';
 export { default as Pagination } from './components/Pagination';
+export { default as PaginationControls } from './components/PaginationControls';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as ProgressDots } from './components/ProgressDots';
 export { default as Popover } from './components/Popover';

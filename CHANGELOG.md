@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-- [patch] Prevent Poptip to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
+- [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
+- [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
 
 ## 44.7.0 - 2019-08-23
 - [Feature] Added **NavBar** component ([#1212](https://github.com/optimizely/oui/pull/1212))
