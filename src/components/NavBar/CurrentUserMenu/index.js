@@ -144,7 +144,7 @@ class CurrentUserMenu extends React.Component {
         className="push--left flex--1"
         key="current-user-links">
         { shouldShowAccountList &&
-          <Dropdown
+          <li><Dropdown
             placement="right-start"
             activator={ <Activator userName={ userName } /> }>
             <Dropdown.Contents direction="up" minWidth="250px">
@@ -157,7 +157,7 @@ class CurrentUserMenu extends React.Component {
                 </BlockList>
               </div>
             </Dropdown.Contents>
-          </Dropdown>
+          </Dropdown></li>
         }
         { !shouldShowAccountList &&
           <div
