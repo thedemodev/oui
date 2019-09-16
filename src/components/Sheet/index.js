@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ButtonRow from '../ButtonRow';
 import CloseButton from '../CloseButton';
+import classNames from 'classnames';
 
 const Sheet = props => {
   let subtitleContent;
@@ -12,7 +13,11 @@ const Sheet = props => {
   }
 
   return (
-    <div className="oui-sheet__wrapper">
+    <div
+      className={ classNames({
+        'oui-sheet__wrapper': true,
+        'oui-sheet--fitted': props.fitted,
+      }) }>
       <div className="oui-sheet__overlay" />
       <div
         data-oui-component={ true }
@@ -39,6 +44,10 @@ Sheet.propTypes = {
    *  The body of the sheet to request information and data from the user.
    */
   children: PropTypes.node.isRequired,
+  /**
+   * Removes outer parent styles and framing.
+   */
+  fitted: PropTypes.bool,
   /**
    * Array of buttons used in the footer of the sheet.
    */

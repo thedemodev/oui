@@ -24,6 +24,7 @@ stories
         title={ text('title', 'This is a Sheet') }
         subtitle={ text('subtitle', 'This is an optional subtitle string') }
         hasCloseButton={ boolean('hasCloseButton', true) }
+        fitted={ boolean('fitted', false) }
         onClose={ action('Sheet was closed') }
         footerButtonList={ [
           <Button style="plain" key={ 0 } onClick={ noop }>

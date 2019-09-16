@@ -52,6 +52,24 @@ $sheet-horizontal-padding: spacer(6);
   padding: spacer(2) $sheet-horizontal-padding spacer(6) $sheet-horizontal-padding;
 }
 
+.oui-sheet--fitted {
+  &.oui-sheet__wrapper {
+    z-index: auto;
+  }
+  .oui-close-button {
+    display: none;
+  }
+  .oui-sheet {
+    box-shadow: none;
+  }
+  .oui-sheet__footer {
+    width: $sheet-width - ($sheet-horizontal-padding * 2);
+    margin-left: $sheet-horizontal-padding;
+    padding-right: 0;
+    background: #fff;
+  }
+}
+
 .oui-sheet__link {
   margin-left: spacer(0.5);
 }

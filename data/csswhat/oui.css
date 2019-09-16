@@ -5874,6 +5874,21 @@ code {
   position: relative;
   padding: 20px 60px 60px 60px; }
 
+.oui-sheet--fitted.oui-sheet__wrapper {
+  z-index: auto; }
+
+.oui-sheet--fitted .oui-close-button {
+  display: none; }
+
+.oui-sheet--fitted .oui-sheet {
+  box-shadow: none; }
+
+.oui-sheet--fitted .oui-sheet__footer {
+  width: 780px;
+  margin-left: 60px;
+  padding-right: 0;
+  background: #fff; }
+
 .oui-sheet__link {
   margin-left: 5px; }
 
