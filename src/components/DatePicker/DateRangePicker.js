@@ -176,11 +176,11 @@ class DateRangePicker extends React.Component {
             </div>
             {hasTimeInputs && <div className={ classNames('push--right', isBorderless && 'flex--1') }>
               <Input
-                id={ "startTimeInputId" }
+                id={ 'startTimeInputId' }
                 isReadOnly={ false }
-                label={ "Start Time" }
+                label={ 'Start Time' }
                 name="startTime"
-                placeholder={ "Start Time" }
+                placeholder={ 'Start Time' }
                 testSection="date-range-picker-start-time-input"
                 type="time"
               />
@@ -200,11 +200,11 @@ class DateRangePicker extends React.Component {
             </div>
             {hasTimeInputs && <div className={ classNames(isBorderless && 'flex--1') }>
               <Input
-                id={ "endTimeInputId" }
+                id={ 'endTimeInputId' }
                 isReadOnly={ false }
-                label={ "End Time" }
+                label={ 'End Time' }
                 name="endTime"
-                placeholder={ "End Time" }
+                placeholder={ 'End Time' }
                 testSection="date-range-picker-end-time-input"
                 type="time"
               />
@@ -251,6 +251,8 @@ DateRangePicker.propTypes = {
    * or null if neither is active
    */
   focusedInput: PropTypes.oneOf(['startDate', 'endDate', null]),
+  /** When true, adds time inputs next to date inputs */
+  hasTimeInputs: PropTypes.bool,
   /** An initial end date to populate the end date input with,
    * must be type moment()
    */
