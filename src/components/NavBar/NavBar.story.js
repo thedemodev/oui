@@ -5,6 +5,7 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import NavBar from './index';
 
+// TODO[1]: Do this with CSS only.
 const openLogoUrl = 'https://app.optimizely.com/dist/static/img/rebrand/logo-f64d2aed989db744b609666199d7d2a2.svg';
 const collapsedLogoUrl = 'https://app.optimizely.com/dist/static/img/rebrand/symbol-c90e70f8502ec71c46e528c5da800028.svg';
 
@@ -30,8 +31,8 @@ stories
         badgeColor="draft"
         homeUrl="http://optimizely.com"
         trialContent={
-          <div className="push-double--bottom push-double--left">
-            <b>5</b> days { boolean('isOpen', true) && 'left in your trial' }
+          <div className="push-double--bottom push-double--left truncate">
+            { boolean('isOpen', true) && '5 days left in your trial' }
           </div>
         }>
         <NavBar.PrimaryLink
