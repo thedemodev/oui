@@ -170,6 +170,17 @@ stories
       />
     </Container>
   )))
+  .add('With time inputs', (() => (
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  )))
   .add('With preset options panel', (() => (
     <Container>
       <DateRangePicker
@@ -216,12 +227,25 @@ stories
       />
     </Container>
   )))
+  .add('With no border and time inputs', (() => (
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        focusedInput='startDate'
+        isBorderless={ boolean('isBorderless', true) }
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+      />
+    </Container>
+  )))
   .add('With preset options and no border on calendar', (() => (
     <Container>
       <DateRangePicker
         endDateInputId='end-date-id-0'
         focusedInput='startDate'
         isBorderless={ boolean('isBorderless', true) }
+        hasTimeInputs={ boolean('hasTimeInputs', false) }
         isPastDateSelectable={ boolean('isPastDateSelectable', true) }
         keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
         onDatesChange={ action('onDatesChange') }

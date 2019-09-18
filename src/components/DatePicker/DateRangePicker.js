@@ -128,6 +128,7 @@ class DateRangePicker extends React.Component {
       endDateInputId,
       endDateInputLabel,
       endDateInputPlaceholder,
+      hasTimeInputs,
       isAbsolutelyPositioned,
       initialVisibleMonth,
       isBorderless,
@@ -173,7 +174,18 @@ class DateRangePicker extends React.Component {
                 value={ startDateString }
               />
             </div>
-            <div className={ classNames(isBorderless && 'flex--1') }>
+            {hasTimeInputs && <div className={ classNames('push--right', isBorderless && 'flex--1') }>
+              <Input
+                id={ "startTimeInputId" }
+                isReadOnly={ false }
+                label={ "Start Time" }
+                name="startTime"
+                placeholder={ "Start Time" }
+                testSection="date-range-picker-start-time-input"
+                type="time"
+              />
+            </div>}
+            <div className={ classNames(isBorderless && 'flex--1', hasTimeInputs && 'push--right') }>
               <Input
                 id={ endDateInputId }
                 isReadOnly={ true }
@@ -186,6 +198,17 @@ class DateRangePicker extends React.Component {
                 value={ endDateString }
               />
             </div>
+            {hasTimeInputs && <div className={ classNames(isBorderless && 'flex--1') }>
+              <Input
+                id={ "endTimeInputId" }
+                isReadOnly={ false }
+                label={ "End Time" }
+                name="endTime"
+                placeholder={ "End Time" }
+                testSection="date-range-picker-end-time-input"
+                type="time"
+              />
+            </div>}
           </div>
           { dayPickerIsOpen &&
             <DayPickerRangeController
