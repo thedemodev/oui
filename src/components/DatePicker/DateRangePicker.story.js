@@ -281,11 +281,12 @@ stories
       <DateRangePicker
         endDateInputId='end-date-id-0'
         focusedInput='startDate'
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
         isBorderless={ boolean('isBorderless', true) }
         isPastDateSelectable={ boolean('isPastDateSelectable', true) }
         keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
         onDatesChange={ action('onDatesChange') }
-        panelButtons={ ({ onDatesChange }) => ([
+        panelButtons={ ({ endDate, onDatesChange, startDate }) => ([
           <Button
             key={ 0 }
             style="plain"
@@ -298,7 +299,7 @@ stories
           <Button
             key={ 1 }
             style="highlight"
-            onClick={ action('onClick Apply') }>
+            onClick={ () => action('onClick Apply')({ startDate, endDate }) }>
             Apply
           </Button>,
         ]) }

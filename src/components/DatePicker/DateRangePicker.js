@@ -100,6 +100,10 @@ class DateRangePicker extends React.Component {
   }
 
   renderSidePanel = () => {
+    const {
+      endDate,
+      startDate,
+    } = this.state;
     const presetPanelOptions = this.props.presetPanelOptions;
     const panelOptionsArePresent = presetPanelOptions && presetPanelOptions.length > 0;
     const panelButtons = this.props.panelButtons;
@@ -114,7 +118,7 @@ class DateRangePicker extends React.Component {
       { // render panel buttons via render props if a function is provided
         panelButtons && (
           typeof panelButtons === 'function' ? (
-            <ButtonRow rightGroup={ panelButtons({ onDatesChange: this.onDatesChange }) }/>
+            <ButtonRow rightGroup={ panelButtons({ endDate, startDate, onDatesChange: this.onDatesChange }) }/>
           ) : (
             <ButtonRow rightGroup={ panelButtons }/>
           )
