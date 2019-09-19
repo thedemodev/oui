@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Yarn upgrades for GitHub security alerts ([#1190](https://github.com/optimizely/oui/pull/1190))
 
 ## 44.8.0 - 2019-09-11
 - [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
