@@ -25,7 +25,6 @@ stories
         subtitle={ text('subtitle', 'This is an optional subtitle string') }
         hasCloseButton={ boolean('hasCloseButton', true) }
         onClose={ action('Sheet was closed') }
-        footerDocked={ boolean('footerDocked', true) }
         footerButtonList={ [
           <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel
@@ -70,7 +69,6 @@ stories
           subtitle={ <p>Subtitles can take also take nodes, <a href="https://www.optimizely.com/">like a link</a></p> }
           hasCloseButton={ boolean('hasCloseButton', true) }
           onClose={ action('Sheet was closed') }
-          footerDocked={ boolean('footerDocked', false) }
           footerButtonList={ [
             <Button style="plain" key={ 0 } onClick={ noop }>
               Cancel

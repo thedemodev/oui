@@ -1,0 +1,32 @@
+.oui-sheet__footer--dockable,
+.lego-form__footer--dockable {
+  background-color:white;
+  padding-bottom: spacer(2);
+  box-shadow: 0 0px 0px 0px rgba(0,0,0,.12);
+  transition: all .2s ease-in-out;
+  margin-bottom: spacer(-2);
+}
+.lego-form__footer--dockable.is-docked,
+.oui-sheet__footer--dockable.is-docked {
+  position: sticky;
+  bottom: 0;
+  margin-right: spacer(-1);
+  margin-left: spacer(-1);
+  box-shadow: 0 spacer(-1) spacer(1) spacer(-1) rgba(0,0,0,.12);
+  padding-right: spacer(1);
+}
+.lego-form__footer--dockable .oui-button-row,
+.oui-sheet__footer--dockable .oui-button-row--right  {
+  transition: all .2s ease-in-out;
+}
+
+.oui-sheet__footer--dockable {
+  margin-left: spacer(6);
+  width: calc(100% - 120px);
+  padding: spacer(2) 0;
+}
+.oui-sheet__footer--dockable.is-docked {
+  margin-left: spacer(5);
+  width: calc(100% - 100px);
+  box-shadow: 0 spacer(-1) spacer(1) spacer(-1) rgba(0,0,0,.12);
+}

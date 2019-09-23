@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ButtonRow from '../ButtonRow';
 import CloseButton from '../CloseButton';
+import DockableFooter from '../DockableFooter';
 
 const Sheet = props => {
   let subtitleContent;
@@ -26,9 +26,9 @@ const Sheet = props => {
         <div className="oui-sheet__body">
           {props.children}
         </div>
-        <footer className="oui-sheet__footer">
-          <ButtonRow rightGroup={ props.footerButtonList }/>
-        </footer>
+        <DockableFooter isDocked={ props.footerDocked }>
+          { props.footerButtonList }
+        </DockableFooter>
       </div>
     </div>
   );
@@ -43,6 +43,10 @@ Sheet.propTypes = {
    * Array of buttons used in the footer of the sheet.
    */
   footerButtonList: PropTypes.array.isRequired,
+  /**
+   *  Dock footer to bottom of window.
+   */
+  footerDocked: PropTypes.bool,
   /**
    *  Used to determine if the sheet should have a close button.
    */

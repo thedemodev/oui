@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] New **DockableFooter** component used inside Sheet ([#zzzz](https://github.com/optimizely/oui/pull/zzzz))
 
 ## 44.8.0 - 2019-09-11
 - [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
