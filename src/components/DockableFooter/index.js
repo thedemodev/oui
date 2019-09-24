@@ -8,7 +8,6 @@ class DockableFooter extends React.Component {
     super(props);
     this.state = {
       isDocked: true,
-      scrollPosition: 0,
     };
     this.shouldDock = this.shouldDock.bind(this);
     this.onScroll = this.onScroll.bind(this);
@@ -19,17 +18,22 @@ class DockableFooter extends React.Component {
     this.onScroll();
   }
 
-  onScroll () {
-    window.addEventListener('scroll', function(e) {
+  componentWillUnmount() {
+    //window.removeEventListener('scroll', ...);
+  }
 
+  //https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+  onScroll () {
+    let ticking = false;
+
+    window.addEventListener('scroll', function(e) {
       //check to see if the footer is docked
-      if ( this.state.isDocked === false && this.state.scrollPosition > 0) {
+      if ( !ticking && this.state.isDocked === false ) {
         //if it is not docked, check if it should dock in 2 seconds (after scrolling is complete)
         setTimeout(() => {shouldDock()}, 2000)
+        ticking = false;
       }
-
-      //update scroll position
-      this.setState({ scrollPosition: window.scrollY})
+      ticking = true;
     });
 
   }
