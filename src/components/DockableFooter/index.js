@@ -3,18 +3,46 @@ import React from 'react';
 import ButtonRow from '../ButtonRow';
 import classNames from 'classnames';
 
-const DockableFooter = props => {
+class DockableFooter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDocked: true,
+    };
+    this.onScroll = this.onScroll.bind(this);
+  }
 
-  return (
+  componentDidMount() {
+    this.onScroll()
+  }
+
+  onScroll () {
+    //TODO: logic to answer: Should I be pinned at this moment or not?
+
+    //this logic should return a boolean:
+    const yes = true;
+    const no = false;
+
+    //setState will trigger a re-render.
+    if (yes) {
+      this.setState({isDocked: true})
+    } else {
+      this.setState({isDocked: false})
+    }
+  }
+
+  render() {
+    return (
     <footer
       className={ classNames({
         'oui-sheet__footer--dockable': true,
-        'is-docked': props.isDocked,
+        'is-docked': this.state.isDocked,
       }) }>
       <ButtonRow rightGroup={ props.children }/>
     </footer>
-  );
-};
+    );
+  }
+}
 
 DockableFooter.propTypes = {
   /**
