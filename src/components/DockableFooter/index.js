@@ -8,15 +8,33 @@ class DockableFooter extends React.Component {
     super(props);
     this.state = {
       isDocked: true,
+      scrollPosition: 0,
     };
+    this.shouldDock = this.shouldDock.bind(this);
     this.onScroll = this.onScroll.bind(this);
   }
 
   componentDidMount() {
-    this.onScroll()
+    this.shouldDock();
+    this.onScroll();
   }
 
   onScroll () {
+    window.addEventListener('scroll', function(e) {
+
+      //check to see if the footer is docked
+      if ( this.state.isDocked === false && this.state.scrollPosition > 0) {
+        //if it is not docked, check if it should dock in 2 seconds (after scrolling is complete)
+        setTimeout(() => {shouldDock()}, 2000)
+      }
+
+      //update scroll position
+      this.setState({ scrollPosition: window.scrollY})
+    });
+
+  }
+
+  shouldDock () {
     //TODO: logic to answer: Should I be pinned at this moment or not?
 
     //this logic should return a boolean:
