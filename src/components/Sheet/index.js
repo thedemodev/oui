@@ -11,6 +11,38 @@ const Sheet = props => {
     subtitleContent = <div className="push--top flush--bottom">{props.subtitle}</div>;
   }
 
+  // var didScroll = function() {
+  //   var footerEl = $('.lego-form__footer, .oui-sheet__footer');
+  //   var offset = 0;
+
+  //   if (footerEl.is('.oui-sheet__footer')) {
+  //     offset = offset + 82;
+  //   }
+  //   if (footerEl.length > 0) {
+  //     var b = footerEl.offset().top - 60 + offset;
+  //     var w = window.innerHeight - footerEl.outerHeight(true);
+  //     if (b >= w) {
+  //       footerEl.addClass('is-sticking');
+  //     } else {
+  //       footerEl.removeClass('is-sticking');
+  //     }
+  //   }
+  // }
+  // setInterval(didScroll, 150);
+
+  // var footerEl = $('.oui-sheet__footer--dockable');
+  // var offset = 0;
+
+  // var b = footerEl.offset().top - 60 + offset;
+  // var w = window.innerHeight - footerEl.outerHeight(true);
+  var b = 2000;
+  var w = 768;
+  if (b >= w) {
+    props.footerDocked = true;
+  } else {
+    props.footerDocked = false;
+  }
+
   return (
     <div className="oui-sheet__wrapper">
       <div className="oui-sheet__overlay" />
