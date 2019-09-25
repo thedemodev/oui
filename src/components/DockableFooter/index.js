@@ -8,61 +8,67 @@ class DockableFooter extends React.Component {
     super(props);
     this.state = {
       isDocked: true,
+      footerToTop: 0,
+      viewableArea: 0,
     };
+    this.updateDimensions = this.updateDimensions.bind(this);
     this.shouldDock = this.shouldDock.bind(this);
-    this.onScroll = this.onScroll.bind(this);
+    this.setListeners = this.setListeners.bind(this);
   }
 
   componentDidMount() {
-    this.shouldDock(this.props.parentTestSection);
-    this.onScroll();
+    this.shouldDock();
+    this.setListeners();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.isFocused !== this.props.isFocused) {
-      this.onFocusChange({focused: this.props.isFocused});
+    //check the dimensions, if they changed, check to dock. 
+    if (prevState.footerToTop !== this.state.footerToTop) {
+      this.shouldDock();
+    } else if ( prevState.viewableArea !== this.state.viewableArea ) {
+      this.shouldDock();
     }
   }
 
-  // shouldComponentUpdate() {
-  //   this.shouldDock(this.props.parentTestSection);
-  //   console.log('updateed ' + this.props.parentTestSection);
-  //   // this.setState({isDocked: this.props.isDocked});
-  // }
+  //set state with most current dimientions of parent and window
+  updateDimensions () {
+    const footerEl = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
+    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
 
-  componentWillUnmount() {
-    //window.removeEventListener('scroll', ...);
+    const footerToTop = footerEl.offsetTop;
+    const viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
+
+    this.setState({
+      footerToTop: footerToTop,
+      viewableArea: viewableArea,
+    })
   }
 
-  //https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
-  onScroll () {
-    // let ticking = false;
-
-    // window.addEventListener('scroll', function(e) {
-    //   //check to see if the footer is docked
-    //   if ( !ticking && this.state.isDocked === false ) {
-    //     //if it is not docked, check if it should dock in 2 seconds (after scrolling is complete)
-    //     setTimeout(() => {shouldDock(this.props.testSection)}, 2000)
-    //     ticking = false;
-    //   }
-    //   ticking = true;
-    // });
-
-  }
-
-  shouldDock(parentTestSection) {
-    var footerEl = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
-    var parentEl = document.querySelector('[data-test-section="' + parentTestSection + '"]');
-    var footerTop = footerEl.offsetTop;
-    var viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
-    if (footerTop >= viewableArea) {
+  shouldDock() {
+    this.updateDimensions();
+    if (this.state.footerToTop >= this.state.viewableArea) {
       this.setState({isDocked: true});
     } else {
       this.setState({isDocked: false});
     }
   }
 
+  //Add event listeners
+  setListeners () {
+    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    //listen for window resize 
+    window.addEventListener('resize', this.shouldDock);
+    //listen for Form click 
+     parentEl.addEventListener('click', this.shouldDock)
+  }
+
+  componentWillUnmount() {
+    //clean up and remove all listeners
+
+  }
+
   render() {
+    console.log('state', this.state)
     return (
       <footer
         className={ classNames({
