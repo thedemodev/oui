@@ -61,6 +61,43 @@ stories
     </div>
   ))
   )
+  .add('Scroll', (() => (
+    <div>
+      <p>This is text behind the sheet that is blocked by the overlay.</p>
+      <Sheet
+        title={ text('title', 'This is a Sheet') }
+        hasCloseButton={ boolean('hasCloseButton', true) }
+        onClose={ action('Sheet was closed') }
+        footerDocked={ boolean('footerDocked', true) }
+        testSection={ 'helloTest' }
+        footerButtonList={ [
+          <Button style="plain" key={ 0 } onClick={ noop }>
+              Cancel
+          </Button>,
+          <Button style="highlight" key={ 1 } onClick={ noop }>
+              Confirm
+          </Button>,
+        ] }>
+        <Fieldset
+          title="Project Details">
+          <Input id="input-04" label="Target URL" type="text" isRequired={ true }/>
+        </Fieldset>
+        <Fieldset
+          title="Project Details">
+          <Input id="input-04" label="Target URL" type="text" isRequired={ true }/>
+        </Fieldset>
+        <Fieldset
+          title="Project Details">
+          <Input id="input-04" label="Target URL" type="text" isRequired={ true }/>
+        </Fieldset>
+        <Fieldset
+          title="Project Details">
+          <Input id="input-04" label="Target URL" type="text" isRequired={ true }/>
+        </Fieldset>
+      </Sheet>
+    </div>
+  ))
+  )
   .add('With a link in subtitle',
     withInfo()(() => (
       <div>
