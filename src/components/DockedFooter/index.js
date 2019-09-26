@@ -63,10 +63,12 @@ class DockedFooter extends React.Component {
 
   shouldUnDock () {
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    console.log(parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight);
     if (parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight) {
       this.setState({isDocked: false})
-    } 
-    //TODO:reDock on scroll up...
+    } else {
+      this.setState({isDocked: true })
+    }
   }
 
   setEventListeners () {
