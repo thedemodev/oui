@@ -22,7 +22,7 @@ class DockableFooter extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //check the dimensions, if they changed, check to dock. 
+    //check the dimensions, if they changed, check to dock.
     if (prevState.footerToTop !== this.state.footerToTop) {
       this.shouldDock();
     } else if ( prevState.viewableArea !== this.state.viewableArea ) {
@@ -56,10 +56,12 @@ class DockableFooter extends React.Component {
   //Add event listeners
   setListeners () {
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
-    //listen for window resize 
+    //listen for window resize
     window.addEventListener('resize', this.shouldDock);
-    //listen for Form click 
-     parentEl.addEventListener('click', this.shouldDock)
+    //listen for Form click
+    parentEl.addEventListener('click', this.shouldDock);
+    //listen for Form click
+    parentEl.addEventListener('scroll', this.shouldDock);
   }
 
   componentWillUnmount() {
@@ -73,7 +75,8 @@ class DockableFooter extends React.Component {
       <footer
         className={ classNames({
           'oui-sheet__footer--dockable': true,
-          'is-docked': this.state.isDocked,
+          'is-docked border--top soft-double--top': this.state.isDocked,
+          'border--top soft-double--top': !this.state.isDocked,
         }) }>
         <ButtonRow rightGroup={ this.props.children }/>
       </footer>
