@@ -4,7 +4,9 @@ import ButtonRow from '../ButtonRow';
 import classNames from 'classnames';
 
 /**
- * Add thorough documentation here explaining the requirement of the parent scrollable container id in order for this component to work as expected. 
+ * The DockedFooter renders dynamically based on the dimentions of it's parent container. 
+ * It requires an ID for its parent container. This component uses the ID to select the container, 
+ * make calculations, and determine whether or not it should be docked on the bottom of the window.
  */
 
 class DockedFooter extends React.Component {
@@ -12,14 +14,9 @@ class DockedFooter extends React.Component {
     super(props);
     this.state = {
       isDocked: true,
-      footerToTop: 0,
-      viewableArea: 0,
-      initFooterOffsetTop: 0,
-      initParentScrollTop: 0,
     };
-    this.updateDimensions = this.updateDimensions.bind(this);
     this.shouldDock = this.shouldDock.bind(this);
-    this.shouldUnDock = this.shouldUnDock.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.setEventListeners = this.setEventListeners.bind(this);
   }
 
@@ -37,31 +34,24 @@ class DockedFooter extends React.Component {
     }
   }
 
-  //set state with most current dimientions of parent and window
-  updateDimensions () {
+  shouldDock() {
+    let footerToTop, viewableArea;
     const footerEl = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
 
     if (footerEl !== undefined && parentEl !== undefined) {
-      const footerToTop = footerEl.offsetTop;
-      const viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
-      this.setState({
-        footerToTop: footerToTop,
-        viewableArea: viewableArea,
-      })
+      footerToTop = footerEl.offsetTop;
+      viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
     }
-  }
 
-  shouldDock() {
-    this.updateDimensions();
-    if (this.state.footerToTop >= this.state.viewableArea) {
+    if (footerToTop >= viewableArea) {
       this.setState({isDocked: true});
     } else {
       this.setState({isDocked: false});
     }
   }
 
-  shouldUnDock () {
+  onScroll () {
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
     console.log(parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight);
     if (parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight) {
@@ -72,7 +62,8 @@ class DockedFooter extends React.Component {
   }
 
   setEventListeners () {
-    
+    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+
     const throttle = (delay, fn) => {
       let lastCall = 0;
       return function (...args) {
@@ -85,19 +76,18 @@ class DockedFooter extends React.Component {
       }
     }
 
-    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
     window.addEventListener('resize', throttle(100, this.shouldDock));
-     parentEl.addEventListener('click', this.shouldDock);
-     parentEl.addEventListener('scroll', this.shouldUnDock);
+    parentEl.addEventListener('click', this.shouldDock);
+    parentEl.addEventListener('scroll', this.onScroll);
   }
 
   componentWillUnmount() {
-    //clean up and remove all listeners
-
+    window.removeEventListener('resize', this.shouldDock);
+    parentEl.removeEventListener('click', this.shouldDock);
+    parentEl.removeEventListener('scroll', this.onScroll);
   }
 
   render() {
-    console.log('state', this.state)
     return (
       <footer
         className={ classNames({
