@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import noop from 'lodash.noop';
-import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
 import DockableFooter from './index.js';
@@ -11,11 +9,10 @@ import Button from '../Button';
 
 const stories = storiesOf('DockableFooter', module);
 stories
-  .addDecorator(withKnobs)
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
 stories
-  .add('Default', (() => (
+  .add('Default', withInfo()(() => (
     <div data-test-section="helloTesting" className="height--1-1">
       <p>Test content...</p>
       <p>Test content...</p>

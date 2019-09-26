@@ -26,6 +26,9 @@ const Sheet = props => {
         <div className="oui-sheet__body">
           {props.children}
         </div>
+        {/* <footer className="oui-sheet__footer">
+          <ButtonRow rightGroup={ props.footerButtonList }/>
+        </footer> */}
         <DockedFooter
           parentTestSection={ props.testSection }
           isDocked={ props.footerDocked }>

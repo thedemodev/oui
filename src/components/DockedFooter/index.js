@@ -3,12 +3,6 @@ import React from 'react';
 import ButtonRow from '../ButtonRow';
 import classNames from 'classnames';
 
-/**
- * The DockedFooter renders dynamically based on the dimentions of it's parent container.
- * It requires an ID for its parent container. This component uses the ID to select the container,
- * make calculations, and determine whether or not it should be docked on the bottom of the window.
- */
-
 class DockedFooter extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +22,14 @@ class DockedFooter extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.footerToTop !== this.state.footerToTop) {
       this.shouldDock();
-    } else if ( prevState.viewableArea !== this.state.viewableArea ) {
+    } else if (prevState.viewableArea !== this.state.viewableArea) {
       this.shouldDock();
     }
   }
 
   shouldDock() {
-    let footerToTop, viewableArea;
+    let footerToTop;
+    let viewableArea;
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
     const footerElement = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
 
@@ -49,29 +44,29 @@ class DockedFooter extends React.Component {
     }
   }
 
-  onScroll () {
+  onScroll() {
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
     if (parentElement.scrollTop + parentElement.clientHeight === parentElement.scrollHeight) {
-      this.setState({isDocked: false})
+      this.setState({isDocked: false});
     } else {
-      this.setState({isDocked: true })
+      this.setState({isDocked: true });
     }
   }
 
-  setEventListeners () {
+  setEventListeners() {
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
 
     const throttle = (delay, fn) => {
       let lastCall = 0;
-      return function (...args) {
-        const now = (new Date).getTime();
+      return function(...args) {
+        const now = (new Date()).getTime();
         if (now - lastCall < delay) {
           return;
         }
         lastCall = now;
         return fn(...args);
-      }
-    }
+      };
+    };
 
     window.addEventListener('resize', throttle(50, this.shouldDock));
     parentElement.addEventListener('click', this.shouldDock);
