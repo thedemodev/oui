@@ -4,8 +4,8 @@ import ButtonRow from '../ButtonRow';
 import classNames from 'classnames';
 
 /**
- * The DockedFooter renders dynamically based on the dimentions of it's parent container. 
- * It requires an ID for its parent container. This component uses the ID to select the container, 
+ * The DockedFooter renders dynamically based on the dimentions of it's parent container.
+ * It requires an ID for its parent container. This component uses the ID to select the container,
  * make calculations, and determine whether or not it should be docked on the bottom of the window.
  */
 
@@ -72,7 +72,7 @@ class DockedFooter extends React.Component {
         return fn(...args);
       }
     }
-  
+
     window.addEventListener('resize', throttle(50, this.shouldDock));
     parentElement.addEventListener('click', this.shouldDock);
     parentElement.addEventListener('scroll', this.onScroll);
@@ -82,8 +82,8 @@ class DockedFooter extends React.Component {
     return (
       <footer
         className={ classNames({
-          'oui-sheet__footer--dockable': true,
-          'is-docked': this.state.isDocked,
+          'oui-sheet__footer--dockable border--top': true,
+          'is-docked border--top soft-double--top': this.state.isDocked,
         }) }>
         <ButtonRow rightGroup={ this.props.children }/>
       </footer>
