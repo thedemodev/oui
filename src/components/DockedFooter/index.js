@@ -26,7 +26,6 @@ class DockedFooter extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //check the dimensions, if they changed, check to dock. 
     if (prevState.footerToTop !== this.state.footerToTop) {
       this.shouldDock();
     } else if ( prevState.viewableArea !== this.state.viewableArea ) {
@@ -36,25 +35,23 @@ class DockedFooter extends React.Component {
 
   shouldDock() {
     let footerToTop, viewableArea;
-    const footerEl = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
-    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    const footerElement = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
 
-    if (footerEl !== undefined && parentEl !== undefined) {
-      footerToTop = footerEl.offsetTop;
-      viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
-    }
-
-    if (footerToTop >= viewableArea) {
-      this.setState({isDocked: true});
-    } else {
-      this.setState({isDocked: false});
+    if (footerElement !== undefined && parentElement !== undefined) {
+      footerToTop = footerElement.offsetTop;
+      viewableArea = parentElement.offsetHeight - footerElement.offsetHeight;
+      if (footerToTop >= viewableArea) {
+        this.setState({isDocked: true});
+      } else {
+        this.setState({isDocked: false});
+      }
     }
   }
 
   onScroll () {
-    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
-    console.log(parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight);
-    if (parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight) {
+    const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    if (parentElement.scrollTop + parentElement.clientHeight === parentElement.scrollHeight) {
       this.setState({isDocked: false})
     } else {
       this.setState({isDocked: true })
@@ -62,7 +59,7 @@ class DockedFooter extends React.Component {
   }
 
   setEventListeners () {
-    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
 
     const throttle = (delay, fn) => {
       let lastCall = 0;
@@ -75,16 +72,10 @@ class DockedFooter extends React.Component {
         return fn(...args);
       }
     }
-
-    window.addEventListener('resize', throttle(100, this.shouldDock));
-    parentEl.addEventListener('click', this.shouldDock);
-    parentEl.addEventListener('scroll', this.onScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.shouldDock);
-    parentEl.removeEventListener('click', this.shouldDock);
-    parentEl.removeEventListener('scroll', this.onScroll);
+  
+    window.addEventListener('resize', throttle(50, this.shouldDock));
+    parentElement.addEventListener('click', this.shouldDock);
+    parentElement.addEventListener('scroll', this.onScroll);
   }
 
   render() {
