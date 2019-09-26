@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import CloseButton from '../CloseButton';
-import DockableFooter from '../DockableFooter';
+import DockedFooter from '../DockedFooter';
 
 const Sheet = props => {
   let subtitleContent;
@@ -26,11 +26,11 @@ const Sheet = props => {
         <div className="oui-sheet__body">
           {props.children}
         </div>
-        <DockableFooter
+        <DockedFooter
           parentTestSection={ props.testSection }
           isDocked={ props.footerDocked }>
           { props.footerButtonList }
-        </DockableFooter>
+        </DockedFooter>
       </div>
     </div>
   );

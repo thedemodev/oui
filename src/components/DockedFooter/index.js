@@ -3,22 +3,29 @@ import React from 'react';
 import ButtonRow from '../ButtonRow';
 import classNames from 'classnames';
 
-class DockableFooter extends React.Component {
+/**
+ * Add thorough documentation here explaining the requirement of the parent scrollable container id in order for this component to work as expected. 
+ */
+
+class DockedFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isDocked: true,
       footerToTop: 0,
       viewableArea: 0,
+      initFooterOffsetTop: 0,
+      initParentScrollTop: 0,
     };
     this.updateDimensions = this.updateDimensions.bind(this);
     this.shouldDock = this.shouldDock.bind(this);
-    this.setListeners = this.setListeners.bind(this);
+    this.shouldUnDock = this.shouldUnDock.bind(this);
+    this.setEventListeners = this.setEventListeners.bind(this);
   }
 
   componentDidMount() {
     this.shouldDock();
-    this.setListeners();
+    this.setEventListeners();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -35,13 +42,14 @@ class DockableFooter extends React.Component {
     const footerEl = document.getElementsByClassName('oui-sheet__footer--dockable')[0];
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
 
-    const footerToTop = footerEl.offsetTop;
-    const viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
-
-    this.setState({
-      footerToTop: footerToTop,
-      viewableArea: viewableArea,
-    })
+    if (footerEl !== undefined && parentEl !== undefined) {
+      const footerToTop = footerEl.offsetTop;
+      const viewableArea = parentEl.offsetHeight - footerEl.offsetHeight;
+      this.setState({
+        footerToTop: footerToTop,
+        viewableArea: viewableArea,
+      })
+    }
   }
 
   shouldDock() {
@@ -53,13 +61,32 @@ class DockableFooter extends React.Component {
     }
   }
 
-  //Add event listeners
-  setListeners () {
+  shouldUnDock () {
     const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
-    //listen for window resize 
-    window.addEventListener('resize', this.shouldDock);
-    //listen for Form click 
-     parentEl.addEventListener('click', this.shouldDock)
+    if (parentEl.scrollTop + parentEl.clientHeight === parentEl.scrollHeight) {
+      this.setState({isDocked: false})
+    } 
+    //TODO:reDock on scroll up...
+  }
+
+  setEventListeners () {
+    
+    const throttle = (delay, fn) => {
+      let lastCall = 0;
+      return function (...args) {
+        const now = (new Date).getTime();
+        if (now - lastCall < delay) {
+          return;
+        }
+        lastCall = now;
+        return fn(...args);
+      }
+    }
+
+    const parentEl = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    window.addEventListener('resize', throttle(100, this.shouldDock));
+     parentEl.addEventListener('click', this.shouldDock);
+     parentEl.addEventListener('scroll', this.shouldUnDock);
   }
 
   componentWillUnmount() {
@@ -81,7 +108,7 @@ class DockableFooter extends React.Component {
   }
 }
 
-DockableFooter.propTypes = {
+DockedFooter.propTypes = {
   /**
    *  The body of the sheet to request information and data from the user.
    */
@@ -100,10 +127,10 @@ DockableFooter.propTypes = {
   testSection: PropTypes.string,
 };
 
-DockableFooter.defaultProps = {
+DockedFooter.defaultProps = {
   isDocked: false,
   testSection: '',
   parentTestSection: '',
 };
 
-export default DockableFooter;
+export default DockedFooter;
