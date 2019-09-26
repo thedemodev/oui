@@ -2577,16 +2577,16 @@ fieldset {
 [required] {
   box-shadow: none; }
 
-.oui-sheet__footer--dockable,
-.lego-form__footer--dockable {
+.oui-sheet__footer--docked,
+.lego-form__footer--docked {
   background-color: white;
   padding-bottom: 20px;
   box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
   transition: all .2s ease-in-out;
   margin-bottom: -20px; }
 
-.lego-form__footer--dockable.is-docked,
-.oui-sheet__footer--dockable.is-docked {
+.lego-form__footer--docked.is-docked,
+.oui-sheet__footer--docked.is-docked {
   position: sticky;
   bottom: 0;
   margin-right: -10px;
@@ -2594,16 +2594,16 @@ fieldset {
   box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12);
   padding-right: 10px; }
 
-.lego-form__footer--dockable .oui-button-row,
-.oui-sheet__footer--dockable .oui-button-row--right {
+.lego-form__footer--docked .oui-button-row,
+.oui-sheet__footer--docked .oui-button-row--right {
   transition: all .2s ease-in-out; }
 
-.oui-sheet__footer--dockable {
+.oui-sheet__footer--docked {
   margin-left: 60px;
   width: calc(100% - 120px);
   padding: 20px 0; }
 
-.oui-sheet__footer--dockable.is-docked {
+.oui-sheet__footer--docked.is-docked {
   margin-left: 50px;
   width: calc(100% - 100px);
   box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }

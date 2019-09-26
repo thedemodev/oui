@@ -4,10 +4,10 @@ import { storiesOf } from '@storybook/react';
 import noop from 'lodash.noop';
 import { withInfo } from '@storybook/addon-info';
 
-import DockableFooter from './index.js';
+import DockedFooter from './index.js';
 import Button from '../Button';
 
-const stories = storiesOf('DockableFooter', module);
+const stories = storiesOf('DockedFooter', module);
 stories
   .addDecorator(story => <div id="root-preview">{story()}</div>);
 
@@ -19,7 +19,7 @@ stories
       <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
-      <DockableFooter
+      <DockedFooter
         parentTestSection={ 'helloTesting' }
         isDocked={ true }>
         { [
@@ -30,7 +30,7 @@ stories
               Confirm
           </Button>,
         ] }
-      </DockableFooter>
+      </DockedFooter>
     </div>
   ))
   )
@@ -50,7 +50,7 @@ stories
           <div className="oui-sheet__body">
             <p>Some Form elements...</p>
           </div>
-          <DockableFooter
+          <DockedFooter
             parentTestSection={ 'helloTesting' }
             isDocked={ true }>
             { [
@@ -61,7 +61,7 @@ stories
                   Confirm
               </Button>,
             ] }
-          </DockableFooter>
+          </DockedFooter>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@ stories
             <p>Some Form elements...</p>
             <p>Some Form elements...</p>
           </div>
-          <DockableFooter
+          <DockedFooter
             parentTestSection={ 'helloTesting' }
             isDocked={ true }>
             { [
@@ -108,7 +108,7 @@ stories
                   Confirm
               </Button>,
             ] }
-          </DockableFooter>
+          </DockedFooter>
         </div>
       </div>
     </div>
