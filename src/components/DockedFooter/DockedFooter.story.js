@@ -14,6 +14,7 @@ stories
 stories
   .add('Default short', withInfo()(() => (
     <div data-test-section="helloTesting" className="">
+      <h2 className="push-double--top">Test</h2>
       <p>Test content...</p>
       <DockedFooter
         parentTestSection={ 'helloTesting' }
@@ -34,7 +35,7 @@ stories
   )
   .add('Default long', withInfo()(() => (
     <div data-test-section="helloTestingLong" className="">
-      <p>Test content...</p>
+      <h2 className="push-double--top">Test</h2>
       <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
