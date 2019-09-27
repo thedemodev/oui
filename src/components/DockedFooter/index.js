@@ -73,7 +73,7 @@ class DockedFooter extends React.Component {
     };
 
     window.addEventListener('resize', throttle(50, this.shouldDock));
-    // window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll)
     parentElement.addEventListener('click', this.shouldDock);
     parentElement.addEventListener('scroll', this.onScroll);
   }
