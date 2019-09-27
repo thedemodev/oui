@@ -14,6 +14,7 @@ $hosted-fonts:(
     700: bold,
   ),
   url: 'https://dhm5hy2vn8l0l.cloudfront.net'
+  // The cloudfront url points to s3. Update fonts here: 
   // https://s3.console.aws.amazon.com/s3/buckets/optimizely-fonts
 );
 
