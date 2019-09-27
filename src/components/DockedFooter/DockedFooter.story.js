@@ -13,7 +13,7 @@ stories
 
 stories
   .add('Default short', withInfo()(() => (
-    <div data-test-section="helloTesting" className="">
+    <div data-test-section="helloTesting" className="height--300">
       <h2 className="push-double--top">Test</h2>
       <p>Test content...</p>
       <DockedFooter
@@ -34,7 +34,7 @@ stories
   ))
   )
   .add('Default long', withInfo()(() => (
-    <div data-test-section="helloTestingLong" className="">
+    <div data-test-section="helloTestingLong" className="height--300">
       <div>
         <h2 className="push-double--top">Test</h2>
         <p>Test content...</p>
