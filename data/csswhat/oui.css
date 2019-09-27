@@ -6589,7 +6589,8 @@ body:target *[data-oui-component],
 
 .oui-disclose-table--row__toggle.is-active,
 .border--ends,
-.border--top {
+.border--top,
+.oui-dockedFooter {
   border-top: 1px solid #e0e0e0 !important; }
 
 .oui-disclose-table--row__content,

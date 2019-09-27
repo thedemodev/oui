@@ -79,8 +79,8 @@ class DockedFooter extends React.Component {
     return (
       <footer
         className={ classNames({
-          'oui-dockedFooter border--top': true,
-          'is-docked border--top soft-double--top': this.state.isDocked,
+          'oui-dockedFooter': true,
+          'is-docked': this.state.isDocked,
           'insideSheet': this.props.isInsideSheet,
           'push-double--top': this.props.includesMargin,
         }) }>
