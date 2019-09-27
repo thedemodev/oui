@@ -22,7 +22,6 @@ export { default as Disclose } from './components/Disclose';
 export { default as DiscloseTable } from './components/DiscloseTable';
 export { default as DockedFooter } from './components/DockedFooter';
 export { default as Dropdown } from './components/Dropdown';
-export { default as DockedFooter } from './components/DockedFooter'
 export { default as EditableInput } from './components/EditableInput';
 export { default as EmptyDashboard } from './components/EmptyDashboard';
 export { default as Fieldset } from './components/Fieldset';
