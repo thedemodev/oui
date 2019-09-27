@@ -2582,7 +2582,8 @@ fieldset {
   padding-bottom: 20px;
   box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
   transition: all .2s ease-in-out;
-  margin-bottom: -20px; }
+  margin-bottom: -20px;
+  padding-top: 20px; }
 
 .oui-dockedFooter.is-docked {
   position: sticky;

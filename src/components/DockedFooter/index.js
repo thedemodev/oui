@@ -36,6 +36,8 @@ class DockedFooter extends React.Component {
     if (footerElement !== undefined && parentElement !== undefined) {
       footerToTop = footerElement.offsetTop;
       viewableArea = parentElement.offsetHeight - footerElement.offsetHeight;
+      // console.log(footerToTop);
+      // console.log(viewableArea);
       if (footerToTop >= viewableArea) {
         this.setState({isDocked: true});
       } else {
