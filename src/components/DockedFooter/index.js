@@ -48,7 +48,9 @@ class DockedFooter extends React.Component {
 
   onScroll() {
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
-    if (parentElement.scrollTop + parentElement.clientHeight === parentElement.scrollHeight) {
+    const footerElement = document.getElementsByClassName('oui-dockedFooter')[0];
+    let atBottom = parentElement.clientHeight - footerElement.offsetHeight >= footerElement.offsetTop;
+    if (atBottom) {
       this.setState({isDocked: false});
     } else {
       this.setState({isDocked: true });
@@ -71,6 +73,7 @@ class DockedFooter extends React.Component {
     };
 
     window.addEventListener('resize', throttle(50, this.shouldDock));
+    // window.addEventListener('scroll', this.onScroll)
     parentElement.addEventListener('click', this.shouldDock);
     parentElement.addEventListener('scroll', this.onScroll);
   }
