@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import CloseButton from '../CloseButton';
-import DockedFooter from '../DockedFooter';
+import ButtonRow from '../ButtonRow';
 
 const Sheet = props => {
   let subtitleContent;
@@ -26,14 +26,14 @@ const Sheet = props => {
         <div className="oui-sheet__body">
           {props.children}
         </div>
-        {/* <footer className="oui-sheet__footer">
+        <footer className="oui-sheet__footer">
           <ButtonRow rightGroup={ props.footerButtonList }/>
-        </footer> */}
-        <DockedFooter
+        </footer>
+        {/* <DockedFooter
           parentTestSection={ props.testSection }
           isDocked={ props.footerDocked }>
           { props.footerButtonList }
-        </DockedFooter>
+        </DockedFooter> */}
       </div>
     </div>
   );

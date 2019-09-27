@@ -77,8 +77,10 @@ class DockedFooter extends React.Component {
     return (
       <footer
         className={ classNames({
-          'oui-sheet__footer--docked border--top': true,
+          'oui-dockedFooter border--top': true,
           'is-docked border--top soft-double--top': this.state.isDocked,
+          'insideSheet': this.props.isInsideSheet,
+          'push-double--top': this.props.includesMargin,
         }) }>
         <ButtonRow rightGroup={ this.props.children }/>
       </footer>
@@ -92,9 +94,17 @@ DockedFooter.propTypes = {
    */
   children: PropTypes.node,
   /**
+   *  Add top and bottom margins.
+   */
+  includesMargin: PropTypes.bool,
+  /**
    *  Used to determine if the sheet should have a close button.
    */
   isDocked: PropTypes.bool,
+  /**
+   *  Changes width and other options when inside of Sheet component.
+   */
+  isInsideSheet: PropTypes.bool,
   /**
    * Identifier to check parent height and visible space for docked footer.
    */
@@ -107,6 +117,8 @@ DockedFooter.propTypes = {
 
 DockedFooter.defaultProps = {
   isDocked: false,
+  isInsideSheet: false,
+  includesMargin: true,
   testSection: '',
   parentTestSection: '',
 };

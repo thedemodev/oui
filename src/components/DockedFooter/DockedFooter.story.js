@@ -9,11 +9,46 @@ import Button from '../Button';
 
 const stories = storiesOf('DockedFooter', module);
 stories
-  .addDecorator(story => <div id="root-preview">{story()}</div>);
+  .addDecorator(story => <div className="soft-quad--sides">{story()}</div>);
 
 stories
-  .add('Default', withInfo()(() => (
-    <div data-test-section="helloTesting" className="height--1-1">
+  .add('Default short', withInfo()(() => (
+    <div data-test-section="helloTesting" className="">
+      <p>Test content...</p>
+      <DockedFooter
+        parentTestSection={ 'helloTesting' }
+        isInsideSheet={ false }
+        includesMargin={ true }
+        isDocked={ true }>
+        { [
+          <Button style="plain" key={ 0 } onClick={ noop }>
+              Cancel
+          </Button>,
+          <Button style="highlight" key={ 1 } onClick={ noop }>
+              Confirm
+          </Button>,
+        ] }
+      </DockedFooter>
+    </div>
+  ))
+  )
+  .add('Default long', withInfo()(() => (
+    <div data-test-section="helloTesting" className="">
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
@@ -21,6 +56,8 @@ stories
       <p>Test content...</p>
       <DockedFooter
         parentTestSection={ 'helloTesting' }
+        isInsideSheet={ false }
+        includesMargin={ true }
         isDocked={ true }>
         { [
           <Button style="plain" key={ 0 } onClick={ noop }>
@@ -42,7 +79,7 @@ stories
         <div
           data-oui-component={ true }
           className="oui-sheet overflow-y--auto"
-          data-test-section={ 'helloTesting' }>
+          data-test-section={ 'helloShortTesting' }>
           <header className="oui-sheet__header">
             <h2 className="flush--bottom">Hello Fake Sheet</h2>
             Hello Fake Sheet
@@ -51,7 +88,8 @@ stories
             <p>Some Form elements...</p>
           </div>
           <DockedFooter
-            parentTestSection={ 'helloTesting' }
+            parentTestSection={ 'helloShortTesting' }
+            isInsideSheet={ true }
             isDocked={ true }>
             { [
               <Button style="plain" key={ 0 } onClick={ noop }>
@@ -99,6 +137,7 @@ stories
           </div>
           <DockedFooter
             parentTestSection={ 'helloTesting' }
+            isInsideSheet={ true }
             isDocked={ true }>
             { [
               <Button style="plain" key={ 0 } onClick={ noop }>
