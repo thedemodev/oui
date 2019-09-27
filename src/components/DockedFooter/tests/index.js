@@ -8,14 +8,23 @@ describe('DockedFooter Component ', () => {
     const onClickSpy = jest.fn();
 
     const component = mount(
-      <DockedFooter>
-        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
-          No Thanks
-        </Button>,
-        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
-          Continue
-        </Button>
-      </DockedFooter>);
+      <div data-test-section="helloTest">
+        <p>Test content...</p>
+        <DockedFooter
+          parentTestSection={ 'helloTest' }
+          isInsideSheet={ false }
+          isDocked={ true }>
+          { [
+            <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+                Cancel
+            </Button>,
+            <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+                Confirm
+            </Button>,
+          ] }
+        </DockedFooter>
+      </div>
+    );
     expect(component.find('.oui-button').length).toBeGreaterThanOrEqual(1);
   });
 
