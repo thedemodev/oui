@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/Link should render ariaLabel 1`] = `
+<a
+  aria-label="Go to Google"
+  className="link link--muted"
+  data-oui-component={true}
+  disabled={false}
+  href="http://google.com"
+>
+  Test Link
+</a>
+`;
+
 exports[`components/Link should render as a span if there is no href 1`] = `
 <span
   className="link"

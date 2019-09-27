@@ -6,6 +6,17 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.8.0 - 2019-09-11
+- [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
+- [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
+
+## 44.7.0 - 2019-08-23
+- [Feature] Added **NavBar** component ([#1212](https://github.com/optimizely/oui/pull/1212))
+    - Added **PrimaryLink**, **SecondaryLink**, **AccountSwitcher** and **CurrentUserMenu** components
+
+## 44.6.1 - 2019-08-19
+- [Patch] Modification to `numRows` prop for **Textarea** component ([#1216](https://github.com/optimizely/oui/pull/1216))
+
 ## 44.6.0 - 2019-08-15
 - [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
     - Move button to top right corner by default

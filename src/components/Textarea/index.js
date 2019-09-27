@@ -52,7 +52,7 @@ class Textarea extends React.Component {
         disabled={ isDisabled }
         { ...(typeof maxLength === 'undefined' ? {} : { maxLength }) }
         maxLength={ maxLength }
-        numRows={ numRows }
+        rows={ numRows }
         onInput={ onInput }
         onChange={ onChange }
         onBlur={ onBlur }
@@ -168,6 +168,7 @@ Textarea.defaultProps = {
   focus: false,
   label: null,
   note: null,
+  numRows: 3,
   isOptional: false,
 };
 
