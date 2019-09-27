@@ -33,7 +33,17 @@ stories
   ))
   )
   .add('Default long', withInfo()(() => (
-    <div data-test-section="helloTesting" className="">
+    <div data-test-section="helloTestingLong" className="">
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
+      <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
       <p>Test content...</p>
@@ -55,9 +65,8 @@ stories
       <p>Test content...</p>
       <p>Test content...</p>
       <DockedFooter
-        parentTestSection={ 'helloTesting' }
+        parentTestSection={ 'helloTestingLong' }
         isInsideSheet={ false }
-        includesMargin={ true }
         isDocked={ true }>
         { [
           <Button style="plain" key={ 0 } onClick={ noop }>
@@ -90,6 +99,7 @@ stories
           <DockedFooter
             parentTestSection={ 'helloShortTesting' }
             isInsideSheet={ true }
+            includesMargin={ false }
             isDocked={ true }>
             { [
               <Button style="plain" key={ 0 } onClick={ noop }>
@@ -138,6 +148,7 @@ stories
           <DockedFooter
             parentTestSection={ 'helloTesting' }
             isInsideSheet={ true }
+            includesMargin={ false }
             isDocked={ true }>
             { [
               <Button style="plain" key={ 0 } onClick={ noop }>

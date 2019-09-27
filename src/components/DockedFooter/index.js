@@ -31,7 +31,7 @@ class DockedFooter extends React.Component {
     let footerToTop;
     let viewableArea;
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
-    const footerElement = document.getElementsByClassName('oui-sheet__footer--docked')[0];
+    const footerElement = document.getElementsByClassName('oui-dockedFooter')[0];
 
     if (footerElement !== undefined && parentElement !== undefined) {
       footerToTop = footerElement.offsetTop;
