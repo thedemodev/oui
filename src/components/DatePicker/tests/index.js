@@ -484,6 +484,183 @@ describe('components/DateRangePicker', function() {
 
   });
 
+  it('should load with time inputs when hasTimeInputs set to true', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    expect(component.find('#start-date-picker-02.oui-text-input').length).toBe(1);
+    expect(component.find('#startTimeInputId.oui-text-input').length).toBe(1);
+    expect(component.find('#end-date-picker-02.oui-text-input').length).toBe(1);
+    expect(component.find('#endTimeInputId.oui-text-input').length).toBe(1);
+  });
+
+  it('should set endDate to match startDate after initial startDate selection', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    expect(component.find('#end-date-picker-02.oui-text-input').text())
+      .toEqual(component.find('#start-date-picker-02.oui-text-input').text());
+  });
+
+  it('should set startDate time to 12:00am and endDate time to 11:59pm by default', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('00:00');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('23:59');
+  });
+
+  it('should preserve the time if modified/changed by the user', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    component.find('#start-date-picker-02.oui-text-input').simulate('click');
+    component.find('.DayPicker .CalendarDay').at(3).simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+  });
+
+  it('should reset times by default when preset buttons are clicked', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        presetPanelOptions={
+          [
+            {
+              label: 'Last 7 days',
+              startDate: moment().subtract(7, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'Last 30 days',
+              startDate: moment().subtract(30, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'Last 60 days',
+              startDate: moment().subtract(60, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'This Month',
+              startDate: moment().startOf('month'),
+              endDate: moment().endOf('month'),
+            },
+          ]
+        }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    component.find('#endTimeInputId.oui-text-input').simulate('change', { target: { value: '16:55' }});
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('16:55');
+    component.find('.oui-date-picker__range-presets button').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('00:00');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('23:59');
+  });
+
+  it('should NOT reset times for panel button clicks if the resetTime property is set to false', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        presetPanelOptions={
+          [
+            {
+              label: 'Last 7 days',
+              startDate: moment().subtract(7, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'Last 30 days',
+              startDate: moment().subtract(30, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'Last 60 days',
+              startDate: moment().subtract(60, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'This Month',
+              startDate: moment().startOf('month'),
+              endDate: moment().endOf('month'),
+              resetTime: false,
+            },
+          ]
+        }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    component.find('#endTimeInputId.oui-text-input').simulate('change', { target: { value: '16:55' }});
+    component.find('.oui-date-picker__range-presets button').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('16:55');
+  });
+
   // Disabled until we upgrade Enzyme to 3.10.0
   // (current version 3.0.0 doesn't support the :not selector)
   xit('should set an initialVisibleMonth', () => {
