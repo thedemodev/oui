@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.9.0 - 2019-09-30
 - [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
     - Added time inputs as an option
     - Added custom time-handling for a delightful experience
