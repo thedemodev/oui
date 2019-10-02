@@ -48,6 +48,7 @@ export const TokensInput = ({
   onInputChange,
   onInputFocus,
   placeholder,
+  readOnly,
   tokens,
 }) => {
   /**
@@ -82,7 +83,7 @@ export const TokensInput = ({
       <Token
         key={ key }
         hasSnugWrap={ true }
-        isDismissible={ true }
+        isDismissible={ !readOnly }
         onDismiss={ onDismiss }
         name={ name }
         style={ style }
@@ -144,13 +145,14 @@ export const TokensInput = ({
         addKeys={ addKeys }
         addOnBlur={ addOnBlur }
         addOnPaste={ addOnPaste }
+        disabled={ readOnly }
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
           onBlur: onInputBlur,
           onChange: onInputChange,
           onFocus: onInputFocus,
-          placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
-          readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
+          placeholder: (isNumberOfTokensMoreThanOrEqualToMaxTags || readOnly) ? '' : placeholder,
+          readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags || readOnly,
         }}
         maxTags={ maxTags }
         onChange={ __onChange }
@@ -216,6 +218,11 @@ TokensInput.propTypes = {
   placeholder: PropTypes.string,
 
   /**
+   * Determines if the tokens input element is read-only
+   */
+  readOnly: PropTypes.bool,
+
+  /**
    * @type {Array.<TokenWrapper>}
    */
   tokens: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -237,6 +244,7 @@ TokensInput.defaultProps = {
   onInputFocus: () => {},
 
   placeholder: 'enter tokens',
+  readOnly: false,
 };
 
 export default TokensInput;

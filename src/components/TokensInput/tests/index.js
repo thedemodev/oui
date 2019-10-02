@@ -33,6 +33,10 @@ describe('components/TokensInput', () => {
       );
     });
 
+    afterEach(function() {
+      component.unmount();
+    });
+
     function assertTokenRender(comp, style, font, text) {
       expect(comp.find('[data-test-section="token"]').hasClass('oui-token-wrap--snug')).toBe(true);
       expect(comp.find(`[data-test-section="token"] div.oui-token--${style}`).length).toBe(1);
@@ -80,6 +84,10 @@ describe('components/TokensInput', () => {
         );
       });
 
+      afterEach(function() {
+        component.unmount();
+      });
+
       it('should SHOW input has custom placeholder', function() {
         expect(component.find('Token').length).toBe(5);
         expect(component.find(inputCSS).props().readOnly).toBe(false);
@@ -99,6 +107,10 @@ describe('components/TokensInput', () => {
             tokens={ SAMPLE_DATA }
           />
         );
+      });
+
+      afterEach(function() {
+        component.unmount();
       });
 
       it('should SHOW input is readonly if the number of tokens is not less than the value of maxTags', function() {
@@ -125,6 +137,10 @@ describe('components/TokensInput', () => {
             tokens={ SAMPLE_DATA }
           />
         );
+      });
+
+      afterEach(function() {
+        component.unmount();
       });
 
       it('should invoke onChange with the updated token list', () => {
@@ -178,6 +194,10 @@ describe('components/TokensInput', () => {
             extraAddKeys={ [' ', '.', '_', ','] }
           />
         );
+      });
+
+      afterEach(function() {
+        component.unmount();
       });
 
       it('should respect additional addKeys', () => {
@@ -242,6 +262,36 @@ describe('components/TokensInput', () => {
         ]);
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(expectedTokens);
+      });
+    });
+
+    describe('readonly token input', function() {
+      beforeEach(function() {
+        mockOnChange = jest.fn();
+        component = mount(
+          <TokensInput
+            onChange={ mockOnChange }
+            tokens={ SAMPLE_DATA }
+            extraAddKeys={ [' ', '.', '_', ','] }
+            readOnly={ true }
+          />
+        );
+      });
+
+      afterEach(function() {
+        component.unmount();
+      });
+
+      it('should not allow users to enter new tokens', function() {
+        const inputCSS = '.flex .flex--1 .min-width--150 .no-border .soft-half--ends .soft--sides';
+        expect(component.find(inputCSS).props().readOnly).toBe(true);
+        expect(component.find(inputCSS).props().placeholder).toBe('');
+
+        const input = component.find('input');
+        input.simulate('change', { target: { value: 'new-token-val' }});
+        input.simulate('keyDown', { keyCode: 13, key: 'Enter' });
+        component.update();
+        expect(mockOnChange).toBeCalled();
       });
     });
   });
