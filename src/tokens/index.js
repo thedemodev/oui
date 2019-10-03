@@ -17,6 +17,9 @@ const processFiles = (globPath = path.resolve(__dirname, './src/*.json')) => {
 
   if (files.length === 0) {
     throw new Error(`No files were found in ${globPath}…`);
+  } else {
+    // eslint-disable-next-line no-console
+    console.log(`Processing (${files.length}) files...`);
   }
 
   const contents = {
@@ -47,9 +50,17 @@ const processFiles = (globPath = path.resolve(__dirname, './src/*.json')) => {
 
 const saveFiles = (contents, dist = path.resolve(__dirname, './forimport')) => {
   if (process.env.NODE_ENV !== 'test') {
-    fse.outputFileSync(`${dist}/index.cjs.js`, contents.cjs + '\n');
-    fse.outputFileSync(`${dist}/index.es.js`, contents.es + '\n');
-    fse.outputFileSync(`${dist}/_index.scss`, contents.scss);
+    /* eslint-disable no-console */
+    let file = `${dist}/index.cjs.js`;
+    fse.outputFileSync(file, contents.cjs + '\n');
+    console.log(`Saved: ${file}.`);
+    file = `${dist}/index.es.js`;
+    fse.outputFileSync(file, contents.es + '\n');
+    console.log(`Saved: ${file}.`);
+    file = `${dist}/_index.scss`;
+    fse.outputFileSync(file, contents.scss);
+    console.log(`Saved: ${file}.`);
+    /* eslint-enable no-console */
   }
 };
 

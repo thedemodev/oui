@@ -16,6 +16,21 @@ import DropdownBlockLinkSecondaryText from './DropdownBlockLinkSecondaryText';
 class Dropdown extends React.Component {
   static displayName = 'Dropdown';
 
+  handleHideChildren = () => {
+    const {
+      hide,
+      setOverChildren,
+      shouldHideChildrenOnClick,
+    } = this.props;
+    // We need to return early because handleToggle() and hide() will
+    // cancel each other out if shouldHideChildrenOnClick is true
+    if (shouldHideChildrenOnClick) {
+      return;
+    }
+    hide();
+    setOverChildren(false);
+  };
+
   handleOnBlur = () => {
     if (!this.props.overChildren) {
       this.props.hide();
@@ -23,7 +38,12 @@ class Dropdown extends React.Component {
   };
 
   handleToggle = () => {
-    if (this.props.isDisabled) {
+    const {
+      isDisabled,
+      overChildren,
+      shouldHideChildrenOnClick,
+    } = this.props;
+    if (isDisabled || (!shouldHideChildrenOnClick && overChildren)) {
       return;
     }
     this.props.setOverChildren(false);
@@ -40,15 +60,15 @@ class Dropdown extends React.Component {
       arrowIcon,
       buttonContent,
       children,
-      isDisabled = false,
+      isDisabled,
       isOpen,
-      displayError = false,
+      displayError,
       fullWidth,
-      placement = 'bottom-start',
+      placement,
       style,
       testSection,
-      width = 200,
-      zIndex = 999,
+      width,
+      zIndex,
     } = this.props;
 
     const groupClass = classNames(
@@ -78,7 +98,7 @@ class Dropdown extends React.Component {
       <Manager>
         <div
           className={ groupClass }
-          data-ui-component={ true }
+          data-oui-component={ true }
           data-test-section={ testSection }>
           <Reference>
             {({ ref }) => {
@@ -133,7 +153,13 @@ class Dropdown extends React.Component {
                     boxShadow: '0 2px 3px rgba(0,0,0,.1)',
                     ...popperStyle,
                   }}>
-                  {children}
+                  {
+                    typeof children === 'function' ? (
+                      children({ handleHideChildren: this.handleHideChildren })
+                    ) : (
+                      children
+                    )
+                  }
                 </div>
               )}
             </Popper>
@@ -145,8 +171,10 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  /** React element that when clicked activates the dropdown
+  /**
+   * React element that when clicked activates the dropdown
    * Either this prop OR buttonContent should be used, not both
+   * Not included in defaultProps because undefined is an expected value
    */
   activator: PropTypes.node,
   /** Arrow icon direction:
@@ -161,26 +189,40 @@ Dropdown.propTypes = {
     'right',
     'up',
   ]),
-  /** Button text, can be a string or element.
+  /**
+   * Button text, can be a string or element.
    * Either this prop OR activator should be used, not both
+   * Not included in defaultProps because undefined is an expected value
    */
   buttonContent: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
-  /** Dropdown contents, typically using the <Blocklist> component. */
-  children: PropTypes.node.isRequired,
+  /**
+    * Dropdown contents, typically using the <Blocklist> component
+    * Use render prop function for custom hide configuration
+    */
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]).isRequired,
   /** Show error state. */
   displayError: PropTypes.bool,
   /** Button width is either full or inline-block. */
   fullWidth: PropTypes.bool,
-  /** Unused... */
-  handleClick: PropTypes.func,
+  /** Provided by @withToggle HOC */
   hide: PropTypes.func,
   /** Disable button. */
   isDisabled: PropTypes.bool,
+  /**
+   * Provided by @withToggle HOC
+   * Defaults to false but Dropdown can be open by default if true
+   */
   isOpen: PropTypes.bool,
-  /* Whether or not the children are currently moused over */
+  /**
+   * Provided by @withState HOC
+   * Whether or not the children are currently moused over
+   */
   overChildren: PropTypes.bool,
   /** Popper placement property */
   placement: PropTypes.oneOf([
@@ -197,13 +239,23 @@ Dropdown.propTypes = {
     'left-start',
     'left-end',
   ]),
-  /* Control for overChildren value */
-  setOverChildren: PropTypes.bool,
-  /** Button style, e.g. highlight, danger, outline. */
+  /** Provided by @withToggle HOC. Control for overChildren value */
+  setOverChildren: PropTypes.func,
+  /**
+    * Whether Dropdown children should be hidden on children click
+    * - Defaults to true
+    * - Pass render prop function as child prop and use provided
+    *   handleHideChildren function to programmatically hide
+    */
+  shouldHideChildrenOnClick: PropTypes.bool,
+  /**
+   * Button style, e.g. highlight, danger, outline
+   * Not included in defaultProps because undefined is an expected value
+   */
   style: PropTypes.string,
   /** For automated testing only. */
   testSection: PropTypes.string,
-  /** Toggle control for isOpen. */
+  /** Provided by @withToggle HOC. Toggle control for isOpen. */
   toggle: PropTypes.func,
   /** Dropdown menu width, in pixels. */
   width: PropTypes.oneOfType([
@@ -216,6 +268,18 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   arrowIcon: 'none',
+  displayError: false,
+  fullWidth: false,
+  isDisabled: false,
+  isOpen: false,
+  overChildren: false,
+  placement: 'bottom-start',
+  setOverChildren: () => {},
+  shouldHideChildrenOnClick: true,
+  testSection: '',
+  toggle: () => {},
+  width: 200,
+  zIndex: 999,
 };
 
 Dropdown.Contents = DropdownContents;

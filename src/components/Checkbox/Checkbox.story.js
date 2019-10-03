@@ -14,7 +14,7 @@ stories
   ));
 
 stories
-  .add('with string label', (() => {
+  .add('With string label', (() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -23,7 +23,7 @@ stories
       />
     );
   }))
-  .add('with html label', (() => {
+  .add('With html label', (() => {
     return (
       <Checkbox
         defaultChecked={ true }
@@ -38,7 +38,7 @@ stories
       />
     );
   }))
-  .add('with labelWeight', (() => {
+  .add('With labelWeight', (() => {
     return (
       <Checkbox
         defaultChecked={ true }

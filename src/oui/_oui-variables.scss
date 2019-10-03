@@ -234,11 +234,11 @@ $button: (
       background             : map-fetch($root-color, grey-03),
       border                 : map-fetch($root-color, grey-25),
       color                  : map-fetch($color, text, base),
-      hover:(
+      hover: (
         box-shadow           : 1px 1px 2px 0 rgba(0, 0, 0, 0.16),
         background           : $base-white,
       ),
-      active:(
+      active: (
         background           : map-fetch($brand-color, dark-blue-75),
         border               : map-fetch($brand-color, dark-blue-75),
         color                : $base-white,
@@ -250,16 +250,16 @@ $button: (
       background             : map-fetch($brand-color, light-blue-75),
       border                 : tint(map-fetch($brand-color, light-blue-75), 10%),
       text-shadow            : 0 0 1px rgba(0, 0 , 0, 0.2),
-      hover:(
+      hover: (
         background           : map-fetch($brand-color, light-blue-100),
         border               : tint(map-fetch($brand-color, light-blue-100), 10%),
       ),
-      active:(
+      active: (
         background           : shade(map-fetch($brand-color, light-blue-100), 20%),
         border               : shade(map-fetch($brand-color, light-blue-100), 30%),
         box-shadow           : inset 0 1px 3px 0 rgba(0, 0, 0, 0.5),
       ),
-      focus:(
+      focus: (
         border               : map-fetch($brand-color, light-blue-100),
       )
     ),
@@ -267,24 +267,41 @@ $button: (
       background             : transparent,
       border                 : map-fetch($brand-color, light-blue-75),
       color                  : map-fetch($brand-color, light-blue-75),
-      hover:(
+      hover: (
         border               : map-fetch($brand-color, light-blue-100),
         color                : map-fetch($brand-color, light-blue-100),
       ),
-      active:(
+      active: (
         border               : map-fetch($brand-color, dark-blue-100),
         color                : map-fetch($brand-color, dark-blue-100),
+      )
+    ),
+    underline: (
+      border                 : map-fetch($root-color, grey-35),
+      color                  : map-fetch($color, text, base),
+      hover: (
+        border               : map-fetch($root-color, brand),
+        arrow-color          : map-fetch($root-color, brand),
+      ),
+      focus: (
+        border               : map-fetch($brand-color, light-blue-100),
+        arrow-color          : map-fetch($brand-color, light-blue-100),
+      ),
+      active: (
+        border               : map-fetch($color, background, brand),
+        color                : map-fetch($color, background, brand-dark),
+        arrow-color          : map-fetch($color, background, brand-dark),
       )
     ),
     danger: (
       background             : map-fetch($brand-color, red),
       border                 : map-fetch($brand-color, red),
       text-shadow            : 0 1px 1px rgba(0, 0 , 0, 0.3),
-      hover:(
+      hover: (
         background           : shade(map-fetch($brand-color, red), 20%),
         border               : shade(map-fetch($brand-color, red), 20%),
       ),
-      active:(
+      active: (
         background           : shade(map-fetch($brand-color, red), 30%),
         border               : shade(map-fetch($brand-color, red), 30%),
       )
@@ -292,21 +309,21 @@ $button: (
     danger-outline: (
       color                  : map-fetch($brand-color, red),
       border                 : map-fetch($brand-color, red),
-      hover:(
+      hover: (
         color                : shade(map-fetch($brand-color, red), 20%),
         border               : shade(map-fetch($brand-color, red), 20%),
       ),
-      active:(
+      active: (
         border               : shade(map-fetch($brand-color, red), 30%),
         color                : shade(map-fetch($brand-color, red), 30%),
       )
     ),
     plain: (
       color                  : map-fetch($brand-color, dark-blue-75),
-      hover:(
+      hover: (
         color                : map-fetch($brand-color, light-blue-75),
       ),
-      active:(
+      active: (
         color                : map-fetch($brand-color, dark-blue-100),
       )
     ),
@@ -351,7 +368,7 @@ $token: (
 
 $switch: (
   background-color: (
-    on                       : map-fetch($brand-color, light-blue-75),
+    on                       : $brand-blue-dark,
     off                      : map-fetch($brand-color, grey-50)
   )
 );
@@ -360,7 +377,7 @@ $switch: (
 /// Rangeslider
 
 $rangeslider: (
-  background-color           : map-fetch($brand-color, light-blue-75)
+  background-color           : $brand-blue-dark
 );
 
 
@@ -451,12 +468,12 @@ $opacity: (
 /// Dialog widths
 
 $dialog: (
-  width:(
+  width: (
     base                     : 700px,
     narrow                   : 500px,
     wide                     : 900px
   ),
-  footer:(
+  footer: (
     color                    : #f7f7f7,
   )
 );
@@ -464,7 +481,7 @@ $dialog: (
 /// Layout
 
 $layout: (
-  reading:(
+  reading: (
     max-width                 : 700px,
     min-width                 : 700px
   ),
@@ -523,13 +540,13 @@ $progress-dots: (
 /// Spinner
 
 $spinner: (
-  size:(
+  size: (
     base                     : 40px,
     small                    : 26px,
     tiny                     : 16px
   ),
-  border:(
-    width:(
+  border: (
+    width: (
       base                   : 4px,
       small                  : 3px,
       tiny                   : 2px

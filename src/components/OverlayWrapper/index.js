@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tether from 'tether';
-import { waitForSelector } from '../../utils/poll';
 
 /**
  * Intelligently position elements on a page.
@@ -41,22 +40,13 @@ class OverlayWrapper extends React.Component {
       options.targetAttachment = `${this.props.verticalTargetAttachment} ${this.props.horizontalTargetAttachment}`;
     }
 
-    // Because Tether will err if createTether is called when the body element
-    // is not available, we need to wait for the body. The waitForSelector util
-    // uses a recursive timeout and can be used because we know the body
-    // is certain to be available eventually.
-    waitForSelector('body').then(() => {
-      this._tether = this.createTether(options);
-      // Disable Tether after creation for performance improvements.
-      // This is okay since it is hidden by default.
-      this.disableTether();
-    });
+    this.initTether = () => new Tether(options);
   }
 
   enableTether() {
-    // If tether hasn't been created, return early
+    // If tether hasn't yet been created, do it now.
     if (!this._tether) {
-      return;
+      this._tether = this.initTether();
     }
 
     this.setState({ 'isOverlayOpen': true });
@@ -105,10 +95,10 @@ class OverlayWrapper extends React.Component {
 
     this.setState({ 'isOverlayOpen': false });
     this._tether.disable();
-    this.removeBodyEventListner();
+    this.removeBodyEventListener();
   }
 
-  removeBodyEventListner() {
+  removeBodyEventListener() {
     if (this._bodyClickListener) {
       document.removeEventListener('click', this._bodyClickListener);
     }
@@ -138,7 +128,7 @@ class OverlayWrapper extends React.Component {
   }
 
   componentWillUnmount() {
-    this.removeBodyEventListner();
+    this.removeBodyEventListener();
     // If tether hasn't been created, return early
     if (!this._tether) {
       return;
@@ -147,10 +137,6 @@ class OverlayWrapper extends React.Component {
     if (this._tether.element && this._tether.element.remove) {
       this._tether.element.remove();
     }
-  }
-
-  createTether(options) {
-    return new Tether(options);
   }
 
   onChildClick(event, child) {
@@ -283,9 +269,10 @@ OverlayWrapper.propTypes = {
 OverlayWrapper.defaultProps = {
   attachmentConstraint: 'together',
   behavior: 'click',
-  isConstrainedToScreen: false,
-  shouldHideOnClick: true,
   horizontalAttachment: 'center',
+  isConstrainedToScreen: false,
+  onHide: () => {},
+  shouldHideOnClick: true,
   verticalAttachment: 'top',
 };
 

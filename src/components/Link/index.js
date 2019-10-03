@@ -8,6 +8,7 @@ import classNames from 'classnames';
  */
 
 const Link = ({
+  ariaLabel,
   children,
   href,
   onClick,
@@ -26,7 +27,7 @@ const Link = ({
   if (!href && !onClick) {
     return (
       <span
-        data-ui-component={ true }
+        data-oui-component={ true }
         className={ classes }
         data-test-section={ testSection }
         data-track-id={ testSection }
@@ -38,7 +39,8 @@ const Link = ({
 
   return (
     <a
-      data-ui-component={ true }
+      aria-label={ ariaLabel }
+      data-oui-component={ true }
       href={ href }
       className={ classes }
       data-test-section={ testSection }
@@ -52,6 +54,8 @@ const Link = ({
 };
 
 Link.propTypes = {
+  /** Label to use for screen readers */
+  ariaLabel: PropTypes.string,
   /** Text/node that is linked */
   children: PropTypes.node.isRequired,
   /** Href for the anchor element */

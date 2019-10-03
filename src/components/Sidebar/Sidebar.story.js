@@ -16,7 +16,7 @@ stories
   ));
 
 stories
-  .add('default', (() => (
+  .add('Default', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -46,7 +46,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('anchor left', (() => (
+  .add('Anchor left', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -77,7 +77,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('docked', (() => (
+  .add('Docked', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>
@@ -108,7 +108,7 @@ stories
       </Sidebar>
     </div>
   )))
-  .add('docked with box shadow', (() => (
+  .add('Docked with box shadow', (() => (
     <div className="flex">
       <div className="flex--1 soft">
         <h2>Content</h2>

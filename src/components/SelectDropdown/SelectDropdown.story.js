@@ -27,6 +27,10 @@ const items = [
     value: 'dog',
   },
   {
+    label: 'Dog with a really long name',
+    value: 'dog-long',
+  },
+  {
     label: 'Bear',
     description: 'Likes honey',
     value: 'bear',
@@ -38,7 +42,7 @@ const items = [
   },
 ];
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
 
   return (
     <Container>
@@ -49,7 +53,17 @@ stories.add('default', (() => {
       />
     </Container>
   );
-})).add('width of activator', (() => {
+})).add('Initial placeholder', (() => {
+  return (
+    <Container>
+      <SelectDropdown
+        items={ items }
+        initialPlaceholder="Select a value..."
+        onChange={ action('SelectDropdown value changed') }
+      />
+    </Container>
+  );
+})).add('Width of activator', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -60,7 +74,30 @@ stories.add('default', (() => {
       />
     </Container>
   );
-})).add('has error', (() => {
+})).add('Specify max width of activator', (() => {
+  return (
+    <div>
+      <p className="push--bottom">
+        Specifying the <code>maxWidth</code> property allows you to truncate longer dropdowns while keeping shorter ones short.
+      </p>
+      <Container>
+        <SelectDropdown
+          items={ items }
+          value={ 'dog-long' }
+          onChange={ action('SelectDropdown value changed') }
+          maxWidth={ '120px ' }
+        />
+        <div className="push--left"></div>
+        <SelectDropdown
+          items={ items }
+          value={ 'dog' }
+          onChange={ action('SelectDropdown value changed') }
+          maxWidth={ '120px ' }
+        />
+      </Container>
+    </div>
+  );
+})).add('Display Error', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -71,7 +108,7 @@ stories.add('default', (() => {
       />
     </Container>
   );
-})).add('width of dropdown', (() => {
+})).add('Width of dropdown', (() => {
   return (
     <Container>
       <SelectDropdown
@@ -94,7 +131,7 @@ stories.add('default', (() => {
       />
     </Container>
   );
-})).add('activatorLabel', (() => {
+})).add('ActivatorLabel', (() => {
   const itemsWithActivatorLabel = [
     {
       activatorLabel: 'Production',

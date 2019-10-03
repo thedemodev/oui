@@ -6,6 +6,7 @@ exports[`components/OverlayWrapper snapshots & others should render a Popover co
   behavior="click"
   horizontalAttachment="center"
   isConstrainedToScreen={false}
+  onHide={[Function]}
   overlay={<TestPopover />}
   shouldHideOnClick={true}
   verticalAttachment="top"

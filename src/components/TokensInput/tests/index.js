@@ -15,6 +15,9 @@ const SAMPLE_DATA = [
 describe('components/TokensInput', () => {
   let component;
   let mockOnChange;
+  let mockOnInputBlur;
+  let mockOnInputChange;
+  let mockOnInputFocus;
 
   afterEach(function() {
     if (component) {
@@ -110,8 +113,17 @@ describe('components/TokensInput', () => {
     describe('with the default addKeys', function() {
       beforeEach(function() {
         mockOnChange = jest.fn();
+        mockOnInputBlur = jest.fn();
+        mockOnInputChange = jest.fn();
+        mockOnInputFocus = jest.fn();
         component = mount(
-          <TokensInput onChange={ mockOnChange } tokens={ SAMPLE_DATA } />
+          <TokensInput
+            onChange={ mockOnChange }
+            onInputBlur={ mockOnInputBlur }
+            onInputChange={ mockOnInputChange }
+            onInputFocus={ mockOnInputFocus }
+            tokens={ SAMPLE_DATA }
+          />
         );
       });
 
@@ -134,6 +146,25 @@ describe('components/TokensInput', () => {
 
         expect(mockOnChange).toBeCalled();
         expect(mockOnChange).toHaveBeenCalledWith(SAMPLE_DATA);
+      });
+
+      it('should call onInputChange when input is changed', function() {
+        const input = component.find('input');
+        input.simulate('change', { target: { value: 'primary' }});
+        component.update();
+        expect(mockOnInputChange).toBeCalled();
+      });
+
+      it('should call onInputFocus when input is focused', function() {
+        const input = component.find('input');
+        input.simulate('focus');
+        expect(mockOnInputFocus).toBeCalled();
+      });
+
+      it('should call onInputBlur when input is blur', function() {
+        const input = component.find('input');
+        input.simulate('blur');
+        expect(mockOnInputBlur).toBeCalled();
       });
     });
 
@@ -183,7 +214,7 @@ describe('components/TokensInput', () => {
         const input = component.find('input');
         /* eslint-disable no-tabs */
         const testString = `
-        
+
         some
         	tokens
         		with
@@ -191,7 +222,7 @@ describe('components/TokensInput', () => {
         	one.two
         	three,
         	four_five
-        	
+
         `;
         input.simulate('paste', { clipboardData: { getData: () => testString }});
         component.update();

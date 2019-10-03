@@ -20,6 +20,10 @@ class SelectDropdown extends React.Component {
      */
     dropdownDirection: PropTypes.oneOf(['right', 'left']),
     /**
+     * An initial value for the dropdown before anything is selected
+     */
+    initialPlaceholder: PropTypes.node,
+    /**
      * The select is greyed out if it is disabled.
      */
     isDisabled: PropTypes.bool,
@@ -36,6 +40,13 @@ class SelectDropdown extends React.Component {
         PropTypes.bool,
       ]).isRequired,
     })).isRequired,
+    /**
+     * Max width of the activator container.
+     */
+    maxWidth: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     /**
      * The minimum width of the dropdown list; any valid CSS width value.
      */
@@ -63,7 +74,7 @@ class SelectDropdown extends React.Component {
       PropTypes.string,
       PropTypes.number,
       PropTypes.bool,
-    ]).isRequired,
+    ]),
     /**
      * Width of the activator container.
      */
@@ -79,12 +90,13 @@ class SelectDropdown extends React.Component {
 
   static defaultProps = {
     buttonStyle: 'outline',
-    inputPlaceholder: '',
+    initialPlaceholder: '',
     displayError: false,
     dropdownDirection: 'right',
     width: '100%',
     trackId: '',
     testSection: '',
+    value: '',
   };
 
   renderContents = () => {
@@ -107,7 +119,7 @@ class SelectDropdown extends React.Component {
   };
 
   render() {
-    const { buttonStyle, value, width, zIndex, isDisabled } = this.props;
+    const { buttonStyle, value, width, maxWidth, zIndex, isDisabled, initialPlaceholder } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
       if (item.value === value) {
@@ -116,15 +128,23 @@ class SelectDropdown extends React.Component {
     });
 
     const outerClass = classNames(
-      {['oui-form-bad-news']: this.props.displayError}
+      {['oui-form-bad-news']: this.props.displayError,
+        'oui-dropdown-group__activator': true}
     );
 
-    const activatorLabel = !!selectedItem ? (selectedItem.activatorLabel || selectedItem.label) : '';
+    let activatorLabel = '';
+    if (selectedItem) {
+      activatorLabel = selectedItem.activatorLabel || selectedItem.label;
+    } else if (initialPlaceholder) {
+      activatorLabel = initialPlaceholder;
+    }
+
     const Activator = ({ buttonRef, onClick, onBlur }) => (
       <div
-        style={{ width: width}}
+        style={{ width: width, maxWidth: maxWidth}}
         className={ outerClass }>
         <Button
+          title={ activatorLabel }
           isDisabled={ this.props.isDisabled }
           style={ buttonStyle }
           testSection={ this.props.testSection }
@@ -133,7 +153,7 @@ class SelectDropdown extends React.Component {
           onClick={ onClick }
           onBlur={ onBlur }>
           <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
-            <span style={{overflow: 'hidden'}} className="flex flex--1">{ activatorLabel }</span>
+            <span className="oui-dropdown-group__activator-label flex flex--1">{ activatorLabel }</span>
             <span className="push--left oui-arrow-inline--down" />
           </div>
         </Button>

@@ -12,6 +12,7 @@
 .#{$namespace}progress-dots,
 .oui-progress-dots {
   display: inline-block;
+  white-space: nowrap;
 
   li {
     opacity: 0;

@@ -1,9 +1,16 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { withKnobs, number, select } from '@storybook/addon-knobs';
 
 import RangeSlider from './index.js';
+import { FILL_COLOR_MAP } from './constants';
+
+// build fillColorName options for a select/dropdown knob
+const fillColorOptions = { None: '' };
+Object.keys(FILL_COLOR_MAP).forEach(color => {
+  fillColorOptions[color] = color;
+});
 
 const stories = storiesOf('RangeSlider', module);
 stories
@@ -14,14 +21,14 @@ stories
     </div>
   ));
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
   return (
     <RangeSlider
       value={ number('value', 50) }
     />
   );
 }))
-  .add('disabled', (() => {
+  .add('Disabled', (() => {
     return (
       <div>
         <input type="text" className="oui-text-input push-double--bottom" />
@@ -30,6 +37,16 @@ stories.add('default', (() => {
           value={ number('value', 50) }
         />
         <input type="text" className="oui-text-input" />
+      </div>
+    );
+  }))
+  .add('Custom Fill Color', (() => {
+    return (
+      <div>
+        <RangeSlider
+          fillColorName={ select('fillColorName', fillColorOptions, 'red') }
+          value={ number('value', 50) }
+        />
       </div>
     );
   }));

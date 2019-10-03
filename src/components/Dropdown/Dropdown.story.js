@@ -7,8 +7,10 @@ import { action } from '@storybook/addon-actions';
 
 import Dropdown from './index.js';
 import Button from '../Button';
+import ButtonRow from '../ButtonRow';
 import BlockList from '../BlockList';
 import Icon from 'react-oui-icons';
+import Link from '../Link';
 
 const data = [
   {title: 'Manual', description: 'Dolcelatte cheeseburger swiss paneer cow gouda edam cheese slices'},
@@ -126,7 +128,8 @@ stories.add('Z-index', (() => {
           <Dropdown
             isDisabled={ boolean('isDisabled', false) }
             buttonContent={ text('buttonContent', 'Dropdown') }
-            width={ number('width', 300) }>
+            width={ number('width', 300) }
+            zIndex={ number('zIndex', 9999) }>
             <BlockList>
               {
                 data.map((item, index) => {
@@ -211,6 +214,58 @@ stories.add('Warnings', (() => {
       </Dropdown>
     </Container>
   );
+}));
+
+
+stories.add('Custom hide function', (() => {
+  return [
+    <p key="sourceLink" className="push--bottom">
+      This story's children use the optional <Link href="https://reactjs.org/docs/render-props.html" newWindow={ true }>render props pattern</Link>. <Link href="https://github.com/optimizely/oui/blob/devel/src/components/Dropdown/Dropdown.story.js" newWindow={ true }>Click here</Link> to see this story's source code.
+    </p>,
+    <Container key="story">
+      <Dropdown
+        arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }
+        buttonContent={ (
+          <div className="line--tight text--left micro push--right">
+            <div className="muted">Date</div>
+            <div>Anytime</div>
+          </div>
+        ) }
+        placement={ select('placement', {
+          top: 'top',
+          'top-start': 'top-start',
+          'top-end': 'top-end',
+          bottom: 'bottom',
+          'bottom-start': 'bottom-start',
+          'bottom-end': 'bottom-end',
+          right: 'right',
+          'right-start': 'right-start',
+          'right-end': 'right-end',
+          left: 'left',
+          'left-start': 'left-start',
+          'left-end': 'left-end',
+        }, 'bottom-start') }
+        shouldHideChildrenOnClick={ boolean('shouldHideChildrenOnClick', false) }
+        style="outline"
+        width={ number('width', 300) }>
+        {
+          ({ handleHideChildren }) => (
+            <div className="soft background--white">
+              <div className="soft--bottom">
+                This is some initial text! Click me, nothing happens.
+              </div>
+              <ButtonRow
+                leftGroup={ [
+                  <Button key="nothing" onClick={ action('some other action') }>Doesn't Hide</Button>,
+                  <Button key="something" onClick={ handleHideChildren }>Hide Dropdown</Button>,
+                ] }
+              />
+            </div>
+          )
+        }
+      </Dropdown>
+    </Container>,
+  ];
 }));
 
 const Container = styled.div`

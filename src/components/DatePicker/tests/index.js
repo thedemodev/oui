@@ -5,7 +5,6 @@ import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
 import Button from '../../Button';
 
-
 describe('components/DatePicker', function() {
   it('should only render the input by default', () => {
     const component = mount(<DatePicker inputId="date-picker-01"/>);
@@ -67,16 +66,54 @@ describe('components/DatePicker', function() {
     expect(component.find('.DayPicker').length).toBe(1);
   });
 
-  it('should not allow past dates by default', () => {
+  it('should allow past dates by default', () => {
     const component = mount(<DatePicker inputId="date-picker-01"/>);
+    component.find('input').simulate('focus');
+    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+  });
+
+  it('should not allow past dates if isPastDateSelectable is false', () => {
+    const component = mount(<DatePicker inputId="date-picker-01" isPastDateSelectable={ false }/>);
     component.find('input').simulate('focus');
     expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
   });
 
-  it('should allow past dates if isPastDateSelectable is true', () => {
-    const component = mount(<DatePicker inputId="date-picker-01" isPastDateSelectable={ true }/>);
+  it('should not allow future dates if isFutureDateSelectable is false', () => {
+    const component = mount(<DatePicker inputId="date-picker-01" isFutureDateSelectable={ false }/>);
     component.find('input').simulate('focus');
-    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should allow custom isOutsideRange function', () => {
+    const isOutsideRangeMock = jest.fn();
+
+    const component = mount(<DatePicker isOutsideRange={ isOutsideRangeMock } inputId="date-picker-01"/>);
+    component.find('input').simulate('focus');
+    expect(isOutsideRangeMock).toHaveBeenCalled();
+
+  });
+
+  // Disabled until we upgrade Enzyme to 3.10.0
+  // (current version 3.0.0 doesn't support the :not selector)
+  xit('should set an initialVisibleMonth', () => {
+    let previousMonthText = moment().subtract(1, 'months').startOf('month').format('MMMM');
+    function getVisibleMonth() {
+      return moment().subtract(1, 'months');
+    }
+
+    const component = mount(
+      <DatePicker
+        inputId="date-picker-01"
+        isFutureDateSelectable={ false }
+        initialVisibleMonth={ getVisibleMonth }
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component
+      // eslint-disable-next-line max-len
+      .find('.CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) .CalendarMonth_caption_1 .oui-date-picker__month-title')
+      .first()
+      .text()).toContain(previousMonthText);
   });
 
   it('should add default label and placeholder to the input', () => {
@@ -174,7 +211,8 @@ describe('components/DateRangePicker', function() {
     component.find('input[id="start-date-picker-01"]').simulate('focus');
     expect(component.find('.DayPicker').length).toBe(1);
     component.find('.CalendarDay__today').simulate('click');
-    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').first().simulate('click');
+    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').last().simulate('click');
+    component.update();
     expect(component.find('.DayPicker').length).toBe(0);
   });
 
@@ -190,7 +228,7 @@ describe('components/DateRangePicker', function() {
     component.find('input[id="start-date-picker-01"]').simulate('focus');
     expect(component.find('.DayPicker').length).toBe(1);
     component.find('.CalendarDay__today').simulate('click');
-    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').first().simulate('click');
+    component.find('.CalendarDay__lastDayOfWeek[aria-disabled=false]').last().simulate('click');
     expect(component.find('.DayPicker').length).toBe(1);
   });
 
@@ -289,4 +327,361 @@ describe('components/DateRangePicker', function() {
       .containsMatchingElement(<button>Clear</button>)).toBe(true);
   });
 
+  it('should pass onDatesChange via panelButtons when array is used (without render props pattern)', () => {
+    const applyMock = jest.fn();
+    const clearMock = jest.fn();
+    const onDatesChangeMock = jest.fn();
+
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-01"
+        focusedInput='startDate'
+        initialStartDate={ moment('2019-01-01') }
+        initialEndDate={ moment('2019-12-31') }
+        isPastDateSelectable={ true }
+        keepOpenOnDateSelect={ true }
+        onDatesChange={ onDatesChangeMock }
+        panelButtons={ [
+          <Button
+            key={ 0 }
+            style="plain"
+            onClick={ clearMock }
+            testSection="date-range-picker-clear-button">
+            Clear
+          </Button>,
+          <Button
+            key={ 1 }
+            style="highlight"
+            onClick={ applyMock }
+            testSection="date-range-picker-apply-button">
+            Apply
+          </Button>,
+        ] }
+        startDateInputId="start-date-picker-01"
+      />
+    );
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+    expect(applyMock).toHaveBeenCalledTimes(0);
+    expect(clearMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-apply-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(clearMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-clear-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(clearMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+  });
+
+  it('should pass onDatesChange via panelButtons when render props pattern is used', () => {
+    /* eslint-disable react/jsx-no-bind */
+    const applyMock = jest.fn();
+    const onDatesChangeMock = jest.fn();
+
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-01"
+        focusedInput='startDate'
+        initialStartDate={ moment('2019-01-01') }
+        initialEndDate={ moment('2019-12-31') }
+        isPastDateSelectable={ true }
+        keepOpenOnDateSelect={ true }
+        onDatesChange={ onDatesChangeMock }
+        panelButtons={ ({ onDatesChange }) => ([
+          <Button
+            key={ 0 }
+            style="plain"
+            onClick={ () => onDatesChange({ startDate: null, endDate: null }) }
+            testSection="date-range-picker-clear-button">
+            Clear
+          </Button>,
+          <Button
+            key={ 1 }
+            style="highlight"
+            onClick={ applyMock }
+            testSection="date-range-picker-apply-button">
+            Apply
+          </Button>,
+        ]) }
+        startDateInputId="start-date-picker-01"
+      />
+    );
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('Jan 01, 2019');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('Dec 31, 2019');
+    expect(applyMock).toHaveBeenCalledTimes(0);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-apply-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(0);
+
+    component.find('[data-test-section="date-range-picker-clear-button"]').simulate('click');
+    expect(applyMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toHaveBeenCalledTimes(1);
+    expect(onDatesChangeMock).toBeCalledWith({ endDate: null, startDate: null });
+
+    expect(component.find('[data-test-section="date-range-picker-start-date-input"]').props().value).toBe('');
+    expect(component.find('[data-test-section="date-range-picker-end-date-input"]').props().value).toBe('');
+    /* eslint-enable react/jsx-no-bind */
+  });
+
+  it('should allow past dates by default', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBe(0);
+  });
+
+  it('should not allow past dates if isPastDateSelectable is false', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isPastDateSelectable={ false }
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should not allow future dates if isFutureDateSelectable is false', () => {
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isFutureDateSelectable={ false }
+      />
+    );
+    expect(component.find('td[aria-disabled=true]').length).toBeGreaterThan(1);
+  });
+
+  it('should allow custom isOutsideRange function', () => {
+    const isOutsideRangeMock = jest.fn();
+
+    mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        isOutsideRange={ isOutsideRangeMock }
+      />
+    );
+    expect(isOutsideRangeMock).toHaveBeenCalled();
+
+  });
+
+  it('should load with time inputs when hasTimeInputs set to true', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    expect(component.find('#start-date-picker-02.oui-text-input').length).toBe(1);
+    expect(component.find('#startTimeInputId.oui-text-input').length).toBe(1);
+    expect(component.find('#end-date-picker-02.oui-text-input').length).toBe(1);
+    expect(component.find('#endTimeInputId.oui-text-input').length).toBe(1);
+  });
+
+  it('should set endDate to match startDate after initial startDate selection', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    expect(component.find('#end-date-picker-02.oui-text-input').text())
+      .toEqual(component.find('#start-date-picker-02.oui-text-input').text());
+  });
+
+  it('should set startDate time to 12:00am and endDate time to 11:59pm by default', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('00:00');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('23:59');
+  });
+
+  it('should preserve the time if modified/changed by the user', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    component.find('#start-date-picker-02.oui-text-input').simulate('click');
+    component.find('.DayPicker .CalendarDay').at(3).simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+  });
+
+  it('should reset times by default when preset buttons are clicked', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        presetPanelOptions={
+          [
+            {
+              label: 'Last 7 days',
+              startDate: moment().subtract(7, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'Last 30 days',
+              startDate: moment().subtract(30, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'Last 60 days',
+              startDate: moment().subtract(60, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+            },
+            {
+              label: 'This Month',
+              startDate: moment().startOf('month'),
+              endDate: moment().endOf('month'),
+            },
+          ]
+        }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    component.find('#endTimeInputId.oui-text-input').simulate('change', { target: { value: '16:55' }});
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('16:55');
+    component.find('.oui-date-picker__range-presets button').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('00:00');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('23:59');
+  });
+
+  it('should NOT reset times for panel button clicks if the resetTime property is set to false', () => {
+    const component = mount(
+      <DateRangePicker
+        endDateInputId="end-date-picker-02"
+        endTimeInputId='endTimeInputId'
+        focusedInput="startDate"
+        hasTimeInputs={ true }
+        keepOpenOnDateSelect={ true }
+        presetPanelOptions={
+          [
+            {
+              label: 'Last 7 days',
+              startDate: moment().subtract(7, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'Last 30 days',
+              startDate: moment().subtract(30, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'Last 60 days',
+              startDate: moment().subtract(60, 'days').startOf('day'),
+              endDate: moment().endOf('day'),
+              resetTime: false,
+            },
+            {
+              label: 'This Month',
+              startDate: moment().startOf('month'),
+              endDate: moment().endOf('month'),
+              resetTime: false,
+            },
+          ]
+        }
+        startDateInputId="start-date-picker-02"
+        startTimeInputId='startTimeInputId'
+      />
+    );
+    component.find('.DayPicker .CalendarDay').first().simulate('click');
+    component.update();
+    component.find('#startTimeInputId.oui-text-input').simulate('change', { target: { value: '3:33' }});
+    component.find('#endTimeInputId.oui-text-input').simulate('change', { target: { value: '16:55' }});
+    component.find('.oui-date-picker__range-presets button').first().simulate('click');
+    expect(component.find('#startTimeInputId.oui-text-input').props().value)
+      .toBe('03:33');
+    expect(component.find('#endTimeInputId.oui-text-input').props().value)
+      .toBe('16:55');
+  });
+
+  // Disabled until we upgrade Enzyme to 3.10.0
+  // (current version 3.0.0 doesn't support the :not selector)
+  xit('should set an initialVisibleMonth', () => {
+    let previousMonthText = moment().subtract(1, 'months').startOf('month').format('MMMM');
+    function getVisibleMonth() {
+      return moment().subtract(1, 'months');
+    }
+
+    const component = mount(
+      <DateRangePicker
+        startDateInputId="start-date-picker-02"
+        endDateInputId="end-date-picker-02"
+        focusedInput="startDate"
+        initialVisibleMonth={ getVisibleMonth }
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component
+      // eslint-disable-next-line max-len
+      .find('.CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) .CalendarMonth_caption_1 .oui-date-picker__month-title')
+      .first()
+      .text()).toContain(previousMonthText);
+  });
 });

@@ -14,6 +14,6 @@ stories
     </div>
   ));
 
-stories.add('default', (() => {
+stories.add('Default', (() => {
   return <ProgressDots testSection="test-progress-dots" />;
 }));

@@ -6,13 +6,15 @@ import Button from '../Button';
 import Icon from 'react-oui-icons';
 
 /**
- * Provide a basic card display which has a title and inner content
- * The card can have an optional close icon
+ * Provide a basic card display which has a title and inner content.
+ * The card can have an optional close icon.
+ *
  * @param {String} title - text for card title
  * @param {Function} onClose - method to fire when X is clicked
  * @param {Node} children - element for body
  * @param {String} testSection - string for testing
  * @param {String} shadow - boolean
+ *
  * @returns {ReactElement}
  */
 const Card = ({
@@ -56,7 +58,10 @@ const Card = ({
 
 Card.propTypes = {
   /** Elements that appears within the component */
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
   /** method to invoke when a close element is clicked */
   onClose: PropTypes.func,
   /** Display a subtle shadow around card. */

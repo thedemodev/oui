@@ -6,12 +6,103 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.9.0 - 2019-09-30
+- [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
+    - Added time inputs as an option
+    - Added custom time-handling for a delightful experience
+- [Patch] Yarn upgrades for GitHub security alerts ([#1222](https://github.com/optimizely/oui/pull/1190))
+
+## 44.8.0 - 2019-09-11
+- [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
+- [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
+
+## 44.7.0 - 2019-08-23
+- [Feature] Added **NavBar** component ([#1212](https://github.com/optimizely/oui/pull/1212))
+    - Added **PrimaryLink**, **SecondaryLink**, **AccountSwitcher** and **CurrentUserMenu** components
+
+## 44.6.1 - 2019-08-19
+- [Patch] Modification to `numRows` prop for **Textarea** component ([#1216](https://github.com/optimizely/oui/pull/1216))
+
+## 44.6.0 - 2019-08-15
+- [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
+    - Move button to top right corner by default
+    - Add `showButtonBelow` property to allow button to be shown below the image if necessary
+    - Changed from using `object` html element to `img` element for image
+    - Added `imageHeight` and `imageWidth` properties to permit implementer adjustments
+- [Feature] Add `numRows` prop for **Textarea** component ([#1215](https://github.com/optimizely/oui/pull/1215))
+
+## 44.5.0 - 2019-08-05
+- [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):
+    - Add optional `isFutureDateSelectable` property to allow for past dates only
+    - Add `isOutsideRange` property to allow for a custom validation function for dates
+    - Add `initialVisibleMonth` property to set the starting month
+
+## 44.4.0 - 2019-08-02
+- [Patch] Add color check for nearest design token ([#1208](https://github.com/optimizely/oui/pull/1208))
+- [Feature] New `maxWidth` prop for **SelectDropdown** to truncate long activator labels ([#1207](https://github.com/optimizely/oui/pull/1207))
+- [Feature] Add `title` prop for **Button** to specify a string for the title attribute ([#1207](https://github.com/optimizely/oui/pull/1207))
+
+## 44.3.1 - 2019-07-30
+- [Patch] Revert **Table** css styles and add **CodeDiff** css styles ([#1206](https://github.com/optimizely/oui/pull/1206))
+
+## 44.3.0 - 2019-07-25
+- [Patch] Have CSSWhat run on `yarn build-styles` ([#1203](https://github.com/optimizely/oui/pull/1203))
+- [Patch] Update **Table** style to include hover by default in OUI; Update **CodeDiff** src/components/Table/TR/index.js style to be more resilient inside a table ([#1202](https://github.com/optimizely/oui/pull/1202))
+- [Patch] Update node version for running tests/builds to v12.4.0 ([#1201](https://github.com/optimizely/oui/pull/1201))
+- [Patch] Add new **Layout** component storybook example for row add/remove ([#1183](https://github.com/optimizely/oui/pull/1183))
+- [Chore] Export **Fieldset** component for now, full docs and stories to come. ([#1198](https://github.com/optimizely/oui/pull/1198))
+- [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
+- [Feature] Add optional `fillColorName` property to the **RangeSlider** component ([#1195](https://github.com/optimizely/oui/pull/1195))
+
+## 44.2.1 - 2019-07-16
+- [Chore] Upgrade react-oui-icons to v2.6.1. ([#1193](https://github.com/optimizely/oui/pull/1193))
+
+## 44.2.0 - 2019-07-12
+- [Feature] Add **CodeDiff** component ([#1191](https://github.com/optimizely/oui/pull/1191))
+- [Patch] Add hover style for button underline arrow ([#1188](https://github.com/optimizely/oui/pull/1188))
+- [Feature] Add **ButtonIcon** component for square buttons with an icon ([#1184](https://github.com/optimizely/oui/pull/1184))
+
+## 44.1.1 - 2019-07-08
+- [Patch] Add `addOnBlur` and `addOnPaste` props to the **TokensInput** component ([#1185](https://github.com/optimizely/oui/pull/1185))
+
+## 44.1.0 - 2019-07-08
+- [Feature] Introduce render props option for `onDatesChange` access in **DateRangePicker** ([#1186](https://github.com/optimizely/oui/pull/1186))
+
+## 44.0.1 - 2019-07-01
+- [Patch] Add Container, Row, Col to main.js for exporting and consumption on Axiom guidelines site ([#1183](https://github.com/optimizely/oui/pull/1183))
+
+## 44.0.0 - 2019-06-28
+- [Feature] **Layout** kit is a new responsive 12-column grid, which adds Container, Row and Col components ([#1179](https://github.com/optimizely/oui/pull/1179))
+- [Patch] Rename `data-ui-component` to `data-oui-component` ([#1181](https://github.com/optimizely/oui/pull/1181))
+- [Release] Aqua token update (breaking change) from `aqua-blue-light/base/dark` to just `aqua-light/base/dark` ([#1181](https://github.com/optimizely/oui/pull/1181))
+- [Patch] Global search/replace to capitalize all Storybook story names ([#1180](https://github.com/optimizely/oui/pull/1180))
+- [Patch] Spacing and alignment refinements to **Sheet** ([#1177](https://github.com/optimizely/oui/pull/1177))
+- [Patch] Remove **csswhat** data ([#1178](https://github.com/optimizely/oui/pull/1178))
+
+## 43.1.1 - 2019-06-21
+- [Feature] Add `onInputChange`, `onInputBlur`, and `onInputFocus` handlers to the **TokenInput** component [#1175](https://github.com/optimizely/oui/pull/1175).
+
+## 43.1.0 - 2019-06-19
+- [Feature] Add **icons.json** to OUI repo in prep for moving all icons into repo and automating a build script.
+- [Feature] Add ability to provide **SelectDropdown** with an `initialPlaceholder` value to use when a value is not yet selected ([#1176](https://github.com/optimizely/oui/pull/1176))
+    - Also changed the `value` prop to no longer be required
+- [Patch] Fix **Progress Dots** to prevent wrapping in narrow regions ([#1173](https://github.com/optimizely/oui/pull/1173))
+
+## 43.0.0 - 2019-06-12
+- [Patch] Fix **TokensInput** `extraAddKeys` prop-type check
+- [Patch] Update **Sheet** styling to be 90% of window height
+- [Release] **CSSWhat** stats about color, selectors, !important, etc.
+            Note: this is a breaking change for external consumers of OUI until the csswhat repo is open sourced and set to public by an Optimizely GitHub admin. ([#1161](https://github.com/optimizely/oui/pull/1161/)
+
+## 42.11.0 - 2019-06-10
+- [Feature] Add backwards compatible **Dropdown** functionality for custom children toggling ([#1169](https://github.com/optimizely/oui/pull/1169))
+
 ## 42.10.2 - 2019-05-31
-- [Patch] Properly export DatePicker and DateRangePicker ([#1165](https://github.com/optimizely/oui/pull/1165))
+- [Patch] Properly export **DatePicker** and **DateRangePicker** ([#1165](https://github.com/optimizely/oui/pull/1165))
 
 ## 42.10.1 - 2019-05-30
 - [Patch] Token and handle to use rebrand color values ([#1162](https://github.com/optimizely/oui/pull/1162))
-- [Patch] Export existing DateRangePicker component ([#1164](https://github.com/optimizely/oui/pull/1164))
+- [Patch] Export existing **DateRangePicker** component ([#1164](https://github.com/optimizely/oui/pull/1164))
 
 ## 42.10.0 - 2019-05-17
 - [Feature] Added a variation to **Button** component that disables the button and adds a spinner using `isLoading` prop ([#1135](https://github.com/optimizely/oui/pull/1135))

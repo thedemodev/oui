@@ -53,17 +53,17 @@
 
 %color--good-news,
 .color--good-news {
-  color: map-fetch($color, text, good-news) !important;
+  color: $green-dark !important;
 }
 
 %color--warning,
 .color--warning {
-  color: map-fetch($color, text, warning) !important;
+  color: $orange-dark !important;
 }
 
 %color--bad-news,
 .color--bad-news {
-  color: map-fetch($color, text, bad-news) !important;
+  color: $red-dark !important;
 }
 
 %color--charcoal,

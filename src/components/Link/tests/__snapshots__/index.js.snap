@@ -1,9 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/Link should render ariaLabel 1`] = `
+<a
+  aria-label="Go to Google"
+  className="link link--muted"
+  data-oui-component={true}
+  disabled={false}
+  href="http://google.com"
+>
+  Test Link
+</a>
+`;
+
 exports[`components/Link should render as a span if there is no href 1`] = `
 <span
   className="link"
-  data-ui-component={true}
+  data-oui-component={true}
   disabled={false}
 >
   Faux Link
@@ -13,7 +25,7 @@ exports[`components/Link should render as a span if there is no href 1`] = `
 exports[`components/Link should render disabled 1`] = `
 <a
   className="link link--disabled pointer-events--none"
-  data-ui-component={true}
+  data-oui-component={true}
   disabled={true}
   href="http://google.com"
 >
@@ -24,7 +36,7 @@ exports[`components/Link should render disabled 1`] = `
 exports[`components/Link should render style classes 1`] = `
 <a
   className="link link--muted"
-  data-ui-component={true}
+  data-oui-component={true}
   disabled={false}
   href="http://google.com"
 >
@@ -35,7 +47,7 @@ exports[`components/Link should render style classes 1`] = `
 exports[`components/Link should render target blank attribute 1`] = `
 <a
   className="link"
-  data-ui-component={true}
+  data-oui-component={true}
   disabled={false}
   href="http://google.com"
   rel="noopener noreferrer"

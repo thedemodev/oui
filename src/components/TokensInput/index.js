@@ -39,9 +39,14 @@ const DEFAULT_ADD_KEYS = [
  * @returns {ReactElement}
  */
 export const TokensInput = ({
+  addOnBlur,
+  addOnPaste,
   extraAddKeys,
   maxTokens,
   onChange,
+  onInputBlur,
+  onInputChange,
+  onInputFocus,
   placeholder,
   tokens,
 }) => {
@@ -138,10 +143,13 @@ export const TokensInput = ({
     <div className="oui-text-input text--left flush">
       <ReactTagsInput
         addKeys={ addKeys }
-        addOnBlur={ true }
-        addOnPaste={ true }
+        addOnBlur={ addOnBlur }
+        addOnPaste={ addOnPaste }
         inputProps={{
           className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          onBlur: onInputBlur,
+          onChange: onInputChange,
+          onFocus: onInputFocus,
           placeholder: isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : placeholder,
           readOnly: isNumberOfTokensMoreThanOrEqualToMaxTags,
         }}
@@ -158,6 +166,15 @@ export const TokensInput = ({
 };
 
 TokensInput.propTypes = {
+  /**
+   * Adds a new tag on input blur
+   */
+  addOnBlur: PropTypes.bool,
+
+  /**
+   * Adds a new tag on input paste
+   */
+  addOnPaste: PropTypes.bool,
 
   /**
    * Additional keycodes which should be considered
@@ -165,7 +182,10 @@ TokensInput.propTypes = {
    * These are passed along to the <ReactTagsInput> via the addKeys prop
    * See DEFAULT_ADD_KEYS above.
    */
-  extraAddKeys: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
+  extraAddKeys: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ])),
 
   /**
    * Maximum number of allowed tokens (pass-through to <ReactTagsInput>)
@@ -176,6 +196,21 @@ TokensInput.propTypes = {
    * Handler to invoke when the token list changes.
    */
   onChange: PropTypes.func.isRequired,
+
+  /**
+   * Handler to invoke when the token input is blurred
+   */
+  onInputBlur: PropTypes.func,
+
+  /**
+   * Handler to invoke when the token input changes
+   */
+  onInputChange: PropTypes.func,
+
+  /**
+   * Handler to invoke when the token input is focused
+   */
+  onInputFocus: PropTypes.func,
 
   /**
    * Placeholder text for the input box.
@@ -189,10 +224,19 @@ TokensInput.propTypes = {
 };
 
 TokensInput.defaultProps = {
+  addOnBlur: true,
+
+  addOnPaste: true,
 
   extraAddKeys: [],
 
   maxTags: -1,
+
+  onInputBlur: () => {},
+
+  onInputChange: () => {},
+
+  onInputFocus: () => {},
 
   placeholder: 'enter tokens',
 };

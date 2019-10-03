@@ -15,7 +15,7 @@ import Textarea from '../src/components/Textarea';
 const stories = storiesOf('Overview/', module);
 stories
   .addDecorator(story => (
-    <div id="root-preview">
+    <div id="root-preview" className="reading-column">
       {story()}
     </div>
   ));
@@ -39,8 +39,8 @@ stories
           <Attention type='warning'>Warning: This is a short attention bar.</Attention>
         </div>
 
-        <div className="position--relative height--100 text--center">
-          <Popover title="This is Popover content.">
+        <div className="position--relative text--center">
+          <Popover title="Popover Title">
             <p>
               This is Popover content.
             </p>
@@ -88,19 +88,6 @@ stories
         </div>
 
         <div className="push--ends">
-          <Input
-            label="Field label"
-            note="A short description or note about this field."
-            placeholder="Just a placeholder"
-            type="text"
-          />
-        </div>
-
-        <div className="push--ends">
-          <Textarea />
-        </div>
-
-        <div className="push--ends">
           <ProgressBar
             max={100}
             min={0}
@@ -114,6 +101,20 @@ stories
         <div className="push--ends">
           <RangeSlider value={ 50 } />
         </div>
+
+        <div className="push--ends">
+          <Input
+            label="Field label"
+            note="A short description or note about this field."
+            placeholder="Just a placeholder"
+            type="text"
+          />
+        </div>
+
+        <div className="push--ends">
+          <Textarea />
+        </div>
+
       </div>
     );
   });

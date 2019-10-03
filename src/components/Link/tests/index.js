@@ -44,4 +44,16 @@ describe('components/Link', () => {
     );
     expect(shallowToJson(output)).toMatchSnapshot();
   });
+
+  it('should render ariaLabel', () => {
+    const output = shallow(
+      <Link
+        ariaLabel="Go to Google"
+        href='http://google.com'
+        style='muted'>
+        Test Link
+      </Link>
+    );
+    expect(shallowToJson(output)).toMatchSnapshot();
+  });
 });

@@ -4,10 +4,20 @@ exports[`components/Dropdown should highlight button class when style equals hig
 <withHandlers(withState(Dropdown))
   arrowIcon="none"
   buttonContent="Dropdown"
+  displayError={false}
+  fullWidth={false}
   icon={true}
+  isDisabled={false}
   isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
   style="highlight"
+  testSection=""
   toggle={[Function]}
+  width={200}
+  zIndex={999}
 >
   <ul>
     <li
@@ -34,8 +44,17 @@ exports[`components/Dropdown should include oui-form-bad-news class when display
   arrowIcon="none"
   buttonContent="Dropdown"
   displayError={true}
+  fullWidth={false}
+  isDisabled={false}
   isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
+  testSection=""
   toggle={[Function]}
+  width={200}
+  zIndex={999}
 />
 `;
 
@@ -43,43 +62,84 @@ exports[`components/Dropdown should not render children or Popper when isDisable
 <withState(withHandlers(withState(Dropdown)))
   arrowIcon="none"
   buttonContent="Dropdown"
+  displayError={false}
+  fullWidth={false}
   icon={true}
   idDisabled={true}
+  isDisabled={false}
+  isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
+  testSection=""
+  toggle={[Function]}
+  width={200}
+  zIndex={999}
 >
   <withHandlers(withState(Dropdown))
     arrowIcon="none"
     buttonContent="Dropdown"
+    displayError={false}
+    fullWidth={false}
     icon={true}
     idDisabled={true}
+    isDisabled={false}
     isOpen={false}
+    overChildren={false}
+    placement="bottom-start"
+    setOverChildren={[Function]}
+    shouldHideChildrenOnClick={true}
+    testSection=""
     toggle={[Function]}
+    width={200}
+    zIndex={999}
   >
     <withState(Dropdown)
       arrowIcon="none"
       buttonContent="Dropdown"
+      displayError={false}
+      fullWidth={false}
       hide={[Function]}
       icon={true}
       idDisabled={true}
+      isDisabled={false}
       isOpen={false}
+      overChildren={false}
+      placement="bottom-start"
+      setOverChildren={[Function]}
+      shouldHideChildrenOnClick={true}
       show={[Function]}
+      testSection=""
       toggle={[Function]}
+      width={200}
+      zIndex={999}
     >
       <Dropdown
         arrowIcon="none"
         buttonContent="Dropdown"
+        displayError={false}
+        fullWidth={false}
         hide={[Function]}
         icon={true}
         idDisabled={true}
+        isDisabled={false}
         isOpen={false}
         overChildren={false}
+        placement="bottom-start"
         setOverChildren={[Function]}
+        shouldHideChildrenOnClick={true}
         show={[Function]}
+        testSection=""
         toggle={[Function]}
+        width={200}
+        zIndex={999}
       >
         <Manager>
           <div
             className="oui-dropdown-group"
-            data-ui-component={true}
+            data-oui-component={true}
+            data-test-section=""
           >
             <Reference>
               <InnerReference
@@ -116,9 +176,19 @@ exports[`components/Dropdown should not use .oui-arrow-inline--down when icon is
 <withHandlers(withState(Dropdown))
   arrowIcon="none"
   buttonContent="Dropdown"
+  displayError={false}
+  fullWidth={false}
   icon={true}
+  isDisabled={false}
   isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
+  testSection=""
   toggle={[Function]}
+  width={200}
+  zIndex={999}
 >
   <ul>
     <li
@@ -149,8 +219,17 @@ exports[`components/Dropdown should render an activator node when passed as a pr
   }
   arrowIcon="none"
   displayError={true}
+  fullWidth={false}
+  isDisabled={false}
   isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
+  testSection=""
   toggle={[Function]}
+  width={200}
+  zIndex={999}
 />
 `;
 
@@ -158,10 +237,19 @@ exports[`components/Dropdown should use oui-button--full class when fullWidth is
 <withHandlers(withState(Dropdown))
   arrowIcon="none"
   buttonContent="Dropdown"
+  displayError={false}
   fullWidth={true}
   icon={true}
+  isDisabled={false}
   isOpen={false}
+  overChildren={false}
+  placement="bottom-start"
+  setOverChildren={[Function]}
+  shouldHideChildrenOnClick={true}
+  testSection=""
   toggle={[Function]}
+  width={200}
+  zIndex={999}
 >
   <ul>
     <li

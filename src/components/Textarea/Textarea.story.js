@@ -16,13 +16,14 @@ stories
   ));
 
 stories
-  .add('textarea with knobs', (() => {
+  .add('Textarea with knobs', (() => {
     return (
       <div>
         <Textarea
           isDisabled={ boolean('isDisabled', false) }
           defaultValue='Delete this default value and see the placeholder'
           maxLength={ number('maxLength', 250) }
+          numRows={ number('numRows', 25) }
           placeholder={ text('placeHolder', 'Enter a comment') }
           onBlur={ action('Textarea: onBlur') }
           onChange={ action('Textarea: onChange') }

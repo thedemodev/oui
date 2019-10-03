@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  select,
+} from '@storybook/addon-knobs';
 
 import Table from './index.js';
 import Button from '../Button';
@@ -16,8 +19,15 @@ stories
   ));
 
 stories
-  .add('default', (() => (<div>
-    <Table density="loose" tableLayoutAlgorithm="fixed">
+  .add('Default', (() => (<div>
+    <Table
+      density={
+        select('density', {
+          'loose': 'loose',
+          'tight': 'tight',
+        }, 'tight')
+      }
+      tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
           <Table.TH> Experiment </Table.TH>
@@ -49,7 +59,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('custom tr borders', (() => (<div>
+  .add('Custom tr borders', (() => (<div>
     <Table>
       <Table.THead>
         <Table.TR>
@@ -72,7 +82,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('loose & rule style', (() => (<div>
+  .add('Loose & rule style', (() => (<div>
     <Table density="loose" style="rule" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -105,7 +115,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('tight & no bottom border', (() => (<div>
+  .add('Tight & no bottom border', (() => (<div>
     <Table density="tight" style="rule-no-bottom-border" tableLayoutAlgorithm="fixed">
       <Table.THead>
         <Table.TR>
@@ -138,7 +148,7 @@ stories
       </Table.TBody>
     </Table>
   </div>)))
-  .add('dome', (() => (<div>
+  .add('Dome', (() => (<div>
     <Table density="tight" style="wall" tableLayoutAlgorithm="auto">
       <Table.THead>
         <Table.TR>

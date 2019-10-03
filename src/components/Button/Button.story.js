@@ -19,7 +19,7 @@ stories
   ));
 
 stories
-  .add('customize me!', (() => {
+  .add('Knobs', (() => {
     return (
       <Button
         style={ select('style', {
@@ -48,7 +48,7 @@ stories
         { text('customize me!', 'customize me!') }
       </Button>);
   }))
-  .add('all buttons', (() => {
+  .add('All buttons', (() => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -62,7 +62,7 @@ stories
         ] }
       />);
   }))
-  .add('all disabled', () => {
+  .add('Disabled', () => {
     return (
       <ButtonRow
         centerGroup={ [
@@ -76,14 +76,14 @@ stories
         ] }
       />);
   })
-  .add('underline button', () => {
+  .add('Underline button', () => {
     return (
       <Button style="underline" width="default">
         Underline Button
         <ArrowsInline direction="down" />
       </Button>);
   })
-  .add('sizes variations', () => {
+  .add('Sizes variations', () => {
     return (
       <ButtonRow
         centerGroup={ [
