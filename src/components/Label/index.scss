@@ -41,10 +41,12 @@
 ///   </label>
 ////
 .#{$namespace}label,
-.oui-label {
+.oui-label,
+label {
   display: block;
   margin-bottom: spacer(0.5);
-  font-weight: 400;
+  font-weight: 500;
+  color: map-fetch($brand-color, dark-blue-75);
 
   // Fun fact: We used to implement the “(Optional)” text with an `::after`,
   // but had to change that because `content: '(Optional)';` couldn't be
@@ -73,7 +75,15 @@
   }
 
   &--disabled {
-    color: map-fetch($color, text, muted);
+    color: map-fetch($color, text, light);
     cursor: default !important;
+  }
+
+  &--natural {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: map-fetch($font, size, base);
+    font-weight: 400;
+    color: inherit;
   }
 }

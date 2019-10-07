@@ -157,14 +157,16 @@ $font: (
 
   size: (
     base                     : 14px,
-    alpha                    : 30px, // h1
-    beta                     : 26px, // h2
-    gamma                    : 20px, // h3
-    delta                    : 18px, // h4
-    epsilon                  : 16px, // h5
-    zeta                     : 14px, // h6
-    milli                    : 13px,
-    micro                    : 11px,
+    alpha                    : 28px, // h1
+    beta                     : 20px, // h2
+    gamma                    : 16px, // h3
+    delta                    : 14px, // h4
+    epsilon                  : 13px, // h5
+
+    zeta                     : 12px, // h6
+    milli                    : 12px,
+    micro                    : 12px,
+
     kilo                     : 40px, // Extra large for marketing
     mega                     : 50px,
     giga                     : 65px
@@ -471,7 +473,7 @@ $dialog: (
   width: (
     base                     : 700px,
     narrow                   : 500px,
-    wide                     : 900px
+    wide                     : 800px
   ),
   footer: (
     color                    : #f7f7f7,

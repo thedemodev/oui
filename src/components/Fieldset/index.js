@@ -5,7 +5,7 @@ import HelpPopover from '../HelpPopover';
 const Fieldset = props => (
   <fieldset data-test-section={ props.testSection }>
     { props.title && (
-      <div className="gamma push--bottom">
+      <h2>
         { props.title }
         { props.isOptional && (
           <span className="oui-label__optional">(Optional)</span>
@@ -19,11 +19,11 @@ const Fieldset = props => (
           </HelpPopover>
 
         ) }
-      </div>
+      </h2>
     ) }
 
     { props.description && (
-      <div className="push--bottom">
+      <div className="push-double--bottom">
         { props.description }
       </div>
     ) }

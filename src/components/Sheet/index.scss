@@ -49,7 +49,7 @@ $sheet-horizontal-padding: spacer(6);
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: spacer(2) $sheet-horizontal-padding spacer(6) $sheet-horizontal-padding;
+  padding: spacer(2) $sheet-horizontal-padding spacer(8) $sheet-horizontal-padding;
 }
 
 .oui-sheet__link {

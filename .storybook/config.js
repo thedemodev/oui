@@ -32,6 +32,7 @@ function loadStories() {
   require('./tokens.story.js');
   require('./css.story.js');
   require('./borderradius.story.js');
+  require('./formtypography.story.js');
   req.keys().forEach(req);
   require('./AppFrame.story.js');
 }

@@ -267,7 +267,8 @@
 @mixin text-input {
   transition: border-color map-fetch($transition-duration, base);
   width: 100%;
-  border: 1px solid map-fetch($border, color, base);
+  // border: 1px solid map-fetch($border, color, base);
+  border: 1px solid #9e9e9e;
   border-radius: map-fetch($border, radius, base);
   padding: map-fetch($form, input, padding);
   vertical-align: middle;
@@ -337,16 +338,18 @@
 
 fieldset {
   margin-bottom: spacer(4);
+
+  h2 {
+    margin-bottom: spacer(0.5);
+  }
 }
 
 // Labels in `.#{$namespace}input-lists`
-
 .#{$namespace}check-label,
 .#{$namespace}input-list .#{$namespace}label,
 .oui-input-list .oui-label {
   display: table-cell;
   padding-left: spacer(1);
-  font-weight: 400;
 }
 
 //  Groups of checkboxes and radios.
@@ -433,6 +436,7 @@ fieldset {
 .oui-form-note {
   padding-top: spacer(0.5);
   font-size: map-fetch($font, size, micro);
+  font-weight: 500;
 }
 
 .#{$namespace}form-note--good-news,
@@ -468,11 +472,11 @@ fieldset {
 
 .#{$namespace}form-bad-news,
 .oui-form-bad-news {
-  .#{$namespace}label,
-  .oui-label,
-  &.oui-label {
-    color: map-fetch($color, text, bad-news);
-  }
+  // .#{$namespace}label,
+  // .oui-label,
+  // &.oui-label {
+  //   color: map-fetch($color, text, bad-news);
+  // }
 
   .#{$namespace}text-input,
   &.oui-text-input,

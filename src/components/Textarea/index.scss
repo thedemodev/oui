@@ -32,6 +32,8 @@
 .#{$namespace}textarea,
 .oui-textarea {
   @include text-input;
+  height: auto;
+  min-height: spacer(3.5);
 
   resize: vertical;
 

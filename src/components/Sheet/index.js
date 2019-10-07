@@ -20,7 +20,7 @@ const Sheet = props => {
         data-test-section={ props.testSection }>
         {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}
         <header className="oui-sheet__header">
-          <h2 className="flush--bottom">{props.title}</h2>
+          <h1 className="flush--bottom">{props.title}</h1>
           {subtitleContent}
         </header>
         <div className="oui-sheet__body">

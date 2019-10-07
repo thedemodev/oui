@@ -2348,35 +2348,36 @@ code {
 
 h1,
 .alpha {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 300;
   line-height: 1.1; }
 
 h2,
 .beta {
-  font-size: 26px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 1.1; }
 
 h3,
 .gamma {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.1; }
 
 h4,
 .delta {
-  font-size: 18px; }
+  font-size: 14px;
+  font-weight: 400; }
 
 h5,
 .epsilon {
-  font-size: 16px;
-  font-weight: 400; }
+  font-size: 13px;
+  font-weight: 500; }
 
 h6,
 .zeta {
-  font-size: 14px;
-  font-weight: 500; }
+  font-size: 12px;
+  font-weight: 400; }
 
 h1 {
   margin-bottom: 20px; }
@@ -2388,10 +2389,10 @@ h3 {
   margin-bottom: 10px; }
 
 .milli {
-  font-size: 13px !important; }
+  font-size: 12px !important; }
 
 .micro {
-  font-size: 11px !important; }
+  font-size: 12px !important; }
 
 .giga {
   font-size: 65px !important; }
@@ -2409,7 +2410,7 @@ h3 {
   margin-top: 30px; }
 
 .form__title {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 10px;
   line-height: 1; }
 
@@ -2424,13 +2425,14 @@ h3 {
 
 fieldset {
   margin-bottom: 40px; }
+  fieldset h2 {
+    margin-bottom: 5px; }
 
 .check-label,
 .input-list .label,
 .oui-input-list .oui-label {
   display: table-cell;
-  padding-left: 10px;
-  font-weight: 400; }
+  padding-left: 10px; }
 
 .input-list,
 .oui-input-list {
@@ -2487,7 +2489,8 @@ fieldset {
 .form-note,
 .oui-form-note {
   padding-top: 5px;
-  font-size: 11px; }
+  font-size: 12px;
+  font-weight: 500; }
 
 .form-note--good-news,
 .oui-form-good-news .oui-form-note {
@@ -2510,13 +2513,6 @@ fieldset {
 .form-good-news .textarea,
 .form-good-news .oui-textarea {
   border-color: #33CF76; }
-
-.form-bad-news .label,
-.form-bad-news .oui-label, .form-bad-news.oui-label,
-.oui-form-bad-news .label,
-.oui-form-bad-news .oui-label,
-.oui-form-bad-news.oui-label {
-  color: #FF5B5B; }
 
 .form-bad-news .text-input, .form-bad-news.oui-text-input,
 .form-bad-news .oui-text-input,
@@ -4095,7 +4091,7 @@ div[class*="col"].padded-content--remove,
     display: flex;
     align-items: center;
     letter-spacing: 1px;
-    font-size: 13px;
+    font-size: 12px;
     padding: 0 20px;
     background: #FFFFFF;
     line-height: 1;
@@ -4552,7 +4548,7 @@ code {
 .oui-block-list__category__name {
   background: #FFFFFF;
   color: #83839B;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   border-bottom: 1px solid #f0f0f0; }
 
@@ -4753,7 +4749,7 @@ code {
   .lego-dialog--narrow {
     width: 500px; }
   .lego-dialog--wide {
-    width: 900px; }
+    width: 800px; }
   .lego-dialog__header, .lego-dialog__body, .lego-dialog__footer {
     padding: 20px; }
   .lego-dialog__header, .lego-dialog__footer {
@@ -4763,7 +4759,7 @@ code {
   .lego-dialog__footer {
     border-top: 1px solid #f0f0f0; }
   .lego-dialog__title {
-    font-size: 26px;
+    font-size: 20px;
     color: #46456A;
     line-height: 1; }
   .lego-dialog__body {
@@ -4923,7 +4919,7 @@ code {
   
   .dropdown--descriptive__content,
   .oui-dropdown--descriptive__content {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.4;
     color: #83839B;
     margin-bottom: 5px; }
@@ -5050,7 +5046,7 @@ code {
 .oui-text-input {
   transition: border-color 0.3s;
   width: 100%;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #9e9e9e;
   border-radius: 5px;
   padding: 7px;
   vertical-align: middle;
@@ -5105,34 +5101,48 @@ code {
     fill: #999999; }
 
 .label,
-.oui-label {
+.oui-label,
+label {
   display: block;
   margin-bottom: 5px;
-  font-weight: 400; }
+  font-weight: 500;
+  color: #46456A; }
   .label__optional,
-  .oui-label__optional {
+  .oui-label__optional,
+  label__optional {
     margin-left: 5px;
     color: #83839B;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400; }
   .label--required::after,
-  .oui-label--required::after {
+  .oui-label--required::after,
+  label--required::after {
     content: '*';
     margin-left: 5px;
     color: #FF5B5B;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1;
     position: relative;
     top: 2px; }
   .label--rule,
-  .oui-label--rule {
+  .oui-label--rule,
+  label--rule {
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 5px; }
   .label--disabled,
-  .oui-label--disabled {
-    color: #83839B;
+  .oui-label--disabled,
+  label--disabled {
+    color: #bfbfbf;
     cursor: default !important; }
+  .label--natural,
+  .oui-label--natural,
+  label--natural {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: inherit; }
 
 .listgroup .listgroup__item:first-child,
 .oui-listgroup .listgroup__item:first-child,
@@ -5300,7 +5310,7 @@ code {
 
 .root-nav__link--secondary,
 .root-nav__link--tertiary {
-  font-size: 11px; }
+  font-size: 12px; }
   .root-nav__link--secondary, .root-nav__link--secondary:visited,
   .root-nav__link--tertiary,
   .root-nav__link--tertiary:visited {
@@ -5424,13 +5434,13 @@ code {
   .oui-pop--over__body {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.4; }
   
   .pop--over__footer,
   .oui-pop--over__footer {
     margin-top: 5px;
-    font-size: 11px; }
+    font-size: 12px; }
   
   .pop--over__close,
   .oui-pop--over__close {
@@ -5544,7 +5554,7 @@ code {
 .oui-pop--tip {
   background: #262626;
   color: #FFFFFF;
-  font-size: 11px;
+  font-size: 12px;
   padding: 5px 10px;
   max-width: 250px;
   display: inline-block;
@@ -5648,7 +5658,7 @@ code {
     background: #4069FF;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     color: #FFFFFF;
-    font-size: 13px;
+    font-size: 12px;
     min-width: 20px;
     max-width: 100%; }
     .progress__bar[aria-valuenow="0"],
@@ -5846,7 +5856,7 @@ code {
   bottom: 0;
   height: 95%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  width: 900px;
+  width: 800px;
   background: #FFFFFF; }
 
 .oui-sheet__wrapper {
@@ -5875,7 +5885,7 @@ code {
 .oui-sheet__footer {
   position: fixed;
   bottom: 0;
-  width: 900px;
+  width: 800px;
   background: #f7f7f7;
   border-top: 1px solid #f0f0f0;
   padding: 10px 60px; }
@@ -5884,7 +5894,7 @@ code {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px 60px 60px 60px; }
+  padding: 20px 60px 80px 60px; }
 
 .oui-sheet__link {
   margin-left: 5px; }
@@ -6319,12 +6329,14 @@ code {
 .oui-textarea {
   transition: border-color 0.3s;
   width: 100%;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #9e9e9e;
   border-radius: 5px;
   padding: 7px;
   vertical-align: middle;
   line-height: 1.3;
   height: 35px;
+  height: auto;
+  min-height: 35px;
   resize: vertical; }
   .textarea:hover,
   .oui-textarea:hover {
@@ -6416,7 +6428,7 @@ code {
 .token__number,
 .oui-token__number {
   color: #bfbfbf;
-  font-size: 13px;
+  font-size: 12px;
   min-width: 10px; }
 
 .token__move,
@@ -6433,7 +6445,7 @@ code {
 
 .token__description,
 .oui-token__description {
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 5px; }
 
 .token__close,
@@ -8225,7 +8237,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   background: #262626;
   color: #FFFFFF;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 12px;
   padding: 5px 10px;
   max-width: 250px;
   font-weight: 500;
