@@ -4,14 +4,13 @@ import Icon from 'react-oui-icons';
 import DismissButton from './DismissButton';
 import classNames from 'classnames';
 
-const LIGHT_BACKGROUND_STYLES = [
-  'tertiary',
-];
+const LIGHT_BACKGROUND_STYLES = ['tertiary'];
 
 // Light backgrounds require a dark font and dismiss Icon color.
-const getStylingInfo = style => LIGHT_BACKGROUND_STYLES.includes(style) ?
-  { fontClass: 'oui-token--font-dark', fillColor: 'black' } :
-  { fontClass: 'oui-token--font-light', fillColor: 'white' };
+const getStylingInfo = style =>
+  LIGHT_BACKGROUND_STYLES.includes(style)
+    ? { fontClass: 'oui-token--font-dark', fillColor: 'black' }
+    : { fontClass: 'oui-token--font-light', fillColor: 'white' };
 
 /**
  * Token to be used to make token lists.
@@ -35,7 +34,7 @@ const Token = ({
     'oui-token-wrap': hasWrap && !hasSnugWrap,
     'oui-token-wrap--snug': hasSnugWrap,
     'oui-token-wrap--well': showWell,
-    'flex': true,
+    flex: true,
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable || order,
@@ -49,36 +48,30 @@ const Token = ({
       data-oui-component={ true }
       className={ classes }
       data-test-section={ testSection }>
-      <div
-        className={ tokenToolsClasses }
-        data-token-handle>
-        { order &&
-          <span className="oui-token__number">
-            { order }
-          </span>
-        }
-        { isDraggable &&
-          <div className="oui-icon oui-token__move">
-            <Icon name="ellipsis" fill="#c7c7c7" />
-          </div>
-        }
-      </div>
       <div className={ `oui-token oui-token--${style}` }>
-        <div className={ fontClass }>
-          { name }
-          { description &&
-            <div className="oui-token__description">
-              { description }
-            </div>
-          }
+        <div className="flex flex-align--center">
+          <div className={ tokenToolsClasses } data-token-handle>
+            {order && <span className="oui-token__number">{order}</span>}
+            {isDraggable && (
+              <div className="oui-icon oui-token__move push-half--right">
+                <Icon name="hamburger" fill="#ffffff" />
+              </div>
+            )}
+          </div>
+          <div className={ fontClass }>
+            {name}
+            {description && (
+              <div className="oui-token__description">{description}</div>
+            )}
+          </div>
         </div>
-        { (isDismissible && onDismiss) &&
+        {isDismissible && onDismiss && (
           <DismissButton
             onClick={ onDismiss }
             fill={ fillColor }
             testSection={ testSection }
           />
-        }
+        )}
       </div>
     </div>
     /* eslint-enable */

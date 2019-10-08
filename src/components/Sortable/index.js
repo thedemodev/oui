@@ -244,8 +244,9 @@ class Sortable extends React.Component {
     };
   }
 
-  componentDidUpdate({ allowGrouping: prevAllowGrouping }) {
+  componentDidUpdate(prevProps, prevState) {
     const { allowGrouping: currentAllowGrouping } = this.props;
+    const prevAllowGrouping = prevProps.allowGrouping;
     const { items } = this.state;
 
     if (prevAllowGrouping && !currentAllowGrouping) {
@@ -257,12 +258,23 @@ class Sortable extends React.Component {
         items: enforceGrouping(items, this.generateGroupId),
       });
     }
+
+    const coercedNewItems = Immutable.List.isList(this.props.defaultValue) ?
+      this.props.defaultValue :
+      Immutable.fromJS(this.props.defaultValue);
+    if (items.size !== coercedNewItems.size || (items.get(0) && items.get(0).id !== coercedNewItems.get(0).id)) {
+      this.setState({
+        items: currentAllowGrouping ?
+          enforceGrouping(coercedNewItems, this.generateGroupId) : prohibitGrouping(coercedNewItems),
+      });
+    }
+
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return (
       !nextState.items.equals(this.state.items) ||
-      nextProps.allowGrouping !== this.props.allowGrouping
+      nextProps.allowGrouping !== this.props.allowGrouping || nextProps.defaultValue !== this.props.defaultValue
     );
   }
 
