@@ -11,24 +11,24 @@ import DateRangePicker from './DateRangePicker';
 
 const presetPanelOptions = [
   {
-    'label': 'Last 7 days',
-    'startDate': moment().subtract(7, 'days'),
-    'endDate': moment(),
+    label: 'Last 7 days',
+    startDate: moment().subtract(7, 'days').startOf('day'),
+    endDate: moment().endOf('day'),
   },
   {
-    'label': 'Last 30 days',
-    'startDate': moment().subtract(30, 'days'),
-    'endDate': moment(),
+    label: 'Last 30 days',
+    startDate: moment().subtract(30, 'days').startOf('day'),
+    endDate: moment().endOf('day'),
   },
   {
-    'label': 'Last 60 days',
-    'startDate': moment().subtract(60, 'days'),
-    'endDate': moment(),
+    label: 'Last 60 days',
+    startDate: moment().subtract(60, 'days').startOf('day'),
+    endDate: moment().endOf('day'),
   },
   {
-    'label': 'This Month',
-    'startDate': moment().startOf('month'),
-    'endDate': moment().endOf('month'),
+    label: 'This Month',
+    startDate: moment().startOf('month'),
+    endDate: moment().endOf('month'),
   },
 ];
 
@@ -170,6 +170,19 @@ stories
       />
     </Container>
   )))
+  .add('With time inputs', (() => (
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        endTimeInputId='endTimeInputId'
+        focusedInput='startDate'
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+        startTimeInputId='startTimeInputId'
+      />
+    </Container>
+  )))
   .add('With preset options panel', (() => (
     <Container>
       <DateRangePicker
@@ -216,12 +229,27 @@ stories
       />
     </Container>
   )))
+  .add('With no border and time inputs', (() => (
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        endTimeInputId='endTimeInputId'
+        focusedInput='startDate'
+        isBorderless={ boolean('isBorderless', true) }
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
+        onDatesChange={ action('onDatesChange') }
+        startDateInputId='start-date-id-0'
+        startTimeInputId='startTimeInputId'
+      />
+    </Container>
+  )))
   .add('With preset options and no border on calendar', (() => (
     <Container>
       <DateRangePicker
         endDateInputId='end-date-id-0'
         focusedInput='startDate'
         isBorderless={ boolean('isBorderless', true) }
+        hasTimeInputs={ boolean('hasTimeInputs', false) }
         isPastDateSelectable={ boolean('isPastDateSelectable', true) }
         keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
         onDatesChange={ action('onDatesChange') }
@@ -261,7 +289,7 @@ stories
         isPastDateSelectable={ boolean('isPastDateSelectable', true) }
         keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
         onDatesChange={ action('onDatesChange') }
-        panelButtons={ ({ onDatesChange }) => ([
+        panelButtons={ ({ endDate, onDatesChange, startDate }) => ([
           <Button
             key={ 0 }
             style="plain"
@@ -274,12 +302,46 @@ stories
           <Button
             key={ 1 }
             style="highlight"
-            onClick={ action('onClick Apply') }>
+            onClick={ () => action('onClick Apply')({ startDate, endDate }) }>
             Apply
           </Button>,
         ]) }
         presetPanelOptions={ presetPanelOptions }
         startDateInputId='start-date-id-0'
+      />
+    </Container>
+  )))
+  .add('With hasTimeInput and presetPanelOptions', (() => (
+    <Container>
+      <DateRangePicker
+        endDateInputId='end-date-id-0'
+        endTimeInputId='endTimeInputId'
+        focusedInput='startDate'
+        hasTimeInputs={ boolean('hasTimeInputs', true) }
+        isBorderless={ boolean('isBorderless', true) }
+        isPastDateSelectable={ boolean('isPastDateSelectable', true) }
+        keepOpenOnDateSelect={ boolean('keepOpenOndateSelect', true) }
+        onDatesChange={ action('onDatesChange') }
+        panelButtons={ ({ endDate, onDatesChange, startDate }) => ([
+          <Button
+            key={ 0 }
+            style="plain"
+            onClick={ () => {
+              action('onClick Clear with onDatesChange via render props')();
+              onDatesChange({ startDate: null, endDate: null });
+            } }>
+            Clear
+          </Button>,
+          <Button
+            key={ 1 }
+            style="highlight"
+            onClick={ () => action('onClick Apply')({ startDate, endDate }) }>
+            Apply
+          </Button>,
+        ]) }
+        presetPanelOptions={ presetPanelOptions }
+        startDateInputId='start-date-id-0'
+        startTimeInputId='startTimeInputId'
       />
     </Container>
   )));

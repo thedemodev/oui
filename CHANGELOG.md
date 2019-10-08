@@ -6,6 +6,12 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.9.0 - 2019-09-30
+- [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
+    - Added time inputs as an option
+    - Added custom time-handling for a delightful experience
+- [Patch] Yarn upgrades for GitHub security alerts ([#1222](https://github.com/optimizely/oui/pull/1190))
+
 ## 44.8.0 - 2019-09-11
 - [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
 - [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
