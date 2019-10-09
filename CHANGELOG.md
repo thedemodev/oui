@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] fix TokensInput formatting ([#1230](https://github.com/optimizely/oui/pull/1230))
 
 ## 44.9.2 - 2019-10-09
 - [Patch] Add privacy link to NavBar plus alignment CSS polish ([#1226](https://github.com/optimizely/oui/pull/1226))
