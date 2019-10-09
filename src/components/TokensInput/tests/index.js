@@ -67,7 +67,7 @@ describe('components/TokensInput', () => {
 
   describe('when rendering tokens with optional props', function() {
     describe('when optional prop is placeholder', function() {
-      const inputCSS = '.flex .flex--1 .min-width--150 .no-border .soft-half--ends .soft--sides';
+      const inputCSS = '.oui-tokens-input__input';
 
       beforeEach(function() {
         mockOnChange = jest.fn();
@@ -88,7 +88,7 @@ describe('components/TokensInput', () => {
     });
 
     describe('when optional prop is maxTags', function() {
-      const inputCSS = '.flex .flex--1 .no-border .soft-half--ends .soft--sides';
+      const inputCSS = '.oui-tokens-input__input .min-width--150';
 
       beforeEach(function() {
         mockOnChange = jest.fn();
