@@ -9,6 +9,58 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
 - [Patch] Add `iconFill` prop to the **ButtonIcon** component ([#1199](https://github.com/optimizely/oui/pull/1199))
 
+## 44.9.1 - 2019-10-09
+- [Patch] Update lodash version to minimum 4.17.13 ([#1227](https://github.com/optimizely/oui/pull/1227))
+- [Patch] Use correct value for Dropdown maxHeight=none ([#1228](https://github.com/optimizely/oui/pull/1228))
+
+## 44.9.0 - 2019-09-30
+- [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
+    - Added time inputs as an option
+    - Added custom time-handling for a delightful experience
+- [Patch] Yarn upgrades for GitHub security alerts ([#1222](https://github.com/optimizely/oui/pull/1190))
+
+## 44.8.0 - 2019-09-11
+- [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
+- [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))
+
+## 44.7.0 - 2019-08-23
+- [Feature] Added **NavBar** component ([#1212](https://github.com/optimizely/oui/pull/1212))
+    - Added **PrimaryLink**, **SecondaryLink**, **AccountSwitcher** and **CurrentUserMenu** components
+
+## 44.6.1 - 2019-08-19
+- [Patch] Modification to `numRows` prop for **Textarea** component ([#1216](https://github.com/optimizely/oui/pull/1216))
+
+## 44.6.0 - 2019-08-15
+- [Feature] Modifications/Improvements to the **EmptyDashboard** component ([#1211](https://github.com/optimizely/oui/pull/1211)):
+    - Move button to top right corner by default
+    - Add `showButtonBelow` property to allow button to be shown below the image if necessary
+    - Changed from using `object` html element to `img` element for image
+    - Added `imageHeight` and `imageWidth` properties to permit implementer adjustments
+- [Feature] Add `numRows` prop for **Textarea** component ([#1215](https://github.com/optimizely/oui/pull/1215))
+
+## 44.5.0 - 2019-08-05
+- [Feature] Multiple additions to the **DatePicker** and **DateRangePicker** components ([#1205](https://github.com/optimizely/oui/pull/1205)):
+    - Add optional `isFutureDateSelectable` property to allow for past dates only
+    - Add `isOutsideRange` property to allow for a custom validation function for dates
+    - Add `initialVisibleMonth` property to set the starting month
+
+## 44.4.0 - 2019-08-02
+- [Patch] Add color check for nearest design token ([#1208](https://github.com/optimizely/oui/pull/1208))
+- [Feature] New `maxWidth` prop for **SelectDropdown** to truncate long activator labels ([#1207](https://github.com/optimizely/oui/pull/1207))
+- [Feature] Add `title` prop for **Button** to specify a string for the title attribute ([#1207](https://github.com/optimizely/oui/pull/1207))
+
+## 44.3.1 - 2019-07-30
+- [Patch] Revert **Table** css styles and add **CodeDiff** css styles ([#1206](https://github.com/optimizely/oui/pull/1206))
+
+## 44.3.0 - 2019-07-25
+- [Patch] Have CSSWhat run on `yarn build-styles` ([#1203](https://github.com/optimizely/oui/pull/1203))
+- [Patch] Update **Table** style to include hover by default in OUI; Update **CodeDiff** src/components/Table/TR/index.js style to be more resilient inside a table ([#1202](https://github.com/optimizely/oui/pull/1202))
+- [Patch] Update node version for running tests/builds to v12.4.0 ([#1201](https://github.com/optimizely/oui/pull/1201))
+- [Patch] Add new **Layout** component storybook example for row add/remove ([#1183](https://github.com/optimizely/oui/pull/1183))
+- [Chore] Export **Fieldset** component for now, full docs and stories to come. ([#1198](https://github.com/optimizely/oui/pull/1198))
+- [Patch] Fix **Card** story, relax prop-type check for children ([#1194](https://github.com/optimizely/oui/pull/1194))
+- [Feature] Add optional `fillColorName` property to the **RangeSlider** component ([#1195](https://github.com/optimizely/oui/pull/1195))
+
 ## 44.2.1 - 2019-07-16
 - [Chore] Upgrade react-oui-icons to v2.6.1. ([#1193](https://github.com/optimizely/oui/pull/1193))
 

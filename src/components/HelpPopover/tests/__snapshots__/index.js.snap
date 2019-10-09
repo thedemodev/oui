@@ -6,6 +6,7 @@ exports[`components/HelpPopover renders correctly 1`] = `
   behavior="click"
   horizontalAttachment="center"
   isConstrainedToScreen={true}
+  onHide={[Function]}
   overlay={
     <Popover
       padding="default"

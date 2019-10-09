@@ -1,171 +1,3 @@
-////
-/// Tables
-/// @description Tables will often require heavier use of helper classes than
-/// normal.
-/// @example[html] Basic table
-///   <table class="oui-table">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-/// @example[html] Walled table
-///   <table class="oui-table oui-table--wall">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-/// @example[html] Table rule
-///   <table class="oui-table oui-table--rule">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-/// @example[html] Table rule with loose spacing
-///   <table class="oui-table oui-table--rule oui-table--loose">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-/// @example[html] Table rule with no bottom border
-///   <table class="oui-table oui-table--rule-no-bottom-border">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-/// @example[html] Table rule with active row and hover
-///   <table class="oui-table oui-table--rule oui-table--hover">
-///     <thead>
-///       <tr>
-///         <th>Experiment</th>
-///         <th class="oui-numerical">Numbers</th>
-///         <th class="oui-cell-collapse">Status</th>
-///       </tr>
-///     </thead>
-///     <tbody>
-///       <tr>
-///         <td>Experiment name one</td>
-///         <td class="oui-numerical">258</td>
-///         <td>Up</td>
-///       </tr>
-///       <tr class="oui-table-row--active">
-///         <td>Experiment name two that runs longer</td>
-///         <td class="oui-numerical">19</td>
-///         <td>Down</td>
-///       </tr>
-///       <tr>
-///         <td>Experiment name three</td>
-///         <td class="oui-numerical">400</td>
-///         <td>Up</td>
-///       </tr>
-///     </tbody>
-///   </table>
-////
-
 %#{$namespace}table,
 .#{$namespace}table,
 %oui-table,
@@ -403,3 +235,23 @@
     display: block;
   }
 }
+
+//TODO(Dave) verify we need this
+.oui-table > tbody tr:hover td a:hover {
+  color: var(--light-blue-75);
+}
+.oui-table > tbody > tr:hover > td:not(.CalendarDay) {
+  background-color: var(--grey-25);
+}
+
+// p13n table spread for taller table rows
+.oui-table--loose > tbody > tr > td {
+  padding-top: spacer(1.5);
+  padding-bottom: spacer(1.5);
+}
+
+// Older code, should be refactored.
+.lego-table--add-row__controls .flex {
+  width: 72px;
+}
+

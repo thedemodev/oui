@@ -60,12 +60,14 @@
   }
   .range-display {
     height: 35px;
-    background-image: url('data:image/svg+xml;utf-8,<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="'+encodecolor(map-fetch($rangeslider, background-color))+'" d="M0 256h256V0z"/></svg>');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
     position: absolute;
     left: 12px;
     right: 11px;
+  }
+  .range-display svg {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
   }
   &.oui-rangeslider--disabled {
     .range-display {
@@ -78,6 +80,7 @@
   .range-display.range-display-overlay {
     background-color: white;
     background-image: none;
+    display: inline-flex;
     left: 50%;
     opacity: 0.9;
     right: 0;

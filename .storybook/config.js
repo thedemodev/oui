@@ -39,5 +39,10 @@ function loadStories() {
 storybook.configure(loadStories, module);
 storybook.addParameters(options);
 storybook.addDecorator(withA11y);
-storybook.addDecorator(withInfo);
+storybook.addDecorator( withInfo({
+  maxPropsIntoLine: 1,
+  maxPropObjectKeys: 10,
+  maxPropArrayLength: 20,
+  maxPropStringLength: 200,})
+);
 storybook.addParameters(a11y);
