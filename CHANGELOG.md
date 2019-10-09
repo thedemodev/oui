@@ -6,6 +6,10 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.9.1 - 2019-10-09
+- [Patch] Update lodash version to minimum 4.17.13 ([#1227](https://github.com/optimizely/oui/pull/1227))
+- [Patch] Use correct value for Dropdown maxHeight=none ([#1228](https://github.com/optimizely/oui/pull/1228))
+
 ## 44.9.0 - 2019-09-30
 - [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
     - Added time inputs as an option

@@ -1,6 +1,6 @@
 {
   "name": "optimizely-oui",
-  "version": "44.9.0",
+  "version": "44.9.1",
   "description": "Optimizely's Component Library.",
   "private": false,
   "main": "dist/js/main.js",
@@ -14,7 +14,7 @@
     "handlebars": "^4.0.14",
     "highlight.js": "9.5.0",
     "immutable": "3.x.x",
-    "lodash": "4.x.x",
+    "lodash": ">=4.17.13",
     "lodash-es": "^4.17.14",
     "lodash.debounce": "^4.0.8",
     "lodash.noop": "^3.0.1",
