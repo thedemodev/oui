@@ -5221,19 +5221,22 @@ code {
   display: flex;
   align-items: center;
   color: var(--dark-blue-100);
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 8.66667px;
+  padding-bottom: 8.66667px;
   width: 76px;
   transition: width 150ms ease-in;
   overflow: hidden; }
   @media (min-height: 1600px) {
     .root-nav__link {
-      padding-top: 12px;
-      padding-bottom: 12px; } }
+      padding-top: 13px;
+      padding-bottom: 13px; } }
 
 .root-nav__link__text {
   margin-left: 10px;
   display: none; }
+
+.root-nav__link--secondary .root-nav__link__text {
+  margin-left: 15px; }
 
 .root-nav__link .link--reverse {
   color: var(--dark-blue-100) !important; }
@@ -5245,8 +5248,8 @@ code {
 
 .root-nav__project,
 .root-nav__link--primary {
-  padding-left: 24px;
-  padding-right: 24px; }
+  padding-left: 26px;
+  padding-right: 26px; }
 
 .root-nav__project {
   white-space: nowrap;
@@ -5298,26 +5301,31 @@ code {
 .root-nav__link--primary.is-active, .root-nav__link--primary.is-active:hover {
   background: var(--light-blue-10); }
 
-.root-nav__link--secondary,
-.root-nav__link--tertiary {
-  font-size: 11px; }
-  .root-nav__link--secondary, .root-nav__link--secondary:visited,
-  .root-nav__link--tertiary,
-  .root-nav__link--tertiary:visited {
-    color: var(--dark-blue-100); }
-  .root-nav__link--secondary:hover,
-  .root-nav__link--tertiary:hover {
-    color: var(--light-blue-75); }
+.root-nav__link--secondary, .root-nav__link--secondary:visited,
+.root-nav__link--tertiary,
+.root-nav__link--tertiary:visited {
+  color: var(--dark-blue-100); }
 
-.root-nav__link--tertiary {
-  padding-left: 21.5px;
-  padding-right: 21.5px; }
+.root-nav__link--secondary:hover,
+.root-nav__link--tertiary:hover {
+  color: var(--light-blue-75); }
+
+.root-nav__link--secondary,
+.root-nav__link--tertiary,
+.root-nav__link--plain {
+  font-size: 11px; }
+
+.root-nav__link--tertiary,
+.root-nav__link--plain {
+  padding-left: 23.5px;
+  padding-right: 23.5px; }
 
 .root-nav__link--secondary {
+  min-height: 2.3em;
   padding-top: 4px;
   padding-bottom: 4px;
-  padding-left: 32px;
-  padding-right: 32px; }
+  padding-left: 30px;
+  padding-right: 30px; }
   @media (min-height: 1600px) {
     .root-nav__link--secondary {
       padding-top: 8px;

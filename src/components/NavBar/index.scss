@@ -1,4 +1,4 @@
-$block-link-padding: 24px;
+$block-link-padding: 26px;
 $block-secondarylink-padding: 16px;
 $icon-dimensions--large: 24px;
 $icon-dimensions--small: 16px;
@@ -55,6 +55,9 @@ $root-shadow: inset -1px 0 3px 0 rgba(0, 0, 0, 0.1);
 .root-nav__link__text {
   margin-left: spacer(1);
   display: none;
+}
+.root-nav__link--secondary .root-nav__link__text {
+  margin-left: spacer(1.5);
 }
 
 // Link--reverse text is white on white
@@ -146,7 +149,6 @@ $root-shadow: inset -1px 0 3px 0 rgba(0, 0, 0, 0.1);
 
 .root-nav__link--secondary,
 .root-nav__link--tertiary {
-  font-size: map-fetch($font, size, micro);
   &, &:visited {
     color: var(--dark-blue-100);
   }
@@ -154,21 +156,28 @@ $root-shadow: inset -1px 0 3px 0 rgba(0, 0, 0, 0.1);
     color: var(--light-blue-75);
   }
 }
+.root-nav__link--secondary,
+.root-nav__link--tertiary,
+.root-nav__link--plain {
+  font-size: map-fetch($font, size, micro);
+}
 
-.root-nav__link--tertiary {
+.root-nav__link--tertiary,
+.root-nav__link--plain {
   padding-left: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
   padding-right: ($block-link-padding) - (($avatar-size - $icon-dimensions--large) / 2);
 }
 
 .root-nav__link--secondary {
+  min-height: 2.3em;
   padding-top: $block-secondarylink-padding / 4;
   padding-bottom: $block-secondarylink-padding / 4;
   @media (min-height: 1600px) {
     padding-top: $block-secondarylink-padding / 2;
     padding-bottom: $block-secondarylink-padding / 2;
   }
-  padding-left: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
-  padding-right: ($block-link-padding) + ($icon-dimensions--large - $icon-dimensions--small);
+  padding-left: ($block-link-padding) + ($icon-dimensions--small / 4);
+  padding-right: ($block-link-padding) + ($icon-dimensions--small / 4);
 }
 
 .root-nav__logo--full,
@@ -200,7 +209,9 @@ $root-shadow: inset -1px 0 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
-.root-nav__project > .oui-badge { background-color: var(--ron-project-badge); }
+.root-nav__project > .oui-badge {
+  background-color: var(--ron-project-badge);
+}
 
 .avatar {
   border-radius: 100%;
