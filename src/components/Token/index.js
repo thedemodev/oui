@@ -31,11 +31,10 @@ const Token = ({
   testSection,
   usesHamburger,
 }) => {
-  const classes = classNames({
+  const classes = classNames('flex', {
     'oui-token-wrap': hasWrap && !hasSnugWrap,
     'oui-token-wrap--snug': hasSnugWrap,
     'oui-token-wrap--well': showWell,
-    flex: true,
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable || order,
@@ -161,6 +160,9 @@ Token.propTypes = {
 
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+
+  /** Used to switch drag handle */
+  usesHamburger: PropTypes.bool,
 };
 
 Token.defaultProps = {

@@ -262,7 +262,7 @@ class Sortable extends React.Component {
     const coercedNewItems = Immutable.List.isList(this.props.defaultValue) ?
       this.props.defaultValue :
       Immutable.fromJS(this.props.defaultValue);
-    if (items.size !== coercedNewItems.size || (items.get(0) && items.get(0).id !== coercedNewItems.get(0).id)) {
+    if (items.size !== coercedNewItems.size) {
       this.setState({
         items: currentAllowGrouping ?
           enforceGrouping(coercedNewItems, this.generateGroupId) : prohibitGrouping(coercedNewItems),
