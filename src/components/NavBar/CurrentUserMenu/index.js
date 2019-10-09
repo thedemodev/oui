@@ -144,20 +144,22 @@ class CurrentUserMenu extends React.Component {
         className="push--left flex--1"
         key="current-user-links">
         { shouldShowAccountList &&
-          <li><Dropdown
-            placement="right-start"
-            activator={ <Activator userName={ userName } /> }>
-            <Dropdown.Contents direction="up" minWidth="250px">
-              <div data-test-section="account-switcher-dropdown-content">
-                <BlockList>
-                  <AccountSwitcher
-                    accountSwitcherItems={ accountSwitcherItems }
-                    accountSwitcherHandler={ accountSwitcherHandler }
-                  />
-                </BlockList>
-              </div>
-            </Dropdown.Contents>
-          </Dropdown></li>
+          <li>
+            <Dropdown
+              placement="right-start"
+              activator={ <Activator userName={ userName } /> }>
+              <Dropdown.Contents direction="up" minWidth="250px">
+                <div data-test-section="account-switcher-dropdown-content">
+                  <BlockList>
+                    <AccountSwitcher
+                      accountSwitcherItems={ accountSwitcherItems }
+                      accountSwitcherHandler={ accountSwitcherHandler }
+                    />
+                  </BlockList>
+                </div>
+              </Dropdown.Contents>
+            </Dropdown>
+          </li>
         }
         { !shouldShowAccountList &&
           <div
@@ -178,9 +180,6 @@ class CurrentUserMenu extends React.Component {
         <span className="display--inline-block">©2010&ndash;2019 Optimizely. <a href="https://www.optimizely.com/privacy/" className="muted underline">Privacy</a></span>
       </div>
     );
-  }
-  renderPrivacyMinimal = () => {
-    return;
   }
 
   renderCollapsedCurrentUserMenu = () => {
@@ -234,7 +233,7 @@ class CurrentUserMenu extends React.Component {
         <div className="root-nav__user root-nav__link root-nav__link--tertiary">
           { isOpen ? this.renderCurrentUserMenu() : this.renderCollapsedCurrentUserMenu() }
         </div>
-        { isOpen ? this.renderPrivacy() : this.renderPrivacyMinimal() }
+        { isOpen && this.renderPrivacy() }
       </div>
     );
   }
