@@ -29,6 +29,7 @@ const Token = ({
   style,
   showWell,
   testSection,
+  usesHamburger,
 }) => {
   const classes = classNames({
     'oui-token-wrap': hasWrap && !hasSnugWrap,
@@ -42,36 +43,79 @@ const Token = ({
   });
   const { fontClass, fillColor } = getStylingInfo(style);
 
+  if (usesHamburger) {
+    return (
+      /* eslint-disable react/jsx-boolean-value */
+      <div
+        data-oui-component={ true }
+        className={ classes }
+        data-test-section={ testSection }>
+        <div className={ `oui-token oui-token--${style}` }>
+          <div className="flex flex-align--center">
+            <div className={ tokenToolsClasses } data-token-handle>
+              {order && <span className="oui-token__number">{order}</span>}
+              {isDraggable && (
+                <div className="oui-icon oui-token__move push-half--right oui-token__move--hamburger">
+                  <Icon name="hamburger" fill="#ffffff" />
+                </div>
+              )}
+            </div>
+            <div className={ fontClass }>
+              {name}
+              {description && (
+                <div className="oui-token__description">{description}</div>
+              )}
+            </div>
+          </div>
+          {isDismissible && onDismiss && (
+            <DismissButton
+              onClick={ onDismiss }
+              fill={ fillColor }
+              testSection={ testSection }
+            />
+          )}
+        </div>
+      </div>
+      /* eslint-enable */
+    );
+  }
+
   return (
     /* eslint-disable react/jsx-boolean-value */
     <div
       data-oui-component={ true }
       className={ classes }
       data-test-section={ testSection }>
+      <div
+        className={ tokenToolsClasses }
+        data-token-handle>
+        { order &&
+          <span className="oui-token__number">
+            { order }
+          </span>
+        }
+        { isDraggable &&
+          <div className="oui-icon oui-token__move">
+            <Icon name="ellipsis" fill="#c7c7c7" />
+          </div>
+        }
+      </div>
       <div className={ `oui-token oui-token--${style}` }>
-        <div className="flex flex-align--center">
-          <div className={ tokenToolsClasses } data-token-handle>
-            {order && <span className="oui-token__number">{order}</span>}
-            {isDraggable && (
-              <div className="oui-icon oui-token__move push-half--right">
-                <Icon name="hamburger" fill="#ffffff" />
-              </div>
-            )}
-          </div>
-          <div className={ fontClass }>
-            {name}
-            {description && (
-              <div className="oui-token__description">{description}</div>
-            )}
-          </div>
+        <div className={ fontClass }>
+          { name }
+          { description &&
+            <div className="oui-token__description">
+              { description }
+            </div>
+          }
         </div>
-        {isDismissible && onDismiss && (
+        { (isDismissible && onDismiss) &&
           <DismissButton
             onClick={ onDismiss }
             fill={ fillColor }
             testSection={ testSection }
           />
-        )}
+        }
       </div>
     </div>
     /* eslint-enable */

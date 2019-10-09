@@ -88,10 +88,10 @@
 
 .#{$namespace}token__move,
 .oui-token__move {
-  transform: rotate(0deg);
-  // color: map-fetch($token, move-drag-handle);
+  transform: rotate(90deg);
+  color: map-fetch($token, move-drag-handle);
   svg {
-    fill: #ffffff !important;
+    fill: map-fetch($token, move-drag-handle) !important;
   }
 }
 
@@ -99,6 +99,21 @@
 .oui-token-tool {
   &:hover {
     .oui-token__move svg {
+      fill: darken(map-fetch($token, move-drag-handle), 10) !important;
+    }
+  }
+}
+
+.oui-token__move--hamburger {
+  transform: rotate(0deg) !important;
+  svg {
+    fill: #ffffff !important;
+  }
+}
+
+.oui-token-tool {
+  &:hover {
+    .oui-token__move--hamburger svg {
       fill: #ffffff !important;
     }
   }
