@@ -45,6 +45,6 @@ describe('components/Dropdown/DropdownContents', () => {
 
   it('should render with scroll styles if canScroll', () => {
     const component = shallow(<DropdownContents canScroll={ true }></DropdownContents>);
-    expect(component.find('ul').prop('style')).toEqual({ overflowY: 'visible', maxHeight: 'auto' });
+    expect(component.find('ul').prop('style')).toEqual({ overflowY: 'visible', maxHeight: 'none' });
   });
 });
