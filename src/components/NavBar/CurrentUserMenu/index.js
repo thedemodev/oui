@@ -175,9 +175,10 @@ class CurrentUserMenu extends React.Component {
   };
 
   renderPrivacy = () => {
+    let year = new Date().getFullYear();
     return (
       <div className="root-nav__user root-nav__link root-nav__link--plain hard--bottom muted">
-        <span className="display--inline-block">©2010&ndash;2019 Optimizely. <a href="https://www.optimizely.com/privacy/" className="muted underline">Privacy</a></span>
+        <span className="display--inline-block">©2010&ndash;{ year } Optimizely. <a href="https://www.optimizely.com/privacy/" className="muted underline">Privacy</a></span>
       </div>
     );
   }
