@@ -1,6 +1,6 @@
 {
   "name": "optimizely-oui",
-  "version": "44.9.2",
+  "version": "44.9.3",
   "description": "Optimizely's Component Library.",
   "private": false,
   "main": "dist/js/main.js",
