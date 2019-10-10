@@ -6576,6 +6576,9 @@ body:target *[data-oui-component],
 .border--all {
   border: 1px solid #e0e0e0 !important; }
 
+.border-dashed--all {
+  border: 1px dashed #e0e0e0 !important; }
+
 .oui-disclose-table--row__toggle.is-active,
 .border--ends,
 .border--top {
