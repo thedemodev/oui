@@ -17,6 +17,7 @@ class DockedFooter extends React.Component {
   componentDidMount() {
     this.shouldDock();
     this.setEventListeners();
+    console.log('mounted')
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -61,6 +62,7 @@ class DockedFooter extends React.Component {
 
   setEventListeners() {
     const parentElement = document.querySelector('[data-test-section="' + this.props.parentTestSection + '"]');
+    console.dir(parentElement)
 
     const throttle = (delay, fn) => {
       let lastCall = 0;
@@ -75,7 +77,6 @@ class DockedFooter extends React.Component {
     };
 
     window.addEventListener('resize', throttle(10, this.shouldDock));
-    // window.addEventListener('scroll', this.onScroll)
     parentElement.addEventListener('click', this.shouldDock);
     parentElement.addEventListener('scroll', this.onScroll);
   }
