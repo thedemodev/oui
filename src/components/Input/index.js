@@ -210,6 +210,7 @@ Input.propTypes = {
     'url',
     'search',
     'tel',
+    'time',
   ]).isRequired,
   /** Text within the input */
   value: PropTypes.oneOfType([

@@ -62,7 +62,7 @@ class IconLink extends React.PureComponent {
     return (
       <React.Fragment>
         { hasSeparator &&
-          <li className="push-double">
+          <li className="push-double--sides hard--ends">
             <hr className="oui-rule"/>
           </li>
         }

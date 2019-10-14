@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTagsInput from 'react-tagsinput';
-
 import Token from '../Token';
 
 /**
@@ -139,13 +138,13 @@ export const TokensInput = ({
   const minWidth = isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : 'min-width--150';
 
   return (
-    <div className="oui-text-input text--left flush">
+    <div className="oui-text-input text--left flush height--auto">
       <ReactTagsInput
         addKeys={ addKeys }
         addOnBlur={ addOnBlur }
         addOnPaste={ addOnPaste }
         inputProps={{
-          className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides`,
+          className: `flex flex--1 ${minWidth} no-border soft-half--ends soft--sides border-radius push-half--left`,
           onBlur: onInputBlur,
           onChange: onInputChange,
           onFocus: onInputFocus,
