@@ -6,6 +6,22 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.9.3 - 2019-10-10
+- [Patch] fix TokensInput formatting ([#1230](https://github.com/optimizely/oui/pull/1230))
+
+## 44.9.2 - 2019-10-09
+- [Patch] Add privacy link to NavBar plus alignment CSS polish ([#1226](https://github.com/optimizely/oui/pull/1226))
+
+## 44.9.1 - 2019-10-09
+- [Patch] Update lodash version to minimum 4.17.13 ([#1227](https://github.com/optimizely/oui/pull/1227))
+- [Patch] Use correct value for Dropdown maxHeight=none ([#1228](https://github.com/optimizely/oui/pull/1228))
+
+## 44.9.0 - 2019-09-30
+- [Feature] Add time inputs to the **DateRangePicker** component ([#1221](https://github.com/optimizely/oui/pull/1221)):
+    - Added time inputs as an option
+    - Added custom time-handling for a delightful experience
+- [Patch] Yarn upgrades for GitHub security alerts ([#1222](https://github.com/optimizely/oui/pull/1190))
+
 ## 44.8.0 - 2019-09-11
 - [Feature] New **PaginationControls** component ([#1190](https://github.com/optimizely/oui/pull/1190))
 - [Patch] Prevent **Poptip** to show "undefined" hover message when it gets disabled ([#1218](https://github.com/optimizely/oui/pull/1218))

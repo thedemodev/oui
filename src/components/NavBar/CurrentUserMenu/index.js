@@ -144,20 +144,22 @@ class CurrentUserMenu extends React.Component {
         className="push--left flex--1"
         key="current-user-links">
         { shouldShowAccountList &&
-          <Dropdown
-            placement="right-start"
-            activator={ <Activator userName={ userName } /> }>
-            <Dropdown.Contents direction="up" minWidth="250px">
-              <div data-test-section="account-switcher-dropdown-content">
-                <BlockList>
-                  <AccountSwitcher
-                    accountSwitcherItems={ accountSwitcherItems }
-                    accountSwitcherHandler={ accountSwitcherHandler }
-                  />
-                </BlockList>
-              </div>
-            </Dropdown.Contents>
-          </Dropdown>
+          <li>
+            <Dropdown
+              placement="right-start"
+              activator={ <Activator userName={ userName } /> }>
+              <Dropdown.Contents direction="up" minWidth="250px">
+                <div data-test-section="account-switcher-dropdown-content">
+                  <BlockList>
+                    <AccountSwitcher
+                      accountSwitcherItems={ accountSwitcherItems }
+                      accountSwitcherHandler={ accountSwitcherHandler }
+                    />
+                  </BlockList>
+                </div>
+              </Dropdown.Contents>
+            </Dropdown>
+          </li>
         }
         { !shouldShowAccountList &&
           <div
@@ -171,6 +173,15 @@ class CurrentUserMenu extends React.Component {
       </ul>,
     ]);
   };
+
+  renderPrivacy = () => {
+    let year = new Date().getFullYear();
+    return (
+      <div className="root-nav__user root-nav__link root-nav__link--plain hard--bottom muted">
+        <span className="display--inline-block">©2010&ndash;{ year } Optimizely. <a href="https://www.optimizely.com/privacy/" className="muted underline">Privacy</a></span>
+      </div>
+    );
+  }
 
   renderCollapsedCurrentUserMenu = () => {
     const {
@@ -219,8 +230,11 @@ class CurrentUserMenu extends React.Component {
   render() {
     const { isOpen } = this.props;
     return (
-      <div className="root-nav__user root-nav__link root-nav__link--tertiary">
-        { isOpen ? this.renderCurrentUserMenu() : this.renderCollapsedCurrentUserMenu() }
+      <div>
+        <div className="root-nav__user root-nav__link root-nav__link--tertiary">
+          { isOpen ? this.renderCurrentUserMenu() : this.renderCollapsedCurrentUserMenu() }
+        </div>
+        { isOpen && this.renderPrivacy() }
       </div>
     );
   }

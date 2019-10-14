@@ -10,7 +10,7 @@ export default function DropdownContents(props) {
 
   if (props.canScroll) {
     styleProps.overflowY = 'visible';
-    styleProps.maxHeight = 'auto';
+    styleProps.maxHeight = 'none';
   }
 
   const classes = classNames({

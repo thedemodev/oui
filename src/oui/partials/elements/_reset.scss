@@ -129,10 +129,13 @@ input[type="radio"] + label {
 [type="search"]:focus,
 [type="url"]:active,
 [type="url"]:focus,
+[type="time"]:active,
+[type="time"]:focus,
 textarea:active,
 textarea:focus {
   cursor: text;
   outline: none;
+  box-shadow: 0px 0px 3px $brand-blue-dark;
 }
 
 // ## Links

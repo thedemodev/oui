@@ -5,6 +5,22 @@ export const getDateString = (date) => {
   return (date && moment.isMoment(date) && date.format('MMM DD, YYYY')) || '';
 };
 
+export const getTimeString = (date) => {
+  return (date && moment.isMoment(date) && date.format('HH:mm')) || '';
+};
+
+export const preserveTime = (prevDate, newDate) => {
+  if (!prevDate || !newDate) {
+    return newDate;
+  }
+  return newDate.set({
+    hour: prevDate.get('hour'),
+    minute: prevDate.get('minute'),
+    second: prevDate.get('second'),
+    millisecond: prevDate.get('millisecond'),
+  });
+};
+
 export const getAvailableStartDatePhrase = ({ date }) => `Choose ${date} as your start date.`;
 export const getAvailableEndDatePhrase = ({ date }) => `Choose ${date} as your end date.`;
 
