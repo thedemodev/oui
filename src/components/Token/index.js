@@ -29,7 +29,7 @@ const Token = ({
   style,
   showWell,
   testSection,
-  usesHamburger,
+  usesDragHandle,
 }) => {
   const classes = classNames('flex', {
     'oui-token-wrap': hasWrap && !hasSnugWrap,
@@ -42,7 +42,7 @@ const Token = ({
   });
   const { fontClass, fillColor } = getStylingInfo(style);
 
-  if (usesHamburger) {
+  if (usesDragHandle) {
     return (
       /* eslint-disable react/jsx-boolean-value */
       <div
@@ -54,7 +54,7 @@ const Token = ({
             <div className={ tokenToolsClasses } data-token-handle>
               {order && <span className="oui-token__number">{order}</span>}
               {isDraggable && (
-                <div className="oui-icon oui-token__move push-half--right oui-token__move--hamburger">
+                <div className="oui-icon oui-token__move push-half--right oui-token__move--drag-handle">
                   <Icon name="hamburger" fill="#ffffff" />
                 </div>
               )}
@@ -162,7 +162,7 @@ Token.propTypes = {
   testSection: PropTypes.string,
 
   /** Used to switch drag handle */
-  usesHamburger: PropTypes.bool,
+  usesDragHandle: PropTypes.bool,
 };
 
 Token.defaultProps = {
