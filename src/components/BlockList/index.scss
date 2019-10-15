@@ -82,9 +82,9 @@
 
 .oui-block-list__category__name {
   background: map-fetch($color, background, faint);
-  color: map-fetch($color, text, muted);
+  color: $grey-dark;
   font-size: map-fetch($font, size, micro);
-  font-weight: 400;
+  font-weight: 500;
   border-bottom: 1px solid map-fetch($color, ui, light);
 }
 
