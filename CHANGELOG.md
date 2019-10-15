@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Remove obsolete snapshot ([#1234](https://github.com/optimizely/oui/pull/1234))
 
 ## 44.9.4 - 2019-10-15
 - [Patch] Update **Sortable** to support dynamically adding to list ([#1231](https://github.com/optimizely/oui/pull/1231))
