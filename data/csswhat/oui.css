@@ -1581,6 +1581,9 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+:root {
+  font-size: 14px; }
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1758,7 +1761,7 @@ html {
   color: #080736;
   background-color: #FFFFFF;
   font-family: Graphik, Lato, Helvetica, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.6; }
 
 p {
@@ -2214,7 +2217,7 @@ blockquote {
 
 code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 13px; }
+  font-size: 0rem; }
 
 .pre,
 .oui-pre {
@@ -2348,30 +2351,30 @@ code {
 
 h1,
 .alpha {
-  font-size: 28px;
+  font-size: 2.1rem;
   font-weight: 300;
   line-height: 1.1; }
 
 h2,
 .beta {
-  font-size: 20px;
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.1; }
 
 h3,
 .gamma {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.1; }
 
 h4,
 .delta {
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400; }
 
 h5,
 .epsilon {
-  font-size: 13px;
+  font-size: 1.25rem;
   font-weight: 500; }
 
 h6,
@@ -2410,7 +2413,7 @@ h3 {
   margin-top: 30px; }
 
 .form__title {
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-bottom: 10px;
   line-height: 1; }
 
@@ -2769,7 +2772,7 @@ li > ol {
   border: 1px solid #e0e0e0;
   height: 34px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 0 30px 0 7px;
   outline: none;
   cursor: pointer;
@@ -4338,7 +4341,7 @@ div[class*="col"].padded-content--remove,
 
 code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 13px; }
+  font-size: 0rem; }
 
 .pre,
 .oui-pre {
@@ -4547,9 +4550,9 @@ code {
 
 .oui-block-list__category__name {
   background: #FFFFFF;
-  color: #83839B;
+  color: #707070;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   border-bottom: 1px solid #f0f0f0; }
 
 .oui-block-list__item {
@@ -4759,7 +4762,7 @@ code {
   .lego-dialog__footer {
     border-top: 1px solid #f0f0f0; }
   .lego-dialog__title {
-    font-size: 20px;
+    font-size: 1.8rem;
     color: #46456A;
     line-height: 1; }
   .lego-dialog__body {
@@ -4863,7 +4866,7 @@ code {
 
 .dropdown-group,
 .oui-dropdown-group {
-  font-size: 14px;
+  font-size: 1rem;
   display: inline-block;
   position: relative;
   vertical-align: top; }
@@ -5121,7 +5124,7 @@ label {
     margin-left: 5px;
     color: #FF5B5B;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1;
     position: relative;
     top: 2px; }
@@ -5140,7 +5143,7 @@ label {
   label--natural {
     text-transform: none;
     letter-spacing: 0;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     color: inherit; }
 
@@ -6227,7 +6230,7 @@ label {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -3px; }
+        bottom: 0; }
 
 .oui-tabs--left-pad .tabs-nav,
 .oui-tabs--left-pad .oui-tabs-nav {
