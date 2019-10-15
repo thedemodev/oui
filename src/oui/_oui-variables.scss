@@ -15,7 +15,9 @@ $namespace                   : '' !default;
 /// @description Defines spacing for paddings and margins using `spacer`
 /// function.
 
-$spacer-unit                 : 10px;
+// $spacer-unit                 : 10px;
+$spacer-unit                 : 0.75rem;
+// $spacer-unit                 : 1rem;
 
 /// Core Colors
 /// @description Default color for objects' borders etc.
@@ -162,10 +164,9 @@ $font: (
     gamma                    : 1.6rem, // h3
     delta                    : 1.4rem, // h4
     epsilon                  : 1.25rem, // h5
-
-    zeta                     : 12px, // h6
-    milli                    : 12px,
-    micro                    : 12px,
+    zeta                     : 1rem, // h6
+    milli                    : 0.9rem,
+    micro                    : 0.8rem,
 
     kilo                     : 40px, // Extra large for marketing
     mega                     : 50px,
