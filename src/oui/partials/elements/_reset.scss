@@ -17,6 +17,10 @@
 }
 
 // General resets.
+:root {
+  font-size: 14px;
+}
+
 
 body {
   @include font-smoothing;
