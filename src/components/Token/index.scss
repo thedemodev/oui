@@ -104,6 +104,21 @@
   }
 }
 
+.oui-token__move--drag-handle {
+  transform: rotate(0deg) !important;
+  svg {
+    fill: #ffffff !important;
+  }
+}
+
+.oui-token-tool {
+  &:hover {
+    .oui-token__move--drag-handle svg {
+      fill: #ffffff !important;
+    }
+  }
+}
+
 .#{$namespace}token__description,
 .oui-token__description {
   font-size: map-fetch($font, size, micro);

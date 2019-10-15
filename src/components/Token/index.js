@@ -4,14 +4,13 @@ import Icon from 'react-oui-icons';
 import DismissButton from './DismissButton';
 import classNames from 'classnames';
 
-const LIGHT_BACKGROUND_STYLES = [
-  'tertiary',
-];
+const LIGHT_BACKGROUND_STYLES = ['tertiary'];
 
 // Light backgrounds require a dark font and dismiss Icon color.
-const getStylingInfo = style => LIGHT_BACKGROUND_STYLES.includes(style) ?
-  { fontClass: 'oui-token--font-dark', fillColor: 'black' } :
-  { fontClass: 'oui-token--font-light', fillColor: 'white' };
+const getStylingInfo = style =>
+  LIGHT_BACKGROUND_STYLES.includes(style)
+    ? { fontClass: 'oui-token--font-dark', fillColor: 'black' }
+    : { fontClass: 'oui-token--font-light', fillColor: 'white' };
 
 /**
  * Token to be used to make token lists.
@@ -30,18 +29,55 @@ const Token = ({
   style,
   showWell,
   testSection,
+  usesDragHandle,
 }) => {
-  const classes = classNames({
+  const classes = classNames('flex', {
     'oui-token-wrap': hasWrap && !hasSnugWrap,
     'oui-token-wrap--snug': hasSnugWrap,
     'oui-token-wrap--well': showWell,
-    'flex': true,
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable || order,
     'cursor--move': isDraggable,
   });
   const { fontClass, fillColor } = getStylingInfo(style);
+
+  if (usesDragHandle) {
+    return (
+      /* eslint-disable react/jsx-boolean-value */
+      <div
+        data-oui-component={ true }
+        className={ classes }
+        data-test-section={ testSection }>
+        <div className={ `oui-token oui-token--${style}` }>
+          <div className="flex flex-align--center">
+            <div className={ tokenToolsClasses } data-token-handle>
+              {order && <span className="oui-token__number">{order}</span>}
+              {isDraggable && (
+                <div className="oui-icon oui-token__move push-half--right oui-token__move--drag-handle">
+                  <Icon name="hamburger" fill="#ffffff" />
+                </div>
+              )}
+            </div>
+            <div className={ fontClass }>
+              {name}
+              {description && (
+                <div className="oui-token__description">{description}</div>
+              )}
+            </div>
+          </div>
+          {isDismissible && onDismiss && (
+            <DismissButton
+              onClick={ onDismiss }
+              fill={ fillColor }
+              testSection={ testSection }
+            />
+          )}
+        </div>
+      </div>
+      /* eslint-enable */
+    );
+  }
 
   return (
     /* eslint-disable react/jsx-boolean-value */
@@ -124,6 +160,9 @@ Token.propTypes = {
 
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+
+  /** Used to switch drag handle */
+  usesDragHandle: PropTypes.bool,
 };
 
 Token.defaultProps = {

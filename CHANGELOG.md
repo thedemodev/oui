@@ -5,12 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Update Sortable to support dynamically adding to list ([#1231](https://github.com/optimizely/oui/pull/1231))
 
 ## 44.9.3 - 2019-10-10
-- [Patch] fix TokensInput formatting ([#1230](https://github.com/optimizely/oui/pull/1230))
+- [Patch] fix **TokensInput** formatting ([#1230](https://github.com/optimizely/oui/pull/1230))
 
 ## 44.9.2 - 2019-10-09
-- [Patch] Add privacy link to NavBar plus alignment CSS polish ([#1226](https://github.com/optimizely/oui/pull/1226))
+- [Patch] Add privacy link to **NavBar** plus alignment CSS polish ([#1226](https://github.com/optimizely/oui/pull/1226))
 
 ## 44.9.1 - 2019-10-09
 - [Patch] Update lodash version to minimum 4.17.13 ([#1227](https://github.com/optimizely/oui/pull/1227))
