@@ -33,7 +33,7 @@ const infoAddonConfig = {
 FilterPicker is React _Render Component_ that uses [render props](https://reactjs.org/docs/render-props.html) to abstract
 away some of the implementation complexity while allowing for maximum extensibility. This pattern was used to avoid a
 "props explosion" that would come with all the variations we have of this pattern. This approach will give control to
-the implementer and keep this component lean.
+the implementer and keeps this component lean.
 .
 *-* **ATTN:** If a max scrollable height should be used (likely in most cases), consider using use an oui class like "max-scroll--medium" around \`BlockList.Category\`
 *-* **ATTN:** If a search Input will be used with \`Blocklist\` and \`FilterList.ListItem\`, consider wrapping \`Blocklist\` inside a div with the \`oui-filter-picker-list\` class to remove the Input's bottom border (see story and story source for example)
@@ -54,7 +54,7 @@ const About = () => (
       FilterPicker is React <em>Render Component</em> that uses <a target="_blank" href="https://reactjs.org/docs/render-props.html">render props</a> to abstract
       away some of the implementation complexity while allowing for maximum extensibility. This pattern was used to avoid a
       "props explosion" that would come with all the variations we have of this pattern. This approach will give control to
-      the implementer and keep this component lean.
+      the implementer and keeps this component lean.
     </p>
     <ul style={ { listStyleType: 'circle', textIndent: '1.2em' } }>
       <li><strong>ATTN:</strong> If a max scrollable height should be used (likely in most cases), consider using use an oui class like "max-scroll--medium" around <pre style={ INLINE_MARDOWN_STYLE }>BlockList.Category</pre></li>
@@ -145,7 +145,7 @@ storiesOf('FilterPicker', module)
       </React.Fragment>
     );
   })
-  .add('core with collapsible dropdown', () => React.createElement(() => {
+  .add('core (with collapsed picker when empty)', () => React.createElement(() => {
     const allEntityDataValue = object('allEntities', [
       { name: 'QA Group', description: 'An audience used by QA to verify tests are working.', id: 123 },
       { name: 'Lifetime Revenue Over 5k', description: 'Authenticated users who have purchased over 5k.', id: 456 },
@@ -220,7 +220,7 @@ storiesOf('FilterPicker', module)
       </React.Fragment>
     );
   }))
-  .add('Use within Application (as part of Audiences Combinations Builder)', () => {
+  .add('integration example (Audiences Combinations Builder)', () => {
     const AudienceConfig = {
       ANY: 'ANY',
       ALL: 'ALL',
