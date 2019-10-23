@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
@@ -13,6 +13,8 @@ import Input from '../Input';
 import Token from '../Token';
 
 import FilterPicker from './index.js';
+
+const INLINE_MARDOWN_STYLE = { display: 'inline' };
 
 /**
  * This is a clone of the contents of README.md,
@@ -45,6 +47,30 @@ See more how this was implemented in [\`FilterPicker.story.js\`](https://github.
 };
 /* eslint-enable max-len */
 
+const About = () => (
+  <div className="push-double--bottom">
+    <h2>About FilterPicker</h2>
+    <p>
+      FilterPicker is React <em>Render Component</em> that uses <a target="_blank" href="https://reactjs.org/docs/render-props.html">render props</a> to abstract
+      away some of the implementation complexity while allowing for maximum extensibility. This pattern was used to avoid a
+      "props explosion" that would come with all the variations we have of this pattern. This approach will give control to
+      the implementer and keep this component lean.
+    </p>
+    <ul style={ { listStyleType: 'circle', textIndent: '1.2em' } }>
+      <li><strong>ATTN:</strong> If a max scrollable height should be used (likely in most cases), consider using use an oui class like "max-scroll--medium" around <pre style={ INLINE_MARDOWN_STYLE }>BlockList.Category</pre></li>
+      <li><strong>ATTN:</strong> If a search Input will be used with <pre style={ INLINE_MARDOWN_STYLE }>Blocklist</pre> and <pre style={ INLINE_MARDOWN_STYLE }>FilterList.ListItem</pre>, consider wrapping <pre style={ INLINE_MARDOWN_STYLE }>Blocklist</pre> inside a div with the <pre style={ INLINE_MARDOWN_STYLE }>oui-filter-picker-list</pre> class to remove the Input's bottom border (see story and story source for example)</li>
+      <li>Using <pre style={ INLINE_MARDOWN_STYLE }>react-immutable-proptypes</pre>, FilterPicker can be used with Immutable or POJO datasets</li>
+      <li>By default, this component filters <pre style={ INLINE_MARDOWN_STYLE }>selectedEntityIds</pre> and items that don't match the <pre style={ INLINE_MARDOWN_STYLE }>filterQuery</pre> to create and return <pre style={ INLINE_MARDOWN_STYLE }>availableEntities</pre> via the render props function</li>
+      <li>If a <pre style={ INLINE_MARDOWN_STYLE }>customFilterFn</pre> is used, it will be used in place of the <pre style={ INLINE_MARDOWN_STYLE }>filterQuery</pre> filter. If <pre style={ INLINE_MARDOWN_STYLE }>selectedEntityIds</pre> should be kept in, simply do not include that list as a component prop</li>
+      <li>Find out more below</li>
+    </ul>
+    <p>
+      See more how this was implemented in <em>Show Info</em> or the <a target="_blank" href="https://github.com/optimizely/oui/blob/devel/src/components/FilterPicker/FilterPicker.story.js"><pre style={ INLINE_MARDOWN_STYLE }>FilterPicker.story.js</pre></a>.
+    </p>
+    <hr />
+  </div>
+);
+
 storiesOf('FilterPicker', module)
   .addDecorator(withKnobs)
   .addDecorator(withInfo(infoAddonConfig))
@@ -53,7 +79,148 @@ storiesOf('FilterPicker', module)
       { story() }
     </div>
   ))
-  .add('Audiences', (() => {
+  .add('core', () => {
+    const allEntityDataValue = object('allEntities', [
+      { name: 'QA Group', description: 'An audience used by QA to verify tests are working.', id: 123 },
+      { name: 'Lifetime Revenue Over 5k', description: 'Authenticated users who have purchased over 5k.', id: 456 },
+      { name: 'Lifetime Revenue Under 1k', description: 'Authenticated users who have purchased under 1k.', id: 789 },
+      { name: 'Men over 25', description: 'Authenticated users over 25 who identify as male.', id: 135 },
+      { name: 'Women over 25', description: 'Authenticated users over 25 who identify as female.', id: 246 },
+    ]);
+
+    const keysToSearchValue = object('keysToSearch', [ 'name', 'description' ]);
+
+    const selectedEntityIdsValue = object('selectedEntityIds', [ 123, 456 ]);
+
+    return (
+      <React.Fragment>
+        <About />
+
+        <div className="push-double--bottom">
+          <h2>About this Story</h2>
+          <p>The Filter Picker component can be implemented very simply. It's render props design allows for flexible modificaitons without introducing superfluous props.</p>
+          <hr />
+        </div>
+
+        <FilterPicker
+          allEntities={ allEntityDataValue }
+          selectedEntityIds={ selectedEntityIdsValue }
+          keysToSearch={ keysToSearchValue }>
+          { ({ availableEntities, filterQuery, handleFilterInput, selectedEntities }) => (
+            <div className="oui-filter-picker-list">
+              <Input
+                isFilter={ true }
+                onInput={ handleFilterInput }
+                placeholder="Browse for Audiences"
+                type="search"
+              />
+              <BlockList hasBorder={ true }>
+                <BlockList.Category>
+                  <FilterPicker.ListItem
+                    name={ 'Create New Audience' }
+                    onClick={ action('Create Entity') }
+                  />
+                </BlockList.Category>
+                <div className="max-scroll--medium">
+                  <BlockList.Category header='Recently Created Audiences'>
+                    { availableEntities.map((item, index) => {
+                      return (
+                        <FilterPicker.ListItem
+                          key={ item.id }
+                          id={ item.id }
+                          name={ item.name }
+                          description={ item.description }
+                          onClick={ action(`Entity Add: ${item.id}`) }
+                          buttonText={ 'View' }
+                          onButtonClick={ action(`Entity Picker View: ${item.id}`) }
+                        />
+                      );
+                    }) }
+                  </BlockList.Category>
+                </div>
+              </BlockList>
+            </div>
+          ) }
+        </FilterPicker>
+      </React.Fragment>
+    );
+  })
+  .add('core with collapsible dropdown', () => React.createElement(() => {
+    const allEntityDataValue = object('allEntities', [
+      { name: 'QA Group', description: 'An audience used by QA to verify tests are working.', id: 123 },
+      { name: 'Lifetime Revenue Over 5k', description: 'Authenticated users who have purchased over 5k.', id: 456 },
+      { name: 'Lifetime Revenue Under 1k', description: 'Authenticated users who have purchased under 1k.', id: 789 },
+      { name: 'Men over 25', description: 'Authenticated users over 25 who identify as male.', id: 135 },
+      { name: 'Women over 25', description: 'Authenticated users over 25 who identify as female.', id: 246 },
+    ]);
+
+    const keysToSearchValue = object('keysToSearch', [ 'name', 'description' ]);
+
+    const selectedEntityIdsValue = object('selectedEntityIds', [ 123, 456 ]);
+
+    const [isInputFocused, setIsInputFocused] = useState(false);
+
+    return (
+      <React.Fragment>
+        <About />
+
+        <div className="push-double--bottom">
+          <h2>About this Story</h2>
+          <p>This is an example of the FilterPicker where the bottom section only shows up whent the input value is not empty.</p>
+          <hr />
+        </div>
+
+        <FilterPicker
+          allEntities={ allEntityDataValue }
+          selectedEntityIds={ selectedEntityIdsValue }
+          keysToSearch={ keysToSearchValue }>
+          { ({ availableEntities, filterQuery, handleFilterInput, selectedEntities }) => (
+            // Conditionally adding the class since the bottom border
+            // shouldn't be squared when there's nothing below. Several better ways to do this.
+            <div className={ isInputFocused ? 'oui-filter-picker-list' : '' }>
+              <Input
+                isFilter={ true }
+                onInput={ (event) => {
+                  setIsInputFocused(!!event.target.value);
+                  handleFilterInput(event);
+                } }
+                placeholder="Browse for Audiences"
+                type="search"
+              />
+              { isInputFocused && (
+                <BlockList hasBorder={ true }>
+                  <BlockList.Category>
+                    <FilterPicker.ListItem
+                      name={ 'Create New Audience' }
+                      onClick={ action('Create Entity') }
+                    />
+                  </BlockList.Category>
+                  <div className="max-scroll--medium">
+                    <BlockList.Category header='Recently Created Audiences'>
+                      { availableEntities.map((item, index) => {
+                        return (
+                          <FilterPicker.ListItem
+                            key={ item.id }
+                            id={ item.id }
+                            name={ item.name }
+                            description={ item.description }
+                            onClick={ action(`Entity Add: ${item.id}`) }
+                            buttonText={ 'View' }
+                            onButtonClick={ action(`Entity Picker View: ${item.id}`) }
+                          />
+                        );
+                      }) }
+                    </BlockList.Category>
+                  </div>
+                </BlockList>
+              ) }
+            </div>
+          ) }
+        </FilterPicker>
+      </React.Fragment>
+    );
+  }))
+  .add('Use within Application (as part of Audiences Combinations Builder)', () => {
     const AudienceConfig = {
       ANY: 'ANY',
       ALL: 'ALL',
@@ -90,140 +257,148 @@ storiesOf('FilterPicker', module)
 
     const selectedEntityIdsValue = object('selectedEntityIds', [ 123, 456 ]);
 
-    // Use recompose withState and return below to make
-    // a more comprehensive and interactive story
     return (
-      <FilterPicker
-        allEntities={ allEntityDataValue }
-        selectedEntityIds={ selectedEntityIdsValue }
-        keysToSearch={ keysToSearchValue }>
-        { ({ availableEntities, filterQuery, handleFilterInput, selectedEntities }) => (
-          <React.Fragment>
-            <h3 className="flex">
-              Audiences
-              <div className="push-half--left">
-                <HelpPopover
-                  horizontalAttachment="left"
-                  popoverTitle="Audiences"
-                  verticalAttachment="top">
-                  <p>
-                    Who do you want to see your campaign? Audiences in Optimizely X work much like they did in
-                    Optimizely Classic. Use them to show your experiment to groups of visitors that you define.
-                  </p>
-                  <p>
-                    Add conditions to define an audience, including: location, device, and more. In Optimizely X,
-                    you can also target visitors based on their behavior on your site (using events and tags).
-                  </p>
-                  <p>
-                    Audiences are optional for experiments, so skip this if you want your experiment to run for all
-                    visitors.
-                  </p>
-                </HelpPopover>
-              </div>
-            </h3>
-            <div>
-              Choose the audience(s) you&apos;d like to show this experience to. If you choose more than one audience,
-              you&apos;ll be prompted to choose a match type.
-            </div>
-            <div className="push--ends">
-              <Dropdown
-                arrowIcon="down"
-                buttonContent={ dropdownOptions.find(option => option.id === 'ANY').renderTitle() }
-                style="outline"
-                value={ 'ANY' }>
-                <BlockList>
-                  { dropdownOptions.map((item) => {
-                    return (
-                      <BlockList.Category key={ item.id }>
-                        <BlockList.Item
-                          onClick={ () => { // eslint-disable-line react/jsx-no-bind
-                            action('Dropdown Select')(item.id);
-                          } }>
-                          <div className="flex flex-align--center">
-                            <div className="flex--1">
-                              <div>{ dropdownOptions.find(option => option.id === item.id).renderTitle() }</div>
-                              <div className="muted micro">{ item.description }</div>
-                            </div>
-                          </div>
-                        </BlockList.Item>
-                      </BlockList.Category>
-                    );
-                  }) }
-                </BlockList>
-              </Dropdown>
-            </div>
-            { !selectedEntities.length && (
-              <div className="flex--none push-double--ends">
-                <Token name="Everyone" />
-              </div>
-            ) }
-            { !!selectedEntities.length && (
-              <React.Fragment>
-                <div className="muted">To be in this experiment, a visitor must match</div>
-                <div className="push-half--top push-double--bottom">
-                  { selectedEntities
-                    .map((item, index) => {
-                      const { id, name } = item;
-                      return (
-                        <React.Fragment key={ id }>
-                          <div className="flex flex-align--center">
-                            <Token name={ name } isDismissible={ true } onDismiss={ action(`Entity Remove: ${id}`) }/>
-                            <div className="flex flex--1 flex-justified--end">
-                              <Button
-                                size="tiny"
-                                style="outline"
-                                width="default"
-                                onClick={ action(`Selected Entity View: ${id}`) }>
-                                View
-                              </Button>
-                            </div>
-                          </div>
-                          {
-                            selectedEntities.length !== (index + 1) && (
-                              <div className="push-half--sides push-half--ends muted">Or</div>
-                            )
-                          }
-                        </React.Fragment>
-                      );
-                    }) }
+      <React.Fragment>
+        <About />
+
+        <div className="push-double--bottom">
+          <h2>About this Story</h2>
+          <p>This story is an example of the FilterPicker used in a much larger component. <strong>Only the small Audience picker part (below "Browse for Audiences") is the FilterPicker</strong>.</p>
+          <hr />
+        </div>
+
+        <FilterPicker
+          allEntities={ allEntityDataValue }
+          selectedEntityIds={ selectedEntityIdsValue }
+          keysToSearch={ keysToSearchValue }>
+          { ({ availableEntities, filterQuery, handleFilterInput, selectedEntities }) => (
+            <React.Fragment>
+              <h3 className="flex">
+                Audiences
+                <div className="push-half--left">
+                  <HelpPopover
+                    horizontalAttachment="left"
+                    popoverTitle="Audiences"
+                    verticalAttachment="top">
+                    <p>
+                      Who do you want to see your campaign? Audiences in Optimizely X work much like they did in
+                      Optimizely Classic. Use them to show your experiment to groups of visitors that you define.
+                    </p>
+                    <p>
+                      Add conditions to define an audience, including: location, device, and more. In Optimizely X,
+                      you can also target visitors based on their behavior on your site (using events and tags).
+                    </p>
+                    <p>
+                      Audiences are optional for experiments, so skip this if you want your experiment to run for all
+                      visitors.
+                    </p>
+                  </HelpPopover>
                 </div>
-              </React.Fragment>
-            ) }
-            <div className="oui-filter-picker-list">
-              <Input
-                isFilter={ true }
-                onInput={ handleFilterInput }
-                placeholder="Browse for Audiences"
-                type="search"
-              />
-              <BlockList hasBorder={ true }>
-                <BlockList.Category>
-                  <FilterPicker.ListItem
-                    name={ 'Create New Audience' }
-                    onClick={ action('Create Entity') }
-                  />
-                </BlockList.Category>
-                <div className="max-scroll--medium">
-                  <BlockList.Category header='Recently Created Audiences'>
-                    { availableEntities.map((item, index) => {
+              </h3>
+              <div>
+                Choose the audience(s) you&apos;d like to show this experience to. If you choose more than one audience,
+                you&apos;ll be prompted to choose a match type.
+              </div>
+              <div className="push--ends">
+                <Dropdown
+                  arrowIcon="down"
+                  buttonContent={ dropdownOptions.find(option => option.id === 'ANY').renderTitle() }
+                  style="outline"
+                  value={ 'ANY' }>
+                  <BlockList>
+                    { dropdownOptions.map((item) => {
                       return (
-                        <FilterPicker.ListItem
-                          key={ item.id }
-                          id={ item.id }
-                          name={ item.name }
-                          description={ item.description }
-                          onClick={ action(`Entity Add: ${item.id}`) }
-                          buttonText={ 'View' }
-                          onButtonClick={ action(`Entity Picker View: ${item.id}`) }
-                        />
+                        <BlockList.Category key={ item.id }>
+                          <BlockList.Item
+                            onClick={ () => { // eslint-disable-line react/jsx-no-bind
+                              action('Dropdown Select')(item.id);
+                            } }>
+                            <div className="flex flex-align--center">
+                              <div className="flex--1">
+                                <div>{ dropdownOptions.find(option => option.id === item.id).renderTitle() }</div>
+                                <div className="muted micro">{ item.description }</div>
+                              </div>
+                            </div>
+                          </BlockList.Item>
+                        </BlockList.Category>
                       );
                     }) }
+                  </BlockList>
+                </Dropdown>
+              </div>
+              { !selectedEntities.length && (
+                <div className="flex--none push-double--ends">
+                  <Token name="Everyone" />
+                </div>
+              ) }
+              { !!selectedEntities.length && (
+                <React.Fragment>
+                  <div className="muted">To be in this experiment, a visitor must match</div>
+                  <div className="push-half--top push-double--bottom">
+                    { selectedEntities
+                      .map((item, index) => {
+                        const { id, name } = item;
+                        return (
+                          <React.Fragment key={ id }>
+                            <div className="flex flex-align--center">
+                              <Token name={ name } isDismissible={ true } onDismiss={ action(`Entity Remove: ${id}`) }/>
+                              <div className="flex flex--1 flex-justified--end">
+                                <Button
+                                  size="tiny"
+                                  style="outline"
+                                  width="default"
+                                  onClick={ action(`Selected Entity View: ${id}`) }>
+                                  View
+                                </Button>
+                              </div>
+                            </div>
+                            {
+                              selectedEntities.length !== (index + 1) && (
+                                <div className="push-half--sides push-half--ends muted">Or</div>
+                              )
+                            }
+                          </React.Fragment>
+                        );
+                      }) }
+                  </div>
+                </React.Fragment>
+              ) }
+              <div className="oui-filter-picker-list">
+                <Input
+                  isFilter={ true }
+                  onInput={ handleFilterInput }
+                  placeholder="Browse for Audiences"
+                  type="search"
+                />
+                <BlockList hasBorder={ true }>
+                  <BlockList.Category>
+                    <FilterPicker.ListItem
+                      name={ 'Create New Audience' }
+                      onClick={ action('Create Entity') }
+                    />
                   </BlockList.Category>
-                </div>
-              </BlockList>
-            </div>
-          </React.Fragment>
-        ) }
-      </FilterPicker>
+                  <div className="max-scroll--medium">
+                    <BlockList.Category header='Recently Created Audiences'>
+                      { availableEntities.map((item, index) => {
+                        return (
+                          <FilterPicker.ListItem
+                            key={ item.id }
+                            id={ item.id }
+                            name={ item.name }
+                            description={ item.description }
+                            onClick={ action(`Entity Add: ${item.id}`) }
+                            buttonText={ 'View' }
+                            onButtonClick={ action(`Entity Picker View: ${item.id}`) }
+                          />
+                        );
+                      }) }
+                    </BlockList.Category>
+                  </div>
+                </BlockList>
+              </div>
+            </React.Fragment>
+          ) }
+        </FilterPicker>
+      </React.Fragment>
     );
-  }));
+  });
