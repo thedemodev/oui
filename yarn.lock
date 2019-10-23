@@ -10867,9 +10867,9 @@ react-moment-proptypes@^1.6.0:
     moment ">=1.6.0"
 
 react-oui-icons@^2.2.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-2.6.1.tgz#212139bf38feec888c50a06d62dbb25ba3d6f51d"
-  integrity sha512-K1/DfrPP3uTumb7fyhOy/jMPFdrnglpT+kTu9VVSAb/O6UeGZX41CjsJpOvNdas/jQx3yNcowk71cykzpVO11w==
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/react-oui-icons/-/react-oui-icons-2.7.0.tgz#7dc4c1302cbe58c3a2b3c1de9303167b7b0fe1fe"
+  integrity sha512-sOzOfL/wKwQxrbEYGAnA7O9dLQ11BIHRYwddRWzoL6ckm8GIU+9ryRobL27dhRMqeGAFb30ZWg25JOsXf4gqOw==
 
 react-outside-click-handler@^1.2.0, react-outside-click-handler@^1.2.3:
   version "1.2.3"
