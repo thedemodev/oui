@@ -1,11 +1,17 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import Token from './index.js';
 import { action } from '@storybook/addon-actions/dist/preview';
 
+const styleOptions = {
+  Primary: 'primary',
+  Secondary: 'secondary',
+  Tertiary: 'tertiary',
+  Error: 'error',
+};
 const stories = storiesOf('Token', module);
 stories
   .addDecorator(withKnobs)
@@ -20,7 +26,7 @@ stories
     <Token
       isDismissible={ true }
       name="Hello"
-      style="primary"
+      style={ select('style', styleOptions, 'primary') }
       hasSnugWrap={ boolean('hasSnugWrap', false) }
     />
     <Token
@@ -52,6 +58,7 @@ stories
             isDismissible={ true }
             isDraggable={ true }
             name="Students: Grades 6-12"
+            onDismiss={ action('token dismissed') }
             order={ 1 }
             style="primary"
           />
@@ -62,6 +69,7 @@ stories
             isDismissible={ true }
             isDraggable={ true }
             name="Students: Grades K-5"
+            onDismiss={ action('token dismissed') }
             order={ 1 }
             style="secondary"
           />
@@ -72,6 +80,7 @@ stories
             isDismissible={ true }
             isDraggable={ true }
             name="Students: TK"
+            onDismiss={ action('token dismissed') }
             order={ 1 }
             style="secondary"
           />
@@ -87,5 +96,17 @@ stories
         style="primary"
         onDismiss={ action('token dismissed') }
         hasSnugWrap={ boolean('hasSnugWrap', false) }
+      />);
+  })
+  .add('full width', () => {
+    return (
+      <Token
+        hasSnugWrap={ boolean('hasSnugWrap', false) }
+        isDismissible={ boolean('isDismissible', true) }
+        isFullWidth={ boolean('isFullWidth', true) }
+        name="I'm full width!"
+        onDismiss={ action('token dismissed') }
+        showWell={ boolean('showWell', false) }
+        style="primary"
       />);
   });

@@ -40,6 +40,7 @@
 .oui-token {
   display: inline-flex;
   align-items: flex-start;
+  justify-content: space-between;
   color: map-fetch($color, text, white);
   line-height: 1;
   padding: spacer(0.5) spacer(1);
@@ -130,4 +131,12 @@
   color: map-fetch($color, ui, white);
   height: map-fetch($token, token__close, height);
   width: map-fetch($token, token__close, width);
+}
+
+.oui-token--full-width {
+  width: 100%;
+
+  .oui-token {
+    width: 100%;
+  }
 }

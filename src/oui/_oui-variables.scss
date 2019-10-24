@@ -341,7 +341,7 @@ $button: (
 $token: (
   background-color: (
     primary                  : $blue-base,
-    secondary                : map-fetch($brand-color, white-40b),
+    secondary                : $grey-dark,
     tertiary                 : map-fetch($brand-color, grey-50),
     error                    : map-fetch($brand-color, red)
   ),

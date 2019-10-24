@@ -109,4 +109,9 @@ describe('components/Token', () => {
     expect(component.find('.oui-token-wrap').length).toBe(0);
   });
 
+  it('should apply `oui-token--full-width` class if isFullWidth is true', () => {
+    const component = shallow(<Token name="goose" isFullWidth={ true }/>);
+    expect(component.find('.oui-token--full-width').length).toBe(1);
+  });
+
 });

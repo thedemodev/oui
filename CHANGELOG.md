@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add `isFullWidth` property to **Token** ([#1238](https://github.com/optimizely/oui/pull/1238))
+    - Update secondary token color to `$grey-dark`
 - [Patch] Copy latest `icons.json` from `react-oui-icons` so all recently added icons show up in storybook ([#1235](https://github.com/optimizely/oui/pull/1235))
 
 ## 44.9.5 - 2019-10-15

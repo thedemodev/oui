@@ -23,6 +23,7 @@ const Token = ({
   hasWrap,
   isDismissible,
   isDraggable,
+  isFullWidth,
   name,
   onDismiss,
   order,
@@ -35,6 +36,7 @@ const Token = ({
     'oui-token-wrap': hasWrap && !hasSnugWrap,
     'oui-token-wrap--snug': hasSnugWrap,
     'oui-token-wrap--well': showWell,
+    'oui-token--full-width': isFullWidth,
   });
   const tokenToolsClasses = classNames({
     'oui-token-tool': isDraggable || order,
@@ -139,6 +141,9 @@ Token.propTypes = {
 
   /** Shows an icon indicating that the token is draggable */
   isDraggable: PropTypes.bool,
+
+  /** Makes the component full width of container */
+  isFullWidth: PropTypes.bool,
 
   /** Name label on token */
   name: PropTypes.string.isRequired,
