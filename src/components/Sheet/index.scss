@@ -8,6 +8,7 @@ $sheet-horizontal-padding: spacer(6);
   box-shadow: 0 0 map-fetch($shadow, big);
   width: $sheet-width;
   background: map-fetch($color, background, white);
+  padding-top: spacer(6);
 }
 
 .oui-sheet__wrapper {
@@ -33,7 +34,7 @@ $sheet-horizontal-padding: spacer(6);
 }
 
 .oui-sheet__header {
-  padding: spacer(6) $sheet-horizontal-padding spacer(2);
+  padding: spacer(0) $sheet-horizontal-padding spacer(2);
 }
 
 .oui-sheet__footer {
@@ -49,7 +50,7 @@ $sheet-horizontal-padding: spacer(6);
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: spacer(2) $sheet-horizontal-padding spacer(6) $sheet-horizontal-padding;
+  padding: spacer(1) $sheet-horizontal-padding spacer(6) $sheet-horizontal-padding;
 }
 
 .oui-sheet__link {
@@ -59,4 +60,8 @@ $sheet-horizontal-padding: spacer(6);
 .oui-sheet .oui-close-button {
   top: spacer(3);
   right: spacer(3);
+}
+
+.oui-sheet__warning {
+  padding: spacer(2) $sheet-horizontal-padding;
 }

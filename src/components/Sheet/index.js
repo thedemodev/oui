@@ -2,13 +2,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ButtonRow from '../ButtonRow';
 import CloseButton from '../CloseButton';
+import Attention from '../Attention';
 
 const Sheet = props => {
   let subtitleContent;
-  if (props.subtitle && typeof (props.subtitle) === 'string') {
-    subtitleContent = <p className="push--top flush--bottom">{props.subtitle}</p>;
+  if (props.subtitle && typeof props.subtitle === 'string') {
+    subtitleContent = (
+      <p className="push--top flush--bottom">{props.subtitle}</p>
+    );
   } else {
-    subtitleContent = <div className="push--top flush--bottom">{props.subtitle}</div>;
+    subtitleContent = (
+      <div className="push--top flush--bottom">{props.subtitle}</div>
+    );
   }
 
   return (
@@ -18,16 +23,23 @@ const Sheet = props => {
         data-oui-component={ true }
         className="oui-sheet overflow-y--auto"
         data-test-section={ props.testSection }>
-        {props.hasCloseButton && <CloseButton onClick={ props.onClose } size="large"/>}
+        {props.hasCloseButton && (
+          <CloseButton onClick={ props.onClose } size="large" />
+        )}
+        {props.warningContent && (
+          <div className="oui-sheet__warning">
+            <Attention alignment="center" type="warning" testSection={ props.warningTestSection }>
+              { props.warningContent }
+            </Attention>
+          </div>
+        )}
         <header className="oui-sheet__header">
           <h2 className="flush--bottom">{props.title}</h2>
           {subtitleContent}
         </header>
-        <div className="oui-sheet__body">
-          {props.children}
-        </div>
+        <div className="oui-sheet__body">{props.children}</div>
         <footer className="oui-sheet__footer">
-          <ButtonRow rightGroup={ props.footerButtonList }/>
+          <ButtonRow rightGroup={ props.footerButtonList } />
         </footer>
       </div>
     </div>
@@ -63,6 +75,15 @@ Sheet.propTypes = {
    * Main title of the sheet.
    */
   title: PropTypes.string.isRequired,
+  /**
+   * Content of the warning Attention bar.
+   */
+  warningContent: PropTypes.string,
+  /**
+   * Identifier used to create data-test-section
+   * attribute for the Attention bar.
+   */
+  warningTestSection: PropTypes.string,
 };
 
 Sheet.defaultProps = {
@@ -70,6 +91,7 @@ Sheet.defaultProps = {
   onClose: () => {},
   subtitle: '',
   testSection: '',
+  warningTestSection: '',
 };
 
 export default Sheet;

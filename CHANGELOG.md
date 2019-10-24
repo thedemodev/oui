@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 - [Feature] Add `isFullWidth` property to **Token** ([#1238](https://github.com/optimizely/oui/pull/1238))
     - Update secondary token color to `$grey-dark`
+- [Feature] Add option for an Attention bar in **Sheet** by supplying `warningContent` prop ([#1237](https://github.com/optimizely/oui/pull/1237))
 - [Patch] Copy latest `icons.json` from `react-oui-icons` so all recently added icons show up in storybook ([#1235](https://github.com/optimizely/oui/pull/1235))
 
 ## 44.9.5 - 2019-10-15

@@ -156,4 +156,30 @@ describe('Sheet Component ', () => {
     </Sheet>);
     expect(component.find('.oui-close-button').length).toBe(0);
   });
+
+  it('renders an Attention bar when warningContent is passed in', () => {
+    const onClickSpy = jest.fn();
+    const onCloseSpy = jest.fn();
+
+    const subtitleNode = <p>This is a <a href="#">subtitle</a></p>;
+
+    const component = mount(<Sheet
+      title='This is a Sheet'
+      subtitle={ subtitleNode }
+      onClose={ onCloseSpy }
+      warningContent="This is a warning"
+      warningTestSection="warning-test-section"
+      footerButtonList={ [
+        <Button style="plain" key={ 0 } onClick={ onClickSpy }>
+          No Thanks
+        </Button>,
+        <Button style="highlight" key={ 1 } onClick={ onClickSpy }>
+          Continue
+        </Button>,
+      ] }>
+      <p>Sheets can contain anything, typically forms, in the body.</p>
+    </Sheet>);
+    expect(component.find('.oui-attention--warning').length).toBe(1);
+    expect(component.find('[data-test-section="warning-test-section"]').length).toBe(1);
+  });
 });
