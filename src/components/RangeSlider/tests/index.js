@@ -65,6 +65,7 @@ describe('components/RangeSlider', () => {
           value={ 50 }
           onChange={ handlerObj.onChange }
           testSection="myTestSection"
+          useOffForLabel={ true }
         />
       );
     });
@@ -72,6 +73,10 @@ describe('components/RangeSlider', () => {
     it('should render the SVG with the fill color that corresponds to the provided fill color name', () => {
       const svgPath = component.find('path');
       expect(svgPath.prop('fill')).toBe(redBase);
+    });
+
+    it('should use Off for the label when useOffForLabel is true', () => {
+      expect(component.find('.oui-grid').containsMatchingElement(<label>Off</label>)).toBe(true);
     });
   });
 });

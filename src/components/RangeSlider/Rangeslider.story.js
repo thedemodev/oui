@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, select } from '@storybook/addon-knobs';
+import { withKnobs, number, select, boolean } from '@storybook/addon-knobs';
 
 import RangeSlider from './index.js';
 import { FILL_COLOR_MAP } from './constants';
@@ -46,6 +46,16 @@ stories.add('Default', (() => {
         <RangeSlider
           fillColorName={ select('fillColorName', fillColorOptions, 'red') }
           value={ number('value', 50) }
+        />
+      </div>
+    );
+  }))
+  .add('Use Off instead of 0%', (() => {
+    return (
+      <div>
+        <RangeSlider
+          value={ number('value', 50) }
+          useOffForLabel={ boolean('useOffForLabel', true) }
         />
       </div>
     );

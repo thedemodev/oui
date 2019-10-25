@@ -28,7 +28,9 @@ const RangeSlider = (props) => {
       <div className="oui-grid">
         <div className="oui-grid__cell position--relative">
           <div className="range-labels flex">
-            <label className="oui-label muted flush flex--1">0%</label>
+            <label className="oui-label muted flush flex--1">
+              {props.useOffForLabel ? 'Off' : '0%'}
+            </label>
             <label className="oui-label muted flush">100%</label>
           </div>
           <div className="range-display">
@@ -82,6 +84,8 @@ RangeSlider.propTypes = {
   onChange: PropTypes.func,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+  /** When true, uses 'Off' instead of '0%' */
+  useOffForLabel: PropTypes.bool,
   /** The value */
   value: PropTypes.number,
 };
@@ -91,6 +95,7 @@ RangeSlider.defaultProps = {
   isDisabled: false,
   onChange: undefined,
   testSection: undefined,
+  useOffForLabel: false,
   value: undefined,
 };
 

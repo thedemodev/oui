@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add `useOffForLabel` property to **Range Slider** to switch from `0%` to `Off`([#1239](https://github.com/optimizely/oui/pull/1239))
 - [Feature] Add `isFullWidth` property to **Token** ([#1238](https://github.com/optimizely/oui/pull/1238))
     - Update secondary token color to `$grey-dark`
 - [Feature] Add option for an Attention bar in **Sheet** by supplying `warningContent` prop ([#1237](https://github.com/optimizely/oui/pull/1237))
