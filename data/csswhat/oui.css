@@ -5855,7 +5855,8 @@ code {
   height: 95%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   width: 900px;
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  padding-top: 60px; }
 
 .oui-sheet__wrapper {
   display: flex;
@@ -5878,7 +5879,7 @@ code {
   top: 0; }
 
 .oui-sheet__header {
-  padding: 60px 60px 20px; }
+  padding: 0px 60px 20px; }
 
 .oui-sheet__footer {
   position: fixed;
@@ -5892,7 +5893,7 @@ code {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px 60px 60px 60px; }
+  padding: 10px 60px 60px 60px; }
 
 .oui-sheet__link {
   margin-left: 5px; }
@@ -5900,6 +5901,9 @@ code {
 .oui-sheet .oui-close-button {
   top: 30px;
   right: 30px; }
+
+.oui-sheet__warning {
+  padding: 20px 60px; }
 
 .oui-sidebar {
   transition: all 0.3s;
@@ -6382,6 +6386,7 @@ code {
 .oui-token {
   display: inline-flex;
   align-items: flex-start;
+  justify-content: space-between;
   color: #FFFFFF;
   line-height: 1;
   padding: 5px 10px;
@@ -6394,7 +6399,7 @@ code {
 
 .token--secondary,
 .oui-token--secondary {
-  background: #999999; }
+  background: #707070; }
 
 .token--tertiary,
 .oui-token--tertiary {
@@ -6457,6 +6462,11 @@ code {
   color: #FFFFFF;
   height: 12px;
   width: 12px; }
+
+.oui-token--full-width {
+  width: 100%; }
+  .oui-token--full-width .oui-token {
+    width: 100%; }
 
 .toolbar {
   z-index: 1; }
