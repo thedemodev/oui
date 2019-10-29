@@ -197,4 +197,16 @@ stories
       </Fieldset>
     </Sheet>
   </div>
+)))
+.add('Type', (() => (
+  <div>
+    <h1>H1 Experiments</h1>
+    <h2>H2 Experiments</h2>
+    <h3>H3 Experiments</h3>
+    <h4>H4 Experiments</h4>
+    <h5>H5 Experiments</h5>
+    <h6>H6 Experiments</h6>
+    <p>Paragraph</p>
+    <p className="micro">Micro</p>
+  </div>
 )));
