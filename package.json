@@ -139,6 +139,9 @@
     "generate-tokens": "node src/tokens/index.js",
     "generate-tokens:watch": "onchange 'src/tokens/src/**/*.json' -- yarn generate-tokens"
   },
+  "resolutions": {
+    "react": "16.8.x"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/optimizely/oui.git"
