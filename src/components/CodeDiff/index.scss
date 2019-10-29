@@ -18,7 +18,7 @@
   */
 
   .d2h-file-list-wrapper {
-    margin-bottom: 10px;
+    margin-bottom: spacer(1);
   }
 
   .d2h-file-list-wrapper a {
@@ -54,7 +54,7 @@
 
   .d2h-file-list > li {
     border-bottom: #ddd solid 1px;
-    padding: 5px 10px;
+    padding: spacer(0.5) spacer(1);
     margin: 0;
   }
 
@@ -64,13 +64,13 @@
 
   .d2h-file-switch {
     display: none;
-    font-size: 10px;
+    font-size: map-fetch($font, size, micro);
     cursor: pointer;
   }
 
   .d2h-icon {
     vertical-align: middle;
-    margin-right: 10px;
+    margin-right: spacer(1);
     fill: currentColor;
   }
 

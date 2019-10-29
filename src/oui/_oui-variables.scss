@@ -159,12 +159,12 @@ $font: (
 
   size: (
     base                     : 1rem,
-    alpha                    : 2.1rem, // h1
-    beta                     : 1.8rem, // h2
-    gamma                    : 1.6rem, // h3
-    delta                    : 1.4rem, // h4
+    alpha                    : 2.1rem,  // h1
+    beta                     : 1.8rem,  // h2
+    gamma                    : 1.6rem,  // h3
+    delta                    : 1.4rem,  // h4
     epsilon                  : 1.25rem, // h5
-    zeta                     : 1rem, // h6
+    zeta                     : 1rem,    // h6
     milli                    : 0.9rem,
     micro                    : 0.8rem,
 
@@ -197,9 +197,9 @@ $button: (
 
   size: (
     base: (
-      height                 : 34px,
+      height                 : spacer(3.5),
       line-height            : 32px,
-      font-size              : 13px,
+      font-size              : 0.9rem,
       padding                : 0 15px,
       font-weight            : 400,
       border-radius          : 5px
@@ -207,7 +207,7 @@ $button: (
     large: (
       height                 : 42px,
       line-height            : 41px,
-      font-size              : 15px,
+      font-size              : 1.1rem,
       padding                : 0 20px,
       font-weight            : 400,
       border-radius          : 5px
@@ -215,7 +215,7 @@ $button: (
     small: (
       height                 : 27px,
       line-height            : 26px,
-      font-size              : 11px,
+      font-size              : 0.8rem,
       padding                : 0 7px,
       font-weight            : 400,
       border-radius          : 5px
@@ -223,7 +223,7 @@ $button: (
     tiny: (
       height                 : 19px,
       line-height            : 18px,
-      font-size              : 11px,
+      font-size              : 0.8rem,
       padding                : 0 8px,
       font-weight            : 400,
       border-radius          : 5px
@@ -388,7 +388,7 @@ $badge: (
   background-color           : map-fetch($brand-color, white-40b),
   size                       : 17px,
   min-width                  : 28px, // Graphik letter m width approx.
-  font-size                  : 10px,
+  font-size                  : 0.8rem,
   font-weight                : 600,
   letter-spacing             : 0.5px
 );
