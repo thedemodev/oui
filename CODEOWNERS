@@ -12,3 +12,10 @@
 
 # Frontend engineers must review .js changes
 **/*.js @optimizely/frontend
+
+# Frontend infra engineers must review build infra changes
+.babelrc @optimizely/frontend-infra
+babel.config.js @optimizely/frontend-infra
+package.json @optimizely/frontend-infra
+webpack.config.js @optimizely/frontend-infra
+yarn.lock @optimizely/frontend-infra
