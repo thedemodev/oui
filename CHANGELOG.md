@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Reduce padding for **SelectDropdown** button activator ([#1244](https://github.com/optimizely/oui/pull/1244))
 
 ## 44.10.0 - 2019-10-25
 - [Feature] Add `useOffForLabel` property to **Range Slider** to switch from `0%` to `Off`([#1239](https://github.com/optimizely/oui/pull/1239))

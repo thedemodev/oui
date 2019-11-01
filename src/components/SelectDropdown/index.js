@@ -147,13 +147,14 @@ class SelectDropdown extends React.Component {
           title={ activatorLabel }
           isDisabled={ this.props.isDisabled }
           style={ buttonStyle }
+          size="narrow"
           testSection={ this.props.testSection }
           width="full"
           buttonRef={ buttonRef }
           onClick={ onClick }
           onBlur={ onBlur }>
           <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
-            <span className="oui-dropdown-group__activator-label flex flex--1">{ activatorLabel }</span>
+            <span className="oui-dropdown-group__activator-label flex--1">{ activatorLabel }</span>
             <span className="push--left oui-arrow-inline--down" />
           </div>
         </Button>
