@@ -8,6 +8,17 @@ class Item extends React.Component {
     this._handleOnKeyDown = this._handleOnKeyDown.bind(this);
   }
 
+  ref = React.createRef();
+
+  componentDidUpdate() {
+    if (this.props.hasFauxFocus) {
+      this.ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }
+
   _handleOnKeyDown(event) {
     if (event && event.keyCode === 32 && event.target === this._itemWithOnClick) {
       // Space key was pressed on the item, not a child of the item.
@@ -71,6 +82,7 @@ class Item extends React.Component {
 
     return (
       <li
+        ref={ this.ref }
         style={{ wordBreak: 'break-word' }}
         data-test-section={ this.props.testSection }>
         { item }
