@@ -5,9 +5,10 @@ import Icon from 'react-oui-icons';
 import Button from '../../Button';
 import BlockList from '../../BlockList';
 
-function ListItem({ buttonText, description, id, name, onButtonClick, onClick, testSection }) {
+function ListItem({ buttonText, description, id, name, onButtonClick, onClick, testSection, hasFauxFocus }) {
   return (
     <BlockList.Item
+      hasFauxFocus={ hasFauxFocus }
       onClick={ (event) => onClick(event, id, name, description) } // eslint-disable-line react/jsx-no-bind
       testSection={ testSection }>
       <div className="flex flex-align--center">
@@ -54,6 +55,8 @@ ListItem.propTypes = {
   buttonText: PropTypes.string,
   /* Description of ListItem */
   description: PropTypes.string,
+  /* Boolean to set faux focus of a list item */
+  hasFauxFocus: PropTypes.bool,
   /* ID used to pass into functions calls */
   id: PropTypes.number,
   /* Name of entity */
@@ -76,6 +79,7 @@ ListItem.propTypes = {
 ListItem.defaultProps = {
   buttonText: '',
   description: '',
+  hasFauxFocus: false,
   id: 0,
   testSection: '',
 };

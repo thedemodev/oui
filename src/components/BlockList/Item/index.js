@@ -21,6 +21,7 @@ class Item extends React.Component {
     let item;
     const commonClasses = classNames({
       'oui-block-list__item': true,
+      'oui-block-list__item--has-focus': this.props.hasFauxFocus,
       'hard--sides': this.props.gutters === 'tight',
     });
 
@@ -83,6 +84,8 @@ Item.propTypes = {
   children: PropTypes.node.isRequired,
   /** Determines level of padding of item */
   gutters: PropTypes.oneOf(['loose', 'tight']),
+  /** Boolean to set faux focus of a list item */
+  hasFauxFocus: PropTypes.bool,
   /** URL to navigate to when clicking on the item */
   href: PropTypes.string,
   /** Target that the link, if provided, should open in */
