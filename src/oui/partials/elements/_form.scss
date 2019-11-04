@@ -272,7 +272,6 @@
   padding: map-fetch($form, input, padding);
   vertical-align: middle;
   line-height: 1.3;
-  height: spacer(3.5);
 
   &:hover {
     border-color: map-fetch($color, ui, medium);

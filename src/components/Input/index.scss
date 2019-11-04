@@ -23,6 +23,7 @@
 .#{$namespace}text-input,
 .oui-text-input {
   @include text-input;
+  height: spacer(3.5);
 }
 
 .#{$namespace}text-input[type="number"],
