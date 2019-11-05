@@ -28,7 +28,7 @@ const Spinner = ({
       </div>
     );
   }
-  return <div data-test-section={ testSection } className={ classes }></div>;
+  return <div data-test-section={ testSection } data-oui-component={ true } className={ classes }></div>;
 };
 
 Spinner.propTypes = {

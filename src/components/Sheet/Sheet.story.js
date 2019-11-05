@@ -66,7 +66,7 @@ stories
         <p>This is text behind the sheet that is blocked by the overlay.</p>
         <Sheet
           title={ text('title', 'This is a Sheet') }
-          subtitle={ <p>Subtitles can take also take nodes, <a href="https://www.optimizely.com/">like a link</a></p> }
+          subtitle={ <div>Subtitles can take also take nodes, <a href="https://www.optimizely.com/">like a link</a></div> }
           hasCloseButton={ boolean('hasCloseButton', true) }
           onClose={ action('Sheet was closed') }
           footerButtonList={ [

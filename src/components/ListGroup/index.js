@@ -9,7 +9,10 @@ export const ListGroup = ({
   title,
 }) => {
   return (
-    <div className="oui-listgroup flex soft--top soft--bottom border--bottom" data-test-section={ testSection }>
+    <div
+      data-oui-component={ true }
+      className="oui-listgroup flex soft--top soft--bottom border--bottom"
+      data-test-section={ testSection }>
       <div className="width--1-4">
         <div className="zeta muted weight--normal"></div>
         <div className="epsilon line--tight force-break">{ title }</div>

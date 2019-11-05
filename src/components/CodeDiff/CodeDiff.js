@@ -14,6 +14,7 @@ export const CodeDiff = ({
 }) => {
   return (
     <div
+      data-oui-component={ true }
       className={ classNames(
         'oui-codediff',
         'background--white',

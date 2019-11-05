@@ -139,7 +139,9 @@ export const TokensInput = ({
   const minWidth = isNumberOfTokensMoreThanOrEqualToMaxTags ? '' : 'min-width--150';
 
   return (
-    <div className="oui-text-input text--left flush">
+    <div
+      data-oui-component={ true }
+      className="oui-text-input text--left flush">
       <ReactTagsInput
         addKeys={ addKeys }
         addOnBlur={ addOnBlur }

@@ -55,6 +55,7 @@ const Container = React.forwardRef(({
     <Component
       ref={ ref }
       { ...props }
+      data-oui-component={ true }
       className={ classNames(
         fluid ? `${prefix}-fluid` : prefix,
         outlineDebug && 'outline--debug',

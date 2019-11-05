@@ -24,7 +24,10 @@ const RangeSlider = (props) => {
   const fillColor = FILL_COLOR_MAP[validFillColorName];
 
   return (
-    <div className={ rangeClasses } data-test-section={ props.testSection }>
+    <div
+      data-oui-component={ true }
+      className={ rangeClasses }
+      data-test-section={ props.testSection }>
       <div className="oui-grid">
         <div className="oui-grid__cell position--relative">
           <div className="range-labels flex">

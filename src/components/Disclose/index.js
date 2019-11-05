@@ -35,7 +35,10 @@ const Disclose = ({
     },
   );
   return (
-    <div className={ arrowClass } style={{marginTop: '-1px'}}>
+    <div
+      data-oui-component={ true }
+      className={ arrowClass }
+      style={{marginTop: '-1px'}}>
       <a onClick={ toggle } className={ linkClass }>
         <div className='oui-disclose__arrow'>
           <span className="oui-disclose__symbol push-half--right"></span>
