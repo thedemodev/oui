@@ -3,6 +3,7 @@
 exports[`components/ListGroup render listgroup with correct classes 1`] = `
 <div
   className="oui-listgroup flex soft--top soft--bottom border--bottom"
+  data-oui-component={true}
   data-test-section=""
 >
   <div

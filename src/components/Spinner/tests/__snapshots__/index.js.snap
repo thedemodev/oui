@@ -3,12 +3,14 @@
 exports[`components/Spinner should render correctly 1`] = `
 <div
   className="oui-spinner"
+  data-oui-component={true}
 />
 `;
 
 exports[`components/Spinner should render correctly including testSection prop 1`] = `
 <div
   className="oui-spinner"
+  data-oui-component={true}
   data-test-section="testing-foo"
 />
 `;
@@ -38,5 +40,6 @@ exports[`components/Spinner should render correctly with size & overlay props 1`
 exports[`components/Spinner should render correctly with size property set to tiny 1`] = `
 <div
   className="oui-spinner oui-spinner--tiny"
+  data-oui-component={true}
 />
 `;

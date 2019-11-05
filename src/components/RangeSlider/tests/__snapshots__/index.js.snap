@@ -3,6 +3,7 @@
 exports[`components/RangeSlider default fill color should render component same as snapshot 1`] = `
 <div
   className="oui-rangeslider"
+  data-oui-component={true}
   data-test-section="myTestSection"
 >
   <div
