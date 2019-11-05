@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.10.1 - 2019-11-04
 - [Patch] Fix issue with height of **Textarea** being hard coded to text input height ([#1243](https://github.com/optimizely/oui/pull/1243))
 - [Patch] Reduce padding for **SelectDropdown** button activator ([#1244](https://github.com/optimizely/oui/pull/1244))
 
