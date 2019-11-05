@@ -33,13 +33,6 @@ import FilterPicker from '../src/components/FilterPicker';
 
 import Sheet from '../src/components/Sheet';
 
-const SAMPLE_DATA_WITH_SPACES = [
-  { name: 'errors', style: 'error' },
-  { name: 'primary token', style: 'primary' },
-  { name: 'secondary', style: 'secondary' },
-  { name: 'tertiary', style: 'tertiary' },
-];
-
 const items = [
   {
     label: 'Cat',
@@ -58,30 +51,6 @@ const items = [
     value: 'squirrel',
   },
 ];
-
-const AudienceConfig = {
-  ANY: 'ANY',
-  ALL: 'ALL',
-  CUSTOM: 'CUSTOM',
-};
-
-const dropdownOptions = object('Dropdown Options', [
-  {
-    renderTitle: () => (<span>Match <strong>any</strong> audience</span>), // eslint-disable-line react/display-name
-    description: 'A visitor will be in this experiment if they match one or more of the audiences specified.',
-    id: AudienceConfig.ANY,
-  },
-  {
-    renderTitle: () => (<span>Match <strong>all</strong> audiences</span>), // eslint-disable-line react/display-name
-    description: 'A visitor will be in this experiment if they match all of the audiences specified.',
-    id: AudienceConfig.ALL,
-  },
-  {
-    renderTitle: () => ('Custom'),
-    description: 'Visitors will be in this experiment if they match the provided audience JSON object.',
-    id: AudienceConfig.CUSTOM,
-  },
-]);
 
 const allEntityDataValue = object('allEntities', [
   { name: 'Desktop / Mac', id: 1 },
@@ -208,5 +177,24 @@ stories
     <h6>H6 Experiments</h6>
     <p>Paragraph</p>
     <p className="micro">Micro</p>
+  </div>
+)))
+.add('Headings', (() => (
+  <div>
+    <h1>Settings</h1>
+
+    <h2 className="push-half--bottom">Snippet Implementation</h2>
+    <p>Some paragraph text below that describes the heading above.</p>
+
+    <h3>Snippet Details</h3>
+    <p>Some paragraph text below that describes the heading above.</p>
+
+    <h4>Snippet Settings</h4>
+    <p>Some paragraph text below that describes the heading above.</p>
+
+    <h5>Privacy</h5>
+    <p>Some paragraph text below that describes the heading above.</p>
+
+    <h6>JQuery Settings</h6>
   </div>
 )));
