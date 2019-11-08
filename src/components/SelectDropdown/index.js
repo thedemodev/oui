@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 import Button from '../Button';
 import Dropdown from '../Dropdown';
+import Input from '../Input';
+import Spinner from '../Spinner';
 
 class SelectDropdown extends React.Component {
   static propTypes = {
+    /**
+     * The dropdown options will show a spinner overlayed if this is true.
+     */
+    areItemsLoading: PropTypes.bool,
     /**
      * Style value that is passed to the OUI button that controls the dropdown.
      */
@@ -20,9 +27,23 @@ class SelectDropdown extends React.Component {
      */
     dropdownDirection: PropTypes.oneOf(['right', 'left']),
     /**
+     * If provided, an input box will be displayed to enable
+     * filtering props.items by these fields.
+     * This prop is ignored if props.renderInput is provided.
+     */
+    filterFields: PropTypes.arrayOf(PropTypes.string),
+    /**
+     * Header text to display above all items in the list.
+     */
+    headerText: PropTypes.string,
+    /**
      * An initial value for the dropdown before anything is selected
      */
     initialPlaceholder: PropTypes.node,
+    /**
+     * The activator will show a spinner overlayed if this is true.
+     */
+    isActivatorLoading: PropTypes.bool,
     /**
      * The select is greyed out if it is disabled.
      */
@@ -60,6 +81,12 @@ class SelectDropdown extends React.Component {
      */
     onChange: PropTypes.func.isRequired,
     /**
+     * A render method to display an input box above the selected items,
+     * allowing consumers to implement their own search/filter functionality.
+     * If provided, this prop overrides props.filterFields.
+     */
+    renderInput: PropTypes.func,
+    /**
      * Identifier used to create data-test-section attributes for testing.
      */
     testSection: PropTypes.string,
@@ -76,6 +103,11 @@ class SelectDropdown extends React.Component {
       PropTypes.bool,
     ]),
     /**
+     * The field in each props.items which corresponds to the props.value
+     * Used to determine if the item is selected.
+     */
+    valueField: PropTypes.string,
+    /**
      * Width of the activator container.
      */
     width: PropTypes.oneOfType([
@@ -89,40 +121,168 @@ class SelectDropdown extends React.Component {
   };
 
   static defaultProps = {
+    areItemsLoading: false,
     buttonStyle: 'outline',
-    initialPlaceholder: '',
     displayError: false,
     dropdownDirection: 'right',
-    width: '100%',
-    trackId: '',
+    filterFields: null,
+    isActivatorLoading: false,
+    initialPlaceholder: '',
+    headerText: null,
+    renderInput: null,
     testSection: '',
+    trackId: '',
     value: '',
+    valueField: 'value',
+    width: '100%',
+  };
+
+  state = {
+    filterTerm: '',
+  };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const stateChanged = !_.isEqual(this.state, nextState);
+    const propsChanged = !_.isEqual(this.props, nextProps);
+    return propsChanged || stateChanged;
+  }
+
+  filter = (event) => {
+    this.setState({
+      filterTerm: event.target.value,
+    });
+  };
+
+  handleOnClick = (value) => this.props.onChange(value);
+
+  getActivator = (activatorLabel, outerClass) => {
+    const {
+      buttonStyle,
+      isActivatorLoading,
+      maxWidth,
+      trackId,
+      width,
+    } = this.props;
+    return ({ buttonRef, isDisabled, onClick, onBlur, testSection }) => (
+      <div
+        style={{ width: width, maxWidth: maxWidth}}
+        className={ outerClass }>
+        <Button
+          isLoading={ isActivatorLoading }
+          title={ activatorLabel }
+          loadingText={ activatorLabel }
+          isDisabled={ isDisabled }
+          style={ buttonStyle }
+          size="narrow"
+          testSection={ `${testSection}-activator` }
+          width="full"
+          buttonRef={ buttonRef }
+          onClick={ onClick }
+          onBlur={ onBlur }>
+          <div className="flex flex-align--center" data-track-id={ trackId }>
+            <span className="oui-dropdown-group__activator-label flex--1">{ activatorLabel }</span>
+            <span className="push--left oui-arrow-inline--down" />
+          </div>
+        </Button>
+      </div>
+    );
+  };
+
+  getFilterFunction = () => {
+    const { filterTerm } = this.state;
+    const { filterFields } = this.props;
+    return (item) => {
+      if (!filterFields) {
+        return true;
+      }
+      return !!filterFields.find(field => {
+        const value = item[field];
+        return value && typeof value === 'string' && value.includes(filterTerm);
+      });
+    };
+  };
+
+  maybeRenderInputBox = () => {
+    const { filterFields, renderInput } = this.props;
+    const { filterTerm } = this.state;
+    if (renderInput || filterFields) {
+      return (
+        <Dropdown.ListItem ignoreToggle={ true }>
+          { renderInput ? renderInput() : (
+            <Input
+              value={ filterTerm }
+              onChange={ this.filter }
+              isFilter={ true }
+              type="search"
+            />
+          )}
+        </Dropdown.ListItem>
+      );
+    }
+  };
+
+  renderItems = () => {
+    const { items, headerText, value, valueField } = this.props;
+    const selectOptions = items
+      .filter(this.getFilterFunction())
+      .map((entry) => {
+        const thisEntryValue = entry[valueField];
+        return (
+          <Dropdown.ListItem key={ thisEntryValue }>
+            <Dropdown.BlockLink
+              value={ thisEntryValue }
+              onClick={ this.handleOnClick }
+              isLink={ thisEntryValue !== value }
+              testSection={ 'dropdown-block-link-' + thisEntryValue }>
+              { entry.label }
+              { entry.description && (
+                <div className="micro muted">
+                  { entry.description }
+                </div>
+              )}
+            </Dropdown.BlockLink>
+          </Dropdown.ListItem>
+        );
+      });
+
+    if (headerText) {
+      selectOptions.unshift(
+        <Dropdown.ListItem ignoreToggle={ true } key={ headerText }>
+          <span className="muted micro soft--sides">{ headerText }</span>
+        </Dropdown.ListItem>
+      );
+    }
+    return selectOptions;
   };
 
   renderContents = () => {
-    const { items, value, minDropdownWidth, dropdownDirection } = this.props;
-
+    const { areItemsLoading, minDropdownWidth, dropdownDirection } = this.props;
+    const itemsClass = classNames({
+      'position--relative': true,
+      'min-height--100': areItemsLoading,
+    });
     return (
       <Dropdown.Contents minWidth={ minDropdownWidth } direction={ dropdownDirection }>
-        { items.map((entry, index) => (
-          <SelectOption
-            key={ index }
-            onChange={ this.props.onChange }
-            value={ entry.value }
-            label={ entry.label }
-            description={ entry.description }
-            isSelected={ entry.value === value }
-          />
-        ))}
+        { this.maybeRenderInputBox() }
+        <div className={ itemsClass }>
+          { this.renderItems() }
+          { areItemsLoading && <Spinner hasOverlay={ areItemsLoading } /> }
+        </div>
       </Dropdown.Contents>
     );
   };
 
   render() {
-    const { buttonStyle, value, width, maxWidth, zIndex, isDisabled, initialPlaceholder } = this.props;
+    const {
+      value,
+      valueField,
+      zIndex,
+      isDisabled,
+      initialPlaceholder,
+    } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
-      if (item.value === value) {
+      if (item[valueField] === value) {
         selectedItem = item;
       }
     });
@@ -139,96 +299,15 @@ class SelectDropdown extends React.Component {
       activatorLabel = initialPlaceholder;
     }
 
-    const Activator = ({ buttonRef, onClick, onBlur }) => (
-      <div
-        style={{ width: width, maxWidth: maxWidth}}
-        className={ outerClass }>
-        <Button
-          title={ activatorLabel }
-          isDisabled={ this.props.isDisabled }
-          style={ buttonStyle }
-          size="narrow"
-          testSection={ this.props.testSection }
-          width="full"
-          buttonRef={ buttonRef }
-          onClick={ onClick }
-          onBlur={ onBlur }>
-          <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
-            <span className="oui-dropdown-group__activator-label flex--1">{ activatorLabel }</span>
-            <span className="push--left oui-arrow-inline--down" />
-          </div>
-        </Button>
-      </div>
-    );
-
     return (
       <Dropdown
         { ...(zIndex ? { zIndex } : {}) }
         isDisabled={ isDisabled }
-        activator={ <Activator /> }>
+        Activator={ this.getActivator(activatorLabel, outerClass) }>
         { this.renderContents() }
       </Dropdown>
     );
   }
 }
-
-class SelectOption extends React.Component {
-  static propTypes = {
-    /**
-     * Description of select item.
-     */
-    description: PropTypes.string,
-    /** Toggle dropdown open/closed */
-    handleToggle: PropTypes.func,
-    /**
-     * Whether or not item has been selected or not.
-     */
-    isSelected: PropTypes.bool.isRequired,
-    /**
-     * Label of select item.
-     */
-    label: PropTypes.node.isRequired,
-    /**
-     * Function that is called when user selects another item.
-     */
-    onChange: PropTypes.func.isRequired,
-    /**
-     * Value of select item.
-     */
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.bool,
-    ]).isRequired,
-  };
-
-  onClick = () => {
-    this.props.onChange(this.props.value);
-  };
-
-  render() {
-    const { isSelected, label, description, value, handleToggle } = this.props;
-    return (
-      <Dropdown.ListItem hideOnClick={ true } handleToggle={ handleToggle }>
-        <Dropdown.BlockLink
-          isLink={ !isSelected }
-          onClick={ this.onClick }
-          testSection={ 'dropdown-block-link-' + value }>
-          { label }
-          { description && (
-            <div className="micro muted">
-              { description }
-            </div>
-          )}
-        </Dropdown.BlockLink>
-      </Dropdown.ListItem>
-    );
-  }
-}
-
-SelectOption.defaultProps = {
-  description: '',
-  handleToggle: () => {},
-};
 
 export default SelectDropdown;

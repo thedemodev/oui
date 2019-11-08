@@ -16,6 +16,21 @@ import DropdownBlockLinkSecondaryText from './DropdownBlockLinkSecondaryText';
 class Dropdown extends React.Component {
   static displayName = 'Dropdown';
 
+  static shouldDisplayChildren = ({ isOpen, isDisabled }) => isOpen && !isDisabled;
+
+  componentDidUpdate = (prevProps) => {
+    // For performance reasons, only listen to global clicks
+    // while the children are displayed.
+    if (Dropdown.shouldDisplayChildren(prevProps) === Dropdown.shouldDisplayChildren(this.props)) {
+      return;
+    }
+    if (Dropdown.shouldDisplayChildren(this.props)) {
+      document.addEventListener('click', this.handleOnBlur);
+    } else {
+      document.removeEventListener('click', this.handleOnBlur);
+    }
+  };
+
   handleHideChildren = () => {
     const {
       hide,
@@ -37,13 +52,13 @@ class Dropdown extends React.Component {
     }
   };
 
-  handleToggle = () => {
+  handleToggle = (event) => {
     const {
       isDisabled,
       overChildren,
       shouldHideChildrenOnClick,
     } = this.props;
-    if (isDisabled || (!shouldHideChildrenOnClick && overChildren)) {
+    if (isDisabled || event.ignoreToggle || (!shouldHideChildrenOnClick && overChildren)) {
       return;
     }
     this.props.setOverChildren(false);
@@ -56,7 +71,7 @@ class Dropdown extends React.Component {
 
   render() {
     const {
-      activator,
+      Activator,
       arrowIcon,
       buttonContent,
       children,
@@ -123,17 +138,20 @@ class Dropdown extends React.Component {
                 );
               }
 
-              if (activator) {
-                return React.cloneElement(activator, {
-                  // trigger the dropdown if the child element is clicked on
-                  onClick: this.handleToggle,
-                  onBlur: this.handleOnBlur,
-                  buttonRef: ref,
-                });
+              if (Activator) {
+                return (
+                  <Activator
+                    buttonRef={ ref }
+                    disabled={ isDisabled }
+                    onBlur={ this.handleOnBlur }
+                    onClick={ this.handleToggle }
+                    testSection={ testSection }
+                  />
+                );
               }
             }}
           </Reference>
-          {isOpen && !isDisabled &&
+          {Dropdown.shouldDisplayChildren(this.props) &&
             <Popper placement={ placement }>
               {({ ref, style: popperStyle, placement: popperPlacement }) => (
                 <div
@@ -172,11 +190,11 @@ class Dropdown extends React.Component {
 
 Dropdown.propTypes = {
   /**
-   * React element that when clicked activates the dropdown
+   * React component that when clicked activates the dropdown
    * Either this prop OR buttonContent should be used, not both
    * Not included in defaultProps because undefined is an expected value
    */
-  activator: PropTypes.node,
+  Activator: PropTypes.elementType,
   /** Arrow icon direction:
     * - Defaults to 'none', which hides the arrow
     * - passing a prop value of false also hides the arrow
@@ -267,6 +285,7 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
+  Activator: null,
   arrowIcon: 'none',
   displayError: false,
   fullWidth: false,

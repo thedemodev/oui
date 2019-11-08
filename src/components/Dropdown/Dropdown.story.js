@@ -28,6 +28,8 @@ stories
     </div>
   ));
 
+const ActivatorButton = () => <Button>Click to activate</Button>;
+
 stories.add('Default', (() => {
   return (
     <Container>
@@ -162,9 +164,7 @@ stories.add('List', (() => {
       <SubContainer>
         <Dropdown
           isDisabled={ boolean('isDisabled', false) }
-          activator={
-            <Button>Click to activate</Button>
-          }
+          Activator={ ActivatorButton }
           placement={ 'top-start' }
           width={ number('width', 300) }>
           <Dropdown.Contents

@@ -20,6 +20,7 @@ class Input extends React.Component {
   renderInput({
     isFilter,
     displayError,
+    hasSquareBottom,
     type,
     value,
     defaultValue,
@@ -46,13 +47,14 @@ class Input extends React.Component {
       hasAlignStyle = true;
     }
 
-    let classes = classNames(
-      'oui-text-input',
-      {'oui-text-input--read-only': isReadOnly},
-      {'oui-text-input--search': isFilter},
-      {'oui-form-bad-news': displayError},
-      {[`text--${textAlign}`]: hasAlignStyle}
-    );
+    let classes = classNames({
+      'oui-text-input': true,
+      'oui-text-input--read-only': isReadOnly,
+      'oui-text-input--search': isFilter,
+      'oui-text-input--square-bottom': hasSquareBottom,
+      'oui-form-bad-news': displayError,
+      [`text--${textAlign}`]: hasAlignStyle,
+    });
 
     return (
       /* eslint-disable react/jsx-no-bind */
@@ -134,6 +136,8 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   /** Includes search icon if true */
   displayError: PropTypes.bool,
+  /** Whether or not the bottom corner style should be squared. */
+  hasSquareBottom: PropTypes.bool,
   /** Id of the input to properly associate with the input's label */
   id: PropTypes.string,
   /** Prevents input from being modified and appears disabled */
@@ -221,6 +225,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   note: null,
+  hasSquareBottom: false,
   isRequired: false,
 };
 

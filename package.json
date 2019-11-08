@@ -131,7 +131,7 @@
     "storybook": "yarn generate-tokens:watch & yarn csswhat:watch & start-storybook -p 9009",
     "build-storybook": "yarn generate-tokens && yarn csswhat && build-storybook -c .storybook -o ./storybook",
     "build-styles": "yarn csswhat && ./node_modules/.bin/webpack",
-    "watch": "./node_modules/.bin/webpack --watch",
+    "watch": "./node_modules/.bin/webpack --watch & yarn babel-es5 --watch & yarn babel-module --watch",
     "csswhat": "yarn csswhat-css && yarn csswhat-json",
     "csswhat-css": "node-sass-chokidar src/oui/oui.scss -o ./data/csswhat",
     "csswhat-json": "node node_modules/csswhat/csswhat.js --in=./data/csswhat/oui.css --out=./data/csswhat/oui.css.json",

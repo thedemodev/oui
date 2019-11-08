@@ -63,6 +63,18 @@ stories.add('Default', (() => {
       />
     </Container>
   );
+})).add('With filter', (() => {
+  return (
+    <Container>
+      <SelectDropdown
+        items={ items }
+        headerText="A list of 5 animals"
+        filterFields={ ['value'] }
+        initialPlaceholder="Select a value..."
+        onChange={ action('SelectDropdown value changed') }
+      />
+    </Container>
+  );
 })).add('Width of activator', (() => {
   return (
     <Container>

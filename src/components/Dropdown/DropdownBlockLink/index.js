@@ -24,10 +24,12 @@ export default class DropdownBlockLink extends React.Component {
     testSection: PropTypes.string,
     /** Used for data-track-id attribute on the link */
     trackId: PropTypes.string,
+    /** An optional value to invoke the onClick callback with */
+    value: PropTypes.string,
   };
 
   onClick = () => {
-    this.props.onClick();
+    this.props.onClick(this.props.value);
   };
 
   render() {

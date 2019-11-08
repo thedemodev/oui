@@ -9,9 +9,16 @@ export default function DropdownListItem(props) {
     'oui-dropdown__item': true,
   });
 
+  function handleOnClick(event) {
+    if (props.ignoreToggle) {
+      event.ignoreToggle = true;
+      event.persist();
+    }
+  }
 
   return (
     <li
+      onClick={ handleOnClick }
       className={ classes }>
       { props.children }
     </li>
@@ -25,4 +32,6 @@ DropdownListItem.propTypes = {
   hardSides: PropTypes.bool,
   /** Remove padding from top */
   hardTop: PropTypes.bool,
+  /** Prevent clicks from propagating up to Dropdown parent. */
+  ignoreToggle: PropTypes.bool,
 };
