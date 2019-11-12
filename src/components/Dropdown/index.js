@@ -148,6 +148,15 @@ class Dropdown extends React.Component {
                     testSection={ testSection }
                   />
                 );
+              } else if (this.props.activator) {
+                // To be deprecated in favor of Activator
+                return React.cloneElement(this.props.activator, {
+                  buttonRef: ref,
+                  disabled: isDisabled,
+                  onBlur: this.handleOnBlur,
+                  onClick: this.handleToggle,
+                  testSection: testSection,
+                });
               }
             }}
           </Reference>
