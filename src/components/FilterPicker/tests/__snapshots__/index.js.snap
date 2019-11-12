@@ -120,6 +120,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
       </ul>
     </ul>
     <Input
+      hasSquareBottom={false}
       isFilter={true}
       isRequired={false}
       note={null}
@@ -752,6 +753,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
       </ul>
     </ul>
     <Input
+      hasSquareBottom={false}
       isFilter={true}
       isRequired={false}
       note={null}
@@ -1359,6 +1361,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
       </ul>
     </ul>
     <Input
+      hasSquareBottom={false}
       isFilter={true}
       isRequired={false}
       note={null}
@@ -1967,6 +1970,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
       </ul>
     </ul>
     <Input
+      hasSquareBottom={false}
       isFilter={true}
       isRequired={false}
       note={null}

@@ -7,7 +7,7 @@ away some of the implementation complexity while allowing for maximum extensibil
 the implementer and keep this component lean. Here are a few noteworthy things:
 
 *-* **ATTN:** If a max scrollable height should be used (likely in most cases), consider using use an oui class like "max-scroll--medium" around `BlockList.Category`  
-*-* **ATTN:** If a search Input will be used with `Blocklist` and `FilterList.ListItem`, consider wrapping `Blocklist` inside a div with the `oui-filter-picker-list` class to remove the Input's bottom border (see story and story source for example)  
+*-* **ATTN:** If a search Input will be used with `Blocklist` and `FilterList.ListItem`, consider using the <Input> prop hasSquaredBottom to remove the Input's bottom border (see story and story source for example)
 *-* Using `react-immutable-proptypes`, FilterPicker can be used with Immutable or POJO datasets.  
 *-* By default, this component filters `selectedEntityIds` and items that don't match the `filterQuery` to create and return `availableEntities` via the render props function  
 *-* If a `customFilterFn` is used, it will be used in place of the `filterQuery` filter. If `selectedEntityIds` should be kept in, simply do not include that list as a component prop  

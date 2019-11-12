@@ -47,6 +47,7 @@ describe('components/EditableInput', function() {
         value: '',
         isRequired: false,
         displayError: false,
+        hasSquareBottom: false,
         label: '',
         note: 'test',
         onFocus: expect.any(Function),

@@ -87,9 +87,9 @@ class FilterPicker extends Component {
      *    Function that can be used in an input, that sets the input value
      *    in component state as filterQuery. This can be used for filtering
      *    in the default or custom filter function. If a search Input will
-     *    be used with Blocklist and FilterList.ListItem, consider wrapping
-     *    Blocklist inside a div with the oui-filter-picker-list class to
-     *    remove the Input's bottom border (see story/story source for example)
+     *    be used with Blocklist and FilterList.ListItem, consider using the
+     *    <Input> prop hasSquaredBottom to remove the Input's bottom border
+     *    (see story/story source for example)
      * - selectedEntities {Array|Immutable.List}:
      *    Given the optionally provided selectedEntityIds, an array or
      *    Immutable.List of entities, based on ID, from allEntities

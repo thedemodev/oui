@@ -37,6 +37,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
     className="oui-example-component"
   >
     <Input
+      hasSquareBottom={false}
       isRequired={false}
       note={null}
       onInput={[Function]}
