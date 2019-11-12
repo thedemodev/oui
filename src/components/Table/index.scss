@@ -21,6 +21,10 @@
     font-size: 12px;
     color: map-fetch($color, text, muted);
     text-align: left;
+    vertical-align: bottom;
+    line-height: map-fetch($font, line-height, tight);
+    padding-left: spacer(1);
+    padding-right: spacer(1);
 
     // For columns that are sortable.
 
@@ -29,8 +33,13 @@
     }
   }
 
-  td {
+  tbody tr {
+    border-top: 1px solid map-fetch($color, ui, light);
+  }
+
+  tbody td {
     vertical-align: top;
+    padding: spacer(1);
   }
 
   // Cell Alignments
@@ -113,12 +122,12 @@
 
     & > thead > tr > th:first-child, // scss-lint:disable UnnecessaryParentReference
     & > tbody > tr > td:first-child { // scss-lint:disable UnnecessaryParentReference
-      padding-left: spacer(1);
+      padding-left: spacer(2);
     }
 
     & > thead > tr > th:last-child, // scss-lint:disable UnnecessaryParentReference
     & > tbody > tr > td:last-child { // scss-lint:disable UnnecessaryParentReference
-      padding-right: spacer(1);
+      padding-right: spacer(2);
     }
   }
 
@@ -248,10 +257,5 @@
 .oui-table--loose > tbody > tr > td {
   padding-top: spacer(1.5);
   padding-bottom: spacer(1.5);
-}
-
-// Older code, should be refactored.
-.lego-table--add-row__controls .flex {
-  width: 72px;
 }
 
