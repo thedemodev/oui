@@ -194,6 +194,7 @@ storiesOf('FilterPicker', module)
                 isFilter={ true }
                 onInput={ handleFilterInput }
                 placeholder="Browse for Audiences"
+                hasSquareBottom={ true }
                 type="search"
               />
               <BlockList hasBorder={ true }>

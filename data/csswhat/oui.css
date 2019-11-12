@@ -4962,15 +4962,6 @@ code {
 .oui-example-component span.example-background--yellow {
   background-color: #FFD233; }
 
-/**
- * When a text search input is in .oui-filter-picker and not disabled or read-only, styles will be changed.
- * This allows for a nice fit with the BlockList / FilterList items, but assumes those aren't present
- * when disabled or read-only
- */
-.filter-picker-list .text-input--search, .filter-picker-list .oui-text-input--search, .oui-filter-picker-list .text-input--search, .oui-filter-picker-list .oui-text-input--search {
-  border-bottom: 0 !important;
-  border-radius: 5px 5px 0px 0px !important; }
-
 .help-dot {
   background: #a6a6a6;
   color: #FFFFFF;
@@ -5090,6 +5081,10 @@ code {
 .text-input--read-only:focus,
 .oui-text-input--read-only:focus {
   border-color: #999999; }
+
+.oui-text-input--square-bottom {
+  border-bottom: 0 !important;
+  border-radius: 5px 5px 0px 0px !important; }
 
 .input-icon {
   position: relative; }
