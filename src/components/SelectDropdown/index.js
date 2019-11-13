@@ -141,10 +141,22 @@ class SelectDropdown extends React.Component {
     filterTerm: '',
   };
 
+  spinnerRef = React.createRef();
+
+  childrenRef = React.createRef();
+
   shouldComponentUpdate(nextProps, nextState) {
     const stateChanged = !_.isEqual(this.state, nextState);
     const propsChanged = !_.isEqual(this.props, nextProps);
     return propsChanged || stateChanged;
+  }
+
+  componentDidMount() {
+    this.setSpinnerHeight();
+  }
+
+  componentDidUpdate() {
+    this.setSpinnerHeight();
   }
 
   filter = (event) => {
@@ -152,6 +164,14 @@ class SelectDropdown extends React.Component {
       filterTerm: event.target.value,
     });
   };
+
+  setSpinnerHeight = () => {
+    if (this.spinnerRef.current && this.childrenRef.current) {
+      const spinnerTopOffset = this.spinnerRef.current.offsetTop;
+      const visibleContentHeight = this.childrenRef.current.clientHeight;
+      this.spinnerRef.current.style.height = `${ visibleContentHeight - spinnerTopOffset}px`;
+    }
+  }
 
   handleOnClick = (value) => this.props.onChange(value);
 
@@ -256,18 +276,17 @@ class SelectDropdown extends React.Component {
   };
 
   renderContents = () => {
-    const { areItemsLoading, minDropdownWidth, dropdownDirection } = this.props;
-    const itemsClass = classNames({
-      'position--relative': true,
-      'min-height--100': areItemsLoading,
-    });
+    let { areItemsLoading, minDropdownWidth, dropdownDirection } = this.props;
+    areItemsLoading = true;
     return (
-      <Dropdown.Contents minWidth={ minDropdownWidth } direction={ dropdownDirection }>
-        { this.maybeRenderInputBox() }
-        <div className={ itemsClass }>
-          { this.renderItems() }
-          { areItemsLoading && <Spinner hasOverlay={ areItemsLoading } /> }
-        </div>
+      <Dropdown.Contents
+        ref={ this.childrenRef }
+        isLoading={ areItemsLoading }
+        direction={ dropdownDirection }
+        minWidth={ minDropdownWidth }
+        renderHeader={ this.maybeRenderInputBox }>
+        { this.renderItems() }
+        { areItemsLoading && <Spinner ref={ this.spinnerRef } hasOverlay={ areItemsLoading } /> }
       </Dropdown.Contents>
     );
   };

@@ -9,11 +9,11 @@ import classNames from 'classnames';
  * @returns {ReactElement}
  */
 
-const Spinner = ({
+const Spinner = React.forwardRef(({
   size,
   hasOverlay,
   testSection,
-}) => {
+}, ref) => {
   const classes = classNames(
     'oui-spinner',
     {[`oui-spinner--${size}`]: size}
@@ -21,6 +21,7 @@ const Spinner = ({
   if (hasOverlay) {
     return (
       <div
+        ref={ ref }
         data-oui-component={ true }
         data-test-section={ testSection }
         className="oui-overlay">
@@ -29,7 +30,7 @@ const Spinner = ({
     );
   }
   return <div data-test-section={ testSection } className={ classes }></div>;
-};
+});
 
 Spinner.propTypes = {
   /** boolean class for establish overlay */

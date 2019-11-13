@@ -40,6 +40,29 @@ const items = [
     description: 'Smarter than it looks',
     value: 'squirrel',
   },
+  {
+    label: 'Cat',
+    description: 'A small feline.',
+    value: 'cat2',
+  },
+  {
+    label: 'Dog',
+    value: 'dog2',
+  },
+  {
+    label: 'Dog with a really long name',
+    value: 'dog-long2',
+  },
+  {
+    label: 'Bear',
+    description: 'Likes honey',
+    value: 'bear2',
+  },
+  {
+    label: 'Squirrel',
+    description: 'Smarter than it looks',
+    value: 'squirrel2',
+  },
 ];
 
 stories.add('Default', (() => {

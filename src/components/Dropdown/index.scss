@@ -130,7 +130,7 @@
 
   &__item {
     color: map-fetch($color, text, base);
-    padding: spacer(.5) spacer(1);
+    padding: spacer(.5);
 
     & > div.isSelected,
     & > div.micro {

@@ -1,9 +1,14 @@
+import _ from 'lodash';
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export default function DropdownContents(props) {
+export const DropdownContents = React.forwardRef((props, ref) => {
   const styleProps = {};
+  if (!_.isUndefined(props.isLoading)) {
+    // Supports loading spinner over <ul> contents
+    styleProps.position = 'relative';
+  }
   if (props.minWidth) {
     styleProps.minWidth = props.minWidth;
   }
@@ -13,22 +18,29 @@ export default function DropdownContents(props) {
     styleProps.maxHeight = 'none';
   }
 
-  const classes = classNames({
+  const wrapperClasses = classNames({
     'nowrap': props.isNoWrap,
     'oui-dropdown': true,
     'oui-dropdown--right': props.direction === 'left',
     'oui-dropdown--up': props.direction === 'up',
   });
 
+  const listClasses = classNames({ 'min-height--100': props.isLoading });
+
   return (
-    <ul
-      className={ classes }
-      style={ styleProps }
-      { ...(props.testSection ? { 'data-test-section': props.testSection } : {}) }>
-      { props.children }
-    </ul>
+    <div
+      ref={ ref }
+      className={ wrapperClasses }>
+      { props.renderHeader && props.renderHeader() }
+      <ul
+        className={ listClasses }
+        style={ styleProps }
+        { ...(props.testSection ? { 'data-test-section': props.testSection } : {}) }>
+        { props.children }
+      </ul>
+    </div>
   );
-}
+});
 
 DropdownContents.propTypes = {
   /** Whether contents can scroll */
@@ -54,3 +66,5 @@ DropdownContents.defaultProps = {
   isNoWrap: false,
   testSection: '',
 };
+
+export default DropdownContents;

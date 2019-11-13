@@ -18,8 +18,9 @@ export default function DropdownListItem(props) {
 
   return (
     <li
-      onClick={ handleOnClick }
-      className={ classes }>
+      className={ classes }   
+      onClick={ handleOnClick } 
+      role={ props.role }>
       { props.children }
     </li>
   );
@@ -32,6 +33,14 @@ DropdownListItem.propTypes = {
   hardSides: PropTypes.bool,
   /** Remove padding from top */
   hardTop: PropTypes.bool,
-  /** Prevent clicks from propagating up to Dropdown parent. */
+  /**
+   * Instruct the parent Dropdown instance to not consider
+   * clicks on this element for toggling open/close.
+   **/
   ignoreToggle: PropTypes.bool,
+  /**
+   * Aria role for this list item. See roles here:
+   * https://www.w3.org/WAI/PF/aria/roles
+   */
+  role: PropTypes.string,
 };
