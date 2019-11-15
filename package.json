@@ -33,6 +33,7 @@
     "react-tippy": "^1.2.2",
     "recompose": "^0.26.0",
     "set-value": "^2.0.1",
+    "storybook-chromatic": "^3.1.0",
     "styled-components": "^2.1.2",
     "svg-jsx-loader": "0.0.18",
     "tether": "^1.3.7"
@@ -139,7 +140,8 @@
     "csswhat-json:watch": "onchange 'data/csswhat/oui.css' -- yarn csswhat-json",
     "csswhat-css:watch": "node-sass-chokidar src/oui/oui.scss --watch -o ./data/csswhat",
     "generate-tokens": "node src/tokens/index.js",
-    "generate-tokens:watch": "onchange 'src/tokens/src/**/*.json' -- yarn generate-tokens"
+    "generate-tokens:watch": "onchange 'src/tokens/src/**/*.json' -- yarn generate-tokens",
+    "chromatic": "CHROMATIC_APP_CODE=snm7ls00z2d chromatic"
   },
   "repository": {
     "type": "git",

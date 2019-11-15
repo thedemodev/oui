@@ -339,4 +339,4 @@ stories
       <div className="push--ends">
       </div>
 
-  </div>)});
+  </div>)}, { chromatic: { disable: true } });
