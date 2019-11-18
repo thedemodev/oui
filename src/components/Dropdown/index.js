@@ -136,8 +136,11 @@ class Dropdown extends React.Component {
                 // To be deprecated in favor of renderActivator
                 return React.cloneElement(this.props.activator, {
                   buttonRef: ref,
+                  ref,
+                  disabled: isDisabled,
                   onBlur: this.handleOnBlur,
                   onClick: this.handleToggle,
+                  testSection: testSection,
                 });
               }
             }}
