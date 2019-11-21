@@ -5,9 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Improve keyboard accessibility by updating **HelpPopover** to use ButtonIcon component and be a focusable element ([#1254](https://github.com/optimizely/oui/pull/1254))
+    - Add ability to associate a **ButtonIcon** with another component, like a **Popover**, using `ariaDescribedBy` and `popoverId` props
 
 ## 44.11.0 - 2019-11-06
-- [Feature] Add Go language to the **Code** component([#1242](https://github.com/optimizely/oui/pull/1242))
+- [Feature] Add Go language to the **Code** component ([#1242](https://github.com/optimizely/oui/pull/1242))
 
 ## 44.10.1 - 2019-11-04
 - [Patch] Fix issue with height of **Textarea** being hard coded to text input height ([#1243](https://github.com/optimizely/oui/pull/1243))
