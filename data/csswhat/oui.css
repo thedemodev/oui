@@ -3033,6 +3033,28 @@ li > ol {
 .number-display {
   font-family: Lato, Helvetica, Verdana, sans-serif; }
 
+.oui-docked-footer {
+  background-color: white;
+  padding-bottom: 20px;
+  box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
+  transition: all .2s ease-in-out;
+  margin-bottom: -20px;
+  padding-top: 20px; }
+
+.oui-docked-footer.oui-docked-footer--is-docked {
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
+
+.oui-docked-footer .oui-button-row--right {
+  transition: all .2s ease-in-out;
+  margin-right: 10px; }
+
+.oui-docked-footer--is-docked.oui-docked-footer--inside-sheet {
+  width: 100%;
+  padding: 10px 60px;
+  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
+
 
 .array {
   display: flex; }
@@ -6592,7 +6614,8 @@ body:target *[data-oui-component],
 
 .oui-disclose-table--row__toggle.is-active,
 .border--ends,
-.border--top {
+.border--top,
+.oui-docked-footer {
   border-top: 1px solid #e0e0e0 !important; }
 
 .oui-disclose-table--row__content,
