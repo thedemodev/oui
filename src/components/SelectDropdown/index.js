@@ -99,27 +99,8 @@ class SelectDropdown extends React.Component {
     value: '',
   };
 
-  renderContents = () => {
-    const { items, value, minDropdownWidth, dropdownDirection } = this.props;
-
-    return (
-      <Dropdown.Contents minWidth={ minDropdownWidth } direction={ dropdownDirection }>
-        { items.map((entry, index) => (
-          <SelectOption
-            key={ index }
-            onChange={ this.props.onChange }
-            value={ entry.value }
-            label={ entry.label }
-            description={ entry.description }
-            isSelected={ entry.value === value }
-          />
-        ))}
-      </Dropdown.Contents>
-    );
-  };
-
-  render() {
-    const { buttonStyle, value, width, maxWidth, zIndex, isDisabled, initialPlaceholder } = this.props;
+  renderActivator = ({ buttonRef, onClick, onBlur }) => {
+    const { buttonStyle, value, width, maxWidth, isDisabled, initialPlaceholder, trackId, testSection } = this.props;
     let selectedItem;
     this.props.items.forEach(item => {
       if (item.value === value) {
@@ -139,96 +120,66 @@ class SelectDropdown extends React.Component {
       activatorLabel = initialPlaceholder;
     }
 
-    const Activator = ({ buttonRef, onClick, onBlur }) => (
+    return (
       <div
         style={{ width: width, maxWidth: maxWidth}}
         className={ outerClass }>
         <Button
           title={ activatorLabel }
-          isDisabled={ this.props.isDisabled }
+          isDisabled={ isDisabled }
           style={ buttonStyle }
           size="narrow"
-          testSection={ this.props.testSection }
+          testSection={ testSection }
           width="full"
           buttonRef={ buttonRef }
           onClick={ onClick }
           onBlur={ onBlur }>
-          <div className="flex flex-align--center" data-track-id={ this.props.trackId }>
+          <div className="flex flex-align--center" data-track-id={ trackId }>
             <span className="oui-dropdown-group__activator-label flex--1">{ activatorLabel }</span>
             <span className="push--left oui-arrow-inline--down" />
           </div>
         </Button>
       </div>
     );
+  };
+
+  renderContents = () => {
+    const { items, onChange, value, minDropdownWidth, dropdownDirection } = this.props;
+
+    return (
+      <Dropdown.Contents minWidth={ minDropdownWidth } direction={ dropdownDirection }>
+        { items.map((entry, index) => (
+          <Dropdown.ListItem key={ entry.value }>
+            <Dropdown.BlockLink
+              value={ entry.value }
+              onClick={ onChange }
+              isLink={ entry.value !== value }
+              testSection={ 'dropdown-block-link-' + entry.value }>
+              { entry.label }
+              { entry.description && (
+                <div className="micro muted">
+                  { entry.description }
+                </div>
+              )}
+            </Dropdown.BlockLink>
+          </Dropdown.ListItem>
+        ))}
+      </Dropdown.Contents>
+    );
+  };
+
+  render() {
+    const { isDisabled, zIndex } = this.props;
 
     return (
       <Dropdown
         { ...(zIndex ? { zIndex } : {}) }
         isDisabled={ isDisabled }
-        activator={ <Activator /> }>
+        renderActivator={ this.renderActivator }>
         { this.renderContents() }
       </Dropdown>
     );
   }
 }
-
-class SelectOption extends React.Component {
-  static propTypes = {
-    /**
-     * Description of select item.
-     */
-    description: PropTypes.string,
-    /** Toggle dropdown open/closed */
-    handleToggle: PropTypes.func,
-    /**
-     * Whether or not item has been selected or not.
-     */
-    isSelected: PropTypes.bool.isRequired,
-    /**
-     * Label of select item.
-     */
-    label: PropTypes.node.isRequired,
-    /**
-     * Function that is called when user selects another item.
-     */
-    onChange: PropTypes.func.isRequired,
-    /**
-     * Value of select item.
-     */
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.bool,
-    ]).isRequired,
-  };
-
-  onClick = () => {
-    this.props.onChange(this.props.value);
-  };
-
-  render() {
-    const { isSelected, label, description, value, handleToggle } = this.props;
-    return (
-      <Dropdown.ListItem hideOnClick={ true } handleToggle={ handleToggle }>
-        <Dropdown.BlockLink
-          isLink={ !isSelected }
-          onClick={ this.onClick }
-          testSection={ 'dropdown-block-link-' + value }>
-          { label }
-          { description && (
-            <div className="micro muted">
-              { description }
-            </div>
-          )}
-        </Dropdown.BlockLink>
-      </Dropdown.ListItem>
-    );
-  }
-}
-
-SelectOption.defaultProps = {
-  description: '',
-  handleToggle: () => {},
-};
 
 export default SelectDropdown;

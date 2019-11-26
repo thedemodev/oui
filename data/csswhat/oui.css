@@ -3033,28 +3033,6 @@ li > ol {
 .number-display {
   font-family: Lato, Helvetica, Verdana, sans-serif; }
 
-.oui-docked-footer {
-  background-color: white;
-  padding-bottom: 20px;
-  box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
-  transition: all .2s ease-in-out;
-  margin-bottom: -20px;
-  padding-top: 20px; }
-
-.oui-docked-footer.oui-docked-footer--is-docked {
-  position: sticky;
-  bottom: 0;
-  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
-
-.oui-docked-footer .oui-button-row--right {
-  transition: all .2s ease-in-out;
-  margin-right: 10px; }
-
-.oui-docked-footer--is-docked.oui-docked-footer--inside-sheet {
-  width: 100%;
-  padding: 10px 60px;
-  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
-
 
 .array {
   display: flex; }
@@ -4923,7 +4901,8 @@ code {
   .dropdown__item,
   .oui-dropdown__item {
     color: #080736;
-    padding: 5px 10px; }
+    padding: 5px;
+    border-top: 1px solid #f0f0f0; }
     
     .dropdown__item > div.isSelected,
     .dropdown__item > div.micro,
@@ -4934,6 +4913,13 @@ code {
     .dropdown__item--active,
     .oui-dropdown__item--active {
       background: #FFFFFF; }
+    
+    .dropdown__item--separator,
+    .oui-dropdown__item--separator {
+      background: #f7f7f7;
+      color: #707070;
+      font-size: 11px;
+      font-weight: 500; }
   
   .dropdown--right,
   .oui-dropdown--right {
@@ -4968,6 +4954,26 @@ code {
 
 .oui-dropdown-children > div {
   border-radius: var(--border-radius); }
+
+.oui-dropdown__block-link--has-focus {
+  background-color: var(--light-blue-6); }
+
+.oui-docked-footer {
+  background-color: white;
+  padding-bottom: 20px;
+  box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
+  transition: all .2s ease-in-out;
+  margin-bottom: -20px;
+  padding-top: 20px; }
+
+.oui-docked-footer.oui-docked-footer--is-docked {
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
+
+.oui-docked-footer .oui-button-row--right {
+  transition: all .2s ease-in-out;
+  margin-right: 10px; }
 
 .oui-empty-dashboard__button-row {
   margin-top: 20px;

@@ -8,57 +8,62 @@ import { action } from '@storybook/addon-actions';
 import Dropdown from './index.js';
 import Button from '../Button';
 import ButtonRow from '../ButtonRow';
-import BlockList from '../BlockList';
 import Icon from 'react-oui-icons';
 import Link from '../Link';
 
 const data = [
-  {title: 'Manual', description: 'Dolcelatte cheeseburger swiss paneer cow gouda edam cheese slices'},
-  {title: 'Maximize Conventions', header: 'Automation',
-    description: 'Everyone loves cut the cheese cow squirty cheese emmental jarlsberg halloumi camembert de normandie.'},
-  {title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.'},
+  { title: 'Manual', description: 'Dolcelatte cheeseburger swiss paneer cow gouda edam cheese slices' },
+  {
+    title: 'Maximize Conventions',
+    header: 'Automation',
+    description: 'Everyone loves cut the cheese cow squirty cheese emmental jarlsberg halloumi camembert de normandie.',
+  },
+  { title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.' },
+];
+
+const dataLarge = [
+  { title: 'Manual', description: 'Dolcelatte cheeseburger' },
+  { title: 'Maximize Conventions', header: 'Automation', description: 'Everyone loves cut the cheese cow ' },
+  { title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.' },
+  { title: 'Manual', description: 'Dolcelatte cheeseburger' },
+  { title: 'Maximize Conventions', header: 'Automation', description: 'Everyone loves cut the cheese cow ' },
+  { title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.' },
+  { title: 'Manual', description: 'Dolcelatte cheeseburger' },
+  { title: 'Maximize Conventions', header: 'Automation', description: 'Everyone loves cut the cheese cow ' },
+  { title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.' },
+  { title: 'Manual', description: 'Dolcelatte cheeseburger' },
+  { title: 'Maximize Conventions', header: 'Automation', description: 'Everyone loves cut the cheese cow ' },
+  { title: 'Faster Results', description: 'Cauliflower cheese stilton paneer hard cheese fondue.' },
 ];
 
 const stories = storiesOf('Dropdown', module);
-stories
-  .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <div id="root-preview">
-      {story()}
-    </div>
-  ));
+stories.addDecorator(withKnobs).addDecorator(story => <div id="root-preview">{story()}</div>);
 
-stories.add('Default', (() => {
+stories.add('Default', () => {
   return (
     <Container>
       <Dropdown
         buttonContent={ text('buttonContent', 'Default Dropdown') }
         width={ number('width', 300) }
         arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
-        <BlockList>
-          {
-            data.map((item, index) => {
-              return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
-              );
-            })
-          }
-        </BlockList>
+        <Dropdown.Contents>
+          {data.map((item, index) => {
+            return (
+              <Dropdown.ListItem key={ index }>
+                <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                  <Dropdown.BlockLinkText text={ item.title } />
+                  <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                </Dropdown.BlockLink>
+              </Dropdown.ListItem>
+            );
+          })}
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
-}));
+});
 
-stories.add('Error', (() => {
+stories.add('Error', () => {
   return (
     <Container>
       <Dropdown
@@ -66,61 +71,56 @@ stories.add('Error', (() => {
         width={ number('width', 300) }
         displayError={ true }
         arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }>
-        <BlockList>
-          {
-            data.map((item, index) => {
-              return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
-              );
-            })
-          }
-        </BlockList>
+        <Dropdown.Contents>
+          {data.map((item, index) => {
+            return (
+              <Dropdown.ListItem key={ index }>
+                <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                  <Dropdown.BlockLinkText text={ item.title } />
+                  <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                </Dropdown.BlockLink>
+              </Dropdown.ListItem>
+            );
+          })}
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
-}));
+});
 
-stories.add('Icon', (() => {
+stories.add('Icon', () => {
   return (
     <Container>
       <Dropdown
         isDisabled={ boolean('isDisabled', false) }
         fullWidth={ boolean('fullWidth', false) }
-        buttonContent={ <div>Hamburgers <span className="push-half--left"><Icon name='hamburger' /></span></div> }
+        buttonContent={
+          <div>
+            Hamburgers{' '}
+            <span className="push-half--left">
+              <Icon name="hamburger" />
+            </span>
+          </div>
+        }
         width={ number('width', 350) }>
-        <BlockList>
-          {
-            data.map((item, index) => {
-              return (
-                <BlockList.Category header={ item.header } key={ index }>
-                  <BlockList.Item onClick={ action('click on complex item') }>
-                    <div className="flex flex-align--center">
-                      <div className="flex--1">
-                        <div>{ item.title }</div>
-                        <div className="muted micro">{ item.description }</div>
-                      </div>
-                    </div>
-                  </BlockList.Item>
-                </BlockList.Category>
-              );
-            })
-          }
-        </BlockList>
+        <Dropdown.Contents>
+          {data.map((item, index) => {
+            return (
+              <Dropdown.ListItem key={ index }>
+                <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                  <Dropdown.BlockLinkText text={ item.title } />
+                  <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                </Dropdown.BlockLink>
+              </Dropdown.ListItem>
+            );
+          })}
+        </Dropdown.Contents>
       </Dropdown>
     </Container>
   );
-}));
+});
 
-stories.add('Z-index', (() => {
+stories.add('Z-index', () => {
   return (
     <Container className="background--faint">
       <SubContainer>
@@ -130,46 +130,44 @@ stories.add('Z-index', (() => {
             buttonContent={ text('buttonContent', 'Dropdown') }
             width={ number('width', 300) }
             zIndex={ number('zIndex', 9999) }>
-            <BlockList>
-              {
-                data.map((item, index) => {
-                  return (
-                    <BlockList.Category header={ item.header } key={ index }>
-                      <BlockList.Item onClick={ action('click on complex item') }>
-                        <div className="flex flex-align--center">
-                          <div className="flex--1">
-                            <div>{ item.title }</div>
-                            <div className="muted micro">{ item.description }</div>
-                          </div>
-                        </div>
-                      </BlockList.Item>
-                    </BlockList.Category>
-                  );
-                })
-              }
-            </BlockList>
+            <Dropdown.Contents>
+              {data.map((item, index) => {
+                return (
+                  <Dropdown.ListItem key={ index }>
+                    <Dropdown.BlockLink onClick={ action('click on complex item') }>
+                      <Dropdown.BlockLinkText text={ item.title } />
+                      <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+                    </Dropdown.BlockLink>
+                  </Dropdown.ListItem>
+                );
+              })}
+            </Dropdown.Contents>
           </Dropdown>
           <h1>This text should be behind the open dropdown</h1>
         </ScrollContainer>
       </SubContainer>
     </Container>
   );
-}));
+});
 
-stories.add('List', (() => {
+const renderActivator = (
+  { onBlur, onClick, buttonRef } // eslint-disable-line
+) => (
+  <Button buttonRef={ buttonRef } onClick={ onClick } onBlur={ onBlur }>
+    Click to activate
+  </Button>
+);
+
+stories.add('List', () => {
   return (
     <Container className="background--faint">
       <SubContainer>
         <Dropdown
           isDisabled={ boolean('isDisabled', false) }
-          activator={
-            <Button>Click to activate</Button>
-          }
+          renderActivator={ renderActivator }
           placement={ 'top-start' }
           width={ number('width', 300) }>
-          <Dropdown.Contents
-            minWidth={ 300 }
-            direction={ 'up' }>
+          <Dropdown.Contents minWidth={ 300 } direction={ 'up' }>
             <Dropdown.ListItem>
               <Dropdown.BlockLink onClick={ action('click dropdown block link') }>
                 <Dropdown.BlockLinkText text={ 'This is a label' } />
@@ -188,25 +186,88 @@ stories.add('List', (() => {
       </SubContainer>
     </Container>
   );
-}));
+});
 
-stories.add('Warnings', (() => {
-  const longSecondaryText = 'exclaimation! '.repeat(10);
+stories.add('With faux highlighting', () => {
   return (
     <Container>
-      <Dropdown
-        buttonContent={ text('buttonContent', 'Activate') }
-        width={ number('width', 300) }>
+      <Dropdown buttonContent={ text('buttonContent', 'Activate') } width={ number('width', 300) }>
         <Dropdown.Contents minWidth={ 300 }>
-          <Dropdown.ListItem>
-            <Dropdown.BlockLink onClick={ action('click dropdown block link 2') } isLink={ false }>
-              <Dropdown.BlockLinkText text='This is a warning' />
-              <Dropdown.BlockLinkSecondaryText isWarning={ true } secondaryText='Warning: There is an exclaimation mark' />
+          {dataLarge.map((item, idx) => (
+            <Dropdown.ListItem key={ idx }>
+              <Dropdown.BlockLink
+                onClick={ action(`click dropdown block link ${idx + 1}`) }
+                hasFauxFocus={ idx === dataLarge.length - 2 }>
+                <Dropdown.BlockLinkText text={ item.title } />
+                <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+              </Dropdown.BlockLink>
+            </Dropdown.ListItem>
+          ))}
+        </Dropdown.Contents>
+      </Dropdown>
+    </Container>
+  );
+});
+
+const renderHeader = () => (
+  <div className="flex soft">
+    <div className="flex--1 milli">Attic and Button</div>
+    <div>
+      <a href="https://www.example.com/" className="milli">
+        https://www.atticandbutton.com/
+      </a>
+    </div>
+  </div>
+);
+
+stories.add('With a header and separators', () => {
+  return (
+    <Container>
+      <Dropdown buttonContent={ text('buttonContent', 'Activate') } width={ number('width', 600) }>
+        <Dropdown.Contents renderHeader={ renderHeader }>
+          <Dropdown.ListItem role="separator" ignoreToggle={ true }>
+            Large Things
+          </Dropdown.ListItem>
+          {dataLarge.map((item, idx) => (
+            <Dropdown.ListItem role="menuitem" key={ idx }>
+              <Dropdown.BlockLink onClick={ action(`click dropdown block link ${idx + 1}`) } hasFauxFocus={ idx === 1 }>
+                <Dropdown.BlockLinkText text={ item.title } />
+                <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+              </Dropdown.BlockLink>
+            </Dropdown.ListItem>
+          ))}
+          <Dropdown.ListItem role="separator" ignoreToggle={ true }>
+            Small Things
+          </Dropdown.ListItem>
+          {data.map((item, idx) => (
+            <Dropdown.ListItem role="menuitem" key={ idx }>
+              <Dropdown.BlockLink onClick={ action(`click dropdown block link ${idx + 1}`) }>
+                <Dropdown.BlockLinkText text={ item.title } />
+                <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />
+              </Dropdown.BlockLink>
+            </Dropdown.ListItem>
+          ))}
+        </Dropdown.Contents>
+      </Dropdown>
+    </Container>
+  );
+});
+
+stories.add('Warnings', () => {
+  const longSecondaryText = 'exclamation! '.repeat(10);
+  return (
+    <Container>
+      <Dropdown buttonContent={ text('buttonContent', 'Activate') } width={ number('width', 300) }>
+        <Dropdown.Contents minWidth={ 300 }>
+          <Dropdown.ListItem hasFauxFocus={ true }>
+            <Dropdown.BlockLink onClick={ action('click dropdown block link 1') } isLink={ false }>
+              <Dropdown.BlockLinkText text="This is a warning" />
+              <Dropdown.BlockLinkSecondaryText isWarning={ true } secondaryText="Warning: There is an exclamation mark" />
             </Dropdown.BlockLink>
           </Dropdown.ListItem>
           <Dropdown.ListItem>
             <Dropdown.BlockLink onClick={ action('click dropdown block link 2') } isLink={ false }>
-              <Dropdown.BlockLinkText text='Another Warning' />
+              <Dropdown.BlockLinkText text="Another Warning" />
               <Dropdown.BlockLinkSecondaryText isWarning={ true } secondaryText={ longSecondaryText } />
             </Dropdown.BlockLink>
           </Dropdown.ListItem>
@@ -214,59 +275,72 @@ stories.add('Warnings', (() => {
       </Dropdown>
     </Container>
   );
-}));
+});
 
-
-stories.add('Custom hide function', (() => {
+stories.add('Custom hide function', () => {
   return [
     <p key="sourceLink" className="push--bottom">
-      This story's children use the optional <Link href="https://reactjs.org/docs/render-props.html" newWindow={ true }>render props pattern</Link>. <Link href="https://github.com/optimizely/oui/blob/devel/src/components/Dropdown/Dropdown.story.js" newWindow={ true }>Click here</Link> to see this story's source code.
+      This story's children use the optional{' '}
+      <Link href="https://reactjs.org/docs/render-props.html" newWindow={ true }>
+        render props pattern
+      </Link>
+      .{' '}
+      <Link
+        href="https://github.com/optimizely/oui/blob/devel/src/components/Dropdown/Dropdown.story.js"
+        newWindow={ true }>
+        Click here
+      </Link>{' '}
+      to see this story's source code.
     </p>,
     <Container key="story">
       <Dropdown
         arrowIcon={ select('arrowIcon', { up: 'up', down: 'down', left: 'left', right: 'right', none: 'none' }, 'down') }
-        buttonContent={ (
+        buttonContent={
           <div className="line--tight text--left micro push--right">
             <div className="muted">Date</div>
             <div>Anytime</div>
           </div>
+        }
+        placement={ select(
+          'placement',
+          {
+            top: 'top',
+            'top-start': 'top-start',
+            'top-end': 'top-end',
+            bottom: 'bottom',
+            'bottom-start': 'bottom-start',
+            'bottom-end': 'bottom-end',
+            right: 'right',
+            'right-start': 'right-start',
+            'right-end': 'right-end',
+            left: 'left',
+            'left-start': 'left-start',
+            'left-end': 'left-end',
+          },
+          'bottom-start'
         ) }
-        placement={ select('placement', {
-          top: 'top',
-          'top-start': 'top-start',
-          'top-end': 'top-end',
-          bottom: 'bottom',
-          'bottom-start': 'bottom-start',
-          'bottom-end': 'bottom-end',
-          right: 'right',
-          'right-start': 'right-start',
-          'right-end': 'right-end',
-          left: 'left',
-          'left-start': 'left-start',
-          'left-end': 'left-end',
-        }, 'bottom-start') }
         shouldHideChildrenOnClick={ boolean('shouldHideChildrenOnClick', false) }
         style="outline"
         width={ number('width', 300) }>
-        {
-          ({ handleHideChildren }) => (
-            <div className="soft background--white">
-              <div className="soft--bottom">
-                This is some initial text! Click me, nothing happens.
-              </div>
-              <ButtonRow
-                leftGroup={ [
-                  <Button key="nothing" onClick={ action('some other action') }>Doesn't Hide</Button>,
-                  <Button key="something" onClick={ handleHideChildren }>Hide Dropdown</Button>,
-                ] }
-              />
-            </div>
-          )
-        }
+        {({ handleHideChildren }) => (
+          <div className="soft background--white">
+            <div className="soft--bottom">This is some initial text! Click me, nothing happens.</div>
+            <ButtonRow
+              leftGroup={ [
+                <Button key="nothing" onClick={ action('some other action') }>
+                  Doesn't Hide
+                </Button>,
+                <Button key="something" onClick={ handleHideChildren }>
+                  Hide Dropdown
+                </Button>,
+              ] }
+            />
+          </div>
+        )}
       </Dropdown>
     </Container>,
   ];
-}));
+});
 
 const Container = styled.div`
   display: flex;

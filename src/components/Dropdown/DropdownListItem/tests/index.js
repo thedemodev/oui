@@ -27,4 +27,12 @@ describe('components/Dropdown/DropdownListItem', () => {
     const component = shallow(<DropdownListItem hardTop={ true }></DropdownListItem>);
     expect(component.find('li').prop('className')).toBe('hard--top oui-dropdown__item');
   });
+
+  it('should set the ignoreToggle property on the onClick event when passed', () => {
+    const syntheticEventMock = { persist: jest.fn() };
+    const component = shallow(<DropdownListItem ignoreToggle={ true }></DropdownListItem>);
+    component.simulate('click', syntheticEventMock);
+    expect(syntheticEventMock.persist).toHaveBeenCalledTimes(1);
+    expect(syntheticEventMock.ignoreToggle).toBe(true);
+  });
 });
