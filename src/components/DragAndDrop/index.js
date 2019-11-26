@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import DraggableItem from './DraggableItem';
-import Token from '../Token';
-import RangeSlider from '../RangeSlider';
 
 class DragAndDrop extends React.Component {
   constructor(props) {
@@ -13,6 +11,14 @@ class DragAndDrop extends React.Component {
       items: this.props.items,
       value: 20,
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.items !== this.props.items) {
+      this.setState({
+        items: this.props.items,
+      })
+    }
   }
 
   onDragEnd(result) {
@@ -39,7 +45,6 @@ class DragAndDrop extends React.Component {
   }
 
   renderGroupOfItems = ({ item }) => {
-    console.log(item, '*****');
     return (
       <Droppable droppableId="56">
         {provided => (
@@ -57,7 +62,6 @@ class DragAndDrop extends React.Component {
   };
 
   renderDraggableItems(item, index) {
-    console.log('here', item);
     if (Array.isArray(item)) {
       return item.map((nestedItem, index) => {
         return (
@@ -85,9 +89,7 @@ class DragAndDrop extends React.Component {
   }
 
   renderGroups(items) {
-    console.log('group', items);
     return items.map((item, index) => {
-      console.log('individal', item);
       return (
         <DraggableItem
           isGroup={ true }
@@ -102,15 +104,16 @@ class DragAndDrop extends React.Component {
   }
 
   render() {
+    const { id, hasGrouping } = this.props;
     return (
       <DragDropContext onDragEnd={ this.onDragEnd.bind(this) }>
-        <Droppable droppableId="123456">
+        <Droppable droppableId={ id }>
           {provided => (
             <div
               className="oui-sortable"
               ref={ provided.innerRef }
               { ...provided.droppableProps }>
-              <ul>{ this.props.hasGrouping ? this.renderGroups(this.state.items) : this.renderDraggableItems(this.state.items)}</ul>
+              <ul>{ hasGrouping ? this.renderGroups(this.state.items) : this.renderDraggableItems(this.state.items)}</ul>
 
               {provided.placeholder}
             </div>
@@ -123,17 +126,17 @@ class DragAndDrop extends React.Component {
 
 DragAndDrop.propTypes = {
   /**
-   * The body of the dialog to request minimal information from the user.
+   * Used to identify the main Draggable region
    */
-  children: PropTypes.node.isRequired,
+  id: PropTypes.string.isRequired,
+  /**
+   * Whether or not this drag and drop supports grouping
+   */
+  hasGrouping: PropTypes.bool,
 };
 
 DragAndDrop.defaultProps = {
-  hasCloseButton: true,
-  hasOverlay: true,
-  onClose: () => {},
-  subtitle: '',
-  testSection: '',
+  hasGrouping: false,
 };
 
 export default DragAndDrop;

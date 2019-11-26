@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from 'react-oui-icons';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 class DraggableItem extends React.Component {
   constructor(props) {
@@ -15,15 +15,14 @@ class DraggableItem extends React.Component {
 
   render() {
     const { id, index, item, renderFunc, isGroup } = this.props;
-    const renderedItem = renderFunc({item, index});
     return (
       <Draggable key={ item.id } draggableId={ id.toString() } index={ index }>
-        {provided => (
+        {(provided, snapshot) => (
           <li className="oui-sortable__item flex" ref={ provided.innerRef } { ...provided.draggableProps } { ...provided.dragHandleProps }>
             {isGroup && <span { ...provided.dragHandleProps }>
               <Icon fill="#c7c7c7" name="ellipsis"/>
             </span>}
-            {renderedItem}
+            {renderFunc({item, index, snapshot})}
           </li>
 
         )}
