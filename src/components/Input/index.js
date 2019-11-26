@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Label from '../Label';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -9,38 +9,43 @@ import PropTypes from 'prop-types';
  * @param {Object} props - Properties passed to component
  * @returns {ReactElement}
  */
-
-class Input extends React.Component {
-  blur() {
-    if (this._input) {
-      this._input.blur();
-    }
-  }
-
-  renderInput({
-    isFilter,
+const Input = React.forwardRef((props, ref) => {
+  const {
+    label,
     displayError,
+    testSection,
+    isOptional,
+    note,
+    isRequired,
+    id,
+    isFilter,
     type,
     value,
     defaultValue,
     placeholder,
-    isRequired,
     isReadOnly,
     isDisabled,
+    onBlur,
     onInput,
     onChange,
-    onBlur,
+    onClick,
     onKeyDown,
     onFocus,
     min,
     max,
     step,
     maxLength,
-    testSection,
-    focus,
     textAlign,
-    id }) {
-
+  } = props;
+  const renderNote = useCallback(
+    () => (
+      <div className="oui-form-note" data-test-section={ testSection && testSection + '-note' }>
+        {note}
+      </div>
+    ),
+    [note, testSection]
+  );
+  const renderInput = () => {
     let hasAlignStyle = false;
     if (textAlign) {
       hasAlignStyle = true;
@@ -48,19 +53,18 @@ class Input extends React.Component {
 
     let classes = classNames(
       'oui-text-input',
-      {'oui-text-input--read-only': isReadOnly},
-      {'oui-text-input--search': isFilter},
-      {'oui-form-bad-news': displayError},
-      {[`text--${textAlign}`]: hasAlignStyle}
+      { 'oui-text-input--read-only': isReadOnly },
+      { 'oui-text-input--search': isFilter },
+      { 'oui-form-bad-news': displayError },
+      { [`text--${textAlign}`]: hasAlignStyle }
     );
 
     return (
-      /* eslint-disable react/jsx-no-bind */
       <input
         data-oui-component={ true }
         className={ classes }
         id={ id }
-        ref={ (c) => { this._input = c; } }
+        ref={ ref }
         type={ type }
         value={ value }
         defaultValue={ defaultValue }
@@ -68,9 +72,10 @@ class Input extends React.Component {
         required={ isRequired }
         readOnly={ isReadOnly }
         disabled={ isDisabled }
-        onInput={ onInput }
-        onChange={ onChange }
         onBlur={ onBlur }
+        onChange={ onChange }
+        onClick={ onClick }
+        onInput={ onInput }
         onKeyDown={ onKeyDown }
         onFocus={ onFocus }
         min={ min }
@@ -80,54 +85,32 @@ class Input extends React.Component {
         data-test-section={ testSection }
         autoFocus={ focus }
       />
-      /* eslint-enable */
+    );
+  };
+
+  if (label) {
+    return (
+      <div data-oui-component={ true } className={ classNames({ 'oui-form-bad-news': displayError }) }>
+        <Label
+          testSection={ testSection && testSection + '-label' }
+          isRequired={ isRequired }
+          isOptional={ isOptional }
+          inputId={ id }>
+          {label}
+        </Label>
+        {renderInput(props, ref)}
+        {note && renderNote(props)}
+      </div>
     );
   }
 
-  renderNote({note, testSection}) {
-    return (<div className='oui-form-note' data-test-section={ testSection && testSection + '-note' }>{note}</div>);
-  }
-
-  render() {
-    const {
-      label,
-      displayError,
-      testSection,
-      isOptional,
-      note,
-      isRequired,
-      id,
-    } = this.props;
-
-    if (label) {
-      return (
-        <div
-          data-oui-component={ true }
-          className={ classNames({'oui-form-bad-news': displayError}) }>
-          <Label
-            testSection={ testSection && testSection + '-label' }
-            isRequired={ isRequired }
-            isOptional={ isOptional }
-            inputId={ id }>
-            { label }
-          </Label>
-          { this.renderInput(this.props) }
-          { note && this.renderNote(this.props)}
-        </div>
-      );
-    }
-
-    if (note) {
-      return [
-        this.renderInput(this.props),
-        this.renderNote(this.props),
-      ];
-    }
-
-    return this.renderInput(this.props);
-
-  }
-}
+  return (
+    <React.Fragment>
+      {renderInput(props, ref)}
+      {note && renderNote(props)}
+    </React.Fragment>
+  );
+});
 
 Input.propTypes = {
   /** The default value of the input used on initial render */
@@ -182,10 +165,12 @@ Input.propTypes = {
   /**
    * Function that fires when the input loses focus. It fires regardless of
    * whether the value has changed.
-  */
+   */
   onBlur: PropTypes.func,
   /** Function that fires when the input loses focus after the value changes */
   onChange: PropTypes.func,
+  /** Function that fires when the input is clicked */
+  onClick: PropTypes.func,
   /** Function that fires when the input gains focus */
   onFocus: PropTypes.func,
   /** Function that fires on keypress */
@@ -201,23 +186,12 @@ Input.propTypes = {
   /** Align text inside input. Default is left. */
   textAlign: PropTypes.oneOf(['left', 'right']),
   /** Supported input types */
-  type: PropTypes.oneOf([
-    'text',
-    'password',
-    'date',
-    'number',
-    'email',
-    'url',
-    'search',
-    'tel',
-    'time',
-  ]).isRequired,
+  type: PropTypes.oneOf(['text', 'password', 'date', 'number', 'email', 'url', 'search', 'tel', 'time']).isRequired,
   /** Text within the input */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
+
+Input.displayName = 'Input';
 
 Input.defaultProps = {
   note: null,

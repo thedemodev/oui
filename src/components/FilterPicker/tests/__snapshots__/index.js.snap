@@ -119,7 +119,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
         </li>
       </ul>
     </ul>
-    <Input
+    <[object Object]
       isFilter={true}
       isRequired={false}
       note={null}
@@ -129,6 +129,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
       type="search"
     >
       <input
+        autoFocus={[Function]}
         className="oui-text-input oui-text-input--search"
         data-oui-component={true}
         data-test-section="filter-query-input"
@@ -137,7 +138,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with CUSTOM keysTo
         required={false}
         type="search"
       />
-    </Input>
+    </[object Object]>
     <div>
       Available
     </div>
@@ -751,7 +752,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
         </li>
       </ul>
     </ul>
-    <Input
+    <[object Object]
       isFilter={true}
       isRequired={false}
       note={null}
@@ -761,6 +762,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
       type="search"
     >
       <input
+        autoFocus={[Function]}
         className="oui-text-input oui-text-input--search"
         data-oui-component={true}
         data-test-section="filter-query-input"
@@ -769,7 +771,7 @@ exports[`components/FilterPicker with Immutable data (mocked) with DEFAULT keysT
         required={false}
         type="search"
       />
-    </Input>
+    </[object Object]>
     <div>
       Available
     </div>
@@ -1358,7 +1360,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
         </li>
       </ul>
     </ul>
-    <Input
+    <[object Object]
       isFilter={true}
       isRequired={false}
       note={null}
@@ -1368,6 +1370,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
       type="search"
     >
       <input
+        autoFocus={[Function]}
         className="oui-text-input oui-text-input--search"
         data-oui-component={true}
         data-test-section="filter-query-input"
@@ -1376,7 +1379,7 @@ exports[`components/FilterPicker with POJO data with CUSTOM keysToSearch and cus
         required={false}
         type="search"
       />
-    </Input>
+    </[object Object]>
     <div>
       Available
     </div>
@@ -1966,7 +1969,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
         </li>
       </ul>
     </ul>
-    <Input
+    <[object Object]
       isFilter={true}
       isRequired={false}
       note={null}
@@ -1976,6 +1979,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
       type="search"
     >
       <input
+        autoFocus={[Function]}
         className="oui-text-input oui-text-input--search"
         data-oui-component={true}
         data-test-section="filter-query-input"
@@ -1984,7 +1988,7 @@ exports[`components/FilterPicker with POJO data with DEFAULT keysToSearch and cu
         required={false}
         type="search"
       />
-    </Input>
+    </[object Object]>
     <div>
       Available
     </div>
