@@ -20,6 +20,10 @@ class SelectDropdown extends React.Component {
      */
     dropdownDirection: PropTypes.oneOf(['right', 'left']),
     /**
+     * Should activator be full width of container
+     */
+    fullWidth: PropTypes.bool,
+    /**
      * An initial value for the dropdown before anything is selected
      */
     initialPlaceholder: PropTypes.node,
@@ -93,6 +97,7 @@ class SelectDropdown extends React.Component {
     initialPlaceholder: '',
     displayError: false,
     dropdownDirection: 'right',
+    fullWidth: false,
     width: '100%',
     trackId: '',
     testSection: '',
@@ -169,12 +174,13 @@ class SelectDropdown extends React.Component {
   };
 
   render() {
-    const { isDisabled, zIndex } = this.props;
+    const { isDisabled, zIndex, fullWidth } = this.props;
 
     return (
       <Dropdown
         { ...(zIndex ? { zIndex } : {}) }
         isDisabled={ isDisabled }
+        fullWidth={ fullWidth }
         renderActivator={ this.renderActivator }>
         { this.renderContents() }
       </Dropdown>
