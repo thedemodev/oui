@@ -12,6 +12,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 - [Feature] New **DockedFooter** sticky-to-the-bottom button row component ([#1247](https://github.com/optimizely/oui/pull/1247))
 - [Feature] Improve keyboard accessibility by updating **HelpPopover** to use ButtonIcon component and be a focusable element ([#1254](https://github.com/optimizely/oui/pull/1254))
 - Add ability to associate a **ButtonIcon** with another component, like a **Popover**, using `ariaDescribedBy` and `popoverId` props
+- [Patch] Upate `<SelectDropdown>` to accept a `fullWidth` prop. ([#1256](https://github.com/optimizely/oui/pull/1258))
 
 ## 44.11.0 - 2019-11-06
 

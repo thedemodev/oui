@@ -74,6 +74,19 @@ stories.add('Default', (() => {
       />
     </Container>
   );
+})).add('Full Width Activator', (() => {
+  return (
+    <Container>
+      <div style={{'width': '400px', 'border': '1px solid', 'height': '100px' }}>
+        <SelectDropdown
+          items={ items }
+          value={ 'dog' }
+          onChange={ action('SelectDropdown value changed') }
+          fullWidth={ true }
+        />
+      </div>
+    </Container>
+  );
 })).add('Specify max width of activator', (() => {
   return (
     <div>

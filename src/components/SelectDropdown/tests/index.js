@@ -66,6 +66,17 @@ describe('components/SelectDropdown', function() {
     });
   });
 
+  it('should pass fullWidth prop to Dropdown', function() {
+    component = mount(
+      <SelectDropdown
+        items={ items }
+        value={ 'value 2' }
+        onChange={ onChange }
+        fullWidth={ true }
+      />);
+    expect(component.find('Dropdown').prop('fullWidth')).toEqual(true);
+  });
+
   it('should set the maxWidth of the activator', function() {
     component = mount(
       <SelectDropdown
