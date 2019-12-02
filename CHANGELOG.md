@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.12.0 - 2019-12-02
 - [Patch] Upate `<Input>` to forward refs and accept an `onClick` prop. ([#1256](https://github.com/optimizely/oui/pull/1256))
 - [Enhancement] Several updates to `<Dropdown>`, notably adding `role` and `hasFauxFocus` props to support accessibility, adding a `renderActivator` render prop, and updating the stories to only use `<Dropdown>` defined children. Full details in [#1250](https://github.com/optimizely/oui/pull/1250).
 - [Feature] New **DockedFooter** sticky-to-the-bottom button row component ([#1247](https://github.com/optimizely/oui/pull/1247))
