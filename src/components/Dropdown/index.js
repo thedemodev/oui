@@ -126,6 +126,7 @@ class Dropdown extends React.Component {
 
               if (renderActivator) {
                 return renderActivator({
+                  ref: ref,
                   buttonRef: ref,
                   disabled: isDisabled,
                   onBlur: this.handleOnBlur,

@@ -1,16 +1,30 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { debounce } from 'lodash';
+import { debounce, noop } from 'lodash';
+
+import { listIndexTracker } from 'utils/accessibilty';
 
 import Input from '../Input';
 
 const INITIAL_SEARCH_PAGE_SIZE = 5;
 
-export default class SearchPicker extends React.Component {
+@listIndexTracker
+class SearchPicker extends React.Component {
   static propTypes = {
-
     children: PropTypes.func.isRequired,
+
+    /**
+     * Which index in the list is currently selected.
+     * via @listIndexTracker
+     */
+    currentFauxFocusIndex: PropTypes.number.isRequired,
+
+    /**
+     * The element ref to use for capturing keyboard input.
+     * via @listIndexTracker
+     */
+    keyboardRef: PropTypes.shape({ current: PropTypes.elementType }),
 
     onCreateSelected: PropTypes.func,
 
@@ -29,16 +43,32 @@ export default class SearchPicker extends React.Component {
 
     selectedEntityIds: PropTypes.array,
 
+    /**
+     * Sets the number of items for the list index tracker.
+     * via @listIndexTracker
+     */
+    setItemCount: PropTypes.func,
+
+    /**
+     * Sets the item select callback fn for the list index tracker.
+     * via @listIndexTracker
+     */
+    setOnItemSelect: PropTypes.func,
+
     /* The entity types we should query search for. */
     type: PropTypes.array.isRequired,
-  }
+  };
 
   static defaultProps = {
     selectedEntityIds: [],
-  }
+    setItemCount: noop,
+    setOnItemSelect: noop,
+  };
 
   constructor(props) {
     super(props);
+
+    this.ref = props.keyboardRef || React.createRef();
 
     const { projectId, searchFunction, type } = props;
     const query = '';
@@ -48,36 +78,31 @@ export default class SearchPicker extends React.Component {
       type,
       query,
       per_page: INITIAL_SEARCH_PAGE_SIZE,
-    })
-      .then((results) => {
-        const { searchQuery } = this.state;
-        this.setState({
-          defaultResults: results,
-        });
-        if (!searchQuery) {
-          this.setState({
-            isLoading: false,
-          });
-        }
+    }).then(results => {
+      const { searchQuery } = this.state;
+      this.setState({
+        defaultResults: results,
       });
+      if (!searchQuery) {
+        this.setState({
+          isLoading: false,
+        });
+      }
+    });
   }
 
   componentDidMount = () => {
     document.addEventListener('mousedown', this.handleGlobalClick);
-    this.setupInput();
-  }
+  };
+
+  componentDidUpdate = () => {
+    const items = this.getAvailableEntities();
+    this.props.setItemCount(items.length);
+  };
 
   componentWillUnmount = () => {
     document.removeEventListener('mousedown', this.handleGlobalClick);
-    if (this.removeInputListener) this.removeInputListener();
-  }
-
-  ref = React.createRef();
-
-  setupInput = () => {
-    this.ref.current.addEventListener('keydown', this.handleKeydown);
-    this.removeInputListener = this.ref.current.removeEventListener.bind(null, 'keydown', this.handleKeydown);
-  }
+  };
 
   state = {
     currentSearch: null,
@@ -87,49 +112,27 @@ export default class SearchPicker extends React.Component {
     results: null,
     searchFocused: false,
     searchQuery: '',
-  }
+  };
 
-  handleKeydown = (event) => {
-    const { onCreateSelected, onItemSelected } = this.props;
-    const { searchQuery, currentFauxFocusIndex } = this.state;
-    const availableItems = this.getAvailableEntities();
-    const availableItemsCount = availableItems.length + (searchQuery ? 1 : 0);
-    switch (event.key) {
-      case 'ArrowUp':
-        if (currentFauxFocusIndex > 0) {
-          this.setState({ currentFauxFocusIndex: currentFauxFocusIndex - 1 });
-        }
-        event.preventDefault();
-        break;
-      case 'ArrowDown':
-        if (currentFauxFocusIndex < availableItemsCount - 1) {
-          this.setState({ currentFauxFocusIndex: currentFauxFocusIndex + 1 });
-        }
-        event.preventDefault();
-        break;
-      case 'Enter':
-        // Select the item for currentFauxFocusIndex
-        if (!!searchQuery && currentFauxFocusIndex === 0) {
-          if (onCreateSelected) {
-            onCreateSelected(searchQuery);
-          }
-        } else if (onItemSelected) {
-          const item = availableItems[searchQuery ? currentFauxFocusIndex - 1 : currentFauxFocusIndex];
-          onItemSelected(item, currentFauxFocusIndex, searchQuery);
-        }
-        event.preventDefault();
-        break;
-      default:
-        // No op
-        break;
-    }
-  }
-
-  handleGlobalClick = (event) => {
+  handleGlobalClick = event => {
     this.setInputFocus(this.ref.current.contains(event.target));
-  }
+  };
 
-  handleSearchInput = (event) => {
+  handleItemSelected = index => {
+    const { onCreateSelected, onItemSelected } = this.props;
+    const { searchQuery } = this.state;
+    const availableItems = this.getAvailableEntities();
+    if (!!searchQuery && index === 0) {
+      if (onCreateSelected) {
+        onCreateSelected(searchQuery);
+      }
+    } else if (onItemSelected) {
+      const item = availableItems[searchQuery ? index - 1 : index];
+      onItemSelected(item, index, searchQuery);
+    }
+  };
+
+  handleSearchInput = event => {
     const { value } = event.target;
     this.setState({
       searchQuery: value,
@@ -153,11 +156,11 @@ export default class SearchPicker extends React.Component {
 
   setInputFocus = searchFocused => this.setState({ searchFocused });
 
-  _debouncedHandleSearchInput = debounce((searchQuery) => {
+  _debouncedHandleSearchInput = debounce(searchQuery => {
     this.executeSearch(searchQuery);
   }, 150);
 
-  executeSearch = (query) => {
+  executeSearch = query => {
     new Promise((resolve, reject) => {
       const { projectId, searchFunction, type } = this.props;
       const { currentSearch } = this.state;
@@ -175,32 +178,25 @@ export default class SearchPicker extends React.Component {
         projectId,
         type,
         query: query.toLowerCase(),
-      })
-        .then(resolve, reject);
-    })
-      .then(
-        (results) => {
-          const { searchQuery } = this.state;
-          this.setState({
-            isLoading: false,
-            currentSearch: null,
-          });
-          // Ensure the query wasn't killed during the debounce period.
-          if (searchQuery) {
-            this.setState({
-              results,
-            });
-          }
-        },
-        (err) => {
-          console.log(err);
-        },
-      );
-  }
+      }).then(resolve, reject);
+    }).then(results => {
+      const { searchQuery } = this.state;
+      this.setState({
+        isLoading: false,
+        currentSearch: null,
+      });
+      // Ensure the query wasn't killed during the debounce period.
+      if (searchQuery) {
+        this.setState({
+          results,
+        });
+      }
+    });
+  };
 
-  renderInput = (props) => {
+  renderInput = props => {
     const { type } = this.props;
-    const { searchQuery, searchFocused } = this.state;
+    const { searchQuery } = this.state;
     const { handleSearchInput } = this;
     const placeholderNoun = type.map(i => `${i}s`).join(',');
     return (
@@ -214,17 +210,17 @@ export default class SearchPicker extends React.Component {
         { ...props }
       />
     );
-  }
+  };
 
   getAvailableEntities = () => {
     const { selectedEntityIds } = this.props;
     return this.getResultSet().filter(result => !selectedEntityIds.includes(result.id));
-  }
+  };
 
   getResultSet = () => {
     const { results, defaultResults } = this.state;
     return results || defaultResults;
-  }
+  };
 
   getResultsText = () => {
     const { type } = this.props;
@@ -246,11 +242,11 @@ export default class SearchPicker extends React.Component {
     return {
       summary,
     };
-  }
+  };
 
   render() {
-    const { children } = this.props;
-    const { searchQuery, isLoading, searchFocused, currentFauxFocusIndex } = this.state;
+    const { children, currentFauxFocusIndex } = this.props;
+    const { searchQuery, isLoading, searchFocused } = this.state;
     const { renderInput } = this;
     const availableEntities = this.getAvailableEntities();
     return (
@@ -269,3 +265,5 @@ export default class SearchPicker extends React.Component {
     );
   }
 }
+
+export default SearchPicker;
