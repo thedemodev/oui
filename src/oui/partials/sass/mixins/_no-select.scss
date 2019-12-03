@@ -1,0 +1,9 @@
+@mixin no-select {
+  // This is not part of the CSS specification.
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+
+  // scss-lint:disable VendorPrefix
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

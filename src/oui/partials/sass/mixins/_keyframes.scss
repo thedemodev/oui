@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Mixin for defining animation keyframes
+   ========================================================================== */
+
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} { @content; }
+  @-o-keyframes #{$name} { @content; }
+  @-webkit-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
