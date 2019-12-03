@@ -41,7 +41,6 @@ stories.add('Default', () => {
         searchQuery,
         currentFauxFocusIndex,
         shouldDisplayResults,
-        shouldDisplayCreate,
         resultsText,
       }) => (
         <Dropdown isOpen={ true } width={ 600 } fullWidth={ true } renderActivator={ renderInput }>
