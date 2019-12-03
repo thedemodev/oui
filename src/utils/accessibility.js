@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { noop } from 'lodash';
+
 /**
  * Map a color class to a human readable word that explains the context of when
  * the class is used. This is helpful for screen readers.
@@ -30,11 +31,11 @@ export const getAssistiveTextFromColorClass = className => {
  * @param {React.Component} Component - The component to wrap.
  * @returns {React.Component}
  */
-export const listIndexTracker = Component => {
+export const keyboardTracker = Component => {
   const wrappedComponent = props => {
     const [currentFauxFocusIndex, setIndex] = useState(0);
     const [currentItemCount, setItemCount] = useState(0);
-    const [onItemSelect, setOnItemSelect] = useState(noop);
+    const [onItemSelect, setOnItemSelect] = useState(() => noop);
     const ref = useRef(null);
     /**
      * Event handler for keyboard activity.
@@ -63,7 +64,7 @@ export const listIndexTracker = Component => {
             break;
         }
       },
-      [currentFauxFocusIndex, currentItemCount]
+      [currentFauxFocusIndex, currentItemCount, onItemSelect]
     );
 
     useEffect(() => {
@@ -81,6 +82,6 @@ export const listIndexTracker = Component => {
       />
     );
   };
-  wrappedComponent.displayName = `withListIndexTracker(${Component.displayName})`;
+  wrappedComponent.displayName = `withkeyboardTracker(${Component.displayName})`;
   return wrappedComponent;
 };
