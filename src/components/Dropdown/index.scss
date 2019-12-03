@@ -130,7 +130,8 @@
 
   &__item {
     color: map-fetch($color, text, base);
-    padding: spacer(.5) spacer(1);
+    padding: spacer(0.5);
+    border-top: 1px solid map-fetch($color, ui, light);
 
     & > div.isSelected,
     & > div.micro {
@@ -139,6 +140,13 @@
 
     &--active {
       background: map-fetch($color, background, faint);
+    }
+
+    &--separator {
+      background: $smoke-light;
+      color: $grey-dark;
+      font-size: 11px;
+      font-weight: 500;
     }
   }
 
@@ -177,9 +185,12 @@
     bottom: 100%;
     top: initial;
   }
-
 }
 
 .oui-dropdown-children > div {
   border-radius: var(--border-radius);
+}
+
+.oui-dropdown__block-link--has-focus {
+  background-color: var(--light-blue-6);
 }

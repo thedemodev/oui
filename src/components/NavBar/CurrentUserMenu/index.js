@@ -15,37 +15,6 @@ import Button from '../../Button';
 
 import AccountSwitcher from './AccountSwitcher';
 
-const Activator = ({ buttonRef, onClick, onBlur, userName }) => (
-  <div
-    ref={ buttonRef }
-    onClick={ onClick }
-    onBlur={ onBlur }
-    data-test-section="account-switcher-dropdown-activator"
-    title={ userName }
-    className={ classNames(
-      'link--reverse',
-      'micro',
-      'flex',
-      'flex-align--center',
-    ) }>
-    <span
-      className="display--block truncate"
-      data-test-section="nav-bar-user-name">
-      { userName }
-    </span>
-    <div className="flex--1 push-half--left">
-      <span className="oui-arrow-inline--down oui-arrow-inline--small vertical-align--middle" />
-    </div>
-  </div>
-);
-
-Activator.propTypes = {
-  buttonRef: PropTypes.func,
-  onBlur: PropTypes.func,
-  onClick: PropTypes.func,
-  userName: PropTypes.string.isRequired,
-};
-
 class CurrentUserMenu extends React.Component {
   static propTypes = {
     /** Account Settings Url */
@@ -82,6 +51,33 @@ class CurrentUserMenu extends React.Component {
   static defaultProps = {
     isOpen: true,
     showEmulate: false,
+  };
+
+  renderActivator = ({ buttonRef, onClick, onBlur }) => {
+    const { userName } = this.props;
+    return (
+      <div
+        ref={ buttonRef }
+        onClick={ onClick }
+        onBlur={ onBlur }
+        data-test-section="account-switcher-dropdown-activator"
+        title={ userName }
+        className={ classNames(
+          'link--reverse',
+          'micro',
+          'flex',
+          'flex-align--center',
+        ) }>
+        <span
+          className="display--block truncate"
+          data-test-section="nav-bar-user-name">
+          { userName }
+        </span>
+        <div className="flex--1 push-half--left">
+          <span className="oui-arrow-inline--down oui-arrow-inline--small vertical-align--middle" />
+        </div>
+      </div>
+    );
   };
 
   renderEmulate = () => {
@@ -147,7 +143,7 @@ class CurrentUserMenu extends React.Component {
           <li>
             <Dropdown
               placement="right-start"
-              activator={ <Activator userName={ userName } /> }>
+              renderActivator={ this.renderActivator }>
               <Dropdown.Contents direction="up" minWidth="250px">
                 <div data-test-section="account-switcher-dropdown-content">
                   <BlockList>

@@ -20,6 +20,7 @@ const Popover = ({
   padding,
   testSection,
   title,
+  popoverId,
 }) => {
   const popOverClasses = classNames({
     'oui-pop--over': true,
@@ -44,6 +45,7 @@ const Popover = ({
 
   return (
     <div
+      id={ popoverId }
       data-oui-component={ true }
       className={ popOverClasses }
       style={{ display: 'block', opacity: 1, position: 'initial' }}
@@ -63,6 +65,8 @@ Popover.propTypes = {
   children: PropTypes.node.isRequired,
   /** Padding class or 'default' padding for the popover container */
   padding: PropTypes.oneOf([DEFAULT_PADDING_PROP, HARD_PADDING_PROP, SOFT_DOUBLE_PROP, SOFT_HALF_PADDING_PROP]),
+  /** Id used to associate Popover to trigger */
+  popoverId: PropTypes.string,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
   /** Text describing the popover contents */

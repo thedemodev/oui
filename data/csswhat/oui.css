@@ -1178,6 +1178,34 @@
 .selecting-right td.d2h-code-side-linenumber *::selection {
   background: transparent; }
 
+/* ==========================================================================
+   Mixin for defining animation keyframes
+   ========================================================================== */
+/**
+ * Default ordered and unordered list styles
+ */
+/* ==========================================================================
+   Contains handy utility mixins that aren't special or elaborate
+   enough to warrant their own files.
+   ========================================================================== */
+/**
+ * Sets the width and height of an element
+ */
+/**
+ * Sets the width and height of an element to be the same,
+ * i.e. a square
+ */
+/**
+ * Sets common properties for icons set as background images,
+ * such as the background image itself, size, and background size.
+ * Meant to be used in non-pseudo-element contexts. Width and height
+ * must be set elsewhere.
+ */
+/**
+ * Sets common properties for icons set as background images in
+ * pseudo-elements. Very similar to background-image-icon above
+ * (and calls it internally), but should be used with pseudo elements.
+ */
 
 .pop--over--arrow-top-left,
 .oui-pop--over--arrow-top-left,
@@ -1576,6 +1604,34 @@
 .oui-pop--tip--arrow-right-bottom::after, .tether-element.tether-element-attached-middle.tether-element-attached-right.tether-target-attached-middle.tether-target-attached-left .oui-pop--over::after, .tether-element.tether-element-attached-middle.tether-element-attached-right.tether-target-attached-middle.tether-target-attached-left .oui-pop--tip::after, .tether-element.tether-element-attached-top.tether-element-attached-right.tether-target-attached-top.tether-target-attached-left .oui-pop--over::after, .tether-element.tether-element-attached-top.tether-element-attached-right.tether-target-attached-top.tether-target-attached-left .oui-pop--tip::after, .tether-element.tether-element-attached-bottom.tether-element-attached-right.tether-target-attached-bottom.tether-target-attached-left .oui-pop--over::after, .tether-element.tether-element-attached-bottom.tether-element-attached-right.tether-target-attached-bottom.tether-target-attached-left .oui-pop--tip::after {
   left: 100%; }
 
+/* ==========================================================================
+   Mixin for defining animation keyframes
+   ========================================================================== */
+/**
+ * Default ordered and unordered list styles
+ */
+/* ==========================================================================
+   Contains handy utility mixins that aren't special or elaborate
+   enough to warrant their own files.
+   ========================================================================== */
+/**
+ * Sets the width and height of an element
+ */
+/**
+ * Sets the width and height of an element to be the same,
+ * i.e. a square
+ */
+/**
+ * Sets common properties for icons set as background images,
+ * such as the background image itself, size, and background size.
+ * Meant to be used in non-pseudo-element contexts. Width and height
+ * must be set elsewhere.
+ */
+/**
+ * Sets common properties for icons set as background images in
+ * pseudo-elements. Very similar to background-image-icon above
+ * (and calls it internally), but should be used with pseudo elements.
+ */
 *, *::before, *::after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -4908,7 +4964,8 @@ code {
   .dropdown__item,
   .oui-dropdown__item {
     color: #080736;
-    padding: 5px 10px; }
+    padding: 5px;
+    border-top: 1px solid #f0f0f0; }
     
     .dropdown__item > div.isSelected,
     .dropdown__item > div.micro,
@@ -4919,6 +4976,13 @@ code {
     .dropdown__item--active,
     .oui-dropdown__item--active {
       background: #FFFFFF; }
+    
+    .dropdown__item--separator,
+    .oui-dropdown__item--separator {
+      background: #f7f7f7;
+      color: #707070;
+      font-size: 11px;
+      font-weight: 500; }
   
   .dropdown--right,
   .oui-dropdown--right {
@@ -4953,6 +5017,26 @@ code {
 
 .oui-dropdown-children > div {
   border-radius: var(--border-radius); }
+
+.oui-dropdown__block-link--has-focus {
+  background-color: var(--light-blue-6); }
+
+.oui-docked-footer {
+  background-color: white;
+  padding-bottom: 20px;
+  box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.12);
+  transition: all .2s ease-in-out;
+  margin-bottom: -20px;
+  padding-top: 20px; }
+
+.oui-docked-footer.oui-docked-footer--is-docked {
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12); }
+
+.oui-docked-footer .oui-button-row--right {
+  transition: all .2s ease-in-out;
+  margin-right: 10px; }
 
 .oui-empty-dashboard__button-row {
   margin-top: 20px;
@@ -6603,7 +6687,8 @@ body:target *[data-oui-component],
 
 .oui-disclose-table--row__toggle.is-active,
 .border--ends,
-.border--top {
+.border--top,
+.oui-docked-footer {
   border-top: 1px solid #e0e0e0 !important; }
 
 .oui-disclose-table--row__content,

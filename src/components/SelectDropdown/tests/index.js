@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import Dropdown from '../../Dropdown';
 import SelectDropdown from '../index';
 
 describe('components/SelectDropdown', function() {
@@ -27,18 +28,18 @@ describe('components/SelectDropdown', function() {
     component = mount(<SelectDropdown items={ items } value={ 'value 2' } onChange={ onChange } />);
     const activator = component.find('Button');
     activator.simulate('click');
-    const listItems = component.find('SelectOption');
+    const listItems = component.find(Dropdown.ListItem);
     expect(listItems).toHaveLength(2);
 
     const item1 = listItems.at(0);
     expect(item1.text()).toContain('label 1');
     expect(item1.text()).toContain('description 1');
-    expect(item1.props().isSelected).toEqual(false);
+    expect(item1.find(Dropdown.BlockLink).props().isLink).toEqual(true);
 
     const item2 = listItems.at(1);
     expect(item2.text()).toContain('label 2');
     expect(item2.text()).toContain('description 2');
-    expect(item2.props().isSelected).toEqual(true);
+    expect(item2.find(Dropdown.BlockLink).props().isLink).toEqual(false);
   });
 
   it('should call onChange when another item is selected', function() {
@@ -60,9 +61,20 @@ describe('components/SelectDropdown', function() {
         onChange={ onChange }
         width="400px"
       />);
-    expect(component.find('Dropdown').find('Activator').childAt(0).props().style).toEqual({
+    expect(component.find('Dropdown').find('div.oui-dropdown-group__activator').props().style).toEqual({
       width: '400px',
     });
+  });
+
+  it('should pass fullWidth prop to Dropdown', function() {
+    component = mount(
+      <SelectDropdown
+        items={ items }
+        value={ 'value 2' }
+        onChange={ onChange }
+        fullWidth={ true }
+      />);
+    expect(component.find('Dropdown').prop('fullWidth')).toEqual(true);
   });
 
   it('should set the maxWidth of the activator', function() {
@@ -73,7 +85,9 @@ describe('components/SelectDropdown', function() {
         onChange={ onChange }
         maxWidth="100px"
       />);
-    expect(component.find('Dropdown').find('Activator').childAt(0).props().style).toEqual({maxWidth: '100px', width: '100%'});
+    expect(
+      component.find('Dropdown').find('div.oui-dropdown-group__activator').props().style
+    ).toEqual({maxWidth: '100px', width: '100%'});
   });
 
   it('should contain error class', function() {

@@ -21,6 +21,7 @@ Highlight.registerLanguage('python', require('highlight.js/lib/languages/python'
 Highlight.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'));
 Highlight.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 Highlight.registerLanguage('swift', require('highlight.js/lib/languages/swift'));
+Highlight.registerLanguage('go', require('highlight.js/lib/languages/go'));
 
 /**
  * Display code either inline or in its own block.
@@ -131,7 +132,7 @@ Code.propTypes = {
   /** Specify a language for the syntax highlighter */
   language: PropTypes.oneOf(['cs', 'css', 'diff', 'html', 'java', 'javascript',
     'js', 'jsx', 'markdown', 'md', 'objectivec', 'php', 'python', 'ruby', 'scss',
-    'swift']),
+    'swift', 'go']),
   /** ouiStyle */
   ouiStyle: PropTypes.bool,
   /** Hook for automated JavaScript tests */

@@ -36,7 +36,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
   <div
     className="oui-example-component"
   >
-    <Input
+    <[object Object]
       isRequired={false}
       note={null}
       onInput={[Function]}
@@ -44,6 +44,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
       type="text"
     >
       <input
+        autoFocus={[Function]}
         className="oui-text-input"
         data-oui-component={true}
         data-test-section="nameInput"
@@ -51,7 +52,7 @@ exports[`components/ExampleComponent should match the Jest Snapshot 1`] = `
         required={false}
         type="text"
       />
-    </Input>
+    </[object Object]>
     <div
       data-test-section="inputNameValue"
     />
