@@ -8,12 +8,12 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 ## Unreleased
 
 ## 44.12.0 - 2019-12-02
-- [Patch] Upate `<Input>` to forward refs and accept an `onClick` prop. ([#1256](https://github.com/optimizely/oui/pull/1256))
-- [Enhancement] Several updates to `<Dropdown>`, notably adding `role` and `hasFauxFocus` props to support accessibility, adding a `renderActivator` render prop, and updating the stories to only use `<Dropdown>` defined children. Full details in [#1250](https://github.com/optimizely/oui/pull/1250).
+- [Patch] Upate **Input** to forward refs and accept an `onClick` prop ([#1256](https://github.com/optimizely/oui/pull/1256))
+- [Feature] Several updates to **Dropdown**, notably adding `role` and `hasFauxFocus` props to support accessibility, adding a `renderActivator` render prop, and updating the stories to only use **Dropdown** defined children. Full details in [#1250](https://github.com/optimizely/oui/pull/1250).
 - [Feature] New **DockedFooter** sticky-to-the-bottom button row component ([#1247](https://github.com/optimizely/oui/pull/1247))
 - [Feature] Improve keyboard accessibility by updating **HelpPopover** to use ButtonIcon component and be a focusable element ([#1254](https://github.com/optimizely/oui/pull/1254))
-- Add ability to associate a **ButtonIcon** with another component, like a **Popover**, using `ariaDescribedBy` and `popoverId` props
-- [Patch] Upate `<SelectDropdown>` to accept a `fullWidth` prop. ([#1256](https://github.com/optimizely/oui/pull/1258))
+    - Add ability to associate a **ButtonIcon** with another component, like a **Popover**, using `ariaDescribedBy` and `popoverId` props
+- [Patch] Update **SelectDropdown** to accept a `fullWidth` prop ([#1258](https://github.com/optimizely/oui/pull/1258))
 
 ## 44.11.0 - 2019-11-06
 
