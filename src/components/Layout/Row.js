@@ -52,6 +52,8 @@ const propTypes = {
    * Removes gutters and negative margins.
    */
   removeGutters: PropTypes.bool,
+  /** Whether this row should wrap at small screen sizes */
+  shouldWrap: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -62,6 +64,7 @@ const defaultProps = {
   outlineDebug: false,
   paddedContent: 'none',
   removeGutters: false,
+  shouldWrap: true,
 };
 
 const Row = React.forwardRef(({
@@ -72,6 +75,7 @@ const Row = React.forwardRef(({
   outlineDebug,
   paddedContent,
   removeGutters,
+  shouldWrap,
   ...props
 }, ref) => {
 
@@ -91,6 +95,10 @@ const Row = React.forwardRef(({
 
   if (overflow) {
     classes.push(overflow);
+  }
+
+  if (!shouldWrap) {
+    classes.push('row--no-wrap');
   }
 
   if (paddedContent && paddedContent !== 'none') {

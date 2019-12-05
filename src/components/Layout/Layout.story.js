@@ -78,207 +78,209 @@ const borderOptions = {
 const stories = storiesOf('Layout', module);
 stories
   .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <div id="root-preview">
-      {story()}
-    </div>
-  ));
+  .addDecorator(story => <div id="root-preview">{story()}</div>);
 
-stories.add('Default', () => {
-  return (
-    <div>
-      <h1>Default (Equal Widths)</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        fluid={ boolean('fluid', false) }
-        pullRowPadding={ boolean('pullRowPadding', false) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }>
-        <Row
-          removeGutters={ boolean('Row removeGutters', false) }
-          displayVertical={ boolean('displayVertical', false) }>
-          <Col>Col</Col>
-          <Col>Col</Col>
-        </Row>
-        <Row
-          removeGutters={ boolean('Row removeGutters', false) }
-          displayVertical={ boolean('displayVertical', false) }>
-          <Col>Col</Col>
-          <Col>Col</Col>
-          <Col>Col</Col>
-        </Row>
-        <Row
-          removeGutters={ boolean('Row removeGutters', false) }
-          displayVertical={ boolean('displayVertical', false) }>
-          <Col>Col</Col>
-          <Col>Col</Col>
-          <Col>Col</Col>
-          <Col>Col</Col>
-        </Row>
-      </Container>
-      <h1 className="push-triple--top">Widths</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        pullRowPadding={ boolean('pullRowPadding', false) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 12 }>12</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 11 }>11</Col>
-          <Col small={ 1 }>1</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 10 }>10</Col>
-          <Col small={ 2 }>2</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 9 }>9</Col>
-          <Col small={ 3 }>3</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 8 }>8</Col>
-          <Col small={ 4 }>4</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 7 }>7</Col>
-          <Col small={ 5 }>5</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 6 }>6</Col>
-          <Col small={ 6 }>6</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 5 }>5</Col>
-          <Col small={ 7 }>7</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 4 }>4</Col>
-          <Col small={ 8 }>8</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 3 }>3</Col>
-          <Col small={ 9 }>9</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 10 }>10</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 1 }>1</Col>
-          <Col small={ 11 }>11</Col>
-        </Row>
-      </Container>
-      <h1 className="push-triple--top">Equal Widths</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        pullRowPadding={ boolean('pullRowPadding', false) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 6 }>6</Col>
-          <Col small={ 6 }>6</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 4 }>4</Col>
-          <Col small={ 4 }>4</Col>
-          <Col small={ 4 }>4</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 3 }>3</Col>
-          <Col small={ 3 }>3</Col>
-          <Col small={ 3 }>3</Col>
-          <Col small={ 3 }>3</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 2 }>2</Col>
-          <Col small={ 2 }>2</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-          <Col large={ 1 }>1</Col>
-        </Row>
-      </Container>
-      <h1 className="push-triple--top">"Auto"</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        pushRowsTop={ boolean('pushRowsTop', false) }
-        pullRowPadding={ boolean('pullRowPadding', false) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ true }>true</Col>
-          <Col small={ true }>true</Col>
-          <Col small={ true }>true</Col>
-        </Row>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col small={ 'auto' }>auto</Col>
-          <Col small={ 'auto' }>auto</Col>
-          <Col small={ 'auto' }>auto</Col>
-        </Row>
-      </Container>
-      <h1 className="push-triple--top">fillSpace</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row>
-          <Col small={ 'fillSpace' }>fillSpace</Col>
-          <Col small={ 'fillSpace' }>fillSpace</Col>
-          <Col small={ 'fillSpace' }>fillSpace</Col>
-        </Row>
-      </Container>
-      <h1 className="push-triple--top">fitContent</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', false) }>
-        <Row>
-          <Col small={ 'fitContent' }>fitContent</Col>
-          <Col small={ 'fitContent' }>fitContent</Col>
-          <Col small={ 'fitContent' }>fitContent</Col>
-        </Row>
-      </Container>
-    </div>
-  );
-})
+stories
+  .add('Default', () => {
+    return (
+      <div>
+        <h1>Default (Equal Widths)</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          fluid={ boolean('fluid', false) }
+          pullRowPadding={ boolean('pullRowPadding', false) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }>
+          <Row
+            removeGutters={ boolean('Row removeGutters', false) }
+            displayVertical={ boolean('displayVertical', false) }>
+            <Col>Col</Col>
+            <Col>Col</Col>
+          </Row>
+          <Row
+            removeGutters={ boolean('Row removeGutters', false) }
+            displayVertical={ boolean('displayVertical', false) }>
+            <Col>Col</Col>
+            <Col>Col</Col>
+            <Col>Col</Col>
+          </Row>
+          <Row
+            removeGutters={ boolean('Row removeGutters', false) }
+            displayVertical={ boolean('displayVertical', false) }>
+            <Col>Col</Col>
+            <Col>Col</Col>
+            <Col>Col</Col>
+            <Col>Col</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">Widths</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          pullRowPadding={ boolean('pullRowPadding', false) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', false) }>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 12 }>12</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 11 }>11</Col>
+            <Col small={ 1 }>1</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 10 }>10</Col>
+            <Col small={ 2 }>2</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 9 }>9</Col>
+            <Col small={ 3 }>3</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 8 }>8</Col>
+            <Col small={ 4 }>4</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 7 }>7</Col>
+            <Col small={ 5 }>5</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 6 }>6</Col>
+            <Col small={ 6 }>6</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 5 }>5</Col>
+            <Col small={ 7 }>7</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 4 }>4</Col>
+            <Col small={ 8 }>8</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 3 }>3</Col>
+            <Col small={ 9 }>9</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 10 }>10</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 1 }>1</Col>
+            <Col small={ 11 }>11</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">Equal Widths</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          pullRowPadding={ boolean('pullRowPadding', false) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', false) }>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 6 }>6</Col>
+            <Col small={ 6 }>6</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 4 }>4</Col>
+            <Col small={ 4 }>4</Col>
+            <Col small={ 4 }>4</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 3 }>3</Col>
+            <Col small={ 3 }>3</Col>
+            <Col small={ 3 }>3</Col>
+            <Col small={ 3 }>3</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 2 }>2</Col>
+            <Col small={ 2 }>2</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+            <Col large={ 1 }>1</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">"Auto"</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          pushRowsTop={ boolean('pushRowsTop', false) }
+          pullRowPadding={ boolean('pullRowPadding', false) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', false) }>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ true }>true</Col>
+            <Col small={ true }>true</Col>
+            <Col small={ true }>true</Col>
+          </Row>
+          <Row removeGutters={ boolean('Row removeGutters', false) }>
+            <Col small={ 'auto' }>auto</Col>
+            <Col small={ 'auto' }>auto</Col>
+            <Col small={ 'auto' }>auto</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">fillSpace</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', false) }>
+          <Row>
+            <Col small={ 'fillSpace' }>fillSpace</Col>
+            <Col small={ 'fillSpace' }>fillSpace</Col>
+            <Col small={ 'fillSpace' }>fillSpace</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">fitContent</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', false) }>
+          <Row>
+            <Col small={ 'fitContent' }>fitContent</Col>
+            <Col small={ 'fitContent' }>fitContent</Col>
+            <Col small={ 'fitContent' }>fitContent</Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  })
   .add('Container vs None', () => {
-    return (<div>
-      <h1>With Container</h1>
-      <Container
-        outlineDebug={ boolean('outlineDebug', true) }
-        pullRowPadding={ boolean('pullRowPadding', true) }
-        paddedContent={ select('paddedContent', paddingOptions, 'none') }
-        fluid={ boolean('fluid', true) }>
-        <Row>
-          <Col>Hello short example</Col>
-          <Col>Hello short example</Col>
+    return (
+      <div>
+        <h1>With Container</h1>
+        <Container
+          outlineDebug={ boolean('outlineDebug', true) }
+          pullRowPadding={ boolean('pullRowPadding', true) }
+          paddedContent={ select('paddedContent', paddingOptions, 'none') }
+          fluid={ boolean('fluid', true) }>
+          <Row>
+            <Col>Hello short example</Col>
+            <Col>Hello short example</Col>
+          </Row>
+        </Container>
+        <h1 className="push-triple--top">No Container</h1>
+        <Row outlineDebug={ boolean('outlineDebug', true) }>
+          <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>
+            Hello short example
+          </Col>
+          <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>
+            Hello short example
+          </Col>
         </Row>
-      </Container>
-      <h1 className="push-triple--top">No Container</h1>
-      <Row
-        outlineDebug={ boolean('outlineDebug', true) }>
-        <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>Hello short example</Col>
-        <Col paddedContent={ select('paddedContent', paddingOptions, 'none') }>Hello short example</Col>
-      </Row>
-    </div>);
+      </div>
+    );
   })
   .add('Column Padding', () => {
     return (
@@ -286,19 +288,20 @@ stories.add('Default', () => {
         outlineDebug={ boolean('outlineDebug', false) }
         paddedContent={ 'none' }
         fluid={ boolean('fluid', false) }>
-        <Row
-          removeGutters={ boolean('Row removeGutters', false) }>
+        <Row removeGutters={ boolean('Row removeGutters', false) }>
           <Col
             large={ 'fillSpace' }
             paddedContent={ select('paddedContent', paddingOptions, 'around') }
             border={ select('Col border', borderOptions, 'all') }>
-            Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
+            Change the padding on individual Columns via props. Try the knob to
+            adjust padding in these cells together.
           </Col>
           <Col
             large={ 'fillSpace' }
             paddedContent={ select('paddedContent', paddingOptions, 'around') }
             border={ select('Col border', borderOptions, 'all') }>
-            Change the padding on individual Columns via props. Try the knob to adjust padding in these cells together.
+            Change the padding on individual Columns via props. Try the knob to
+            adjust padding in these cells together.
           </Col>
         </Row>
       </Container>
@@ -317,30 +320,22 @@ stories.add('Default', () => {
           removeGutters={ boolean('Row removeGutters', false) }
           border={ 'ends' }
           paddedContent={ 'ends' }>
-          <Col
-            paddedContent={ 'around' }>
+          <Col paddedContent={ 'around' }>
             <h2 className="push-half--bottom">Some Title</h2>
             Col with border sides
           </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
+          <Col paddedContent={ 'around' } border={ 'left' }>
             <h2 className="push-half--bottom">A Longer Page Title</h2>
-            Col with border sides and long-ish content that will definitely run to multiple lines.
+            Col with border sides and long-ish content that will definitely run
+            to multiple lines.
           </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
+          <Col paddedContent={ 'around' } border={ 'left' }>
             Col with border sides
           </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
+          <Col paddedContent={ 'around' } border={ 'left' }>
             Col with border sides
           </Col>
-          <Col
-            paddedContent={ 'around' }
-            border={ 'left' }>
+          <Col paddedContent={ 'around' } border={ 'left' }>
             Col with border right
           </Col>
         </Row>
@@ -418,8 +413,11 @@ stories.add('Default', () => {
         fluid={ boolean('fluid', false) }>
         <Row>
           <Col>left column</Col>
-          <Col small={ number('small', 6) }>middle column (small=6)
-            <br/>Adjust this size via knob "small"</Col>
+          <Col small={ number('small', 6) }>
+            middle column (small=6)
+            <br />
+            Adjust this size via knob "small"
+          </Col>
           <Col>right column</Col>
         </Row>
       </Container>
@@ -431,19 +429,15 @@ stories.add('Default', () => {
         outlineDebug={ boolean('outlineDebug', true) }
         paddedContent={ 'around' }
         fluid={ boolean('fluid', true) }>
-        <Row
-          border={ 'all' }
-          paddedContent={ 'ends' }>
+        <Row border={ 'all' } paddedContent={ 'ends' }>
           <Col>
             <h6>URL Match</h6>
           </Col>
           <Col small={ 'auto' }>
-            <Icon name='close' />
+            <Icon name="close" />
           </Col>
         </Row>
-        <Row
-          border={ 'all' }
-          paddedContent={ 'ends' }>
+        <Row border={ 'all' } paddedContent={ 'ends' }>
           <Container
             pushRowsTop={ true }
             paddedContent={ 'none' }
@@ -451,19 +445,15 @@ stories.add('Default', () => {
             <Row>
               <Col small={ 'auto' }>URL</Col>
               <Col small={ 'fitContent' }>
-                <SelectDropdown
-                  items={ items }
-                  value={ 'does' }
-                />
+                <SelectDropdown items={ items } value={ 'does' } />
               </Col>
-              <Col small={ 'auto' }>these <strong>URLs</strong>:</Col>
+              <Col small={ 'auto' }>
+                these <strong>URLs</strong>:
+              </Col>
             </Row>
             <Row>
               <Col small={ 'fillSpace' }>
-                <Input
-                  id="input-01"
-                  type="text"
-                />
+                <Input id="input-01" type="text" />
               </Col>
               <Col small={ 'fitContent' }>
                 <SelectDropdown
@@ -495,10 +485,7 @@ stories.add('Default', () => {
             </Row>
             <Row>
               <Col small={ 'fillSpace' }>
-                <Input
-                  id="input-01"
-                  type="text"
-                />
+                <Input id="input-01" type="text" />
               </Col>
               <Col small={ 'fitContent' }>
                 <SelectDropdown
@@ -621,17 +608,28 @@ stories.add('Default', () => {
           outlineDebug={ boolean('outlineDebug', true) }
           pushRowsTop={ boolean('pushRowsTop', true) }
           paddedContent={ select('paddedContent', paddingOptions, 'none') }>
-
           <Row removeGutters={ boolean('Row removeGutters', false) }>
-            <Col small={ 12 } medium={ 8 }>small=12 medium=8</Col>
-            <Col small={ 6 } medium={ 4 }>small=6 medium=4</Col>
+            <Col small={ 12 } medium={ 8 }>
+              small=12 medium=8
+            </Col>
+            <Col small={ 6 } medium={ 4 }>
+              small=6 medium=4
+            </Col>
           </Row>
 
           <Row removeGutters={ boolean('Row removeGutters', false) }>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
-            <Col small={ 6 } medium={ 3 }>small=6 medium=3</Col>
+            <Col small={ 6 } medium={ 3 }>
+              small=6 medium=3
+            </Col>
+            <Col small={ 6 } medium={ 3 }>
+              small=6 medium=3
+            </Col>
+            <Col small={ 6 } medium={ 3 }>
+              small=6 medium=3
+            </Col>
+            <Col small={ 6 } medium={ 3 }>
+              small=6 medium=3
+            </Col>
           </Row>
 
           <Row removeGutters={ boolean('Row removeGutters', false) }>
@@ -649,41 +647,50 @@ stories.add('Default', () => {
         pushRowsTop={ boolean('pushRowsTop', false) }
         paddedContent={ select('paddedContent', paddingOptions, 'none') }
         fluid={ boolean('fluid', false) }>
-        <Row removeGutters={ boolean('Row removeGutters', false) }>
-          <Col medium={{ span: 8, offset: 2 }}>
+        <Row removeGutters={ boolean('Row removeGutters', false) } paddedContent={ 'around' }>
+          <div>
             <h2>Features</h2>
             <p className="lead">Manage your app’s feature flags</p>
+          </div>
+        </Row>
+        <Row>
+          <Col small={ 6 }>
+            <img src="https://s3-us-west-1.amazonaws.com/zach-designs/flagly/thing.svg" />
+          </Col>
+          <Col small={ 6 }>
+            <h6>What’s a Feature Flag?</h6>
+            {/* eslint-disable max-len */}
+            <p>
+              Feature flags, also known as feature toggles, are a software
+              development technique that lets you turn certain functionality on
+              and off without deploying new code. This allows for better control
+              and more experimentation over the full lifecycle of features. You
+              can toggle a feature off to release code quickly without exposing
+              it to users.
+            </p>
+            {/* eslint-enable max-len */}
+            <h6>Try it for yourself</h6>
+            <Code>
+              var enabled = optimizely.isFeatureEnabled(”chat_window”, userId);
+              if(enabled){' '}
+              {
+                // Feature is enabled
+              }{' '}
+              else{' '}
+              {
+                // Feature is disabled
+              }
+            </Code>
             <Row>
-              <Col small={ 6 }>
-                <img src="https://s3-us-west-1.amazonaws.com/zach-designs/flagly/thing.svg" />
+              <Col large={ 6 }>
+                <Button width={ 'full' }>View Docs</Button>
               </Col>
-              <Col small={ 6 }>
-                <h6>What’s a Feature Flag?</h6>
-                { /* eslint-disable max-len */ }
-                <p>Feature flags, also known as feature toggles, are a software development technique that lets you turn certain functionality on and off without deploying new code. This allows for better control and more experimentation over the full lifecycle of features. You can toggle a feature off to release code quickly without exposing it to users.</p>
-                { /* eslint-enable max-len */ }
-                <h6>Try it for yourself</h6>
-                <Code>
-  var enabled = optimizely.isFeatureEnabled(”chat_window”, userId);
-  if(enabled) {
-                    // Feature is enabled
-                  } else {
-                    // Feature is disabled
-                  }
-                </Code>
-                <Row>
-                  <Col large={ 6 }>
-                    <Button width={ 'full' }>View Docs</Button>
-                  </Col>
-                  <Col large={ 6 }>
-                    <Button width={ 'full' }>Create Feature</Button>
-                  </Col>
-                </Row>
+              <Col large={ 6 }>
+                <Button width={ 'full' }>Create Feature</Button>
               </Col>
             </Row>
           </Col>
         </Row>
       </Container>
     );
-  })
-;
+  });

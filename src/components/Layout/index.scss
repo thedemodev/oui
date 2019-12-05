@@ -45,17 +45,20 @@ div[class*="col"].padded-content--remove,
 }
 
 /// Bootstrap flexbox grid container
-.container {
+.container, .container-fluid {
   width: 100%;
+  display: flex;
+  flex-direction: column;
   padding-right: spacer(1.5);
   padding-left: spacer(1.5);
   margin-right: auto;
   margin-left: auto;
 }
-.container--pull .row .col:first-child {
+
+.container--pull .row [class*="col"]:first-child {
   padding-left: 0;
 }
-.container--pull .row .col:last-child {
+.container--pull .row [class*="col"]:last-child {
   padding-right: 0;
 }
 
@@ -85,19 +88,16 @@ div[class*="col"].padded-content--remove,
   }
 }
 
-.container-fluid {
-  width: 100%;
-  padding-right: spacer(1.5);
-  padding-left: spacer(1.5);
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
   margin-right: spacer(-1.5);
   margin-left: spacer(-1.5);
+}
+
+.row--no-wrap {
+  flex-wrap: nowrap;
 }
 
 .gutters--remove {
@@ -111,7 +111,7 @@ div[class*="col"].padded-content--remove,
   padding-left: 0;
 }
 
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
 .col-auto, .col-small-1, .col-small-2, .col-small-3, .col-small-4, .col-small-5, .col-small-6, .col-small-7, .col-small-8, .col-small-9, .col-small-10, .col-small-11, .col-small-12, .col-small,
 .col-small-auto, .col-medium-1, .col-medium-2, .col-medium-3, .col-medium-4, .col-medium-5, .col-medium-6, .col-medium-7, .col-medium-8, .col-medium-9, .col-medium-10, .col-medium-11, .col-medium-12, .col-medium,
 .col-medium-auto, .col-large-1, .col-large-2, .col-large-3, .col-large-4, .col-large-5, .col-large-6, .col-large-7, .col-large-8, .col-large-9, .col-large-10, .col-large-11, .col-large-12, .col-large,
@@ -123,6 +123,7 @@ div[class*="col"].padded-content--remove,
 }
 
 .col {
+  display: flex;
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
@@ -192,4 +193,10 @@ div[class*="col"].padded-content--remove,
 .col-12 {
   flex: 0 0 100%;
   max-width: 100%;
+}
+
+div[class*="fitContent"] {
+  display: block;
+  width: auto;
+  padding: 0;
 }

@@ -6,10 +6,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Multiple updates to the Layout components for better usability ([#1257](https://github.com/optimizely/oui/pull/1257))
+    - Add ability for **Col** component to be a reading column with `isReadingColumn` prop
+    - Add ability to prevent **Row** from wrapping with `shouldWrap` prop
+    - Update **Container** and **Col** to be flex
 - [Patch] Include Optimizely.git reusable mixins as part of removing Classic CSS debt from the monolith ([#1259](https://github.com/optimizely/oui/pull/1259))
 
 ## 44.12.0 - 2019-12-02
-- [Patch] Upate **Input** to forward refs and accept an `onClick` prop ([#1256](https://github.com/optimizely/oui/pull/1256))
+- [Patch] Update **Input** to forward refs and accept an `onClick` prop ([#1256](https://github.com/optimizely/oui/pull/1256))
 - [Feature] Several updates to **Dropdown**, notably adding `role` and `hasFauxFocus` props to support accessibility, adding a `renderActivator` render prop, and updating the stories to only use **Dropdown** defined children. Full details in [#1250](https://github.com/optimizely/oui/pull/1250).
 - [Feature] New **DockedFooter** sticky-to-the-bottom button row component ([#1247](https://github.com/optimizely/oui/pull/1247))
 - [Feature] Improve keyboard accessibility by updating **HelpPopover** to use ButtonIcon component and be a focusable element ([#1254](https://github.com/optimizely/oui/pull/1254))

@@ -67,6 +67,9 @@ const propTypes = {
   /** Inner contents. */
   children: PropTypes.node,
 
+  /** Whether or not this is a reading column layout */
+  isReadingColumn: PropTypes.bool,
+
   /**
    * The number of columns to span on large devices (≥992px)
    *
@@ -96,10 +99,11 @@ const propTypes = {
 
 const defaultProps = {
   as: 'div',
+  isReadingColumn: false,
 };
 
 const Col = React.forwardRef(
-  ({ border, paddedContent, as: Component, ...props }, ref) => {
+  ({ border, paddedContent, isReadingColumn, as: Component, ...props }, ref) => {
     const prefix = 'col';
     const spans = [];
     const classes = [];
@@ -110,6 +114,10 @@ const Col = React.forwardRef(
 
     if (paddedContent && paddedContent !== 'none') {
       classes.push(`padded-content--${paddedContent}`);
+    }
+
+    if (isReadingColumn) {
+      classes.push('reading-column');
     }
 
     DEVICE_SIZES.forEach(brkPoint => {
