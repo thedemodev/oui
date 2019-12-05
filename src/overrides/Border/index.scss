@@ -35,6 +35,11 @@ body:target *[data-oui-component],
   border: 1px solid map-fetch($border, color, base) !important;
 }
 
+%border-dashed--all,
+.border-dashed--all {
+  border: 1px dashed map-fetch($border, color, base) !important;
+}
+
 %border--top,
 .border--top {
   border-top: 1px solid map-fetch($border, color, base) !important;

@@ -16,6 +16,7 @@ $include-fonts:(
 
 /// OUI functions
 @import 'partials/sass/functions';
+@import 'partials/sass/mixins';
 
 /// Axiom Tokens
 @import '../tokens/forimport/index';

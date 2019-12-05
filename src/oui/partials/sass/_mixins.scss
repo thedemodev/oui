@@ -2,6 +2,12 @@
 /// Mixins
 ////
 
+@import 'mixins/keyframes';
+@import 'mixins/lists';
+@import 'mixins/math';
+@import 'mixins/no-select';
+@import 'mixins/utilities';
+
 /// Font Smoothing
 /// @description Better rendering of fonts on OS X. Does not affect IE.
 
@@ -13,6 +19,12 @@
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
   }
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /// Media Query Breakpoints
@@ -320,5 +332,17 @@
         flex: none;
       }
     }
+  }
+}
+
+// Checkerboard transparent pattern
+@mixin pattern($name) {
+  @if ($name == "checkered") {
+    background-color: $base-white;
+    background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5),
+    linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-repeat: repeat;
   }
 }

@@ -1,0 +1,17 @@
+////
+/// Default ordered and unordered list styles
+////
+
+// Unstyled list
+@mixin list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Unstyled list item - undoes all styling from above
+@mixin list-item-unstyled {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
