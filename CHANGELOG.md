@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Patch] Include Optimizely.git reusable mixins as part of removing Classic CSS debt from the monolith ([#1259](https://github.com/optimizely/oui/pull/1259))
 
 ## 44.12.0 - 2019-12-02
 - [Patch] Upate **Input** to forward refs and accept an `onClick` prop ([#1256](https://github.com/optimizely/oui/pull/1256))
