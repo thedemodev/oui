@@ -21,6 +21,12 @@
   }
 }
 
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /// Media Query Breakpoints
 /// @description Provides a simple way of adding custom breakpoints. Note that
 /// you cannot use `@extend` inside media queries.

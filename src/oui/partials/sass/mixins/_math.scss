@@ -1,9 +1,6 @@
-@mixin ellipsis() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
+////
+/// Helpful number-related utilities
+////
 @function fact($number) {
   $value: 1;
   @if $number > 0 {

@@ -1,7 +1,6 @@
-/* ==========================================================================
-   Mixin for defining animation keyframes
-   ========================================================================== */
-
+////
+/// Mixin for defining animation keyframes
+////
 @mixin keyframes($name) {
   @-moz-keyframes #{$name} { @content; }
   @-o-keyframes #{$name} { @content; }
