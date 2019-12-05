@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+## 44.13.1 - 2019-12-05
+- [Re-release] To fix Storybook deploy error.
 
 ## 44.13.0 - 2019-12-05
 - [Feature] Multiple updates to the Layout components for better usability ([#1257](https://github.com/optimizely/oui/pull/1257))
