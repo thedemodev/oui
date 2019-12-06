@@ -7,7 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
-## 44.13.2 - 2019-12-06
+## 44.13.4 - 2019-12-06
 - [Patch] Align **SelectDropdown** activator text to the left ([#1260])(https://github.com/optimizely/oui/pull/1260)
 
 ## 44.13.1 - 2019-12-05
