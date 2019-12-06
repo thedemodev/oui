@@ -5924,7 +5924,8 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block; }
+  display: block;
+  text-align: left; }
 
 .oui-sheet {
   position: fixed;
