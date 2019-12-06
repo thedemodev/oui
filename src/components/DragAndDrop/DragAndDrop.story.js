@@ -15,11 +15,12 @@ const itemsWithoutGroups = [
   { id: 5, type: 'item', text: 'Item E' },
 ];
 
+// eslint-disable-next-line react/prop-types
 const renderItem = ({ item, index, snapshot }) => (
   <div>
     <Token
       isDraggable={ true }
-      name={ item['text'] + "- isDragging? " +  snapshot.isDragging }
+      name={ item['text'] + '- isDragging? ' + snapshot.isDragging }
       order={ index + 1 }
       showWell={ false }
     />
