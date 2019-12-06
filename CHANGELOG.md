@@ -6,7 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+
+## 44.13.2 - 2019-12-06
 - [Patch] Align **SelectDropdown** activator text to the left ([#1260])(https://github.com/optimizely/oui/pull/1260)
+
 ## 44.13.1 - 2019-12-05
 - [Re-release] To fix Storybook deploy error.
 
