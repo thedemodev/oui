@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import DraggableItem from './DraggableItem';
 
 class DragAndDrop extends React.Component {
@@ -9,15 +9,16 @@ class DragAndDrop extends React.Component {
 
     this.state = {
       items: this.props.items,
-      value: 20,
     };
+    this.onDragEnd = this.onDragEnd.bind(this);
+
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.items !== this.props.items) {
+    if (prevProps.items !== this.props.items) {
       this.setState({
         items: this.props.items,
-      })
+      });
     }
   }
 
@@ -42,26 +43,11 @@ class DragAndDrop extends React.Component {
     this.setState({
       items: newOrderOfItems,
     });
+
+    this.props.onDragEnd();
   }
 
-  renderGroupOfItems = ({ item }) => {
-    return (
-      <Droppable droppableId="56">
-        {provided => (
-          <div
-            className="oui-sortable oui-sortable__group"
-            ref={ provided.innerRef }
-            { ...provided.droppableProps }>
-            <ul>{this.renderDraggableItems(item)}</ul>
-
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    );
-  };
-
-  renderDraggableItems(item, index) {
+  renderDraggableItems(item) {
     if (Array.isArray(item)) {
       return item.map((nestedItem, index) => {
         return (
@@ -75,46 +61,18 @@ class DragAndDrop extends React.Component {
         );
       });
     }
-    return (
-      <DraggableItem
-        key={ item.id }
-        item={ item }
-        id={ item.id }
-        index={ item.id }
-        renderFunc={ this.props.renderItem }
-      />
-    );
-
-
-  }
-
-  renderGroups(items) {
-    return items.map((item, index) => {
-      return (
-        <DraggableItem
-          isGroup={ true }
-          key={ 1234 }
-          item={ item }
-          id={ `${index}-group` }
-          index={ index }
-          renderFunc={ this.renderGroupOfItems }
-        />
-      );
-    });
   }
 
   render() {
-    const { id, hasGrouping } = this.props;
     return (
-      <DragDropContext onDragEnd={ this.onDragEnd.bind(this) }>
-        <Droppable droppableId={ id }>
+      <DragDropContext onBeforeCapture={ this.props.onBeforeCapture } onDragEnd={ this.onDragEnd }>
+        <Droppable droppableId={ this.props.idForDroppableRegion }>
           {provided => (
             <div
               className="oui-sortable"
               ref={ provided.innerRef }
               { ...provided.droppableProps }>
-              <ul>{ hasGrouping ? this.renderGroups(this.state.items) : this.renderDraggableItems(this.state.items)}</ul>
-
+              <ul>{this.renderDraggableItems(this.state.items)}</ul>
               {provided.placeholder}
             </div>
           )}
@@ -126,17 +84,30 @@ class DragAndDrop extends React.Component {
 
 DragAndDrop.propTypes = {
   /**
-   * Used to identify the main Draggable region
+   * ID used for this Droppable region
    */
-  id: PropTypes.string.isRequired,
+  idForDroppableRegion: PropTypes.string.isRequired,
   /**
-   * Whether or not this drag and drop supports grouping
+   * Array of items to render as DraggableItems
    */
-  hasGrouping: PropTypes.bool,
+  items: PropTypes.array.isRequired,
+  /**
+   * Function to perform an action before item dimensions are captured
+   */
+  onBeforeCapture: PropTypes.func,
+  /**
+   * Function to perform an action after dragging has finished
+   */
+  onDragEnd: PropTypes.func,
+  /**
+   * Function used to render each draggable item
+   */
+  renderItem: PropTypes.func.isRequired,
 };
 
 DragAndDrop.defaultProps = {
-  hasGrouping: false,
+  onBeforeCapture: () => {},
+  onDragEnd: () => {},
 };
 
 export default DragAndDrop;

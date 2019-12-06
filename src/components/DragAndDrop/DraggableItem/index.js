@@ -1,30 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from 'react-oui-icons';
 import { Draggable } from 'react-beautiful-dnd';
 
 class DraggableItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: this.props.items,
-    };
-  }
-
-
   render() {
-    const { id, index, item, renderFunc, isGroup } = this.props;
+    const { id, index, item, renderFunc } = this.props;
     return (
       <Draggable key={ item.id } draggableId={ id.toString() } index={ index }>
         {(provided, snapshot) => (
-          <li className="oui-sortable__item flex" ref={ provided.innerRef } { ...provided.draggableProps } { ...provided.dragHandleProps }>
-            {isGroup && <span { ...provided.dragHandleProps }>
-              <Icon fill="#c7c7c7" name="ellipsis"/>
-            </span>}
-            {renderFunc({item, index, snapshot})}
+          <li
+            className="oui-sortable__item flex"
+            ref={ provided.innerRef }
+            { ...provided.draggableProps }
+            { ...provided.dragHandleProps }>
+            {renderFunc({ item, index, snapshot })}
           </li>
-
         )}
       </Draggable>
     );
@@ -33,17 +23,22 @@ class DraggableItem extends React.Component {
 
 DraggableItem.propTypes = {
   /**
-   * The body of the dialog to request minimal information from the user.
+   * Id for this particular Draggable Item
    */
-  children: PropTypes.node.isRequired,
+  id: PropTypes.number.isRequired,
+  /**
+   * Current index for this particular Draggable Item
+   */
+  index: PropTypes.number.isRequired,
+  /**
+   * Item to render using render function pass as prop
+   */
+  item: PropTypes.object.isRequired,
+  /**
+   * Function used to render the contents of this Draggable Item
+   */
+  renderFunc: PropTypes.func.isRequired,
 };
 
-DraggableItem.defaultProps = {
-  hasCloseButton: true,
-  hasOverlay: true,
-  onClose: () => {},
-  subtitle: '',
-  testSection: '',
-};
 
 export default DraggableItem;
