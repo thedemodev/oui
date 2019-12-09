@@ -7,6 +7,7 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 - [Patch] Undo parent prop inheritance on Activator in **Dropdown** ([#1262])(https://github.com/optimizely/oui/pull/1262)
+- [Feature] Add typography helper classes `word-break--all` and `word-break--word` ([#1263])(https://github.com/optimizely/oui/pull/1263)
 
 ## 44.13.4 - 2019-12-06
 - [Patch] Align **SelectDropdown** activator text to the left ([#1260])(https://github.com/optimizely/oui/pull/1260)
