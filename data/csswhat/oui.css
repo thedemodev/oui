@@ -7425,8 +7425,11 @@ body:target *[data-oui-component],
 .line--1 {
   line-height: 1 !important; }
 
-.word-break {
+.word-break, .word-break--all {
   word-break: break-all !important; }
+
+.word-break--word {
+  word-break: break-word !important; }
 
 
 .width--1-1 {
