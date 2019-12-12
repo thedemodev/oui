@@ -7,6 +7,9 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.14.1 - 2019-12-12
+- [Patch] Revert changes to **HelpPopover** from [#1254](https://github.com/optimizely/oui/pull/1254) to resolve monolith implementation issues ([#1265])(https://github.com/optimizely/oui/pull/1265)
+
 ## 44.14.0 - 2019-12-11
 - [Patch] Undo parent prop inheritance on Activator in **Dropdown** ([#1262])(https://github.com/optimizely/oui/pull/1262)
 - [Feature] Add typography helper classes `word-break--all` and `word-break--word` ([#1263])(https://github.com/optimizely/oui/pull/1263)

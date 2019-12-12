@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import OverlayWrapper from '../OverlayWrapper';
 import Popover from '../Popover';
-import ButtonIcon from '../ButtonIcon';
+import Icon from 'react-oui-icons';
 
 const HelpPopover = ({
   behavior,
@@ -10,7 +10,6 @@ const HelpPopover = ({
   horizontalAttachment,
   iconSize,
   isConstrainedToScreen,
-  popoverId,
   popoverTitle,
   verticalAttachment,
   testSection,
@@ -20,21 +19,21 @@ const HelpPopover = ({
     horizontalAttachment={ horizontalAttachment }
     isConstrainedToScreen={ isConstrainedToScreen }
     overlay={
-      <Popover title={ popoverTitle } popoverId={ popoverId }>
+      <Popover title={ popoverTitle }>
         { children }
       </Popover>
     }
     testSection={ testSection }
     verticalAttachment={ verticalAttachment }>
-    <ButtonIcon
-      ariaDescribedBy={ popoverId }
+    <span
       className="cursor--pointer push-half--left"
-      style="plain"
-      data-test-section="help-popover-icon"
-      iconName="help"
-      iconSize={ iconSize }
-      title="Help"
-    />
+      style={{'marginBottom': '1px'}}
+      data-test-section="help-popover-icon">
+      <Icon
+        name="help"
+        size={ iconSize }
+      />
+    </span>
   </OverlayWrapper>
 );
 
@@ -49,9 +48,7 @@ HelpPopover.propTypes = {
   iconSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Attach `overlay` to an edge of the screen if it is going to move off */
   isConstrainedToScreen: PropTypes.bool,
-  /** Id of the thing that is being described. */
-  popoverId: PropTypes.string,
-  /** Title of the thing that is being described. */
+  /** Title of thing that is being described. */
   popoverTitle: PropTypes.string,
   /** Test section */
   testSection: PropTypes.string,
