@@ -1,7 +1,7 @@
 import React from 'react';
 import HelpPopover from '../index.js';
 import { mount, shallow } from 'enzyme';
-import { shallowToJson, mountToJson } from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
 
 describe.only('components/HelpPopover', () => {
   it('renders correctly', () => {
@@ -24,16 +24,6 @@ describe.only('components/HelpPopover', () => {
     expect(popover.length).toBe(1);
     expect(popover.props().title).toBe(undefined);
     expect(popover.props().children).toBe(message);
-  });
-
-  it('should show the popover when button is focused', function() {
-    const message = 'Hello! This is a short popover with no title, just the defaults.';
-    const component = mount(
-      <HelpPopover behavior="hover">{ message }</HelpPopover>
-    );
-    component.find('button').simulate('focus');
-    component.update();
-    expect(mountToJson(component)).toMatchSnapshot();
   });
 
   it('should render custom props properly', function() {
