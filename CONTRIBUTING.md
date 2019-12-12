@@ -55,7 +55,7 @@ Every component should contain prop definitions and a robust set of Storybook ex
 
 5. `git push` your changes to GitHub
 6. [Open a pull request](https://github.com/optimizely/oui/compare) of your branch, add at least one reviewer
-    > **Making a breaking change?** Please [update the Optimizely app](https://github.com/optimizely/oui/issues/360) and bump the `package.json` OUI version to prevent unreleased changes from blocking future releases.
+7. Once you've merged your PR, please follow the instructions to [Release a New Version](https://github.com/optimizely/oui/blob/devel/CONTRIBUTING.md#ship-release-a-new-version), including updating the version in the monolith.
 
 ## :ship: Release a New Version
 
@@ -86,8 +86,9 @@ Both UI Engineers and the Frontend team have permission to release OUI via `yarn
 8. Check for updated package on NPM
     * Check [NPM](https://www.npmjs.com/package/optimizely-oui) for the updated release
     * If it seems to stall, check [travis](https://travis-ci.org/optimizely/oui/builds) and make sure no errors occured 
-9. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json) and [test to ensure compatibility](https://docs.google.com/document/d/1TTfdhCSH7mPBeUzVme99qHR-QsFg7PTKP2lGqB9Dk3Y/edit#heading=h.ktasdjfn5j1h).
+9. Bump the OUI version number in Optimizely's [`package.json`](https://github.com/optimizely/optimizely/blob/devel/src/www/frontend/package.json).
     * Within the Optimizely repo run `yarn upgrade optimizely-oui@99.xx.xx` (note to include the major version number e.g. `99.`, leaving the minor and patch numbers as `xx.xx`) which updates `yarn.lock` and `package.json`
         * If you notice that your yarn commands are removing the integrity shas inside the yarn.lock file, your yarn version needs an upgrade
-    * Make a PR that links to the OUI release and includes descriptions of the issues fixed and the JIRA ticket numbers for the fixes in this release
+        * Make sure to run `yarn-deduplicate yarn.lock` after the upgrade. [yarn-deduplicate](https://github.com/atlassian/yarn-deduplicate)
+    * Make a PR that links to the OUI release and includes the new release contributions from the `CHANGELOG.md` release notes section
 10. You're done :sunglasses:
