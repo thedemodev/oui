@@ -21,7 +21,6 @@ exports[`components/OverlayWrapper snapshots & others should render a Popover co
   >
     <div
       className="click-area"
-      onBlur={[Function]}
       onClick={[Function]}
       style={
         Object {
