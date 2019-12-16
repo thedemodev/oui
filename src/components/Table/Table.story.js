@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import {
   withKnobs,
   select,
+  boolean,
 } from '@storybook/addon-knobs';
 
 import Table from './index.js';
@@ -185,6 +186,49 @@ stories
           <Table.TD verticalAlign="middle">
             <Button size="small" width="default" > Start </Button>
           </Table.TD>
+        </Table.TR>
+      </Table.TBody>
+    </Table>
+  </div>)))
+  .add('Nowrap', (() => (<div>
+    <Table density="loose" style="rule" tableLayoutAlgorithm="auto">
+      <Table.THead>
+        <Table.TR>
+          <Table.TH> Experiment </Table.TH>
+          <Table.TH isNumerical={ true } width="120px"> Conversion Rate </Table.TH>
+          <Table.TH width="auto"> Status </Table.TH>
+        </Table.TR>
+      </Table.THead>
+      <Table.TBody>
+        <Table.TR>
+          <Table.TD><h2>[Jessica Brook + Perri] How We Do It: Proven Website Personalization Strategies for Climate Change</h2></Table.TD>
+          <Table.TD isNumerical={ true }> 12% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Paused </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD> <h2>https://optimizely.atlassian.net/browse/AXIOM-138?utm_medium=referral-external&utm_source=jira-slack&utm_term=</h2> </Table.TD>
+          <Table.TD isNumerical={ true }> 4% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Not Running </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD><h2>[Jessica Brook + Perri] How We Do It: Proven Website Personalization Strategies for Climate Change</h2></Table.TD>
+          <Table.TD isNumerical={ true }> 12% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Des 129 </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD> <h2>https://optimizely.atlassian.net/browse/AXIOM-138?utm_medium=referral-external&utm_source=jira-slack&utm_term=</h2> </Table.TD>
+          <Table.TD isNumerical={ true }> 4% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Draft </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD><h2>[Jessica Brook + Perri] How We Do It: Proven Website Personalization Strategies for Climate Change</h2></Table.TD>
+          <Table.TD isNumerical={ true }> 12% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Not Started </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD> <h2>https://optimizely.atlassian.net/browse/AXIOM-138?utm_medium=referral-external&utm_source=jira-slack&utm_term=</h2> </Table.TD>
+          <Table.TD isNumerical={ true }> 4% </Table.TD>
+          <Table.TD textWrap={ boolean('textWrap', true) }> Draft </Table.TD>
         </Table.TR>
       </Table.TBody>
     </Table>

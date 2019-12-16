@@ -7,11 +7,13 @@ const TD = ({
   colSpan,
   isNumerical = false,
   testSection,
+  textWrap = false,
   verticalAlign,
   width,
 }) => {
   let classes = classNames({
     'oui-numerical': isNumerical,
+    'nowrap': textWrap,
     [`vertical-align--${ verticalAlign }`]: verticalAlign,
   });
 
@@ -39,6 +41,8 @@ TD.propTypes = {
   isNumerical: PropTypes.bool,
   /** Hook for automated JavaScript tests */
   testSection: PropTypes.string,
+  /** Right-align the cell if the contents are numerical */
+  textWrap: PropTypes.bool,
   /** Apply a class that vertically aligns the cells within the children */
   verticalAlign: PropTypes.oneOf(['top', 'middle']),
   /** A number with a unit that becomes the width of the `Table` cell */

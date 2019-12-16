@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] TD now accepts nowrap prop to remove text wrapping [#1255](https://github.com/optimizely/oui/pull/1255)
 
 ## 44.14.1 - 2019-12-12
 - [Patch] Revert changes to **HelpPopover** from [#1254](https://github.com/optimizely/oui/pull/1254) to resolve monolith implementation issues ([#1265])(https://github.com/optimizely/oui/pull/1265)

@@ -38,6 +38,11 @@ describe('components/Table/TD', () => {
     expect(component.hasClass('vertical-align--middle')).toBe(false);
   });
 
+  it('should add nowrap class to table cells when provided', () => {
+    const component = shallow(<TD nowrap={ true }></TD>);
+    expect(component.hasClass('nowrap')).toBe(true);
+  });
+
   it('should add width inline style to table cells when provided', () => {
     const component = render(<TD width="50%"></TD>);
     expect(component.attr('style')).toContain('width:50%');
