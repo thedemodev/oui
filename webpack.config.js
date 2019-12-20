@@ -35,7 +35,7 @@ const config = {
         loader: 'json',
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(ts|js)x?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
       },
@@ -58,12 +58,11 @@ const config = {
   },
   resolve: {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
-    extensions: ['.json', '.js'],
+    extensions: ['.ts', '.tsx', '.json', '.js'],
   },
   plugins: plugins,
   externals: {
-    react:
-      'React',
+    react: 'React',
     'react-dom': 'ReactDOM',
   },
 };

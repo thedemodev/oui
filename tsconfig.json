@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "declarationDir": "dist/types",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDeclarationOnly": true,
+    "target": "es2015",
+    "module": "es2015",
+    "strict": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+  },
+  "include": [
+    "src/components/**/*.js",
+    "types"
+  ],
+  "exclude": [
+    "build",
+    "dist",
+    "node_modules"
+  ]
+}

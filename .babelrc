@@ -6,6 +6,7 @@
         "modules": false
       }
     ],
+    "@babel/typescript",
     "@babel/preset-react"
   ],
   "env": {
@@ -14,6 +15,7 @@
         [
           "@babel/preset-env"
         ],
+        "@babel/typescript",
         "@babel/preset-react"
       ],
       "plugins": [
