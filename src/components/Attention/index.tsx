@@ -21,7 +21,7 @@ const renderDismissButton = (testSection?: string) => {
   );
 };
 
-type AttentionProps = {
+export type AttentionProps = {
   alignment?: 'left' | 'center',
   children?: any,
   isDismissible?: boolean,

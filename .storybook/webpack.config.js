@@ -17,6 +17,7 @@ module.exports = ({ config, mode }) => {
           presets: ['@babel/env', '@babel/typescript', '@babel/react'],
           plugins: [
             "react-docgen",
+            "babel-plugin-typescript-to-proptypes",
             "@babel/plugin-syntax-dynamic-import",
             [
               "@babel/plugin-proposal-decorators",

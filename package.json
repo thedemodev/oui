@@ -5,6 +5,7 @@
   "private": false,
   "main": "dist/js/main.js",
   "module": "module/js/main.js",
+  "types": "types/index.d.ts",
   "dependencies": {
     "@restart/context": "^2.1.4",
     "awesome-debounce-promise": "^1.0.0",
@@ -66,6 +67,7 @@
     "babel-loader": "^8.0.0",
     "babel-plugin-react-docgen": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-typescript-to-proptypes": "^1.1.0",
     "codecov": "^1.0.1",
     "css-loader": "^0.25.0",
     "csswhat": "optimizely/csswhat",
@@ -121,9 +123,9 @@
   "scripts": {
     "test": "npm run eslint && npm run jest",
     "debugtest": "node --inspect-brk node_modules/.bin/jest --watch --runInBand",
-    "build": "npm run build-styles && npm run babel-es5 && npm run babel-module",
-    "babel-es5": "babel src/ --out-dir dist/js --no-babelrc --ignore \"tests/*.js, src/js\"",
-    "babel-module": "babel src/ --out-dir module/js --configFile=false --ignore \"tests/*.js, src/js\"",
+    "build": "npm run build-styles && npm run babel-es5 && npm run babel-module && yarn tsc",
+    "babel-es5": "babel src/ -x \".js,.tsx\" --out-dir dist/js --no-babelrc --presets @babel/preset-typescript --ignore \"tests/*.js, src/js\"",
+    "babel-module": "babel src/ -x \".js,.tsx\" --out-dir module/js --configFile=false --presets @babel/preset-typescript --ignore \"tests/*.js, src/js\"",
     "codecov": "codecov",
     "jest": "jest --config jest.config.js --no-cache",
     "jest:watch": "jest --config jest.config.js --watch",

@@ -32,6 +32,7 @@
     }
   },
   "plugins": [
+    "babel-plugin-typescript-to-proptypes",
     "@babel/plugin-syntax-dynamic-import",
     [
       "@babel/plugin-proposal-decorators",

@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
-    "declarationDir": "dist/types",
+    "outFile": "types/index.d.ts",
     "declaration": true,
     "experimentalDecorators": true,
     "emitDeclarationOnly": true,
@@ -21,11 +21,15 @@
   },
   "include": [
     "src/components/**/*.js",
-    "types"
+    "src/components/**/*.tsx",
+    "types/oui.d.ts"
   ],
   "exclude": [
     "build",
     "dist",
-    "node_modules"
+    "node_modules",
+    "**/tests/**/*index.js",
+    "**.story.js",
+    "**.story",
   ]
 }
