@@ -6,17 +6,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
+- [Feature] Add ability in **Dropdown** to supply a label and content object for `buttonContent` prop ([#1270](https://github.com/optimizely/oui/pull/1270))
 
 ## 44.14.1 - 2019-12-12
-- [Patch] Revert changes to **HelpPopover** from [#1254](https://github.com/optimizely/oui/pull/1254) to resolve monolith implementation issues ([#1265])(https://github.com/optimizely/oui/pull/1265)
+- [Patch] Revert changes to **HelpPopover** from [#1254](https://github.com/optimizely/oui/pull/1254) to resolve monolith implementation issues ([#1265](https://github.com/optimizely/oui/pull/1265))
 
 ## 44.14.0 - 2019-12-11
-- [Patch] Undo parent prop inheritance on Activator in **Dropdown** ([#1262])(https://github.com/optimizely/oui/pull/1262)
-- [Feature] Add typography helper classes `word-break--all` and `word-break--word` ([#1263])(https://github.com/optimizely/oui/pull/1263)
-- [Patch] Restore `<Input>` prop `focus`, which was inadvertently removed in #1256. ([#1264])(https://github.com/optimizely/oui/pull/1264)
+- [Patch] Undo parent prop inheritance on Activator in **Dropdown** ([#1262](https://github.com/optimizely/oui/pull/1262))
+- [Feature] Add typography helper classes `word-break--all` and `word-break--word` ([#1263](https://github.com/optimizely/oui/pull/1263))
+- [Patch] Restore `<Input>` prop `focus`, which was inadvertently removed in #1256. ([#1264](https://github.com/optimizely/oui/pull/1264))
 
 ## 44.13.4 - 2019-12-06
-- [Patch] Align **SelectDropdown** activator text to the left ([#1260])(https://github.com/optimizely/oui/pull/1260)
+- [Patch] Align **SelectDropdown** activator text to the left ([#1260](https://github.com/optimizely/oui/pull/1260))
 
 ## 44.13.1 - 2019-12-05
 - [Re-release] To fix Storybook deploy error.
