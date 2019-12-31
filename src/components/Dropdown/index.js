@@ -126,8 +126,8 @@ class Dropdown extends React.Component {
                     <div className="flex flex-align--center">
                       <div className="flex--1 truncate">
                         {buttonContent.label ? (
-                          <div className="line--tight text--left micro push--right">
-                            <div className="muted">{buttonContent.label}</div>
+                          <div className="line--tight text--left push--right">
+                            <div className="micro muted">{buttonContent.label}</div>
                             <div>{buttonContent.content}</div>
                           </div>
                         ) : (
