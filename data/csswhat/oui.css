@@ -4412,6 +4412,7 @@ code {
   border: 1px solid #e0e0e0;
   padding: 1px 3px; }
 
+/** START - CodeDiffLegacy styles */
 .oui-codediff {
   /*
   * File Summary List
@@ -4533,6 +4534,22 @@ code {
     vertical-align: unset !important; }
   .oui-codediff .d2h-file-side-diff {
     overflow-x: auto !important; }
+
+/** END - CodeDiffLegacy styles */
+.oui-codediff table > tbody > tr {
+  border-top: none;
+  word-break: break-word; }
+  .oui-codediff table > tbody > tr > td {
+    padding-top: 0;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-left: 10px;
+    vertical-align: unset; }
+  .oui-codediff table > tbody > tr > td:not([class*="-marker"]) {
+    padding-left: 0; }
+
+.oui-codediff table > tbody > tr[class$="code-fold"] > td {
+  vertical-align: middle; }
 
 .oui-close-button {
   display: flex;
