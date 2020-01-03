@@ -120,7 +120,7 @@ stories.add('Icon', () => {
   );
 });
 
-stories.add('With Label', () => {
+stories.add('With a Label', () => {
   return (
     <Container>
       <Dropdown
@@ -136,7 +136,7 @@ stories.add('With Label', () => {
         <Dropdown.Contents>
           {data.map((item, index) => {
             return (
-              <Dropdown.ListItem key={ index }>
+              <Dropdown.ListItem key={ index } role="option">
                 <Dropdown.BlockLink onClick={ action('click on complex item') }>
                   <Dropdown.BlockLinkText text={ item.title } />
                   <Dropdown.BlockLinkSecondaryText secondaryText={ item.description } />

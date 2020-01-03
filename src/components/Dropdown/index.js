@@ -118,6 +118,7 @@ class Dropdown extends React.Component {
                 return (
                   <button
                     type="button"
+                    aria-haspopup="listbox"
                     className={ buttonClass }
                     disabled={ isDisabled }
                     onClick={ this.handleToggle }
@@ -127,7 +128,10 @@ class Dropdown extends React.Component {
                       <div className="flex--1 truncate">
                         {buttonContent.label ? (
                           <div className="line--tight text--left push--right">
-                            <div className="micro muted">{buttonContent.label}</div>
+                            <div className="micro muted">
+                              {buttonContent.label}
+                              <span className="oui-assistive-text">:</span>
+                            </div>
                             <div>{buttonContent.content}</div>
                           </div>
                         ) : (
