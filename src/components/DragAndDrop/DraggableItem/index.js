@@ -33,7 +33,9 @@ DraggableItem.propTypes = {
   /**
    * Item to render using render function pass as prop
    */
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.number,
+  }).isRequired,
   /**
    * Function used to render the contents of this Draggable Item
    */

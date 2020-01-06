@@ -6,20 +6,7 @@ import DraggableItem from './DraggableItem';
 class DragAndDrop extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      items: this.props.items,
-    };
     this.onDragEnd = this.onDragEnd.bind(this);
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.items !== this.props.items) {
-      this.setState({
-        items: this.props.items,
-      });
-    }
   }
 
   onDragEnd(result) {
@@ -35,21 +22,17 @@ class DragAndDrop extends React.Component {
       return;
     }
 
-    const currentItems = this.state.items;
+    const currentItems = this.props.items;
     const newOrderOfItems = Array.from(currentItems);
     const removedItem = newOrderOfItems.splice(source.index, 1);
     newOrderOfItems.splice(destination.index, 0, removedItem[0]);
 
-    this.setState({
-      items: newOrderOfItems,
-    });
-
-    this.props.onDragEnd();
+    this.props.onDragEnd(newOrderOfItems);
   }
 
-  renderDraggableItems(item) {
-    if (Array.isArray(item)) {
-      return item.map((nestedItem, index) => {
+  renderDraggableItems(items) {
+    if (Array.isArray(items)) {
+      return items.map((nestedItem, index) => {
         return (
           <DraggableItem
             key={ nestedItem.id }
@@ -72,7 +55,9 @@ class DragAndDrop extends React.Component {
               className="oui-sortable"
               ref={ provided.innerRef }
               { ...provided.droppableProps }>
-              <ul>{this.renderDraggableItems(this.state.items)}</ul>
+              <ul>
+                {this.renderDraggableItems(this.props.items)}
+              </ul>
               {provided.placeholder}
             </div>
           )}
@@ -90,7 +75,9 @@ DragAndDrop.propTypes = {
   /**
    * Array of items to render as DraggableItems
    */
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+  })).isRequired,
   /**
    * Function to perform an action before item dimensions are captured
    */

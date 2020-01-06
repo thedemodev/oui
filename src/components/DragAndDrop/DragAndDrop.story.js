@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import DragAndDrop from './index';
 import Token from '../Token';
 
-const itemsWithoutGroups = [
+let itemsWithoutGroups = [
   { id: 1, type: 'item', text: 'Item A' },
   { id: 2, type: 'item', text: 'Item B' },
   { id: 3, type: 'item', text: 'Item C' },
@@ -38,7 +38,7 @@ stories.add('Reordering flat list', () => {
       renderItem={ renderItem }
       idForDroppableRegion={ 'droppable-story-demo' }
       onBeforeCapture={ action('do something before dragging') }
-      onDragEnd={ action('Do something after dragging ends') }
+      onDragEnd={ action('get updated list when drag ends') }
     />
   );
 });
