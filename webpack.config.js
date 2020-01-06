@@ -36,7 +36,10 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        // This excludes all directories in /bower_components
+        // and /node_modules, except for /node_modules/react-diff-viewer
+        // which requires the spread operator babel plugin
+        exclude: /bower_components|node_modules(?!(\/|\\)react-diff-viewer)/,
         loader: 'babel-loader',
       },
       {

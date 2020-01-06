@@ -45,11 +45,12 @@ Every component should contain prop definitions and a robust set of Storybook ex
     Use yarn link:
 
     ```sh
-    cd ~/projects/optimizely-oui    # go into package directory
-    yarn build                      # build your oui folder so that your latest changes are included in the linked module
-    yarn link                       # creates global link
-    cd ~/projects/optly             # go into some other package directory
-    yarn link optimizely-oui        # installs your local package instead of a versioned module pulled from npm
+    cd ~/projects/optimizely-oui          # go into package directory
+    yarn watch                            # build your oui folder so that your latest changes are included in the linked module
+    yarn link                             # in a new shell, create global link to OUI
+    cd ./node_modules/react && yarn link  # create global link for OUI's React
+    cd ~/projects/optly                   # go into some other package directory that consumes OUI
+    yarn link optimizely-oui react        # installs your local package and OUI's React instead of a versioned module pulled from npm
     ```
     Each time you make code changes you will need to manually run `yarn build` again to ensure your linked module is updated with your latest OUI code changes.
 
