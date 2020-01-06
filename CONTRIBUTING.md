@@ -34,8 +34,7 @@ Every component should contain prop definitions and a robust set of Storybook ex
 
     ```md
     ## Unreleased
-    ### Added/Changed/Deprecated/Removed/Fixed/Security
-    - [Release/Feature/Patch] Describe your change here. ([#GITHUB_ISSUE](Link to github issue))
+    - [Release/Feature/Patch] Describe your change here. Component names are in **bold** and prop names are in `monospace` ([#GITHUB_ISSUE](Link to github issue))
     ```
 
     > **Note:** please do not create a new version number header, this is done only during release.
