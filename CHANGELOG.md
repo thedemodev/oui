@@ -6,7 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This file is similar to the format suggested by [Keep a CHANGELOG](https://github.com/olivierlacan/keep-a-changelog).
 
 ## Unreleased
-## Added
+
+## 44.15.1 - 2020-01-06
 - [Patch] Update OUI Webpack babel regex to include react-diff-viewer library. ([#1271](https://github.com/optimizely/oui/pull/1271))
 
 ## 44.15.0 - 2020-01-03
