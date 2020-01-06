@@ -16,8 +16,6 @@ class OverlayWrapper extends React.Component {
     this.onChildMouseOver = this.onChildMouseOver.bind(this);
     this.onChildMouseOut = this.onChildMouseOut.bind(this);
     this.disableTether = this.disableTether.bind(this);
-    this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
   }
 
   getChildContext() {
@@ -167,16 +165,6 @@ class OverlayWrapper extends React.Component {
     }
   }
 
-  onFocus(event, child) {
-    // Enable Tether when visible.
-    this.enableTether();
-  }
-
-  onBlur(event, child) {
-    // Enable Tether when visible.
-    this.disableTether();
-  }
-
   onChildMouseOut(event, child) {
     // Disable Tether when not visible for performance reasons.
     this.disableTether();
@@ -208,15 +196,12 @@ class OverlayWrapper extends React.Component {
       case 'click':
         eventHandlerProps = {
           onClick: (event) => this.onChildClick.call(null, event, child),
-          onBlur: (event) => this.onBlur.call(null, event, child),
         };
         break;
       case 'hover':
         eventHandlerProps = {
           onMouseOver: (event) => this.onChildMouseOver.call(null, event, child),
           onMouseOut: (event) => this.onChildMouseOut.call(null, event, child),
-          onFocus: (event) => this.onFocus.call(null, event, child),
-          onBlur: (event) => this.onBlur.call(null, event, child),
         };
         break;
       default:

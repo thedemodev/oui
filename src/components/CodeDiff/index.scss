@@ -1,3 +1,4 @@
+/** START - CodeDiffLegacy styles */
 .oui-codediff {
   .d2h-info {
     background-color: #f8fafd;
@@ -168,5 +169,26 @@
 
   .d2h-file-side-diff {
     overflow-x: auto !important;
+  }
+}
+/** END - CodeDiffLegacy styles */
+
+.oui-codediff {
+  table > tbody > tr {
+    border-top: none;
+    word-break: break-word;
+    > td {
+      padding-top: 0;
+      padding-right: 10px;
+      padding-bottom: 0;
+      padding-left: 10px;
+      vertical-align: unset;
+    }
+    > td:not([class*="-marker"]) {
+      padding-left: 0;
+    }
+  }
+  table > tbody > tr[class$="code-fold"] > td {
+    vertical-align: middle;
   }
 }

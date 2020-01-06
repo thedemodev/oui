@@ -82,6 +82,12 @@ describe('components/Input', () => {
     expect(handler.onBlur).toHaveBeenCalled();
   });
 
+  it('should set the initial autoFocus of the input based on the `focus` prop', () => {
+    const component = mount(<Input type="text" value="foo" focus={ true } />);
+
+    expect(component.find('input [autoFocus=true]').exists()).toBe(true);
+  });
+
   it('should call the onKeyDown event handler when a key is pressed down', () => {
     const handler = {
       onKeyDown: event => {},

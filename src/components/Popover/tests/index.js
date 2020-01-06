@@ -19,13 +19,6 @@ describe('components/Popover', () => {
     expect(component.text()).toContain(title);
   });
 
-  it('should render id when provided', () => {
-    const component = shallow(
-      <Popover popoverId="123456" >Heyo!</Popover>
-    );
-    expect(component.is('[id="123456"]')).toBe(true);
-  });
-
   it('has `oui-pop--over` class applied', () => {
     const component = shallow(<Popover>Heyo!</Popover>);
     expect(component.hasClass('oui-pop--over')).toBe(true);

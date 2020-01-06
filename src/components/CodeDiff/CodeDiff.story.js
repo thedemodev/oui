@@ -1,12 +1,11 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import data from './data.json';
-import Table from '../Table/index.js';
+import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
 
-import CodeDiff from './index.js';
-import 'react-gh-like-diff/lib/diff2html.min.css';
+import { JSON_DIFF, STRING_DIFF } from './data.json';
+
+import CodeDiff from './';
+import { StoryStateWrapper } from '../../utils/storybook-utils';
 
 const stories = storiesOf('CodeDiff', module);
 stories
@@ -17,134 +16,186 @@ stories
     </div>
   ));
 
-const NEWTEXT = data.newFile;
-const OLDTEXT = data.oldFile;
+const OLDSTRING = STRING_DIFF.before;
+const NEWSTRING = STRING_DIFF.after;
+
+const OLDJSON = JSON_DIFF.before;
+const NEWJSON = JSON_DIFF.after;
 
 stories
-  .add('Default', (() => {
-    return (
-      <CodeDiff
-        fileName={ text('fileName', 'fileName.md') }
-        updatedFileName={ text('updatedFileName', 'updatedFileName.md') }
-        oldText={ text('oldText', 'Old\nText\nFile') }
-        newText={ text('newText', 'New file, hello\nText and some new lines.\nIt is new and improved!') }
-        hideTitle={ boolean('hideTitle', false) }
-        hideInfo={ boolean('hideInfo', false) }
-      />
-    );
-  }))
-  .add('Minimal', (() => {
-    return (
-      <CodeDiff
-        fileName={ text('fileName', 'fileName.md') }
-        oldText={ 'A test with old things' }
-        newText={ 'A test with new things added and changed.' }
-        hideTitle={ boolean('hideTitle', false) }
-        hideInfo={ boolean('hideInfo', false) }
-      />
-    );
-  }))
-  .add('Nested Inside Table', (() => {
-    return (
-      <Table density="loose" tableLayoutAlgorithm="fixed">
-        <Table.THead>
-          <Table.TR>
-            <Table.TH>Before/After</Table.TH>
-          </Table.TR>
-        </Table.THead>
-        <Table.TBody>
-          <Table.TR>
-            <Table.TD>
-              <CodeDiff
-                fileName={ text('fileName', 'fileName.md') }
-                oldText={ 'A test with old things' }
-                newText={ 'A test with new things added and changed.' }
-                hideTitle={ boolean('hideTitle', false) }
-                hideInfo={ boolean('hideInfo', false) }
-              />
-            </Table.TD>
-          </Table.TR>
-          <Table.TR noHover={ true }>
-            <Table.TD>
-              <Table density="loose" tableLayoutAlgorithm="fixed">
-                <Table.THead>
-                  <Table.TR>
-                    <Table.TH> Experiment </Table.TH>
-                    <Table.TH> Conversion Rate </Table.TH>
-                    <Table.TH> Status </Table.TH>
-                  </Table.TR>
-                </Table.THead>
-                <Table.TBody>
-                  <Table.TR>
-                    <Table.TD> Header CTA </Table.TD>
-                    <Table.TD width="20%"> 12% </Table.TD>
-                    <Table.TD> Paused </Table.TD>
-                  </Table.TR>
-                  <Table.TR>
-                    <Table.TD> Shorter Contact Form </Table.TD>
-                    <Table.TD> 4% </Table.TD>
-                    <Table.TD> Draft </Table.TD>
-                  </Table.TR>
-                  <Table.TR>
-                    <Table.TD> Larger search bar </Table.TD>
-                    <Table.TD> 6.7% </Table.TD>
-                    <Table.TD> Paused </Table.TD>
-                  </Table.TR>
-                  <Table.TR>
-                    <Table.TD> Center aligned headline </Table.TD>
-                    <Table.TD> 9.3% </Table.TD>
-                    <Table.TD> Running </Table.TD>
-                  </Table.TR>
-                </Table.TBody>
-              </Table>
-            </Table.TD>
-          </Table.TR>
-        </Table.TBody>
-      </Table>
-    );
-  }))
-  .add('New Filename', (() => {
-    return (
-      <CodeDiff
-        fileName={ text('fileName', 'fileName.md') }
-        updatedFileName={ text('updatedFileName', 'updatedFileName.md') }
-        oldText={ OLDTEXT }
-        newText={ NEWTEXT }
-        hideTitle={ boolean('hideTitle', false) }
-        hideInfo={ boolean('hideInfo', false) }
-      />
-    );
-  }))
-  .add('Style Options', (() => {
+  .add('No differences', (() => {
     return (
       <div>
+        <h2>CodeDiff</h2>
+        <p>Get info on the core component (ReactDiffViewer) props at <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props" rel="noopener noreferrer" target="_blank">https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props</a>.</p>
         <CodeDiff
-          fileName='iAmLineByLine.md'
-          outputStyle={ 'line-by-line' }
-          oldText={ OLDTEXT }
-          newText={ NEWTEXT }
-          hideTitle={ boolean('hideTitle', false) }
-          hideInfo={ boolean('hideInfo', false) }
-        />
-        <CodeDiff
-          fileName='iAmSideBySide.md'
-          outputStyle={ 'side-by-side' }
-          oldText={ OLDTEXT }
-          newText={ NEWTEXT }
-          hideTitle={ boolean('hideTitle', false) }
-          hideInfo={ boolean('hideInfo', false) }
+          header={ text('header', 'my_awesome_file.py') }
+          oldValue={ OLDSTRING }
+          newValue={ OLDSTRING }
+          hideLineNumbers={ boolean('hideLineNumbers', false) }
+          showDiffOnly={ boolean('showDiffOnly', true) }
+          splitView={ boolean('splitView', true) }
         />
       </div>
     );
   }))
-  .add('No Differences', (() => {
+  .add('Minimal differences', (() => {
     return (
-      <CodeDiff
-        fileName={ text('fileName', 'fileName.md') }
-        oldText={ OLDTEXT }
-        newText={ OLDTEXT }
-        hideTitle={ boolean('hideTitle', false) }
-        hideInfo={ boolean('hideInfo', false) }
-      />
+      <div>
+        <h2>CodeDiff</h2>
+        <p>Get info on the core component (ReactDiffViewer) props at <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props" rel="noopener noreferrer" target="_blank">https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props</a>.</p>
+        <CodeDiff
+          header={ text('fileName', 'fileName.md') }
+          hideLineNumbers={ boolean('hideLineNumbers', false) }
+          oldValue={ 'A test with old things' }
+          newValue={ 'A test with new things' }
+        />
+      </div>
+    );
+  }))
+  .add('Long contiguous string', (() => {
+    return (
+      <div>
+        <h2>CodeDiff</h2>
+        <p>Get info on the core component (ReactDiffViewer) props at <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props" rel="noopener noreferrer" target="_blank">https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props</a>.</p>
+        <CodeDiff
+          header={ text('fileName', 'fileName.md') }
+          hideLineNumbers={ boolean('hideLineNumbers', false) }
+          oldValue={ 'AveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryAveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring' } // eslint-disable max-len
+          newValue={ 'AveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryAveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring' } // eslint-disable max-len
+        />
+      </div>
+    );
+  }))
+  .add('Differences with collapsed sections', (() => {
+    return (
+      <div>
+        <h2>CodeDiff</h2>
+        <p>Get info on the core component (ReactDiffViewer) props at <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props" rel="noopener noreferrer" target="_blank">https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props</a>.</p>
+        <CodeDiff
+          extraLinesSurroundingDiff={ number('extraLinesSurroundingDiff', 3) }
+          header={ text('header', 'my_awesome_file.py') }
+          oldValue={ OLDJSON }
+          newValue={ NEWJSON }
+          hideLineNumbers={ boolean('hideLineNumbers', false) }
+          showDiffOnly={ boolean('showDiffOnly', true) }
+          splitView={ boolean('splitView', true) }
+        />
+      </div>
+    );
+  }))
+  .add('Unified vs. Side by Side', (() => {
+    return (
+      <div>
+        <h2>CodeDiff</h2>
+        <p>Get info on the core component (ReactDiffViewer) props at <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props" rel="noopener noreferrer" target="_blank">https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props</a>.</p>
+        <CodeDiff
+          header={ text('Unified View > header', 'This is a Unified Diff') }
+          oldValue={ OLDSTRING }
+          newValue={ NEWSTRING }
+          hideLineNumbers={ boolean('Unified View > hideLineNumbers', true) }
+          splitView={ false }
+        />
+        <br />
+        <br />
+        <CodeDiff
+          header={ text('Split View > header', 'This is a Split Diff') }
+          oldValue={ OLDSTRING }
+          newValue={ NEWSTRING }
+          hideLineNumbers={ boolean('Split View > hideLineNumbers', true) }
+          splitView={ true }
+        />
+      </div>
+    );
+  }))
+  .add('Line Selection', (() => {
+    return (
+      <div>
+        <h2>CodeDiff</h2>
+        <p>
+          This story implement an example method of highliting lines that are clicked.{' '}
+          This example demostrates being able to add consecutive lines via the shift{' '}
+          key or arbitrary lines via the alt key.
+        </p>
+        <p>
+          Get info on the core component (ReactDiffViewer) props at{' '}
+          <a
+            href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props"
+            rel="noopener noreferrer"
+            target="_blank">
+            https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props
+          </a>.
+        </p>
+        <StoryStateWrapper initialValue={ [] }>
+          {(selectedLines, setSelectedLineNumbers) => {
+            const handleLineClick = (lineId, { altKey, shiftKey }) => {
+              let highlightedLines = [lineId];
+              if (shiftKey && selectedLines.length === 1) {
+                const [dir, oldId] = selectedLines[0].split('-');
+                const [newDir, newId] = lineId.split('-');
+                if (dir === newDir) {
+                  highlightedLines = [];
+                  const lowEnd = Math.min(Number(oldId), Number(newId));
+                  const highEnd = Math.max(Number(oldId), Number(newId));
+                  for (let i = lowEnd; i <= highEnd; i++) {
+                    highlightedLines.push(`${dir}-${i}`);
+                  }
+                }
+              }
+
+              setSelectedLineNumbers(altKey ? selectedLines.concat(highlightedLines) : highlightedLines);
+            };
+
+            return (
+              <CodeDiff
+                oldValue={ OLDJSON }
+                newValue={ NEWJSON }
+                highlightLines={ selectedLines }
+                onLineNumberClick={ handleLineClick } // eslint-disable-line react/jsx-no-bind
+              />
+            );
+          }}
+        </StoryStateWrapper>
+      </div>
+    );
+  }))
+  .add('Knobs Playground', (() => {
+    return (
+      <div>
+        <h2>CodeDiff</h2>
+        <p>
+          This story adds knobs for OUI-only props as well as underlying ReactDiffViewer props.
+        </p>
+        <p>
+          Get info on the core component (ReactDiffViewer) props at{' '}
+          <a
+            href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props"
+            rel="noopener noreferrer"
+            target="_blank">
+            https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#props
+          </a>.
+        </p>
+        <CodeDiff
+          oldValue={ OLDJSON }
+          newValue={ NEWJSON }
+          compareMethod={ select('compareMethod', [
+            'diffChars',
+            'diffWords',
+            'diffWordsWithSpace',
+            'diffLines',
+            'diffTrimmedLines',
+            'diffSentences',
+            'diffCss',
+          ], 'diffWords') }
+          disableWordDiff={ boolean('disableWordDiff', false) }
+          extraLinesSurroundingDiff={ number('extraLinesSurroundingDiff', 3) }
+          header={ text('header', '') }
+          leftTitle={ text('leftTitle', 'v3.60.5') }
+          rightTitle={ text('rightTitle', 'v3.61.0') }
+          showDiffOnly={ boolean('showDiffOnly', true) }
+          splitView={ boolean('splitView', true) }
+          useDarkTheme={ boolean('useDarkTheme', false) }
+        />
+      </div>
     );
   }));

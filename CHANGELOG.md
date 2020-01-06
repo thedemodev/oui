@@ -7,6 +7,20 @@ This file is similar to the format suggested by [Keep a CHANGELOG](https://githu
 
 ## Unreleased
 
+## 44.15.1 - 2020-01-06
+- [Patch] Update OUI Webpack babel regex to include react-diff-viewer library. ([#1271](https://github.com/optimizely/oui/pull/1271))
+
+## 44.15.0 - 2020-01-03
+- [Feature] Rewrite CodeDiff and use new diff library. Export old CodeDiff as CodeDiff Legacy. ([#1252](https://github.com/optimizely/oui/pull/1252))
+
+## 44.14.1 - 2019-12-12
+- [Patch] Revert changes to **HelpPopover** from [#1254](https://github.com/optimizely/oui/pull/1254) to resolve monolith implementation issues ([#1265])(https://github.com/optimizely/oui/pull/1265)
+
+## 44.14.0 - 2019-12-11
+- [Patch] Undo parent prop inheritance on Activator in **Dropdown** ([#1262])(https://github.com/optimizely/oui/pull/1262)
+- [Feature] Add typography helper classes `word-break--all` and `word-break--word` ([#1263])(https://github.com/optimizely/oui/pull/1263)
+- [Patch] Restore `<Input>` prop `focus`, which was inadvertently removed in #1256. ([#1264])(https://github.com/optimizely/oui/pull/1264)
+
 ## 44.13.4 - 2019-12-06
 - [Patch] Align **SelectDropdown** activator text to the left ([#1260])(https://github.com/optimizely/oui/pull/1260)
 

@@ -4,7 +4,6 @@ import Icon from 'react-oui-icons';
 import classNames from 'classnames';
 
 const ButtonIcon = ({
-  ariaDescribedBy,
   iconName,
   isDisabled,
   onClick,
@@ -23,7 +22,6 @@ const ButtonIcon = ({
 
   return (
     <button
-      aria-describedby={ ariaDescribedBy }
       className={ classNames('oui-button', 'oui-button-icon', `oui-button-icon__${size}`, `oui-button--${style}`) }
       data-oui-component={ true }
       data-test-section={ testSection }
@@ -36,10 +34,6 @@ const ButtonIcon = ({
 };
 
 ButtonIcon.propTypes = {
-  /**
-   *  Used to associate this button icon with a popover
-   */
-  ariaDescribedBy: PropTypes.string,
   /**
    *  Name of the icon to use
    */

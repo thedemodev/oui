@@ -11,32 +11,34 @@ import PropTypes from 'prop-types';
  */
 const Input = React.forwardRef((props, ref) => {
   const {
-    label,
-    displayError,
-    testSection,
-    isOptional,
-    note,
-    isRequired,
-    id,
-    isFilter,
-    type,
-    value,
     defaultValue,
-    placeholder,
-    isReadOnly,
+    displayError,
+    focus,
+    id,
     isDisabled,
+    isFilter,
+    isOptional,
+    isRequired,
+    isReadOnly,
+    label,
+    max,
+    maxLength,
+    min,
+    note,
     onBlur,
-    onInput,
     onChange,
     onClick,
-    onKeyDown,
     onFocus,
-    min,
-    max,
+    onInput,
+    onKeyDown,
+    placeholder,
     step,
-    maxLength,
+    testSection,
     textAlign,
+    type,
+    value,
   } = props;
+
   const renderNote = useCallback(
     () => (
       <div className="oui-form-note" data-test-section={ testSection && testSection + '-note' }>
@@ -45,6 +47,7 @@ const Input = React.forwardRef((props, ref) => {
     ),
     [note, testSection]
   );
+
   const renderInput = () => {
     let hasAlignStyle = false;
     if (textAlign) {
@@ -72,10 +75,10 @@ const Input = React.forwardRef((props, ref) => {
         required={ isRequired }
         readOnly={ isReadOnly }
         disabled={ isDisabled }
-        onBlur={ onBlur }
+        onInput={ onInput }
         onChange={ onChange }
         onClick={ onClick }
-        onInput={ onInput }
+        onBlur={ onBlur }
         onKeyDown={ onKeyDown }
         onFocus={ onFocus }
         min={ min }
@@ -98,16 +101,16 @@ const Input = React.forwardRef((props, ref) => {
           inputId={ id }>
           {label}
         </Label>
-        {renderInput(props, ref)}
-        {note && renderNote(props)}
+        {renderInput()}
+        {note && renderNote()}
       </div>
     );
   }
 
   return (
     <React.Fragment>
-      {renderInput(props, ref)}
-      {note && renderNote(props)}
+      {renderInput()}
+      {note && renderNote()}
     </React.Fragment>
   );
 });
@@ -117,6 +120,8 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   /** Includes search icon if true */
   displayError: PropTypes.bool,
+  /** Whether or not to automatically focus this input */
+  focus: PropTypes.bool,
   /** Id of the input to properly associate with the input's label */
   id: PropTypes.string,
   /** Prevents input from being modified and appears disabled */
