@@ -83,7 +83,6 @@ const propTypes = {
    * Force overflow scrolling
    */
   overflow: PropTypes.oneOf([
-    'none',
     'overflow-y--scroll',
     'overflow-x--auto',
     'overflow-y--auto',
