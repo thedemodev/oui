@@ -54,6 +54,14 @@ const propTypes = {
   removeGutters: PropTypes.bool,
   /** Whether this row should wrap at small screen sizes */
   shouldWrap: PropTypes.bool,
+  /**
+   * How to vertically align content
+   */
+  verticalAlignment: PropTypes.oneOf([
+    'start',
+    'center',
+    'end',
+  ]),
 };
 
 const defaultProps = {
@@ -76,6 +84,7 @@ const Row = React.forwardRef(({
   paddedContent,
   removeGutters,
   shouldWrap,
+  verticalAlignment,
   ...props
 }, ref) => {
 
@@ -103,6 +112,10 @@ const Row = React.forwardRef(({
 
   if (paddedContent && paddedContent !== 'none') {
     classes.push(`padded-content--${paddedContent}`);
+  }
+
+  if (verticalAlignment) {
+    classes.push(`flex-align--${verticalAlignment}`);
   }
 
   return (
